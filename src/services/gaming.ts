@@ -1,6 +1,6 @@
 /**
  * Project Me - Gaming Services
- * API integrations for Steam, Lichess, RetroAchievements, Speedrun.com
+ * API integrations for Steam, Lichess, Speedrun.com
  */
 
 import { CONFIG } from '../config';
@@ -52,18 +52,6 @@ export interface SpeedrunPB {
     times: { primary_t: number };
     weblink: string;
   };
-}
-
-export interface RetroAchievementsUser {
-  Username: string;
-  TotalPoints: number;
-  TotalTruePoints: number;
-  TotalRatioPoints: number;
-  TotalSoftcorePoints: number;
-  Rank: number;
-  RichPresenceMsg: string;
-  LastGameID: number;
-  RecentlyPlayedCount: number;
 }
 
 // Cache
@@ -120,18 +108,6 @@ export async function getSpeedrunPBs(): Promise<SpeedrunPB[]> {
   return data.data;
 }
 
-// RetroAchievements API (requires API key)
-export async function getRetroAchievementsUser(): Promise<RetroAchievementsUser | null> {
-  const apiKey = CONFIG.keys.retroAchievementsKey;
-  if (!apiKey) {
-    console.warn('RetroAchievements API key not configured');
-    return null;
-  }
-
-  const url = `${CONFIG.api.retroachievements}?u=${CONFIG.user.github}&y=${apiKey}`;
-  return fetchWithCache<RetroAchievementsUser>(url);
-}
-
 // Steam (Note: Steam API has CORS issues, data may need to be proxied or cached)
 export interface SteamGame {
   appid: number;
@@ -166,18 +142,13 @@ export interface GamingStats {
   speedrun: {
     pbs: number;
   };
-  retro: {
-    points: number;
-    rank: number;
-  };
 }
 
 export async function getAggregateGamingStats(): Promise<GamingStats> {
   try {
-    const [lichess, speedrunPBs, retro] = await Promise.all([
+    const [lichess, speedrunPBs] = await Promise.all([
       getLichessUser().catch(() => null),
       getSpeedrunPBs().catch(() => []),
-      getRetroAchievementsUser().catch(() => null),
     ]);
 
     return {
@@ -192,17 +163,12 @@ export async function getAggregateGamingStats(): Promise<GamingStats> {
       speedrun: {
         pbs: speedrunPBs.length,
       },
-      retro: {
-        points: retro?.TotalPoints || 0,
-        rank: retro?.Rank || 0,
-      },
     };
   } catch (error) {
     console.error('Failed to fetch gaming stats:', error);
     return {
       chess: { ratings: {}, totalGames: 0 },
       speedrun: { pbs: 0 },
-      retro: { points: 0, rank: 0 },
     };
   }
 }
@@ -212,7 +178,6 @@ export default {
   getLichessRatings,
   getSpeedrunUser,
   getSpeedrunPBs,
-  getRetroAchievementsUser,
   getSteamProfileUrl,
   getSteamGamesPlaceholder,
   getAggregateGamingStats,
