@@ -1,0 +1,167 @@
+/**
+ * Project Me - Virtual File System Router
+ * Hash-based routing with dynamic component loading
+ */
+
+import { store } from '../data/store';
+
+export interface Route {
+  path: string;
+  name: string;
+  icon: string;
+  component: () => Promise<{ default: (container: HTMLElement) => void | Promise<void> }>;
+  drive: string;
+  breadcrumb: string[];
+}
+
+export interface RouterConfig {
+  routes: Route[];
+  defaultRoute: string;
+  onNavigate?: (route: Route) => void;
+}
+
+// Route definitions for all 45+ pages
+export const routes: Route[] = [
+  // Drive A: /ME (The Digital Twin)
+  { path: '/me/index', name: 'Dashboard', icon: '🏠', component: () => import('../apps/me/Dashboard'), drive: 'ME', breadcrumb: ['Me', 'Dashboard'] },
+  { path: '/me/story', name: 'Story', icon: '📖', component: () => import('../apps/me/Story'), drive: 'ME', breadcrumb: ['Me', 'Story'] },
+  { path: '/me/philosophy', name: 'Philosophy', icon: '🧠', component: () => import('../apps/me/Philosophy'), drive: 'ME', breadcrumb: ['Me', 'Philosophy'] },
+  { path: '/me/travel', name: 'Travel', icon: '✈️', component: () => import('../apps/me/Travel'), drive: 'ME', breadcrumb: ['Me', 'Travel'] },
+  { path: '/me/gear', name: 'Gear', icon: '⚙️', component: () => import('../apps/me/Gear'), drive: 'ME', breadcrumb: ['Me', 'Gear'] },
+  { path: '/me/journal', name: 'Journal', icon: '📝', component: () => import('../apps/me/Journal'), drive: 'ME', breadcrumb: ['Me', 'Journal'] },
+
+  // Drive B: /WORK (Professional)
+  { path: '/work/index', name: 'Summary', icon: '💼', component: () => import('../apps/work/Summary'), drive: 'WORK', breadcrumb: ['Work', 'Summary'] },
+  { path: '/work/history', name: 'Experience', icon: '📋', component: () => import('../apps/work/Experience'), drive: 'WORK', breadcrumb: ['Work', 'Experience'] },
+  { path: '/work/tcs', name: 'TCS', icon: '🏢', component: () => import('../apps/work/TCS'), drive: 'WORK', breadcrumb: ['Work', 'TCS'] },
+  { path: '/work/skills', name: 'Skills', icon: '🎯', component: () => import('../apps/work/Skills'), drive: 'WORK', breadcrumb: ['Work', 'Skills'] },
+  { path: '/work/projects', name: 'Projects', icon: '🚀', component: () => import('../apps/work/Projects'), drive: 'WORK', breadcrumb: ['Work', 'Projects'] },
+  { path: '/work/education', name: 'Education', icon: '🎓', component: () => import('../apps/work/Education'), drive: 'WORK', breadcrumb: ['Work', 'Education'] },
+  { path: '/work/certs', name: 'Certifications', icon: '🏆', component: () => import('../apps/work/Certs'), drive: 'WORK', breadcrumb: ['Work', 'Certifications'] },
+  { path: '/work/services', name: 'Services', icon: '🛠️', component: () => import('../apps/work/Services'), drive: 'WORK', breadcrumb: ['Work', 'Services'] },
+
+  // Drive C: /CODE (The Quantified Coder)
+  { path: '/code/stats', name: 'Stats', icon: '📊', component: () => import('../apps/code/Stats'), drive: 'CODE', breadcrumb: ['Code', 'Stats'] },
+  { path: '/code/repos', name: 'Repos', icon: '📁', component: () => import('../apps/code/Repos'), drive: 'CODE', breadcrumb: ['Code', 'Repos'] },
+  { path: '/code/leetcode', name: 'LeetCode', icon: '🧩', component: () => import('../apps/code/LeetCode'), drive: 'CODE', breadcrumb: ['Code', 'LeetCode'] },
+  { path: '/code/stack', name: 'Reputation', icon: '🏅', component: () => import('../apps/code/Reputation'), drive: 'CODE', breadcrumb: ['Code', 'Reputation'] },
+  { path: '/code/npm', name: 'NPM', icon: '📦', component: () => import('../apps/code/NPM'), drive: 'CODE', breadcrumb: ['Code', 'NPM'] },
+  { path: '/code/json', name: 'Resume JSON', icon: '📄', component: () => import('../apps/code/ResumeJSON'), drive: 'CODE', breadcrumb: ['Code', 'Resume JSON'] },
+
+  // Drive D: /LIBRARY (Media Archive)
+  { path: '/library/index', name: 'Hub', icon: '📚', component: () => import('../apps/library/Hub'), drive: 'LIBRARY', breadcrumb: ['Library', 'Hub'] },
+  { path: '/library/books/read', name: 'Books Read', icon: '📕', component: () => import('../apps/library/BooksRead'), drive: 'LIBRARY', breadcrumb: ['Library', 'Books', 'Read'] },
+  { path: '/library/books/tbr', name: 'Books TBR', icon: '📗', component: () => import('../apps/library/BooksTBR'), drive: 'LIBRARY', breadcrumb: ['Library', 'Books', 'TBR'] },
+  { path: '/library/music/top', name: 'Top Music', icon: '🎵', component: () => import('../apps/library/MusicTop'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Top'] },
+  { path: '/library/music/recent', name: 'Recent Music', icon: '🎧', component: () => import('../apps/library/MusicRecent'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Recent'] },
+  { path: '/library/cinema', name: 'Movies', icon: '🎬', component: () => import('../apps/library/Movies'), drive: 'LIBRARY', breadcrumb: ['Library', 'Movies'] },
+  { path: '/library/tv', name: 'TV', icon: '📺', component: () => import('../apps/library/TV'), drive: 'LIBRARY', breadcrumb: ['Library', 'TV'] },
+  { path: '/library/anime', name: 'Anime', icon: '🎌', component: () => import('../apps/library/Anime'), drive: 'LIBRARY', breadcrumb: ['Library', 'Anime'] },
+  { path: '/library/manga', name: 'Manga', icon: '📰', component: () => import('../apps/library/Manga'), drive: 'LIBRARY', breadcrumb: ['Library', 'Manga'] },
+
+  // Drive E: /GAMING (The Arcade)
+  { path: '/gaming/index', name: 'Profile', icon: '🎮', component: () => import('../apps/gaming/Profile'), drive: 'GAMING', breadcrumb: ['Gaming', 'Profile'] },
+  { path: '/gaming/steam', name: 'Steam', icon: '🎲', component: () => import('../apps/gaming/Steam'), drive: 'GAMING', breadcrumb: ['Gaming', 'Steam'] },
+  { path: '/gaming/retro', name: 'Trophies', icon: '🏅', component: () => import('../apps/gaming/Trophies'), drive: 'GAMING', breadcrumb: ['Gaming', 'Trophies'] },
+  { path: '/gaming/chess', name: 'Chess', icon: '♟️', component: () => import('../apps/gaming/Chess'), drive: 'GAMING', breadcrumb: ['Gaming', 'Chess'] },
+  { path: '/gaming/speed', name: 'Speedrun', icon: '⏱️', component: () => import('../apps/gaming/Speedrun'), drive: 'GAMING', breadcrumb: ['Gaming', 'Speedrun'] },
+
+  // Drive F: /CONNECT (Social)
+  { path: '/connect/index', name: 'Hub', icon: '🌐', component: () => import('../apps/connect/Hub'), drive: 'CONNECT', breadcrumb: ['Connect', 'Hub'] },
+  { path: '/connect/feed', name: 'Feed', icon: '📡', component: () => import('../apps/connect/Feed'), drive: 'CONNECT', breadcrumb: ['Connect', 'Feed'] },
+  { path: '/connect/photos', name: 'Photos', icon: '📸', component: () => import('../apps/connect/Photos'), drive: 'CONNECT', breadcrumb: ['Connect', 'Photos'] },
+  { path: '/connect/blog', name: 'Articles', icon: '✍️', component: () => import('../apps/connect/Articles'), drive: 'CONNECT', breadcrumb: ['Connect', 'Articles'] },
+  { path: '/connect/threads', name: 'Discussion', icon: '💬', component: () => import('../apps/connect/Discussion'), drive: 'CONNECT', breadcrumb: ['Connect', 'Discussion'] },
+  { path: '/connect/mail', name: 'Contact', icon: '✉️', component: () => import('../apps/connect/Contact'), drive: 'CONNECT', breadcrumb: ['Connect', 'Contact'] },
+
+  // Drive G: /SYSTEM (OS Tools)
+  { path: '/system/search', name: 'Search', icon: '🔍', component: () => import('../apps/system/Search'), drive: 'SYSTEM', breadcrumb: ['System', 'Search'] },
+  { path: '/system/ai', name: 'AI Chat', icon: '🤖', component: () => import('../apps/system/AI'), drive: 'SYSTEM', breadcrumb: ['System', 'AI Chat'] },
+  { path: '/system/settings', name: 'Settings', icon: '⚙️', component: () => import('../apps/system/Settings'), drive: 'SYSTEM', breadcrumb: ['System', 'Settings'] },
+  { path: '/system/uptime', name: 'Status', icon: '📈', component: () => import('../apps/system/Status'), drive: 'SYSTEM', breadcrumb: ['System', 'Status'] },
+  { path: '/system/weather', name: 'Weather', icon: '🌤️', component: () => import('../apps/system/Weather'), drive: 'SYSTEM', breadcrumb: ['System', 'Weather'] },
+];
+
+class Router {
+  private routes: Map<string, Route> = new Map();
+  private currentRoute: Route | null = null;
+  private contentContainer: HTMLElement | null = null;
+  private onNavigateCallback?: (route: Route) => void;
+
+  constructor() {
+    routes.forEach(route => this.routes.set(route.path, route));
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', () => this.handleRouteChange());
+    window.addEventListener('load', () => this.handleRouteChange());
+  }
+
+  init(container: HTMLElement, onNavigate?: (route: Route) => void): void {
+    this.contentContainer = container;
+    this.onNavigateCallback = onNavigate;
+    this.handleRouteChange();
+  }
+
+  private async handleRouteChange(): Promise<void> {
+    const hash = window.location.hash.slice(1) || '/me/index';
+    const route = this.routes.get(hash) || this.routes.get('/me/index')!;
+
+    if (route && this.contentContainer) {
+      this.currentRoute = route;
+      store.currentRoute.set(route.path);
+
+      // Show loading state
+      this.contentContainer.innerHTML = `
+        <div class="loading-container">
+          <div class="loading-spinner"></div>
+          <p>Loading ${route.name}...</p>
+        </div>
+      `;
+
+      try {
+        const module = await route.component();
+        this.contentContainer.innerHTML = '';
+        await module.default(this.contentContainer);
+
+        // Update document title
+        document.title = `${route.name} | Chirag Singhal`;
+
+        if (this.onNavigateCallback) {
+          this.onNavigateCallback(route);
+        }
+      } catch (error) {
+        console.error('Failed to load route:', error);
+        this.contentContainer.innerHTML = `
+          <div class="error-container">
+            <h2>Failed to load ${route.name}</h2>
+            <p>${error instanceof Error ? error.message : 'Unknown error'}</p>
+            <button onclick="location.hash = '#/me/index'">Go Home</button>
+          </div>
+        `;
+      }
+    }
+  }
+
+  navigate(path: string): void {
+    window.location.hash = path;
+  }
+
+  getCurrentRoute(): Route | null {
+    return this.currentRoute;
+  }
+
+  getRoutesByDrive(drive: string): Route[] {
+    return routes.filter(r => r.drive === drive);
+  }
+
+  getDrives(): string[] {
+    return [...new Set(routes.map(r => r.drive))];
+  }
+
+  getAllRoutes(): Route[] {
+    return routes;
+  }
+}
+
+export const router = new Router();
+export default router;

@@ -1,0 +1,4 @@
+// Books Read
+export default async function BooksRead(c: HTMLElement): Promise<void> {
+  c.innerHTML = `<div class="page animate-fade-in"><header class="page-header"><h1 class="page-title">Books I've Read</h1><p class="page-subtitle">Tracked via OpenLibrary</p></header><div class="glass-panel empty-state"><span class="empty-icon">📚</span><h3>Reading List</h3><p>Book tracking coming soon. Check my OpenLibrary profile for now.</p><a href="https://openlibrary.org/people/wilarchive" target="_blank" class="btn btn-primary">OpenLibrary →</a></div></div><style>.empty-state{padding:var(--space-12);text-align:center}.empty-icon{font-size:var(--text-6xl);display:block;margin-bottom:var(--space-4)}.empty-state h3{margin-bottom:var(--space-2)}.empty-state p{color:var(--text-secondary);margin-bottom:var(--space-6)}</style>`;
+}

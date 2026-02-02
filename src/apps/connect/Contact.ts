@@ -1,0 +1,6 @@
+// Contact
+import CONFIG from '../../config';
+
+export default async function Contact(c: HTMLElement): Promise<void> {
+  c.innerHTML = `<div class="page animate-fade-in"><header class="page-header"><h1 class="page-title">Contact</h1><p class="page-subtitle">Let's get in touch</p></header><div class="contact-grid"><div class="contact-card glass-panel"><h3>✉️ Email</h3><p>The best way to reach me</p><a href="mailto:${CONFIG.user.email}" class="btn btn-primary">${CONFIG.user.email}</a></div><div class="contact-card glass-panel"><h3>💼 LinkedIn</h3><p>Professional network</p><a href="https://linkedin.com/in/chirag127" target="_blank" class="btn btn-secondary">Connect →</a></div><div class="contact-card glass-panel"><h3>🐙 GitHub</h3><p>Open source work</p><a href="https://github.com/chirag127" target="_blank" class="btn btn-secondary">Follow →</a></div><div class="contact-card glass-panel"><h3>🐘 Mastodon</h3><p>Decentralized social</p><a href="https://mastodon.social/@chirag127" target="_blank" class="btn btn-secondary">Follow →</a></div></div></div><style>.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:var(--space-4)}.contact-card{padding:var(--space-6);text-align:center}.contact-card h3{margin-bottom:var(--space-2)}.contact-card p{color:var(--text-secondary);margin-bottom:var(--space-4)}</style>`;
+}

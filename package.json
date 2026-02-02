@@ -1,0 +1,25 @@
+{
+  "name": "me",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.0",
+    "esbuild": "^0.25.12",
+    "typescript": "~5.9.3",
+    "vite": "npm:rolldown-vite@7.2.5"
+  },
+  "overrides": {
+    "vite": "npm:rolldown-vite@7.2.5"
+  },
+  "dependencies": {
+    "@heyputer/puter.js": "^2.2.8",
+    "chart.js": "^4.5.1",
+    "date-fns": "^4.1.0"
+  }
+}
