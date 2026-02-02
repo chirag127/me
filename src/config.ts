@@ -109,7 +109,7 @@ export const CONFIG: Config = {
   user: {
     name: "Chirag Singhal",
     username: "chirag127",
-    email: "whyiswhen@gmail.com",
+    email: "hi@chirag127.in",
     website: "https://chirag127.in",
     discordId: "799956529847205898",
     github: "chirag127",

@@ -1,6 +1,6 @@
 /**
  * Project Me - Social Services
- * API integrations for Mastodon, Bluesky, Dev.to, Medium, Reddit
+ * API integrations for Mastodon, Bluesky, Dev.to, Medium, Reddit, YouTube, Pixelfed
  */
 
 import { CONFIG } from '../config';
@@ -34,16 +34,8 @@ export interface BlueskyFeedPost {
   post: {
     uri: string;
     cid: string;
-    author: {
-      did: string;
-      handle: string;
-      displayName: string;
-      avatar: string;
-    };
-    record: {
-      text: string;
-      createdAt: string;
-    };
+    author: { did: string; handle: string; displayName: string; avatar: string };
+    record: { text: string; createdAt: string };
     likeCount: number;
     repostCount: number;
     replyCount: number;
@@ -71,6 +63,33 @@ export interface RedditSubmission {
   created_utc: number;
   subreddit: string;
   permalink: string;
+}
+
+// YouTube Video (from RSS feed)
+export interface YouTubeVideo {
+  title: string;
+  link: string;
+  pubDate: string;
+  author?: string;
+  thumbnail?: string;
+  description?: string;
+}
+
+// Pixelfed Photo
+export interface PixelfedMedia {
+  id: string;
+  url: string;
+  preview_url: string;
+  description: string;
+}
+
+export interface PixelfedStatus {
+  id: string;
+  created_at: string;
+  url: string;
+  favourites_count: number;
+  comments_count: number;
+  media_attachments: PixelfedMedia[];
 }
 
 // Cache
@@ -195,27 +214,56 @@ export async function getHNUserKarma(): Promise<number> {
   }
 }
 
+// YouTube (via RSS2JSON - no auth required, public feed)
+export async function getYouTubeVideos(limit = 10): Promise<YouTubeVideo[]> {
+  const channelId = CONFIG.keys.youTubeChannelId;
+  if (!channelId) {
+    console.warn('YouTube Channel ID not configured');
+    return [];
+  }
+
+  const rssUrl = `${CONFIG.api.youtube}${channelId}`;
+  const url = `${CONFIG.api.rss2json}${encodeURIComponent(rssUrl)}`;
+
+  try {
+    const data = await fetchWithCache<{ items: YouTubeVideo[] }>(url);
+    return data.items.slice(0, limit);
+  } catch {
+    console.warn('YouTube RSS fetch failed');
+    return [];
+  }
+}
+
+// Pixelfed API (public, no auth for public accounts)
+export async function getPixelfedPhotos(limit = 12): Promise<PixelfedStatus[]> {
+  // Pixelfed uses Mastodon-compatible API
+  const url = `https://pixelfed.social/api/v1/accounts/${CONFIG.user.pixelfed}/statuses?limit=${limit}&only_media=true`;
+
+  try {
+    return fetchWithCache<PixelfedStatus[]>(url);
+  } catch {
+    console.warn('Pixelfed API fetch failed');
+    return [];
+  }
+}
+
 // Aggregate social stats
 export interface SocialStats {
-  mastodon: {
-    followers: number;
-    posts: number;
-  };
-  devto: {
-    articles: number;
-    reactions: number;
-  };
-  bluesky: {
-    posts: number;
-  };
+  mastodon: { followers: number; posts: number };
+  devto: { articles: number; reactions: number };
+  bluesky: { posts: number };
+  youtube: { videos: number };
+  hackerNews: { karma: number };
 }
 
 export async function getAggregateSocialStats(): Promise<SocialStats> {
   try {
-    const [mastodon, devtoStats, blueskyFeed] = await Promise.all([
+    const [mastodon, devtoStats, blueskyFeed, youtubeVideos, hnKarma] = await Promise.all([
       getMastodonAccount().catch(() => null),
       getDevToStats().catch(() => ({ totalArticles: 0, totalReactions: 0 })),
       getBlueskyFeed(50).catch(() => []),
+      getYouTubeVideos(1).catch(() => []),
+      getHNUserKarma().catch(() => 0),
     ]);
 
     return {
@@ -230,6 +278,12 @@ export async function getAggregateSocialStats(): Promise<SocialStats> {
       bluesky: {
         posts: blueskyFeed.length,
       },
+      youtube: {
+        videos: youtubeVideos.length,
+      },
+      hackerNews: {
+        karma: hnKarma,
+      },
     };
   } catch (error) {
     console.error('Failed to fetch social stats:', error);
@@ -237,6 +291,8 @@ export async function getAggregateSocialStats(): Promise<SocialStats> {
       mastodon: { followers: 0, posts: 0 },
       devto: { articles: 0, reactions: 0 },
       bluesky: { posts: 0 },
+      youtube: { videos: 0 },
+      hackerNews: { karma: 0 },
     };
   }
 }
@@ -250,5 +306,7 @@ export default {
   getMediumArticles,
   getRedditSubmissions,
   getHNUserKarma,
+  getYouTubeVideos,
+  getPixelfedPhotos,
   getAggregateSocialStats,
 };

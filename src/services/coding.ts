@@ -1,6 +1,6 @@
 /**
  * Project Me - Coding Services
- * API integrations for WakaTime, GitHub, LeetCode, StackOverflow, CodeWars, NPM
+ * API integrations for WakaTime, GitHub, LeetCode, StackOverflow, CodeWars, NPM, GitLab
  */
 
 import { CONFIG } from '../config';
@@ -57,18 +57,10 @@ export interface CodeWarsUser {
   leaderboardPosition: number;
   skills: string[];
   ranks: {
-    overall: {
-      rank: number;
-      name: string;
-      color: string;
-      score: number;
-    };
+    overall: { rank: number; name: string; color: string; score: number };
     languages: Record<string, { rank: number; name: string; color: string; score: number }>;
   };
-  codeChallenges: {
-    totalAuthored: number;
-    totalCompleted: number;
-  };
+  codeChallenges: { totalAuthored: number; totalCompleted: number };
 }
 
 export interface NPMDownloads {
@@ -76,6 +68,49 @@ export interface NPMDownloads {
   start: string;
   end: string;
   package: string;
+}
+
+// StackOverflow Types
+export interface StackOverflowUser {
+  user_id: number;
+  display_name: string;
+  reputation: number;
+  badge_counts: { gold: number; silver: number; bronze: number };
+  profile_image: string;
+  link: string;
+  accept_rate?: number;
+  question_count?: number;
+  answer_count?: number;
+}
+
+export interface StackOverflowTag {
+  tag_name: string;
+  answer_count: number;
+  answer_score: number;
+  question_count: number;
+  question_score: number;
+}
+
+// GitLab Types
+export interface GitLabUser {
+  id: number;
+  username: string;
+  name: string;
+  avatar_url: string;
+  web_url: string;
+  bio: string;
+  public_repos?: number;
+}
+
+export interface GitLabProject {
+  id: number;
+  name: string;
+  description: string;
+  web_url: string;
+  star_count: number;
+  forks_count: number;
+  last_activity_at: string;
+  topics: string[];
 }
 
 // Cache for API responses
@@ -115,7 +150,6 @@ export async function getGitHubRepos(sort: 'updated' | 'stars' = 'updated', perP
 }
 
 export async function getPinnedRepos(): Promise<GitHubRepo[]> {
-  // GitHub doesn't have a direct API for pinned repos, so we'll fetch top starred
   const repos = await getGitHubRepos('stars', 6);
   return repos;
 }
@@ -130,23 +164,72 @@ export async function getCodeWarsUser(): Promise<CodeWarsUser> {
   return fetchWithCache<CodeWarsUser>(`${CONFIG.api.codewars}/${CONFIG.user.codewars}`);
 }
 
-// NPM Downloads (for specific packages)
+// NPM Downloads
 export async function getNPMDownloads(packageName: string): Promise<NPMDownloads> {
   return fetchWithCache<NPMDownloads>(`${CONFIG.api.npm}/${packageName}`);
 }
 
-// WakaTime - Returns embed URLs (since the API requires authentication)
-export function getWakaTimeEmbedUrl(type: 'languages' | 'editors' | 'os' | 'activity'): string {
-  const guid = CONFIG.keys.wakatimeGuid;
-  if (!guid) return '';
+// StackOverflow API (Public, no auth required)
+export async function getStackOverflowUser(userId: number = 0): Promise<StackOverflowUser | null> {
+  if (!userId) {
+    console.warn('StackOverflow user ID not configured');
+    return null;
+  }
+  try {
+    const url = `${CONFIG.api.stackoverflow}/${userId}?site=stackoverflow&filter=!BTeL*NH.A5lSPP`;
+    const data = await fetchWithCache<{ items: StackOverflowUser[] }>(url);
+    return data.items[0] || null;
+  } catch (error) {
+    console.warn('StackOverflow API failed:', error);
+    return null;
+  }
+}
 
+export async function getStackOverflowTopTags(userId: number = 0, limit = 5): Promise<StackOverflowTag[]> {
+  if (!userId) return [];
+  try {
+    const url = `${CONFIG.api.stackoverflow}/${userId}/top-tags?site=stackoverflow&pagesize=${limit}`;
+    const data = await fetchWithCache<{ items: StackOverflowTag[] }>(url);
+    return data.items || [];
+  } catch {
+    return [];
+  }
+}
+
+// GitLab API (Public, no auth for public projects)
+export async function getGitLabUser(): Promise<GitLabUser | null> {
+  try {
+    const url = `${CONFIG.api.gitlab}?username=${CONFIG.user.github}`;
+    const data = await fetchWithCache<GitLabUser[]>(url);
+    return data[0] || null;
+  } catch (error) {
+    console.warn('GitLab API failed:', error);
+    return null;
+  }
+}
+
+export async function getGitLabProjects(userId?: number, limit = 10): Promise<GitLabProject[]> {
+  if (!userId) {
+    const user = await getGitLabUser();
+    if (!user) return [];
+    userId = user.id;
+  }
+  try {
+    const url = `${CONFIG.api.gitlab}/${userId}/projects?visibility=public&per_page=${limit}&order_by=last_activity_at`;
+    return fetchWithCache<GitLabProject[]>(url);
+  } catch {
+    return [];
+  }
+}
+
+// WakaTime - Returns embed URLs
+export function getWakaTimeEmbedUrl(type: 'languages' | 'editors' | 'os' | 'activity'): string {
   const embedTypes: Record<string, string> = {
     languages: `${CONFIG.api.wakatime}/@${CONFIG.user.wakatime}/languages.svg`,
     editors: `${CONFIG.api.wakatime}/@${CONFIG.user.wakatime}/editors.svg`,
     os: `${CONFIG.api.wakatime}/@${CONFIG.user.wakatime}/operating_systems.svg`,
     activity: `${CONFIG.api.wakatime}/@${CONFIG.user.wakatime}/activity.svg`,
   };
-
   return embedTypes[type] || '';
 }
 
@@ -157,28 +240,21 @@ export function getHolopinBoardUrl(): string {
 
 // Aggregate coding stats
 export interface CodingStats {
-  github: {
-    repos: number;
-    followers: number;
-    stars: number;
-  };
-  leetcode: {
-    solved: number;
-    ranking: number;
-  };
-  codewars: {
-    honor: number;
-    completed: number;
-  };
+  github: { repos: number; followers: number; stars: number };
+  leetcode: { solved: number; ranking: number };
+  codewars: { honor: number; completed: number };
+  stackoverflow: { reputation: number; badges: { gold: number; silver: number; bronze: number } };
+  gitlab: { projects: number };
 }
 
 export async function getAggregateCodingStats(): Promise<CodingStats> {
   try {
-    const [githubUser, githubRepos, leetcode, codewars] = await Promise.all([
+    const [githubUser, githubRepos, leetcode, codewars, gitlab] = await Promise.all([
       getGitHubUser().catch(() => null),
       getGitHubRepos('stars', 100).catch(() => []),
       getLeetCodeStats().catch(() => null),
       getCodeWarsUser().catch(() => null),
+      getGitLabProjects().catch(() => []),
     ]);
 
     const totalStars = githubRepos.reduce((sum, repo) => sum + repo.stargazers_count, 0);
@@ -197,6 +273,13 @@ export async function getAggregateCodingStats(): Promise<CodingStats> {
         honor: codewars?.honor || 0,
         completed: codewars?.codeChallenges?.totalCompleted || 0,
       },
+      stackoverflow: {
+        reputation: 0, // Needs userId configured
+        badges: { gold: 0, silver: 0, bronze: 0 },
+      },
+      gitlab: {
+        projects: gitlab.length,
+      },
     };
   } catch (error) {
     console.error('Failed to fetch coding stats:', error);
@@ -204,6 +287,8 @@ export async function getAggregateCodingStats(): Promise<CodingStats> {
       github: { repos: 0, followers: 0, stars: 0 },
       leetcode: { solved: 0, ranking: 0 },
       codewars: { honor: 0, completed: 0 },
+      stackoverflow: { reputation: 0, badges: { gold: 0, silver: 0, bronze: 0 } },
+      gitlab: { projects: 0 },
     };
   }
 }
@@ -215,6 +300,10 @@ export default {
   getLeetCodeStats,
   getCodeWarsUser,
   getNPMDownloads,
+  getStackOverflowUser,
+  getStackOverflowTopTags,
+  getGitLabUser,
+  getGitLabProjects,
   getWakaTimeEmbedUrl,
   getHolopinBoardUrl,
   getAggregateCodingStats,
