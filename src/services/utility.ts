@@ -1,6 +1,6 @@
 /**
  * Project Me - Utility Services
- * API integrations for Weather, Lanyard, UptimeRobot, Unsplash
+ * API integrations for Weather, Lanyard
  */
 
 import { CONFIG } from '../config';
@@ -55,22 +55,6 @@ export interface LanyardData {
     album_art_url: string;
     timestamps: { start: number; end: number };
   };
-}
-
-export interface UnsplashPhoto {
-  id: string;
-  created_at: string;
-  description: string | null;
-  urls: {
-    raw: string;
-    full: string;
-    regular: string;
-    small: string;
-    thumb: string;
-  };
-  likes: number;
-  views: number;
-  downloads: number;
 }
 
 // Cache
@@ -226,18 +210,6 @@ export async function getDiscordStatus(): Promise<{
   }
 }
 
-// Unsplash API
-export async function getUnsplashPhotos(perPage = 10): Promise<UnsplashPhoto[]> {
-  const clientId = CONFIG.keys.unsplashClientId;
-  if (!clientId) {
-    console.warn('Unsplash client ID not configured');
-    return [];
-  }
-
-  const url = `${CONFIG.api.unsplash}/${CONFIG.user.unsplash}/photos?per_page=${perPage}&client_id=${clientId}`;
-  return fetchWithCache<UnsplashPhoto[]>(url);
-}
-
 // Time utilities
 export function getGreeting(): string {
   const hour = new Date().getHours();
@@ -306,7 +278,6 @@ export default {
   getWeatherDescription,
   getLanyardData,
   getDiscordStatus,
-  getUnsplashPhotos,
   getGreeting,
   getLocalTime,
   getLocalDate,

@@ -1,6 +1,6 @@
 /**
  * Project Me - Coding Services
- * API integrations for WakaTime, GitHub, LeetCode, StackOverflow, CodeWars, NPM, GitLab
+ * API integrations for GitHub, LeetCode, StackOverflow, CodeWars, NPM, GitLab
  */
 
 import { CONFIG } from '../config';
@@ -222,17 +222,6 @@ export async function getGitLabProjects(userId?: number, limit = 10): Promise<Gi
   }
 }
 
-// WakaTime - Returns embed URLs
-export function getWakaTimeEmbedUrl(type: 'languages' | 'editors' | 'os' | 'activity'): string {
-  const embedTypes: Record<string, string> = {
-    languages: `${CONFIG.api.wakatime}/@${CONFIG.user.wakatime}/languages.svg`,
-    editors: `${CONFIG.api.wakatime}/@${CONFIG.user.wakatime}/editors.svg`,
-    os: `${CONFIG.api.wakatime}/@${CONFIG.user.wakatime}/operating_systems.svg`,
-    activity: `${CONFIG.api.wakatime}/@${CONFIG.user.wakatime}/activity.svg`,
-  };
-  return embedTypes[type] || '';
-}
-
 // Holopin badges
 export function getHolopinBoardUrl(): string {
   return `https://holopin.io/@${CONFIG.user.holopin}`;
@@ -304,7 +293,6 @@ export default {
   getStackOverflowTopTags,
   getGitLabUser,
   getGitLabProjects,
-  getWakaTimeEmbedUrl,
   getHolopinBoardUrl,
   getAggregateCodingStats,
 };

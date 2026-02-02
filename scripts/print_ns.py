@@ -1,4 +1,4 @@
-"""Get domain details from Spaceship"""
+"""Print current nameservers"""
 import os
 import requests
 from dotenv import load_dotenv
@@ -18,11 +18,9 @@ headers = {
 try:
     response = requests.get(f"{api_url}/domains/chirag127.in", headers=headers)
     if response.status_code == 200:
-        import json
-        print(json.dumps(response.json()))
+        data = response.json()
+        print("Current Nameservers:", data.get('nameservers'))
     else:
-        import sys
-        print(response.text, file=sys.stderr)
+        print(f"Error {response.status_code}: {response.text}")
 except Exception as e:
-    import sys
-    print(str(e), file=sys.stderr)
+    print(f"Error: {e}")

@@ -1,8 +1,8 @@
 // Gaming Profile
-import { getAggregateGamingStats, getSteamProfileUrl } from '../../services/gaming';
+import { getAggregateGamingStats } from '../../services/gaming';
 
 export default async function Profile(c: HTMLElement): Promise<void> {
-  c.innerHTML = `<div class="page animate-fade-in"><header class="page-header"><h1 class="page-title">Gaming</h1><p class="page-subtitle">Player profiles and achievements</p></header><div class="bento-grid"><div class="bento-item"><h3>♟️ Chess</h3><div id="chess-stats">Loading...</div><a href="#/gaming/chess" class="btn btn-ghost">View →</a></div><div class="bento-item"><h3>🎮 Steam</h3><a href="${getSteamProfileUrl()}" target="_blank" class="btn btn-ghost">Steam Profile →</a></div><div class="bento-item"><h3>⏱️ Speedrun</h3><div id="speedrun-stats">Loading...</div><a href="#/gaming/speedrun" class="btn btn-ghost">View →</a></div><div class="bento-item"><h3>🏆 Achievements</h3><a href="#/gaming/trophies" class="btn btn-ghost">View Achievements →</a></div></div></div>`;
+  c.innerHTML = `<div class="page animate-fade-in"><header class="page-header"><h1 class="page-title">Gaming</h1><p class="page-subtitle">Player profiles and achievements</p></header><div class="bento-grid"><div class="bento-item"><h3>♟️ Chess</h3><div id="chess-stats">Loading...</div><a href="#/gaming/chess" class="btn btn-ghost">View →</a></div><div class="bento-item"><h3>⏱️ Speedrun</h3><div id="speedrun-stats">Loading...</div><a href="#/gaming/speedrun" class="btn btn-ghost">View →</a></div><div class="bento-item"><h3>🏆 Achievements</h3><a href="#/gaming/trophies" class="btn btn-ghost">View Achievements →</a></div></div></div>`;
   try {
     const stats = await getAggregateGamingStats();
     const chess = document.getElementById('chess-stats');

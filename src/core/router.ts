@@ -61,7 +61,6 @@ export const routes: Route[] = [
 
   // Drive E: /GAMING (The Arcade)
   { path: '/gaming/index', name: 'Profile', icon: '🎮', component: () => import('../apps/gaming/Profile'), drive: 'GAMING', breadcrumb: ['Gaming', 'Profile'] },
-  { path: '/gaming/steam', name: 'Steam', icon: '🎲', component: () => import('../apps/gaming/Steam'), drive: 'GAMING', breadcrumb: ['Gaming', 'Steam'] },
   { path: '/gaming/retro', name: 'Trophies', icon: '🏅', component: () => import('../apps/gaming/Trophies'), drive: 'GAMING', breadcrumb: ['Gaming', 'Trophies'] },
   { path: '/gaming/chess', name: 'Chess', icon: '♟️', component: () => import('../apps/gaming/Chess'), drive: 'GAMING', breadcrumb: ['Gaming', 'Chess'] },
   { path: '/gaming/speed', name: 'Speedrun', icon: '⏱️', component: () => import('../apps/gaming/Speedrun'), drive: 'GAMING', breadcrumb: ['Gaming', 'Speedrun'] },

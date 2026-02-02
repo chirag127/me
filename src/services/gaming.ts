@@ -1,6 +1,6 @@
 /**
  * Project Me - Gaming Services
- * API integrations for Steam, Lichess, Speedrun.com
+ * API integrations for Lichess, Speedrun.com
  */
 
 import { CONFIG } from '../config';
@@ -108,31 +108,6 @@ export async function getSpeedrunPBs(): Promise<SpeedrunPB[]> {
   return data.data;
 }
 
-// Steam (Note: Steam API has CORS issues, data may need to be proxied or cached)
-export interface SteamGame {
-  appid: number;
-  name: string;
-  playtime_2weeks?: number;
-  playtime_forever: number;
-  img_icon_url: string;
-  has_community_visible_stats: boolean;
-}
-
-export function getSteamProfileUrl(): string {
-  return `https://steamcommunity.com/profiles/${CONFIG.keys.steamId}`;
-}
-
-// Static steam games data (since Steam API has CORS issues)
-export function getSteamGamesPlaceholder(): SteamGame[] {
-  return [
-    { appid: 730, name: 'Counter-Strike 2', playtime_forever: 500, img_icon_url: '', has_community_visible_stats: true },
-    { appid: 1172470, name: 'Apex Legends', playtime_forever: 200, img_icon_url: '', has_community_visible_stats: true },
-    { appid: 570, name: 'Dota 2', playtime_forever: 150, img_icon_url: '', has_community_visible_stats: true },
-    { appid: 1091500, name: 'Cyberpunk 2077', playtime_forever: 100, img_icon_url: '', has_community_visible_stats: true },
-    { appid: 1245620, name: 'Elden Ring', playtime_forever: 80, img_icon_url: '', has_community_visible_stats: true },
-  ];
-}
-
 // Aggregate gaming stats
 export interface GamingStats {
   chess: {
@@ -178,7 +153,5 @@ export default {
   getLichessRatings,
   getSpeedrunUser,
   getSpeedrunPBs,
-  getSteamProfileUrl,
-  getSteamGamesPlaceholder,
   getAggregateGamingStats,
 };
