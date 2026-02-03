@@ -8,6 +8,7 @@ import { getFormattedWeather } from '../../services/utility';
 import { getDiscordStatus } from '../../services/utility';
 import { getNowPlaying } from '../../services/media';
 import { getAggregateCodingStats } from '../../services/coding';
+import CONFIG from '../../config';
 import { getGreeting, getLocalDate, formatNumber } from '../../services/utility';
 
 export default async function Dashboard(container: HTMLElement): Promise<void> {
@@ -35,50 +36,13 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
         <div class="bento-item" id="weather-card">
           <div class="card-header">
             <span class="card-icon">🌤️</span>
-            <h3>Weather</h3>
+            <h3>Weather in ${CONFIG.location.name}</h3>
           </div>
           <div class="weather-main" id="weather-main">
             <span class="weather-temp">--°</span>
             <span class="weather-desc">Loading...</span>
           </div>
           <div class="weather-forecast" id="weather-forecast"></div>
-        </div>
-
-        <!-- Now Playing -->
-        <div class="bento-item" id="music-card">
-          <div class="card-header">
-            <span class="card-icon">🎵</span>
-            <h3>Now Playing</h3>
-          </div>
-          <div class="now-playing" id="now-playing">
-            <p class="muted">Not playing anything</p>
-          </div>
-        </div>
-
-        <!-- Quick Stats -->
-        <div class="bento-item span-2" id="stats-card">
-          <div class="card-header">
-            <span class="card-icon">📊</span>
-            <h3>Coding Stats</h3>
-          </div>
-          <div class="stats-grid" id="stats-grid">
-            <div class="stat-item">
-              <span class="stat-value" id="stat-repos">--</span>
-              <span class="stat-label">Repositories</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-value" id="stat-stars">--</span>
-              <span class="stat-label">GitHub Stars</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-value" id="stat-leetcode">--</span>
-              <span class="stat-label">LeetCode Solved</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-value" id="stat-followers">--</span>
-              <span class="stat-label">Followers</span>
-            </div>
-          </div>
         </div>
 
         <!-- About Card -->
@@ -113,7 +77,7 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
         </div>
 
         <!-- Latest Project -->
-        <div class="bento-item">
+        <div class="bento-item span-2">
           <div class="card-header">
             <span class="card-icon">🚀</span>
             <h3>Featured Project</h3>
@@ -147,6 +111,43 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
               <span>Email</span>
               <span>→</span>
             </a>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="bento-item span-2" id="stats-card">
+          <div class="card-header">
+            <span class="card-icon">📊</span>
+            <h3>Coding Stats</h3>
+          </div>
+          <div class="stats-grid" id="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value" id="stat-repos">--</span>
+              <span class="stat-label">Repositories</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value" id="stat-stars">--</span>
+              <span class="stat-label">GitHub Stars</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value" id="stat-leetcode">--</span>
+              <span class="stat-label">LeetCode Solved</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value" id="stat-followers">--</span>
+              <span class="stat-label">Followers</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Now Playing -->
+        <div class="bento-item" id="music-card">
+          <div class="card-header">
+            <span class="card-icon">🎵</span>
+            <h3>Now Playing</h3>
+          </div>
+          <div class="now-playing" id="now-playing">
+            <p class="muted">Not playing anything</p>
           </div>
         </div>
       </div>

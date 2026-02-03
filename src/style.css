@@ -1261,10 +1261,12 @@ img {
   }
 
   .top-bar-center {
-    display: flex; /* Keep visible */
-    flex: 1;
-    justify-content: center;
-    order: 2;
+    display: flex !important; /* Debug */
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex: 1 !important;
+    justify-content: center !important;
+    order: 2 !important;
   }
 
   .top-bar-left {

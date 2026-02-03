@@ -234,6 +234,7 @@ export class Shell {
 
     // Mobile Sidebar Toggle
     document.getElementById('apple-menu')?.addEventListener('click', () => {
+      console.log('DEBUG: Apple menu clicked');
       const sidebar = document.getElementById('sidebar');
       const backdrop = document.getElementById('sidebar-backdrop');
       const menuBtn = document.getElementById('apple-menu');
@@ -243,8 +244,11 @@ export class Shell {
       backdrop?.classList.toggle('open');
       menuBtn?.classList.toggle('active');
 
+      console.log('DEBUG: Sidebar is now', isOpen ? 'OPEN' : 'CLOSED');
+
       if (hamburger) {
         hamburger.textContent = isOpen ? '✕' : '☰';
+        console.log('DEBUG: Hamburger text set to', hamburger.textContent);
       }
     });
 

@@ -169,9 +169,9 @@ export const CONFIG: Config = {
     raindropCollectionId: "",
   },
   location: {
-    name: "Ghaziabad",
-    latitude: 28.6692,
-    longitude: 77.4538,
+    name: "Bhubaneswar",
+    latitude: 20.2961,
+    longitude: 85.8245,
   },
 };
 
