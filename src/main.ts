@@ -5,6 +5,10 @@
 
 import './style.css';
 import { Shell } from './core/shell';
+import { initServices } from './services/init';
+
+// Initialize third-party services early (analytics, etc.)
+initServices();
 
 // Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', async () => {
