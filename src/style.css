@@ -139,6 +139,23 @@
 /* ========================================
    Base & Reset
    ======================================== */
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 85; /* Below sidebar (90) */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal);
+  top: var(--topbar-height);
+}
+
+.sidebar-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -1183,8 +1200,10 @@ img {
   }
 
   .main-container {
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
+
 
   .search-trigger {
     min-width: auto;
@@ -1213,6 +1232,8 @@ img {
   .dock-container {
     gap: var(--space-1);
     padding: var(--space-2);
+    max-width: 98vw;
+    overflow-x: auto;
   }
 
   .dock-item {

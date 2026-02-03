@@ -60,8 +60,10 @@ export class Shell {
         </div>
       </header>
 
-      <!-- Main Container -->
       <div class="main-container">
+        <!-- Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
           <div class="sidebar-header">
@@ -227,6 +229,27 @@ export class Shell {
         const section = header.closest('.drive-section');
         section?.classList.toggle('collapsed');
       });
+    });
+
+    // Mobile Sidebar Toggle
+    document.getElementById('apple-menu')?.addEventListener('click', () => {
+      document.getElementById('sidebar')?.classList.toggle('open');
+      document.getElementById('sidebar-backdrop')?.classList.toggle('open');
+    });
+
+    // Close Sidebar on Backdrop Click
+    document.getElementById('sidebar-backdrop')?.addEventListener('click', () => {
+      document.getElementById('sidebar')?.classList.remove('open');
+      document.getElementById('sidebar-backdrop')?.classList.remove('open');
+    });
+
+    // Close Sidebar on Nav Item Click (Delegation)
+    document.querySelector('.nav-drives')?.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('.nav-item')) {
+        document.getElementById('sidebar')?.classList.remove('open');
+        document.getElementById('sidebar-backdrop')?.classList.remove('open');
+      }
     });
   }
 

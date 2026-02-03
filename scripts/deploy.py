@@ -41,7 +41,7 @@ class CloudflareDeployer:
         env["CLOUDFLARE_API_KEY"] = self.api_key
 
         result = subprocess.run(
-            ["npx", "wrangler", "pages", "deploy", str(DIST_DIR),
+            ["npx.cmd", "wrangler", "pages", "deploy", str(DIST_DIR),
              "--project-name", PROJECT_NAME, "--branch", "main"],
             capture_output=True,
             text=True,
@@ -52,7 +52,8 @@ class CloudflareDeployer:
         if result.returncode == 0:
             print("✅ Cloudflare Pages deployment successful!")
             # Extract URL from output
-            for line in result.stdout.split("\n"):
+            output_text = result.stdout if result.stdout else ""
+            for line in output_text.split("\n"):
                 if "pages.dev" in line:
                     print(f"🌐 URL: {line.strip()}")
         else:
@@ -126,7 +127,7 @@ class NetlifyDeployer:
         print("🚀 Deploying to Netlify...")
 
         result = subprocess.run(
-            ["npx", "netlify", "deploy", "--prod", "--dir", str(DIST_DIR),
+            ["npx.cmd", "netlify", "deploy", "--prod", "--dir", str(DIST_DIR),
              "--site", self.site_id, "--auth", self.auth_token],
             capture_output=True,
             text=True,
@@ -159,7 +160,7 @@ class VercelDeployer:
         env["VERCEL_PROJECT_ID"] = self.project_id
 
         result = subprocess.run(
-            ["npx", "vercel", "--prod", "--yes"],
+            ["npx.cmd", "vercel", "--prod", "--yes"],
             capture_output=True,
             text=True,
             env=env,
@@ -189,7 +190,7 @@ class SurgeDeployer:
         env["SURGE_TOKEN"] = self.token
 
         result = subprocess.run(
-            ["npx", "surge", str(DIST_DIR), self.domain],
+            ["npx.cmd", "surge", str(DIST_DIR), self.domain],
             capture_output=True,
             text=True,
             env=env,
@@ -209,7 +210,7 @@ def build_project() -> bool:
     print("🔨 Building project...")
 
     result = subprocess.run(
-        ["npm", "run", "build"],
+        ["npm.cmd", "run", "build"],
         capture_output=True,
         text=True,
         cwd=Path(__file__).parent.parent

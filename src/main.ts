@@ -105,9 +105,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      // Service worker will be added later
-      // await navigator.serviceWorker.register('/sw.js');
-      console.log('PWA ready');
+      await navigator.serviceWorker.register('/sw.js');
+      console.log('PWA customized ready');
     } catch (error) {
       console.log('PWA registration failed:', error);
     }
