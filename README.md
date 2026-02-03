@@ -4,12 +4,15 @@
 
 ## 🌐 Live Sites
 
-| Domain | URL | Status |
-|--------|-----|--------|
+| Platform | URL | Status |
+|----------|-----|--------|
 | **Primary** | [chirag127.in](https://chirag127.in) | ✅ Live |
 | **WWW** | [www.chirag127.in](https://www.chirag127.in) | ✅ Live |
 | **Me Subdomain** | [me.chirag127.in](https://me.chirag127.in) | ✅ Live |
 | **Cloudflare Pages** | [me-791.pages.dev](https://me-791.pages.dev) | ✅ Live |
+| **Netlify** | [chirag127.netlify.app](https://chirag127.netlify.app) | ✅ Live |
+| **Vercel** | [chirag127.vercel.app](https://chirag127.vercel.app) | ✅ Live |
+| **Surge** | [chirag127.surge.sh](https://chirag127.surge.sh) | ✅ Live |
 
 ---
 

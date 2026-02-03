@@ -38,7 +38,8 @@ export class Shell {
       <!-- Top Bar -->
       <header class="top-bar" id="top-bar">
         <div class="top-bar-left">
-          <button class="apple-menu" id="apple-menu">
+          <button class="apple-menu" id="apple-menu" aria-label="Toggle navigation menu">
+            <span class="menu-hamburger">☰</span>
             <span class="logo-icon">CS</span>
           </button>
           <nav class="breadcrumb" id="breadcrumb">
@@ -233,14 +234,28 @@ export class Shell {
 
     // Mobile Sidebar Toggle
     document.getElementById('apple-menu')?.addEventListener('click', () => {
-      document.getElementById('sidebar')?.classList.toggle('open');
-      document.getElementById('sidebar-backdrop')?.classList.toggle('open');
+      const sidebar = document.getElementById('sidebar');
+      const backdrop = document.getElementById('sidebar-backdrop');
+      const menuBtn = document.getElementById('apple-menu');
+      const hamburger = menuBtn?.querySelector('.menu-hamburger');
+
+      const isOpen = sidebar?.classList.toggle('open');
+      backdrop?.classList.toggle('open');
+      menuBtn?.classList.toggle('active');
+
+      if (hamburger) {
+        hamburger.textContent = isOpen ? '✕' : '☰';
+      }
     });
 
     // Close Sidebar on Backdrop Click
     document.getElementById('sidebar-backdrop')?.addEventListener('click', () => {
       document.getElementById('sidebar')?.classList.remove('open');
       document.getElementById('sidebar-backdrop')?.classList.remove('open');
+      const menuBtn = document.getElementById('apple-menu');
+      menuBtn?.classList.remove('active');
+      const hamburger = menuBtn?.querySelector('.menu-hamburger');
+      if (hamburger) hamburger.textContent = '☰';
     });
 
     // Close Sidebar on Nav Item Click (Delegation)
@@ -249,6 +264,10 @@ export class Shell {
       if (target.closest('.nav-item')) {
         document.getElementById('sidebar')?.classList.remove('open');
         document.getElementById('sidebar-backdrop')?.classList.remove('open');
+        const menuBtn = document.getElementById('apple-menu');
+        menuBtn?.classList.remove('active');
+        const hamburger = menuBtn?.querySelector('.menu-hamburger');
+        if (hamburger) hamburger.textContent = '☰';
       }
     });
   }

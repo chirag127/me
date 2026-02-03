@@ -266,6 +266,32 @@ img {
   transition: transform var(--transition-bounce);
 }
 
+/* Show hamburger on mobile, CS logo on desktop */
+.apple-menu .menu-hamburger {
+  display: none;
+  font-size: var(--text-lg);
+}
+
+.apple-menu .logo-icon {
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .apple-menu .menu-hamburger {
+    display: block;
+  }
+
+  .apple-menu .logo-icon {
+    display: none;
+  }
+
+  .apple-menu {
+    width: 40px;
+    height: 40px;
+    font-size: var(--text-lg);
+  }
+}
+
 .apple-menu:hover {
   transform: scale(1.1);
 }
@@ -1190,13 +1216,20 @@ img {
     position: fixed;
     left: -100%;
     top: var(--topbar-height);
+    width: var(--sidebar-width);
     height: calc(100vh - var(--topbar-height));
     z-index: 90;
-    transition: left var(--transition-normal);
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-2xl);
   }
 
   .sidebar.open {
     left: 0;
+  }
+
+  /* Menu icon state handled by JS */
+  .apple-menu.active .menu-hamburger {
+    display: block;
   }
 
   .main-container {
@@ -1204,9 +1237,11 @@ img {
     flex-direction: column;
   }
 
-
   .search-trigger {
     min-width: auto;
+    flex: 1;
+    max-width: 200px;
+    padding: var(--space-2) var(--space-3);
   }
 
   .search-trigger span:last-child {
@@ -1221,12 +1256,31 @@ img {
 
 @media (max-width: 768px) {
   :root {
-    --sidebar-width: 100%;
+    --sidebar-width: 85%;
     --dock-height: 70px;
   }
 
   .top-bar-center {
-    display: none;
+    display: flex; /* Keep visible */
+    flex: 1;
+    justify-content: center;
+    order: 2;
+  }
+
+  .top-bar-left {
+    flex: 0;
+    order: 1;
+  }
+
+  .top-bar-right {
+    flex: 0;
+    order: 3;
+    gap: var(--space-2);
+    min-width: fit-content;
+  }
+
+  .clock {
+    display: none; /* Hide clock on small mobile to save space */
   }
 
   .dock-container {
