@@ -149,6 +149,53 @@ export async function getGitHubRepos(sort: 'updated' | 'stars' = 'updated', perP
   );
 }
 
+/**
+ * Fetch ALL repositories with pagination
+ * GitHub API returns max 100 per page, so we need to paginate
+ */
+export async function getAllGitHubRepos(sort: 'updated' | 'stars' = 'updated'): Promise<GitHubRepo[]> {
+  const sortParam = sort === 'stars' ? 'stargazers_count' : 'updated';
+  const allRepos: GitHubRepo[] = [];
+  let page = 1;
+  const perPage = 100; // GitHub max per page
+
+  // Check cache first
+  const cacheKey = `all_repos_${sort}`;
+  const cached = cache.get(cacheKey);
+  if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
+    return cached.data as GitHubRepo[];
+  }
+
+  // Paginate through all repos
+  while (true) {
+    const url = `${CONFIG.api.github}/${CONFIG.user.github}/repos?sort=${sortParam}&per_page=${perPage}&page=${page}&direction=desc`;
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+
+    const repos: GitHubRepo[] = await response.json();
+
+    if (repos.length === 0) break;
+
+    allRepos.push(...repos);
+
+    // If we got less than perPage, we've reached the end
+    if (repos.length < perPage) break;
+
+    page++;
+
+    // Safety limit to prevent infinite loops
+    if (page > 20) break; // Max 2000 repos
+  }
+
+  // Cache the result
+  cache.set(cacheKey, { data: allRepos, timestamp: Date.now() });
+
+  return allRepos;
+}
+
 export async function getPinnedRepos(): Promise<GitHubRepo[]> {
   const repos = await getGitHubRepos('stars', 6);
   return repos;

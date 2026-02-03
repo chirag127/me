@@ -20,6 +20,21 @@ export const analytics = {
 };
 
 // ============================================================================
+// ERROR TRACKING
+// ============================================================================
+// Sentry - Free tier: 5K errors/month, 10K performance transactions
+// Setup: https://sentry.io → Create project → Get DSN
+export const errorTracking = {
+    sentry: {
+        dsn: 'https://fab5503e124c3fa5d9ce1b04fbf86b92@o4509333332164608.ingest.de.sentry.io/4510822889947216',
+        environment: 'production',
+        tracesSampleRate: 1.0,
+        sendDefaultPii: true,
+        enabled: true
+    }
+};
+
+// ============================================================================
 // FIREBASE
 // ============================================================================
 export const firebase = {
@@ -83,6 +98,22 @@ export const engagement = {
 // COMMUNICATION
 // ============================================================================
 export const communication = {
+    // Formspree - Free tier: 50 submissions/month
+    // Setup: https://formspree.io → Create form → Get form ID
+    formspree: {
+        formId: '', // e.g., 'xwkgpqyz' - Get from formspree.io
+        endpoint: '', // e.g., 'https://formspree.io/f/xwkgpqyz'
+        enabled: false // Enable after adding form ID
+    },
+
+    // MailerLite - Free tier: 1000 subscribers, 12000 emails/month
+    // Setup: https://mailerlite.com → Create form → Get embed code
+    mailerlite: {
+        formId: '', // Get from MailerLite embedded form
+        accountId: '', // Get from MailerLite settings
+        enabled: false // Enable after setup
+    },
+
     googleForms: {
         enabled: true
     },
@@ -99,6 +130,7 @@ export const communication = {
 // ============================================================================
 export const services = {
     analytics,
+    errorTracking,
     firebase,
     engagement,
     communication

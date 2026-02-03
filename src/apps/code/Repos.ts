@@ -2,7 +2,7 @@
  * Project Me - Repos Page
  */
 
-import { getGitHubRepos, type GitHubRepo } from '../../services/coding';
+import { getAllGitHubRepos, type GitHubRepo } from '../../services/coding';
 
 export default async function Repos(container: HTMLElement): Promise<void> {
   container.innerHTML = `
@@ -77,7 +77,7 @@ async function loadRepos(): Promise<void> {
   if (!list) return;
 
   try {
-    const repos = await getGitHubRepos('updated', 20);
+    const repos = await getAllGitHubRepos('updated');
     list.innerHTML = repos.map((repo: GitHubRepo) => `
       <a href="${repo.html_url}" target="_blank" class="repo-card">
         <div class="repo-name">${repo.name}</div>

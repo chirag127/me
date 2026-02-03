@@ -4,11 +4,16 @@
  */
 
 import './style.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Shell } from './core/shell';
 import { initServices } from './services/init';
+import { initFirebase } from './services/firebase';
 
 // Initialize third-party services early (analytics, etc.)
 initServices();
+
+// Initialize Firebase
+initFirebase();
 
 // Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', async () => {

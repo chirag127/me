@@ -5,7 +5,7 @@
  * @module services/init
  */
 
-import { analytics, engagement } from '../config/services';
+import { analytics, errorTracking, engagement, communication } from '../config/services';
 
 /**
  * Initialize Microsoft Clarity
@@ -52,6 +52,49 @@ function initGA4(): void {
     gtag('config', measurementId);
 
     console.log('[Services] GA4 initialized');
+}
+
+/**
+ * Initialize Sentry Error Tracking
+ * Captures JavaScript errors and performance data
+ */
+async function initSentry(): Promise<void> {
+    if (!errorTracking.sentry.enabled || !errorTracking.sentry.dsn) return;
+
+    const { dsn, environment, tracesSampleRate } = errorTracking.sentry;
+
+    // Dynamic import for code splitting
+    const Sentry = await import('@sentry/browser');
+
+    Sentry.init({
+        dsn: dsn,
+        environment: environment,
+        tracesSampleRate: tracesSampleRate,
+        sendDefaultPii: errorTracking.sentry.sendDefaultPii ?? true,
+    });
+
+    // Store reference for error reporting
+    (window as any).__SENTRY__ = Sentry;
+
+    console.log('[Services] Sentry initialized');
+}
+
+/**
+ * Report error to Sentry manually
+ */
+export function reportError(error: Error, context?: Record<string, any>): void {
+    if (!errorTracking.sentry.enabled) {
+        console.error(error);
+        return;
+    }
+
+    const Sentry = (window as any).__SENTRY__;
+    if (Sentry) {
+        if (context) {
+            Sentry.setContext('additional', context);
+        }
+        Sentry.captureException(error);
+    }
 }
 
 /**
@@ -140,6 +183,79 @@ export function createShareButtons(): string {
 }
 
 /**
+ * Submit form to Formspree
+ * @param data Form data object
+ * @returns Promise with success/error
+ */
+export async function submitFormspree(data: Record<string, string>): Promise<{ success: boolean; message: string }> {
+    if (!communication.formspree.enabled || !communication.formspree.formId) {
+        return { success: false, message: 'Formspree not configured' };
+    }
+
+    try {
+        const response = await fetch(`https://formspree.io/f/${communication.formspree.formId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+            return { success: true, message: 'Message sent successfully!' };
+        } else {
+            const error = await response.json();
+            return { success: false, message: error.error || 'Failed to send message' };
+        }
+    } catch (error) {
+        return { success: false, message: 'Network error. Please try again.' };
+    }
+}
+
+/**
+ * Create MailerLite subscribe form HTML
+ * @param options Form customization options
+ */
+export function createMailerLiteForm(options: {
+    buttonText?: string;
+    placeholder?: string;
+    className?: string;
+}): string {
+    if (!communication.mailerlite.enabled) return '';
+
+    const { buttonText = 'Subscribe', placeholder = 'Enter your email', className = '' } = options;
+
+    return `
+        <form class="mailerlite-form ${className}" data-mailerlite="true">
+            <input type="email" name="email" placeholder="${placeholder}" required />
+            <button type="submit">${buttonText}</button>
+        </form>
+    `;
+}
+
+/**
+ * Initialize MailerLite form handlers
+ */
+function initMailerLite(): void {
+    if (!communication.mailerlite.enabled || !communication.mailerlite.accountId) return;
+
+    // Load MailerLite universal script
+    const script = document.createElement('script');
+    script.src = 'https://assets.mailerlite.com/js/universal.js';
+    script.async = true;
+    script.onload = () => {
+        (window as any).ml =  (window as any).ml || function() {
+            ((window as any).ml.q = (window as any).ml.q || []).push(arguments);
+        };
+        (window as any).ml('account', communication.mailerlite.accountId);
+    };
+    document.head.appendChild(script);
+
+    console.log('[Services] MailerLite initialized');
+}
+
+/**
  * Initialize all enabled services
  * Call this once on app startup
  */
@@ -150,9 +266,15 @@ export function initServices(): void {
     initClarity();
     initGA4();
 
+    // Error tracking
+    initSentry();
+
     // Engagement
     initTawkTo();
     initAddToAny();
+
+    // Communication
+    initMailerLite();
 
     console.log('[Services] All services initialized');
 }

@@ -19,8 +19,12 @@
     "vite": "npm:rolldown-vite@7.2.5"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
+    "@fortawesome/fontawesome-free": "^7.1.0",
     "@heyputer/puter.js": "^2.2.8",
+    "@sentry/browser": "^10.38.0",
     "chart.js": "^4.5.1",
-    "date-fns": "^4.1.0"
+    "date-fns": "^4.1.0",
+    "firebase": "^12.8.0"
   }
 }
