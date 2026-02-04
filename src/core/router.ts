@@ -55,6 +55,7 @@ export const routes: Route[] = [
   { path: '/library/music/top', name: 'Top Music', icon: '🎵', component: () => import('../apps/library/MusicTop'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Top'] },
   { path: '/library/music/recent', name: 'Recent Music', icon: '🎧', component: () => import('../apps/library/MusicRecent'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Recent'] },
   { path: '/library/cinema', name: 'Movies', icon: '🎬', component: () => import('../apps/library/Movies'), drive: 'LIBRARY', breadcrumb: ['Library', 'Movies'] },
+  { path: '/library/trakt', name: 'Tracking', icon: '🎫', component: () => import('../apps/library/Trakt'), drive: 'LIBRARY', breadcrumb: ['Library', 'Tracking'] },
   { path: '/library/tv', name: 'TV', icon: '📺', component: () => import('../apps/library/TV'), drive: 'LIBRARY', breadcrumb: ['Library', 'TV'] },
   { path: '/library/anime', name: 'Anime', icon: '🎌', component: () => import('../apps/library/Anime'), drive: 'LIBRARY', breadcrumb: ['Library', 'Anime'] },
   { path: '/library/manga', name: 'Manga', icon: '📰', component: () => import('../apps/library/Manga'), drive: 'LIBRARY', breadcrumb: ['Library', 'Manga'] },

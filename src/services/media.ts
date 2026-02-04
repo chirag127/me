@@ -218,11 +218,40 @@ export async function getLetterboxdFilms(limit = 10): Promise<LetterboxdFilm[]> 
 }
 
 // Trakt API
+export interface TraktMovie {
+  movie: {
+    title: string;
+    year: number;
+    ids: { trakt: number; slug: string; imdb: string; tmdb: number };
+  };
+  watched_at: string;
+  action: string;
+  type: 'movie';
+}
+
 export async function getTraktHistory(limit = 10): Promise<TraktShow[]> {
   const url = `${CONFIG.api.trakt}/users/${CONFIG.user.trakt}/history?limit=${limit}`;
 
   try {
     const data = await fetchWithCache<TraktShow[]>(url, {
+      headers: {
+        'Content-Type': 'application/json',
+        'trakt-api-version': '2',
+        'trakt-api-key': CONFIG.keys.traktClientId,
+      },
+    });
+    return data;
+  } catch {
+    console.warn('Trakt API fetch failed');
+    return [];
+  }
+}
+
+export async function getTraktRecentMovies(limit = 12): Promise<TraktMovie[]> {
+  const url = `${CONFIG.api.trakt}/users/${CONFIG.user.trakt}/history/movies?limit=${limit}&extended=full`;
+
+  try {
+    const data = await fetchWithCache<TraktMovie[]>(url, {
       headers: {
         'Content-Type': 'application/json',
         'trakt-api-version': '2',
@@ -317,6 +346,7 @@ export default {
   getMangaList,
   getLetterboxdFilms,
   getTraktHistory,
+  getTraktRecentMovies,
   getListenBrainzRecent,
   getAggregateMediaStats,
 };
