@@ -26,8 +26,8 @@ This is the central hub for all chirag127.in subdomains:
 | `www.chirag127.in` | [chirag127/me](https://github.com/chirag127/me) | Redirect to main |
 | `me.chirag127.in` | [chirag127/me](https://github.com/chirag127/me) | Portfolio mirror |
 | `pdf.chirag127.in` | *Coming soon* | PDF tools |
-| `fin.chirag127.in` | *Coming soon* | Finance tools |
-| `dev.chirag127.in` | *Coming soon* | Developer tools |
+| `fin.chirag127.in` | [*finance*](https://fin.oriz.in/) | Finance tools |
+| `dev.chirag127.in` | dev.chirag127.in | Developer tools |
 | `hub.chirag127.in` | *Coming soon* | Project hub |
 
 ---
