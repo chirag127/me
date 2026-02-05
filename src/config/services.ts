@@ -30,7 +30,7 @@ export const errorTracking = {
         environment: 'production',
         tracesSampleRate: 1.0,
         sendDefaultPii: true,
-        enabled: true
+        enabled: false // DISABLED due to TypeError: Cannot add property 10.38.0, object is not extensible
     }
 };
 

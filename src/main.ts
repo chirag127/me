@@ -110,14 +110,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
-// Register service worker for PWA
+// Unregister service worker ensures we always get fresh network requests
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', async () => {
-    try {
-      await navigator.serviceWorker.register('/sw.js');
-      console.log('PWA customized ready');
-    } catch (error) {
-      console.log('PWA registration failed:', error);
+  navigator.serviceWorker.getRegistrations().then(registrations => {
+    for (const registration of registrations) {
+      registration.unregister();
+      console.log('Service Worker unregistered');
     }
   });
 }

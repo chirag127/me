@@ -17,6 +17,24 @@ export class Shell {
     this.appElement = appElement;
   }
 
+  private toggleSidebar(): void {
+    // Only toggle on mobile (screen width <= 1024px)
+    if (window.innerWidth > 1024) return;
+
+    const sidebar = document.getElementById('sidebar');
+    const backdrop = document.getElementById('sidebar-backdrop');
+    const menuBtn = document.getElementById('apple-menu');
+    const hamburger = menuBtn?.querySelector('.menu-hamburger');
+
+    const isOpen = sidebar?.classList.toggle('open');
+    backdrop?.classList.toggle('open');
+    menuBtn?.classList.toggle('active');
+
+    if (hamburger) {
+      hamburger.textContent = isOpen ? '✕' : '☰';
+    }
+  }
+
   async init(): Promise<void> {
     this.render();
     this.setupEventListeners();
@@ -233,23 +251,10 @@ export class Shell {
     });
 
     // Mobile Sidebar Toggle
-    document.getElementById('apple-menu')?.addEventListener('click', () => {
-      console.log('DEBUG: Apple menu clicked');
-      const sidebar = document.getElementById('sidebar');
-      const backdrop = document.getElementById('sidebar-backdrop');
-      const menuBtn = document.getElementById('apple-menu');
-      const hamburger = menuBtn?.querySelector('.menu-hamburger');
-
-      const isOpen = sidebar?.classList.toggle('open');
-      backdrop?.classList.toggle('open');
-      menuBtn?.classList.toggle('active');
-
-      console.log('DEBUG: Sidebar is now', isOpen ? 'OPEN' : 'CLOSED');
-
-      if (hamburger) {
-        hamburger.textContent = isOpen ? '✕' : '☰';
-        console.log('DEBUG: Hamburger text set to', hamburger.textContent);
-      }
+    document.getElementById('apple-menu')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.toggleSidebar();
     });
 
     // Close Sidebar on Backdrop Click

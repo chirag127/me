@@ -48,6 +48,8 @@ export interface OpenLibraryUser {
 const cache = new Map<string, { data: unknown; timestamp: number }>();
 const CACHE_DURATION = 10 * 60 * 1000; // 10 minutes for books
 
+const TIMEOUT = 10000; // 10 seconds timeout
+
 async function fetchWithCache<T>(url: string, options?: RequestInit): Promise<T> {
   const cacheKey = url;
   const cached = cache.get(cacheKey);
@@ -56,16 +58,25 @@ async function fetchWithCache<T>(url: string, options?: RequestInit): Promise<T>
     return cached.data as T;
   }
 
-  const response = await fetch(url, options);
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), TIMEOUT);
 
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+  try {
+    const response = await fetch(url, { ...options, signal: controller.signal });
+    clearTimeout(id);
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    cache.set(cacheKey, { data, timestamp: Date.now() });
+
+    return data as T;
+  } catch (error) {
+    clearTimeout(id);
+    throw error;
   }
-
-  const data = await response.json();
-  cache.set(cacheKey, { data, timestamp: Date.now() });
-
-  return data as T;
 }
 
 // OpenLibrary API (100% public, no auth)

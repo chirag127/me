@@ -264,31 +264,36 @@ img {
   font-size: var(--text-xs);
   color: white;
   transition: transform var(--transition-bounce);
+  position: relative;
+  z-index: 101;
 }
 
 /* Show hamburger on mobile, CS logo on desktop */
 .apple-menu .menu-hamburger {
   display: none;
   font-size: var(--text-lg);
+  pointer-events: none;
 }
 
 .apple-menu .logo-icon {
   display: block;
+  pointer-events: none;
 }
 
 @media (max-width: 1024px) {
+  .apple-menu {
+    width: 40px;
+    height: 40px;
+    font-size: var(--text-lg);
+    cursor: pointer;
+  }
+
   .apple-menu .menu-hamburger {
     display: block;
   }
 
   .apple-menu .logo-icon {
     display: none;
-  }
-
-  .apple-menu {
-    width: 40px;
-    height: 40px;
-    font-size: var(--text-lg);
   }
 }
 
@@ -1304,6 +1309,10 @@ img {
 
   .content {
     padding: var(--space-4);
+  }
+
+  .breadcrumb {
+    display: none !important;
   }
 }
 

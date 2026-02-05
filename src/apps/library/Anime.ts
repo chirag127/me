@@ -6,7 +6,7 @@ export default async function Anime(c: HTMLElement): Promise<void> {
   try {
     const anime = await getAnimeList();
     const watching = anime.filter(a => a.status === 'CURRENT').slice(0, 12);
-    const el = document.getElementById('anime-grid');
+    const el = c.querySelector('#anime-grid');
     if (el) el.innerHTML = watching.length ? watching.map(a => `<div class="anime-card"><img src="${a.media.coverImage.large}" alt="${a.media.title.romaji}"><div class="anime-info"><div class="anime-title">${a.media.title.english || a.media.title.romaji}</div><div class="anime-progress">${a.progress}/${a.media.episodes || '?'} eps</div></div></div>`).join('') : '<p class="muted">No anime found</p>';
   } catch {}
 }

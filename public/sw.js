@@ -1,4 +1,4 @@
-const CACHE_NAME = 'project-me-v1';
+const CACHE_NAME = 'project-me-v2';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
@@ -19,6 +19,9 @@ self.addEventListener('fetch', (event) => {
 
   // Skip non-http requests
   if (!url.protocol.startsWith('http')) return;
+
+  // Skip external requests (APIs, CDNs, etc.)
+  if (url.origin !== self.location.origin) return;
 
   // Cache First for Assets (images, fonts, css/js)
   if (url.pathname.match(/\.(png|jpg|jpeg|svg|woff2?|css|js)$/) || url.pathname.includes('/assets/')) {

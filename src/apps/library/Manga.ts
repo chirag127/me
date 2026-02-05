@@ -6,7 +6,7 @@ export default async function Manga(c: HTMLElement): Promise<void> {
   try {
     const manga = await getMangaList();
     const reading = manga.filter(m => m.status === 'CURRENT').slice(0, 12);
-    const el = document.getElementById('manga-grid');
+    const el = c.querySelector('#manga-grid');
     if (el) el.innerHTML = reading.length ? reading.map(m => `<div class="manga-card"><img src="${m.media.coverImage.large}" alt="${m.media.title.romaji}"><div class="manga-info"><div class="manga-title">${m.media.title.english || m.media.title.romaji}</div><div class="manga-progress">${m.progress}/${m.media.chapters || '?'} ch</div></div></div>`).join('') : '<p class="muted">No manga found</p>';
   } catch {}
 }

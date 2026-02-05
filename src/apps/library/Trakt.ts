@@ -75,7 +75,7 @@ export default async function Trakt(c: HTMLElement): Promise<void> {
 
   try {
     const films = await getTraktRecentMovies(24);
-    const el = document.getElementById('trakt-films');
+    const el = c.querySelector('#trakt-films');
 
     if (el) {
       if (films.length === 0) {
@@ -98,7 +98,7 @@ export default async function Trakt(c: HTMLElement): Promise<void> {
       `).join('');
     }
   } catch (error) {
-    const el = document.getElementById('trakt-films');
+    const el = c.querySelector('#trakt-films');
     if (el) {
       el.innerHTML = '<p class="muted" style="grid-column: 1/-1; text-align: center;">Failed to load Trakt history.</p>';
     }

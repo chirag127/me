@@ -24,7 +24,7 @@ export default async function BooksRead(c: HTMLElement): Promise<void> {
     ]);
 
     const books = readingLog.reading_log_entries;
-    const totalCount = user?.reading_log_counts?.already_read || readingLog.total_results;
+    const totalCount = user?.reading_log_counts?.already_read || readingLog.total_results || books.length;
 
     if (books.length === 0) {
       c.innerHTML = `
@@ -221,6 +221,8 @@ export default async function BooksRead(c: HTMLElement): Promise<void> {
     `;
   } catch (error) {
     console.error('Failed to load books:', error);
+    const errorMsg = error instanceof Error ? error.message : 'Unknown error';
+
     c.innerHTML = `
       <div class="page animate-fade-in">
         <header class="page-header">
@@ -230,8 +232,12 @@ export default async function BooksRead(c: HTMLElement): Promise<void> {
         <div class="glass-panel empty-state">
           <span class="empty-icon">⚠️</span>
           <h3>Unable to Load Books</h3>
-          <p>There was an error fetching the reading log. Please try again later.</p>
-          <a href="https://openlibrary.org/people/${CONFIG.user.openlibrary}" target="_blank" class="btn btn-primary">View on OpenLibrary →</a>
+          <p>Error: ${errorMsg}</p>
+          <p class="text-xs text-muted" style="margin-top: 0.5rem; word-break: break-all;">Check console for details.</p>
+          <div style="margin-top: 1rem; display: flex; gap: 0.5rem; justify-content: center;">
+            <a href="https://openlibrary.org/people/${CONFIG.user.openlibrary}" target="_blank" class="btn btn-primary">View on OpenLibrary →</a>
+            <button onclick="location.reload()" class="btn btn-secondary">Retry</button>
+          </div>
         </div>
       </div>
       <style>
@@ -239,6 +245,8 @@ export default async function BooksRead(c: HTMLElement): Promise<void> {
         .empty-icon { font-size: var(--text-6xl); display: block; margin-bottom: var(--space-4); }
         .empty-state h3 { margin-bottom: var(--space-2); }
         .empty-state p { color: var(--text-secondary); margin-bottom: var(--space-6); }
+        .text-xs { font-size: 0.75rem; }
+        .text-muted { color: var(--text-tertiary); }
       </style>
     `;
   }

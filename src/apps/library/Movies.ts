@@ -54,7 +54,7 @@ export default async function Movies(c: HTMLElement): Promise<void> {
 
   try {
     const films = await getLetterboxdFilms(12);
-    const el = document.getElementById('films');
+    const el = c.querySelector('#films');
 
     if (el) {
       if (films.length === 0) {
@@ -70,7 +70,7 @@ export default async function Movies(c: HTMLElement): Promise<void> {
       `).join('');
     }
   } catch (error) {
-    const el = document.getElementById('films');
+    const el = c.querySelector('#films');
     if (el) {
       el.innerHTML = '<p class="muted"></p>'; // Silent fail
     }

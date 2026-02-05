@@ -20,9 +20,9 @@ export default async function Hub(container: HTMLElement): Promise<void> {
   `;
   try {
     const stats = await getAggregateMediaStats();
-    const scrobbles = document.getElementById('scrobbles');
-    const anime = document.getElementById('anime-stats');
-    const manga = document.getElementById('manga-stats');
+    const scrobbles = container.querySelector('#scrobbles');
+    const anime = container.querySelector('#anime-stats');
+    const manga = container.querySelector('#manga-stats');
     if (scrobbles) scrobbles.textContent = `${formatNumber(stats.music.totalScrobbles)} scrobbles`;
     if (anime) anime.textContent = `${stats.anime.completed} completed, ${stats.anime.watching} watching`;
     if (manga) manga.textContent = `${stats.manga.completed} completed, ${stats.manga.reading} reading`;
