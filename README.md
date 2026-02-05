@@ -32,6 +32,22 @@ This is the central hub for all chirag127.in subdomains:
 
 ---
 
+## 🔗 Oriz.in Domains
+
+Subdomains associated with the `oriz.in` domain ecosystem:
+
+| Subdomain | Target | Purpose |
+|-----------|--------|---------|
+| `x.oriz.in` | `finsuite` | Main redirection hub |
+| `money.oriz.in` | `fin.oriz.in` | Finance tools |
+| `finance.oriz.in` | `fin.oriz.in` | Finance tools |
+| `fin.oriz.in` | `fin.oriz.in` | Finance tools |
+| `wealth.oriz.in` | `fin.oriz.in` | Wealth management |
+| `calc.oriz.in` | `fin.oriz.in` | Calculators |
+| `capital.oriz.in` | `fin.oriz.in` | Capital management |
+
+---
+
 ## ✨ Features
 
 - **45+ Virtual App Pages** across 7 drives (ME, WORK, CODE, LIBRARY, GAMING, CONNECT, SYSTEM)
