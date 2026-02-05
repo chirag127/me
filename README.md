@@ -38,7 +38,6 @@ Subdomains associated with the `oriz.in` domain ecosystem:
 
 | Subdomain | Target | Purpose |
 |-----------|--------|---------|
-| `x.oriz.in` | `finsuite` | Main redirection hub |
 | `money.oriz.in` | `fin.oriz.in` | Finance tools |
 | `finance.oriz.in` | `fin.oriz.in` | Finance tools |
 | `fin.oriz.in` | `fin.oriz.in` | Finance tools |
