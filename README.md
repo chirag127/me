@@ -27,7 +27,7 @@ This is the central hub for all chirag127.in subdomains:
 | `me.chirag127.in` | [chirag127/me](https://github.com/chirag127/me) | Portfolio mirror |
 | `pdf.chirag127.in` | *Coming soon* | PDF tools |
 | `fin.chirag127.in` | [*finance*](https://fin.oriz.in/) | Finance tools |
-| `dev.chirag127.in` | dev.chirag127.in | Developer tools |
+| `dev.chirag127.in` | [dev.chirag127.in](https://dev.chirag127.in) | Developer tools |
 | `hub.chirag127.in` | *Coming soon* | Project hub |
 
 ---
@@ -38,12 +38,12 @@ Subdomains associated with the `oriz.in` domain ecosystem:
 
 | Subdomain | Target | Purpose |
 |-----------|--------|---------|
-| `money.oriz.in` | `fin.oriz.in` | Finance tools |
-| `finance.oriz.in` | `fin.oriz.in` | Finance tools |
-| `fin.oriz.in` | `fin.oriz.in` | Finance tools |
-| `wealth.oriz.in` | `fin.oriz.in` | Wealth management |
-| `calc.oriz.in` | `fin.oriz.in` | Calculators |
-| `capital.oriz.in` | `fin.oriz.in` | Capital management |
+| `money.oriz.in` | [`fin.oriz.in`](https://fin.oriz.in) | Finance tools |
+| `finance.oriz.in` | [`fin.oriz.in`](https://fin.oriz.in) | Finance tools |
+| `fin.oriz.in` | [`fin.oriz.in`](https://fin.oriz.in) | Finance tools |
+| `wealth.oriz.in` | [`fin.oriz.in`](https://fin.oriz.in) | Wealth management |
+| `calc.oriz.in` | [`fin.oriz.in`](https://fin.oriz.in) | Calculators |
+| `capital.oriz.in` | [`fin.oriz.in`](https://fin.oriz.in) | Capital management |
 
 ---
 

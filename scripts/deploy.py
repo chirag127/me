@@ -45,6 +45,7 @@ class CloudflareDeployer:
              "--project-name", PROJECT_NAME, "--branch", "main"],
             capture_output=True,
             text=True,
+            encoding="utf-8",
             env=env,
             cwd=Path(__file__).parent.parent
         )
@@ -131,6 +132,7 @@ class NetlifyDeployer:
              "--site", self.site_id, "--auth", self.auth_token],
             capture_output=True,
             text=True,
+            encoding="utf-8",
             cwd=Path(__file__).parent.parent
         )
 
@@ -163,6 +165,7 @@ class VercelDeployer:
             ["npx.cmd", "vercel", "--prod", "--yes"],
             capture_output=True,
             text=True,
+            encoding="utf-8",
             env=env,
             cwd=Path(__file__).parent.parent
         )
@@ -193,6 +196,7 @@ class SurgeDeployer:
             ["npx.cmd", "surge", str(DIST_DIR), self.domain],
             capture_output=True,
             text=True,
+            encoding="utf-8",
             env=env,
             cwd=Path(__file__).parent.parent
         )
@@ -213,6 +217,7 @@ def build_project() -> bool:
         ["npm.cmd", "run", "build"],
         capture_output=True,
         text=True,
+        encoding="utf-8",
         cwd=Path(__file__).parent.parent
     )
 
