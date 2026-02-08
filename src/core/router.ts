@@ -29,6 +29,10 @@ export const routes: Route[] = [
   { path: '/me/travel', name: 'Travel', icon: '✈️', component: () => import('../apps/me/Travel'), drive: 'ME', breadcrumb: ['Me', 'Travel'] },
   { path: '/me/gear', name: 'Gear', icon: '⚙️', component: () => import('../apps/me/Gear'), drive: 'ME', breadcrumb: ['Me', 'Gear'] },
   { path: '/me/journal', name: 'Journal', icon: '📝', component: () => import('../apps/me/Journal'), drive: 'ME', breadcrumb: ['Me', 'Journal'] },
+  { path: '/me/interests', name: 'Interests', icon: '💡', component: () => import('../apps/me/Interests'), drive: 'ME', breadcrumb: ['Me', 'Interests'] },
+  { path: '/me/passions', name: 'Passions', icon: '❤️', component: () => import('../apps/me/Passions'), drive: 'ME', breadcrumb: ['Me', 'Passions'] },
+  { path: '/me/hobbies', name: 'Hobbies', icon: '🎯', component: () => import('../apps/me/Hobbies'), drive: 'ME', breadcrumb: ['Me', 'Hobbies'] },
+  { path: '/me/fetish', name: 'Fetish', icon: '🔞', component: () => import('../apps/me/Fetish'), drive: 'ME', breadcrumb: ['Me', 'Fetish'] },
 
   // Drive B: /WORK (Professional)
   { path: '/work/index', name: 'Summary', icon: '💼', component: () => import('../apps/work/Summary'), drive: 'WORK', breadcrumb: ['Work', 'Summary'] },

@@ -4,7 +4,6 @@
  */
 
 import { RESUME } from '../../data/resume';
-import { getFormattedWeather } from '../../services/utility';
 import { getDiscordStatus } from '../../services/utility';
 import { getNowPlaying } from '../../services/media';
 import { getAggregateCodingStats } from '../../services/coding';
@@ -32,17 +31,15 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
           </div>
         </div>
 
-        <!-- Weather Card -->
-        <div class="bento-item" id="weather-card">
+        <!-- Now Playing -->
+        <div class="bento-item" id="music-card">
           <div class="card-header">
-            <span class="card-icon">🌤️</span>
-            <h3>Weather in ${CONFIG.location.name}</h3>
+            <span class="card-icon">🎵</span>
+            <h3>Now Playing</h3>
           </div>
-          <div class="weather-main" id="weather-main">
-            <span class="weather-temp">--°</span>
-            <span class="weather-desc">Loading...</span>
+          <div class="now-playing" id="now-playing">
+            <p class="muted">Not playing anything</p>
           </div>
-          <div class="weather-forecast" id="weather-forecast"></div>
         </div>
 
         <!-- About Card -->
@@ -76,22 +73,6 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
           <a href="#/work/skills" class="btn btn-ghost">View All Skills →</a>
         </div>
 
-        <!-- Latest Project -->
-        <div class="bento-item span-2">
-          <div class="card-header">
-            <span class="card-icon">🚀</span>
-            <h3>Featured Project</h3>
-          </div>
-          <div class="project-preview">
-            <h4>${RESUME.projects[0].name}</h4>
-            <div class="project-tech">
-              ${RESUME.projects[0].techStack.map(t => `<span class="tag primary">${t}</span>`).join('')}
-            </div>
-            <p>${RESUME.projects[0].highlights[0].slice(0, 120)}...</p>
-          </div>
-          <a href="#/work/projects" class="btn btn-ghost">View Projects →</a>
-        </div>
-
         <!-- Quick Links -->
         <div class="bento-item">
           <div class="card-header">
@@ -112,6 +93,22 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
               <span>→</span>
             </a>
           </div>
+        </div>
+
+        <!-- Featured Project -->
+        <div class="bento-item span-2">
+          <div class="card-header">
+            <span class="card-icon">🚀</span>
+            <h3>Featured Project</h3>
+          </div>
+          <div class="project-preview">
+            <h4>${RESUME.projects[0].name}</h4>
+            <div class="project-tech">
+              ${RESUME.projects[0].techStack.map(t => `<span class="tag primary">${t}</span>`).join('')}
+            </div>
+            <p>${RESUME.projects[0].highlights[0].slice(0, 120)}...</p>
+          </div>
+          <a href="#/work/projects" class="btn btn-ghost">View Projects →</a>
         </div>
 
         <!-- Quick Stats -->
@@ -137,17 +134,6 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
               <span class="stat-value" id="stat-followers">--</span>
               <span class="stat-label">Followers</span>
             </div>
-          </div>
-        </div>
-
-        <!-- Now Playing -->
-        <div class="bento-item" id="music-card">
-          <div class="card-header">
-            <span class="card-icon">🎵</span>
-            <h3>Now Playing</h3>
-          </div>
-          <div class="now-playing" id="now-playing">
-            <p class="muted">Not playing anything</p>
           </div>
         </div>
       </div>
@@ -189,55 +175,7 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
         font-size: var(--text-xl);
       }
 
-      .weather-main {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: var(--space-4);
-      }
 
-      .weather-temp {
-        font-size: var(--text-4xl);
-        font-weight: 700;
-        background: var(--gradient-primary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .weather-desc {
-        color: var(--text-secondary);
-      }
-
-      .weather-forecast {
-        display: flex;
-        gap: var(--space-2);
-        overflow-x: auto;
-      }
-
-      .forecast-day {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: var(--space-2);
-        background: var(--glass-bg);
-        border-radius: var(--radius-md);
-        min-width: 60px;
-      }
-
-      .forecast-day span:first-child {
-        font-size: var(--text-xs);
-        color: var(--text-tertiary);
-      }
-
-      .forecast-day .forecast-icon {
-        font-size: var(--text-lg);
-        margin: var(--space-1) 0;
-      }
-
-      .forecast-day .forecast-temp {
-        font-size: var(--text-xs);
-        font-weight: 500;
-      }
 
       .now-playing {
         display: flex;
@@ -375,38 +313,12 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
   `;
 
   // Load dynamic data
-  loadWeather();
   loadDiscordStatus();
   loadNowPlaying();
   loadCodingStats();
 }
 
-async function loadWeather(): Promise<void> {
-  try {
-    const weather = await getFormattedWeather();
 
-    const weatherMain = document.getElementById('weather-main');
-    if (weatherMain) {
-      weatherMain.innerHTML = `
-        <span class="weather-temp">${weather.temperature}°C</span>
-        <span class="weather-desc">${weather.icon} ${weather.description}</span>
-      `;
-    }
-
-    const forecastContainer = document.getElementById('weather-forecast');
-    if (forecastContainer) {
-      forecastContainer.innerHTML = weather.forecast.slice(0, 4).map(day => `
-        <div class="forecast-day">
-          <span>${day.date}</span>
-          <span class="forecast-icon">${day.icon}</span>
-          <span class="forecast-temp">${day.high}°/${day.low}°</span>
-        </div>
-      `).join('');
-    }
-  } catch (error) {
-    console.error('Failed to load weather:', error);
-  }
-}
 
 async function loadDiscordStatus(): Promise<void> {
   try {
