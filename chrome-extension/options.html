@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeLogger Options</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+      color: #e0e0e0;
+      min-height: 100vh;
+      padding: 40px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    p.subtitle {
+      color: #888;
+      margin-bottom: 32px;
+    }
+    .section {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .section h2 {
+      font-size: 16px;
+      margin-bottom: 16px;
+      color: #6366f1;
+    }
+    .option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .option:last-child { border-bottom: none; }
+    .option-label {
+      display: flex;
+      flex-direction: column;
+    }
+    .option-label span:first-child {
+      font-weight: 500;
+    }
+    .option-label span:last-child {
+      font-size: 12px;
+      color: #888;
+    }
+    .toggle {
+      width: 48px;
+      height: 26px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 13px;
+      position: relative;
+      cursor: pointer;
+    }
+    .toggle.active { background: #6366f1; }
+    .toggle::after {
+      content: '';
+      width: 22px;
+      height: 22px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.2s;
+    }
+    .toggle.active::after { transform: translateX(22px); }
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-danger {
+      background: #ef4444;
+      color: white;
+    }
+    .btn-danger:hover { background: #dc2626; }
+    .status { margin-top: 16px; color: #10b981; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>⚡ LifeLogger Options</h1>
+    <p class="subtitle">Configure your digital footprint tracker</p>
+
+    <div class="section">
+      <h2>📸 Screenshots</h2>
+      <div class="option">
+        <div class="option-label">
+          <span>Capture Search Pages</span>
+          <span>Take screenshots of search results</span>
+        </div>
+        <div class="toggle active" id="toggle-search"></div>
+      </div>
+      <div class="option">
+        <div class="option-label">
+          <span>Capture Video Pages</span>
+          <span>Take screenshots when videos are detected</span>
+        </div>
+        <div class="toggle active" id="toggle-video"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🔒 Privacy</h2>
+      <div class="option">
+        <div class="option-label">
+          <span>Blur Forms</span>
+          <span>Blur input fields in screenshots</span>
+        </div>
+        <div class="toggle active" id="toggle-blur"></div>
+      </div>
+      <div class="option">
+        <div class="option-label">
+          <span>Skip Password Pages</span>
+          <span>Never capture pages with password fields</span>
+        </div>
+        <div class="toggle active" id="toggle-password"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>⚠️ Danger Zone</h2>
+      <div class="option">
+        <div class="option-label">
+          <span>Clear All Local Data</span>
+          <span>Remove all cached data from this browser</span>
+        </div>
+        <button class="btn btn-danger" id="clear-data">Clear Data</button>
+      </div>
+    </div>
+
+    <div class="status" id="status"></div>
+  </div>
+
+  <script>
+    // Toggle click handlers
+    document.querySelectorAll('.toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        showStatus('Settings saved');
+      });
+    });
+
+    // Clear data
+    document.getElementById('clear-data').addEventListener('click', async () => {
+      if (confirm('This will clear all local data. Continue?')) {
+        await chrome.storage.local.clear();
+        showStatus('All data cleared');
+      }
+    });
+
+    function showStatus(message) {
+      const status = document.getElementById('status');
+      status.textContent = '✓ ' + message;
+      setTimeout(() => status.textContent = '', 2000);
+    }
+  </script>
+</body>
+</html>

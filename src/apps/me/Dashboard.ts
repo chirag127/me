@@ -4,11 +4,9 @@
  */
 
 import { RESUME } from '../../data/resume';
-import { getDiscordStatus } from '../../services/utility';
 import { getNowPlaying } from '../../services/media';
 import { getAggregateCodingStats } from '../../services/coding';
-import CONFIG from '../../config';
-import { getGreeting, getLocalDate, formatNumber } from '../../services/utility';
+import { getGreeting, formatNumber } from '../../services/utility';
 
 export default async function Dashboard(container: HTMLElement): Promise<void> {
   container.innerHTML = `
@@ -19,16 +17,14 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
       </header>
 
       <div class="bento-grid">
-        <!-- Status Card -->
-        <div class="bento-item span-2" id="status-card">
-          <div class="status-header">
-            <span class="status-dot" id="discord-dot"></span>
-            <span id="discord-status">Loading...</span>
+        <!-- About Card -->
+        <div class="bento-item span-2">
+          <div class="card-header">
+            <span class="card-icon">👤</span>
+            <h3>About Me</h3>
           </div>
-          <div class="now-info">
-            <p id="current-date">${getLocalDate()}</p>
-            <p id="current-activity">Loading activity...</p>
-          </div>
+          <p class="about-text">${RESUME.summary.slice(0, 280)}...</p>
+          <a href="#/me/story" class="btn btn-ghost">Read More →</a>
         </div>
 
         <!-- Now Playing -->
@@ -40,16 +36,6 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
           <div class="now-playing" id="now-playing">
             <p class="muted">Not playing anything</p>
           </div>
-        </div>
-
-        <!-- About Card -->
-        <div class="bento-item">
-          <div class="card-header">
-            <span class="card-icon">👤</span>
-            <h3>About</h3>
-          </div>
-          <p class="about-text">${RESUME.summary.slice(0, 200)}...</p>
-          <a href="#/me/story" class="btn btn-ghost">Read More →</a>
         </div>
 
         <!-- Skills Preview -->
@@ -112,23 +98,23 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
         </div>
 
         <!-- Quick Stats -->
-        <div class="bento-item span-2" id="stats-card">
+        <div class="bento-item" id="stats-card">
           <div class="card-header">
             <span class="card-icon">📊</span>
-            <h3>Coding Stats</h3>
+            <h3>Stats</h3>
           </div>
-          <div class="stats-grid" id="stats-grid">
+          <div class="stats-grid compact" id="stats-grid">
             <div class="stat-item">
               <span class="stat-value" id="stat-repos">--</span>
-              <span class="stat-label">Repositories</span>
+              <span class="stat-label">Repos</span>
             </div>
             <div class="stat-item">
               <span class="stat-value" id="stat-stars">--</span>
-              <span class="stat-label">GitHub Stars</span>
+              <span class="stat-label">Stars</span>
             </div>
             <div class="stat-item">
               <span class="stat-value" id="stat-leetcode">--</span>
-              <span class="stat-label">LeetCode Solved</span>
+              <span class="stat-label">LeetCode</span>
             </div>
             <div class="stat-item">
               <span class="stat-value" id="stat-followers">--</span>
@@ -235,6 +221,15 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
         color: var(--text-secondary);
       }
 
+      .stats-grid.compact {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-2);
+      }
+
+      .stats-grid.compact .stat-value {
+        font-size: var(--text-lg);
+      }
+
       .about-text {
         color: var(--text-secondary);
         font-size: var(--text-sm);
@@ -313,42 +308,13 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
   `;
 
   // Load dynamic data
-  loadDiscordStatus();
   loadNowPlaying();
   loadCodingStats();
 }
 
 
 
-async function loadDiscordStatus(): Promise<void> {
-  try {
-    const status = await getDiscordStatus();
 
-    const dot = document.getElementById('discord-dot') as HTMLElement;
-    const statusText = document.getElementById('discord-status');
-    const activity = document.getElementById('current-activity');
-
-    if (dot) {
-      dot.style.background = status.statusColor;
-    }
-
-    if (statusText) {
-      statusText.textContent = status.status.charAt(0).toUpperCase() + status.status.slice(1);
-    }
-
-    if (activity) {
-      if (status.spotify) {
-        activity.textContent = `🎧 Listening to ${status.spotify.song} by ${status.spotify.artist}`;
-      } else if (status.activity) {
-        activity.textContent = `${status.activity}`;
-      } else {
-        activity.textContent = 'Doing something awesome...';
-      }
-    }
-  } catch (error) {
-    console.error('Failed to load Discord status:', error);
-  }
-}
 
 async function loadNowPlaying(): Promise<void> {
   try {

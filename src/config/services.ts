@@ -72,7 +72,7 @@ export const engagement = {
     },
     tawkto: {
         source: 'https://embed.tawk.to/6968e3ea8783b31983eb190b/1jf0rkjhp',
-        enabled: true
+        enabled: false
     },
     addtoany: {
         enabled: true

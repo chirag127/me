@@ -54,15 +54,28 @@ export const routes: Route[] = [
 
   // Drive D: /LIBRARY (Media Archive)
   { path: '/library/index', name: 'Hub', icon: '📚', component: () => import('../apps/library/Hub'), drive: 'LIBRARY', breadcrumb: ['Library', 'Hub'] },
-  { path: '/library/books/read', name: 'Books Read', icon: '📕', component: () => import('../apps/library/BooksRead'), drive: 'LIBRARY', breadcrumb: ['Library', 'Books', 'Read'] },
-  { path: '/library/books/tbr', name: 'Books TBR', icon: '📗', component: () => import('../apps/library/BooksTBR'), drive: 'LIBRARY', breadcrumb: ['Library', 'Books', 'TBR'] },
-  { path: '/library/music/top', name: 'Top Music', icon: '🎵', component: () => import('../apps/library/MusicTop'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Top'] },
-  { path: '/library/music/recent', name: 'Recent Music', icon: '🎧', component: () => import('../apps/library/MusicRecent'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Recent'] },
-  { path: '/library/cinema', name: 'Movies', icon: '🎬', component: () => import('../apps/library/Movies'), drive: 'LIBRARY', breadcrumb: ['Library', 'Movies'] },
-  { path: '/library/trakt', name: 'Tracking', icon: '🎫', component: () => import('../apps/library/Trakt'), drive: 'LIBRARY', breadcrumb: ['Library', 'Tracking'] },
-  { path: '/library/tv', name: 'TV', icon: '📺', component: () => import('../apps/library/TV'), drive: 'LIBRARY', breadcrumb: ['Library', 'TV'] },
-  { path: '/library/anime', name: 'Anime', icon: '🎌', component: () => import('../apps/library/Anime'), drive: 'LIBRARY', breadcrumb: ['Library', 'Anime'] },
-  { path: '/library/manga', name: 'Manga', icon: '📰', component: () => import('../apps/library/Manga'), drive: 'LIBRARY', breadcrumb: ['Library', 'Manga'] },
+
+  // Trakt.tv
+  { path: '/library/trakt-movies', name: 'Trakt Movies', icon: '🎬', component: () => import('../apps/library/TraktMovies'), drive: 'LIBRARY', breadcrumb: ['Library', 'Trakt', 'Movies'] },
+  { path: '/library/trakt-tvshows', name: 'Trakt TV', icon: '📺', component: () => import('../apps/library/TraktTVShows'), drive: 'LIBRARY', breadcrumb: ['Library', 'Trakt', 'TV Shows'] },
+  { path: '/library/trakt-activity', name: 'Trakt Activity', icon: '🎫', component: () => import('../apps/library/TraktActivity'), drive: 'LIBRARY', breadcrumb: ['Library', 'Trakt', 'Activity'] },
+
+  // Last.fm
+  { path: '/library/lastfm-nowplaying', name: 'Now Playing', icon: '🎵', component: () => import('../apps/library/LastfmNowPlaying'), drive: 'LIBRARY', breadcrumb: ['Library', 'Last.fm', 'Now Playing'] },
+  { path: '/library/lastfm-recent', name: 'Recent Tracks', icon: '🎧', component: () => import('../apps/library/LastfmRecent'), drive: 'LIBRARY', breadcrumb: ['Library', 'Last.fm', 'Recent'] },
+  { path: '/library/lastfm-top', name: 'Top Tracks', icon: '🏆', component: () => import('../apps/library/LastfmTop'), drive: 'LIBRARY', breadcrumb: ['Library', 'Last.fm', 'Top'] },
+
+  // Goodreads
+  { path: '/library/goodreads-read', name: 'Books Read', icon: '📕', component: () => import('../apps/library/GoodreadsRead'), drive: 'LIBRARY', breadcrumb: ['Library', 'Goodreads', 'Read'] },
+  { path: '/library/goodreads-tbr', name: 'Books TBR', icon: '📗', component: () => import('../apps/library/GoodreadsTBR'), drive: 'LIBRARY', breadcrumb: ['Library', 'Goodreads', 'TBR'] },
+
+  // AniList
+  { path: '/library/anilist-anime', name: 'Anime', icon: '🎌', component: () => import('../apps/library/AnilistAnime'), drive: 'LIBRARY', breadcrumb: ['Library', 'AniList', 'Anime'] },
+  { path: '/library/anilist-manga', name: 'Manga', icon: '📰', component: () => import('../apps/library/AnilistManga'), drive: 'LIBRARY', breadcrumb: ['Library', 'AniList', 'Manga'] },
+
+  // LifeLogger
+  { path: '/library/lifelogger-history', name: 'Browse History', icon: '🌐', component: () => import('../apps/library/LifeloggerHistory'), drive: 'LIBRARY', breadcrumb: ['Library', 'LifeLogger', 'History'] },
+  { path: '/library/lifelogger-videos', name: 'Videos', icon: '📹', component: () => import('../apps/library/LifeloggerVideos'), drive: 'LIBRARY', breadcrumb: ['Library', 'LifeLogger', 'Videos'] },
 
   // Drive E: /GAMING (The Arcade)
   { path: '/gaming/index', name: 'Profile', icon: '🎮', component: () => import('../apps/gaming/Profile'), drive: 'GAMING', breadcrumb: ['Gaming', 'Profile'] },
