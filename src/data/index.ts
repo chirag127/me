@@ -11,7 +11,7 @@ export { SOCIAL, getLinksByCategory, type SocialLink, type SocialLinks } from '.
 export { RESUME, type Resume, type PersonalInfo, type Experience, type Project, type Education } from './resume';
 
 // Life Data
-export { GEAR, getCurrentGear, getGearHistory, type GearItem, type GearCategory } from './gear';
+export { GEAR, getCurrentGear, getGearHistory, getGearByCategory, getTotalGearValue, type GearItem, type GearCategory } from './gear';
 export {
     MILESTONES,
     getOnThisDay,

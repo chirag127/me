@@ -4,6 +4,7 @@
  */
 
 import { RESUME } from '../../data/resume';
+import { SOCIAL, IDENTITY } from '../../data';
 import { getNowPlaying } from '../../services/media';
 import { getAggregateCodingStats } from '../../services/coding';
 import { getGreeting, formatNumber } from '../../services/utility';
@@ -66,15 +67,15 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
             <h3>Quick Links</h3>
           </div>
           <div class="quick-links">
-            <a href="https://github.com/${RESUME.personal.github}" target="_blank" class="quick-link">
+            <a href="${SOCIAL.github.url}" target="_blank" class="quick-link">
               <span>GitHub</span>
               <span>→</span>
             </a>
-            <a href="https://linkedin.com/in/${RESUME.personal.linkedin}" target="_blank" class="quick-link">
+            <a href="${SOCIAL.linkedin.url}" target="_blank" class="quick-link">
               <span>LinkedIn</span>
               <span>→</span>
             </a>
-            <a href="mailto:${RESUME.personal.email}" class="quick-link">
+            <a href="mailto:${IDENTITY.email}" class="quick-link">
               <span>Email</span>
               <span>→</span>
             </a>
