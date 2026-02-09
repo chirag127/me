@@ -20,9 +20,23 @@ export {
     getRecentMilestones,
     type Milestone
 } from './milestones';
+export {
+    PURCHASES,
+    getPurchasesByCategory,
+    getPurchasesByYear,
+    getDeliveredPurchases,
+    getTotalSpent,
+    getSpendingByCategory,
+    getRecentPurchases,
+    type Purchase
+} from './purchases';
 
 // Configuration
 export { API_ENDPOINTS, API_KEYS, LOCATION, type ApiEndpoints, type ApiKeys, type LocationConfig } from './api-config';
+
+// History
+export { historyManager } from './history';
+export type { HistoryEntry, HistoryMetadata, HistoryKey } from './history';
 
 // Re-export store
 export { store } from './store';
