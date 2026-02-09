@@ -4,15 +4,26 @@
 
 ## 🌐 Live Sites
 
+### Primary Domain
+All these subdomains point to the main portfolio at **chirag127.in**:
+
+| URL | Description |
+|-----|-------------|
+| [chirag127.in](https://chirag127.in) | Primary domain (Cloudflare Pages) |
+| [www.chirag127.in](https://www.chirag127.in) | WWW redirect |
+| [me.chirag127.in](https://me.chirag127.in) | Portfolio subdomain |
+| [my.chirag127.in](https://my.chirag127.in) | My subdomain |
+| [portfolio.chirag127.in](https://portfolio.chirag127.in) | Portfolio alias |
+
+### Hosting Platforms
+
 | Platform | URL | Status |
 |----------|-----|--------|
-| **Primary** | [chirag127.in](https://chirag127.in) | ✅ Live |
-| **WWW** | [www.chirag127.in](https://www.chirag127.in) | ✅ Live |
-| **Me Subdomain** | [me.chirag127.in](https://me.chirag127.in) | ✅ Live |
 | **Cloudflare Pages** | [me-791.pages.dev](https://me-791.pages.dev) | ✅ Live |
+| **Surge** | [chirag127.surge.sh](https://chirag127.surge.sh) | ✅ Live |
 | **Netlify** | [chirag127.netlify.app](https://chirag127.netlify.app) | ✅ Live |
 | **Vercel** | [chirag127.vercel.app](https://chirag127.vercel.app) | ⚠️ Build Issue |
-| **Surge** | [chirag127.surge.sh](https://chirag127.surge.sh) | ✅ Live |
+| **Neocities** | [chirag127.neocities.org](https://chirag127.neocities.org) | ✅ Live |
 
 ---
 
