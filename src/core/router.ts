@@ -59,15 +59,25 @@ export const routes: Route[] = [
   { path: '/library/movies', name: 'Movies', icon: '🎬', component: () => import('../apps/library/Movies'), drive: 'LIBRARY', breadcrumb: ['Library', 'Movies'] },
   { path: '/library/tv-shows', name: 'TV Shows', icon: '📺', component: () => import('../apps/library/TVShows'), drive: 'LIBRARY', breadcrumb: ['Library', 'TV Shows'] },
   { path: '/library/watch-activity', name: 'Watch Activity', icon: '🎫', component: () => import('../apps/library/WatchActivity'), drive: 'LIBRARY', breadcrumb: ['Library', 'Watch Activity'] },
+  { path: '/library/ratings', name: 'Ratings', icon: '⭐', component: () => import('../apps/library/Ratings'), drive: 'LIBRARY', breadcrumb: ['Library', 'Ratings'] },
+  { path: '/library/collection', name: 'Collection', icon: '📀', component: () => import('../apps/library/Collection'), drive: 'LIBRARY', breadcrumb: ['Library', 'Collection'] },
+  { path: '/library/lists', name: 'Lists', icon: '📋', component: () => import('../apps/library/Lists'), drive: 'LIBRARY', breadcrumb: ['Library', 'Lists'] },
+  { path: '/library/social', name: 'Social', icon: '👥', component: () => import('../apps/library/Social'), drive: 'LIBRARY', breadcrumb: ['Library', 'Social'] },
 
   // Music
   { path: '/library/music-now-playing', name: 'Now Playing', icon: '🎵', component: () => import('../apps/library/MusicNowPlaying'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Now Playing'] },
   { path: '/library/music-recent', name: 'Recent Tracks', icon: '🎧', component: () => import('../apps/library/MusicRecent'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Recent'] },
   { path: '/library/music-top', name: 'Top Tracks', icon: '🏆', component: () => import('../apps/library/MusicTop'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Top'] },
+  { path: '/library/music-loved', name: 'Loved Tracks', icon: '❤️', component: () => import('../apps/library/MusicLovedTracks'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Loved'] },
+  { path: '/library/music-friends', name: 'Friends', icon: '👥', component: () => import('../apps/library/MusicFriends'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Friends'] },
+  { path: '/library/music-tags', name: 'Tags', icon: '🏷️', component: () => import('../apps/library/MusicTags'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Tags'] },
+  { path: '/library/music-charts', name: 'Charts', icon: '📊', component: () => import('../apps/library/MusicCharts'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Charts'] },
+  { path: '/library/music-profile', name: 'Profile', icon: '👤', component: () => import('../apps/library/MusicProfile'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Profile'] },
 
   // Books
   { path: '/library/books-read', name: 'Books Read', icon: '📕', component: () => import('../apps/library/BooksRead'), drive: 'LIBRARY', breadcrumb: ['Library', 'Books', 'Read'] },
   { path: '/library/books-tbr', name: 'Books TBR', icon: '📗', component: () => import('../apps/library/BooksTBR'), drive: 'LIBRARY', breadcrumb: ['Library', 'Books', 'TBR'] },
+  { path: '/library/books-reading', name: 'Currently Reading', icon: '📖', component: () => import('../apps/library/BooksCurrentlyReading'), drive: 'LIBRARY', breadcrumb: ['Library', 'Books', 'Reading'] },
 
   // Anime & Manga
   { path: '/library/anime', name: 'Anime', icon: '🎌', component: () => import('../apps/library/Anime'), drive: 'LIBRARY', breadcrumb: ['Library', 'Anime'] },

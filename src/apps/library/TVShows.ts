@@ -95,7 +95,7 @@ export default async function TraktTVShows(container: HTMLElement): Promise<void
 
       .shows-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
         gap: var(--space-4);
       }
 
@@ -118,10 +118,40 @@ export default async function TraktTVShows(container: HTMLElement): Promise<void
 
       .show-poster {
         width: 100%;
-        aspect-ratio: 16/9;
+        aspect-ratio: 2/3;
         object-fit: cover;
         background: rgba(255, 255, 255, 0.05);
       }
+
+      .show-poster-placeholder {
+        width: 100%;
+        aspect-ratio: 2/3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-2);
+        padding: var(--space-3);
+        text-align: center;
+      }
+
+      .poster-icon {
+        font-size: 2rem;
+        opacity: 0.9;
+      }
+
+      .poster-title {
+        font-size: var(--text-xs);
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
 
       .show-info {
         padding: var(--space-3);
@@ -294,7 +324,7 @@ async function loadShows(tab: string): Promise<void> {
       return;
     }
 
-    let shows: { title: string; year: number; tmdbId: number; plays?: number }[] = [];
+    let shows: { title: string; year: number; tmdbId: number; imdbId: string; plays?: number }[] = [];
 
     switch (tab) {
       case 'watched':
@@ -303,6 +333,7 @@ async function loadShows(tab: string): Promise<void> {
           title: s.show.title,
           year: s.show.year,
           tmdbId: s.show.ids.tmdb,
+          imdbId: s.show.ids.imdb,
           plays: s.plays
         }));
         break;
@@ -311,7 +342,8 @@ async function loadShows(tab: string): Promise<void> {
         shows = watchlist.filter(w => w.show).map(w => ({
           title: w.show!.title,
           year: w.show!.year,
-          tmdbId: w.show!.ids.tmdb
+          tmdbId: w.show!.ids.tmdb,
+          imdbId: w.show!.ids.imdb
         }));
         break;
     }
@@ -321,32 +353,54 @@ async function loadShows(tab: string): Promise<void> {
       return;
     }
 
-    container.innerHTML = shows.map(show => `
-      <a href="https://www.themoviedb.org/tv/${show.tmdbId}" target="_blank" class="show-card">
-        <img class="show-poster" src="https://via.placeholder.com/200x112?text=📺" alt="${show.title}">
-        ${show.plays ? `<div class="show-episodes">${show.plays} eps</div>` : ''}
-        <div class="show-info">
-          <div class="show-title">${show.title}</div>
-          <div class="show-meta">${show.year}</div>
-        </div>
-      </a>
-    `).join('');
+    // FM-DB API: Free Movie Database - no auth required
+    const FMDB_POSTER_URL = 'https://imdb.iamidiotareyoutoo.com/photo';
 
-    // Fix posters with TMDB API
-    container.querySelectorAll('.show-poster').forEach(async (img, i) => {
-      const tmdbId = shows[i]?.tmdbId;
-      if (tmdbId) {
-        try {
-          const res = await fetch(`https://api.themoviedb.org/3/tv/${tmdbId}?api_key=2a2fb17f9d4242a4901ec8d77bb5dcc6`);
-          const data = await res.json();
-          if (data.backdrop_path) {
-            (img as HTMLImageElement).src = `https://image.tmdb.org/t/p/w500${data.backdrop_path}`;
-          } else if (data.poster_path) {
-            (img as HTMLImageElement).src = `https://image.tmdb.org/t/p/w300${data.poster_path}`;
-          }
-        } catch {}
-      }
-    });
+    container.innerHTML = shows.map(show => {
+      // Use FM-DB poster API with IMDB ID - no auth required
+      const posterUrl = show.imdbId
+        ? `${FMDB_POSTER_URL}/${show.imdbId}?w=300&h=450`
+        : '';
+
+      // Fallback gradient for shows without IMDB ID
+      const getGradient = (title: string) => {
+        const colors = [
+          ['#667eea', '#764ba2'], ['#f093fb', '#f5576c'], ['#4facfe', '#00f2fe'],
+          ['#43e97b', '#38f9d7'], ['#fa709a', '#fee140'], ['#a18cd1', '#fbc2eb']
+        ];
+        const idx = title.split('').reduce((a, c) => a + c.charCodeAt(0), 0) % colors.length;
+        return colors[idx];
+      };
+      const [c1, c2] = getGradient(show.title);
+
+      return show.imdbId ? `
+        <a href="https://www.imdb.com/title/${show.imdbId}" target="_blank" class="show-card">
+          <img class="show-poster" src="${posterUrl}"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="${show.title}">
+          <div class="show-poster-placeholder" style="display:none;background:linear-gradient(135deg,${c1},${c2});">
+            <span class="poster-icon">📺</span>
+            <span class="poster-title">${show.title}</span>
+          </div>
+          ${show.plays ? `<div class="show-episodes">${show.plays} eps</div>` : ''}
+          <div class="show-info">
+            <div class="show-title">${show.title}</div>
+            <div class="show-meta">${show.year}</div>
+          </div>
+        </a>
+      ` : `
+        <a href="https://www.themoviedb.org/tv/${show.tmdbId}" target="_blank" class="show-card">
+          <div class="show-poster-placeholder" style="background:linear-gradient(135deg,${c1},${c2});">
+            <span class="poster-icon">📺</span>
+            <span class="poster-title">${show.title}</span>
+          </div>
+          ${show.plays ? `<div class="show-episodes">${show.plays} eps</div>` : ''}
+          <div class="show-info">
+            <div class="show-title">${show.title}</div>
+            <div class="show-meta">${show.year}</div>
+          </div>
+        </a>
+      `;
+    }).join('');
   } catch (error) {
     container.innerHTML = '<div class="loading-state">Failed to load shows. Make sure Trakt profile is public.</div>';
   }

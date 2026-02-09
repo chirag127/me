@@ -47,6 +47,58 @@ export const LastFmAPI = {
     const res = await fetch(url);
     const data = await res.json();
     return data.user || null;
+  },
+
+  async getLovedTracks(limit = 50): Promise<LastFmLovedTrack[]> {
+    const url = `${CONFIG.api.lastfm}?method=user.getlovedtracks&user=${CONFIG.user.lastfm}&api_key=${CONFIG.keys.lastfmApiKey}&format=json&limit=${limit}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.lovedtracks?.track || [];
+  },
+
+  async getFriends(limit = 50): Promise<LastFmFriend[]> {
+    const url = `${CONFIG.api.lastfm}?method=user.getfriends&user=${CONFIG.user.lastfm}&api_key=${CONFIG.keys.lastfmApiKey}&format=json&limit=${limit}&recenttracks=1`;
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.friends?.user || [];
+  },
+
+  async getTopTags(limit = 50): Promise<LastFmTag[]> {
+    const url = `${CONFIG.api.lastfm}?method=user.gettoptags&user=${CONFIG.user.lastfm}&api_key=${CONFIG.keys.lastfmApiKey}&format=json&limit=${limit}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.toptags?.tag || [];
+  },
+
+  async getWeeklyChartList(): Promise<LastFmChartWeek[]> {
+    const url = `${CONFIG.api.lastfm}?method=user.getweeklychartlist&user=${CONFIG.user.lastfm}&api_key=${CONFIG.keys.lastfmApiKey}&format=json`;
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.weeklychartlist?.chart || [];
+  },
+
+  async getWeeklyTrackChart(from?: number, to?: number): Promise<LastFmWeeklyTrack[]> {
+    let url = `${CONFIG.api.lastfm}?method=user.getweeklytrackchart&user=${CONFIG.user.lastfm}&api_key=${CONFIG.keys.lastfmApiKey}&format=json`;
+    if (from && to) url += `&from=${from}&to=${to}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.weeklytrackchart?.track || [];
+  },
+
+  async getWeeklyArtistChart(from?: number, to?: number): Promise<LastFmWeeklyArtist[]> {
+    let url = `${CONFIG.api.lastfm}?method=user.getweeklyartistchart&user=${CONFIG.user.lastfm}&api_key=${CONFIG.keys.lastfmApiKey}&format=json`;
+    if (from && to) url += `&from=${from}&to=${to}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.weeklyartistchart?.artist || [];
+  },
+
+  async getWeeklyAlbumChart(from?: number, to?: number): Promise<LastFmWeeklyAlbum[]> {
+    let url = `${CONFIG.api.lastfm}?method=user.getweeklyalbumchart&user=${CONFIG.user.lastfm}&api_key=${CONFIG.keys.lastfmApiKey}&format=json`;
+    if (from && to) url += `&from=${from}&to=${to}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    return data.weeklyalbumchart?.album || [];
   }
 };
 
@@ -85,6 +137,55 @@ export const TraktAPI = {
   async getStats(): Promise<TraktStats | null> {
     const url = `${CONFIG.api.trakt}/users/${CONFIG.user.trakt}/stats`;
     const res = await fetch(url, { headers: this.headers });
+    return res.json();
+  },
+
+  async getRatings(type: 'movies' | 'shows' | 'all' = 'all'): Promise<TraktRatingItem[]> {
+    const url = `${CONFIG.api.trakt}/users/${CONFIG.user.trakt}/ratings/${type}`;
+    const res = await fetch(url, { headers: this.headers });
+    return res.json();
+  },
+
+  async getCollection(type: 'movies' | 'shows' = 'movies'): Promise<TraktCollectionItem[]> {
+    const url = `${CONFIG.api.trakt}/users/${CONFIG.user.trakt}/collection/${type}`;
+    const res = await fetch(url, { headers: this.headers });
+    return res.json();
+  },
+
+  async getLists(): Promise<TraktList[]> {
+    const url = `${CONFIG.api.trakt}/users/${CONFIG.user.trakt}/lists`;
+    const res = await fetch(url, { headers: this.headers });
+    return res.json();
+  },
+
+  async getListItems(listId: string): Promise<TraktListItem[]> {
+    const url = `${CONFIG.api.trakt}/users/${CONFIG.user.trakt}/lists/${listId}/items`;
+    const res = await fetch(url, { headers: this.headers });
+    return res.json();
+  },
+
+  async getProfile(): Promise<TraktProfile> {
+    const url = `${CONFIG.api.trakt}/users/${CONFIG.user.trakt}`;
+    const res = await fetch(url, { headers: this.headers });
+    return res.json();
+  },
+
+  async getFollowers(): Promise<TraktFollower[]> {
+    const url = `${CONFIG.api.trakt}/users/${CONFIG.user.trakt}/followers`;
+    const res = await fetch(url, { headers: this.headers });
+    return res.json();
+  },
+
+  async getFollowing(): Promise<TraktFollower[]> {
+    const url = `${CONFIG.api.trakt}/users/${CONFIG.user.trakt}/following`;
+    const res = await fetch(url, { headers: this.headers });
+    return res.json();
+  },
+
+  async getWatching(): Promise<TraktWatchingItem | null> {
+    const url = `${CONFIG.api.trakt}/users/${CONFIG.user.trakt}/watching`;
+    const res = await fetch(url, { headers: this.headers });
+    if (res.status === 204) return null;
     return res.json();
   }
 };
@@ -259,6 +360,58 @@ export interface LastFmUser {
   image: { '#text': string; size: string }[];
 }
 
+export interface LastFmLovedTrack {
+  name: string;
+  artist: { name: string; url: string };
+  date: { uts: string; '#text': string };
+  url: string;
+  image: { '#text': string; size: string }[];
+}
+
+export interface LastFmFriend {
+  name: string;
+  realname: string;
+  url: string;
+  country: string;
+  registered: { unixtime: string };
+  image: { '#text': string; size: string }[];
+  recenttrack?: { name: string; artist: { '#text': string } };
+}
+
+export interface LastFmTag {
+  name: string;
+  count: string;
+  url: string;
+}
+
+export interface LastFmChartWeek {
+  from: string;
+  to: string;
+}
+
+export interface LastFmWeeklyTrack {
+  name: string;
+  artist: { '#text': string };
+  playcount: string;
+  url: string;
+  image?: { '#text': string; size: string }[];
+}
+
+export interface LastFmWeeklyArtist {
+  name: string;
+  playcount: string;
+  url: string;
+  mbid?: string;
+}
+
+export interface LastFmWeeklyAlbum {
+  name: string;
+  artist: { '#text': string };
+  playcount: string;
+  url: string;
+  mbid?: string;
+}
+
 export interface TraktMovie {
   plays: number;
   last_watched_at: string;
@@ -286,22 +439,100 @@ export interface TraktHistoryItem {
   watched_at: string;
   action: string;
   type: string;
-  movie?: { title: string; year: number; ids: { tmdb: number } };
-  show?: { title: string; year: number; ids: { tmdb: number } };
+  movie?: { title: string; year: number; ids: { tmdb: number; imdb: string } };
+  show?: { title: string; year: number; ids: { tmdb: number; imdb: string } };
   episode?: { season: number; number: number; title: string };
 }
 
 export interface TraktWatchlistItem {
   rank: number;
   listed_at: string;
-  movie?: { title: string; year: number; ids: { tmdb: number } };
-  show?: { title: string; year: number; ids: { tmdb: number } };
+  movie?: { title: string; year: number; ids: { tmdb: number; imdb: string } };
+  show?: { title: string; year: number; ids: { tmdb: number; imdb: string } };
 }
 
 export interface TraktStats {
   movies: { plays: number; watched: number; minutes: number };
   shows: { watched: number; collected: number };
   episodes: { plays: number; watched: number; minutes: number };
+}
+
+export interface TraktRatingItem {
+  rated_at: string;
+  rating: number;
+  type: 'movie' | 'show' | 'episode';
+  movie?: { title: string; year: number; ids: { tmdb: number; imdb: string } };
+  show?: { title: string; year: number; ids: { tmdb: number; imdb: string } };
+  episode?: { season: number; number: number; title: string; ids: { tmdb: number; imdb: string } };
+}
+
+export interface TraktCollectionItem {
+  collected_at: string;
+  updated_at: string;
+  movie?: { title: string; year: number; ids: { tmdb: number; imdb: string } };
+  show?: { title: string; year: number; ids: { tmdb: number; imdb: string } };
+  seasons?: { number: number; episodes: { number: number; collected_at: string }[] }[];
+}
+
+export interface TraktList {
+  name: string;
+  description: string;
+  privacy: string;
+  display_numbers: boolean;
+  allow_comments: boolean;
+  sort_by: string;
+  sort_how: string;
+  created_at: string;
+  updated_at: string;
+  item_count: number;
+  comment_count: number;
+  likes: number;
+  ids: { trakt: number; slug: string };
+}
+
+export interface TraktListItem {
+  rank: number;
+  listed_at: string;
+  type: 'movie' | 'show';
+  movie?: { title: string; year: number; ids: { tmdb: number; imdb: string } };
+  show?: { title: string; year: number; ids: { tmdb: number; imdb: string } };
+}
+
+export interface TraktProfile {
+  username: string;
+  private: boolean;
+  name: string;
+  vip: boolean;
+  vip_ep: boolean;
+  ids: { slug: string };
+  joined_at: string;
+  location?: string;
+  about?: string;
+  gender?: string;
+  age?: number;
+  images?: { avatar: { full: string } };
+}
+
+export interface TraktFollower {
+  followed_at: string;
+  user: {
+    username: string;
+    private: boolean;
+    name: string;
+    vip: boolean;
+    ids: { slug: string };
+    images?: { avatar: { full: string } };
+  };
+}
+
+export interface TraktWatchingItem {
+  expires_at: string;
+  started_at: string;
+  action: string;
+  type: 'movie' | 'episode';
+  movie?: { title: string; year: number; ids: { tmdb: number; imdb: string } };
+  show?: { title: string; year: number; ids: { tmdb: number; imdb: string } };
+  episode?: { season: number; number: number; title: string };
 }
 
 export interface AniListMedia {

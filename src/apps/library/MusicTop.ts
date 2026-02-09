@@ -86,52 +86,90 @@ export default async function LastfmTop(container: HTMLElement): Promise<void> {
       }
 
       .period-select select {
-        padding: var(--space-2) var(--space-4);
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: var(--space-2) var(--space-5) var(--space-2) var(--space-4);
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: var(--radius-lg);
         color: var(--text-primary);
         font-size: var(--text-sm);
         cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.6)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        transition: all 0.2s;
+      }
+
+      .period-select select:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .period-select select:focus {
+        outline: none;
+        border-color: rgba(99, 102, 241, 0.5);
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
       }
 
       .items-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: var(--space-4);
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: var(--space-5);
       }
 
       .item-card {
         display: flex;
         align-items: center;
         gap: var(--space-4);
-        padding: var(--space-4);
+        padding: var(--space-4) var(--space-5);
         background: rgba(255, 255, 255, 0.03);
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: var(--radius-xl);
-        transition: all 0.2s;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         text-decoration: none;
         color: inherit;
       }
 
       .item-card:hover {
-        background: rgba(255, 255, 255, 0.06);
-        border-color: rgba(99, 102, 241, 0.3);
-        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(99, 102, 241, 0.4);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
       }
 
       .item-rank {
         font-size: var(--text-2xl);
         font-weight: 700;
         color: var(--text-tertiary);
-        width: 40px;
+        width: 44px;
         text-align: center;
+        flex-shrink: 0;
       }
 
-      .item-rank.top-3 {
-        background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      .item-rank.rank-1 {
+        background: linear-gradient(135deg, #ffd700, #ffb700);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: drop-shadow(0 2px 4px rgba(255, 183, 0, 0.3));
+        font-size: var(--text-3xl);
+      }
+
+      .item-rank.rank-2 {
+        background: linear-gradient(135deg, #e8e8e8, #b8b8b8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: drop-shadow(0 2px 4px rgba(184, 184, 184, 0.3));
+      }
+
+      .item-rank.rank-3 {
+        background: linear-gradient(135deg, #cd7f32, #a05a2c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: drop-shadow(0 2px 4px rgba(205, 127, 50, 0.3));
       }
 
       .item-artwork {
@@ -254,17 +292,20 @@ async function loadTracks(container: HTMLElement): Promise<void> {
 
   container.innerHTML = `
     <div class="items-grid">
-      ${tracks.map((track, i) => `
-        <a href="${track.url}" target="_blank" class="item-card">
-          <div class="item-rank ${i < 3 ? 'top-3' : ''}">${i + 1}</div>
-          <img class="item-artwork" src="${getArtwork(track.image)}" alt="" onerror="this.src='https://via.placeholder.com/64?text=🎵'">
+      ${tracks.map((track, i) => {
+        const rankClass = i < 3 ? `rank-${i + 1}` : '';
+        const artistName = track.artist['#text'] || (track.artist as unknown as { name: string }).name;
+        return `
+        <a href="${track.url}" target="_blank" class="item-card" title="${track.name} by ${artistName}">
+          <div class="item-rank ${rankClass}">${i + 1}</div>
+          <img class="item-artwork" src="${getArtwork(track.image)}" alt="${track.name}" onerror="this.src='https://via.placeholder.com/64?text=🎵'">
           <div class="item-info">
-            <div class="item-name">${track.name}</div>
-            <div class="item-secondary">${track.artist['#text'] || (track.artist as unknown as { name: string }).name}</div>
+            <div class="item-name" title="${track.name}">${track.name}</div>
+            <div class="item-secondary" title="${artistName}">${artistName}</div>
           </div>
           <div class="item-plays">${formatNumber(parseInt(track.playcount || '0'))} plays</div>
         </a>
-      `).join('')}
+      `}).join('')}
     </div>
   `;
 }
@@ -279,16 +320,18 @@ async function loadArtists(container: HTMLElement): Promise<void> {
 
   container.innerHTML = `
     <div class="items-grid">
-      ${artists.map((artist, i) => `
-        <a href="${artist.url}" target="_blank" class="item-card">
-          <div class="item-rank ${i < 3 ? 'top-3' : ''}">${i + 1}</div>
-          <img class="item-artwork" src="${getArtwork(artist.image)}" alt="" onerror="this.src='https://via.placeholder.com/64?text=🎤'">
+      ${artists.map((artist, i) => {
+        const rankClass = i < 3 ? `rank-${i + 1}` : '';
+        return `
+        <a href="${artist.url}" target="_blank" class="item-card" title="${artist.name}">
+          <div class="item-rank ${rankClass}">${i + 1}</div>
+          <img class="item-artwork" src="${getArtwork(artist.image)}" alt="${artist.name}" onerror="this.src='https://via.placeholder.com/64?text=🎤'">
           <div class="item-info">
-            <div class="item-name">${artist.name}</div>
+            <div class="item-name" title="${artist.name}">${artist.name}</div>
           </div>
           <div class="item-plays">${formatNumber(parseInt(artist.playcount))} plays</div>
         </a>
-      `).join('')}
+      `}).join('')}
     </div>
   `;
 }
@@ -303,17 +346,19 @@ async function loadAlbums(container: HTMLElement): Promise<void> {
 
   container.innerHTML = `
     <div class="items-grid">
-      ${albums.map((album, i) => `
-        <a href="${album.url}" target="_blank" class="item-card">
-          <div class="item-rank ${i < 3 ? 'top-3' : ''}">${i + 1}</div>
-          <img class="item-artwork" src="${getArtwork(album.image)}" alt="" onerror="this.src='https://via.placeholder.com/64?text=💿'">
+      ${albums.map((album, i) => {
+        const rankClass = i < 3 ? `rank-${i + 1}` : '';
+        return `
+        <a href="${album.url}" target="_blank" class="item-card" title="${album.name} by ${album.artist.name}">
+          <div class="item-rank ${rankClass}">${i + 1}</div>
+          <img class="item-artwork" src="${getArtwork(album.image)}" alt="${album.name}" onerror="this.src='https://via.placeholder.com/64?text=💿'">
           <div class="item-info">
-            <div class="item-name">${album.name}</div>
-            <div class="item-secondary">${album.artist.name}</div>
+            <div class="item-name" title="${album.name}">${album.name}</div>
+            <div class="item-secondary" title="${album.artist.name}">${album.artist.name}</div>
           </div>
           <div class="item-plays">${formatNumber(parseInt(album.playcount))} plays</div>
         </a>
-      `).join('')}
+      `}).join('')}
     </div>
   `;
 }

@@ -113,7 +113,7 @@ export const CONFIG: Config = {
     bluesky: "chirag127.bsky.social",
     anilist: "chirag127",
     letterboxd: "chirag127",
-    trakt: "whyiswhen@gmail.com",
+    trakt: "chirag127",
     openlibrary: "wilarchive",
     hardcover: "chirag127",
     backloggd: "chirag127",

@@ -125,6 +125,35 @@ export default async function TraktMovies(container: HTMLElement): Promise<void>
         background: rgba(255, 255, 255, 0.05);
       }
 
+      .movie-poster-placeholder {
+        width: 100%;
+        aspect-ratio: 2/3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-2);
+        padding: var(--space-3);
+        text-align: center;
+      }
+
+      .poster-icon {
+        font-size: 2.5rem;
+        opacity: 0.9;
+      }
+
+      .poster-title {
+        font-size: var(--text-xs);
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
       .movie-info {
         padding: var(--space-3);
       }
@@ -245,7 +274,7 @@ async function loadMovies(tab: string): Promise<void> {
   `;
 
   try {
-    let movies: { title: string; year: number; tmdbId: number; plays?: number; watchedAt?: string }[] = [];
+    let movies: { title: string; year: number; tmdbId: number; imdbId: string; plays?: number; watchedAt?: string }[] = [];
 
     switch (tab) {
       case 'watched':
@@ -254,6 +283,7 @@ async function loadMovies(tab: string): Promise<void> {
           title: m.movie.title,
           year: m.movie.year,
           tmdbId: m.movie.ids.tmdb,
+          imdbId: m.movie.ids.imdb,
           plays: m.plays,
           watchedAt: m.last_watched_at
         }));
@@ -264,6 +294,7 @@ async function loadMovies(tab: string): Promise<void> {
           title: h.movie!.title,
           year: h.movie!.year,
           tmdbId: h.movie!.ids.tmdb,
+          imdbId: h.movie!.ids.imdb,
           watchedAt: h.watched_at
         }));
         break;
@@ -272,7 +303,8 @@ async function loadMovies(tab: string): Promise<void> {
         movies = watchlist.filter(w => w.movie).map(w => ({
           title: w.movie!.title,
           year: w.movie!.year,
-          tmdbId: w.movie!.ids.tmdb
+          tmdbId: w.movie!.ids.tmdb,
+          imdbId: w.movie!.ids.imdb
         }));
         break;
     }
@@ -282,31 +314,54 @@ async function loadMovies(tab: string): Promise<void> {
       return;
     }
 
-    container.innerHTML = movies.map(movie => `
-      <a href="https://www.themoviedb.org/movie/${movie.tmdbId}" target="_blank" class="movie-card">
-        <img class="movie-poster" src="https://image.tmdb.org/t/p/w300/${movie.tmdbId}"
-             onerror="this.src='https://via.placeholder.com/160x240?text=🎬'" alt="${movie.title}">
-        ${movie.plays ? `<div class="movie-plays">${movie.plays}x</div>` : ''}
-        <div class="movie-info">
-          <div class="movie-title">${movie.title}</div>
-          <div class="movie-meta">${movie.year}${movie.watchedAt ? ' • ' + formatDate(movie.watchedAt) : ''}</div>
-        </div>
-      </a>
-    `).join('');
+    // FM-DB API: Free Movie Database - no auth required
+    const FMDB_POSTER_URL = 'https://imdb.iamidiotareyoutoo.com/photo';
 
-    // Fix posters with TMDB API
-    container.querySelectorAll('.movie-poster').forEach(async (img, i) => {
-      const tmdbId = movies[i]?.tmdbId;
-      if (tmdbId) {
-        try {
-          const res = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=2a2fb17f9d4242a4901ec8d77bb5dcc6`);
-          const data = await res.json();
-          if (data.poster_path) {
-            (img as HTMLImageElement).src = `https://image.tmdb.org/t/p/w300${data.poster_path}`;
-          }
-        } catch {}
-      }
-    });
+    container.innerHTML = movies.map(movie => {
+      // Use FM-DB poster API with IMDB ID - no auth required
+      const posterUrl = movie.imdbId
+        ? `${FMDB_POSTER_URL}/${movie.imdbId}?w=300&h=450`
+        : '';
+
+      // Fallback gradient for movies without IMDB ID
+      const getGradient = (title: string) => {
+        const colors = [
+          ['#667eea', '#764ba2'], ['#f093fb', '#f5576c'], ['#4facfe', '#00f2fe'],
+          ['#43e97b', '#38f9d7'], ['#fa709a', '#fee140'], ['#a18cd1', '#fbc2eb']
+        ];
+        const idx = title.split('').reduce((a, c) => a + c.charCodeAt(0), 0) % colors.length;
+        return colors[idx];
+      };
+      const [c1, c2] = getGradient(movie.title);
+
+      return movie.imdbId ? `
+        <a href="https://www.imdb.com/title/${movie.imdbId}" target="_blank" class="movie-card">
+          <img class="movie-poster" src="${posterUrl}"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="${movie.title}">
+          <div class="movie-poster-placeholder" style="display:none;background:linear-gradient(135deg,${c1},${c2});">
+            <span class="poster-icon">🎬</span>
+            <span class="poster-title">${movie.title}</span>
+          </div>
+          ${movie.plays ? `<div class="movie-plays">${movie.plays}x</div>` : ''}
+          <div class="movie-info">
+            <div class="movie-title">${movie.title}</div>
+            <div class="movie-meta">${movie.year}${movie.watchedAt ? ' • ' + formatDate(movie.watchedAt) : ''}</div>
+          </div>
+        </a>
+      ` : `
+        <a href="https://www.themoviedb.org/movie/${movie.tmdbId}" target="_blank" class="movie-card">
+          <div class="movie-poster-placeholder" style="background:linear-gradient(135deg,${c1},${c2});">
+            <span class="poster-icon">🎬</span>
+            <span class="poster-title">${movie.title}</span>
+          </div>
+          ${movie.plays ? `<div class="movie-plays">${movie.plays}x</div>` : ''}
+          <div class="movie-info">
+            <div class="movie-title">${movie.title}</div>
+            <div class="movie-meta">${movie.year}${movie.watchedAt ? ' • ' + formatDate(movie.watchedAt) : ''}</div>
+          </div>
+        </a>
+      `;
+    }).join('');
   } catch (error) {
     container.innerHTML = '<div class="loading-state">Failed to load movies. Make sure Trakt profile is public.</div>';
   }

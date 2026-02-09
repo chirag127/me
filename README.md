@@ -11,8 +11,44 @@
 | **Me Subdomain** | [me.chirag127.in](https://me.chirag127.in) | ✅ Live |
 | **Cloudflare Pages** | [me-791.pages.dev](https://me-791.pages.dev) | ✅ Live |
 | **Netlify** | [chirag127.netlify.app](https://chirag127.netlify.app) | ✅ Live |
-| **Vercel** | [chirag127.vercel.app](https://chirag127.vercel.app) | ✅ Live |
+| **Vercel** | [chirag127.vercel.app](https://chirag127.vercel.app) | ⚠️ Build Issue |
 | **Surge** | [chirag127.surge.sh](https://chirag127.surge.sh) | ✅ Live |
+
+---
+
+## 📚 Library Pages
+
+The library section displays comprehensive data from multiple APIs:
+
+### Movies & TV (Trakt.tv)
+| Page | Route | Description |
+|------|-------|-------------|
+| Movies | `/library/movies` | Watched movies with posters |
+| TV Shows | `/library/tv-shows` | Watched TV shows |
+| Watch Activity | `/library/watch-activity` | Recent viewing history |
+| Ratings | `/library/ratings` | Rated movies/shows with stars |
+| Collection | `/library/collection` | Owned media collection |
+| Lists | `/library/lists` | Custom Trakt lists |
+| Social | `/library/social` | Followers & following |
+
+### Music (Last.fm)
+| Page | Route | Description |
+|------|-------|-------------|
+| Now Playing | `/library/music-now-playing` | Currently playing track |
+| Recent Tracks | `/library/music-recent` | Recent listening history |
+| Top Tracks | `/library/music-top` | Top tracks by period |
+| Loved Tracks | `/library/music-loved` | Favorite/hearted songs |
+| Friends | `/library/music-friends` | Last.fm friends |
+| Tags | `/library/music-tags` | Genre tag cloud |
+| Charts | `/library/music-charts` | Weekly charts |
+| Profile | `/library/music-profile` | Last.fm profile dashboard |
+
+### Books (OpenLibrary)
+| Page | Route | Description |
+|------|-------|-------------|
+| Books Read | `/library/books-read` | Completed books |
+| Books TBR | `/library/books-tbr` | Want to read |
+| Currently Reading | `/library/books-reading` | Books in progress |
 
 ---
 
