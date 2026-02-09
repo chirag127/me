@@ -3,7 +3,7 @@
  * Contact form with Formspree integration
  */
 
-import CONFIG from '../../config';
+import { IDENTITY, SOCIAL } from '../../data';
 import { submitFormspree, createMailerLiteForm } from '../../services/init';
 import { communication } from '../../config/services';
 
@@ -48,17 +48,17 @@ export default async function Contact(container: HTMLElement): Promise<void> {
           <div class="contact-card glass-panel">
             <h3><i class="fas fa-envelope"></i> Email</h3>
             <p>The best way to reach me</p>
-            <a href="mailto:${CONFIG.user.email}" class="btn btn-secondary">${CONFIG.user.email}</a>
+            <a href="mailto:${IDENTITY.email}" class="btn btn-secondary">${IDENTITY.email}</a>
           </div>
           <div class="contact-card glass-panel">
             <h3><i class="fab fa-linkedin"></i> LinkedIn</h3>
             <p>Professional network</p>
-            <a href="https://linkedin.com/in/chirag127" target="_blank" class="btn btn-secondary">Connect →</a>
+            <a href="${SOCIAL.linkedin.url}" target="_blank" class="btn btn-secondary">Connect →</a>
           </div>
           <div class="contact-card glass-panel">
             <h3><i class="fab fa-github"></i> GitHub</h3>
             <p>Open source work</p>
-            <a href="https://github.com/chirag127" target="_blank" class="btn btn-secondary">Follow →</a>
+            <a href="${SOCIAL.github.url}" target="_blank" class="btn btn-secondary">Follow →</a>
           </div>
           <div class="contact-card glass-panel">
             <h3><i class="fab fa-twitter"></i> Twitter</h3>
@@ -304,7 +304,7 @@ export default async function Contact(container: HTMLElement): Promise<void> {
         }
       } else {
         // Fallback: open mailto
-        const mailtoUrl = `mailto:${CONFIG.user.email}?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`From: ${data.name} (${data.email})\n\n${data.message}`)}`;
+        const mailtoUrl = `mailto:${IDENTITY.email}?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`From: ${data.name} (${data.email})\n\n${data.message}`)}`;
         window.open(mailtoUrl, '_blank');
         statusEl.className = 'form-status success';
         statusEl.textContent = 'Opening your email client...';

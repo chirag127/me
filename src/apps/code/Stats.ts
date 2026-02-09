@@ -4,8 +4,11 @@
 
 import { getAggregateCodingStats } from '../../services/coding';
 import { formatNumber } from '../../services/utility';
+import { IDENTITY } from '../../data';
 
 export default async function Stats(container: HTMLElement): Promise<void> {
+  const username = IDENTITY.usernames.github;
+
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
@@ -21,12 +24,12 @@ export default async function Stats(container: HTMLElement): Promise<void> {
 
         <div class="bento-item">
           <h3>🔥 Activity</h3>
-          <img src="https://github-readme-streak-stats.herokuapp.com/?user=chirag127&theme=dark&hide_border=true" alt="Streak" class="streak-embed">
+          <img src="https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=dark&hide_border=true" alt="Streak" class="streak-embed">
         </div>
 
         <div class="bento-item">
           <h3>📈 GitHub Stats</h3>
-          <img src="https://github-readme-stats.vercel.app/api?username=chirag127&show_icons=true&theme=dark&hide_border=true" alt="GitHub Stats" class="streak-embed">
+          <img src="https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=dark&hide_border=true" alt="GitHub Stats" class="streak-embed">
         </div>
       </div>
     </div>

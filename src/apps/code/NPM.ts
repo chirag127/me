@@ -2,6 +2,8 @@
  * Project Me - NPM Page
  */
 
+import { SOCIAL } from '../../data';
+
 export default async function NPM(container: HTMLElement): Promise<void> {
   container.innerHTML = `
     <div class="page animate-fade-in">
@@ -14,7 +16,7 @@ export default async function NPM(container: HTMLElement): Promise<void> {
         <span class="empty-icon">📦</span>
         <h3>Coming Soon</h3>
         <p>NPM package statistics will be displayed here once packages are published.</p>
-        <a href="https://www.npmjs.com/~chirag127" target="_blank" class="btn btn-secondary">View NPM Profile →</a>
+        <a href="${SOCIAL.npm.url}" target="_blank" class="btn btn-secondary">View NPM Profile →</a>
       </div>
     </div>
 

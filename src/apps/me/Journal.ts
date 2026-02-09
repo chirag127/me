@@ -3,6 +3,8 @@
  * Personal blog/notes
  */
 
+import { SOCIAL } from '../../data';
+
 export default async function Journal(container: HTMLElement): Promise<void> {
   const entries = [
     {
@@ -48,7 +50,7 @@ export default async function Journal(container: HTMLElement): Promise<void> {
       <div class="journal-cta glass-panel">
         <h3>📝 More articles on Dev.to</h3>
         <p>I write about Python, AI, and system design.</p>
-        <a href="https://dev.to/chirag127" target="_blank" class="btn btn-primary">Read on Dev.to →</a>
+        <a href="${SOCIAL.devto.url}" target="_blank" class="btn btn-primary">Read on Dev.to →</a>
       </div>
     </div>
 
