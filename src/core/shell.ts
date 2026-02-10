@@ -169,6 +169,40 @@ export class Shell {
 
     return drives.map(drive => {
       const driveRoutes = router.getRoutesByDrive(drive.id);
+
+      // Group routes by category, preserving insertion order
+      const categoryMap = new Map<string, typeof driveRoutes>();
+      for (const route of driveRoutes) {
+        const cat = route.category || '';
+        if (!categoryMap.has(cat)) categoryMap.set(cat, []);
+        categoryMap.get(cat)!.push(route);
+      }
+
+      // Determine if this drive has meaningful categories (more than one non-empty category)
+      const categories = [...categoryMap.keys()].filter(c => c !== '');
+      const hasCategories = categories.length > 1;
+
+      const renderNavItem = (route: Route) => `
+        <a href="#${route.path}" class="nav-item" data-path="${route.path}">
+          <span class="nav-icon">${route.icon}</span>
+          <span class="nav-name">${route.name}</span>
+        </a>
+      `;
+
+      let itemsHtml = '';
+      if (hasCategories) {
+        // Render with category labels
+        for (const [category, catRoutes] of categoryMap) {
+          if (category) {
+            itemsHtml += `<div class="category-label">${category}</div>`;
+          }
+          itemsHtml += catRoutes.map(renderNavItem).join('');
+        }
+      } else {
+        // Flat list for drives with few items / no categories
+        itemsHtml = driveRoutes.map(renderNavItem).join('');
+      }
+
       return `
         <div class="drive-section" data-drive="${drive.id}">
           <button class="drive-header" style="--drive-color: ${drive.color}">
@@ -177,12 +211,7 @@ export class Shell {
             <span class="drive-arrow">›</span>
           </button>
           <div class="drive-items">
-            ${driveRoutes.map(route => `
-              <a href="#${route.path}" class="nav-item" data-path="${route.path}">
-                <span class="nav-icon">${route.icon}</span>
-                <span class="nav-name">${route.name}</span>
-              </a>
-            `).join('')}
+            ${itemsHtml}
           </div>
         </div>
       `;

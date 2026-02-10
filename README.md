@@ -1,11 +1,21 @@
-# Project Me - Digital Twin Portfolio
+<p align="center">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
+  <img src="https://img.shields.io/badge/Puter.js-000000?style=for-the-badge&logo=javascript&logoColor=white" alt="Puter.js">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
+</p>
 
-> A comprehensive "Digital Twin" portfolio website built with Vite, TypeScript, and Puter.js
+# 🪞 Project Me — The Digital Twin Portfolio
+
+> **A 63-page, OS-inspired portfolio website that acts as a comprehensive "digital twin" — aggregating your entire online life, coding stats, media consumption, gaming activity, and professional identity into a single glassmorphic interface.**
+
+Project Me is **not** a typical portfolio. It's a virtual operating system with 7 "drives," each containing specialized app pages that pull real-time data from **30+ APIs**. Think macOS Finder meets a personal dashboard — with a dock, sidebar, search, AI chat, and dark/light themes.
+
+---
 
 ## 🌐 Live Sites
 
 ### Primary Domain
-All these subdomains point to the main portfolio at **chirag127.in**:
 
 | URL | Description |
 |-----|-------------|
@@ -20,68 +30,334 @@ All these subdomains point to the main portfolio at **chirag127.in**:
 | Platform | URL | Status |
 |----------|-----|--------|
 | **Cloudflare Pages** | [me-791.pages.dev](https://me-791.pages.dev) | ✅ Live |
-| **Surge** | [chirag127.surge.sh](https://chirag127.surge.sh) | ✅ Live |
 | **Netlify** | [chirag127.netlify.app](https://chirag127.netlify.app) | ✅ Live |
-| **Vercel** | [chirag127.vercel.app](https://chirag127.vercel.app) | ⚠️ Build Issue |
+| **Surge** | [chirag127.surge.sh](https://chirag127.surge.sh) | ✅ Live |
 | **Neocities** | [chirag127.neocities.org](https://chirag127.neocities.org) | ✅ Live |
+| **Vercel** | [chirag127.vercel.app](https://chirag127.vercel.app) | ⚠️ Build incompatibility |
+| **GitHub Pages** | [chirag127.github.io/me](https://chirag127.github.io/me) | 🔧 Available |
 
 ---
 
-## 📚 Library Pages
+## ✨ Key Features
 
-The library section displays comprehensive data from multiple APIs:
+- 🖥️ **macOS-Inspired UI** — Top bar, collapsible sidebar with subcategories, dock, search modal
+- 📱 **63 Virtual App Pages** across 7 drives with hash-based routing
+- 🔗 **30+ Live API Integrations** — GitHub, Last.fm, Trakt, AniList, Lichess, and more
+- 🤖 **AI Chat** — "Ask Chirag" powered by Puter.js GPT
+- 🎨 **Glassmorphism Design** — Modern 2026 UI with blur, gradients, and micro-animations
+- 🌗 **Dark / Light / Auto Themes** — Persistent theme selection
+- ⌨️ **Keyboard Shortcuts** — `⌘K` search, navigation
+- 📊 **Chart.js Visualizations** — Interactive stats and activity charts
+- 🔥 **Firebase Analytics** — Visitor tracking and engagement metrics
+- ⚡ **Blazing Fast** — Rolldown-Vite (Rust-based bundler), code-split by page
 
-### Movies & TV (Trakt.tv)
+---
+
+## 🗂️ All 63 Pages — Organized by Drive
+
+### 👤 Drive A: Me (The Digital Twin)
+
+| Category | Page | Route | Description |
+|----------|------|-------|-------------|
+| **Overview** | Dashboard | `/me/index` | Personal hub with stats, status, highlights |
+| **Personal** | Story | `/me/story` | Life timeline and milestones |
+| | Philosophy | `/me/philosophy` | Core beliefs and values |
+| | Journal | `/me/journal` | Thoughts and reflections |
+| **Lifestyle** | Interests | `/me/interests` | Things I find fascinating |
+| | Passions | `/me/passions` | What drives me |
+| | Hobbies | `/me/hobbies` | How I spend free time |
+| | Fetish | `/me/fetish` | Unique quirks and obsessions |
+| **Possessions** | Gear | `/me/gear` | Tech setup and equipment |
+| | Travel | `/me/travel` | Places visited |
+| | Purchases | `/me/purchases` | Notable acquisitions |
+
+### 💼 Drive B: Work (Professional)
+
+| Category | Page | Route | Description |
+|----------|------|-------|-------------|
+| **Overview** | Summary | `/work/index` | Professional overview |
+| **Career** | Experience | `/work/history` | Employment history |
+| | TCS | `/work/tcs` | Current employer deep-dive |
+| **Capabilities** | Skills | `/work/skills` | Technical skill matrix |
+| | Projects | `/work/projects` | Featured projects |
+| | Services | `/work/services` | Freelance offerings |
+| **Credentials** | Education | `/work/education` | Academic background |
+| | Certifications | `/work/certs` | Professional certifications |
+
+### 💻 Drive C: Code (The Quantified Coder)
+
+| Category | Page | Route | Description |
+|----------|------|-------|-------------|
+| **Analytics** | Stats | `/code/stats` | GitHub contribution stats |
+| | LeetCode | `/code/leetcode` | Problem solving stats |
+| | Reputation | `/code/stack` | StackOverflow reputation |
+| **Portfolio** | Repos | `/code/repos` | GitHub repositories |
+| | NPM | `/code/npm` | Published npm packages |
+| | Resume JSON | `/code/json` | JSON Resume standard |
+
+### 📚 Drive D: Library (Media Archive)
+
+| Category | Page | Route | Description |
+|----------|------|-------|-------------|
+| **Overview** | Hub | `/library/index` | Media library dashboard |
+| **Movies & TV** | Movies | `/library/movies` | Watched movies (Trakt) |
+| | TV Shows | `/library/tv-shows` | Watched series (Trakt) |
+| | Watch Activity | `/library/watch-activity` | Recent viewing history |
+| | Ratings | `/library/ratings` | Rated movies/shows |
+| | Collection | `/library/collection` | Owned media collection |
+| | Lists | `/library/lists` | Custom Trakt lists |
+| | Social | `/library/social` | Trakt followers/following |
+| **Music** | Now Playing | `/library/music-now-playing` | Live scrobble (Last.fm) |
+| | Recent Tracks | `/library/music-recent` | Recent listening history |
+| | Top Tracks | `/library/music-top` | Top tracks by period |
+| | Loved Tracks | `/library/music-loved` | Favorite songs |
+| | Friends | `/library/music-friends` | Last.fm friends |
+| | Tags | `/library/music-tags` | Genre tag cloud |
+| | Charts | `/library/music-charts` | Weekly charts |
+| | Profile | `/library/music-profile` | Last.fm profile dashboard |
+| **Books** | Books Read | `/library/books-read` | Completed (OpenLibrary) |
+| | Books TBR | `/library/books-tbr` | Want to read |
+| | Currently Reading | `/library/books-reading` | In progress |
+| **Anime & Manga** | Anime | `/library/anime` | Anime list (AniList) |
+| | Manga | `/library/manga` | Manga list (AniList) |
+| **Web** | Browse History | `/library/browse-history` | Browser history feed |
+| | Videos | `/library/videos` | YouTube & video content |
+
+### 🎮 Drive E: Gaming (The Arcade)
+
 | Page | Route | Description |
 |------|-------|-------------|
-| Movies | `/library/movies` | Watched movies with posters |
-| TV Shows | `/library/tv-shows` | Watched TV shows |
-| Watch Activity | `/library/watch-activity` | Recent viewing history |
-| Ratings | `/library/ratings` | Rated movies/shows with stars |
-| Collection | `/library/collection` | Owned media collection |
-| Lists | `/library/lists` | Custom Trakt lists |
-| Social | `/library/social` | Followers & following |
+| Profile | `/gaming/index` | Gaming profile overview |
+| Trophies | `/gaming/retro` | Gaming achievements |
+| Chess | `/gaming/chess` | Lichess stats & games |
+| Speedrun | `/gaming/speed` | Speedrun.com records |
 
-### Music (Last.fm)
+### 🌐 Drive F: Connect (Social)
+
 | Page | Route | Description |
 |------|-------|-------------|
-| Now Playing | `/library/music-now-playing` | Currently playing track |
-| Recent Tracks | `/library/music-recent` | Recent listening history |
-| Top Tracks | `/library/music-top` | Top tracks by period |
-| Loved Tracks | `/library/music-loved` | Favorite/hearted songs |
-| Friends | `/library/music-friends` | Last.fm friends |
-| Tags | `/library/music-tags` | Genre tag cloud |
-| Charts | `/library/music-charts` | Weekly charts |
-| Profile | `/library/music-profile` | Last.fm profile dashboard |
+| Hub | `/connect/index` | Social hub overview |
+| Feed | `/connect/feed` | Aggregated social feed |
+| Photos | `/connect/photos` | Photo gallery (Pixelfed) |
+| Articles | `/connect/blog` | Blog posts (Dev.to, Medium) |
+| Discussion | `/connect/threads` | Forum discussions |
+| Contact | `/connect/mail` | Contact form (Formspree) |
 
-### Books (OpenLibrary)
+### ⚙️ Drive G: System (OS Tools)
+
 | Page | Route | Description |
 |------|-------|-------------|
-| Books Read | `/library/books-read` | Completed books |
-| Books TBR | `/library/books-tbr` | Want to read |
-| Currently Reading | `/library/books-reading` | Books in progress |
+| Search | `/system/search` | Full-text page search |
+| AI Chat | `/system/ai` | Puter.js-powered AI assistant |
+| Settings | `/system/settings` | Theme & preferences |
+| Status | `/system/uptime` | System health & uptime |
+| Weather | `/system/weather` | Local weather (Open-Meteo) |
+
+---
+
+## 🔗 API Integrations (30+)
+
+<details>
+<summary><strong>📊 Coding APIs</strong></summary>
+
+| Service | API | Data |
+|---------|-----|------|
+| GitHub | REST API | Repos, contributions, profile |
+| LeetCode | Stats API | Problems solved, ranking |
+| CodeWars | REST API | Kata, rank |
+| StackOverflow | SE API v2.2 | Reputation, badges |
+| NPM | Downloads API | Package download stats |
+| GitLab | REST API v4 | Cross-platform repos |
+| Holopin | Profile API | Developer badges |
+</details>
+
+<details>
+<summary><strong>🎬 Media APIs</strong></summary>
+
+| Service | API | Data |
+|---------|-----|------|
+| Last.fm | Scrobbling API | Music history, charts, friends |
+| ListenBrainz | REST API | Alternative scrobbles |
+| Trakt.tv | REST API | Movies, TV, watch history |
+| AniList | GraphQL | Anime & manga lists |
+| OpenLibrary | REST API | Reading lists, books |
+| Letterboxd | RSS Feed | Film reviews |
+| YouTube | RSS Feed | Video content |
+</details>
+
+<details>
+<summary><strong>🎮 Gaming APIs</strong></summary>
+
+| Service | API | Data |
+|---------|-----|------|
+| Lichess | REST API | Chess games, stats, rating |
+| Speedrun.com | REST API | Speedrun records |
+</details>
+
+<details>
+<summary><strong>🌐 Social APIs</strong></summary>
+
+| Service | API | Data |
+|---------|-----|------|
+| Mastodon | REST API | Toots, profile |
+| Bluesky | AT Protocol | Posts, feed |
+| Dev.to | REST API | Articles |
+| Medium | RSS Feed | Blog posts |
+| Reddit | JSON API | Posts, activity |
+| Hacker News | Firebase API | Submissions |
+| Pixelfed | REST API | Photos |
+</details>
+
+<details>
+<summary><strong>🔧 Utility APIs</strong></summary>
+
+| Service | API | Data |
+|---------|-----|------|
+| Open-Meteo | Forecast API | Local weather |
+| Lanyard | Discord API | Discord status, activity |
+| Puter.js | AI + KV | Chat AI, key-value store |
+| Formspree | Form API | Contact form handling |
+| Firebase | Analytics | Visitor analytics |
+</details>
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| **Bundler** | [Rolldown-Vite](https://rolldown.rs/) (Rust-based, 7.2.5) |
+| **Language** | TypeScript 5.9 (strict mode) |
+| **UI** | Vanilla CSS + Glassmorphism design system |
+| **Charts** | Chart.js 4.5 |
+| **AI** | Puter.js 2.2 (GPT-5-nano) |
+| **Analytics** | Firebase 12.8 + Sentry 10.38 |
+| **Fonts** | Inter + JetBrains Mono (Google Fonts) |
+| **Icons** | Font Awesome 7.1 |
+| **Deployment** | Python 3 automation scripts |
+
+---
+
+## 📁 Project Structure
+
+```
+me/
+├── src/
+│   ├── apps/                # 63 virtual app components
+│   │   ├── me/              # 11 pages — Dashboard, Story, Philosophy, etc.
+│   │   ├── work/            # 8 pages — Summary, Experience, Projects, etc.
+│   │   ├── code/            # 6 pages — Stats, Repos, LeetCode, etc.
+│   │   ├── library/         # 23 pages — Music, Movies, Books, Anime, etc.
+│   │   ├── gaming/          # 4 pages — Chess, Speedrun, Trophies
+│   │   ├── connect/         # 6 pages — Feed, Articles, Contact, etc.
+│   │   └── system/          # 5 pages — Search, AI, Settings, Weather
+│   ├── core/
+│   │   ├── router.ts        # Hash-based router with 63 routes
+│   │   └── shell.ts         # macOS-style shell (top bar, sidebar, dock)
+│   ├── services/            # API integration layer
+│   │   ├── api.ts           # Central API client
+│   │   ├── coding.ts        # GitHub, LeetCode, StackOverflow
+│   │   ├── media.ts         # Last.fm, AniList, Trakt, Letterboxd
+│   │   ├── gaming.ts        # Lichess, Speedrun
+│   │   ├── social.ts        # Mastodon, Bluesky, Dev.to, Reddit
+│   │   ├── books.ts         # OpenLibrary
+│   │   ├── utility.ts       # Weather, Lanyard
+│   │   ├── firebase.ts      # Firebase analytics
+│   │   └── init.ts          # Third-party service initialization
+│   ├── data/                # Static data modules & reactive store
+│   ├── config.ts            # All usernames and API endpoints
+│   └── style.css            # Complete CSS design system
+├── scripts/                 # Python deployment & DNS automation
+│   ├── deploy.py            # Multi-platform deployer (6 platforms)
+│   ├── dns.py               # Cloudflare DNS manager
+│   ├── add_pages_domains.py # Add Cloudflare Pages custom domains
+│   ├── check_dns.py         # DNS record checker
+│   ├── setup_cf_email.py    # Cloudflare email routing
+│   ├── update_root.py       # Root domain updater
+│   ├── update_spaceship_ns.py  # Nameserver updater
+│   └── requirements.txt     # Python dependencies
+├── chrome-extension/        # Browser extension companion
+├── docs/                    # Documentation
+├── index.html               # Entry point with SEO meta tags
+├── vite.config.ts           # Rolldown-Vite configuration
+└── tsconfig.json            # TypeScript configuration
+```
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+---
+
+## 🚢 Deployment
+
+### Deploy to All Platforms
+
+```bash
+# Install Python dependencies
+pip install -r scripts/requirements.txt
+
+# Deploy to all enabled platforms (Cloudflare, Netlify, Surge, Neocities, GitHub Pages)
+python scripts/deploy.py
+```
+
+### Deploy to Individual Platforms
+
+Controlled via `.env` feature flags:
+
+```env
+ENABLE_CLOUDFLARE=True
+ENABLE_NETLIFY=True
+ENABLE_VERCEL=True
+ENABLE_SURGE=True
+ENABLE_NEOCITIES=True
+ENABLE_GITHUB_PAGES=True
+```
+
+### DNS Management
+
+```bash
+# List all DNS zones
+python scripts/dns.py zones
+
+# List records for a domain
+python scripts/dns.py records chirag127.in
+
+# Setup custom subdomain
+python scripts/dns.py setup me chirag127.in me-791.pages.dev
+```
 
 ---
 
 ## 🗂️ Subdomain Registry
 
-This is the central hub for all chirag127.in subdomains:
+### chirag127.in
 
 | Subdomain | Repository | Description |
 |-----------|------------|-------------|
 | `chirag127.in` | [chirag127/me](https://github.com/chirag127/me) | Main portfolio (this repo) |
 | `www.chirag127.in` | [chirag127/me](https://github.com/chirag127/me) | Redirect to main |
 | `me.chirag127.in` | [chirag127/me](https://github.com/chirag127/me) | Portfolio mirror |
-| `pdf.chirag127.in` | *Coming soon* | PDF tools |
-| `fin.chirag127.in` | [*finance*](https://fin.oriz.in/) | Finance tools |
+| `my.chirag127.in` | [chirag127/me](https://github.com/chirag127/me) | Portfolio alias |
+| `portfolio.chirag127.in` | [chirag127/me](https://github.com/chirag127/me) | Portfolio alias |
 | `dev.chirag127.in` | [dev.chirag127.in](https://dev.chirag127.in) | Developer tools |
-| `hub.chirag127.in` | *Coming soon* | Project hub |
+| `fin.chirag127.in` | [fin.chirag127.in](https://fin.chirag127.in) | Finance tools |
 
----
-
-## 🔗 Oriz.in Domains
-
-Subdomains associated with the `oriz.in` domain ecosystem:
+### oriz.in
 
 | Subdomain | Target | Purpose |
 |-----------|--------|---------|
@@ -94,126 +370,43 @@ Subdomains associated with the `oriz.in` domain ecosystem:
 
 ---
 
-## ✨ Features
+## 🔐 Environment Variables
 
-- **45+ Virtual App Pages** across 7 drives (ME, WORK, CODE, LIBRARY, GAMING, CONNECT, SYSTEM)
-- **30+ API Integrations** - GitHub, LeetCode, Last.fm, Lichess, Mastodon, and more
-- **AI Chat** - "Ask Chirag" powered by Puter.js
-- **Glassmorphism UI** - Modern 2026 design language
-- **Real-time Data** - Live coding stats, music, Discord status
+Create a `.env` file in the project root:
 
----
+```env
+# Cloudflare
+CLOUDFLARE_GLOBAL_API_KEY=your_api_key
+CLOUDFLARE_EMAIL=your_email
+CLOUDFLARE_ACCOUNT_ID=your_account_id
+ENABLE_CLOUDFLARE=True
 
-## 🚀 Quick Start
+# Netlify
+NETLIFY_AUTH_TOKEN=your_token
+NETLIFY_SITE_ID=your_site_id
+ENABLE_NETLIFY=True
 
-```bash
-# Install dependencies
-npm install
+# Vercel
+VERCEL_TOKEN=your_token
+VERCEL_ORG_ID=your_org_id
+VERCEL_PROJECT_ID=your_project_id
+ENABLE_VERCEL=True
 
-# Development
-npm run dev
+# Surge
+SURGE_TOKEN=your_token
+SURGE_DOMAIN=yoursite.surge.sh
+ENABLE_SURGE=True
 
-# Build
-npm run build
+# Neocities
+NEOCITIES_API_KEY=your_api_key
+NEOCITIES_SITENAME=yoursite
+ENABLE_NEOCITIES=True
 
-# Deploy to Cloudflare Pages
-python scripts/deploy.py
+# GitHub Pages
+GH_USERNAME=yourusername
+GH_TOKEN=your_token
+ENABLE_GITHUB_PAGES=True
 ```
-
----
-
-## 📁 Project Structure
-
-```
-me/
-├── src/
-│   ├── apps/          # 45+ virtual app components
-│   │   ├── me/        # Personal dashboard, story, philosophy
-│   │   ├── work/      # Resume, experience, projects
-│   │   ├── code/      # GitHub, LeetCode, stats
-│   │   ├── library/   # Books, music, movies, anime
-│   │   ├── gaming/    # Steam, Chess, speedruns
-│   │   ├── connect/   # Social feeds, contact
-│   │   └── system/    # Search, AI, settings
-│   ├── services/      # API integrations
-│   │   ├── coding.ts  # GitHub, LeetCode, StackOverflow
-│   │   ├── media.ts   # Last.fm, AniList, Letterboxd
-│   │   ├── gaming.ts  # Lichess, Steam, RetroAchievements
-│   │   ├── social.ts  # Mastodon, Bluesky, Dev.to
-│   │   ├── books.ts   # OpenLibrary
-│   │   └── utility.ts # Weather, Lanyard, Unsplash
-│   ├── core/          # Router, shell, Puter.js wrapper
-│   ├── data/          # Resume data, reactive store
-│   └── config.ts      # All usernames and API endpoints
-├── scripts/           # Python deployment automation
-│   ├── deploy.py      # Multi-platform deployer
-│   ├── dns.py         # Cloudflare DNS manager
-│   └── README.md      # Script documentation
-└── dist/              # Production build output
-```
-
----
-
-## 🔧 Deployment Scripts
-
-```bash
-# Deploy to all platforms
-python scripts/deploy.py
-
-# Manage DNS
-python scripts/dns.py zones                          # List zones
-python scripts/dns.py records chirag127.in           # List records
-python scripts/dns.py setup <sub> <domain> <target>  # Add subdomain
-```
-
----
-
-## 📊 API Integrations
-
-<details>
-<summary>Click to expand full API list</summary>
-
-### Coding
-- GitHub REST API
-- LeetCode Stats API
-- CodeWars API
-- WakaTime Embeds
-- NPM Downloads
-- StackOverflow API
-- GitLab API
-- Holopin Badges
-
-### Media
-- Last.fm Scrobbles
-- AniList GraphQL (Anime + Manga)
-- Letterboxd RSS
-- Trakt.tv API
-- ListenBrainz API
-- OpenLibrary API
-
-### Gaming
-- Lichess API
-- Speedrun.com API
-- RetroAchievements API
-- Steam Profile
-
-### Social
-- Mastodon API
-- Bluesky AT Protocol
-- Dev.to API
-- Medium RSS
-- Reddit JSON
-- Hacker News Firebase
-- YouTube RSS
-- Pixelfed API
-
-### Utility
-- Open-Meteo Weather
-- Lanyard Discord Status
-- Unsplash API
-- Puter.js AI/KV
-
-</details>
 
 ---
 

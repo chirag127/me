@@ -12,6 +12,7 @@ export interface Route {
   component: () => Promise<{ default: (container: HTMLElement) => void | Promise<void> }>;
   drive: string;
   breadcrumb: string[];
+  category?: string;
 }
 
 export interface RouterConfig {
@@ -23,70 +24,70 @@ export interface RouterConfig {
 // Route definitions for all 45+ pages
 export const routes: Route[] = [
   // Drive A: /ME (The Digital Twin)
-  { path: '/me/index', name: 'Dashboard', icon: '🏠', component: () => import('../apps/me/Dashboard'), drive: 'ME', breadcrumb: ['Me', 'Dashboard'] },
-  { path: '/me/story', name: 'Story', icon: '📖', component: () => import('../apps/me/Story'), drive: 'ME', breadcrumb: ['Me', 'Story'] },
-  { path: '/me/philosophy', name: 'Philosophy', icon: '🧠', component: () => import('../apps/me/Philosophy'), drive: 'ME', breadcrumb: ['Me', 'Philosophy'] },
-  { path: '/me/travel', name: 'Travel', icon: '✈️', component: () => import('../apps/me/Travel'), drive: 'ME', breadcrumb: ['Me', 'Travel'] },
-  { path: '/me/gear', name: 'Gear', icon: '⚙️', component: () => import('../apps/me/Gear'), drive: 'ME', breadcrumb: ['Me', 'Gear'] },
-  { path: '/me/journal', name: 'Journal', icon: '📝', component: () => import('../apps/me/Journal'), drive: 'ME', breadcrumb: ['Me', 'Journal'] },
-  { path: '/me/interests', name: 'Interests', icon: '💡', component: () => import('../apps/me/Interests'), drive: 'ME', breadcrumb: ['Me', 'Interests'] },
-  { path: '/me/passions', name: 'Passions', icon: '❤️', component: () => import('../apps/me/Passions'), drive: 'ME', breadcrumb: ['Me', 'Passions'] },
-  { path: '/me/hobbies', name: 'Hobbies', icon: '🎯', component: () => import('../apps/me/Hobbies'), drive: 'ME', breadcrumb: ['Me', 'Hobbies'] },
-  { path: '/me/fetish', name: 'Fetish', icon: '🔞', component: () => import('../apps/me/Fetish'), drive: 'ME', breadcrumb: ['Me', 'Fetish'] },
-  { path: '/me/purchases', name: 'Purchases', icon: '🛒', component: () => import('../apps/me/Purchases'), drive: 'ME', breadcrumb: ['Me', 'Purchases'] },
+  { path: '/me/index', name: 'Dashboard', icon: '🏠', component: () => import('../apps/me/Dashboard'), drive: 'ME', breadcrumb: ['Me', 'Dashboard'], category: 'Overview' },
+  { path: '/me/story', name: 'Story', icon: '📖', component: () => import('../apps/me/Story'), drive: 'ME', breadcrumb: ['Me', 'Story'], category: 'Personal' },
+  { path: '/me/philosophy', name: 'Philosophy', icon: '🧠', component: () => import('../apps/me/Philosophy'), drive: 'ME', breadcrumb: ['Me', 'Philosophy'], category: 'Personal' },
+  { path: '/me/journal', name: 'Journal', icon: '📝', component: () => import('../apps/me/Journal'), drive: 'ME', breadcrumb: ['Me', 'Journal'], category: 'Personal' },
+  { path: '/me/interests', name: 'Interests', icon: '💡', component: () => import('../apps/me/Interests'), drive: 'ME', breadcrumb: ['Me', 'Interests'], category: 'Lifestyle' },
+  { path: '/me/passions', name: 'Passions', icon: '❤️', component: () => import('../apps/me/Passions'), drive: 'ME', breadcrumb: ['Me', 'Passions'], category: 'Lifestyle' },
+  { path: '/me/hobbies', name: 'Hobbies', icon: '🎯', component: () => import('../apps/me/Hobbies'), drive: 'ME', breadcrumb: ['Me', 'Hobbies'], category: 'Lifestyle' },
+  { path: '/me/fetish', name: 'Fetish', icon: '🔞', component: () => import('../apps/me/Fetish'), drive: 'ME', breadcrumb: ['Me', 'Fetish'], category: 'Lifestyle' },
+  { path: '/me/gear', name: 'Gear', icon: '⚙️', component: () => import('../apps/me/Gear'), drive: 'ME', breadcrumb: ['Me', 'Gear'], category: 'Possessions' },
+  { path: '/me/travel', name: 'Travel', icon: '✈️', component: () => import('../apps/me/Travel'), drive: 'ME', breadcrumb: ['Me', 'Travel'], category: 'Possessions' },
+  { path: '/me/purchases', name: 'Purchases', icon: '🛒', component: () => import('../apps/me/Purchases'), drive: 'ME', breadcrumb: ['Me', 'Purchases'], category: 'Possessions' },
 
   // Drive B: /WORK (Professional)
-  { path: '/work/index', name: 'Summary', icon: '💼', component: () => import('../apps/work/Summary'), drive: 'WORK', breadcrumb: ['Work', 'Summary'] },
-  { path: '/work/history', name: 'Experience', icon: '📋', component: () => import('../apps/work/Experience'), drive: 'WORK', breadcrumb: ['Work', 'Experience'] },
-  { path: '/work/tcs', name: 'TCS', icon: '🏢', component: () => import('../apps/work/TCS'), drive: 'WORK', breadcrumb: ['Work', 'TCS'] },
-  { path: '/work/skills', name: 'Skills', icon: '🎯', component: () => import('../apps/work/Skills'), drive: 'WORK', breadcrumb: ['Work', 'Skills'] },
-  { path: '/work/projects', name: 'Projects', icon: '🚀', component: () => import('../apps/work/Projects'), drive: 'WORK', breadcrumb: ['Work', 'Projects'] },
-  { path: '/work/education', name: 'Education', icon: '🎓', component: () => import('../apps/work/Education'), drive: 'WORK', breadcrumb: ['Work', 'Education'] },
-  { path: '/work/certs', name: 'Certifications', icon: '🏆', component: () => import('../apps/work/Certs'), drive: 'WORK', breadcrumb: ['Work', 'Certifications'] },
-  { path: '/work/services', name: 'Services', icon: '🛠️', component: () => import('../apps/work/Services'), drive: 'WORK', breadcrumb: ['Work', 'Services'] },
+  { path: '/work/index', name: 'Summary', icon: '💼', component: () => import('../apps/work/Summary'), drive: 'WORK', breadcrumb: ['Work', 'Summary'], category: 'Overview' },
+  { path: '/work/history', name: 'Experience', icon: '📋', component: () => import('../apps/work/Experience'), drive: 'WORK', breadcrumb: ['Work', 'Experience'], category: 'Career' },
+  { path: '/work/tcs', name: 'TCS', icon: '🏢', component: () => import('../apps/work/TCS'), drive: 'WORK', breadcrumb: ['Work', 'TCS'], category: 'Career' },
+  { path: '/work/skills', name: 'Skills', icon: '🎯', component: () => import('../apps/work/Skills'), drive: 'WORK', breadcrumb: ['Work', 'Skills'], category: 'Capabilities' },
+  { path: '/work/projects', name: 'Projects', icon: '🚀', component: () => import('../apps/work/Projects'), drive: 'WORK', breadcrumb: ['Work', 'Projects'], category: 'Capabilities' },
+  { path: '/work/services', name: 'Services', icon: '🛠️', component: () => import('../apps/work/Services'), drive: 'WORK', breadcrumb: ['Work', 'Services'], category: 'Capabilities' },
+  { path: '/work/education', name: 'Education', icon: '🎓', component: () => import('../apps/work/Education'), drive: 'WORK', breadcrumb: ['Work', 'Education'], category: 'Credentials' },
+  { path: '/work/certs', name: 'Certifications', icon: '🏆', component: () => import('../apps/work/Certs'), drive: 'WORK', breadcrumb: ['Work', 'Certifications'], category: 'Credentials' },
 
   // Drive C: /CODE (The Quantified Coder)
-  { path: '/code/stats', name: 'Stats', icon: '📊', component: () => import('../apps/code/Stats'), drive: 'CODE', breadcrumb: ['Code', 'Stats'] },
-  { path: '/code/repos', name: 'Repos', icon: '📁', component: () => import('../apps/code/Repos'), drive: 'CODE', breadcrumb: ['Code', 'Repos'] },
-  { path: '/code/leetcode', name: 'LeetCode', icon: '🧩', component: () => import('../apps/code/LeetCode'), drive: 'CODE', breadcrumb: ['Code', 'LeetCode'] },
-  { path: '/code/stack', name: 'Reputation', icon: '🏅', component: () => import('../apps/code/Reputation'), drive: 'CODE', breadcrumb: ['Code', 'Reputation'] },
-  { path: '/code/npm', name: 'NPM', icon: '📦', component: () => import('../apps/code/NPM'), drive: 'CODE', breadcrumb: ['Code', 'NPM'] },
-  { path: '/code/json', name: 'Resume JSON', icon: '📄', component: () => import('../apps/code/ResumeJSON'), drive: 'CODE', breadcrumb: ['Code', 'Resume JSON'] },
+  { path: '/code/stats', name: 'Stats', icon: '📊', component: () => import('../apps/code/Stats'), drive: 'CODE', breadcrumb: ['Code', 'Stats'], category: 'Analytics' },
+  { path: '/code/leetcode', name: 'LeetCode', icon: '🧩', component: () => import('../apps/code/LeetCode'), drive: 'CODE', breadcrumb: ['Code', 'LeetCode'], category: 'Analytics' },
+  { path: '/code/stack', name: 'Reputation', icon: '🏅', component: () => import('../apps/code/Reputation'), drive: 'CODE', breadcrumb: ['Code', 'Reputation'], category: 'Analytics' },
+  { path: '/code/repos', name: 'Repos', icon: '📁', component: () => import('../apps/code/Repos'), drive: 'CODE', breadcrumb: ['Code', 'Repos'], category: 'Portfolio' },
+  { path: '/code/npm', name: 'NPM', icon: '📦', component: () => import('../apps/code/NPM'), drive: 'CODE', breadcrumb: ['Code', 'NPM'], category: 'Portfolio' },
+  { path: '/code/json', name: 'Resume JSON', icon: '📄', component: () => import('../apps/code/ResumeJSON'), drive: 'CODE', breadcrumb: ['Code', 'Resume JSON'], category: 'Portfolio' },
 
   // Drive D: /LIBRARY (Media Archive)
-  { path: '/library/index', name: 'Hub', icon: '📚', component: () => import('../apps/library/Hub'), drive: 'LIBRARY', breadcrumb: ['Library', 'Hub'] },
+  { path: '/library/index', name: 'Hub', icon: '📚', component: () => import('../apps/library/Hub'), drive: 'LIBRARY', breadcrumb: ['Library', 'Hub'], category: 'Overview' },
 
   // Movies & TV Shows
-  { path: '/library/movies', name: 'Movies', icon: '🎬', component: () => import('../apps/library/Movies'), drive: 'LIBRARY', breadcrumb: ['Library', 'Movies'] },
-  { path: '/library/tv-shows', name: 'TV Shows', icon: '📺', component: () => import('../apps/library/TVShows'), drive: 'LIBRARY', breadcrumb: ['Library', 'TV Shows'] },
-  { path: '/library/watch-activity', name: 'Watch Activity', icon: '🎫', component: () => import('../apps/library/WatchActivity'), drive: 'LIBRARY', breadcrumb: ['Library', 'Watch Activity'] },
-  { path: '/library/ratings', name: 'Ratings', icon: '⭐', component: () => import('../apps/library/Ratings'), drive: 'LIBRARY', breadcrumb: ['Library', 'Ratings'] },
-  { path: '/library/collection', name: 'Collection', icon: '📀', component: () => import('../apps/library/Collection'), drive: 'LIBRARY', breadcrumb: ['Library', 'Collection'] },
-  { path: '/library/lists', name: 'Lists', icon: '📋', component: () => import('../apps/library/Lists'), drive: 'LIBRARY', breadcrumb: ['Library', 'Lists'] },
-  { path: '/library/social', name: 'Social', icon: '👥', component: () => import('../apps/library/Social'), drive: 'LIBRARY', breadcrumb: ['Library', 'Social'] },
+  { path: '/library/movies', name: 'Movies', icon: '🎬', component: () => import('../apps/library/Movies'), drive: 'LIBRARY', breadcrumb: ['Library', 'Movies'], category: 'Movies & TV' },
+  { path: '/library/tv-shows', name: 'TV Shows', icon: '📺', component: () => import('../apps/library/TVShows'), drive: 'LIBRARY', breadcrumb: ['Library', 'TV Shows'], category: 'Movies & TV' },
+  { path: '/library/watch-activity', name: 'Watch Activity', icon: '🎫', component: () => import('../apps/library/WatchActivity'), drive: 'LIBRARY', breadcrumb: ['Library', 'Watch Activity'], category: 'Movies & TV' },
+  { path: '/library/ratings', name: 'Ratings', icon: '⭐', component: () => import('../apps/library/Ratings'), drive: 'LIBRARY', breadcrumb: ['Library', 'Ratings'], category: 'Movies & TV' },
+  { path: '/library/collection', name: 'Collection', icon: '📀', component: () => import('../apps/library/Collection'), drive: 'LIBRARY', breadcrumb: ['Library', 'Collection'], category: 'Movies & TV' },
+  { path: '/library/lists', name: 'Lists', icon: '📋', component: () => import('../apps/library/Lists'), drive: 'LIBRARY', breadcrumb: ['Library', 'Lists'], category: 'Movies & TV' },
+  { path: '/library/social', name: 'Social', icon: '👥', component: () => import('../apps/library/Social'), drive: 'LIBRARY', breadcrumb: ['Library', 'Social'], category: 'Movies & TV' },
 
   // Music
-  { path: '/library/music-now-playing', name: 'Now Playing', icon: '🎵', component: () => import('../apps/library/MusicNowPlaying'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Now Playing'] },
-  { path: '/library/music-recent', name: 'Recent Tracks', icon: '🎧', component: () => import('../apps/library/MusicRecent'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Recent'] },
-  { path: '/library/music-top', name: 'Top Tracks', icon: '🏆', component: () => import('../apps/library/MusicTop'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Top'] },
-  { path: '/library/music-loved', name: 'Loved Tracks', icon: '❤️', component: () => import('../apps/library/MusicLovedTracks'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Loved'] },
-  { path: '/library/music-friends', name: 'Friends', icon: '👥', component: () => import('../apps/library/MusicFriends'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Friends'] },
-  { path: '/library/music-tags', name: 'Tags', icon: '🏷️', component: () => import('../apps/library/MusicTags'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Tags'] },
-  { path: '/library/music-charts', name: 'Charts', icon: '📊', component: () => import('../apps/library/MusicCharts'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Charts'] },
-  { path: '/library/music-profile', name: 'Profile', icon: '👤', component: () => import('../apps/library/MusicProfile'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Profile'] },
+  { path: '/library/music-now-playing', name: 'Now Playing', icon: '🎵', component: () => import('../apps/library/MusicNowPlaying'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Now Playing'], category: 'Music' },
+  { path: '/library/music-recent', name: 'Recent Tracks', icon: '🎧', component: () => import('../apps/library/MusicRecent'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Recent'], category: 'Music' },
+  { path: '/library/music-top', name: 'Top Tracks', icon: '🏆', component: () => import('../apps/library/MusicTop'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Top'], category: 'Music' },
+  { path: '/library/music-loved', name: 'Loved Tracks', icon: '❤️', component: () => import('../apps/library/MusicLovedTracks'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Loved'], category: 'Music' },
+  { path: '/library/music-friends', name: 'Friends', icon: '👥', component: () => import('../apps/library/MusicFriends'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Friends'], category: 'Music' },
+  { path: '/library/music-tags', name: 'Tags', icon: '🏷️', component: () => import('../apps/library/MusicTags'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Tags'], category: 'Music' },
+  { path: '/library/music-charts', name: 'Charts', icon: '📊', component: () => import('../apps/library/MusicCharts'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Charts'], category: 'Music' },
+  { path: '/library/music-profile', name: 'Profile', icon: '👤', component: () => import('../apps/library/MusicProfile'), drive: 'LIBRARY', breadcrumb: ['Library', 'Music', 'Profile'], category: 'Music' },
 
   // Books
-  { path: '/library/books-read', name: 'Books Read', icon: '📕', component: () => import('../apps/library/BooksRead'), drive: 'LIBRARY', breadcrumb: ['Library', 'Books', 'Read'] },
-  { path: '/library/books-tbr', name: 'Books TBR', icon: '📗', component: () => import('../apps/library/BooksTBR'), drive: 'LIBRARY', breadcrumb: ['Library', 'Books', 'TBR'] },
-  { path: '/library/books-reading', name: 'Currently Reading', icon: '📖', component: () => import('../apps/library/BooksCurrentlyReading'), drive: 'LIBRARY', breadcrumb: ['Library', 'Books', 'Reading'] },
+  { path: '/library/books-read', name: 'Books Read', icon: '📕', component: () => import('../apps/library/BooksRead'), drive: 'LIBRARY', breadcrumb: ['Library', 'Books', 'Read'], category: 'Books' },
+  { path: '/library/books-tbr', name: 'Books TBR', icon: '📗', component: () => import('../apps/library/BooksTBR'), drive: 'LIBRARY', breadcrumb: ['Library', 'Books', 'TBR'], category: 'Books' },
+  { path: '/library/books-reading', name: 'Currently Reading', icon: '📖', component: () => import('../apps/library/BooksCurrentlyReading'), drive: 'LIBRARY', breadcrumb: ['Library', 'Books', 'Reading'], category: 'Books' },
 
   // Anime & Manga
-  { path: '/library/anime', name: 'Anime', icon: '🎌', component: () => import('../apps/library/Anime'), drive: 'LIBRARY', breadcrumb: ['Library', 'Anime'] },
-  { path: '/library/manga', name: 'Manga', icon: '📰', component: () => import('../apps/library/Manga'), drive: 'LIBRARY', breadcrumb: ['Library', 'Manga'] },
+  { path: '/library/anime', name: 'Anime', icon: '🎌', component: () => import('../apps/library/Anime'), drive: 'LIBRARY', breadcrumb: ['Library', 'Anime'], category: 'Anime & Manga' },
+  { path: '/library/manga', name: 'Manga', icon: '📰', component: () => import('../apps/library/Manga'), drive: 'LIBRARY', breadcrumb: ['Library', 'Manga'], category: 'Anime & Manga' },
 
-  // Browse History
-  { path: '/library/browse-history', name: 'Browse History', icon: '🌐', component: () => import('../apps/library/BrowseHistory'), drive: 'LIBRARY', breadcrumb: ['Library', 'Browse History'] },
-  { path: '/library/videos', name: 'Videos', icon: '📹', component: () => import('../apps/library/Videos'), drive: 'LIBRARY', breadcrumb: ['Library', 'Videos'] },
+  // Web
+  { path: '/library/browse-history', name: 'Browse History', icon: '🌐', component: () => import('../apps/library/BrowseHistory'), drive: 'LIBRARY', breadcrumb: ['Library', 'Browse History'], category: 'Web' },
+  { path: '/library/videos', name: 'Videos', icon: '📹', component: () => import('../apps/library/Videos'), drive: 'LIBRARY', breadcrumb: ['Library', 'Videos'], category: 'Web' },
 
 
   // Drive E: /GAMING (The Arcade)

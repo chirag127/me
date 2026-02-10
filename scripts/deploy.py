@@ -209,6 +209,86 @@ class SurgeDeployer:
         return {"success": result.returncode == 0, "output": result.stdout}
 
 
+class NeocitiesDeployer:
+    """Deploy to Neocities via API"""
+
+    def __init__(self):
+        self.api_key = os.getenv("NEOCITIES_API_KEY")
+        self.sitename = os.getenv("NEOCITIES_SITENAME")
+
+    def deploy(self) -> dict:
+        """Deploy all files in dist/ to Neocities using their API"""
+        print("🚀 Deploying to Neocities...")
+
+        if not self.api_key:
+            print("❌ NEOCITIES_API_KEY not set")
+            return {"success": False, "output": "Missing API key"}
+
+        upload_url = "https://neocities.org/api/upload"
+        headers = {"Authorization": f"Bearer {self.api_key}"}
+
+        files_uploaded = 0
+        errors = []
+
+        for file_path in DIST_DIR.rglob("*"):
+            if file_path.is_file():
+                relative_path = file_path.relative_to(DIST_DIR).as_posix()
+                try:
+                    with open(file_path, "rb") as f:
+                        files = {relative_path: (relative_path, f)}
+                        response = requests.post(upload_url, headers=headers, files=files)
+                        if response.status_code == 200:
+                            files_uploaded += 1
+                        else:
+                            errors.append(f"{relative_path}: {response.text}")
+                except Exception as e:
+                    errors.append(f"{relative_path}: {str(e)}")
+
+        if errors:
+            print(f"⚠️ Neocities: {files_uploaded} uploaded, {len(errors)} failed")
+            for err in errors[:5]:
+                print(f"  ❌ {err}")
+        else:
+            print(f"✅ Neocities deployment successful! {files_uploaded} files uploaded")
+            print(f"🌐 URL: https://{self.sitename}.neocities.org")
+
+        return {"success": len(errors) == 0, "output": f"{files_uploaded} files uploaded"}
+
+
+class GitHubPagesDeployer:
+    """Deploy to GitHub Pages using gh-pages npm package"""
+
+    def __init__(self):
+        self.token = os.getenv("GH_TOKEN")
+        self.username = os.getenv("GH_USERNAME")
+
+    def deploy(self) -> dict:
+        """Deploy dist/ to gh-pages branch"""
+        print("🚀 Deploying to GitHub Pages...")
+
+        env = os.environ.copy()
+        if self.token:
+            env["GH_TOKEN"] = self.token
+
+        result = subprocess.run(
+            ["npx.cmd", "gh-pages", "-d", str(DIST_DIR),
+             "--dotfiles", "--nojekyll"],
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            env=env,
+            cwd=Path(__file__).parent.parent
+        )
+
+        if result.returncode == 0:
+            url = f"https://{self.username}.github.io/me" if self.username else "GitHub Pages"
+            print(f"✅ GitHub Pages deployment successful! URL: {url}")
+        else:
+            print(f"❌ GitHub Pages deployment failed: {result.stderr}")
+
+        return {"success": result.returncode == 0, "output": result.stdout}
+
+
 def build_project() -> bool:
     """Build the project before deployment"""
     print("🔨 Building project...")
@@ -261,6 +341,16 @@ def deploy_all():
     if os.getenv("ENABLE_SURGE", "").lower() == "true":
         surge = SurgeDeployer()
         results["surge"] = surge.deploy()
+
+    # Neocities
+    if os.getenv("ENABLE_NEOCITIES", "").lower() == "true":
+        neocities = NeocitiesDeployer()
+        results["neocities"] = neocities.deploy()
+
+    # GitHub Pages
+    if os.getenv("ENABLE_GITHUB_PAGES", "").lower() == "true":
+        ghpages = GitHubPagesDeployer()
+        results["github_pages"] = ghpages.deploy()
 
     # Summary
     print("\n" + "=" * 50)
