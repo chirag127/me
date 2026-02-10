@@ -1,0 +1,4 @@
+# Omni-Trakt AI — .gitignore
+
+# Secrets (Trakt app credentials)
+config.js

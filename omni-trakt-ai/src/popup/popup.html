@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omni-Trakt AI</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">👁️</span>
+                <h1>Omni-Trakt AI</h1>
+            </div>
+            <div class="header-badge" id="statusBadge">IDLE</div>
+        </header>
+
+        <!-- Tab Navigation -->
+        <nav class="tabs">
+            <button class="tab active" data-tab="status">Status</button>
+            <button class="tab" data-tab="history">History</button>
+            <button class="tab" data-tab="settings">Settings</button>
+        </nav>
+
+        <!-- ═══ STATUS TAB ═══ -->
+        <section class="tab-content active" id="tab-status">
+            <!-- Auth Banner -->
+            <div class="auth-banner" id="authBanner">
+                <div class="auth-info" id="authInfo">
+                    <span class="auth-avatar" id="authAvatar">?</span>
+                    <span class="auth-name" id="authName">Not connected</span>
+                </div>
+                <button class="btn btn-trakt" id="btnTraktAuth">Sign in with Trakt</button>
+            </div>
+
+            <!-- Current Detection Card -->
+            <div class="detection-card" id="detectionCard">
+                <div class="detection-state" id="detectionState">
+                    <div class="state-icon" id="stateIcon">⏸️</div>
+                    <div class="state-text">
+                        <p class="state-label" id="stateLabel">No video detected</p>
+                        <p class="state-sub" id="stateSub">Browse to a page with a video to start</p>
+                    </div>
+                </div>
+
+                <!-- Now Playing Info (hidden initially) -->
+                <div class="now-playing hidden" id="nowPlaying">
+                    <div class="media-info">
+                        <h2 class="media-title" id="mediaTitle">—</h2>
+                        <p class="media-meta" id="mediaMeta"></p>
+                    </div>
+                    <div class="confidence-bar">
+                        <span class="confidence-label">AI Confidence</span>
+                        <div class="confidence-track">
+                            <div class="confidence-fill" id="confidenceFill" style="width: 0%"></div>
+                        </div>
+                        <span class="confidence-value" id="confidenceValue">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <span class="progress-label">Playback</span>
+                        <div class="progress-track">
+                            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-value" id="progressValue">0%</span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons (hidden initially) -->
+                <div class="actions hidden" id="actions">
+                    <button class="btn btn-confirm" id="btnConfirm" title="Confirm AI match is correct">✓
+                        Confirm</button>
+                    <button class="btn btn-correct" id="btnCorrect" title="Correct the AI match">✏️ Correct</button>
+                    <button class="btn btn-skip" id="btnSkip" title="Skip this scrobble">✗ Skip</button>
+                </div>
+
+                <!-- Error message -->
+                <div class="error-msg hidden" id="errorMsg"></div>
+            </div>
+
+            <!-- Correction Modal -->
+            <div class="modal hidden" id="correctionModal">
+                <div class="modal-content">
+                    <h3>Correct Match</h3>
+                    <div class="form-group">
+                        <label for="correctTitle">Title</label>
+                        <input type="text" id="correctTitle" placeholder="Movie or Show title">
+                    </div>
+                    <div class="form-group">
+                        <label for="correctType">Type</label>
+                        <select id="correctType">
+                            <option value="movie">Movie</option>
+                            <option value="show">TV Show</option>
+                        </select>
+                    </div>
+                    <div class="form-row hidden" id="episodeFields">
+                        <div class="form-group half">
+                            <label for="correctSeason">Season</label>
+                            <input type="number" id="correctSeason" min="1" placeholder="S">
+                        </div>
+                        <div class="form-group half">
+                            <label for="correctEpisode">Episode</label>
+                            <input type="number" id="correctEpisode" min="1" placeholder="E">
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn btn-confirm" id="btnSubmitCorrection">Submit</button>
+                        <button class="btn btn-skip" id="btnCancelCorrection">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ HISTORY TAB ═══ -->
+        <section class="tab-content" id="tab-history">
+            <div class="history-tabs">
+                <button class="history-tab active" data-history="scrobbled">Scrobbled</button>
+                <button class="history-tab" data-history="local">Local Only</button>
+            </div>
+            <div class="history-list" id="historyList">
+                <p class="empty-state">No history yet. Start watching something!</p>
+            </div>
+        </section>
+
+        <!-- ═══ SETTINGS TAB ═══ -->
+        <section class="tab-content" id="tab-settings">
+            <div class="settings-group">
+                <h3 class="settings-title">🔑 Gemini API Key</h3>
+                <p class="settings-desc">Your Google Gemini API key for AI identification (Gemma 3 27B IT model).</p>
+                <input type="password" id="settingGeminiKey" class="settings-input" placeholder="AIza...">
+            </div>
+
+            <div class="settings-group">
+                <h3 class="settings-title">🎬 Trakt.tv API</h3>
+                <p class="settings-desc">Create an app at <a href="https://trakt.tv/oauth/applications" target="_blank"
+                        rel="noopener">trakt.tv/oauth/applications</a>. Enable the <code>/scrobble</code> permission.
+                </p>
+                <label class="settings-label" for="settingTraktClientId">Client ID</label>
+                <input type="text" id="settingTraktClientId" class="settings-input" placeholder="Your Trakt Client ID">
+                <label class="settings-label" for="settingTraktSecret">Client Secret</label>
+                <input type="password" id="settingTraktSecret" class="settings-input"
+                    placeholder="Your Trakt Client Secret">
+            </div>
+
+            <button class="btn btn-save" id="btnSaveSettings">💾 Save Settings</button>
+            <div class="settings-status hidden" id="settingsStatus">Settings saved!</div>
+        </section>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
