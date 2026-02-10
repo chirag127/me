@@ -12,8 +12,8 @@ export default async function Stats(container: HTMLElement): Promise<void> {
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">Coding Stats</h1>
-        <p class="page-subtitle">The quantified coder</p>
+        <h1 class="page-title">Engineering Metrics</h1>
+        <p class="page-subtitle">Quantified productivity across GitHub, LeetCode, StackOverflow, and more</p>
       </header>
 
       <div class="bento-grid" id="stats-container">

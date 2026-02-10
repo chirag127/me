@@ -10,8 +10,8 @@ export default async function ResumeJSON(container: HTMLElement): Promise<void> 
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">Resume JSON</h1>
-        <p class="page-subtitle">Machine-readable resume data</p>
+        <h1 class="page-title">Structured Resume Data</h1>
+        <p class="page-subtitle">Machine-readable JSON Resume — compatible with ATS and HR systems</p>
       </header>
 
       <div class="json-actions">

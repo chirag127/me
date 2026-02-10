@@ -12,8 +12,8 @@ export default async function Certs(container: HTMLElement): Promise<void> {
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">Certifications</h1>
-        <p class="page-subtitle">Professional certifications and courses</p>
+        <h1 class="page-title">Professional Certifications</h1>
+        <p class="page-subtitle">Industry-recognized credentials in Cloud, Backend, and AI Engineering</p>
       </header>
 
       <div class="certs-grid">

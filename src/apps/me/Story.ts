@@ -33,8 +33,8 @@ export default async function Story(container: HTMLElement): Promise<void> {
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">My Story</h1>
-        <p class="page-subtitle">A journey through code, learning, and growth</p>
+        <h1 class="page-title">My Journey</h1>
+        <p class="page-subtitle">From JEE Advanced qualifier to Software Engineer — a trajectory of continuous growth</p>
       </header>
 
       <section class="section">

@@ -9,8 +9,8 @@ export default async function Experience(container: HTMLElement): Promise<void> 
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">Experience</h1>
-        <p class="page-subtitle">My professional journey</p>
+        <h1 class="page-title">Career History</h1>
+        <p class="page-subtitle">Professional experience building enterprise-grade backend systems and AI solutions</p>
       </header>
 
       <div class="timeline">

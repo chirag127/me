@@ -90,7 +90,7 @@ export class Shell {
               <div class="avatar">CS</div>
               <div class="profile-info">
                 <span class="name">${CONFIG.user.name}</span>
-                <span class="status online">● Online</span>
+                <span class="status online">● Available for Hire</span>
               </div>
             </div>
           </div>
@@ -135,12 +135,12 @@ export class Shell {
         <div class="modal-backdrop"></div>
         <div class="modal-content ai-content glass-panel">
           <div class="ai-header">
-            <h3>🤖 Ask About Chirag</h3>
+            <h3>🤖 Ask About Hiring Chirag</h3>
             <button class="close-btn" id="ai-close">×</button>
           </div>
           <div class="ai-messages" id="ai-messages">
             <div class="ai-message bot">
-              <p>Hi! I'm Chirag's AI assistant. Ask me anything about his experience, skills, or projects!</p>
+              <p>Hi! I'm Chirag's AI assistant. Ask me why you should hire him — his experience, technical skills, projects, or anything else!</p>
             </div>
           </div>
           <form class="ai-input-form" id="ai-form">
@@ -158,9 +158,9 @@ export class Shell {
 
   private renderDriveNav(): string {
     const drives = [
-      { id: 'ME', name: 'Me', icon: '👤', color: '#007AFF' },
       { id: 'WORK', name: 'Work', icon: '💼', color: '#5856D6' },
       { id: 'CODE', name: 'Code', icon: '💻', color: '#34C759' },
+      { id: 'ME', name: 'Me', icon: '👤', color: '#007AFF' },
       { id: 'LIBRARY', name: 'Library', icon: '📚', color: '#FF9500' },
       { id: 'GAMING', name: 'Gaming', icon: '🎮', color: '#FF2D55' },
       { id: 'CONNECT', name: 'Connect', icon: '🌐', color: '#00C7BE' },
@@ -219,12 +219,12 @@ export class Shell {
   }
 
   private renderDockItems(): string {
-    // Quick access dock items
+    // Quick access dock items — employer-focused
     const dockItems = [
-      { path: '/me/index', icon: '🏠', name: 'Home' },
+      { path: '/work/index', icon: '💼', name: 'Resume' },
       { path: '/work/projects', icon: '🚀', name: 'Projects' },
       { path: '/code/repos', icon: '📁', name: 'Repos' },
-      { path: '/library/music/recent', icon: '🎵', name: 'Music' },
+      { path: '/code/stats', icon: '📊', name: 'Stats' },
       { path: '/connect/mail', icon: '✉️', name: 'Contact' },
       { path: '/system/ai', icon: '🤖', name: 'AI' },
     ];

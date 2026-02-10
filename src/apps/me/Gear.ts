@@ -33,8 +33,8 @@ export default async function Gear(container: HTMLElement): Promise<void> {
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">Gear</h1>
-        <p class="page-subtitle">Tools I use to build cool stuff</p>
+        <h1 class="page-title">Engineering Setup</h1>
+        <p class="page-subtitle">Tools, hardware, and development environment I use daily</p>
       </header>
 
       <div class="gear-stats glass-panel">

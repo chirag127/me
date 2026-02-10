@@ -9,8 +9,8 @@ export default async function Reputation(container: HTMLElement): Promise<void> 
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">Reputation</h1>
-        <p class="page-subtitle">Community standings and achievements</p>
+        <h1 class="page-title">Developer Reputation</h1>
+        <p class="page-subtitle">Community recognition across StackOverflow, CodeWars, and developer platforms</p>
       </header>
 
       <div class="bento-grid">

@@ -24,20 +24,20 @@ export interface RouterConfig {
 // Route definitions for all 45+ pages
 export const routes: Route[] = [
   // Drive A: /ME (The Digital Twin)
-  { path: '/me/index', name: 'Dashboard', icon: '🏠', component: () => import('../apps/me/Dashboard'), drive: 'ME', breadcrumb: ['Me', 'Dashboard'], category: 'Overview' },
-  { path: '/me/story', name: 'Story', icon: '📖', component: () => import('../apps/me/Story'), drive: 'ME', breadcrumb: ['Me', 'Story'], category: 'Personal' },
-  { path: '/me/philosophy', name: 'Philosophy', icon: '🧠', component: () => import('../apps/me/Philosophy'), drive: 'ME', breadcrumb: ['Me', 'Philosophy'], category: 'Personal' },
-  { path: '/me/journal', name: 'Journal', icon: '📝', component: () => import('../apps/me/Journal'), drive: 'ME', breadcrumb: ['Me', 'Journal'], category: 'Personal' },
-  { path: '/me/interests', name: 'Interests', icon: '💡', component: () => import('../apps/me/Interests'), drive: 'ME', breadcrumb: ['Me', 'Interests'], category: 'Lifestyle' },
-  { path: '/me/passions', name: 'Passions', icon: '❤️', component: () => import('../apps/me/Passions'), drive: 'ME', breadcrumb: ['Me', 'Passions'], category: 'Lifestyle' },
-  { path: '/me/hobbies', name: 'Hobbies', icon: '🎯', component: () => import('../apps/me/Hobbies'), drive: 'ME', breadcrumb: ['Me', 'Hobbies'], category: 'Lifestyle' },
-  { path: '/me/fetish', name: 'Fetish', icon: '🔞', component: () => import('../apps/me/Fetish'), drive: 'ME', breadcrumb: ['Me', 'Fetish'], category: 'Lifestyle' },
-  { path: '/me/gear', name: 'Gear', icon: '⚙️', component: () => import('../apps/me/Gear'), drive: 'ME', breadcrumb: ['Me', 'Gear'], category: 'Possessions' },
-  { path: '/me/travel', name: 'Travel', icon: '✈️', component: () => import('../apps/me/Travel'), drive: 'ME', breadcrumb: ['Me', 'Travel'], category: 'Possessions' },
-  { path: '/me/purchases', name: 'Purchases', icon: '🛒', component: () => import('../apps/me/Purchases'), drive: 'ME', breadcrumb: ['Me', 'Purchases'], category: 'Possessions' },
+  { path: '/me/index', name: 'Dashboard', icon: '🏠', component: () => import('../apps/me/Dashboard'), drive: 'ME', breadcrumb: ['Me', 'Dashboard'], category: 'Home' },
+  { path: '/me/story', name: 'Story', icon: '📖', component: () => import('../apps/me/Story'), drive: 'ME', breadcrumb: ['Me', 'Story'], category: 'About' },
+  { path: '/me/philosophy', name: 'Philosophy', icon: '🧠', component: () => import('../apps/me/Philosophy'), drive: 'ME', breadcrumb: ['Me', 'Philosophy'], category: 'About' },
+  { path: '/me/journal', name: 'Journal', icon: '📝', component: () => import('../apps/me/Journal'), drive: 'ME', breadcrumb: ['Me', 'Journal'], category: 'About' },
+  { path: '/me/interests', name: 'Interests', icon: '💡', component: () => import('../apps/me/Interests'), drive: 'ME', breadcrumb: ['Me', 'Interests'], category: 'Interests' },
+  { path: '/me/passions', name: 'Passions', icon: '❤️', component: () => import('../apps/me/Passions'), drive: 'ME', breadcrumb: ['Me', 'Passions'], category: 'Interests' },
+  { path: '/me/hobbies', name: 'Hobbies', icon: '🎯', component: () => import('../apps/me/Hobbies'), drive: 'ME', breadcrumb: ['Me', 'Hobbies'], category: 'Interests' },
+
+  { path: '/me/gear', name: 'Gear', icon: '⚙️', component: () => import('../apps/me/Gear'), drive: 'ME', breadcrumb: ['Me', 'Gear'], category: 'Setup' },
+  { path: '/me/travel', name: 'Travel', icon: '✈️', component: () => import('../apps/me/Travel'), drive: 'ME', breadcrumb: ['Me', 'Travel'], category: 'Setup' },
+  { path: '/me/purchases', name: 'Purchases', icon: '🛒', component: () => import('../apps/me/Purchases'), drive: 'ME', breadcrumb: ['Me', 'Purchases'], category: 'Setup' },
 
   // Drive B: /WORK (Professional)
-  { path: '/work/index', name: 'Summary', icon: '💼', component: () => import('../apps/work/Summary'), drive: 'WORK', breadcrumb: ['Work', 'Summary'], category: 'Overview' },
+  { path: '/work/index', name: 'Summary', icon: '💼', component: () => import('../apps/work/Summary'), drive: 'WORK', breadcrumb: ['Work', 'Summary'], category: 'Resume' },
   { path: '/work/history', name: 'Experience', icon: '📋', component: () => import('../apps/work/Experience'), drive: 'WORK', breadcrumb: ['Work', 'Experience'], category: 'Career' },
   { path: '/work/tcs', name: 'TCS', icon: '🏢', component: () => import('../apps/work/TCS'), drive: 'WORK', breadcrumb: ['Work', 'TCS'], category: 'Career' },
   { path: '/work/skills', name: 'Skills', icon: '🎯', component: () => import('../apps/work/Skills'), drive: 'WORK', breadcrumb: ['Work', 'Skills'], category: 'Capabilities' },
@@ -133,8 +133,8 @@ class Router {
   }
 
   private async handleRouteChange(): Promise<void> {
-    const hash = window.location.hash.slice(1) || '/me/index';
-    const route = this.routes.get(hash) || this.routes.get('/me/index')!;
+    const hash = window.location.hash.slice(1) || '/work/index';
+    const route = this.routes.get(hash) || this.routes.get('/work/index')!;
 
     if (route && this.contentContainer) {
       this.currentRoute = route;
@@ -154,7 +154,7 @@ class Router {
         await module.default(this.contentContainer);
 
         // Update document title
-        document.title = `${route.name} | Chirag Singhal`;
+        document.title = `${route.name} — Chirag Singhal | Software Engineer`;
 
         if (this.onNavigateCallback) {
           this.onNavigateCallback(route);
@@ -165,7 +165,7 @@ class Router {
           <div class="error-container">
             <h2>Failed to load ${route.name}</h2>
             <p>${error instanceof Error ? error.message : 'Unknown error'}</p>
-            <button onclick="location.hash = '#/me/index'">Go Home</button>
+            <button onclick="location.hash = '#/work/index'">Go Home</button>
           </div>
         `;
       }

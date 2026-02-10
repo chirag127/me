@@ -8,8 +8,8 @@ export default async function Repos(container: HTMLElement): Promise<void> {
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">Repositories</h1>
-        <p class="page-subtitle">Open source projects and code</p>
+        <h1 class="page-title">Open Source Portfolio</h1>
+        <p class="page-subtitle">200+ repositories spanning Python, TypeScript, GenAI, and system tools</p>
       </header>
 
       <div class="repos-list" id="repos-list">

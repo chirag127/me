@@ -11,8 +11,8 @@ export default async function Contact(container: HTMLElement): Promise<void> {
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">Contact</h1>
-        <p class="page-subtitle">Let's get in touch</p>
+        <h1 class="page-title">Hire Me / Get in Touch</h1>
+        <p class="page-subtitle">Interested in my skills? Let's discuss how I can contribute to your team</p>
       </header>
 
       <div class="contact-layout">

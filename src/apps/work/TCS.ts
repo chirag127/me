@@ -6,8 +6,8 @@ export default async function TCS(container: HTMLElement): Promise<void> {
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">TCS Case Study</h1>
-        <p class="page-subtitle">Enterprise Software Engineering at Scale</p>
+        <h1 class="page-title">TCS — Enterprise Engineering at Scale</h1>
+        <p class="page-subtitle">60% latency reduction on enterprise pricing engines • Production Python & CI/CD</p>
       </header>
 
       <div class="case-study-content">

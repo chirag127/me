@@ -1,360 +1,552 @@
 /**
- * Project Me - Dashboard (Now Page)
- * Real-time status, Now Playing, weather, Discord status
+ * Project Me - Professional Dashboard (Hire Me Landing Page)
+ * Employer-focused: hero, metrics, skills, projects, career, education, CTA
  */
 
 import { RESUME } from '../../data/resume';
 import { SOCIAL, IDENTITY } from '../../data';
-import { getNowPlaying } from '../../services/media';
 import { getAggregateCodingStats } from '../../services/coding';
-import { getGreeting, formatNumber } from '../../services/utility';
+import { formatNumber } from '../../services/utility';
 
 export default async function Dashboard(container: HTMLElement): Promise<void> {
+  const yearsExp = Math.max(1, new Date().getFullYear() - 2023);
+
   container.innerHTML = `
-    <div class="page animate-fade-in">
-      <header class="page-header">
-        <h1 class="page-title">${getGreeting()}, I'm ${RESUME.personal.firstName}</h1>
-        <p class="page-subtitle">${RESUME.personal.position} • ${RESUME.personal.tagline}</p>
-      </header>
+    <div class="page animate-fade-in hire-page">
 
-      <div class="bento-grid">
-        <!-- About Card -->
-        <div class="bento-item span-2">
-          <div class="card-header">
-            <span class="card-icon">👤</span>
-            <h3>About Me</h3>
-          </div>
-          <p class="about-text">${RESUME.summary.slice(0, 280)}...</p>
-          <a href="#/me/story" class="btn btn-ghost">Read More →</a>
-        </div>
-
-        <!-- Now Playing -->
-        <div class="bento-item" id="music-card">
-          <div class="card-header">
-            <span class="card-icon">🎵</span>
-            <h3>Now Playing</h3>
-          </div>
-          <div class="now-playing" id="now-playing">
-            <p class="muted">Not playing anything</p>
+      <!-- HERO -->
+      <section class="hire-hero glass-panel">
+        <div class="hire-hero-avatar">CS</div>
+        <div class="hire-hero-info">
+          <h1 class="hire-hero-name">${RESUME.personal.name}</h1>
+          <p class="hire-hero-title">${RESUME.personal.position} <span class="hire-sep">|</span> ${RESUME.personal.tagline}</p>
+          <p class="hire-hero-location">📍 ${RESUME.personal.location}</p>
+          <p class="hire-hero-quote">"${RESUME.personal.quote}"</p>
+          <div class="hire-hero-actions">
+            <a href="#/connect/mail" class="btn btn-primary hire-btn-lg">📧 Contact Me</a>
+            <a href="https://github.com/${RESUME.personal.github}" target="_blank" class="btn btn-secondary">GitHub</a>
+            <a href="https://linkedin.com/in/${RESUME.personal.linkedin}" target="_blank" class="btn btn-secondary">LinkedIn</a>
+            <a href="mailto:${RESUME.personal.email}" class="btn btn-ghost">✉️ ${RESUME.personal.email}</a>
           </div>
         </div>
+      </section>
 
-        <!-- Skills Preview -->
-        <div class="bento-item span-2">
-          <div class="card-header">
-            <span class="card-icon">🎯</span>
-            <h3>Top Skills</h3>
-          </div>
-          <div class="skills-preview">
-            ${RESUME.skills.slice(0, 2).map(category => `
-              <div class="skill-category">
-                <h4>${category.category}</h4>
-                <div class="skill-tags">
-                  ${category.skills.slice(0, 5).map(skill => `
-                    <span class="tag">${skill}</span>
-                  `).join('')}
-                </div>
+      <!-- IMPACT METRICS -->
+      <section class="hire-metrics">
+        <div class="hire-metric">
+          <span class="hire-metric-value">${yearsExp}+</span>
+          <span class="hire-metric-label">Years Experience</span>
+        </div>
+        <div class="hire-metric">
+          <span class="hire-metric-value" id="metric-repos">--</span>
+          <span class="hire-metric-label">GitHub Repos</span>
+        </div>
+        <div class="hire-metric">
+          <span class="hire-metric-value" id="metric-leetcode">--</span>
+          <span class="hire-metric-label">LeetCode Solved</span>
+        </div>
+        <div class="hire-metric">
+          <span class="hire-metric-value" id="metric-stars">--</span>
+          <span class="hire-metric-label">GitHub Stars</span>
+        </div>
+        <div class="hire-metric">
+          <span class="hire-metric-value">7</span>
+          <span class="hire-metric-label">Projects Shipped</span>
+        </div>
+        <div class="hire-metric">
+          <span class="hire-metric-value">🏆</span>
+          <span class="hire-metric-label">College Topper</span>
+        </div>
+      </section>
+
+      <!-- PROFESSIONAL SUMMARY -->
+      <section class="section">
+        <h2 class="section-title">📋 Professional Summary</h2>
+        <div class="glass-panel hire-summary">
+          <p>${RESUME.summary}</p>
+        </div>
+      </section>
+
+      <!-- TECHNICAL ARSENAL -->
+      <section class="section">
+        <h2 class="section-title">🎯 Technical Arsenal</h2>
+        <div class="hire-skills-grid">
+          ${RESUME.skills.map(cat => `
+            <div class="hire-skill-card glass-panel">
+              <h4>${cat.category}</h4>
+              <div class="skill-tags">
+                ${cat.skills.map(s => `<span class="tag">${s}</span>`).join('')}
               </div>
-            `).join('')}
-          </div>
-          <a href="#/work/skills" class="btn btn-ghost">View All Skills →</a>
+            </div>
+          `).join('')}
         </div>
+        <a href="#/work/skills" class="btn btn-ghost hire-view-more">View Full Skills Matrix →</a>
+      </section>
 
-        <!-- Quick Links -->
-        <div class="bento-item">
-          <div class="card-header">
-            <span class="card-icon">🔗</span>
-            <h3>Quick Links</h3>
-          </div>
-          <div class="quick-links">
-            <a href="${SOCIAL.github.url}" target="_blank" class="quick-link">
-              <span>GitHub</span>
-              <span>→</span>
-            </a>
-            <a href="${SOCIAL.linkedin.url}" target="_blank" class="quick-link">
-              <span>LinkedIn</span>
-              <span>→</span>
-            </a>
-            <a href="mailto:${IDENTITY.email}" class="quick-link">
-              <span>Email</span>
-              <span>→</span>
-            </a>
-          </div>
+      <!-- FEATURED PROJECTS -->
+      <section class="section">
+        <h2 class="section-title">🚀 Featured Projects</h2>
+        <div class="hire-projects-grid">
+          ${RESUME.projects.slice(0, 3).map((project, i) => `
+            <div class="hire-project-card glass-panel">
+              <div class="hire-project-rank">#${i + 1}</div>
+              <h3>${project.name}</h3>
+              <div class="skill-tags">
+                ${project.techStack.map(t => `<span class="tag primary">${t}</span>`).join('')}
+              </div>
+              <ul class="hire-project-highlights">
+                ${project.highlights.slice(0, 2).map(h => `<li>${h}</li>`).join('')}
+              </ul>
+              <a href="https://${project.link}" target="_blank" class="btn btn-ghost">View on GitHub →</a>
+            </div>
+          `).join('')}
         </div>
+        <a href="#/work/projects" class="btn btn-ghost hire-view-more">View All ${RESUME.projects.length} Projects →</a>
+      </section>
 
-        <!-- Featured Project -->
-        <div class="bento-item span-2">
-          <div class="card-header">
-            <span class="card-icon">🚀</span>
-            <h3>Featured Project</h3>
-          </div>
-          <div class="project-preview">
-            <h4>${RESUME.projects[0].name}</h4>
-            <div class="project-tech">
-              ${RESUME.projects[0].techStack.map(t => `<span class="tag primary">${t}</span>`).join('')}
+      <!-- CAREER TIMELINE -->
+      <section class="section">
+        <h2 class="section-title">💼 Career</h2>
+        <div class="hire-timeline">
+          ${RESUME.experience.map(exp => `
+            <div class="hire-timeline-item glass-panel">
+              <div class="hire-timeline-header">
+                <div>
+                  <h3>${exp.title}</h3>
+                  <p class="hire-timeline-company">${exp.company}</p>
+                  <p class="hire-timeline-meta">📍 ${exp.location} · ${exp.startDate} — ${exp.endDate}</p>
+                </div>
+                ${exp.current ? '<span class="tag success">Current</span>' : ''}
+              </div>
+              <ul class="hire-timeline-highlights">
+                ${exp.highlights.slice(0, 3).map(h => `<li>${h}</li>`).join('')}
+              </ul>
             </div>
-            <p>${RESUME.projects[0].highlights[0].slice(0, 120)}...</p>
-          </div>
-          <a href="#/work/projects" class="btn btn-ghost">View Projects →</a>
+          `).join('')}
         </div>
+        <a href="#/work/history" class="btn btn-ghost hire-view-more">View Full Experience →</a>
+      </section>
 
-        <!-- Quick Stats -->
-        <div class="bento-item" id="stats-card">
-          <div class="card-header">
-            <span class="card-icon">📊</span>
-            <h3>Stats</h3>
-          </div>
-          <div class="stats-grid compact" id="stats-grid">
-            <div class="stat-item">
-              <span class="stat-value" id="stat-repos">--</span>
-              <span class="stat-label">Repos</span>
+      <!-- EDUCATION & HONORS -->
+      <section class="section">
+        <h2 class="section-title">🎓 Education & Achievements</h2>
+        <div class="hire-edu-grid">
+          ${RESUME.education.map(edu => `
+            <div class="hire-edu-card glass-panel">
+              <h4>${edu.degree}</h4>
+              <p class="hire-edu-institution">${edu.institution}</p>
+              <p class="hire-edu-year">${edu.year}</p>
+              <div class="skill-tags">
+                ${edu.details.map(d => `<span class="tag">${d}</span>`).join('')}
+              </div>
             </div>
-            <div class="stat-item">
-              <span class="stat-value" id="stat-stars">--</span>
-              <span class="stat-label">Stars</span>
+          `).join('')}
+          ${RESUME.honors.map(honor => `
+            <div class="hire-edu-card glass-panel hire-honor">
+              <h4>🏆 ${honor.title}</h4>
+              <p>${honor.description}</p>
+              <p class="hire-edu-year">${honor.year}</p>
             </div>
-            <div class="stat-item">
-              <span class="stat-value" id="stat-leetcode">--</span>
-              <span class="stat-label">LeetCode</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-value" id="stat-followers">--</span>
-              <span class="stat-label">Followers</span>
-            </div>
-          </div>
+          `).join('')}
         </div>
-      </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="hire-cta glass-panel">
+        <h2>Interested? Let's Talk!</h2>
+        <p>I'm actively looking for challenging roles in Backend Engineering, System Design, and GenAI.</p>
+        <div class="hire-cta-actions">
+          <a href="#/connect/mail" class="btn btn-primary hire-btn-lg">📧 Get in Touch</a>
+          <a href="https://linkedin.com/in/${RESUME.personal.linkedin}" target="_blank" class="btn btn-secondary hire-btn-lg">LinkedIn</a>
+          <a href="https://github.com/${RESUME.personal.github}" target="_blank" class="btn btn-secondary hire-btn-lg">GitHub</a>
+        </div>
+      </section>
+
     </div>
 
     <style>
-      .status-header {
+      /* ========== HERO ========== */
+      .hire-hero {
+        display: flex;
+        gap: var(--space-8);
+        padding: var(--space-8);
+        align-items: center;
+        margin-bottom: var(--space-6);
+        border-left: 4px solid var(--accent-blue);
+      }
+
+      .hire-hero-avatar {
+        width: 130px;
+        height: 130px;
+        border-radius: var(--radius-2xl);
+        background: var(--gradient-primary);
         display: flex;
         align-items: center;
-        gap: var(--space-2);
-        margin-bottom: var(--space-3);
+        justify-content: center;
+        font-size: 48px;
+        font-weight: 800;
+        color: white;
+        flex-shrink: 0;
+        box-shadow: 0 8px 32px rgba(88, 86, 214, 0.3);
       }
 
-      .status-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--accent-green);
-        animation: pulse 2s infinite;
-      }
-
-      .now-info {
-        color: var(--text-secondary);
-      }
-
-      .card-header {
-        display: flex;
-        align-items: center;
-        gap: var(--space-2);
-        margin-bottom: var(--space-4);
-      }
-
-      .card-header h3 {
-        font-size: var(--text-base);
-        font-weight: 600;
-      }
-
-      .card-icon {
-        font-size: var(--text-xl);
-      }
-
-
-
-      .now-playing {
-        display: flex;
-        align-items: center;
-        gap: var(--space-3);
-      }
-
-      .now-playing-art {
-        width: 60px;
-        height: 60px;
-        border-radius: var(--radius-md);
-        object-fit: cover;
-      }
-
-      .now-playing-info {
-        flex: 1;
-      }
-
-      .now-playing-track {
-        font-weight: 600;
+      .hire-hero-name {
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        font-weight: 800;
         margin-bottom: var(--space-1);
-      }
-
-      .now-playing-artist {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-      }
-
-      .muted {
-        color: var(--text-tertiary);
-        font-style: italic;
-      }
-
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--space-4);
-      }
-
-      .stat-item {
-        text-align: center;
-      }
-
-      .stat-item .stat-value {
-        display: block;
-        font-size: var(--text-2xl);
-        font-weight: 700;
-        font-family: var(--font-mono);
         background: var(--gradient-primary);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
 
-      .stat-item .stat-label {
-        font-size: var(--text-xs);
+      .hire-hero-title {
+        font-size: var(--text-lg);
         color: var(--text-secondary);
+        margin-bottom: var(--space-1);
       }
 
-      .stats-grid.compact {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-2);
+      .hire-sep {
+        color: var(--accent-blue);
+        margin: 0 var(--space-1);
       }
 
-      .stats-grid.compact .stat-value {
+      .hire-hero-location {
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+        margin-bottom: var(--space-2);
+      }
+
+      .hire-hero-quote {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        font-style: italic;
+        margin-bottom: var(--space-4);
+        border-left: 2px solid var(--accent-blue);
+        padding-left: var(--space-3);
+      }
+
+      .hire-hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-3);
+      }
+
+      .hire-btn-lg {
+        padding: var(--space-3) var(--space-6) !important;
+        font-size: var(--text-base) !important;
+        font-weight: 600 !important;
+      }
+
+      /* ========== METRICS ========== */
+      .hire-metrics {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: var(--space-4);
+        margin-bottom: var(--space-8);
+      }
+
+      .hire-metric {
+        text-align: center;
+        padding: var(--space-5);
+        background: var(--glass-bg);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--glass-border);
+        backdrop-filter: blur(10px);
+        transition: transform var(--transition-fast);
+      }
+
+      .hire-metric:hover {
+        transform: translateY(-2px);
+      }
+
+      .hire-metric-value {
+        display: block;
+        font-size: var(--text-2xl);
+        font-weight: 800;
+        font-family: var(--font-mono);
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: var(--space-1);
+      }
+
+      .hire-metric-label {
+        font-size: var(--text-xs);
+        color: var(--text-tertiary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      /* ========== SUMMARY ========== */
+      .hire-summary {
+        padding: var(--space-6);
+      }
+
+      .hire-summary p {
+        line-height: 1.9;
+        color: var(--text-secondary);
+        font-size: var(--text-base);
+      }
+
+      /* ========== SKILLS ========== */
+      .hire-skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-4);
+        margin-bottom: var(--space-4);
+      }
+
+      .hire-skill-card {
+        padding: var(--space-5);
+        border-left: 3px solid var(--accent-blue);
+        transition: transform var(--transition-fast);
+      }
+
+      .hire-skill-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .hire-skill-card h4 {
+        margin-bottom: var(--space-3);
+        color: var(--accent-blue);
+        font-size: var(--text-base);
+      }
+
+      .hire-view-more {
+        display: inline-block;
+        margin-top: var(--space-2);
+      }
+
+      /* ========== PROJECTS ========== */
+      .hire-projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: var(--space-5);
+        margin-bottom: var(--space-4);
+      }
+
+      .hire-project-card {
+        padding: var(--space-6);
+        position: relative;
+        border-top: 3px solid var(--accent-purple);
+        transition: transform var(--transition-fast);
+      }
+
+      .hire-project-card:hover {
+        transform: translateY(-3px);
+      }
+
+      .hire-project-rank {
+        position: absolute;
+        top: var(--space-4);
+        right: var(--space-4);
+        font-size: var(--text-sm);
+        color: var(--accent-purple);
+        font-weight: 700;
+        font-family: var(--font-mono);
+      }
+
+      .hire-project-card h3 {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-3);
+        padding-right: var(--space-6);
+      }
+
+      .hire-project-highlights {
+        list-style: none;
+        margin: var(--space-4) 0;
+      }
+
+      .hire-project-highlights li {
+        position: relative;
+        padding-left: var(--space-5);
+        margin-bottom: var(--space-2);
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .hire-project-highlights li::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: var(--accent-purple);
+        font-weight: 600;
+      }
+
+      /* ========== TIMELINE ========== */
+      .hire-timeline {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-5);
+      }
+
+      .hire-timeline-item {
+        padding: var(--space-6);
+        border-left: 3px solid var(--accent-green);
+        transition: transform var(--transition-fast);
+      }
+
+      .hire-timeline-item:hover {
+        transform: translateY(-2px);
+      }
+
+      .hire-timeline-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: var(--space-4);
+      }
+
+      .hire-timeline-header h3 {
+        font-size: var(--text-xl);
+        margin-bottom: var(--space-1);
+      }
+
+      .hire-timeline-company {
+        color: var(--accent-blue);
+        font-weight: 500;
+      }
+
+      .hire-timeline-meta {
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+        margin-top: var(--space-1);
+      }
+
+      .hire-timeline-highlights {
+        list-style: none;
+      }
+
+      .hire-timeline-highlights li {
+        position: relative;
+        padding-left: var(--space-5);
+        margin-bottom: var(--space-2);
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .hire-timeline-highlights li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--accent-green);
+        font-weight: 700;
+      }
+
+      /* ========== EDUCATION ========== */
+      .hire-edu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-4);
+      }
+
+      .hire-edu-card {
+        padding: var(--space-5);
+      }
+
+      .hire-edu-card h4 {
+        margin-bottom: var(--space-2);
+      }
+
+      .hire-edu-institution {
+        color: var(--accent-blue);
+        font-size: var(--text-sm);
+        margin-bottom: var(--space-1);
+      }
+
+      .hire-edu-year {
+        color: var(--text-tertiary);
+        font-size: var(--text-sm);
+        margin-bottom: var(--space-3);
+      }
+
+      .hire-honor {
+        border-left: 3px solid #FFD700;
+      }
+
+      /* ========== CTA ========== */
+      .hire-cta {
+        text-align: center;
+        padding: var(--space-10) var(--space-8);
+        margin-top: var(--space-8);
+        border: 2px solid var(--accent-blue);
+        background: linear-gradient(135deg, rgba(88, 86, 214, 0.1), rgba(0, 122, 255, 0.1));
+      }
+
+      .hire-cta h2 {
+        font-size: var(--text-3xl);
+        margin-bottom: var(--space-3);
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hire-cta p {
+        color: var(--text-secondary);
+        margin-bottom: var(--space-6);
         font-size: var(--text-lg);
       }
 
-      .about-text {
-        color: var(--text-secondary);
-        font-size: var(--text-sm);
-        line-height: 1.7;
-        margin-bottom: var(--space-4);
-      }
-
-      .skills-preview {
+      .hire-cta-actions {
         display: flex;
-        gap: var(--space-6);
-        margin-bottom: var(--space-4);
-      }
-
-      .skill-category h4 {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-        margin-bottom: var(--space-2);
-      }
-
-      .skill-tags {
-        display: flex;
+        justify-content: center;
         flex-wrap: wrap;
-        gap: var(--space-2);
+        gap: var(--space-4);
       }
 
-      .project-preview h4 {
-        margin-bottom: var(--space-2);
-      }
-
-      .project-tech {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-1);
-        margin-bottom: var(--space-3);
-      }
-
-      .project-preview p {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-        margin-bottom: var(--space-3);
-      }
-
-      .quick-links {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-      }
-
-      .quick-link {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: var(--space-3);
-        background: var(--glass-bg);
-        border-radius: var(--radius-md);
-        color: var(--text-primary);
-        transition: all var(--transition-fast);
-      }
-
-      .quick-link:hover {
-        background: var(--glass-bg-hover);
-        transform: translateX(4px);
-      }
-
+      /* ========== RESPONSIVE ========== */
       @media (max-width: 768px) {
-        .stats-grid {
-          grid-template-columns: repeat(2, 1fr);
+        .hire-hero {
+          flex-direction: column;
+          text-align: center;
         }
 
-        .skills-preview {
+        .hire-hero-actions {
+          justify-content: center;
+        }
+
+        .hire-hero-quote {
+          text-align: left;
+        }
+
+        .hire-metrics {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .hire-timeline-header {
           flex-direction: column;
-          gap: var(--space-4);
+          gap: var(--space-2);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hire-metrics {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
     </style>
   `;
 
-  // Load dynamic data
-  loadNowPlaying();
-  loadCodingStats();
+  // Load live coding stats
+  loadMetrics();
 }
 
-
-
-
-
-async function loadNowPlaying(): Promise<void> {
-  try {
-    const track = await getNowPlaying();
-    const container = document.getElementById('now-playing');
-
-    if (container) {
-      if (track) {
-        const image = track.image.find(img => img.size === 'large')?.['#text'] || '';
-        container.innerHTML = `
-          ${image ? `<img src="${image}" alt="Album art" class="now-playing-art">` : ''}
-          <div class="now-playing-info">
-            <div class="now-playing-track">${track.name}</div>
-            <div class="now-playing-artist">${track.artist['#text']}</div>
-          </div>
-        `;
-      } else {
-        container.innerHTML = '<p class="muted">Not playing anything</p>';
-      }
-    }
-  } catch (error) {
-    console.error('Failed to load now playing:', error);
-  }
-}
-
-async function loadCodingStats(): Promise<void> {
+async function loadMetrics(): Promise<void> {
   try {
     const stats = await getAggregateCodingStats();
-
-    const reposEl = document.getElementById('stat-repos');
-    const starsEl = document.getElementById('stat-stars');
-    const leetcodeEl = document.getElementById('stat-leetcode');
-    const followersEl = document.getElementById('stat-followers');
+    const reposEl = document.getElementById('metric-repos');
+    const leetEl = document.getElementById('metric-leetcode');
+    const starsEl = document.getElementById('metric-stars');
 
     if (reposEl) reposEl.textContent = formatNumber(stats.github.repos);
+    if (leetEl) leetEl.textContent = formatNumber(stats.leetcode.solved);
     if (starsEl) starsEl.textContent = formatNumber(stats.github.stars);
-    if (leetcodeEl) leetcodeEl.textContent = formatNumber(stats.leetcode.solved);
-    if (followersEl) followersEl.textContent = formatNumber(stats.github.followers);
   } catch (error) {
-    console.error('Failed to load coding stats:', error);
+    console.error('Failed to load metrics:', error);
   }
 }

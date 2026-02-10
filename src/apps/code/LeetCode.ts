@@ -8,8 +8,8 @@ export default async function LeetCode(container: HTMLElement): Promise<void> {
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">LeetCode</h1>
-        <p class="page-subtitle">Competitive programming progress</p>
+        <h1 class="page-title">LeetCode — Problem Solving</h1>
+        <p class="page-subtitle">Algorithmic prowess demonstrated through competitive programming</p>
       </header>
 
       <div class="leetcode-stats glass-panel" id="leetcode-stats">

@@ -8,8 +8,8 @@ export default async function Education(container: HTMLElement): Promise<void> {
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">Education</h1>
-        <p class="page-subtitle">Academic background and achievements</p>
+        <h1 class="page-title">Education & Honors</h1>
+        <p class="page-subtitle">College Topper (Rank 1) • JEE Advanced Qualifier • Academic Excellence</p>
       </header>
 
       <div class="education-list">

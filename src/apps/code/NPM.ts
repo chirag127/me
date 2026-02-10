@@ -8,8 +8,8 @@ export default async function NPM(container: HTMLElement): Promise<void> {
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">NPM Packages</h1>
-        <p class="page-subtitle">Published packages and downloads</p>
+        <h1 class="page-title">Published Packages</h1>
+        <p class="page-subtitle">NPM packages published and maintained for the developer community</p>
       </header>
 
       <div class="glass-panel empty-state">

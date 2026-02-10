@@ -19,8 +19,8 @@ export default async function Skills(container: HTMLElement): Promise<void> {
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">Skills</h1>
-        <p class="page-subtitle">Technical expertise and proficiency</p>
+        <h1 class="page-title">Technical Skills</h1>
+        <p class="page-subtitle">Proficiency in Python, GenAI, Backend Infrastructure, and Cloud Engineering</p>
       </header>
 
       <section class="section">

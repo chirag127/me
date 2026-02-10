@@ -13,8 +13,8 @@ export default async function Services(container: HTMLElement): Promise<void> {
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">Services</h1>
-        <p class="page-subtitle">How I can help your project</p>
+        <h1 class="page-title">What I Bring to Your Team</h1>
+        <p class="page-subtitle">Core competencies I deliver from day one in backend, AI, and cloud engineering</p>
       </header>
 
       <div class="services-grid">
@@ -28,9 +28,9 @@ export default async function Services(container: HTMLElement): Promise<void> {
       </div>
 
       <div class="cta-section glass-panel">
-        <h2>Interested in working together?</h2>
-        <p>I'm always open to discussing new projects and opportunities.</p>
-        <a href="#/connect/mail" class="btn btn-primary">Get in Touch →</a>
+        <h2>Ready to Add Me to Your Team?</h2>
+        <p>I'm actively looking for challenging roles where I can deliver immediate impact.</p>
+        <a href="#/connect/mail" class="btn btn-primary">📧 Hire Me →</a>
       </div>
     </div>
 

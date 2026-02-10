@@ -9,18 +9,19 @@ export default async function Summary(container: HTMLElement): Promise<void> {
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">Work Summary</h1>
-        <p class="page-subtitle">${RESUME.personal.position} • ${RESUME.personal.tagline}</p>
+        <h1 class="page-title">Professional Resume</h1>
+        <p class="page-subtitle">${RESUME.personal.position} • ${RESUME.personal.tagline} • Available for Hire</p>
       </header>
 
       <section class="hero-section glass-panel">
         <div class="hero-avatar">CS</div>
         <div class="hero-info">
           <h2>${RESUME.personal.name}</h2>
-          <p>${RESUME.personal.position}</p>
+          <p>${RESUME.personal.position} — ${RESUME.personal.tagline}</p>
           <p class="hero-location">📍 ${RESUME.personal.location}</p>
           <div class="hero-links">
-            <a href="mailto:${RESUME.personal.email}" class="btn btn-primary">✉️ Contact</a>
+            <a href="#/connect/mail" class="btn btn-primary">📧 Hire Me</a>
+            <a href="mailto:${RESUME.personal.email}" class="btn btn-secondary">✉️ Email</a>
             <a href="https://github.com/${RESUME.personal.github}" target="_blank" class="btn btn-secondary">GitHub</a>
             <a href="https://linkedin.com/in/${RESUME.personal.linkedin}" target="_blank" class="btn btn-secondary">LinkedIn</a>
           </div>
@@ -28,7 +29,7 @@ export default async function Summary(container: HTMLElement): Promise<void> {
       </section>
 
       <section class="section">
-        <h2 class="section-title">📋 Summary</h2>
+        <h2 class="section-title">📋 Professional Summary</h2>
         <div class="summary-text glass-panel">
           <p>${RESUME.summary}</p>
         </div>
@@ -47,12 +48,12 @@ export default async function Summary(container: HTMLElement): Promise<void> {
           <ul class="role-highlights">
             ${RESUME.experience[0].highlights.slice(0, 3).map(h => `<li>${h}</li>`).join('')}
           </ul>
-          <a href="#/work/history" class="btn btn-ghost">View Full History →</a>
+          <a href="#/work/history" class="btn btn-ghost">View Full Career History →</a>
         </div>
       </section>
 
       <section class="section">
-        <h2 class="section-title">🎯 Key Skills</h2>
+        <h2 class="section-title">🎯 Technical Skills</h2>
         <div class="skills-overview">
           ${RESUME.skills.map(cat => `
             <div class="skill-cat glass-panel">
@@ -63,10 +64,11 @@ export default async function Summary(container: HTMLElement): Promise<void> {
             </div>
           `).join('')}
         </div>
+        <a href="#/work/skills" class="btn btn-ghost" style="margin-top:var(--space-4);display:inline-block">View Proficiency Levels →</a>
       </section>
 
       <section class="section">
-        <h2 class="section-title">🎓 Education</h2>
+        <h2 class="section-title">🎓 Education & Credentials</h2>
         <div class="education-cards">
           ${RESUME.education.map(edu => `
             <div class="edu-card glass-panel">
@@ -78,6 +80,15 @@ export default async function Summary(container: HTMLElement): Promise<void> {
               </div>
             </div>
           `).join('')}
+        </div>
+      </section>
+
+      <section class="hire-cta-section glass-panel" style="text-align:center;padding:var(--space-8);margin-top:var(--space-6);border:2px solid var(--accent-blue);background:linear-gradient(135deg,rgba(88,86,214,0.1),rgba(0,122,255,0.1))">
+        <h2 style="font-size:var(--text-2xl);margin-bottom:var(--space-3);background:var(--gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Ready to Hire Me?</h2>
+        <p style="color:var(--text-secondary);margin-bottom:var(--space-5)">I'm actively seeking challenging roles in Backend Engineering, System Design, and GenAI.</p>
+        <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:var(--space-3)">
+          <a href="#/connect/mail" class="btn btn-primary" style="padding:var(--space-3) var(--space-6);font-size:var(--text-base);font-weight:600">📧 Contact Me</a>
+          <a href="https://linkedin.com/in/${RESUME.personal.linkedin}" target="_blank" class="btn btn-secondary" style="padding:var(--space-3) var(--space-6);font-size:var(--text-base);font-weight:600">LinkedIn</a>
         </div>
       </section>
     </div>

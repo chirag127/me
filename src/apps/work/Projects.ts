@@ -9,8 +9,8 @@ export default async function Projects(container: HTMLElement): Promise<void> {
   container.innerHTML = `
     <div class="page animate-fade-in">
       <header class="page-header">
-        <h1 class="page-title">Projects</h1>
-        <p class="page-subtitle">Things I've built and contributed to</p>
+        <h1 class="page-title">Projects Portfolio</h1>
+        <p class="page-subtitle">Production-grade systems in GenAI, Distributed Computing, and Backend Engineering</p>
       </header>
 
       <section class="section">
