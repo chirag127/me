@@ -272,6 +272,11 @@ export default async function Purchases(container: HTMLElement): Promise<void> {
         color: #ff9900;
       }
 
+      .purchase-platform.deodap {
+        background: rgba(46, 204, 113, 0.2);
+        color: #2ecc71;
+      }
+
       @media (max-width: 600px) {
         .purchase-card {
           grid-template-columns: auto 1fr;

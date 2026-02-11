@@ -150,6 +150,11 @@ export default async function Gear(container: HTMLElement): Promise<void> {
         color: #ff9900;
       }
 
+      .gear-platform.deodap {
+        background: rgba(46, 204, 113, 0.2);
+        color: #2ecc71;
+      }
+
       @media (max-width: 768px) {
         .gear-stats {
           grid-template-columns: 1fr;

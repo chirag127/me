@@ -21,18 +21,34 @@ base_url = f'https://api.cloudflare.com/client/v4/accounts/{account_id}/pages/pr
 # Domains to add
 domains = ['chirag127.in', 'www.chirag127.in', 'me.chirag127.in']
 
-for domain in domains:
-    print(f'Adding {domain}...')
-    result = requests.post(base_url, headers=headers, json={'name': domain}).json()
+import concurrent.futures
 
-    if result.get('success'):
-        print(f'  ✅ {domain} added successfully!')
-    else:
-        errors = result.get('errors', [])
-        if any('already exists' in str(e).lower() for e in errors):
-            print(f'  ⚠️  {domain} already exists')
+def add_domain(domain):
+    """Add a single domain"""
+    print(f'Adding {domain}...')
+    try:
+        result = requests.post(base_url, headers=headers, json={'name': domain}).json()
+        if result.get('success'):
+            print(f'  ✅ {domain} added successfully!')
+            return True
         else:
-            print(f'  ❌ Error: {errors}')
+            errors = result.get('errors', [])
+            if any('already exists' in str(e).lower() for e in errors):
+                print(f'  ⚠️  {domain} already exists')
+            else:
+                print(f'  ❌ Error adding {domain}: {errors}')
+            return False
+    except Exception as e:
+        print(f'  ❌ Exception adding {domain}: {e}')
+        return False
+
+# Domains to add
+domains = ['chirag127.in', 'www.chirag127.in', 'me.chirag127.in']
+
+print(f"🔄 Adding {len(domains)} domains concurrently...")
+
+with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+    executor.map(add_domain, domains)
 
 # List current domains
 print('\n📋 Current custom domains:')

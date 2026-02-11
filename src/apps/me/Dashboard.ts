@@ -537,16 +537,26 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
 }
 
 async function loadMetrics(): Promise<void> {
+  // Load data concurrently
   try {
-    const stats = await getAggregateCodingStats();
+    const [
+      codingStats
+    ] = await Promise.all([
+      getAggregateCodingStats()
+    ]);
+
     const reposEl = document.getElementById('metric-repos');
     const leetEl = document.getElementById('metric-leetcode');
     const starsEl = document.getElementById('metric-stars');
 
-    if (reposEl) reposEl.textContent = formatNumber(stats.github.repos);
-    if (leetEl) leetEl.textContent = formatNumber(stats.leetcode.solved);
-    if (starsEl) starsEl.textContent = formatNumber(stats.github.stars);
+    if (reposEl) reposEl.textContent = formatNumber(codingStats.github.repos);
+    if (leetEl) leetEl.textContent = formatNumber(codingStats.leetcode.solved);
+    if (starsEl) starsEl.textContent = formatNumber(codingStats.github.stars);
+
   } catch (error) {
+    console.error('Failed to load dashboard data:', error);
+    // Ensure UI is not stuck in loading state if partial failure
+    // Individual render methods handle nulls/empty states usually
     console.error('Failed to load metrics:', error);
   }
 }

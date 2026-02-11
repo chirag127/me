@@ -144,38 +144,7 @@ class NetlifyDeployer:
         return {"success": result.returncode == 0, "output": result.stdout}
 
 
-class VercelDeployer:
-    """Deploy to Vercel"""
 
-    def __init__(self):
-        self.token = os.getenv("VERCEL_TOKEN")
-        self.org_id = os.getenv("VERCEL_ORG_ID")
-        self.project_id = os.getenv("VERCEL_PROJECT_ID")
-
-    def deploy(self) -> dict:
-        """Deploy to Vercel using CLI"""
-        print("🚀 Deploying to Vercel...")
-
-        env = os.environ.copy()
-        env["VERCEL_TOKEN"] = self.token
-        env["VERCEL_ORG_ID"] = self.org_id
-        env["VERCEL_PROJECT_ID"] = self.project_id
-
-        result = subprocess.run(
-            ["npx.cmd", "vercel", "--prod", "--yes"],
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            env=env,
-            cwd=Path(__file__).parent.parent
-        )
-
-        if result.returncode == 0:
-            print("✅ Vercel deployment successful!")
-        else:
-            print(f"❌ Vercel deployment failed: {result.stderr}")
-
-        return {"success": result.returncode == 0, "output": result.stdout}
 
 
 class SurgeDeployer:
@@ -309,48 +278,78 @@ def build_project() -> bool:
         return False
 
 
+import concurrent.futures
+
+class DeploymentResult:
+    def __init__(self, platform, success, output):
+        self.platform = platform
+        self.success = success
+        self.output = output
+
+def deploy_platform(platform_name, deployer_class):
+    """Helper to run a single deployment"""
+    try:
+        deployer = deployer_class()
+        # Assume deploy methods return a dict with 'success' and 'output'
+        # We need to adapt based on the class method signatures
+        if platform_name == "cloudflare":
+             result = deployer.deploy_pages()
+        else:
+             result = deployer.deploy()
+
+        return DeploymentResult(platform_name, result.get("success", False), result.get("output", ""))
+    except Exception as e:
+        return DeploymentResult(platform_name, False, str(e))
+
 def deploy_all():
-    """Deploy to all enabled platforms"""
+    """Deploy to all enabled platforms concurrently"""
     print("=" * 50)
     print("🚀 Project Me - Deployment Orchestrator")
     print("=" * 50)
 
-    # Build first
+    # Build first (must be done before parallel deployment)
     if not build_project():
         print("❌ Build failed, aborting deployment")
         return
 
+    deploy_tasks = []
+
+    # Define tasks based on env vars
+    if os.getenv("ENABLE_CLOUDFLARE", "").lower() == "true":
+        deploy_tasks.append(("cloudflare", CloudflareDeployer))
+
+    if os.getenv("ENABLE_NETLIFY", "").lower() == "true":
+        deploy_tasks.append(("netlify", NetlifyDeployer))
+
+
+
+    if os.getenv("ENABLE_SURGE", "").lower() == "true":
+        deploy_tasks.append(("surge", SurgeDeployer))
+
+    if os.getenv("ENABLE_NEOCITIES", "").lower() == "true":
+        deploy_tasks.append(("neocities", NeocitiesDeployer))
+
+    if os.getenv("ENABLE_GITHUB_PAGES", "").lower() == "true":
+        deploy_tasks.append(("github_pages", GitHubPagesDeployer))
+
     results = {}
 
-    # Cloudflare Pages (primary)
-    if os.getenv("ENABLE_CLOUDFLARE", "").lower() == "true":
-        cf = CloudflareDeployer()
-        results["cloudflare"] = cf.deploy_pages()
+    print(f"\n🔄 Starting {len(deploy_tasks)} deployments concurrently...")
 
-    # Netlify
-    if os.getenv("ENABLE_NETLIFY", "").lower() == "true":
-        netlify = NetlifyDeployer()
-        results["netlify"] = netlify.deploy()
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+        future_to_platform = {
+            executor.submit(deploy_platform, name, cls): name
+            for name, cls in deploy_tasks
+        }
 
-    # Vercel
-    if os.getenv("ENABLE_VERCEL", "").lower() == "true":
-        vercel = VercelDeployer()
-        results["vercel"] = vercel.deploy()
-
-    # Surge
-    if os.getenv("ENABLE_SURGE", "").lower() == "true":
-        surge = SurgeDeployer()
-        results["surge"] = surge.deploy()
-
-    # Neocities
-    if os.getenv("ENABLE_NEOCITIES", "").lower() == "true":
-        neocities = NeocitiesDeployer()
-        results["neocities"] = neocities.deploy()
-
-    # GitHub Pages
-    if os.getenv("ENABLE_GITHUB_PAGES", "").lower() == "true":
-        ghpages = GitHubPagesDeployer()
-        results["github_pages"] = ghpages.deploy()
+        for future in concurrent.futures.as_completed(future_to_platform):
+            platform = future_to_platform[future]
+            try:
+                result = future.result()
+                results[result.platform] = {"success": result.success, "output": result.output}
+            except Exception as exc:
+                print(f"❌ {platform} generated an exception: {exc}")
+                results[platform] = {"success": False, "output": str(exc)}
 
     # Summary
     print("\n" + "=" * 50)

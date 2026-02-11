@@ -123,6 +123,62 @@ class DNSManager:
             print(f"❌ Failed: {result.get('errors', [])}")
             return False
 
+    def batch_add_records(self, zone_id: str, records: list) -> list:
+        """Add multiple DNS records concurrently"""
+        results = []
+        import concurrent.futures
+
+        print(f"🔄 specific: Batch adding {len(records)} records...")
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+            future_to_record = {
+                executor.submit(
+                    self.add_record,
+                    zone_id,
+                    r['type'],
+                    r['name'],
+                    r['content'],
+                    r.get('proxied', True),
+                    r.get('ttl', 1)
+                ): r
+                for r in records
+            }
+
+            for future in concurrent.futures.as_completed(future_to_record):
+                r = future_to_record[future]
+                try:
+                    res = future.result()
+                    results.append({'record': r, 'result': res, 'success': res.get('success', False)})
+                except Exception as exc:
+                    print(f"❌ Exception adding record {r['name']}: {exc}")
+                    results.append({'record': r, 'result': None, 'success': False, 'error': str(exc)})
+
+        return results
+
+    def batch_delete_records(self, zone_id: str, record_ids: list) -> list:
+        """Delete multiple DNS records concurrently"""
+        results = []
+        import concurrent.futures
+
+        print(f"🔄 specific: Batch deleting {len(record_ids)} records...")
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+            future_to_id = {
+                executor.submit(self.delete_record, zone_id, rid): rid
+                for rid in record_ids
+            }
+
+            for future in concurrent.futures.as_completed(future_to_id):
+                rid = future_to_id[future]
+                try:
+                    res = future.result()
+                    results.append({'id': rid, 'result': res, 'success': res.get('success', False)})
+                except Exception as exc:
+                    print(f"❌ Exception deleting record {rid}: {exc}")
+                    results.append({'id': rid, 'result': None, 'success': False, 'error': str(exc)})
+
+        return results
+
 
 def list_zones():
     """List all zones"""

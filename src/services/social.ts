@@ -214,24 +214,70 @@ export async function getHNUserKarma(): Promise<number> {
   }
 }
 
-// YouTube (via RSS2JSON - no auth required, public feed)
+// YouTube (via Data API or RSS2JSON based on complex auth logic)
+class YouTubeService {
+  private channelId: string;
+  private apiKey?: string; // Optional API key for v3 API
+  private useV3: boolean = false;
+
+  constructor(channelId: string, apiKey?: string) {
+    this.channelId = channelId;
+    this.apiKey = apiKey;
+    this.useV3 = !!apiKey;
+  }
+
+  async getVideos(limit = 10): Promise<YouTubeVideo[]> {
+    if (!this.channelId) {
+      console.warn('YouTube Channel ID not configured');
+      return [];
+    }
+
+    if (this.useV3 && this.apiKey) {
+      return this.fetchFromV3(limit);
+    } else {
+      return this.fetchFromRSS(limit);
+    }
+  }
+
+  private async fetchFromV3(limit: number): Promise<YouTubeVideo[]> {
+    // Scaffold implementation for v3 API - to be fully implemented with API key
+    // This allows seamless switching when key is provided
+    const url = `https://www.googleapis.com/youtube/v3/search?key=${this.apiKey}&channelId=${this.channelId}&part=snippet,id&order=date&maxResults=${limit}`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      return data.items.map((item: any) => ({
+        title: item.snippet.title,
+        link: `https://www.youtube.com/watch?v=${item.id.videoId}`,
+        pubDate: item.snippet.publishedAt,
+        author: item.snippet.channelTitle,
+        thumbnail: item.snippet.thumbnails.high.url,
+        description: item.snippet.description
+      }));
+    } catch (e) {
+      console.warn('YouTube V3 API fetch failed, falling back to RSS', e);
+      return this.fetchFromRSS(limit);
+    }
+  }
+
+  private async fetchFromRSS(limit: number): Promise<YouTubeVideo[]> {
+    const rssUrl = `${CONFIG.api.youtube}${this.channelId}`;
+    const url = `${CONFIG.api.rss2json}${encodeURIComponent(rssUrl)}`;
+
+    try {
+      const data = await fetchWithCache<{ items: YouTubeVideo[] }>(url);
+      return data.items.slice(0, limit);
+    } catch {
+      console.warn('YouTube RSS fetch failed');
+      return [];
+    }
+  }
+}
+
+export const youtubeService = new YouTubeService(CONFIG.keys.youTubeChannelId, ''); // Pass API key here if available
+
 export async function getYouTubeVideos(limit = 10): Promise<YouTubeVideo[]> {
-  const channelId = CONFIG.keys.youTubeChannelId;
-  if (!channelId) {
-    console.warn('YouTube Channel ID not configured');
-    return [];
-  }
-
-  const rssUrl = `${CONFIG.api.youtube}${channelId}`;
-  const url = `${CONFIG.api.rss2json}${encodeURIComponent(rssUrl)}`;
-
-  try {
-    const data = await fetchWithCache<{ items: YouTubeVideo[] }>(url);
-    return data.items.slice(0, limit);
-  } catch {
-    console.warn('YouTube RSS fetch failed');
-    return [];
-  }
+  return youtubeService.getVideos(limit);
 }
 
 // Pixelfed API (public, no auth for public accounts)
