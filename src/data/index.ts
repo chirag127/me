@@ -28,6 +28,15 @@ export {
     getTotalSpent,
     getSpendingByCategory,
     getRecentPurchases,
+    getSpendingByPlatform,
+    getPurchasesByPlatform,
+    getSpendingByMonth,
+    getSpendingByYearMap,
+    getPurchaseCountByStatus,
+    getAverageOrderValue,
+    getTopPurchases,
+    getPurchaseYears,
+    getItemCountByMonth,
     type Purchase
 } from './purchases';
 

@@ -14,7 +14,7 @@ export interface GearItem {
     retiredDate?: string;
     current: boolean;
     icon: string;
-    platform?: 'flipkart' | 'amazon' | 'other';
+    platform?: 'flipkart' | 'amazon' | 'deodap' | 'other';
     link?: string;
 }
 
