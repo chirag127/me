@@ -36,6 +36,7 @@ export const routes: Route[] = [
   { path: '/me/travel', name: 'Travel', icon: '✈️', component: () => import('../apps/me/Travel'), drive: 'ME', breadcrumb: ['Me', 'Travel'], category: 'Setup' },
   { path: '/me/purchases', name: 'Purchases', icon: '🛒', component: () => import('../apps/me/Purchases'), drive: 'ME', breadcrumb: ['Me', 'Purchases'], category: 'Setup' },
   { path: '/me/purchase-analytics', name: 'Analytics', icon: '📊', component: () => import('../apps/me/PurchaseAnalytics'), drive: 'ME', breadcrumb: ['Me', 'Purchases', 'Analytics'], category: 'Setup' },
+  { path: '/me/finance', name: 'Finance', icon: '💰', component: () => import('../apps/me/FinancialAnalytics'), drive: 'ME', breadcrumb: ['Me', 'Finance'], category: 'Setup' },
 
   // Drive B: /WORK (Professional)
   { path: '/work/index', name: 'Summary', icon: '💼', component: () => import('../apps/work/Summary'), drive: 'WORK', breadcrumb: ['Work', 'Summary'], category: 'Resume' },

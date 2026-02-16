@@ -368,6 +368,22 @@ python scripts/dns.py setup me chirag127.in me-791.pages.dev
 | `calc.oriz.in` | [`fin.oriz.in`](https://fin.oriz.in) | Calculators |
 | `capital.oriz.in` | [`fin.oriz.in`](https://fin.oriz.in) | Capital management |
 
+### oriz.in
+
+| Subdomain | Target | Purpose |
+|-----------|--------|---------|
+| `dev.oriz.in` | [`dev.oriz.in`](https://dev.oriz.in) | Developer tools |
+|`sw.oriz.in` | [`sw.oriz.in`](https://dev.oriz.in) |Developer tools  |
+|`tech.oriz.in` | [`tech.oriz.in`](https://dev.oriz.in) |Developer tools  |
+|`code.oriz.in` | [`code.oriz.in`](https://dev.oriz.in) |Developer tools  |
+|`tools.oriz.in` | [`tools.oriz.in`](https://www.oriz.in) |Developer tools  |
+|`apps.oriz.in` | [`apps.oriz.in`](https://www.oriz.in) |Developer tools  |
+|`web.oriz.in` | [`web.oriz.in`](https://www.oriz.in) |Developer tools  |
+
+| `blog.oriz.in` | [`blog.oriz.in`](https://blog.oriz.in) | Blog |
+| `me.oriz.in` | [`chirag127.in`](https://chirag127.in) | Portfolio |
+
+
 ---
 
 ## 🔐 Environment Variables
