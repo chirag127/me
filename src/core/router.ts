@@ -135,8 +135,8 @@ class Router {
   }
 
   private async handleRouteChange(): Promise<void> {
-    const hash = window.location.hash.slice(1) || '/work/index';
-    const route = this.routes.get(hash) || this.routes.get('/work/index')!;
+    const hash = window.location.hash.slice(1) || '/me/index';
+    const route = this.routes.get(hash) || this.routes.get('/me/index')!;
 
     if (route && this.contentContainer) {
       this.currentRoute = route;

@@ -24,9 +24,9 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
           <p class="hire-hero-quote">"${RESUME.personal.quote}"</p>
           <div class="hire-hero-actions">
             <a href="#/connect/mail" class="btn btn-primary hire-btn-lg">📧 Contact Me</a>
+            <a href="#/work/index" class="btn btn-secondary hire-btn-lg">📄 View Resume</a>
             <a href="https://github.com/${RESUME.personal.github}" target="_blank" class="btn btn-secondary">GitHub</a>
             <a href="https://linkedin.com/in/${RESUME.personal.linkedin}" target="_blank" class="btn btn-secondary">LinkedIn</a>
-            <a href="mailto:${RESUME.personal.email}" class="btn btn-ghost">✉️ ${RESUME.personal.email}</a>
           </div>
         </div>
       </section>
@@ -56,6 +56,29 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
         <div class="hire-metric">
           <span class="hire-metric-value">🏆</span>
           <span class="hire-metric-label">College Topper</span>
+        </div>
+      </section>
+
+      <!-- ENGINEERING VALUES -->
+      <section class="section">
+        <h2 class="section-title">🧠 Engineering Values</h2>
+        <div class="bento-grid">
+          <div class="bento-item span-2">
+            <h3>Human-First Code</h3>
+            <p>I believe in writing code that humans can read first, machines second. Clean architecture and meaningful abstractions are non-negotiable.</p>
+          </div>
+          <div class="bento-item">
+            <h3>Iterative Excellence</h3>
+            <p>Perfect is the enemy of shipped. I prefer quick iterations, constant feedback, and continuous improvement.</p>
+          </div>
+          <div class="bento-item">
+            <h3>AI-Augmented</h3>
+            <p>I embrace AI as a collaborator to amplify creativity and speed while maintaining strict code quality standards.</p>
+          </div>
+          <div class="bento-item span-2">
+            <h3>Performance Obsessed</h3>
+            <p>Latency reduction isn't just a metric - it's user happiness. I optimize for both system efficiency and developer experience.</p>
+          </div>
         </div>
       </section>
 
@@ -157,6 +180,7 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
         <p>I'm actively looking for challenging roles in Backend Engineering, System Design, and GenAI.</p>
         <div class="hire-cta-actions">
           <a href="#/connect/mail" class="btn btn-primary hire-btn-lg">📧 Get in Touch</a>
+          <a href="#/work/index" class="btn btn-secondary hire-btn-lg">📄 View Resume</a>
           <a href="https://linkedin.com/in/${RESUME.personal.linkedin}" target="_blank" class="btn btn-secondary hire-btn-lg">LinkedIn</a>
           <a href="https://github.com/${RESUME.personal.github}" target="_blank" class="btn btn-secondary hire-btn-lg">GitHub</a>
         </div>
@@ -239,6 +263,42 @@ export default async function Dashboard(container: HTMLElement): Promise<void> {
       }
 
       /* ========== METRICS ========== */
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-4);
+        margin-bottom: var(--space-6);
+      }
+
+      .bento-item {
+        padding: var(--space-5);
+        background: var(--glass-bg);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--glass-border);
+        transition: transform var(--transition-fast);
+      }
+
+      .bento-item:hover {
+        transform: translateY(-2px);
+      }
+
+      .bento-item h3 {
+        color: var(--accent-blue);
+        margin-bottom: var(--space-2);
+        font-size: var(--text-lg);
+      }
+
+      .bento-item p {
+        font-size: var(--text-base);
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .span-2 { grid-column: span 2; }
+      @media (max-width: 768px) {
+        .span-2 { grid-column: span 1; }
+      }
+
       .hire-metrics {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
