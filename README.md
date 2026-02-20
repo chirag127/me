@@ -1,4 +1,5 @@
 <p align="center">
+  <a href="https://github.com/chirag127/me/actions"><img src="https://img.shields.io/github/actions/workflow/status/chirag127/me/ci.yml?style=for-the-badge&logo=github" alt="CI/CD Status"></a>
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
   <img src="https://img.shields.io/badge/Puter.js-000000?style=for-the-badge&logo=javascript&logoColor=white" alt="Puter.js">
@@ -293,6 +294,9 @@ npm install
 
 # Start dev server
 npm run dev
+
+# Run unit tests
+npm run test
 
 # Build for production
 npm run build

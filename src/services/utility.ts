@@ -3,7 +3,7 @@
  * API integrations for Weather, Lanyard
  */
 
-import { CONFIG } from '../config';
+import { CONFIG } from "../config";
 
 // Types
 export interface WeatherData {
@@ -33,7 +33,7 @@ export interface LanyardData {
     discriminator: string;
     global_name: string;
   };
-  discord_status: 'online' | 'idle' | 'dnd' | 'offline';
+  discord_status: "online" | "idle" | "dnd" | "offline";
   activities: Array<{
     name: string;
     type: number;
@@ -61,7 +61,10 @@ export interface LanyardData {
 const cache = new Map<string, { data: unknown; timestamp: number }>();
 const CACHE_DURATION = 5 * 60 * 1000;
 
-async function fetchWithCache<T>(url: string, options?: RequestInit): Promise<T> {
+async function fetchWithCache<T>(
+  url: string,
+  options?: RequestInit,
+): Promise<T> {
   const cacheKey = url;
   const cached = cache.get(cacheKey);
 
@@ -83,31 +86,34 @@ async function fetchWithCache<T>(url: string, options?: RequestInit): Promise<T>
 
 // Weather codes to descriptions and icons
 const WEATHER_CODES: Record<number, { description: string; icon: string }> = {
-  0: { description: 'Clear sky', icon: '☀️' },
-  1: { description: 'Mainly clear', icon: '🌤️' },
-  2: { description: 'Partly cloudy', icon: '⛅' },
-  3: { description: 'Overcast', icon: '☁️' },
-  45: { description: 'Foggy', icon: '🌫️' },
-  48: { description: 'Rime fog', icon: '🌫️' },
-  51: { description: 'Light drizzle', icon: '🌧️' },
-  53: { description: 'Moderate drizzle', icon: '🌧️' },
-  55: { description: 'Dense drizzle', icon: '🌧️' },
-  61: { description: 'Slight rain', icon: '🌧️' },
-  63: { description: 'Moderate rain', icon: '🌧️' },
-  65: { description: 'Heavy rain', icon: '🌧️' },
-  71: { description: 'Slight snow', icon: '🌨️' },
-  73: { description: 'Moderate snow', icon: '🌨️' },
-  75: { description: 'Heavy snow', icon: '🌨️' },
-  80: { description: 'Slight showers', icon: '🌦️' },
-  81: { description: 'Moderate showers', icon: '🌦️' },
-  82: { description: 'Violent showers', icon: '🌦️' },
-  95: { description: 'Thunderstorm', icon: '⛈️' },
-  96: { description: 'Thunderstorm with hail', icon: '⛈️' },
-  99: { description: 'Thunderstorm with heavy hail', icon: '⛈️' },
+  0: { description: "Clear sky", icon: "☀️" },
+  1: { description: "Mainly clear", icon: "🌤️" },
+  2: { description: "Partly cloudy", icon: "⛅" },
+  3: { description: "Overcast", icon: "☁️" },
+  45: { description: "Foggy", icon: "🌫️" },
+  48: { description: "Rime fog", icon: "🌫️" },
+  51: { description: "Light drizzle", icon: "🌧️" },
+  53: { description: "Moderate drizzle", icon: "🌧️" },
+  55: { description: "Dense drizzle", icon: "🌧️" },
+  61: { description: "Slight rain", icon: "🌧️" },
+  63: { description: "Moderate rain", icon: "🌧️" },
+  65: { description: "Heavy rain", icon: "🌧️" },
+  71: { description: "Slight snow", icon: "🌨️" },
+  73: { description: "Moderate snow", icon: "🌨️" },
+  75: { description: "Heavy snow", icon: "🌨️" },
+  80: { description: "Slight showers", icon: "🌦️" },
+  81: { description: "Moderate showers", icon: "🌦️" },
+  82: { description: "Violent showers", icon: "🌦️" },
+  95: { description: "Thunderstorm", icon: "⛈️" },
+  96: { description: "Thunderstorm with hail", icon: "⛈️" },
+  99: { description: "Thunderstorm with heavy hail", icon: "⛈️" },
 };
 
-export function getWeatherDescription(code: number): { description: string; icon: string } {
-  return WEATHER_CODES[code] || { description: 'Unknown', icon: '❓' };
+export function getWeatherDescription(code: number): {
+  description: string;
+  icon: string;
+} {
+  return WEATHER_CODES[code] || { description: "Unknown", icon: "❓" };
 }
 
 // Open-Meteo API (free, no API key required)
@@ -151,7 +157,7 @@ export async function getFormattedWeather(): Promise<FormattedWeather> {
     isDay: current.is_day === 1,
     windSpeed: Math.round(current.wind_speed_10m),
     forecast: data.daily.time.slice(0, 5).map((date, i) => ({
-      date: new Date(date).toLocaleDateString('en-US', { weekday: 'short' }),
+      date: new Date(date).toLocaleDateString("en-US", { weekday: "short" }),
       high: Math.round(data.daily.temperature_2m_max[i]),
       low: Math.round(data.daily.temperature_2m_min[i]),
       icon: getWeatherDescription(data.daily.weather_code[i]).icon,
@@ -171,21 +177,21 @@ export async function getDiscordStatus(): Promise<{
   status: string;
   statusColor: string;
   activity: string | null;
-  spotify: LanyardData['spotify'] | null;
+  spotify: LanyardData["spotify"] | null;
 }> {
   try {
     const data = await getLanyardData();
 
     const statusColors: Record<string, string> = {
-      online: '#34C759',
-      idle: '#FF9500',
-      dnd: '#FF3B30',
-      offline: '#8E8E93',
+      online: "#34C759",
+      idle: "#FF9500",
+      dnd: "#FF3B30",
+      offline: "#8E8E93",
     };
 
     let activity: string | null = null;
     if (data.activities.length > 0) {
-      const primaryActivity = data.activities.find(a => a.type !== 4); // Exclude custom status
+      const primaryActivity = data.activities.find((a) => a.type !== 4); // Exclude custom status
       if (primaryActivity) {
         activity = primaryActivity.name;
         if (primaryActivity.details) {
@@ -202,8 +208,8 @@ export async function getDiscordStatus(): Promise<{
     };
   } catch {
     return {
-      status: 'offline',
-      statusColor: '#8E8E93',
+      status: "offline",
+      statusColor: "#8E8E93",
       activity: null,
       spotify: null,
     };
@@ -213,38 +219,40 @@ export async function getDiscordStatus(): Promise<{
 // Time utilities
 export function getGreeting(): string {
   const hour = new Date().getHours();
-  if (hour < 6) return 'Good night';
-  if (hour < 12) return 'Good morning';
-  if (hour < 18) return 'Good afternoon';
-  return 'Good evening';
+  if (hour < 6) return "Good night";
+  if (hour < 12) return "Good morning";
+  if (hour < 18) return "Good afternoon";
+  return "Good evening";
 }
 
 export function getLocalTime(): string {
-  return new Date().toLocaleTimeString('en-US', {
-    hour: '2-digit',
-    minute: '2-digit',
+  return new Date().toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
     hour12: true,
   });
 }
 
 export function getLocalDate(): string {
-  return new Date().toLocaleDateString('en-US', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  return new Date().toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 }
 
 // Format numbers
 export function formatNumber(num: number): string {
-  if (num >= 1_000_000) {
-    return (num / 1_000_000).toFixed(1) + 'M';
+  const absNum = Math.abs(num);
+  const sign = num < 0 ? "-" : "";
+  if (absNum >= 1_000_000) {
+    return sign + (absNum / 1_000_000).toFixed(1) + "M";
   }
-  if (num >= 1_000) {
-    return (num / 1_000).toFixed(1) + 'K';
+  if (absNum >= 1_000) {
+    return sign + (absNum / 1_000).toFixed(1) + "K";
   }
-  return num.toString();
+  return Number.isInteger(num) ? num.toString() : num.toFixed(2);
 }
 
 // Format duration
@@ -263,7 +271,7 @@ export function formatRelativeTime(date: Date | string | number): string {
   const then = new Date(date);
   const seconds = Math.floor((now.getTime() - then.getTime()) / 1000);
 
-  if (seconds < 60) return 'just now';
+  if (seconds < 60) return "just now";
   if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
   if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
   if (seconds < 604800) return `${Math.floor(seconds / 86400)}d ago`;

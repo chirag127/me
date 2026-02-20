@@ -1,0 +1,53 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm ci || npm install
+
+      - name: Check Formatting
+        run: npx prettier --check .
+
+      - name: Run Tests
+        run: npm run test
+
+      - name: Build Project
+        run: npm run build
+
+  deploy:
+    needs: test-and-build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm ci || npm install
+
+      - name: Build and Deploy to Cloudflare Pages
+        run: npm run build
+        # Uses wrangler to deploy to cloudflare pages.
+        # Note: Requires CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets to be set in GitHub.
+        # run: npx wrangler pages deploy dist --project-name="me"
