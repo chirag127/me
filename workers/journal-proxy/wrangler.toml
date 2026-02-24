@@ -1,0 +1,24 @@
+name = "journal-proxy"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+ALLOWED_ORIGIN = "https://chirag127.in"
+
+# All secrets set via `wrangler secret put <NAME>`:
+# TURSO_URL, TURSO_AUTH_TOKEN
+# SUPABASE_URL, SUPABASE_ANON_KEY
+# NEON_CONNECTION_STRING
+# XATA_API_KEY, XATA_DB_URL
+# COCKROACH_CONNECTION_STRING
+# ORACLE_REST_URL, ORACLE_AUTH_TOKEN
+# MONGODB_DATA_API_URL, MONGODB_API_KEY
+# AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION, DYNAMODB_TABLE
+# APPWRITE_ENDPOINT, APPWRITE_PROJECT_ID, APPWRITE_API_KEY, APPWRITE_DB_ID, APPWRITE_COLLECTION_ID
+# GITHUB_BACKUP_REPO, GITHUB_TOKEN_BACKUP
+
+[[d1_databases]]
+binding = "D1_JOURNAL"
+database_name = "journal-backup"
+database_id = "" # Set after creating D1 database

@@ -8,9 +8,9 @@
 
 # 🪞 Project Me — The Digital Twin Portfolio
 
-> **A 63-page, OS-inspired portfolio website that acts as a comprehensive "digital twin" — aggregating your entire online life, coding stats, media consumption, gaming activity, and professional identity into a single glassmorphic interface.**
+> **A 65-page, OS-inspired portfolio website that acts as a comprehensive "digital twin" — aggregating your entire online life, coding stats, media consumption, gaming activity, and professional identity into a single glassmorphic interface.**
 
-Project Me is **not** a typical portfolio. It's a virtual operating system with 7 "drives," each containing specialized app pages that pull real-time data from **30+ APIs**. Think macOS Finder meets a personal dashboard — with a dock, sidebar, search, AI chat, and dark/light themes.
+Project Me is **not** a typical portfolio. It's a virtual operating system with 7 "drives," each containing specialized app pages that pull real-time data from **30+ APIs**, a **Journal** system backed by Firebase Firestore with daily backups to 12 databases, and a Cloudflare Worker proxy. Think macOS Finder meets a personal dashboard — with a dock, sidebar, search, AI chat, and dark/light themes.
 
 ---
 
@@ -42,8 +42,11 @@ Project Me is **not** a typical portfolio. It's a virtual operating system with 
 ## ✨ Key Features
 
 - 🖥️ **macOS-Inspired UI** — Top bar, collapsible sidebar with subcategories, dock, search modal
-- 📱 **63 Virtual App Pages** across 7 drives with hash-based routing
+- 📱 **65 Virtual App Pages** across 7 drives with hash-based routing
 - 🔗 **30+ Live API Integrations** — GitHub, Last.fm, Trakt, AniList, Lichess, and more
+- ✍️ **Journal System** — Admin-only writes via Google Sign-In, public feed, 9 Chart.js analytics, 365-day heatmap
+- 💾 **12-Database Backup** — Daily GitHub Actions backup to D1, Turso, Supabase, Neon, Xata, CockroachDB, Oracle, MongoDB, DynamoDB, Appwrite, GitHub JSON
+- 🌐 **Cloudflare Worker Proxy** — Read journal data from any of 12 backup databases
 - 🤖 **AI Chat** — "Ask Chirag" powered by Puter.js GPT
 - 🎨 **Glassmorphism Design** — Modern 2026 UI with blur, gradients, and micro-animations
 - 🌗 **Dark / Light / Auto Themes** — Persistent theme selection
@@ -54,7 +57,7 @@ Project Me is **not** a typical portfolio. It's a virtual operating system with 
 
 ---
 
-## 🗂️ All 63 Pages — Organized by Drive
+## 🗂️ All 65 Pages — Organized by Drive
 
 ### 👤 Drive A: Me (The Digital Twin)
 
@@ -63,7 +66,9 @@ Project Me is **not** a typical portfolio. It's a virtual operating system with 
 | **Overview** | Dashboard | `/me/index` | Personal hub with stats, status, highlights |
 | **Personal** | Story | `/me/story` | Life timeline and milestones |
 | | Philosophy | `/me/philosophy` | Core beliefs and values |
-| | Journal | `/me/journal` | Thoughts and reflections |
+| **Journal** | Write | `/me/journal` | Add new journal entries (admin only) |
+| | Feed | `/me/journal-feed` | Browse all entries, heatmap, DB source selector |
+| | Analytics | `/me/journal-charts` | 9 charts — mood, streaks, word count, time patterns |
 | **Lifestyle** | Interests | `/me/interests` | Things I find fascinating |
 | | Passions | `/me/passions` | What drives me |
 | | Hobbies | `/me/hobbies` | How I spend free time |
@@ -244,8 +249,8 @@ Project Me is **not** a typical portfolio. It's a virtual operating system with 
 ```
 me/
 ├── src/
-│   ├── apps/                # 63 virtual app components
-│   │   ├── me/              # 11 pages — Dashboard, Story, Philosophy, etc.
+│   ├── apps/                # 65 virtual app components
+│   │   ├── me/              # 13 pages — Dashboard, Story, Journal (Write/Feed/Charts), etc.
 │   │   ├── work/            # 8 pages — Summary, Experience, Projects, etc.
 │   │   ├── code/            # 6 pages — Stats, Repos, LeetCode, etc.
 │   │   ├── library/         # 23 pages — Music, Movies, Books, Anime, etc.
@@ -253,10 +258,11 @@ me/
 │   │   ├── connect/         # 6 pages — Feed, Articles, Contact, etc.
 │   │   └── system/          # 5 pages — Search, AI, Settings, Weather
 │   ├── core/
-│   │   ├── router.ts        # Hash-based router with 63 routes
+│   │   ├── router.ts        # Hash-based router with 65 routes
 │   │   └── shell.ts         # macOS-style shell (top bar, sidebar, dock)
 │   ├── services/            # API integration layer
 │   │   ├── api.ts           # Central API client
+│   │   ├── journal.ts       # Firestore CRUD, Google Auth, stats
 │   │   ├── coding.ts        # GitHub, LeetCode, StackOverflow
 │   │   ├── media.ts         # Last.fm, AniList, Trakt, Letterboxd
 │   │   ├── gaming.ts        # Lichess, Speedrun
@@ -268,17 +274,20 @@ me/
 │   ├── data/                # Static data modules & reactive store
 │   ├── config.ts            # All usernames and API endpoints
 │   └── style.css            # Complete CSS design system
-├── scripts/                 # Python deployment & DNS automation
+├── workers/
+│   └── journal-proxy/       # Cloudflare Worker — reads from 12 backup DBs
+│       ├── src/index.ts     # Worker entry point
+│       ├── wrangler.toml    # Wrangler configuration
+│       └── package.json
+├── scripts/
+│   ├── backup-journal.ts    # Daily Firestore → 12 DB backup script
 │   ├── deploy.py            # Multi-platform deployer (6 platforms)
 │   ├── dns.py               # Cloudflare DNS manager
-│   ├── add_pages_domains.py # Add Cloudflare Pages custom domains
-│   ├── check_dns.py         # DNS record checker
-│   ├── setup_cf_email.py    # Cloudflare email routing
-│   ├── update_root.py       # Root domain updater
-│   ├── update_spaceship_ns.py  # Nameserver updater
 │   └── requirements.txt     # Python dependencies
-├── chrome-extension/        # Browser extension companion
-├── docs/                    # Documentation
+├── .github/workflows/
+│   ├── ci.yml               # CI/CD pipeline
+│   └── journal-backup.yml   # Daily journal backup cron job
+├── firestore.rules          # Security rules (public read, admin write)
 ├── index.html               # Entry point with SEO meta tags
 ├── vite.config.ts           # Rolldown-Vite configuration
 └── tsconfig.json            # TypeScript configuration
@@ -392,41 +401,33 @@ python scripts/dns.py setup me chirag127.in me-791.pages.dev
 
 ## 🔐 Environment Variables
 
-Create a `.env` file in the project root:
+Copy `.env.example` to `.env` and fill in your values. The example file contains **step-by-step instructions** for obtaining each API key.
 
-```env
-# Cloudflare
-CLOUDFLARE_GLOBAL_API_KEY=your_api_key
-CLOUDFLARE_EMAIL=your_email
-CLOUDFLARE_ACCOUNT_ID=your_account_id
-ENABLE_CLOUDFLARE=True
-
-# Netlify
-NETLIFY_AUTH_TOKEN=your_token
-NETLIFY_SITE_ID=your_site_id
-ENABLE_NETLIFY=True
-
-# Vercel
-VERCEL_TOKEN=your_token
-VERCEL_ORG_ID=your_org_id
-VERCEL_PROJECT_ID=your_project_id
-ENABLE_VERCEL=True
-
-# Surge
-SURGE_TOKEN=your_token
-SURGE_DOMAIN=yoursite.surge.sh
-ENABLE_SURGE=True
-
-# Neocities
-NEOCITIES_API_KEY=your_api_key
-NEOCITIES_SITENAME=yoursite
-ENABLE_NEOCITIES=True
-
-# GitHub Pages
-GH_USERNAME=yourusername
-GH_TOKEN=your_token
-ENABLE_GITHUB_PAGES=True
+```bash
+cp .env.example .env
 ```
+
+### Journal Backup Services (GitHub Secrets)
+
+For the daily backup workflow, set these as GitHub repository secrets:
+
+| Secret | Service | How to Get |
+|--------|---------|------------|
+| `FIREBASE_PROJECT_ID` | Firebase Admin | Firebase Console → Project Settings |
+| `FIREBASE_CLIENT_EMAIL` | Firebase Admin | Service Account JSON → `client_email` |
+| `FIREBASE_PRIVATE_KEY` | Firebase Admin | Service Account JSON → `private_key` |
+| `D1_DATABASE_ID` | Cloudflare D1 | Cloudflare Dashboard → Workers & Pages → D1 |
+| `TURSO_URL` / `TURSO_AUTH_TOKEN` | Turso | `turso db show --url` / `turso db tokens create` |
+| `SUPABASE_URL` / `SUPABASE_SERVICE_KEY` | Supabase | Supabase Dashboard → Settings → API |
+| `NEON_CONNECTION_STRING` | Neon | Neon Console → Connection Details |
+| `XATA_API_KEY` / `XATA_DB_URL` | Xata | Xata Dashboard → Settings → API Keys |
+| `COCKROACH_CONNECTION_STRING` | CockroachDB | CockroachDB Cloud Console → Connect |
+| `ORACLE_REST_URL` / `ORACLE_AUTH_TOKEN` | Oracle Cloud | Oracle APEX → RESTful Services |
+| `MONGODB_DATA_API_URL` / `MONGODB_API_KEY` | MongoDB Atlas | Atlas → App Services → Data API |
+| `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` | DynamoDB | AWS IAM → Create User → Access Keys |
+| `APPWRITE_*` (5 secrets) | Appwrite | Appwrite Console → Settings → API Keys |
+
+See [`.env.example`](.env.example) for detailed, step-by-step instructions for each service.
 
 ---
 

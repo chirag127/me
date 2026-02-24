@@ -317,3 +317,13 @@ pyrightconfig.json
 
 output.txt
 package-lock.json
+bank_statement.txt
+ts_errors.log
+
+# Workers build artifacts
+workers/**/node_modules/
+workers/**/.wrangler/
+
+# Wrangler
+.wrangler/
+.dev.vars

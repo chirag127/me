@@ -224,7 +224,7 @@ export class Shell {
       { path: '/work/index', icon: '💼', name: 'Resume' },
       { path: '/work/projects', icon: '🚀', name: 'Projects' },
       { path: '/code/repos', icon: '📁', name: 'Repos' },
-      { path: '/code/stats', icon: '📊', name: 'Stats' },
+      { path: '/me/journal', icon: '✍️', name: 'Journal' },
       { path: '/connect/mail', icon: '✉️', name: 'Contact' },
       { path: '/system/ai', icon: '🤖', name: 'AI' },
     ];

@@ -8,12 +8,16 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Shell } from './core/shell';
 import { initServices } from './services/init';
 import { initFirebase } from './services/firebase';
+import { initJournalAuth } from './services/journal';
 
 // Initialize third-party services early (analytics, etc.)
 initServices();
 
 // Initialize Firebase
 initFirebase();
+
+// Initialize Journal auth listener (tracks admin sign-in state)
+initJournalAuth();
 
 // Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', async () => {
