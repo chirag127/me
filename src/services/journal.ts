@@ -430,3 +430,104 @@ function calculateStreaks(dateSet: Set<string>): { current: number; longest: num
 
 /** Export day labels for chart consumption */
 export { DAYS };
+
+// ============================================================================
+// PUTER.JS JOURNAL STORAGE (for non-admin users)
+// ============================================================================
+
+/** Puter.js KV key for storing user's private journal entries */
+const PUTER_KV_KEY = 'journal_entries';
+
+/** Declare global Puter type for TypeScript */
+declare const puter: {
+    auth: {
+        isSignedIn: () => boolean;
+        signIn: () => Promise<void>;
+        signOut: () => Promise<void>;
+        getUser: () => Promise<{ username: string; email?: string }>;
+    };
+    kv: {
+        get: (key: string) => Promise<string | null>;
+        set: (key: string, value: string) => Promise<void>;
+    };
+};
+
+/** Check if Puter.js is available */
+export function isPuterAvailable(): boolean {
+    return typeof puter !== 'undefined' && !!puter.auth && !!puter.kv;
+}
+
+/** Check if user is signed in via Puter.js */
+export function isPuterSignedIn(): boolean {
+    return isPuterAvailable() && puter.auth.isSignedIn();
+}
+
+/** Sign in via Puter.js */
+export async function signInPuter(): Promise<void> {
+    if (!isPuterAvailable()) {
+        console.error('[Journal] Puter.js not available');
+        return;
+    }
+    await puter.auth.signIn();
+}
+
+/** Sign out of Puter.js */
+export async function signOutPuter(): Promise<void> {
+    if (!isPuterAvailable()) return;
+    await puter.auth.signOut();
+}
+
+/** Get Puter.js username */
+export async function getPuterUser(): Promise<{ username: string; email?: string } | null> {
+    if (!isPuterSignedIn()) return null;
+    try {
+        return await puter.auth.getUser();
+    } catch {
+        return null;
+    }
+}
+
+/** Add a journal entry to Puter.js KV storage */
+export async function addPuterJournalEntry(
+    entry: Partial<Omit<JournalEntryDoc, 'ts'>>,
+): Promise<string> {
+    const validationError = validateEntry(entry);
+    if (validationError) throw new Error(validationError);
+
+    const id = `puter-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+    const now = new Date().toISOString();
+
+    const newEntry: Record<string, unknown> = { id, ts: now };
+    if (entry.t?.trim()) newEntry.t = entry.t.trim();
+    if (entry.d?.trim()) newEntry.d = entry.d.trim();
+    if (entry.w?.trim()) newEntry.w = entry.w.trim();
+    if (entry.g?.trim()) newEntry.g = entry.g.trim();
+    if (entry.h?.trim()) newEntry.h = entry.h.trim();
+    if (entry.m !== undefined && entry.m !== null) newEntry.m = entry.m;
+
+    // Read existing entries from KV
+    const existing = await getPuterJournalEntriesRaw();
+    existing.unshift(newEntry as unknown as JournalEntry);
+
+    // Save back
+    await puter.kv.set(PUTER_KV_KEY, JSON.stringify(existing));
+    console.log('[Journal] Puter.js entry added:', id);
+    return id;
+}
+
+/** Get all journal entries from Puter.js KV */
+export async function getPuterJournalEntries(): Promise<JournalEntry[]> {
+    return getPuterJournalEntriesRaw();
+}
+
+async function getPuterJournalEntriesRaw(): Promise<JournalEntry[]> {
+    if (!isPuterSignedIn()) return [];
+    try {
+        const raw = await puter.kv.get(PUTER_KV_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+    } catch {
+        return [];
+    }
+}
