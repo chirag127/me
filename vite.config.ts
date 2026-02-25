@@ -1,15 +1,18 @@
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 
 export default defineConfig({
+  plugins: [react()],
   base: '/',
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
-      '@core': resolve(__dirname, 'src/core'),
       '@components': resolve(__dirname, 'src/components'),
+      '@pages': resolve(__dirname, 'src/pages'),
+      '@hooks': resolve(__dirname, 'src/hooks'),
+      '@stores': resolve(__dirname, 'src/stores'),
       '@services': resolve(__dirname, 'src/services'),
-      '@apps': resolve(__dirname, 'src/apps'),
       '@data': resolve(__dirname, 'src/data'),
     },
   },
@@ -22,8 +25,10 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes('chart.js')) return 'chart';
-          if (id.includes('@heyputer/puter.js')) return 'puter';
+          if (id.includes('@mantine')) return 'mantine';
+          if (id.includes('recharts')) return 'charts';
+          if (id.includes('framer-motion')) return 'motion';
+          if (id.includes('firebase')) return 'firebase';
         },
       },
     },
