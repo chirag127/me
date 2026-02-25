@@ -2,8 +2,7 @@
  * JournalFeed — Read journal entries
  */
 import {
-  Container, Text, Stack, Group,
-  Badge, Divider,
+  Container, Text, Stack, Group, Badge,
 } from '@mantine/core';
 import { usePageMeta } from '@hooks/usePageMeta';
 import { PageHeader } from '@components/ui/PageHeader';

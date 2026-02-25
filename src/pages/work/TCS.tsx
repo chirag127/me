@@ -68,9 +68,9 @@ export default function TCS() {
         </Text>
         <Group gap="xs" wrap="wrap">
           {[
-            'Python', 'JavaScript',
-            'RESTful APIs', 'XML',
-            'CI/CD', 'Agile', 'OOP',
+            'Python', 'React.js',
+            'RESTful APIs', 'CI/CD',
+            'Agile', 'OOP', 'Security',
           ].map((t) => (
             <Badge key={t} variant="light"
               size="sm">

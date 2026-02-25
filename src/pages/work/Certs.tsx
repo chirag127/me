@@ -40,7 +40,7 @@ export default function Certs() {
         />
         <StatCard
           label="Professional"
-          value="1"
+          value="2"
           icon="📜" color="#34C759"
         />
       </SimpleGrid>

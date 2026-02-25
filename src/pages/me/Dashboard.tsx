@@ -2,8 +2,7 @@
  * Dashboard — Personal overview using REAL resume data
  */
 import {
-  Container, SimpleGrid, Text, Group,
-  Stack, Anchor,
+  Container, SimpleGrid, Text, Group, Anchor,
 } from '@mantine/core';
 import { usePageMeta } from '@hooks/usePageMeta';
 import { PageHeader } from '@components/ui/PageHeader';

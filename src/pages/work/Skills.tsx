@@ -50,8 +50,8 @@ export default function Skills() {
         />
         <StatCard
           label="Focus"
-          value="GenAI"
-          icon="🤖" color="#FF9500"
+          value="Full Stack"
+          icon="🏗️" color="#FF9500"
         />
       </SimpleGrid>
 

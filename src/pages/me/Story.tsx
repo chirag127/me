@@ -3,7 +3,7 @@
  */
 import {
   Container, Text, Timeline, ThemeIcon,
-  Stack, Group, Badge,
+  Group, Badge,
 } from '@mantine/core';
 import { IconHeart } from '@tabler/icons-react';
 import { usePageMeta } from '@hooks/usePageMeta';
@@ -42,6 +42,14 @@ const milestones = [
   {
     year: '2025', title: 'TCS',
     desc: 'Software Engineer — enterprise systems'
+  },
+  {
+    year: '2025', title: 'Oriz Platform',
+    desc: '1000+ free tools on oriz.in — full-stack'
+  },
+  {
+    year: '2025', title: 'AWS Certified',
+    desc: 'AWS Certified Developer - Associate'
   },
 ];
 
