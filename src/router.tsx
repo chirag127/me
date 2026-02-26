@@ -313,73 +313,13 @@ export const routes: RouteConfig[] = [
         category: 'Overview',
     },
     {
-        path: '/library/movies', name: 'Movies',
-        icon: '🎬',
+        path: '/library/watch',
+        name: 'Watch Hub', icon: '🎬',
         Component: p(
-            () => import('@pages/library/Movies')
+            () => import('@pages/library/WatchHub')
         ),
         drive: 'LIBRARY',
-        breadcrumb: ['Library', 'Movies'],
-        category: 'Movies & TV',
-    },
-    {
-        path: '/library/tv-shows', name: 'TV Shows',
-        icon: '📺',
-        Component: p(
-            () => import('@pages/library/TVShows')
-        ),
-        drive: 'LIBRARY',
-        breadcrumb: ['Library', 'TV Shows'],
-        category: 'Movies & TV',
-    },
-    {
-        path: '/library/watch-activity',
-        name: 'Watch Activity', icon: '🎫',
-        Component: p(
-            () => import('@pages/library/WatchActivity')
-        ),
-        drive: 'LIBRARY',
-        breadcrumb: ['Library', 'Watch Activity'],
-        category: 'Movies & TV',
-    },
-    {
-        path: '/library/ratings', name: 'Ratings',
-        icon: '⭐',
-        Component: p(
-            () => import('@pages/library/Ratings')
-        ),
-        drive: 'LIBRARY',
-        breadcrumb: ['Library', 'Ratings'],
-        category: 'Movies & TV',
-    },
-    {
-        path: '/library/collection',
-        name: 'Collection', icon: '📀',
-        Component: p(
-            () => import('@pages/library/Collection')
-        ),
-        drive: 'LIBRARY',
-        breadcrumb: ['Library', 'Collection'],
-        category: 'Movies & TV',
-    },
-    {
-        path: '/library/lists', name: 'Lists',
-        icon: '📋',
-        Component: p(
-            () => import('@pages/library/Lists')
-        ),
-        drive: 'LIBRARY',
-        breadcrumb: ['Library', 'Lists'],
-        category: 'Movies & TV',
-    },
-    {
-        path: '/library/social', name: 'Social',
-        icon: '👥',
-        Component: p(
-            () => import('@pages/library/Social')
-        ),
-        drive: 'LIBRARY',
-        breadcrumb: ['Library', 'Social'],
+        breadcrumb: ['Library', 'Watch'],
         category: 'Movies & TV',
     },
     {
@@ -390,76 +330,6 @@ export const routes: RouteConfig[] = [
         ),
         drive: 'LIBRARY',
         breadcrumb: ['Library', 'Music'],
-        category: 'Music',
-    },
-    {
-        path: '/library/music-recent',
-        name: 'Recent Tracks', icon: '🎧',
-        Component: p(
-            () => import('@pages/library/RecentTracks')
-        ),
-        drive: 'LIBRARY',
-        breadcrumb: ['Library', 'Music', 'Recent'],
-        category: 'Music',
-    },
-    {
-        path: '/library/music-top',
-        name: 'Top Tracks', icon: '🏆',
-        Component: p(
-            () => import('@pages/library/TopTracks')
-        ),
-        drive: 'LIBRARY',
-        breadcrumb: ['Library', 'Music', 'Top'],
-        category: 'Music',
-    },
-    {
-        path: '/library/music-albums',
-        name: 'Top Albums', icon: '💿',
-        Component: p(
-            () => import('@pages/library/TopAlbums')
-        ),
-        drive: 'LIBRARY',
-        breadcrumb: ['Library', 'Music', 'Albums'],
-        category: 'Music',
-    },
-    {
-        path: '/library/music-artists',
-        name: 'Top Artists', icon: '🎤',
-        Component: p(
-            () => import('@pages/library/TopArtists')
-        ),
-        drive: 'LIBRARY',
-        breadcrumb: ['Library', 'Music', 'Artists'],
-        category: 'Music',
-    },
-    {
-        path: '/library/music-genres',
-        name: 'Genres', icon: '🏷️',
-        Component: p(
-            () => import('@pages/library/MusicGenres')
-        ),
-        drive: 'LIBRARY',
-        breadcrumb: ['Library', 'Music', 'Genres'],
-        category: 'Music',
-    },
-    {
-        path: '/library/music-charts',
-        name: 'Charts', icon: '📊',
-        Component: p(
-            () => import('@pages/library/MusicCharts')
-        ),
-        drive: 'LIBRARY',
-        breadcrumb: ['Library', 'Music', 'Charts'],
-        category: 'Music',
-    },
-    {
-        path: '/library/music-concerts',
-        name: 'Concerts', icon: '🎸',
-        Component: p(
-            () => import('@pages/library/Concerts')
-        ),
-        drive: 'LIBRARY',
-        breadcrumb: ['Library', 'Music', 'Concerts'],
         category: 'Music',
     },
     {

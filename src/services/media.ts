@@ -72,10 +72,40 @@ export interface TraktShow {
   show: {
     title: string;
     year: number;
-    ids: { trakt: number; slug: string; imdb: string; tmdb: number };
+    ids: {
+      trakt: number;
+      slug: string;
+      imdb: string;
+      tmdb: number;
+    };
   };
   watched_at: string;
   action: string;
+}
+
+export interface TraktShowHistory {
+  show: {
+    title: string;
+    year: number;
+    ids: {
+      trakt: number;
+      slug: string;
+      imdb: string;
+      tmdb: number;
+    };
+    status?: string;
+    aired_episodes?: number;
+    runtime?: number;
+    genres?: string[];
+    rating?: number;
+  };
+  plays: number;
+  last_watched_at: string;
+  last_updated_at: string;
+  seasons?: Array<{
+    number: number;
+    episodes: Array<{ number: number }>;
+  }>;
 }
 
 // Cache
@@ -273,22 +303,69 @@ export async function getTraktHistory(limit = 10): Promise<TraktShow[]> {
   }
 }
 
-export async function getTraktRecentMovies(limit = 12): Promise<TraktMovie[]> {
-  const url = `${CONFIG.api.trakt}/users/${CONFIG.user.trakt}/history/movies?limit=${limit}&extended=full`;
-
+export async function getTraktRecentMovies(
+  limit = 12,
+): Promise<TraktMovie[]> {
+  const url =
+    `${CONFIG.api.trakt}/users/` +
+    `${CONFIG.user.trakt}/history/movies` +
+    `?limit=${limit}&extended=full`;
   try {
-    const data = await fetchWithCache<TraktMovie[]>(url, {
+    const data = await fetchWithCache<TraktMovie[]>(
+      url,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'trakt-api-version': '2',
+          'trakt-api-key':
+            CONFIG.keys.traktClientId,
+        },
+      },
+    );
+    return data;
+  } catch {
+    console.warn('Trakt movies fetch failed');
+    return [];
+  }
+}
+
+/** Fetch watched TV shows from Trakt */
+export async function getTraktWatchedShows(
+  limit = 20,
+): Promise<TraktShowHistory[]> {
+  const url =
+    `${CONFIG.api.trakt}/users/` +
+    `${CONFIG.user.trakt}/watched/shows` +
+    `?extended=full&limit=${limit}`;
+  try {
+    const data = await fetchWithCache<
+      TraktShowHistory[]
+    >(url, {
       headers: {
         'Content-Type': 'application/json',
         'trakt-api-version': '2',
-        'trakt-api-key': CONFIG.keys.traktClientId,
+        'trakt-api-key':
+          CONFIG.keys.traktClientId,
       },
     });
     return data;
   } catch {
-    console.warn('Trakt API fetch failed');
+    console.warn('Trakt shows fetch failed');
     return [];
   }
+}
+
+/**
+ * Build poster URL from IMDB ID.
+ * Uses metahub.space — free, no auth.
+ */
+export function getImdbPosterUrl(
+  imdbId: string,
+): string {
+  return (
+    `${CONFIG.api.metahub}` +
+    `/poster/small/${imdbId}/img`
+  );
 }
 
 // ListenBrainz API
@@ -374,6 +451,8 @@ export default {
   getLetterboxdFilms,
   getTraktHistory,
   getTraktRecentMovies,
+  getTraktWatchedShows,
+  getImdbPosterUrl,
   getListenBrainzRecent,
   getAggregateMediaStats,
 };

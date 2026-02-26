@@ -41,14 +41,41 @@ const COLLECTION = 'journals';
  * Mood enum — stored as number (1 byte) instead of string (saves ~10 bytes/entry)
  * Maps to emoji + label for display
  */
-export const MOOD_MAP: Record<number, { emoji: string; label: string; color: string }> = {
+export const MOOD_MAP: Record<
+    number,
+    { emoji: string; label: string; color: string }
+> = {
     0: { emoji: '😊', label: 'Happy', color: '#34C759' },
     1: { emoji: '😌', label: 'Calm', color: '#5AC8FA' },
     2: { emoji: '😐', label: 'Neutral', color: '#8E8E93' },
     3: { emoji: '😔', label: 'Sad', color: '#5856D6' },
     4: { emoji: '😡', label: 'Angry', color: '#FF3B30' },
-    5: { emoji: '🤔', label: 'Thoughtful', color: '#FF9500' },
+    5: {
+        emoji: '🤔',
+        label: 'Thoughtful',
+        color: '#FF9500',
+    },
 };
+
+/** Dropdown options for "Next Action" field */
+export const NEXT_ACTION_OPTIONS = [
+    'Today',
+    'Tomorrow',
+    'This Week',
+    'Next Week',
+    'This Month',
+    'Someday',
+] as const;
+
+/** Dropdown options for "Time Estimate" (minutes) */
+export const TIME_ESTIMATE_OPTIONS = [
+    { value: 15, label: '15 min' },
+    { value: 30, label: '30 min' },
+    { value: 60, label: '1 hr' },
+    { value: 120, label: '2 hrs' },
+    { value: 240, label: '4 hrs' },
+    { value: 480, label: 'Full Day' },
+] as const;
 
 /** Human-readable field labels for display */
 export const FIELD_LABELS: Record<string, string> = {
@@ -58,6 +85,8 @@ export const FIELD_LABELS: Record<string, string> = {
     g: 'What I Am Doing',
     h: 'What I Have Done Today',
     m: 'Mood',
+    n: 'Next Action',
+    e: 'Time Estimate',
 };
 
 // ============================================================================
@@ -81,6 +110,10 @@ export interface JournalEntryDoc {
     h?: string;
     /** Mood (0-5 enum) */
     m?: number;
+    /** Next Action (dropdown value) */
+    n?: string;
+    /** Time Estimate in minutes */
+    e?: number;
     /** Created-at timestamp (server-generated) */
     ts: Timestamp;
 }
@@ -190,15 +223,31 @@ export async function signOutAdmin(): Promise<void> {
  * Validate that at least one content field is filled.
  * Returns error message or null if valid.
  */
-export function validateEntry(entry: Partial<JournalEntryDoc>): string | null {
+export function validateEntry(
+    entry: Partial<JournalEntryDoc>,
+): string | null {
     const hasTitle = entry.t && entry.t.trim().length > 0;
     const hasDesc = entry.d && entry.d.trim().length > 0;
     const hasWillDo = entry.w && entry.w.trim().length > 0;
     const hasDoing = entry.g && entry.g.trim().length > 0;
     const hasDone = entry.h && entry.h.trim().length > 0;
-    const hasMood = entry.m !== undefined && entry.m !== null;
+    const hasMood =
+        entry.m !== undefined && entry.m !== null;
+    const hasNextAction =
+        entry.n && entry.n.trim().length > 0;
+    const hasTimeEst =
+        entry.e !== undefined && entry.e !== null;
 
-    if (!hasTitle && !hasDesc && !hasWillDo && !hasDoing && !hasDone && !hasMood) {
+    if (
+        !hasTitle &&
+        !hasDesc &&
+        !hasWillDo &&
+        !hasDoing &&
+        !hasDone &&
+        !hasMood &&
+        !hasNextAction &&
+        !hasTimeEst
+    ) {
         return 'At least one field must be filled.';
     }
     if (hasMood && (entry.m! < 0 || entry.m! > 5)) {
@@ -230,14 +279,20 @@ export async function addJournalEntry(
         throw new Error(validationError);
     }
 
-    // Build the document — only include non-empty fields
-    const doc: Record<string, unknown> = { ts: serverTimestamp() };
-    if (entry.t && entry.t.trim()) doc.t = entry.t.trim();
-    if (entry.d && entry.d.trim()) doc.d = entry.d.trim();
-    if (entry.w && entry.w.trim()) doc.w = entry.w.trim();
-    if (entry.g && entry.g.trim()) doc.g = entry.g.trim();
-    if (entry.h && entry.h.trim()) doc.h = entry.h.trim();
-    if (entry.m !== undefined && entry.m !== null) doc.m = entry.m;
+    // Build doc — only include non-empty fields
+    const doc: Record<string, unknown> = {
+        ts: serverTimestamp(),
+    };
+    if (entry.t?.trim()) doc.t = entry.t.trim();
+    if (entry.d?.trim()) doc.d = entry.d.trim();
+    if (entry.w?.trim()) doc.w = entry.w.trim();
+    if (entry.g?.trim()) doc.g = entry.g.trim();
+    if (entry.h?.trim()) doc.h = entry.h.trim();
+    if (entry.m !== undefined && entry.m !== null)
+        doc.m = entry.m;
+    if (entry.n?.trim()) doc.n = entry.n.trim();
+    if (entry.e !== undefined && entry.e !== null)
+        doc.e = entry.e;
 
     try {
         const docRef = await addDoc(collection(db, COLLECTION), doc);
@@ -366,9 +421,16 @@ export function computeStats(entries: JournalEntry[]): JournalStats {
         }
 
         // Word count (combine all text fields)
-        const text = [entry.t, entry.d, entry.w, entry.g, entry.h].filter(Boolean).join(' ');
+        const text = [
+            entry.t, entry.d, entry.w,
+            entry.g, entry.h, entry.n,
+        ]
+            .filter(Boolean)
+            .join(' ');
         if (text.trim().length > 0) {
-            stats.wordCounts.push(text.trim().split(/\s+/).length);
+            stats.wordCounts.push(
+                text.trim().split(/\s+/).length,
+            );
         }
     }
 
@@ -497,13 +559,20 @@ export async function addPuterJournalEntry(
     const id = `puter-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
     const now = new Date().toISOString();
 
-    const newEntry: Record<string, unknown> = { id, ts: now };
+    const newEntry: Record<string, unknown> = {
+        id,
+        ts: now,
+    };
     if (entry.t?.trim()) newEntry.t = entry.t.trim();
     if (entry.d?.trim()) newEntry.d = entry.d.trim();
     if (entry.w?.trim()) newEntry.w = entry.w.trim();
     if (entry.g?.trim()) newEntry.g = entry.g.trim();
     if (entry.h?.trim()) newEntry.h = entry.h.trim();
-    if (entry.m !== undefined && entry.m !== null) newEntry.m = entry.m;
+    if (entry.m !== undefined && entry.m !== null)
+        newEntry.m = entry.m;
+    if (entry.n?.trim()) newEntry.n = entry.n.trim();
+    if (entry.e !== undefined && entry.e !== null)
+        newEntry.e = entry.e;
 
     // Read existing entries from KV
     const existing = await getPuterJournalEntriesRaw();

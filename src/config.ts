@@ -77,6 +77,7 @@ export interface ApiConfig {
   lanyard: string;
   raindrop: string;
   openMeteo: string;
+  metahub: string;
 }
 
 export interface KeysConfig {
@@ -160,6 +161,7 @@ export const CONFIG: Config = {
     lanyard: "https://api.lanyard.rest/v1/users",
     raindrop: "https://api.raindrop.io/rest/v1/raindrops",
     openMeteo: "https://api.open-meteo.com/v1/forecast",
+    metahub: "https://images.metahub.space",
   },
   keys: {
     lastfmApiKey: "e15969debb132e5e0ed031b1a618fe53",

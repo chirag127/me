@@ -14,11 +14,15 @@ import {
     type User,
 } from 'firebase/auth';
 
-const ADMIN_UID = import.meta.env.VITE_ADMIN_UID ?? '';
+const ADMIN_UID =
+    import.meta.env.VITE_ADMIN_UID ?? '';
+const ADMIN_EMAIL = 'whyiswhen@gmail.com';
 
 export interface AuthState {
     user: User | null;
     isAdmin: boolean;
+    /** Email-based admin check (matches Firestore rules) */
+    isAdminByEmail: boolean;
     loading: boolean;
     signIn: () => Promise<void>;
     signOut: () => Promise<void>;
@@ -51,6 +55,8 @@ export function useAuth(): AuthState {
     return {
         user,
         isAdmin: !!user && user.uid === ADMIN_UID,
+        isAdminByEmail:
+            !!user && user.email === ADMIN_EMAIL,
         loading,
         signIn,
         signOut,
