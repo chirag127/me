@@ -28,6 +28,15 @@ export interface LastFmTopTrack {
   playcount: string;
   artist: { name: string; url: string };
   url: string;
+  image: Array<{ '#text': string; size: string }>;
+}
+
+export interface LastFmTopAlbum {
+  name: string;
+  playcount: string;
+  artist: { name: string; url: string };
+  url: string;
+  image: Array<{ '#text': string; size: string }>;
 }
 
 export interface LastFmUser {
@@ -121,6 +130,12 @@ export async function getLastFmTopTracks(period = '7day', limit = 10): Promise<L
   const url = `${CONFIG.api.lastfm}/?method=user.gettoptracks&user=${CONFIG.user.lastfm}&api_key=${CONFIG.keys.lastfmApiKey}&format=json&period=${period}&limit=${limit}`;
   const data = await fetchWithCache<{ toptracks: { track: LastFmTopTrack[] } }>(url);
   return data.toptracks.track;
+}
+
+export async function getLastFmTopAlbums(period = '7day', limit = 10): Promise<LastFmTopAlbum[]> {
+  const url = `${CONFIG.api.lastfm}/?method=user.gettopalbums&user=${CONFIG.user.lastfm}&api_key=${CONFIG.keys.lastfmApiKey}&format=json&period=${period}&limit=${limit}`;
+  const data = await fetchWithCache<{ topalbums: { album: LastFmTopAlbum[] } }>(url);
+  return data.topalbums.album;
 }
 
 export async function getLastFmUserInfo(): Promise<LastFmUser> {
@@ -351,6 +366,7 @@ export default {
   getLastFmRecentTracks,
   getLastFmTopArtists,
   getLastFmTopTracks,
+  getLastFmTopAlbums,
   getLastFmUserInfo,
   getNowPlaying,
   getAnimeList,

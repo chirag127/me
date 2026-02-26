@@ -1,54 +1,149 @@
 /**
- * MusicHub — Last.fm profile (no fake data)
+ * MusicHub — Unified music dashboard with 7 tabs
+ * Consolidates all music-related pages.
  */
-import { Container, SimpleGrid, Text, Anchor, Group } from '@mantine/core';
-import { IconExternalLink } from '@tabler/icons-react';
+import { useEffect, useState } from 'react';
+import { Container, Tabs } from '@mantine/core';
+import {
+    IconChartBar, IconMusic, IconDisc,
+    IconMicrophone2, IconVinyl,
+} from '@tabler/icons-react';
 import { usePageMeta } from '@hooks/usePageMeta';
 import { PageHeader } from '@components/ui/PageHeader';
-import { GlassCard } from '@components/ui/GlassCard';
-import { IDENTITY } from '@data/identity';
-
-const profiles = [
-    {
-        name: 'Last.fm', user: IDENTITY.usernames.lastfm,
-        url: `https://www.last.fm/user/${IDENTITY.usernames.lastfm}`,
-        desc: 'Scrobble history and stats'
-    },
-    {
-        name: 'ListenBrainz', user: IDENTITY.usernames.listenbrainz,
-        url: `https://listenbrainz.org/user/${IDENTITY.usernames.listenbrainz}`,
-        desc: 'Open music tracking'
-    },
-    {
-        name: 'SoundCloud', user: IDENTITY.usernames.soundcloud,
-        url: `https://soundcloud.com/${IDENTITY.usernames.soundcloud}`,
-        desc: 'Mixes and playlists'
-    },
-];
+import {
+    getLastFmRecentTracks,
+    getLastFmTopTracks,
+    getLastFmTopArtists,
+    getLastFmTopAlbums,
+    type LastFmTrack,
+    type LastFmTopTrack,
+    type LastFmTopArtist,
+    type LastFmTopAlbum,
+} from '@services/media';
+import {
+    OverviewTab,
+    RecentTab,
+    TopTracksTab,
+    TopAlbumsTab,
+    TopArtistsTab,
+} from './MusicHubTabs';
 
 export default function MusicHub() {
-    usePageMeta({ title: 'Music', description: 'Listening activity' });
+    usePageMeta({
+        title: 'Music Hub',
+        description: 'Real-time listening activity',
+    });
+
+    const [recent, setRecent] =
+        useState<LastFmTrack[] | null>(null);
+    const [topTracks, setTopTracks] =
+        useState<LastFmTopTrack[] | null>(null);
+    const [topArtists, setTopArtists] =
+        useState<LastFmTopArtist[] | null>(null);
+    const [topAlbums, setTopAlbums] =
+        useState<LastFmTopAlbum[] | null>(null);
+
+    useEffect(() => {
+        getLastFmRecentTracks(15)
+            .then(setRecent)
+            .catch(() => setRecent([]));
+        getLastFmTopTracks('1month', 15)
+            .then(setTopTracks)
+            .catch(() => setTopTracks([]));
+        getLastFmTopArtists('1month', 15)
+            .then(setTopArtists)
+            .catch(() => setTopArtists([]));
+        getLastFmTopAlbums('1month', 12)
+            .then(setTopAlbums)
+            .catch(() => setTopAlbums([]));
+    }, []);
+
     return (
         <Container size="xl" py="xl">
-            <PageHeader title="Music" description="Listening profiles"
-                breadcrumb={['Library', 'Music']} />
-            <Text size="sm" c="dimmed" mb="xl">
-                I track my listening on Last.fm and ListenBrainz. Visit my profiles for real-time stats.
-            </Text>
-            <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="md">
-                {profiles.map((p) => (
-                    <GlassCard key={p.name} hover>
-                        <Text fw={600} size="sm" mb="xs">{p.name}</Text>
-                        <Text size="xs" c="dimmed" mb="sm">{p.desc}</Text>
-                        <Anchor href={p.url} target="_blank" size="xs">
-                            <Group gap="xs">
-                                <Text>@{p.user}</Text>
-                                <IconExternalLink size={14} />
-                            </Group>
-                        </Anchor>
-                    </GlassCard>
-                ))}
-            </SimpleGrid>
+            <PageHeader
+                title="Music Hub"
+                description="Real-time listening activity"
+                breadcrumb={['Library', 'Music']}
+            />
+            <Tabs
+                defaultValue="overview"
+                variant="pills"
+                radius="xl"
+                mb="xl"
+            >
+                <Tabs.List mb="md">
+                    <Tabs.Tab
+                        value="overview"
+                        leftSection={
+                            <IconChartBar size={16} />
+                        }
+                    >
+                        Overview
+                    </Tabs.Tab>
+                    <Tabs.Tab
+                        value="recent"
+                        leftSection={
+                            <IconMusic size={16} />
+                        }
+                    >
+                        Recent
+                    </Tabs.Tab>
+                    <Tabs.Tab
+                        value="top-tracks"
+                        leftSection={
+                            <IconDisc size={16} />
+                        }
+                    >
+                        Top Tracks
+                    </Tabs.Tab>
+                    <Tabs.Tab
+                        value="top-albums"
+                        leftSection={
+                            <IconVinyl size={16} />
+                        }
+                    >
+                        Top Albums
+                    </Tabs.Tab>
+                    <Tabs.Tab
+                        value="top-artists"
+                        leftSection={
+                            <IconMicrophone2
+                                size={16}
+                            />
+                        }
+                    >
+                        Top Artists
+                    </Tabs.Tab>
+                </Tabs.List>
+
+                <Tabs.Panel value="overview" pt="xs">
+                    <OverviewTab />
+                </Tabs.Panel>
+                <Tabs.Panel value="recent" pt="xs">
+                    <RecentTab tracks={recent} />
+                </Tabs.Panel>
+                <Tabs.Panel
+                    value="top-tracks" pt="xs"
+                >
+                    <TopTracksTab
+                        tracks={topTracks}
+                    />
+                </Tabs.Panel>
+                <Tabs.Panel
+                    value="top-albums" pt="xs"
+                >
+                    <TopAlbumsTab
+                        albums={topAlbums}
+                    />
+                </Tabs.Panel>
+                <Tabs.Panel
+                    value="top-artists" pt="xs"
+                >
+                    <TopArtistsTab
+                        artists={topArtists}
+                    />
+                </Tabs.Panel>
+            </Tabs>
         </Container>
     );
 }
