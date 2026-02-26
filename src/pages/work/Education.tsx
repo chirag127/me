@@ -3,7 +3,7 @@
  */
 import {
   Container, SimpleGrid, Text, Timeline,
-  ThemeIcon, Badge, Group,
+  ThemeIcon, Badge,
 } from '@mantine/core';
 import { IconSchool } from '@tabler/icons-react';
 import { usePageMeta } from '@hooks/usePageMeta';

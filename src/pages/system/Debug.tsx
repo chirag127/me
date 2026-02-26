@@ -1,12 +1,11 @@
 /**
  * Debug — System diagnostics (auth-gated)
  */
-import { Container, Text, Stack, Code, Group, Badge } from '@mantine/core';
+import { Container, Text, Stack, Code, Group } from '@mantine/core';
 import { IconLock, IconBug } from '@tabler/icons-react';
 import { usePageMeta } from '@hooks/usePageMeta';
 import { PageHeader } from '@components/ui/PageHeader';
 import { GlassCard } from '@components/ui/GlassCard';
-import { StatCard } from '@components/ui/StatCard';
 import { useAuth } from '@hooks/useAuth';
 
 export default function Debug() {

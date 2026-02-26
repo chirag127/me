@@ -2,7 +2,7 @@
  * Philosophy — Core values & principles
  */
 import {
-  Container, SimpleGrid, Text, ThemeIcon, Group,
+  Container, SimpleGrid, Text, Group,
 } from '@mantine/core';
 import { usePageMeta } from '@hooks/usePageMeta';
 import { PageHeader } from '@components/ui/PageHeader';

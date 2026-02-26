@@ -1,7 +1,7 @@
 ﻿/**
  * Settings — App configuration
  */
-import { Container, Switch, Stack, Text, Group, Select, Divider } from '@mantine/core';
+import { Container, Switch, Stack, Text, Group, Select } from '@mantine/core';
 import { usePageMeta } from '@hooks/usePageMeta';
 import { PageHeader } from '@components/ui/PageHeader';
 import { GlassCard } from '@components/ui/GlassCard';

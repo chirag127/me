@@ -1,8 +1,8 @@
 /**
  * ShareLinks — Sharing utilities
  */
-import { Container, SimpleGrid, Text, Group, Anchor, ThemeIcon, CopyButton, Button } from '@mantine/core';
-import { IconCopy, IconCheck, IconShare } from '@tabler/icons-react';
+import { Container, SimpleGrid, Text, Group, CopyButton, Button } from '@mantine/core';
+import { IconCopy, IconCheck } from '@tabler/icons-react';
 import { usePageMeta } from '@hooks/usePageMeta';
 import { PageHeader } from '@components/ui/PageHeader';
 import { GlassCard } from '@components/ui/GlassCard';

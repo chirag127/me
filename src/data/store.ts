@@ -36,13 +36,11 @@ export class Signal<T> {
 
 export class Computed<T> {
   private cachedValue: T | undefined;
-  private dependencies: Signal<any>[];
   private compute: () => T;
   private dirty = true;
 
   constructor(compute: () => T, dependencies: Signal<any>[]) {
     this.compute = compute;
-    this.dependencies = dependencies;
 
     dependencies.forEach(dep => {
       dep.subscribe(() => {

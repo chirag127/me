@@ -1,7 +1,7 @@
 ﻿/**
  * Videos — YouTube / video content
  */
-import { Container, SimpleGrid, Text, Group, Badge, Anchor } from '@mantine/core';
+import { Container, SimpleGrid, Text, Group, Badge } from '@mantine/core';
 import { usePageMeta } from '@hooks/usePageMeta';
 import { PageHeader } from '@components/ui/PageHeader';
 import { GlassCard } from '@components/ui/GlassCard';

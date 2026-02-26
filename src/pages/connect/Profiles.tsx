@@ -1,7 +1,7 @@
 /**
  * Profiles — All social profiles
  */
-import { Container, SimpleGrid, Text, Group, Anchor, Badge } from '@mantine/core';
+import { Container, SimpleGrid, Text, Group, Anchor } from '@mantine/core';
 import { IconExternalLink } from '@tabler/icons-react';
 import { usePageMeta } from '@hooks/usePageMeta';
 import { PageHeader } from '@components/ui/PageHeader';

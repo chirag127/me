@@ -93,15 +93,7 @@ function ChartCard({
   );
 }
 
-/* ── Colors ───────────────────────────────── */
-const CHART_COLORS = [
-  '#007AFF',
-  '#5856D6',
-  '#34C759',
-  '#FF9500',
-  '#FF3B30',
-  '#5AC8FA',
-];
+
 
 export default function JournalCharts() {
   usePageMeta({
@@ -297,7 +289,7 @@ export default function JournalCharts() {
                   cy="50%"
                   outerRadius={90}
                   label={({ name, percent }) =>
-                    `${name} ${(percent * 100).toFixed(0)}%`
+                    `${name} ${((percent ?? 0) * 100).toFixed(0)}%`
                   }
                 >
                   {moodPieData.map((d, i) => (

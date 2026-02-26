@@ -1,7 +1,7 @@
 /**
  * About — App information
  */
-import { Container, Text, Stack, Group, Badge, Anchor, Divider } from '@mantine/core';
+import { Container, Text, Stack, Group, Badge, Anchor } from '@mantine/core';
 import { usePageMeta } from '@hooks/usePageMeta';
 import { PageHeader } from '@components/ui/PageHeader';
 import { GlassCard } from '@components/ui/GlassCard';
