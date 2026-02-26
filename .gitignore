@@ -327,3 +327,5 @@ workers/**/.wrangler/
 # Wrangler
 .wrangler/
 .dev.vars
+deployment.txt
+projects.txt

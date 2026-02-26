@@ -2,9 +2,10 @@
  * MusicHub tab panel sub-components.
  * Split out to keep MusicHub.tsx under 500 lines.
  */
+import { useState, useEffect } from 'react';
 import {
     SimpleGrid, Text, Anchor, Group,
-    Skeleton, Avatar, Badge, Box, Image,
+    Skeleton, Badge, Box, Image
 } from '@mantine/core';
 import {
     IconExternalLink, IconBrandYoutube,
@@ -102,6 +103,60 @@ const artistAvatar = (name: string) =>
 
 const PLACEHOLDER =
     'https://placehold.co/64x64/1a1b1e/666?text=%E2%99%AB';
+
+/* ── Deezer Image Component ── */
+
+const imageCache = new Map<string, string>();
+
+function DeezerImage({ type, query, fallback, ...props }: { type: 'artist' | 'track' | 'album', query: string, fallback: string } & Record<string, any>) {
+    const [src, setSrc] = useState<string>(fallback);
+    const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        const cacheKey = `${type}:${query}`;
+        if (imageCache.has(cacheKey)) {
+            setSrc(imageCache.get(cacheKey)!);
+            setLoaded(true);
+            return;
+        }
+
+        let isMounted = true;
+        const url = `https://api.deezer.com/search/${type}?q=${encodeURIComponent(query)}&limit=1`;
+
+        // Use JSONP-like proxy if needed, but Deezer usually allows CORS for search
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                if (!isMounted) return;
+                let imgUrl = fallback;
+                if (data.data && data.data.length > 0) {
+                    const item = data.data[0];
+                    if (type === 'artist') imgUrl = item.picture_medium || item.picture;
+                    if (type === 'track') imgUrl = item.album?.cover_medium || item.album?.cover;
+                    if (type === 'album') imgUrl = item.cover_medium || item.cover;
+                }
+                if (imgUrl) {
+                    imageCache.set(cacheKey, imgUrl);
+                    setSrc(imgUrl);
+                }
+                setLoaded(true);
+            })
+            .catch(() => {
+                if (isMounted) setLoaded(true);
+            });
+
+        return () => { isMounted = false; };
+    }, [type, query, fallback]);
+
+    return (
+        <Image
+            src={src}
+            fallbackSrc={fallback}
+            style={{ opacity: loaded ? 1 : 0.5, transition: 'opacity 0.3s' }}
+            {...props}
+        />
+    );
+}
 
 /* ── Tab panels ── */
 
@@ -224,11 +279,12 @@ export function RecentTab(
                     target="_blank" underline="never"
                 >
                     <GlassCard hover style={rowStyle}>
-                        <Image
-                            src={pickImg(t.image)}
+                        <DeezerImage
+                            type="track"
+                            query={`${t.artist['#text']} ${t.name}`}
+                            fallback={pickImg(t.image) || PLACEHOLDER}
                             alt={t.name}
                             w={56} h={56} radius="md"
-                            fallbackSrc={PLACEHOLDER}
                         />
                         <Box style={flexBox}>
                             <Group
@@ -288,11 +344,12 @@ export function TopTracksTab(
                     target="_blank" underline="never"
                 >
                     <GlassCard hover style={rowStyle}>
-                        <Image
-                            src={pickImg(t.image)}
+                        <DeezerImage
+                            type="track"
+                            query={`${t.artist.name} ${t.name}`}
+                            fallback={pickImg(t.image) || PLACEHOLDER}
                             alt={t.name}
                             w={56} h={56} radius="md"
-                            fallbackSrc={PLACEHOLDER}
                         />
                         <Box style={flexBox}>
                             <Text
@@ -357,11 +414,12 @@ export function TopAlbumsTab(
                             overflow: 'hidden',
                         }}
                     >
-                        <Image
-                            src={pickImg(a.image)}
+                        <DeezerImage
+                            type="album"
+                            query={`${a.artist.name} ${a.name}`}
+                            fallback={pickImg(a.image) || PLACEHOLDER}
                             alt={a.name}
                             h={140} fit="cover"
-                            fallbackSrc={PLACEHOLDER}
                         />
                         <Box p="xs">
                             <Text
@@ -406,8 +464,7 @@ export function TopArtistsTab(
             spacing="md"
         >
             {artists.map((a, i) => {
-                const img = pickImg(a.image);
-                const fallback = artistAvatar(a.name);
+                const fallback = pickImg(a.image) || artistAvatar(a.name);
                 return (
                     <Anchor
                         key={`${a.name}-${i}`}
@@ -439,21 +496,14 @@ export function TopArtistsTab(
                             >
                                 #{i + 1}
                             </Text>
-                            <Avatar
-                                src={img || fallback}
-                                size={72} radius="xl"
+                            <DeezerImage
+                                type="artist"
+                                query={a.name}
+                                fallback={fallback}
+                                alt={a.name}
+                                w={72} h={72} radius="100%"
                                 mb="sm"
-                                imageProps={{
-                                    onError: (e: React.SyntheticEvent<HTMLImageElement>) => {
-                                        const t = e.currentTarget;
-                                        if (t.src !== fallback) {
-                                            t.src = fallback;
-                                        }
-                                    },
-                                }}
-                            >
-                                {a.name[0]}
-                            </Avatar>
+                            />
                             <Text
                                 fw={600} size="sm"
                                 lineClamp={1}
