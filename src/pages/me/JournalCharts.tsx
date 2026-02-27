@@ -1,6 +1,6 @@
 ﻿/**
  * JournalCharts — Analytics dashboard
- * Fetches all entries, computes stats, charts via recharts
+ * Merges Firestore + Puter.js entries for stats
  * @module pages/me/JournalCharts
  */
 import {
@@ -34,17 +34,27 @@ import {
   CartesianGrid,
 } from 'recharts';
 import { usePageMeta } from '@hooks/usePageMeta';
-import { PageHeader } from '@components/ui/PageHeader';
+import {
+  PageHeader,
+} from '@components/ui/PageHeader';
 import { GlassCard } from '@components/ui/GlassCard';
+import { usePuterAuth } from '@hooks/usePuterAuth';
 import {
   getAllJournalEntries,
+  getPuterJournalEntries,
   computeStats,
   MOOD_MAP,
   DAYS,
   type JournalStats,
 } from '@services/journal';
 
-/* ── Stat Card ───────────────────────────── */
+const BREADCRUMB = [
+  'Me',
+  'Journal',
+  'Analytics',
+];
+
+/* ── Stat Card ──────────────────────── */
 function StatCard({
   icon,
   label,
@@ -59,7 +69,9 @@ function StatCard({
   return (
     <GlassCard>
       <Stack align="center" gap={4}>
-        <div style={{ color, opacity: 0.8 }}>
+        <div
+          style={{ color, opacity: 0.8 }}
+        >
           {icon}
         </div>
         <Text fw={700} size="xl">
@@ -73,7 +85,7 @@ function StatCard({
   );
 }
 
-/* ── Chart wrapper ───────────────────────── */
+/* ── Chart wrapper ──────────────────── */
 function ChartCard({
   title,
   children,
@@ -86,20 +98,25 @@ function ChartCard({
       <Text fw={600} mb="sm">
         {title}
       </Text>
-      <div style={{ width: '100%', height: 250 }}>
+      <div
+        style={{
+          width: '100%',
+          height: 250,
+        }}
+      >
         {children}
       </div>
     </GlassCard>
   );
 }
 
-
-
 export default function JournalCharts() {
   usePageMeta({
     title: 'Journal Analytics',
     description: 'Writing analytics',
   });
+
+  const puterAuth = usePuterAuth();
 
   const [stats, setStats] =
     useState<JournalStats | null>(null);
@@ -108,17 +125,35 @@ export default function JournalCharts() {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const entries =
+      /* Firestore entries */
+      const firestoreEntries =
         await getAllJournalEntries();
+
+      /* Puter.js entries */
+      let puterEntries: Awaited<
+        ReturnType<
+          typeof getPuterJournalEntries
+        >
+      > = [];
+      if (puterAuth.signedIn) {
+        puterEntries =
+          await getPuterJournalEntries();
+      }
+
       if (!cancelled) {
-        setStats(computeStats(entries));
+        const merged = [
+          ...puterEntries,
+          ...firestoreEntries,
+        ];
+        setStats(computeStats(merged));
         setLoading(false);
       }
     })();
     return () => {
       cancelled = true;
     };
-  }, []);
+    // eslint-disable-next-line
+  }, [puterAuth.signedIn]);
 
   if (loading) {
     return (
@@ -126,11 +161,7 @@ export default function JournalCharts() {
         <PageHeader
           title="Journal Analytics"
           description="Writing analytics"
-          breadcrumb={[
-            'Me',
-            'Journal',
-            'Analytics',
-          ]}
+          breadcrumb={BREADCRUMB}
         />
         <GlassCard>
           <Stack align="center" py="xl">
@@ -141,17 +172,16 @@ export default function JournalCharts() {
     );
   }
 
-  if (!stats || stats.totalEntries === 0) {
+  if (
+    !stats ||
+    stats.totalEntries === 0
+  ) {
     return (
       <Container size="xl" py="xl">
         <PageHeader
           title="Journal Analytics"
           description="Writing analytics"
-          breadcrumb={[
-            'Me',
-            'Journal',
-            'Analytics',
-          ]}
+          breadcrumb={BREADCRUMB}
         />
         <GlassCard>
           <Stack
@@ -172,8 +202,8 @@ export default function JournalCharts() {
               ta="center"
               maw={400}
             >
-              Analytics will appear here once
-              journal entries exist.
+              Analytics will appear here
+              once journal entries exist.
             </Text>
           </Stack>
         </GlassCard>
@@ -186,18 +216,21 @@ export default function JournalCharts() {
     stats.moodCounts,
   ).map(([k, v]) => ({
     name:
-      MOOD_MAP[Number(k)]?.label ?? `Mood ${k}`,
+      MOOD_MAP[Number(k)]?.label ??
+      `Mood ${k}`,
     value: v,
     color:
-      MOOD_MAP[Number(k)]?.color ?? '#8E8E93',
+      MOOD_MAP[Number(k)]?.color ??
+      '#8E8E93',
   }));
 
-  const dowData = stats.entriesByDayOfWeek.map(
-    (count, i) => ({
-      day: DAYS[i],
-      entries: count,
-    }),
-  );
+  const dowData =
+    stats.entriesByDayOfWeek.map(
+      (count, i) => ({
+        day: DAYS[i],
+        entries: count,
+      }),
+    );
 
   const hourData = stats.entriesByHour.map(
     (count, i) => ({
@@ -224,7 +257,8 @@ export default function JournalCharts() {
       date: m.date,
       mood: m.mood,
       label:
-        MOOD_MAP[m.mood]?.label ?? String(m.mood),
+        MOOD_MAP[m.mood]?.label ??
+        String(m.mood),
     }));
 
   const wordData = stats.wordCounts.map(
@@ -239,11 +273,7 @@ export default function JournalCharts() {
       <PageHeader
         title="Journal Analytics"
         description="Writing analytics"
-        breadcrumb={[
-          'Me',
-          'Journal',
-          'Analytics',
-        ]}
+        breadcrumb={BREADCRUMB}
       />
 
       {/* ── Stat Cards ─── */}
@@ -264,7 +294,9 @@ export default function JournalCharts() {
           color="#FF9500"
         />
         <StatCard
-          icon={<IconCalendar size={28} />}
+          icon={
+            <IconCalendar size={28} />
+          }
           label="Longest Streak"
           value={`${stats.streaks.longest}d`}
           color="#34C759"
@@ -278,7 +310,9 @@ export default function JournalCharts() {
       >
         {/* Mood Distribution */}
         {moodPieData.length > 0 && (
-          <ChartCard title="Mood Distribution">
+          <ChartCard
+            title="Mood Distribution"
+          >
             <ResponsiveContainer>
               <PieChart>
                 <Pie
@@ -288,16 +322,23 @@ export default function JournalCharts() {
                   cx="50%"
                   cy="50%"
                   outerRadius={90}
-                  label={({ name, percent }) =>
-                    `${name} ${((percent ?? 0) * 100).toFixed(0)}%`
+                  label={({
+                    name,
+                    percent,
+                  }) =>
+                    `${name} ${(
+                      (percent ?? 0) * 100
+                    ).toFixed(0)}%`
                   }
                 >
-                  {moodPieData.map((d, i) => (
-                    <Cell
-                      key={i}
-                      fill={d.color}
-                    />
-                  ))}
+                  {moodPieData.map(
+                    (d, i) => (
+                      <Cell
+                        key={i}
+                        fill={d.color}
+                      />
+                    ),
+                  )}
                 </Pie>
                 <Tooltip />
               </PieChart>
@@ -314,7 +355,9 @@ export default function JournalCharts() {
                 opacity={0.2}
               />
               <XAxis dataKey="day" />
-              <YAxis allowDecimals={false} />
+              <YAxis
+                allowDecimals={false}
+              />
               <Tooltip />
               <Bar
                 dataKey="entries"
@@ -334,7 +377,9 @@ export default function JournalCharts() {
                 opacity={0.2}
               />
               <XAxis dataKey="hour" />
-              <YAxis allowDecimals={false} />
+              <YAxis
+                allowDecimals={false}
+              />
               <Tooltip />
               <Area
                 type="monotone"
@@ -349,7 +394,9 @@ export default function JournalCharts() {
 
         {/* Entries by Month */}
         {monthData.length > 0 && (
-          <ChartCard title="Entries by Month">
+          <ChartCard
+            title="Entries by Month"
+          >
             <ResponsiveContainer>
               <BarChart data={monthData}>
                 <CartesianGrid
@@ -373,9 +420,13 @@ export default function JournalCharts() {
 
         {/* Mood Over Time */}
         {moodTimeline.length > 0 && (
-          <ChartCard title="Mood Over Time">
+          <ChartCard
+            title="Mood Over Time"
+          >
             <ResponsiveContainer>
-              <LineChart data={moodTimeline}>
+              <LineChart
+                data={moodTimeline}
+              >
                 <CartesianGrid
                   strokeDasharray="3 3"
                   opacity={0.2}
@@ -391,7 +442,9 @@ export default function JournalCharts() {
                   dataKey="mood"
                   stroke="#FF9500"
                   strokeWidth={2}
-                  dot={{ fill: '#FF9500' }}
+                  dot={{
+                    fill: '#FF9500',
+                  }}
                 />
               </LineChart>
             </ResponsiveContainer>

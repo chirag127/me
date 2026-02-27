@@ -1,6 +1,6 @@
 ﻿/**
  * JournalFeed — Public paginated journal feed
- * Reads from Firebase Firestore (public access)
+ * Reads from Firebase Firestore + Puter.js KV
  * @module pages/me/JournalFeed
  */
 import {
@@ -24,10 +24,14 @@ import {
   useCallback,
 } from 'react';
 import { usePageMeta } from '@hooks/usePageMeta';
-import { PageHeader } from '@components/ui/PageHeader';
+import {
+  PageHeader,
+} from '@components/ui/PageHeader';
 import { GlassCard } from '@components/ui/GlassCard';
+import { usePuterAuth } from '@hooks/usePuterAuth';
 import {
   getJournalEntries,
+  getPuterJournalEntries,
   MOOD_MAP,
   FIELD_LABELS,
   TIME_ESTIMATE_OPTIONS,
@@ -36,8 +40,10 @@ import {
 } from '@services/journal';
 import { Timestamp } from 'firebase/firestore';
 
-/* ── Helpers ──────────────────────────────── */
-function fmtDate(ts: Timestamp | unknown): string {
+/* ── Helpers ────────────────────────────── */
+function fmtDate(
+  ts: Timestamp | unknown,
+): string {
   const d =
     ts instanceof Timestamp
       ? ts.toDate()
@@ -58,7 +64,7 @@ function getTimeLabel(mins: number): string {
   return opt ? opt.label : `${mins} min`;
 }
 
-/* ── Entry Card Component ─────────────────── */
+/* ── Entry Card Component ─────────────── */
 function EntryCard({
   entry,
 }: {
@@ -68,6 +74,8 @@ function EntryCard({
     entry.m !== undefined
       ? MOOD_MAP[entry.m]
       : null;
+
+  const isPuter = entry.id.startsWith('puter-');
 
   return (
     <GlassCard hover>
@@ -88,6 +96,15 @@ function EntryCard({
               {mood.emoji} {mood.label}
             </Badge>
           )}
+          {isPuter && (
+            <Badge
+              variant="dot"
+              color="violet"
+              size="sm"
+            >
+              Private
+            </Badge>
+          )}
         </Group>
         <Text size="xs" c="dimmed">
           {fmtDate(entry.ts)}
@@ -106,7 +123,10 @@ function EntryCard({
       )}
 
       {/* Activity fields */}
-      <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="xs">
+      <SimpleGrid
+        cols={{ base: 1, sm: 3 }}
+        spacing="xs"
+      >
         {entry.g && (
           <FieldBadge
             label={FIELD_LABELS.g}
@@ -131,36 +151,37 @@ function EntryCard({
       </SimpleGrid>
 
       {/* Bottom badges */}
-      {(entry.n || entry.e !== undefined) && (
-        <Group gap="xs" mt="sm">
-          {entry.n && (
-            <Badge
-              variant="outline"
-              color="orange"
-              size="sm"
-            >
-              ⏭ {entry.n}
-            </Badge>
-          )}
-          {entry.e !== undefined && (
-            <Badge
-              variant="outline"
-              color="blue"
-              size="sm"
-              leftSection={
-                <IconClock size={12} />
-              }
-            >
-              {getTimeLabel(entry.e)}
-            </Badge>
-          )}
-        </Group>
-      )}
+      {(entry.n ||
+        entry.e !== undefined) && (
+          <Group gap="xs" mt="sm">
+            {entry.n && (
+              <Badge
+                variant="outline"
+                color="orange"
+                size="sm"
+              >
+                ⏭ {entry.n}
+              </Badge>
+            )}
+            {entry.e !== undefined && (
+              <Badge
+                variant="outline"
+                color="blue"
+                size="sm"
+                leftSection={
+                  <IconClock size={12} />
+                }
+              >
+                {getTimeLabel(entry.e)}
+              </Badge>
+            )}
+          </Group>
+        )}
     </GlassCard>
   );
 }
 
-/* ── Reusable field badge ─────────────────── */
+/* ── Reusable field badge ─────────────── */
 function FieldBadge({
   label,
   text,
@@ -172,7 +193,12 @@ function FieldBadge({
 }) {
   return (
     <div>
-      <Text size="xs" fw={600} c={color} mb={2}>
+      <Text
+        size="xs"
+        fw={600}
+        c={color}
+        mb={2}
+      >
         {label}
       </Text>
       <Text
@@ -186,12 +212,14 @@ function FieldBadge({
   );
 }
 
-/* ── Main Page ────────────────────────────── */
+/* ── Main Page ────────────────────────── */
 export default function JournalFeed() {
   usePageMeta({
     title: 'Journal Feed',
     description: 'Recent journal entries',
   });
+
+  const puterAuth = usePuterAuth();
 
   const [entries, setEntries] = useState<
     JournalEntry[]
@@ -207,9 +235,25 @@ export default function JournalFeed() {
     let cancelled = false;
     (async () => {
       setLoading(true);
-      const result = await getJournalEntries(20);
+
+      /* Firestore entries */
+      const result =
+        await getJournalEntries(20);
+
+      /* Puter.js entries */
+      let puterEntries: JournalEntry[] = [];
+      if (puterAuth.signedIn) {
+        puterEntries =
+          await getPuterJournalEntries();
+      }
+
       if (!cancelled) {
-        setEntries(result.entries);
+        /* Merge: Puter first, then Firestore */
+        const merged = [
+          ...puterEntries,
+          ...result.entries,
+        ];
+        setEntries(merged);
         setPage(result);
         setLoading(false);
       }
@@ -217,23 +261,26 @@ export default function JournalFeed() {
     return () => {
       cancelled = true;
     };
-  }, []);
+    // eslint-disable-next-line
+  }, [puterAuth.signedIn]);
 
-  /* ── Load more ──── */
-  const loadMore = useCallback(async () => {
-    if (!page?.hasMore || !page.lastDoc) return;
-    setLoadingMore(true);
-    const result = await getJournalEntries(
-      20,
-      page.lastDoc,
-    );
-    setEntries((prev) => [
-      ...prev,
-      ...result.entries,
-    ]);
-    setPage(result);
-    setLoadingMore(false);
-  }, [page]);
+  /* ── Load more (Firestore only) ──── */
+  const loadMore =
+    useCallback(async () => {
+      if (!page?.hasMore || !page.lastDoc)
+        return;
+      setLoadingMore(true);
+      const result = await getJournalEntries(
+        20,
+        page.lastDoc,
+      );
+      setEntries((prev) => [
+        ...prev,
+        ...result.entries,
+      ]);
+      setPage(result);
+      setLoadingMore(false);
+    }, [page]);
 
   /* ── Render ──── */
   return (
@@ -241,7 +288,11 @@ export default function JournalFeed() {
       <PageHeader
         title="Journal Feed"
         description="Recent entries"
-        breadcrumb={['Me', 'Journal', 'Feed']}
+        breadcrumb={[
+          'Me',
+          'Journal',
+          'Feed',
+        ]}
       />
 
       {loading ? (
@@ -255,7 +306,11 @@ export default function JournalFeed() {
         </GlassCard>
       ) : entries.length === 0 ? (
         <GlassCard>
-          <Stack align="center" gap="md" py="xl">
+          <Stack
+            align="center"
+            gap="md"
+            py="xl"
+          >
             <IconMoodEmpty
               size={48}
               opacity={0.3}
@@ -269,15 +324,19 @@ export default function JournalFeed() {
               ta="center"
               maw={400}
             >
-              Entries will appear here once the
-              admin starts writing.
+              Write your first entry on the
+              Journal Write page to see it
+              here.
             </Text>
           </Stack>
         </GlassCard>
       ) : (
         <Stack gap="md">
           {entries.map((e) => (
-            <EntryCard key={e.id} entry={e} />
+            <EntryCard
+              key={e.id}
+              entry={e}
+            />
           ))}
 
           {page?.hasMore && (

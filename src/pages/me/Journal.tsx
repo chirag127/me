@@ -1,6 +1,6 @@
 ﻿/**
- * Journal — Admin-only entry form
- * All fields stored in Firebase Firestore
+ * Journal — Write entry form
+ * Dual-mode auth: Firebase (admin) + Puter.js (users)
  * @module pages/me/Journal
  */
 import {
@@ -21,6 +21,8 @@ import {
   IconLogout,
   IconCheck,
   IconX,
+  IconBrandGoogle,
+  IconUser,
 } from '@tabler/icons-react';
 import { useState } from 'react';
 import { notifications } from '@mantine/notifications';
@@ -28,15 +30,17 @@ import { usePageMeta } from '@hooks/usePageMeta';
 import { PageHeader } from '@components/ui/PageHeader';
 import { GlassCard } from '@components/ui/GlassCard';
 import { useAuth } from '@hooks/useAuth';
+import { usePuterAuth } from '@hooks/usePuterAuth';
 import {
   addJournalEntry,
+  addPuterJournalEntry,
   MOOD_MAP,
   NEXT_ACTION_OPTIONS,
   TIME_ESTIMATE_OPTIONS,
   FIELD_LABELS,
 } from '@services/journal';
 
-/* ── Mood segmented-control data ──────────── */
+/* ── Mood segmented-control data ──────── */
 const MOOD_DATA = Object.entries(MOOD_MAP).map(
   ([k, v]) => ({
     value: k,
@@ -44,20 +48,21 @@ const MOOD_DATA = Object.entries(MOOD_MAP).map(
   }),
 );
 
-/* ── Next action select data ──────────────── */
-const NEXT_ACTION_DATA = NEXT_ACTION_OPTIONS.map(
-  (o) => ({ value: o, label: o }),
-);
+/* ── Next action select data ──────────── */
+const NEXT_ACTION_DATA =
+  NEXT_ACTION_OPTIONS.map((o) => ({
+    value: o,
+    label: o,
+  }));
 
-/* ── Time estimate select data ────────────── */
-const TIME_EST_DATA = TIME_ESTIMATE_OPTIONS.map(
-  (o) => ({
+/* ── Time estimate select data ────────── */
+const TIME_EST_DATA =
+  TIME_ESTIMATE_OPTIONS.map((o) => ({
     value: String(o.value),
     label: o.label,
-  }),
-);
+  }));
 
-/* ── Initial form state ───────────────────── */
+/* ── Initial form state ───────────────── */
 interface FormState {
   title: string;
   description: string;
@@ -80,22 +85,35 @@ const INITIAL: FormState = {
   timeEstimate: '',
 };
 
+const BREADCRUMB = ['Me', 'Journal', 'Write'];
+const GRADIENT = {
+  from: '#007AFF',
+  to: '#5856D6',
+};
+
 export default function Journal() {
   usePageMeta({
     title: 'Journal',
     description: 'Write thoughts & reflections',
   });
 
-  const {
-    user,
-    isAdminByEmail,
-    loading,
-    signIn,
-    signOut,
-  } = useAuth();
+  const firebase = useAuth();
+  const puter = usePuterAuth();
 
-  const [form, setForm] = useState<FormState>(INITIAL);
-  const [submitting, setSubmitting] = useState(false);
+  const [form, setForm] =
+    useState<FormState>(INITIAL);
+  const [submitting, setSubmitting] =
+    useState(false);
+
+  /* ── Derived auth state ─────────── */
+  const isFirebaseAdmin =
+    firebase.user && firebase.isAdminByEmail;
+  const isPuterUser =
+    puter.signedIn && !isFirebaseAdmin;
+  const isSignedIn =
+    isFirebaseAdmin || isPuterUser;
+  const authLoading =
+    firebase.loading || puter.loading;
 
   /* ── Helpers ────────────── */
   const set = (
@@ -103,23 +121,30 @@ export default function Journal() {
     val: string,
   ) => setForm((p) => ({ ...p, [key]: val }));
 
+  const buildPayload = () => ({
+    t: form.title || undefined,
+    d: form.description || undefined,
+    m: form.mood
+      ? Number(form.mood)
+      : undefined,
+    g: form.doing || undefined,
+    h: form.done || undefined,
+    w: form.willDo || undefined,
+    n: form.nextAction || undefined,
+    e: form.timeEstimate
+      ? Number(form.timeEstimate)
+      : undefined,
+  });
+
   const handleSubmit = async () => {
     setSubmitting(true);
     try {
-      await addJournalEntry({
-        t: form.title || undefined,
-        d: form.description || undefined,
-        m: form.mood
-          ? Number(form.mood)
-          : undefined,
-        g: form.doing || undefined,
-        h: form.done || undefined,
-        w: form.willDo || undefined,
-        n: form.nextAction || undefined,
-        e: form.timeEstimate
-          ? Number(form.timeEstimate)
-          : undefined,
-      });
+      const payload = buildPayload();
+      if (isFirebaseAdmin) {
+        await addJournalEntry(payload);
+      } else {
+        await addPuterJournalEntry(payload);
+      }
       notifications.show({
         title: 'Published',
         message: 'Journal entry saved!',
@@ -142,14 +167,24 @@ export default function Journal() {
     }
   };
 
-  /* ── Loading state ────── */
-  if (loading) {
+  const handleSignOut = async () => {
+    if (isFirebaseAdmin) {
+      await firebase.signOut();
+    } else {
+      await puter.signOut();
+    }
+  };
+
+  /* ── Loading state ────────────── */
+  if (authLoading) {
     return (
       <Container size="xl" py="xl">
         <PageHeader
           title="Journal"
-          description="Write thoughts & reflections"
-          breadcrumb={['Me', 'Journal', 'Write']}
+          description={
+            'Write thoughts & reflections'
+          }
+          breadcrumb={BREADCRUMB}
         />
         <GlassCard>
           <Stack align="center" py="xl">
@@ -160,76 +195,134 @@ export default function Journal() {
     );
   }
 
-  /* ── Not signed in ────── */
-  if (!user) {
+  /* ── Not signed in ────────────── */
+  if (!isSignedIn) {
     return (
       <Container size="xl" py="xl">
         <PageHeader
           title="Journal"
-          description="Write thoughts & reflections"
-          breadcrumb={['Me', 'Journal', 'Write']}
+          description={
+            'Write thoughts & reflections'
+          }
+          breadcrumb={BREADCRUMB}
         />
         <GlassCard>
-          <Stack align="center" gap="md" py="xl">
-            <IconLock size={48} opacity={0.3} />
+          <Stack
+            align="center"
+            gap="md"
+            py="xl"
+          >
+            <IconLock
+              size={48}
+              opacity={0.3}
+            />
             <Text c="dimmed" ta="center">
-              Admin sign-in required
+              Sign in to write journal entries
             </Text>
-            <Button
-              variant="gradient"
-              gradient={{
-                from: '#007AFF',
-                to: '#5856D6',
-              }}
-              onClick={signIn}
-            >
-              Sign in with Google
-            </Button>
+            <Group>
+              {puter.available && (
+                <Button
+                  variant="gradient"
+                  gradient={GRADIENT}
+                  leftSection={
+                    <IconUser size={16} />
+                  }
+                  onClick={puter.signIn}
+                >
+                  Sign in with Puter
+                </Button>
+              )}
+              <Button
+                variant="light"
+                leftSection={
+                  <IconBrandGoogle
+                    size={16}
+                  />
+                }
+                onClick={firebase.signIn}
+              >
+                Admin (Google)
+              </Button>
+            </Group>
           </Stack>
         </GlassCard>
       </Container>
     );
   }
 
-  /* ── Signed in but not admin ── */
-  if (!isAdminByEmail) {
+  /* ── Firebase signed in but not admin ── */
+  if (
+    firebase.user &&
+    !firebase.isAdminByEmail &&
+    !isPuterUser
+  ) {
     return (
       <Container size="xl" py="xl">
         <PageHeader
           title="Journal"
-          description="Write thoughts & reflections"
-          breadcrumb={['Me', 'Journal', 'Write']}
+          description={
+            'Write thoughts & reflections'
+          }
+          breadcrumb={BREADCRUMB}
         />
         <GlassCard>
-          <Stack align="center" gap="md" py="xl">
-            <IconLock size={48} opacity={0.3} />
+          <Stack
+            align="center"
+            gap="md"
+            py="xl"
+          >
+            <IconLock
+              size={48}
+              opacity={0.3}
+            />
             <Text c="dimmed" ta="center">
-              Access denied —
-              only the admin can write entries.
+              Google admin access denied.
+              Use Puter to write entries.
             </Text>
-            <Button
-              variant="subtle"
-              color="gray"
-              leftSection={
-                <IconLogout size={14} />
-              }
-              onClick={signOut}
-            >
-              Sign out
-            </Button>
+            <Group>
+              {puter.available && (
+                <Button
+                  variant="gradient"
+                  gradient={GRADIENT}
+                  leftSection={
+                    <IconUser size={16} />
+                  }
+                  onClick={puter.signIn}
+                >
+                  Sign in with Puter
+                </Button>
+              )}
+              <Button
+                variant="subtle"
+                color="gray"
+                leftSection={
+                  <IconLogout size={14} />
+                }
+                onClick={firebase.signOut}
+              >
+                Sign out Google
+              </Button>
+            </Group>
           </Stack>
         </GlassCard>
       </Container>
     );
   }
 
-  /* ── Admin form ───────── */
+  /* ── Signed-in user label ── */
+  const userLabel = isFirebaseAdmin
+    ? firebase.user?.email
+    : puter.user?.username ?? 'Puter User';
+
+  /* ── Admin / Puter user form ── */
   return (
     <Container size="xl" py="xl">
       <PageHeader
         title="Journal"
-        description="Write thoughts & reflections"
-        breadcrumb={['Me', 'Journal', 'Write']}
+        description={
+          'Write thoughts & reflections'
+        }
+        breadcrumb={BREADCRUMB}
       />
 
       <GlassCard>
@@ -240,7 +333,10 @@ export default function Journal() {
             placeholder="Entry title…"
             value={form.title}
             onChange={(e) =>
-              set('title', e.currentTarget.value)
+              set(
+                'title',
+                e.currentTarget.value,
+              )
             }
           />
 
@@ -268,7 +364,9 @@ export default function Journal() {
               fullWidth
               data={MOOD_DATA}
               value={form.mood}
-              onChange={(v) => set('mood', v)}
+              onChange={(v) =>
+                set('mood', v)
+              }
               color="blue"
             />
           </div>
@@ -281,7 +379,10 @@ export default function Journal() {
             autosize
             value={form.doing}
             onChange={(e) =>
-              set('doing', e.currentTarget.value)
+              set(
+                'doing',
+                e.currentTarget.value,
+              )
             }
           />
 
@@ -293,7 +394,10 @@ export default function Journal() {
             autosize
             value={form.done}
             onChange={(e) =>
-              set('done', e.currentTarget.value)
+              set(
+                'done',
+                e.currentTarget.value,
+              )
             }
           />
 
@@ -305,7 +409,10 @@ export default function Journal() {
             autosize
             value={form.willDo}
             onChange={(e) =>
-              set('willDo', e.currentTarget.value)
+              set(
+                'willDo',
+                e.currentTarget.value,
+              )
             }
           />
 
@@ -334,11 +441,13 @@ export default function Journal() {
           />
 
           {/* Submit */}
-          <Group justify="space-between" mt="md">
+          <Group
+            justify="space-between"
+            mt="md"
+          >
             <Group gap="xs">
               <Text size="xs" c="dimmed">
-                Signed in as{' '}
-                {user.email}
+                Signed in as {userLabel}
               </Text>
               <Button
                 size="xs"
@@ -347,7 +456,7 @@ export default function Journal() {
                 leftSection={
                   <IconLogout size={12} />
                 }
-                onClick={signOut}
+                onClick={handleSignOut}
               >
                 Sign out
               </Button>
@@ -357,10 +466,7 @@ export default function Journal() {
                 <IconSend size={14} />
               }
               variant="gradient"
-              gradient={{
-                from: '#007AFF',
-                to: '#5856D6',
-              }}
+              gradient={GRADIENT}
               onClick={handleSubmit}
               loading={submitting}
             >
