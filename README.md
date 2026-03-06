@@ -1,106 +1,103 @@
-# Chirag Singhal — Portfolio
+# 🌌 Chirag Singhal — Premium Developer Portfolio
 
-> Modern, data-driven developer portfolio built with
-> React 19, TypeScript, Vite, and Mantine 8.
+> **Architecting the Future with Code.**
+> Modern, data-driven, and high-performance portfolio built with **React 19**, **TypeScript**, and **Vite**.
 
-[![CI/CD](https://github.com/chirag127/me/actions/workflows/deploy.yml/badge.svg)](https://github.com/chirag127/me/actions/workflows/deploy.yml)
+![Portfolio Hero Mockup](file:///C:/Users/chira/portfolio_hero_mockup.png)
 
-## ✨ Features
+## ✨ Core Pillars
 
-- **66 pages** across 7 thematic "drives"
-- **Dark theme** with glassmorphism UI
-- **Real data only** — no invented stats
-- **Live embeds** — GitHub stats, LeetCode card
-- **Profile links** — 20+ platforms
-- **Tech frequency chart** — computed from resume
-- **Lazy-loaded** routes with code splitting
-- **PWA-ready** with hash router
+- **🚀 Performance First**: Built with Vite 6 and React 19 for blazing-fast load times and smooth transitions.
+- **💎 Premium Aesthetics**: Dark mode by default with glassmorphism UI, powered by **Mantine 8**.
+- **📊 Real-Time Data**: Dynamic integration with GitHub, LeetCode, and custom resume analytics.
+- **🛡️ Type Safe**: 100% Strict TypeScript for reliability and maintainability.
+- **📱 Responsive & PWA**: Optimized for all devices, ready to be installed as a Progressive Web App.
 
-## 🗂️ Drives
+---
 
-| Drive | Pages | Description |
-|-------|-------|-------------|
-| Me | 14 | Dashboard, story, journal, interests, gear, travel, finance |
-| Work | 8 | Resume, experience, TCS, skills, projects, services, education, certs |
-| Code | 6 | GitHub stats, LeetCode, reputation, repos, NPM, resume JSON |
-| Library | 23 | Movies, TV, music, books, anime, manga, browse history |
-| Gaming | 4 | Hub, game shelf, chess, speedruns |
-| Connect | 6 | Profiles, contact, guestbook, newsletter, share, widgets |
-| System | 5 | Settings, theme, about, changelog, debug |
+## 🛠️ The Tech Ecosystem
 
-## 🛠️ Tech Stack
+| Layer | Technologies |
+| :--- | :--- |
+| **Frontend** | React 19, TypeScript, Mantine 8, Framer Motion |
+| **Data Viz** | Recharts, Chart.js, Lucide Icons |
+| **State/Logic** | Zustand, React Router 7, Date-fns |
+| **Backend/Auth** | Firebase Auth, Puter.js |
+| **Infrastructure** | Cloudflare Pages, GitHub Pages, CI/CD Actions |
 
-| Category | Technology |
-|----------|------------|
-| Framework | React 19 |
-| Language | TypeScript 5.7 |
-| Build | Vite 6.4 |
-| UI | Mantine 8 |
-| Charts | Recharts 2 |
-| Animation | Framer Motion 11 |
-| State | Zustand 5 |
-| Routing | react-router-dom v7 |
-| Auth | Firebase Auth |
-| Hosting | GitHub Pages (free) |
+![Tech Stack Visualizer](file:///C:/Users/chira/tech_stack_visualizer.png)
 
-## 🚀 Quick Start
+---
 
+## 🚀 Getting Started
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/chirag127/me.git
+    cd me
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Setup environment variables:**
+    Copy `.env.example` to `.env` and fill in your credentials, including the Firebase configuration:
+    ```bash
+    VITE_FIREBASE_API_KEY=...
+    VITE_FIREBASE_AUTH_DOMAIN=...
+    VITE_FIREBASE_PROJECT_ID=...
+    VITE_FIREBASE_STORAGE_BUCKET=...
+    VITE_FIREBASE_MESSAGING_SENDER_ID=...
+    VITE_FIREBASE_APP_ID=...
+    VITE_FIREBASE_MEASUREMENT_ID=...
+    ```
+
+4.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+
+## 🛠️ Features
+
+- **Firebase Integration:** Supports Firebase App Initialization and Analytics out of the box.
+
+### Production
 ```bash
-# Clone
-git clone https://github.com/chirag127/me.git
-cd me
+# Build the production bundle
+npm run build
 
-# Install
-npm install
+# Deploy to Cloudflare (Primary)
+npm run deploy
 
-# Dev server
-npm run dev
-
-# Production build
-npx vite build
+# Deploy to GitHub Pages (Backup)
+npm run deploy:gh
 ```
 
-## 📊 Data Policy
+---
 
-Charts are used **only** where real, verifiable
-data exists:
+## 🏗️ Architecture Overview
 
-- ✅ Tech stack frequency (computed from
-  `resume.ts` project data)
-- ✅ GitHub stats (live embeds from
-  github-readme-stats API)
-- ✅ LeetCode card (live embed from
-  leetcard.jacoblin.cool)
-- ❌ No invented stats, fake ratings, or
-  fabricated analytics
+The codebase is designed for modularity and scalability:
 
-External platform pages (Last.fm, Trakt,
-Lichess, etc.) link directly to profiles
-for real-time data.
+- `src/components`: Atomic UI components and visually stunning charts.
+- `src/data`: The single source of truth for resume and project data.
+- `src/pages`: 66+ unique pages across 7 thematic "Drives".
+- `src/stores`: Lightweight state management with Zustand.
 
-## 🏗️ Architecture
+---
 
-```
-src/
-├── components/    # Reusable UI + chart components
-│   ├── charts/    # BarChartCard, AreaChartCard, PieChartCard
-│   └── ui/        # GlassCard, PageHeader, StatCard
-├── data/          # Resume, identity, social data
-├── hooks/         # usePageMeta, useAuth
-├── pages/         # 66 page components
-│   ├── me/        # 14 pages
-│   ├── work/      # 8 pages
-│   ├── code/      # 6 pages
-│   ├── library/   # 23 pages
-│   ├── gaming/    # 4 pages
-│   ├── connect/   # 6 pages
-│   └── system/    # 5 pages
-├── stores/        # Zustand state
-├── router.tsx     # Route definitions
-├── App.tsx        # Shell layout
-└── main.tsx       # Entry point
-```
+## 🛡️ CI/CD & Reliability
+
+This project uses a dual-deployment strategy for 99.9% uptime:
+1. **Primary**: [Cloudflare Pages](https://chirag127.in) for edge performance.
+2. **Failover**: [GitHub Pages](https://chirag127.github.io/me/) as a fallback.
+
+Automatic tests and builds are triggered on every push via GitHub Actions.
+
+---
 
 ## 📄 License
 
-MIT © Chirag Singhal
+MIT © [Chirag Singhal](https://chirag127.in)
