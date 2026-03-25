@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import ChatWrapper from '../components/islands/ChatWrapper';
 
 interface Props {
   title: string;
@@ -9,8 +11,6 @@ interface Props {
 
 const { title, description = "Chirag Singhal — Software Engineer, building things that matter.", ogImage } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, 'https://chiragsinghal.com');
-import { ClientRouter } from 'astro:transitions';
-import ChatWrapper from '../components/islands/ChatWrapper';
 ---
 
 <!doctype html>

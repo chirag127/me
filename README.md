@@ -25,7 +25,7 @@ Personal digital identity platform for Chirag Singhal, Software Engineer at TCS.
 | `/system` | Settings, changelog, admin |
 
 ## Features
-- 🤖 AI Assistant (Puter.js free models, asks about Chirag)
+- 🤖 AI Assistant (asks about Chirag)
 - 🔐 Firebase Auth (Google + email/password)
 - 💬 Chat with Firestore storage
 - ✉️ Email alerts when AI can't answer

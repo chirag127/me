@@ -9,6 +9,17 @@ export default defineConfig({
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      watch: {
+        // Prevent Tailwind JIT feedback loop (CSS regenerating triggers watcher)
+        ignored: ['**/.astro/**', '**/dist/**'],
+        usePolling: false,
+      },
+    },
+    optimizeDeps: {
+      // Pre-bundle AI modules to avoid 404s during dev
+      include: ['zustand', 'firebase/firestore', 'firebase/auth', 'dexie', 'minisearch'],
+    },
   },
   security: {
     checkOrigin: true,

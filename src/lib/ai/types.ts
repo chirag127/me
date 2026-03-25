@@ -1,34 +1,44 @@
-export interface AIMessage {
-  role: 'system' | 'user' | 'assistant';
-  content: string;
-}
+// ─── Core Types ──────────────────────────────────────────────────────
+// Lightweight types for the AI chat system. No framework abstractions.
 
-export interface AIResponse {
+export type QueryIntent =
+  | 'career' | 'coding' | 'projects' | 'skills' | 'education'
+  | 'movies' | 'music' | 'books' | 'anime' | 'gaming'
+  | 'social' | 'contact' | 'navigation' | 'greeting' | 'meta' | 'unknown';
+
+export type PersonalityMode = 'professional' | 'casual' | 'witty' | 'technical';
+
+export type ModelTier = 'fast' | 'reasoning' | 'agent';
+
+// ─── Chat Messages ───────────────────────────────────────────────────
+export interface ChatMessage {
+  role: 'user' | 'assistant' | 'system';
   content: string;
-  model: string;
-  confidence: number;
-  toolsUsed: string[];
-  intent: QueryIntent;
   timestamp: string;
 }
 
-export type QueryIntent = 'career' | 'coding' | 'projects' | 'skills' | 'movies' | 'music' | 'books' | 'anime' | 'general' | 'unknown';
+// ─── Agent Result ────────────────────────────────────────────────────
+export interface AgentResult {
+  content: string;
+  model: string;
+  intent: QueryIntent;
+  confidence: number;
+  toolsUsed: string[];
+  tier: ModelTier;
+}
 
+// ─── Tool Definition ─────────────────────────────────────────────────
 export interface ToolResult {
   tool: string;
   data: string;
   success: boolean;
+  truncated: boolean;
+  source: string;
 }
 
-export interface AgentContext {
-  resume: string;
-  skills: string;
-  projects: string;
-  github: string;
-  leetcode: string;
-  movies: string;
-  music: string;
-  books: string;
-  anime: string;
-  chatHistory: string;
+export interface ToolDefinition {
+  name: string;
+  description: string;
+  category: QueryIntent[];
+  execute: (args?: Record<string, string>) => Promise<ToolResult>;
 }

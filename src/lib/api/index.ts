@@ -1,4 +1,4 @@
-import { CONFIG } from './config';
+import { CONFIG } from '../config';
 
 // Generic fetch with error handling
 async function fetchJson<T>(url: string, options?: RequestInit): Promise<T | null> {
@@ -219,3 +219,5 @@ export async function fetchLastFmRecentTracks(apiKey: string): Promise<LastFmRec
     `${CONFIG.api.lastfm}?method=user.getrecenttracks&user=${CONFIG.user.lastfm}&api_key=${apiKey}&format=json&limit=10`
   );
 }
+
+export * from './blog';

@@ -64,12 +64,34 @@ export async function getFirebaseDb() {
 }
 
 // Auth functions
-export async function signInWithGoogle(): Promise<User> {
-  const { GoogleAuthProvider, signInWithPopup } = await import('firebase/auth');
+export async function signInWithGoogle(): Promise<User | null> {
+  const { GoogleAuthProvider, signInWithRedirect, getRedirectResult } = await import('firebase/auth');
   const auth = await getFirebaseAuth();
   const provider = new GoogleAuthProvider();
-  const result = await signInWithPopup(auth, provider);
-  return result.user;
+  
+  // Check if we're returning from a redirect
+  try {
+    const result = await getRedirectResult(auth);
+    if (result) return result.user;
+  } catch (e: any) {
+    console.error('Redirect result error:', e?.code, e?.message);
+  }
+  
+  // Start redirect
+  await signInWithRedirect(auth, provider);
+  return null; // Will redirect, so won't reach here
+}
+
+export async function handleGoogleRedirect(): Promise<User | null> {
+  const { getRedirectResult } = await import('firebase/auth');
+  const auth = await getFirebaseAuth();
+  try {
+    const result = await getRedirectResult(auth);
+    if (result) return result.user;
+  } catch (e: any) {
+    console.error('Redirect error:', e?.code, e?.message);
+  }
+  return null;
 }
 
 export async function signInWithEmail(email: string, password: string): Promise<User> {
