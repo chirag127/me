@@ -248,4 +248,39 @@ export async function getAuthInstance() {
   return getFirebaseAuth();
 }
 
+// Get chat sessions for a user
+export async function getUserChatSessions(userId: string): Promise<Array<{ id: string; title: string; messages: any[]; createdAt: string }>> {
+  const { collection, query, orderBy, limit: firestoreLimit, where, getDocs } = await import('firebase/firestore');
+  const db = await getFirebaseDb();
+  const q = query(
+    collection(db, 'chatSessions'),
+    where('userId', '==', userId),
+    orderBy('createdAt', 'desc'),
+    firestoreLimit(50)
+  );
+  const snapshot = await getDocs(q);
+  return snapshot.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data(),
+  })) as Array<{ id: string; title: string; messages: any[]; createdAt: string }>;
+}
+
+// Save chat session
+export async function saveChatSession(
+  userId: string,
+  title: string,
+  messages: any[]
+): Promise<string> {
+  const { collection, addDoc, serverTimestamp } = await import('firebase/firestore');
+  const db = await getFirebaseDb();
+  const docRef = await addDoc(collection(db, 'chatSessions'), {
+    userId,
+    title,
+    messages,
+    createdAt: new Date().toISOString(),
+    updatedAt: serverTimestamp(),
+  });
+  return docRef.id;
+}
+
 export type { User };

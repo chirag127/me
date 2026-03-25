@@ -20,6 +20,7 @@ import { selectTools } from './tools/registry';
 import { getModelChain, selectTier, type AIModel, type ModelTier } from './models';
 import { buildSystemPrompt } from './context';
 import { saveQuery, saveUnknownQuery, trackVisitor } from './store';
+import { sendUnknownQueryAlert } from '../../services/email';
 
 // ─── Puter.js Types ──────────────────────────────────────────────────
 
@@ -270,6 +271,14 @@ async function persistResults(
       userId, userEmail, userName,
       query, response, pageContext, timestamp,
       resolved: false,
+    }).catch(() => {});
+
+    // Send email alert for unknown query
+    sendUnknownQueryAlert({
+      query,
+      reason: `Low confidence (${Math.round(confidence * 100)}%) - Intent: ${intent}`,
+      context: `User: ${userName} (${userEmail})\nPage: ${pageContext}\nModel: ${model}\nTools used: ${toolsUsed.join(', ') || 'none'}`,
+      timestamp,
     }).catch(() => {});
   }
 
