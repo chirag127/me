@@ -105,9 +105,19 @@ function renderMarkdown(md: string): string {
   return html;
 }
 
-export default function AIChat() {
+interface AIChatProps {
+  externalOpen?: boolean;
+  onClose?: () => void;
+}
+
+export default function AIChat({ externalOpen, onClose }: AIChatProps = {}) {
   const [user, setUser] = useState<User | null>(null);
-  const { isOpen, closeChat } = useAIChatStore();
+  const storeOpen = useAIChatStore((s) => s.isOpen);
+  const storeClose = useAIChatStore((s) => s.closeChat);
+  
+  const isOpen = externalOpen !== undefined ? externalOpen : storeOpen;
+  const handleClose = onClose || storeClose;
+
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [personality, setPersonality] = useState('professional');
@@ -282,7 +292,7 @@ export default function AIChat() {
   return (
     <>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#05050f]/80 backdrop-blur-md animate-fade-in" onClick={closeChat}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#05050f]/80 backdrop-blur-md animate-fade-in" onClick={handleClose}>
           <div 
             className="w-full max-w-3xl h-[85vh] min-h-[500px] max-h-[850px] rounded-2xl bg-[#1a1a2e]/90 backdrop-blur-3xl border border-white/10 shadow-[0_0_80px_rgba(245,158,11,0.15)] flex flex-col overflow-hidden animate-fade-in-up"
             onClick={(e) => e.stopPropagation()}
@@ -311,7 +321,7 @@ export default function AIChat() {
               </div>
             </div>
             <button
-              onClick={closeChat}
+              onClick={handleClose}
               className="p-1.5 rounded-lg text-white/40 hover:text-white hover:bg-white/10 transition-all"
             >
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
