@@ -5,11 +5,13 @@ import { CONFIG } from '../config';
 const TRAKT_API_URL = 'https://api.trakt.tv';
 
 function getHeaders(): RequestInit {
+  const accessToken = process.env.TRAKT_ACCESS_TOKEN;
   return {
     headers: {
       'Content-Type': 'application/json',
       'trakt-api-version': '2',
       'trakt-api-key': process.env.TRAKT_CLIENT_ID || '',
+      ...(accessToken ? { 'Authorization': `Bearer ${accessToken}` } : {}),
     } as Record<string, string>,
   };
 }

@@ -65,7 +65,7 @@ export async function getFirebaseDb() {
 
 // Auth functions
 export async function signInWithGoogle(): Promise<User | null> {
-  const { GoogleAuthProvider, signInWithPopup, getRedirectResult } = await import('firebase/auth');
+  const { GoogleAuthProvider, signInWithPopup, getRedirectResult, signInWithRedirect } = await import('firebase/auth');
   const auth = await getFirebaseAuth();
   const provider = new GoogleAuthProvider();
   
@@ -77,17 +77,31 @@ export async function signInWithGoogle(): Promise<User | null> {
     console.error('Redirect result error:', e?.code, e?.message);
   }
   
-  // Use popup for better UX and reliability
+  // Try popup first - most common case
   try {
     const result = await signInWithPopup(auth, provider);
     return result.user;
   } catch (e: any) {
-    console.error('Popup sign-in error:', e?.code, e?.message);
-    // Fallback to redirect if popup is blocked or fails
-    const { signInWithRedirect } = await import('firebase/auth');
-    await signInWithRedirect(auth, provider);
+    // Handle common errors
+    const errorCode = e?.code;
+    console.error('Popup sign-in error:', errorCode, e?.message);
+    
+    // Popup was blocked - try redirect as fallback
+    if (errorCode === 'auth/popup-blocked' || errorCode === 'auth/cancelled') {
+      console.log('Popup blocked, trying redirect...');
+      try {
+        await signInWithRedirect(auth, provider);
+        // Redirect will cause page reload, so return null
+        return null;
+      } catch (redirectErr: any) {
+        console.error('Redirect sign-in error:', redirectErr?.code, redirectErr?.message);
+      }
+    }
+    
+    // Other errors - return null but don't throw
+    // The UI will handle showing the sign-in button
+    return null;
   }
-  return null;
 }
 
 export async function handleGoogleRedirect(): Promise<User | null> {

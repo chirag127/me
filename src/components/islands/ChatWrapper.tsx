@@ -455,7 +455,8 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
               const sessions = await getUserChatSessions(firebaseUser.uid);
               setChatHistory(sessions);
             } catch (err) {
-              console.error('[ChatWrapper] Failed to save chat session:', err);
+              console.error('[ChatWrapper] Failed to save chat session to Firestore:', err);
+              // Non-critical - chat still works, just won't persist
             }
           }
         } else if (chunk.type === 'error') {
@@ -490,9 +491,11 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
     setSigningIn(true);
     setSignInStep('firebase');
     try {
+      console.log('[ChatWrapper] Starting Firebase sign-in...');
       // 1. Firebase Sign In (Google Popup)
       const { signInWithGoogle } = await import('../../lib/firebase');
       const user = await signInWithGoogle();
+      console.log('[ChatWrapper] Firebase sign-in result:', user?.email);
       if (user && mountedRef.current) {
         setFirebaseUser({
           uid: user.uid,
@@ -504,15 +507,26 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
       // 2. Puter.js Sign In
       setSignInStep('puter');
       const w = window as any;
-      if (w.puter?.auth && !w.puter.auth.isSignedIn()) {
-        await w.puter.auth.signIn();
-        const pUser = await w.puter.auth.getUser();
-        if (pUser && mountedRef.current) setPuterUser({ username: pUser.username });
+      if (w.puter?.auth) {
+        try {
+          if (!w.puter.auth.isSignedIn()) {
+            console.log('[ChatWrapper] Attempting Puter.js sign-in...');
+            await w.puter.auth.signIn();
+          }
+          const pUser = await w.puter.auth.getUser();
+          console.log('[ChatWrapper] Puter.js sign-in result:', pUser?.username);
+          if (pUser && mountedRef.current) setPuterUser({ username: pUser.username });
+        } catch (puterErr) {
+          console.warn('[ChatWrapper] Puter.js auth failed (non-critical):', puterErr);
+          // Puter.js auth is optional - user can still use AI without it
+          // The AI will use anonymous mode
+        }
       }
       setSignInStep('done');
     } catch (e) {
-      console.error('Sign in error:', e);
-      setSignInStep('none');
+      console.error('[ChatWrapper] Sign in error:', e);
+      // If Firebase auth fails, still allow AI usage (anonymous)
+      setSignInStep('done');
     } finally {
       if (mountedRef.current) setSigningIn(false);
     }
