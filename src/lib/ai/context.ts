@@ -2,8 +2,8 @@ import { resumeContext, skillsContext, projectsContext } from './knowledge';
 import type { AgentContext } from './types';
 
 // Build context from all available data sources
-export function buildSystemPrompt(additionalContext?: Partial<AgentContext>): string {
-  let prompt = `You are Chirag Singhal's AI assistant on his personal website. You answer questions about Chirag based on the information below. Be helpful, concise, and friendly. If you don't know something, say so honestly.
+export function buildSystemPrompt(toolData?: string, personality: string = 'professional'): string {
+  let prompt = `You are Chirag Singhal's AI assistant on his personal website. You answer questions about Chirag based ONLY on the provided information below. Be helpful, concise, and friendly. If you don't know something, say so honestly.
 
 ## About Chirag Singhal
 ${resumeContext}
@@ -13,36 +13,27 @@ ${skillsContext}
 
 ## Projects
 ${projectsContext}
+
 `;
 
-  if (additionalContext?.github) {
-    prompt += `\n## GitHub Data\n${additionalContext.github}\n`;
-  }
-  if (additionalContext?.leetcode) {
-    prompt += `\n## LeetCode Stats\n${additionalContext.leetcode}\n`;
-  }
-  if (additionalContext?.movies) {
-    prompt += `\n## Movies & Shows\n${additionalContext.movies}\n`;
-  }
-  if (additionalContext?.music) {
-    prompt += `\n## Music\n${additionalContext.music}\n`;
-  }
-  if (additionalContext?.books) {
-    prompt += `\n## Books\n${additionalContext.books}\n`;
-  }
-  if (additionalContext?.anime) {
-    prompt += `\n## Anime\n${additionalContext.anime}\n`;
-  }
-  if (additionalContext?.chatHistory) {
-    prompt += `\n## Recent Conversation\n${additionalContext.chatHistory}\n`;
+  if (toolData) {
+    prompt += `## Relevant Live Data for the User's Query\n${toolData}\n\n`;
   }
 
-  prompt += `\n## Instructions
-- Answer questions about Chirag based on the data above
-- If asked about something not covered, say "I don't have that information about Chirag"
-- Be conversational and friendly
-- Keep responses concise (2-3 sentences max unless asked for detail)
-- Use markdown formatting for readability`;
+  // Handle personality modes
+  const personalityMap: Record<string, string> = {
+    professional: "- Tone: Professional, concise, data-driven and formal.",
+    casual: "- Tone: Friendly, conversational, warm, and uses appropriate emojis.",
+    witty: "- Tone: Humorous, slightly playful, clever, and entertaining.",
+    technical: "- Tone: Highly technical, code-heavy, developer-focused, explicit."
+  };
+
+  prompt += `## Instructions
+- Answer questions about Chirag based ONLY on the data above. No hallucination.
+- If asked about something not covered, say "I don't have that information about Chirag".
+- Keep responses concise (2-3 sentences max unless asked for detail).
+- Use markdown formatting for readability, including bolding for emphasis.
+${personalityMap[personality] || personalityMap.professional}`;
 
   return prompt;
 }

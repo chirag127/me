@@ -5,7 +5,6 @@ import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 import JournalApp from '../../components/islands/JournalApp';
 import ChatWidget from '../../components/islands/ChatWidget';
-import AIChat from '../../components/islands/AIChat';
 ---
 
 <Layout title="Journal" description="Personal journal entries — stored locally in your browser">
@@ -32,6 +31,5 @@ import AIChat from '../../components/islands/AIChat';
     
   </main>
   <Footer />
-  <AIChat client:load />
   <ChatWidget client:load />
 </Layout>

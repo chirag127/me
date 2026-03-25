@@ -4,7 +4,6 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 import ChatWidget from '../../components/islands/ChatWidget';
-import AIChat from '../../components/islands/AIChat';
 import { usesData } from '../../data/uses';
 
 const categoryIcons: Record<string, { icon: string; color: string }> = {
@@ -63,6 +62,5 @@ const categoryIcons: Record<string, { icon: string; color: string }> = {
     </div>
   </main>
   <Footer />
-  <AIChat client:load />
   <ChatWidget client:load />
 </Layout>

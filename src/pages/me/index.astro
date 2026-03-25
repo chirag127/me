@@ -4,7 +4,6 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 import ChatWidget from '../../components/islands/ChatWidget';
-import AIChat from '../../components/islands/AIChat';
 import { summary } from '../../data/resume';
 ---
 
@@ -128,6 +127,5 @@ import { summary } from '../../data/resume';
     </div>
   </main>
   <Footer />
-  <AIChat client:load />
   <ChatWidget client:load />
 </Layout>

@@ -1,66 +1,51 @@
 ---
+import * as fs from 'node:fs/promises';
+import * as path from 'node:path';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 import ChatWidget from '../../components/islands/ChatWidget';
-import AIChat from '../../components/islands/AIChat';
 
-interface Artist {
-  name: string;
-  genre: string;
-  gradient: string;
-  emoji: string;
-  topTrack: string;
-  playCount: number;
+let db = { 
+  lastfm: { stats: { playcount: 0 }, topArtists: [] as any[], recentTracks: [] as any[], topTracks: [] as any[] } 
+};
+
+try {
+  const raw = await fs.readFile(path.resolve('./src/data/generated/music.json'), 'utf-8');
+  db = JSON.parse(raw);
+} catch (e) {
+  console.warn('[Music Hub] music.json not found.');
 }
 
-interface Genre {
-  name: string;
-  color: string;
-  bg: string;
-  border: string;
-  count: number;
+const numPlays = db.lastfm?.stats?.playcount || 0;
+const artists = db.lastfm?.topArtists || [];
+const recentTracks = db.lastfm?.recentTracks || [];
+
+const fallbackGradients = [
+  'linear-gradient(135deg, #e11d48, #881337)',
+  'linear-gradient(135deg, #1e3a5f, #7c3aed)',
+  'linear-gradient(135deg, #d97706, #b91c1c)',
+  'linear-gradient(135deg, #7c3aed, #db2777)',
+  'linear-gradient(135deg, #0c4a6e, #1e40af)',
+  'linear-gradient(135deg, #065f46, #047857)',
+  'linear-gradient(135deg, #365314, #3f6212)',
+];
+const fallbackEmojis = ['🎵', '🎶', '🎤', '🎧', '🎸', '🎹', '🥁'];
+
+function getVisuals(name: string) {
+  if (!name) return { gradient: fallbackGradients[0], emoji: fallbackEmojis[0] };
+  const idx = [...name].reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return {
+    gradient: fallbackGradients[idx % fallbackGradients.length],
+    emoji: fallbackEmojis[idx % fallbackEmojis.length]
+  };
 }
 
-const artists: Artist[] = [
-  { name: 'The Weeknd', genre: 'R&B / Pop', gradient: 'linear-gradient(135deg, #e11d48, #881337)', emoji: '🌙', topTrack: 'Blinding Lights', playCount: 342 },
-  { name: 'Lana Del Rey', genre: 'Indie Pop', gradient: 'linear-gradient(135deg, #1e3a5f, #7c3aed)', emoji: '🇺🇸', topTrack: 'Summertime Sadness', playCount: 287 },
-  { name: 'Arijit Singh', genre: 'Bollywood', gradient: 'linear-gradient(135deg, #d97706, #b91c1c)', emoji: '🇮🇳', topTrack: 'Tum Hi Ho', playCount: 415 },
-  { name: 'Tame Impala', genre: 'Psychedelic', gradient: 'linear-gradient(135deg, #7c3aed, #db2777)', emoji: '🔮', topTrack: 'The Less I Know', playCount: 198 },
-  { name: 'Arctic Monkeys', genre: 'Alternative', gradient: 'linear-gradient(135deg, #1e293b, #475569)', emoji: '🐒', topTrack: 'Do I Wanna Know?', playCount: 256 },
-  { name: 'Chet Baker', genre: 'Jazz', gradient: 'linear-gradient(135deg, #854d0e, #a16207)', emoji: '🎺', topTrack: 'Almost Blue', playCount: 134 },
-  { name: 'Hans Zimmer', genre: 'Film Score', gradient: 'linear-gradient(135deg, #0c4a6e, #1e40af)', emoji: '🎬', topTrack: 'Time', playCount: 289 },
-  { name: 'Cigarettes After Sex', genre: 'Dream Pop', gradient: 'linear-gradient(135deg, #18181b, #3f3f46)', emoji: '🌫️', topTrack: 'Apocalypse', playCount: 176 },
-  { name: 'Khruangbin', genre: 'Psychedelic Funk', gradient: 'linear-gradient(135deg, #065f46, #047857)', emoji: '🎸', topTrack: 'Time (You and I)', playCount: 145 },
-  { name: 'Joji', genre: 'Lo-fi / R&B', gradient: 'linear-gradient(135deg, #57534e, #78716c)', emoji: '🪦', topTrack: 'Glimpse of Us', playCount: 223 },
-  { name: 'Ludovico Einaudi', genre: 'Classical', gradient: 'linear-gradient(135deg, #1e293b, #334155)', emoji: '🎹', topTrack: 'Nuvole Bianche', playCount: 312 },
-  { name: 'Radiohead', genre: 'Alternative', gradient: 'linear-gradient(135deg, #44403c, #57534e)', emoji: '📻', topTrack: 'Creep', playCount: 187 },
-  { name: 'Kendrick Lamar', genre: 'Hip-Hop', gradient: 'linear-gradient(135deg, #78350f, #92400e)', emoji: '👑', topTrack: 'HUMBLE.', playCount: 267 },
-  { name: 'Billie Eilish', genre: 'Pop', gradient: 'linear-gradient(135deg, #064e3b, #065f46)', emoji: '🕷️', topTrack: 'bad guy', playCount: 198 },
-  { name: 'Mac Miller', genre: 'Hip-Hop', gradient: 'linear-gradient(135deg, #365314, #3f6212)', emoji: '🌊', topTrack: 'Self Care', playCount: 178 },
-  { name: 'Daft Punk', genre: 'Electronic', gradient: 'linear-gradient(135deg, #713f12, #854d0e)', emoji: '🤖', topTrack: 'Get Lucky', playCount: 234 },
-];
-
-const genres: Genre[] = [
-  { name: 'Indie Pop', color: '#fb7185', bg: 'rgba(251, 113, 133, 0.08)', border: 'rgba(251, 113, 133, 0.2)', count: 2 },
-  { name: 'Lo-fi', color: '#a78bfa', bg: 'rgba(167, 139, 250, 0.08)', border: 'rgba(167, 139, 250, 0.2)', count: 1 },
-  { name: 'Bollywood', color: '#f59e0b', bg: 'rgba(245, 158, 11, 0.08)', border: 'rgba(245, 158, 11, 0.2)', count: 1 },
-  { name: 'Alternative', color: '#fb923c', bg: 'rgba(251, 146, 60, 0.08)', border: 'rgba(251, 146, 60, 0.2)', count: 2 },
-  { name: 'Hip-Hop', color: '#f97316', bg: 'rgba(249, 115, 22, 0.08)', border: 'rgba(249, 115, 22, 0.2)', count: 2 },
-  { name: 'R&B', color: '#e879f9', bg: 'rgba(232, 121, 249, 0.08)', border: 'rgba(232, 121, 249, 0.2)', count: 1 },
-  { name: 'Jazz', color: '#fbbf24', bg: 'rgba(251, 191, 36, 0.08)', border: 'rgba(251, 191, 36, 0.2)', count: 1 },
-  { name: 'Dream Pop', color: '#94a3b8', bg: 'rgba(148, 163, 184, 0.08)', border: 'rgba(148, 163, 184, 0.2)', count: 1 },
-  { name: 'Psychedelic', color: '#c084fc', bg: 'rgba(192, 132, 252, 0.08)', border: 'rgba(192, 132, 252, 0.2)', count: 2 },
-  { name: 'Film Score', color: '#818cf8', bg: 'rgba(129, 140, 248, 0.08)', border: 'rgba(129, 140, 248, 0.2)', count: 1 },
-  { name: 'Classical', color: '#cbd5e1', bg: 'rgba(203, 213, 225, 0.06)', border: 'rgba(203, 213, 225, 0.15)', count: 1 },
-  { name: 'Electronic', color: '#22d3ee', bg: 'rgba(34, 211, 238, 0.08)', border: 'rgba(34, 211, 238, 0.2)', count: 1 },
-];
-
-const totalPlays = artists.reduce((s, a) => s + a.playCount, 0);
+const currentTrack = recentTracks[0];
 ---
 
-<Layout title="Music" description="Chirag Singhal's music taste — top artists, genres, and listening habits">
+<Layout title="Music" description="Chirag Singhal's music taste — top artists, tracks, and listening habits synced from Last.fm">
   <Navbar />
   <CommandPalette />
   <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
@@ -75,92 +60,81 @@ const totalPlays = artists.reduce((s, a) => s + a.playCount, 0);
       </div>
       <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Music</h1>
     </div>
-    <p class="text-[var(--color-text-secondary)] mb-10">Top artists, favorite genres, and what I've been listening to.</p>
+    <p class="text-[var(--color-text-secondary)] mb-10">Top artists and listening habits — synced automatically from Last.fm.</p>
 
-    <!-- Now Playing -->
+    <!-- Now Playing / Last Played -->
+    {currentTrack && (
     <div class="glass-strong p-8 mb-12 relative overflow-hidden">
       <div class="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl opacity-10 bg-[var(--color-accent-rose)]"></div>
       <div class="relative z-10 flex items-center gap-6">
-        <div class="h-20 w-20 rounded-2xl bg-gradient-to-br from-[var(--color-accent-rose)]/20 to-[var(--color-primary)]/20 flex items-center justify-center shrink-0 relative">
-          <div class="flex items-end gap-[3px] h-8">
-            <div class="w-[3px] bg-[var(--color-accent-rose)] rounded-full animate-[bounce_0.8s_ease-in-out_infinite]" style="height: 60%"></div>
-            <div class="w-[3px] bg-[var(--color-accent-rose)] rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.1s]" style="height: 100%"></div>
-            <div class="w-[3px] bg-[var(--color-accent-rose)] rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.2s]" style="height: 40%"></div>
-            <div class="w-[3px] bg-[var(--color-accent-rose)] rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.3s]" style="height: 80%"></div>
-            <div class="w-[3px] bg-[var(--color-accent-rose)] rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.15s]" style="height: 50%"></div>
-          </div>
+        <div class="h-20 w-20 rounded-2xl bg-gradient-to-br from-[var(--color-accent-rose)]/20 to-[var(--color-primary)]/20 flex items-center justify-center shrink-0 relative overflow-hidden">
+          {currentTrack.imageUrl ? (
+            <img src={currentTrack.imageUrl} alt="Album Art" class="w-full h-full object-cover" />
+          ) : (
+            <div class="flex items-end gap-[3px] h-8 relative z-10">
+              <div class="w-[3px] bg-[var(--color-accent-rose)] rounded-full animate-[bounce_0.8s_ease-in-out_infinite]" style="height: 60%"></div>
+              <div class="w-[3px] bg-[var(--color-accent-rose)] rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.1s]" style="height: 100%"></div>
+              <div class="w-[3px] bg-[var(--color-accent-rose)] rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.2s]" style="height: 40%"></div>
+              <div class="w-[3px] bg-[var(--color-accent-rose)] rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.3s]" style="height: 80%"></div>
+              <div class="w-[3px] bg-[var(--color-accent-rose)] rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.15s]" style="height: 50%"></div>
+            </div>
+          )}
         </div>
         <div>
-          <p class="text-xs text-[var(--color-text-muted)] uppercase tracking-wider mb-1">Last Played</p>
-          <p class="text-lg text-white font-semibold">Nuvole Bianche</p>
-          <p class="text-sm text-[var(--color-text-secondary)]">Ludovico Einaudi</p>
+          <p class="text-xs text-[var(--color-text-muted)] uppercase tracking-wider mb-1">
+            {currentTrack.nowPlaying ? 'Now Playing' : 'Last Played'}
+          </p>
+          <p class="text-lg text-white font-semibold">{currentTrack.name}</p>
+          <p class="text-sm text-[var(--color-text-secondary)]">{currentTrack.artist}</p>
         </div>
       </div>
     </div>
+    )}
 
     <!-- Stats -->
     <div class="glass-strong p-6 mb-12 flex flex-wrap gap-8">
       <div>
+        <div class="text-2xl font-bold text-[var(--color-accent-sky)]">{numPlays.toLocaleString()}</div>
+        <div class="text-xs text-[var(--color-text-muted)]">Total Scrobbles</div>
+      </div>
+      <div>
         <div class="text-2xl font-bold text-[var(--color-accent-rose)]">{artists.length}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Top Artists</div>
+        <div class="text-xs text-[var(--color-text-muted)]">Top Artists Tracked</div>
       </div>
       <div>
-        <div class="text-2xl font-bold text-[var(--color-primary)]">{genres.length}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Genres</div>
-      </div>
-      <div>
-        <div class="text-2xl font-bold text-[var(--color-accent-sky)]">{totalPlays.toLocaleString()}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Est. Plays</div>
-      </div>
-      <div>
-        <div class="text-lg font-bold text-[var(--color-accent-violet)]">Bollywood, R&B</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Top Genres</div>
+        <div class="text-2xl font-bold text-[var(--color-primary)]">{recentTracks.length}</div>
+        <div class="text-xs text-[var(--color-text-muted)]">Recent Tracks</div>
       </div>
     </div>
 
-    <!-- Genres -->
-    <section class="mb-16">
-      <h2 class="section-heading text-xl font-semibold text-white mb-8">Genres</h2>
-      <div class="flex flex-wrap gap-3">
-        {genres.map((genre, i) => (
-          <div
-            class="px-4 py-2.5 rounded-xl border cursor-default transition-all hover:scale-105 flex items-center gap-2"
-            style={`background: ${genre.bg}; border-color: ${genre.border}; color: ${genre.color}; animation-delay: ${i * 50}ms`}
-          >
-            <span class="text-sm font-medium">{genre.name}</span>
-            <span class="text-[0.6rem] opacity-60 bg-white/5 px-1.5 py-0.5 rounded-full">{genre.count}</span>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <div class="divider-warm mb-16"></div>
-
     <!-- Top Artists -->
     <section class="mb-16">
-      <h2 class="section-heading text-xl font-semibold text-white mb-8">Top Artists</h2>
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="section-heading text-xl font-semibold text-white">Top Artists</h2>
+      </div>
       <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-4">
-        {artists.map((artist, i) => (
-          <div class="card group cursor-default text-center" style={`animation-delay: ${i * 50}ms`}>
-            <div class="w-20 h-20 mx-auto rounded-full mb-3 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${artist.gradient}`}>
+        {artists.map((artist, i) => {
+          const vis = getVisuals(artist.name);
+          return (
+          <a href={artist.url} target="_blank" rel="noopener noreferrer" class="card group cursor-default text-center block" style={`animation-delay: ${i * 40}ms`}>
+            <div class="w-20 h-20 mx-auto rounded-full mb-3 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
               <div class="absolute inset-0 bg-black/10"></div>
-              <span class="relative z-10 drop-shadow-lg">{artist.emoji}</span>
+              {artist.imageUrl ? (
+                <img src={artist.imageUrl} alt={artist.name} class="w-full h-full object-cover relative z-10" />
+              ) : (
+                <span class="relative z-10 drop-shadow-lg">{vis.emoji}</span>
+              )}
             </div>
             <h3 class="text-xs font-semibold text-white truncate group-hover:text-[var(--color-accent-rose)] transition-colors">{artist.name}</h3>
-            <p class="text-[0.65rem] text-[var(--color-text-faint)] truncate">{artist.genre}</p>
-            <div class="mt-2 flex items-center justify-center gap-1">
-              <span class="text-[0.6rem] text-[var(--color-text-muted)]">🎵 {artist.topTrack}</span>
-            </div>
             <div class="mt-1">
-              <span class="text-[0.6rem] text-[var(--color-accent-rose)] font-medium">{artist.playCount} plays</span>
+              <span class="text-[0.65rem] text-[var(--color-accent-rose)] font-medium">{artist.playcount.toLocaleString()} plays</span>
             </div>
-          </div>
-        ))}
+          </a>
+        )})}
       </div>
     </section>
   </main>
   <Footer />
-  <AIChat client:load />
   <ChatWidget client:load />
 </Layout>
 

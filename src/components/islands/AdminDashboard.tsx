@@ -15,13 +15,14 @@ import {
   subscribeToUnknownQueries,
   subscribeToVisitors,
   resolveUnknownQuery,
+  getAllMediaOverview,
   type ChatDocument,
   type QueryDocument,
   type UnknownQueryDocument,
   type VisitorDocument,
 } from '../../lib/ai/store';
 
-type Tab = 'overview' | 'chats' | 'queries' | 'unknown' | 'visitors';
+type Tab = 'overview' | 'chats' | 'queries' | 'unknown' | 'visitors' | 'media';
 
 function StatCard({ label, value, icon, color }: { label: string; value: number; icon: React.ReactNode; color: string }) {
   return (
@@ -94,7 +95,10 @@ export default function AdminDashboard() {
   const [queries, setQueries] = useState<QueryDocument[]>([]);
   const [unknownQueries, setUnknownQueries] = useState<UnknownQueryDocument[]>([]);
   const [visitors, setVisitors] = useState<VisitorDocument[]>([]);
+  const [media, setMedia] = useState<Record<string, any>>({});
   const [expandedChat, setExpandedChat] = useState<string | null>(null);
+  const [chatSearch, setChatSearch] = useState('');
+  const [querySearch, setQuerySearch] = useState('');
 
   useEffect(() => {
     let unsubscribe: (() => void) | undefined;
@@ -127,6 +131,7 @@ export default function AdminDashboard() {
       unsubs.push(u3);
       const u4 = await subscribeToVisitors(setVisitors);
       unsubs.push(u4);
+      setMedia(await getAllMediaOverview());
     })();
 
     return () => { unsubs.forEach(u => u()); };
@@ -200,7 +205,38 @@ export default function AdminDashboard() {
     { id: 'queries', label: 'Queries', count: queries.length },
     { id: 'unknown', label: 'Unknown', count: unresolvedUnknown },
     { id: 'visitors', label: 'Visitors', count: visitors.length },
+    { id: 'media', label: 'Media', count: Object.keys(media).length },
   ];
+
+  const exportCSV = (data: any[], filename: string) => {
+    if (!data.length) return;
+    const headers = Object.keys(data[0]).filter(k => k !== 'messages');
+    const csvRows = [headers.join(',')];
+    for (const row of data) {
+      csvRows.push(headers.map(h => {
+        let val = row[h] === undefined ? '' : String(row[h]);
+        return `"${val.replace(/"/g, '""')}"`;
+      }).join(','));
+    }
+    const blob = new Blob([csvRows.join('\n')], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const filteredChats = chats.filter(c => 
+    c.userEmail.toLowerCase().includes(chatSearch.toLowerCase()) || 
+    (c.userName || '').toLowerCase().includes(chatSearch.toLowerCase())
+  );
+
+  const filteredQueries = queries.filter(q => 
+    q.query.toLowerCase().includes(querySearch.toLowerCase()) ||
+    (q.userName || '').toLowerCase().includes(querySearch.toLowerCase()) ||
+    q.intent.toLowerCase().includes(querySearch.toLowerCase())
+  );
 
   return (
     <div className="space-y-8">
@@ -321,10 +357,25 @@ export default function AdminDashboard() {
       {/* Chats Tab */}
       {activeTab === 'chats' && (
         <div className="space-y-3">
-          {chats.length === 0 && (
-            <div className="text-center py-16 text-white/20">No chat sessions recorded yet</div>
+          <div className="flex gap-3 mb-4">
+            <input 
+              type="text" 
+              placeholder="Search chats by name or email..." 
+              value={chatSearch}
+              onChange={e => setChatSearch(e.target.value)}
+              className="flex-1 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-violet-500/40"
+            />
+            <button 
+              onClick={() => exportCSV(filteredChats, 'chats_export.csv')}
+              className="px-4 py-2 rounded-xl bg-violet-500/20 text-violet-400 text-sm font-medium hover:bg-violet-500/30 transition-colors"
+            >
+              Export CSV
+            </button>
+          </div>
+          {filteredChats.length === 0 && (
+            <div className="text-center py-16 text-white/20">No chat sessions found</div>
           )}
-          {chats.map((chat) => (
+          {filteredChats.map((chat) => (
             <div key={chat.id} className="rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
               <button
                 onClick={() => setExpandedChat(expandedChat === chat.id! ? null : chat.id!)}
@@ -384,6 +435,22 @@ export default function AdminDashboard() {
 
       {/* Queries Tab */}
       {activeTab === 'queries' && (
+        <div className="space-y-4">
+          <div className="flex gap-3">
+            <input 
+              type="text" 
+              placeholder="Search queries by text, user, or intent..." 
+              value={querySearch}
+              onChange={e => setQuerySearch(e.target.value)}
+              className="flex-1 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-500/40"
+            />
+            <button 
+              onClick={() => exportCSV(filteredQueries, 'queries_export.csv')}
+              className="px-4 py-2 rounded-xl bg-amber-500/20 text-amber-400 text-sm font-medium hover:bg-amber-500/30 transition-colors"
+            >
+              Export CSV
+            </button>
+          </div>
         <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -398,7 +465,7 @@ export default function AdminDashboard() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/[0.04]">
-                {queries.map((q, i) => (
+                {filteredQueries.map((q, i) => (
                   <tr key={i} className="hover:bg-white/[0.02] transition-colors">
                     <td className="px-4 py-3 whitespace-nowrap">
                       <div className="flex items-center gap-2">
@@ -431,6 +498,7 @@ export default function AdminDashboard() {
           {queries.length === 0 && (
             <div className="text-center py-16 text-white/20">No queries recorded yet</div>
           )}
+        </div>
         </div>
       )}
 
@@ -534,6 +602,27 @@ export default function AdminDashboard() {
           </div>
           {visitors.length === 0 && (
             <div className="text-center py-16 text-white/20">No visitors recorded yet</div>
+          )}
+        </div>
+      )}
+
+      {/* Media Tab */}
+      {activeTab === 'media' && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {Object.entries(media).map(([category, data]) => (
+            <div key={category} className="rounded-2xl border border-amber-500/20 bg-amber-500/5 p-5">
+              <h3 className="text-lg font-bold text-amber-400 capitalize mb-3">{category} Data</h3>
+              <div className="h-48 overflow-y-auto rounded-lg bg-black/40 p-3">
+                <pre className="text-[10px] text-white/50 w-full overflow-x-hidden whitespace-pre-wrap">
+                  {JSON.stringify(data, null, 2)}
+                </pre>
+              </div>
+            </div>
+          ))}
+          {Object.keys(media).length === 0 && (
+            <div className="col-span-full text-center py-16 text-white/40">
+              No media documents found in Firestore cache. Ensure GitHub Actions cron ran `fetch-data.ts`.
+            </div>
           )}
         </div>
       )}

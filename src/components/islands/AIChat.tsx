@@ -39,11 +39,78 @@ function SparkleIcon({ className }: { className?: string }) {
   );
 }
 
+/** Lightweight markdown → HTML (no deps). */
+function renderMarkdown(md: string): string {
+  let html = md
+    // Escape HTML entities first
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  // Code blocks (```...```)
+  html = html.replace(
+    /```(\w*)\n([\s\S]*?)```/g,
+    '<pre class="chat-code-block"><code>$2</code></pre>',
+  );
+  // Inline code
+  html = html.replace(
+    /`([^`]+)`/g,
+    '<code class="chat-inline-code">$1</code>',
+  );
+  // Bold
+  html = html.replace(
+    /\*\*(.+?)\*\*/g, '<strong>$1</strong>',
+  );
+  // Italic
+  html = html.replace(
+    /\*(.+?)\*/g, '<em>$1</em>',
+  );
+  // Links [text](url)
+  html = html.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener" '
+    + 'class="text-amber-400 underline">$1</a>',
+  );
+  // Unordered list items
+  html = html.replace(
+    /^[\-\*] (.+)$/gm,
+    '<li class="ml-4 list-disc">$1</li>',
+  );
+  // Headings (### → h4, ## → h3, # → h2)
+  html = html.replace(
+    /^### (.+)$/gm, '<h4 class="font-bold mt-2">$1</h4>',
+  );
+  html = html.replace(
+    /^## (.+)$/gm, '<h3 class="font-bold mt-2 text-base">$1</h3>',
+  );
+  html = html.replace(
+    /^# (.+)$/gm, '<h2 class="font-bold mt-2 text-lg">$1</h2>',
+  );
+  // Paragraphs — double newlines
+  html = html
+    .split(/\n{2,}/)
+    .map((p) => p.trim())
+    .filter(Boolean)
+    .map((p) => {
+      if (
+        p.startsWith('<pre') || p.startsWith('<h')
+        || p.startsWith('<li')
+      ) return p;
+      return `<p>${p}</p>`;
+    })
+    .join('');
+  // Single newlines → <br> inside <p>
+  html = html.replace(
+    /([^>])\n([^<])/g, '$1<br/>$2',
+  );
+  return html;
+}
+
 export default function AIChat() {
   const [user, setUser] = useState<User | null>(null);
   const { isOpen, closeChat } = useAIChatStore();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
+  const [personality, setPersonality] = useState('professional');
   const [loading, setLoading] = useState(false);
   const [notified, setNotified] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -119,7 +186,7 @@ export default function AIChat() {
     const userName = user?.displayName || user?.email?.split('@')[0] || 'Anonymous Visitor';
 
     try {
-      const response = await executeAgent(text.trim());
+      const response = await executeAgent(text.trim(), personality);
       const responseTimestamp = new Date().toISOString();
       const responseModel = 'puter-agent';
       const assistantMsg: Message = {
@@ -228,7 +295,19 @@ export default function AIChat() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-white">Ask about Chirag</p>
-                <p className="text-[10px] text-amber-400/70">Powered by Puter.js</p>
+                <div className="flex items-center gap-2 mt-0.5">
+                  <p className="text-[10px] text-amber-400/70">Powered by Puter.js</p>
+                  <select 
+                    value={personality}
+                    onChange={(e) => setPersonality(e.target.value)}
+                    className="bg-black/20 border border-white/10 rounded text-[10px] text-white/70 px-1 py-0.5 outline-none focus:border-amber-500/50 cursor-pointer"
+                  >
+                    <option value="professional">Professional</option>
+                    <option value="casual">Casual</option>
+                    <option value="witty">Witty</option>
+                    <option value="technical">Technical</option>
+                  </select>
+                </div>
               </div>
             </div>
             <button
@@ -276,7 +355,16 @@ export default function AIChat() {
                         : 'bg-white/5 border border-white/5 text-white/80 rounded-bl-md'
                     }`}
                   >
-                    {msg.content}
+                    {msg.role === 'assistant' ? (
+                      <div
+                        className="prose-chat"
+                        dangerouslySetInnerHTML={{
+                          __html: renderMarkdown(msg.content),
+                        }}
+                      />
+                    ) : (
+                      msg.content
+                    )}
                   </div>
                   {msg.role === 'assistant' && msg.model && msg.model !== 'none' && msg.model !== 'error' && (
                     <p className="text-[10px] text-white/20 mt-1 px-1">{msg.model}</p>

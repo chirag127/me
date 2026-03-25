@@ -14,7 +14,7 @@ export default function GlobalChatButton() {
   if (isOpen) return null;
 
   return (
-    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 transform hover:-translate-y-1 transition-all duration-300">
+    <div className="fixed bottom-8 right-8 z-40 transform hover:-translate-y-1 transition-all duration-300">
       <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 blur-[24px] opacity-40 rounded-full animate-pulse pointer-events-none"></div>
       <button
         onClick={toggleChat}

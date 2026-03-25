@@ -24,6 +24,7 @@ export interface UserConfig {
   lastfm: string;
   lichess: string;
   speedrun: string;
+  myanimelist: string;
 }
 
 export interface ApiConfig {
@@ -71,6 +72,7 @@ export const CONFIG = {
     lastfm: "lastfmwhy",
     lichess: "chirag127",
     speedrun: "chirag127",
+    myanimelist: "chirag127",
   },
   api: {
     github: "https://api.github.com/users",

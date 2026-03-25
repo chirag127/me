@@ -4,7 +4,6 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 import ChatWidget from '../../components/islands/ChatWidget';
-import AIChat from '../../components/islands/AIChat';
 import { education } from '../../data/resume';
 
 const milestones = [
@@ -39,7 +38,7 @@ const milestones = [
     <!-- Education Timeline -->
     <div class="relative pl-8 border-l border-[var(--color-border)]">
       {education.map((edu) => (
-        <div class="mb-12 relative">
+        <div class="mb-12 relative reveal">
           <div class="absolute -left-[2.55rem] h-4 w-4 rounded-full bg-[var(--color-accent-violet)] border-4 border-[var(--color-surface)]"></div>
           <div class="glass p-8">
             <span class="text-sm text-[var(--color-accent-violet)] font-semibold">{edu.date}</span>
@@ -95,6 +94,5 @@ const milestones = [
     </div>
   </main>
   <Footer />
-  <AIChat client:load />
   <ChatWidget client:load />
 </Layout>

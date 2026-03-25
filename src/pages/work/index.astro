@@ -4,7 +4,6 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 import ChatWidget from '../../components/islands/ChatWidget';
-import AIChat from '../../components/islands/AIChat';
 import { skills, experience, projects, education, honors } from '../../data/resume';
 
 const totalSkills = skills.reduce((sum, s) => sum + s.items.length, 0);
@@ -20,7 +19,7 @@ const totalCerts = education.length + honors.length;
     <div class="absolute bottom-40 left-0 w-64 h-64 bg-violet-500/5 rounded-full blur-[100px] pointer-events-none"></div>
 
     <!-- Header -->
-    <div class="mb-12 relative">
+    <div class="mb-12 relative reveal">
       <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-white/40 mb-6">
         <span class="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse"></span>
         WORK Drive
@@ -30,7 +29,7 @@ const totalCerts = education.length + honors.length;
     </div>
 
     <!-- Current Role Hero -->
-    <div class="glass-strong p-8 mb-10 relative overflow-hidden">
+    <div class="glass-strong p-8 mb-10 reveal relative overflow-hidden">
       <div class="absolute top-0 right-0 w-48 h-48 bg-emerald-500/5 rounded-full blur-[80px] pointer-events-none"></div>
       <div class="relative">
         <div class="flex items-center gap-2 mb-3">
@@ -52,7 +51,7 @@ const totalCerts = education.length + honors.length;
     </div>
 
     <!-- Quick Stats -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 reveal-stagger">
       <div class="glass p-5 text-center group hover:border-white/10 transition-colors">
         <div class="text-3xl font-bold text-white mb-0.5">{experience.length}</div>
         <div class="text-xs text-white/40">Companies</div>
@@ -76,7 +75,7 @@ const totalCerts = education.length + honors.length;
     </div>
 
     <!-- Page Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 reveal-stagger">
       <a href="/work/career" class="card group relative overflow-hidden">
         <div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-[60px] pointer-events-none"></div>
         <div class="h-12 w-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4">
@@ -144,7 +143,7 @@ const totalCerts = education.length + honors.length;
     </div>
 
     <!-- Career Timeline Preview -->
-    <div class="glass-strong p-8 mb-10">
+    <div class="glass-strong p-8 mb-10 reveal">
       <h2 class="text-xl font-bold text-white mb-6">Career Timeline</h2>
       <div class="relative pl-6 border-l border-white/10 space-y-8">
         {experience.slice(0, 2).map((exp, i) => (
@@ -181,6 +180,5 @@ const totalCerts = education.length + honors.length;
     </div>
   </main>
   <Footer />
-  <AIChat client:load />
   <ChatWidget client:load />
 </Layout>

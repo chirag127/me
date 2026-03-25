@@ -1,59 +1,61 @@
 ---
+import * as fs from 'node:fs/promises';
+import * as path from 'node:path';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 import ChatWidget from '../../components/islands/ChatWidget';
-import AIChat from '../../components/islands/AIChat';
 
-interface Movie {
-  title: string;
-  year: string;
-  genre: string;
-  rating: number;
-  emoji: string;
-  gradient: string;
-  category: 'watched' | 'watching' | 'want-to-watch';
-  episodes?: string;
+// Fallback data structure
+let db = { watched: [] as any[], watchlist: [] as any[], shows: [] as any[], stats: { totalWatched: 0, totalShows: 0 } };
+
+try {
+  const raw = await fs.readFile(path.resolve('./src/data/generated/movies.json'), 'utf-8');
+  db = JSON.parse(raw);
+} catch (e) {
+  console.warn('[Movies Hub] movies.json not found. Run pnpm run fetch-data first.');
 }
 
-const movies: Movie[] = [
-  { title: 'Interstellar', year: '2014', genre: 'Sci-Fi', rating: 9.5, emoji: '🌌', gradient: 'linear-gradient(135deg, #0c1445, #1a237e)', category: 'watched' },
-  { title: 'The Shawshank Redemption', year: '1994', genre: 'Drama', rating: 10, emoji: '🔒', gradient: 'linear-gradient(135deg, #1b3a2d, #2e7d32)', category: 'watched' },
-  { title: 'Inception', year: '2010', genre: 'Sci-Fi', rating: 9, emoji: '🌀', gradient: 'linear-gradient(135deg, #1a1a2e, #16213e)', category: 'watched' },
-  { title: 'Parasite', year: '2019', genre: 'Thriller', rating: 9, emoji: '🏠', gradient: 'linear-gradient(135deg, #2d1b00, #5d4037)', category: 'watched' },
-  { title: 'The Dark Knight', year: '2008', genre: 'Action', rating: 9, emoji: '🦇', gradient: 'linear-gradient(135deg, #0d0d0d, #37474f)', category: 'watched' },
-  { title: 'Spirited Away', year: '2001', genre: 'Animation', rating: 10, emoji: '🏯', gradient: 'linear-gradient(135deg, #1a237e, #7b1fa2)', category: 'watched' },
-  { title: 'The Prestige', year: '2006', genre: 'Mystery', rating: 9, emoji: '🎩', gradient: 'linear-gradient(135deg, #1a1a1a, #4a148c)', category: 'watched' },
-  { title: 'Whiplash', year: '2014', genre: 'Drama', rating: 9, emoji: '🥁', gradient: 'linear-gradient(135deg, #b71c1c, #e65100)', category: 'watched' },
-  { title: 'Oppenheimer', year: '2023', genre: 'Biography', rating: 8.5, emoji: '💥', gradient: 'linear-gradient(135deg, #bf360c, #e65100)', category: 'watched' },
-  { title: 'Dune: Part Two', year: '2024', genre: 'Sci-Fi', rating: 8.5, emoji: '🏜️', gradient: 'linear-gradient(135deg, #795548, #d7ccc8)', category: 'watched' },
-  { title: 'Poor Things', year: '2023', genre: 'Comedy', rating: 8, emoji: '🧪', gradient: 'linear-gradient(135deg, #4a148c, #e91e63)', category: 'watched' },
-  { title: 'Past Lives', year: '2023', genre: 'Romance', rating: 8.5, emoji: '💫', gradient: 'linear-gradient(135deg, #1a237e, #0d47a1)', category: 'watched' },
-  { title: 'The Holdovers', year: '2023', genre: 'Drama', rating: 8, emoji: '🎄', gradient: 'linear-gradient(135deg, #3e2723, #795548)', category: 'watched' },
-  { title: 'Killers of the Flower Moon', year: '2023', genre: 'Crime', rating: 7.5, emoji: '🌾', gradient: 'linear-gradient(135deg, #1b5e20, #33691e)', category: 'watched' },
-  { title: 'Severance', year: '2022', genre: 'Sci-Fi', rating: 9, emoji: '🏢', gradient: 'linear-gradient(135deg, #1e3a5f, #0f4c75)', category: 'watching', episodes: 'S2 · E7' },
-  { title: 'Shogun', year: '2024', genre: 'Drama', rating: 9, emoji: '⚔️', gradient: 'linear-gradient(135deg, #78350f, #b45309)', category: 'watching', episodes: 'S1 · E8' },
-  { title: 'The Substance', year: '2024', genre: 'Horror', rating: 0, emoji: '💉', gradient: 'linear-gradient(135deg, #880e4f, #ad1457)', category: 'want-to-watch' },
-  { title: 'Anora', year: '2024', genre: 'Drama', rating: 0, emoji: '💎', gradient: 'linear-gradient(135deg, #f57f17, #ff6f00)', category: 'want-to-watch' },
-  { title: 'Conclave', year: '2024', genre: 'Thriller', rating: 0, emoji: '⛪', gradient: 'linear-gradient(135deg, #b71c1c, #880e4f)', category: 'want-to-watch' },
-  { title: 'The Brutalist', year: '2024', genre: 'Drama', rating: 0, emoji: '🏗️', gradient: 'linear-gradient(135deg, #37474f, #263238)', category: 'want-to-watch' },
-  { title: 'Nosferatu', year: '2024', genre: 'Horror', rating: 0, emoji: '🧛', gradient: 'linear-gradient(135deg, #1a1a1a, #212121)', category: 'want-to-watch' },
-  { title: 'Challengers', year: '2024', genre: 'Drama', rating: 0, emoji: '🎾', gradient: 'linear-gradient(135deg, #1b5e20, #2e7d32)', category: 'want-to-watch' },
-];
-
-const currentlyWatching = movies.filter(m => m.category === 'watching');
-const watched = movies.filter(m => m.category === 'watched');
-const wantToWatch = movies.filter(m => m.category === 'want-to-watch');
-const topRated = [...watched].sort((a, b) => b.rating - a.rating).slice(0, 8);
+const watched = db.watched || [];
+const wantToWatch = db.watchlist || [];
+const currentlyWatching = db.shows?.filter((s) => s.category === 'watching') || [];
+const topRated = [...watched].sort((a, b) => (b.rating || 0) - (a.rating || 0)).slice(0, 8);
+const shows = db.shows || [];
 
 const genreCounts: Record<string, number> = {};
-watched.forEach(m => { genreCounts[m.genre] = (genreCounts[m.genre] || 0) + 1; });
+watched.forEach(m => { 
+  if (m.genres && m.genres.length > 0) {
+    const genre = m.genres[0]; // Take primary genre
+    genreCounts[genre] = (genreCounts[genre] || 0) + 1; 
+  }
+});
 const favoriteGenres = Object.entries(genreCounts).sort((a, b) => b[1] - a[1]).slice(0, 3).map(g => g[0]);
-const avgRating = (watched.reduce((s, m) => s + m.rating, 0) / watched.length).toFixed(1);
+const validRatings = watched.filter(w => w.rating);
+const avgRating = validRatings.length > 0 
+  ? (validRatings.reduce((s, m) => s + m.rating, 0) / validRatings.length).toFixed(1)
+  : '0.0';
+
+const fallbackGradients = [
+  'linear-gradient(135deg, #0c1445, #1a237e)',
+  'linear-gradient(135deg, #1b3a2d, #2e7d32)',
+  'linear-gradient(135deg, #4a148c, #e91e63)',
+  'linear-gradient(135deg, #795548, #d7ccc8)',
+  'linear-gradient(135deg, #1e3a5f, #0f4c75)',
+  'linear-gradient(135deg, #bf360c, #e65100)',
+];
+const fallbackEmojis = ['🎬', '🍿', '🎟️', '📽️', '🎞️', '🌌', '💥', '🎭'];
+
+function getVisuals(title: string) {
+  const idx = [...title].reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return {
+    gradient: fallbackGradients[idx % fallbackGradients.length],
+    emoji: fallbackEmojis[idx % fallbackEmojis.length]
+  };
+}
 ---
 
-<Layout title="Movies" description="Chirag Singhal's movie diary — curated picks, ratings, and watchlist">
+<Layout title="Movies & TV" description="Chirag Singhal's movie and TV show diary — curated picks, ratings, and watchlist">
   <Navbar />
   <CommandPalette />
   <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
@@ -68,111 +70,122 @@ const avgRating = (watched.reduce((s, m) => s + m.rating, 0) / watched.length).t
       </div>
       <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Movies & TV</h1>
     </div>
-    <p class="text-[var(--color-text-secondary)] mb-10">Film diary — everything I've watched, rated, and queued up.</p>
+    <p class="text-[var(--color-text-secondary)] mb-10">Film diary — synced from Trakt automatically.</p>
 
     <!-- Stats -->
     <div class="glass-strong p-6 mb-12 flex flex-wrap gap-8">
       <div>
-        <div class="text-2xl font-bold text-[var(--color-accent-sage)]">{watched.length}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Watched</div>
+        <div class="text-2xl font-bold text-[var(--color-accent-sage)]">{db.stats.totalWatched || watched.length}</div>
+        <div class="text-xs text-[var(--color-text-muted)]">Films Watched</div>
       </div>
       <div>
-        <div class="text-2xl font-bold text-[var(--color-accent-sky)]">{currentlyWatching.length}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Watching</div>
+        <div class="text-2xl font-bold text-[var(--color-accent-sky)]">{db.stats.totalShows || shows.length}</div>
+        <div class="text-xs text-[var(--color-text-muted)]">Shows</div>
       </div>
       <div>
         <div class="text-2xl font-bold text-[var(--color-accent-rose)]">{wantToWatch.length}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Watchlist</div>
+        <div class="text-xs text-[var(--color-text-muted)]">Watchlist Queue</div>
       </div>
       <div>
         <div class="text-2xl font-bold text-[var(--color-primary)]">{avgRating}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Avg Rating</div>
+        <div class="text-xs text-[var(--color-text-muted)]">Avg Rating /10</div>
       </div>
       <div>
-        <div class="text-lg font-bold text-[var(--color-accent-violet)]">{favoriteGenres.join(', ')}</div>
+        <div class="text-lg font-bold text-[var(--color-accent-violet)] truncate max-w-[150px] sm:max-w-none">{favoriteGenres.join(', ') || 'N/A'}</div>
         <div class="text-xs text-[var(--color-text-muted)]">Top Genres</div>
       </div>
     </div>
 
-    <!-- Currently Watching -->
+    <!-- Shows / Currently Watching -->
     <section class="mb-16">
       <div class="flex items-center gap-3 mb-8">
-        <h2 class="section-heading text-xl font-semibold text-white">Currently Watching</h2>
-        <div class="dot-live"></div>
+        <h2 class="section-heading text-xl font-semibold text-white">Tracking Shows</h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        {currentlyWatching.map((movie, i) => (
+        {shows.slice(0, 4).map((show, i) => {
+          const vis = getVisuals(show.title);
+          return (
           <div class="glass-strong p-5 flex gap-5 items-center" style={`animation-delay: ${i * 80}ms`}>
-            <div class="h-24 w-24 rounded-xl flex items-center justify-center text-4xl shrink-0 relative overflow-hidden" style={`background: ${movie.gradient}`}>
+            <div class="h-24 w-24 rounded-xl flex items-center justify-center text-4xl shrink-0 relative overflow-hidden" style={`background: ${vis.gradient}`}>
               <div class="absolute inset-0 bg-black/10"></div>
-              <span class="relative z-10 drop-shadow-lg">{movie.emoji}</span>
+              <span class="relative z-10 drop-shadow-lg">{vis.emoji}</span>
             </div>
             <div class="flex-1 min-w-0">
-              <h3 class="text-base font-semibold text-white">{movie.title}</h3>
-              <p class="text-xs text-[var(--color-text-muted)] mt-0.5">{movie.year} · {movie.genre}</p>
+              <h3 class="text-base font-semibold text-white">{show.title}</h3>
+              <p class="text-xs text-[var(--color-text-muted)] mt-0.5">{show.year} · {(show.genres||[])[0]}</p>
               <div class="flex items-center gap-2 mt-2">
-                <span class="text-xs text-[var(--color-accent-sky)] font-medium">{movie.episodes}</span>
-              </div>
-              <div class="mt-2 h-1.5 bg-white/5 rounded-full overflow-hidden">
-                <div class="h-full bg-[var(--color-accent-sky)] rounded-full" style="width: 65%"></div>
+                <span class="text-xs text-[var(--color-accent-sky)] font-medium">Plays: {show.episodesWatched || 0}</span>
               </div>
             </div>
-            <div class="shrink-0 bg-[var(--color-accent-sky)]/10 text-[var(--color-accent-sky)] text-xs font-semibold px-2.5 py-1 rounded-full">
-              {movie.rating}/10
-            </div>
+            {show.rating && (
+              <div class="shrink-0 bg-[var(--color-accent-sky)]/10 text-[var(--color-accent-sky)] text-xs font-semibold px-2.5 py-1 rounded-full">
+                {show.rating}/10
+              </div>
+            )}
           </div>
-        ))}
+        )})}
       </div>
     </section>
 
     <div class="divider-warm mb-16"></div>
 
     <!-- Top Rated -->
-    <section class="mb-16">
-      <h2 class="section-heading text-xl font-semibold text-white mb-8">Top Rated</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        {topRated.map((movie, i) => (
-          <div class="card group cursor-default" style={`animation-delay: ${i * 60}ms`}>
-            <div class="aspect-[2/3] rounded-lg mb-3 flex items-center justify-center text-4xl relative overflow-hidden" style={`background: ${movie.gradient}`}>
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <span class="relative z-10 drop-shadow-lg">{movie.emoji}</span>
-              <div class="absolute top-2 right-2 z-10 bg-black/50 backdrop-blur-sm rounded-full px-2 py-0.5">
-                <span class="text-xs font-semibold" style={`color: ${movie.rating >= 9 ? 'var(--color-success)' : 'var(--color-primary)'}`}>{movie.rating}</span>
+    {topRated.length > 0 && (
+      <section class="mb-16">
+        <h2 class="section-heading text-xl font-semibold text-white mb-8">Top Rated</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {topRated.map((movie, i) => {
+            const vis = getVisuals(movie.title);
+            return (
+            <div class="card group cursor-default" style={`animation-delay: ${i * 60}ms`}>
+              <div class="aspect-[2/3] rounded-lg mb-3 flex items-center justify-center text-4xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                {movie.posterUrl ? (
+                  <img src={movie.posterUrl} alt={movie.title} class="w-full h-full object-cover relative z-10" />
+                ) : (
+                  <span class="relative z-10 drop-shadow-lg">{vis.emoji}</span>
+                )}
+                <div class="absolute top-2 right-2 z-20 bg-black/50 backdrop-blur-sm rounded-full px-2 py-0.5">
+                  <span class="text-xs font-semibold" style={`color: ${movie.rating >= 9 ? 'var(--color-success)' : 'var(--color-primary)'}`}>{movie.rating}</span>
+                </div>
+              </div>
+              <h3 class="text-sm font-semibold text-white truncate group-hover:text-[var(--color-success)] transition-colors">{movie.title}</h3>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="text-xs text-[var(--color-text-muted)]">{movie.year}</span>
+                <span class="w-1 h-1 rounded-full bg-[var(--color-text-faint)]"></span>
+                <span class="text-xs text-[var(--color-text-muted)] truncate">{(movie.genres||[])[0]}</span>
               </div>
             </div>
-            <h3 class="text-sm font-semibold text-white truncate group-hover:text-[var(--color-success)] transition-colors">{movie.title}</h3>
-            <div class="flex items-center gap-2 mt-1">
-              <span class="text-xs text-[var(--color-text-muted)]">{movie.year}</span>
-              <span class="w-1 h-1 rounded-full bg-[var(--color-text-faint)]"></span>
-              <span class="text-xs text-[var(--color-text-muted)]">{movie.genre}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          )})}
+        </div>
+      </section>
+    )}
 
-    <div class="divider-warm mb-16"></div>
+    {topRated.length > 0 && <div class="divider-warm mb-16"></div>}
 
     <!-- Recently Watched -->
     <section class="mb-16">
       <div class="flex items-center justify-between mb-8">
         <h2 class="section-heading text-xl font-semibold text-white">Recently Watched</h2>
-        <span class="text-xs text-[var(--color-text-faint)]">{watched.length} films total</span>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-        {watched.map((movie, i) => (
+        {watched.slice(0, 12).map((movie, i) => {
+          const vis = getVisuals(movie.title);
+          return (
           <div class="card group cursor-default" style={`animation-delay: ${i * 50}ms`}>
-            <div class="aspect-[2/3] rounded-lg mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${movie.gradient}`}>
+            <div class="aspect-[2/3] rounded-lg mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-              <span class="relative z-10 drop-shadow-lg">{movie.emoji}</span>
-              <div class="absolute top-1.5 right-1.5 z-10 bg-black/50 backdrop-blur-sm rounded-full px-1.5 py-0.5">
-                <span class="text-[0.6rem] font-semibold text-[var(--color-primary)]">{movie.rating}</span>
-              </div>
+              <span class="relative z-10 drop-shadow-lg">{vis.emoji}</span>
+              {movie.rating && (
+                <div class="absolute top-1.5 right-1.5 z-20 bg-black/50 backdrop-blur-sm rounded-full px-1.5 py-0.5">
+                  <span class="text-[0.6rem] font-semibold text-[var(--color-primary)]">{movie.rating}</span>
+                </div>
+              )}
             </div>
             <h3 class="text-xs font-semibold text-white truncate group-hover:text-[var(--color-accent-sage)] transition-colors">{movie.title}</h3>
-            <span class="text-[0.65rem] text-[var(--color-text-faint)]">{movie.year} · {movie.genre}</span>
+            <span class="text-[0.65rem] text-[var(--color-text-faint)] truncate max-w-full block">{movie.year} · {(movie.genres||[])[0]}</span>
           </div>
-        ))}
+        )})}
       </div>
     </section>
 
@@ -185,20 +198,21 @@ const avgRating = (watched.reduce((s, m) => s + m.rating, 0) / watched.length).t
         <span class="text-xs text-[var(--color-text-faint)]">{wantToWatch.length} queued</span>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        {wantToWatch.map((movie, i) => (
+        {wantToWatch.slice(0, 8).map((movie, i) => {
+          const vis = getVisuals(movie.title);
+          return (
           <div class="card group cursor-default" style={`animation-delay: ${i * 60}ms`}>
-            <div class="aspect-[2/3] rounded-lg mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${movie.gradient}`}>
+            <div class="aspect-[2/3] rounded-lg mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-              <span class="relative z-10 drop-shadow-lg">{movie.emoji}</span>
+              <span class="relative z-10 drop-shadow-lg">{vis.emoji}</span>
             </div>
             <h3 class="text-xs font-semibold text-white truncate group-hover:text-[var(--color-accent-rose)] transition-colors">{movie.title}</h3>
-            <span class="text-[0.65rem] text-[var(--color-text-faint)]">{movie.year} · {movie.genre}</span>
+            <span class="text-[0.65rem] text-[var(--color-text-faint)] block truncate max-w-full">{movie.year} · {(movie.genres||[])[0]}</span>
           </div>
-        ))}
+        )})}
       </div>
     </section>
   </main>
   <Footer />
-  <AIChat client:load />
   <ChatWidget client:load />
 </Layout>

@@ -256,4 +256,41 @@ export async function subscribeToVisitors(
   });
 }
 
+// Data: Get Category Data for AI Agent (from build-time JSON cached in Firestore)
+export async function getMediaData(categoryId: string): Promise<any> {
+  const { doc, getDoc } = await import('firebase/firestore');
+  const db = await getFirebaseDb();
+  try {
+    const docRef = doc(db, 'media', categoryId);
+    const snap = await getDoc(docRef);
+    if (snap.exists()) {
+      return snap.data();
+    }
+    return null;
+  } catch (err) {
+    console.error(`[Firestore] Failed to read media/${categoryId}:`, err);
+    return null;
+  }
+}
+
+// Admin: Get all media documents
+export async function getAllMediaOverview(): Promise<Record<string, any>> {
+  const { doc, getDoc } = await import('firebase/firestore');
+  const db = await getFirebaseDb();
+  const categories = ['movies', 'books', 'music', 'anime', 'games', 'coding', 'social'];
+  const results: Record<string, any> = {};
+  
+  for (const cat of categories) {
+    try {
+      const snap = await getDoc(doc(db, 'media', cat));
+      if (snap.exists()) {
+        results[cat] = snap.data();
+      }
+    } catch (err) {
+      console.warn(`[Firestore] Could not load ${cat}`);
+    }
+  }
+  return results;
+}
+
 export { ADMIN_EMAIL };

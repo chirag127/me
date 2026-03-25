@@ -4,7 +4,6 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 import ChatWidget from '../../components/islands/ChatWidget';
-import AIChat from '../../components/islands/AIChat';
 import { skills } from '../../data/resume';
 
 const totalSkills = skills.reduce((sum, s) => sum + s.items.length, 0);
@@ -63,7 +62,6 @@ const totalSkills = skills.reduce((sum, s) => sum + s.items.length, 0);
     </div>
   </main>
   <Footer />
-  <AIChat client:load />
   <ChatWidget client:load />
   <script is:inline>
     document.querySelectorAll('.skill-filter').forEach(btn => {

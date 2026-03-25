@@ -31,3 +31,6 @@ firebase-debug.log
 
 # Cloudflare
 .wrangler/
+
+# Generated API data (fetched at build-time)
+src/data/generated/

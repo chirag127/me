@@ -10,6 +10,7 @@ interface Props {
 const { title, description = "Chirag Singhal — Software Engineer, building things that matter.", ogImage } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, 'https://chiragsinghal.com');
 import GlobalChatButton from '../components/islands/GlobalChatButton';
+import AIChat from '../components/islands/AIChat';
 ---
 
 <!doctype html>
@@ -86,6 +87,32 @@ import GlobalChatButton from '../components/islands/GlobalChatButton';
       <slot />
     </div>
     <GlobalChatButton client:load />
+    <AIChat client:load />
+
+    <!-- Scroll-triggered reveal animations -->
+    <script is:inline>
+      (function() {
+        const obs = new IntersectionObserver(
+          function(entries) {
+            entries.forEach(function(e) {
+              if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                obs.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+        );
+        function observe() {
+          document.querySelectorAll(
+            '.reveal,.reveal-left,.reveal-scale,.reveal-stagger'
+          ).forEach(function(el) { obs.observe(el); });
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', observe);
+        } else { observe(); }
+      })();
+    </script>
   </body>
 </html>
 

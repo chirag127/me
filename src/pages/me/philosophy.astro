@@ -4,7 +4,6 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 import ChatWidget from '../../components/islands/ChatWidget';
-import AIChat from '../../components/islands/AIChat';
 ---
 
 <Layout title="Philosophy" description="The engineering principles and personal values that guide Chirag Singhal">
@@ -87,6 +86,5 @@ import AIChat from '../../components/islands/AIChat';
     </div>
   </main>
   <Footer />
-  <AIChat client:load />
   <ChatWidget client:load />
 </Layout>

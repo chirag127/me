@@ -3,18 +3,44 @@ import { buildSystemPrompt, classifyIntent } from './context';
 import { sendUnknownQueryAlert } from '../../services/email';
 import { extractAndStorePreferences } from './preferences';
 
-export async function executeAgent(userQuery: string, onStream?: (text: string) => void) {
+import { callLLM } from './engine';
+import { buildSystemPrompt } from './context';
+import { classifyQuery } from './classifier';
+import { sendUnknownQueryAlert } from '../../services/email';
+import { extractAndStorePreferences } from './preferences';
+import { toolRegistry } from './tools/registry';
+
+export async function executeAgent(
+  userQuery: string, 
+  personality: string = 'professional',
+  onStream?: (text: string) => void
+) {
   try {
-    const intent = classifyIntent(userQuery);
-    const systemPrompt = buildSystemPrompt();
+    // 1. Identify Intent Fast
+    const intent = await classifyQuery(userQuery);
     
-    // Create prompt
+    // 2. Execute Data Tool dynamically if required by Intent
+    let toolDataOutput = '';
+    const toolFunction = toolRegistry[intent];
+    if (toolFunction) {
+      toolDataOutput = await toolFunction();
+    }
+
+    // 3. Build Full System Prompt with extracted LIVE data
+    const systemPrompt = buildSystemPrompt(toolDataOutput, personality);
+    
+    // 4. Create LLM Conversation Prompt
     const prompt = `${systemPrompt}\n\nUSER: ${userQuery}\n\nASSISTANT:`;
     
-    // Choose model based on intent
+    // 5. Choose model based on intent complexity
     const isReasoning = intent === 'coding' || intent === 'projects';
-    const modelComplexity = isReasoning ? 'reasoning' : 'simple';
+    const isAgentic = toolFunction ? true : false;
     
+    let modelComplexity: 'simple' | 'reasoning' | 'agent' = 'simple';
+    if (isAgentic) modelComplexity = 'agent';
+    else if (isReasoning) modelComplexity = 'reasoning';
+    
+    // 6. Generate Answer
     const response = await callLLM(prompt, modelComplexity, { stream: false }) as any;
     const rawContent = response.message?.content || response.text || 'I encountered a system error generating a response.';
     const textOutput = typeof rawContent === 'string' ? rawContent : JSON.stringify(rawContent);
@@ -44,7 +70,8 @@ export async function executeAgent(userQuery: string, onStream?: (text: string) 
       content: textOutput,
       intent,
       confidence,
-      isUnknown
+      isUnknown,
+      toolsUsed: toolFunction ? [intent] : []
     };
   } catch (error) {
     console.error('[Agent.ts] Agent Execution Failed:', error);

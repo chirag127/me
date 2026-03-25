@@ -4,7 +4,6 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 import ChatWidget from '../../components/islands/ChatWidget';
-import AIChat from '../../components/islands/AIChat';
 import { projects } from '../../data/resume';
 
 const featuredProjects = projects.filter(p => p.featured);
@@ -23,7 +22,7 @@ const allTechs = [...new Set(projects.flatMap(p => p.tech.split(', ')))];
       Back to Work Drive
     </a>
 
-    <div class="mb-12 relative">
+    <div class="mb-12 relative reveal">
       <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-white/40 mb-6">
         <span class="h-1.5 w-1.5 rounded-full bg-[var(--color-accent-sage)]"></span>
         WORK / Projects
@@ -114,6 +113,5 @@ const allTechs = [...new Set(projects.flatMap(p => p.tech.split(', ')))];
     </div>
   </main>
   <Footer />
-  <AIChat client:load />
   <ChatWidget client:load />
 </Layout>
