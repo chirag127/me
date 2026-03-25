@@ -10,7 +10,7 @@
 
 import type { QueryIntent } from '../types';
 import { getMediaData } from '../store';
-import { resumeContext, skillsContext, projectsContext } from '../knowledge';
+import { resumeContext, skillsContext, projectsContext, codebaseContext } from '../knowledge';
 
 // ─── Tool Definition Schema ──────────────────────────────────────────────────
 export interface ToolDefinition {
@@ -280,10 +280,25 @@ const navigateTo: ToolDefinition = {
 
 // ─── Registry ────────────────────────────────────────────────────────────────
 
+const getCodebaseInfo: ToolDefinition = {
+  name: 'getCodebaseInfo',
+  description: 'Get information about the website tech stack, architecture, and project structure.',
+  parameters: [],
+  category: ['coding', 'skills', 'meta'],
+  execute: async () => ({
+    tool: 'getCodebaseInfo',
+    success: true,
+    data: codebaseContext,
+    truncated: false,
+    source: 'static:knowledge',
+  }),
+};
+
 export const TOOL_REGISTRY: ToolDefinition[] = [
   getMovies, getBooks, getMusic, getAnime, getGaming,
   getCoding, getSocial,
   getResume, getProjects, getContactInfo, navigateTo,
+  getCodebaseInfo,
 ];
 
 /**

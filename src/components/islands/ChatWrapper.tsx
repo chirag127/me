@@ -69,18 +69,19 @@ function DraggableButton({ onOpen }: { onOpen: () => void }) {
 
   return (
     <div style={style} className="select-none group">
-      <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 blur-[24px] opacity-40 rounded-full animate-pulse pointer-events-none" />
+      <div className="absolute inset-0 bg-amber-500/20 blur-[24px] rounded-full animate-pulse pointer-events-none" />
       <div
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
-        className="relative flex items-center justify-center gap-2 px-5 py-3.5 bg-[#1a1a2e]/90 backdrop-blur-xl text-white rounded-full font-bold shadow-2xl border border-white/20 hover:bg-[#1a1a2e] transition-colors overflow-hidden"
+        className="relative flex items-center justify-center gap-2 px-5 py-3.5 bg-[#1a1a2e]/95 backdrop-blur-2xl text-white rounded-full font-bold shadow-[0_0_30px_rgba(245,158,11,0.2)] border border-amber-500/30 hover:bg-[#1a1a2e] hover:border-amber-500/50 transition-all overflow-hidden"
       >
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-amber-400/50 to-transparent" />
         <svg className="h-5 w-5 text-amber-400 group-hover:scale-110 transition-transform flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455-2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455-2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455-2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
         </svg>
         <span className="text-sm uppercase tracking-widest bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent group-hover:from-white group-hover:to-white transition-all hidden sm:inline">
-          Ask about Chirag
+          Ask Chirag
         </span>
       </div>
     </div>
@@ -164,19 +165,21 @@ function Dropdown({
 // ─── Step Indicator ──────────────────────────────────────────────────
 function StepIndicator({ steps, streaming }: { steps: string[]; streaming: boolean }) {
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-1.5 py-1">
       {steps.map((step, i) => (
-        <div key={i} className="flex items-center gap-2 text-[11px] text-white/40">
-          <div className={`w-1.5 h-1.5 rounded-full ${i === steps.length - 1 && streaming ? 'bg-amber-400 animate-pulse' : 'bg-emerald-400'}`} />
-          <span>{step}</span>
+        <div
+          key={i}
+          className={`flex items-center gap-2 text-[11px] transition-all duration-300 ${i === steps.length - 1 && streaming ? 'text-amber-400 font-medium' : 'text-white/40'
+            }`}
+          style={{ animation: 'fadeIn 0.3s ease-out forwards' }}
+        >
+          <div className={`flex-shrink-0 w-1.5 h-1.5 rounded-full ${i === steps.length - 1 && streaming
+            ? 'bg-amber-400 animate-pulse shadow-[0_0_8px_rgba(245,158,11,0.5)]'
+            : 'bg-emerald-500/50'
+            }`} />
+          <span className="truncate">{step}</span>
         </div>
       ))}
-      {streaming && (
-        <div className="flex items-center gap-2 text-[11px] text-amber-400/60">
-          <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-          <span>Streaming response...</span>
-        </div>
-      )}
     </div>
   );
 }
@@ -219,15 +222,18 @@ interface ChatSession {
 
 function ChatPanel({ onClose }: { onClose: () => void }) {
   const [messages, setMessages] = useState<Message[]>([]);
+  // ... rest of state ...
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [selectedModel, setSelectedModel] = useState('');
   const [selectedMode, setSelectedMode] = useState<PersonalityMode>('professional');
   const [puterReady, setPuterReady] = useState(false);
+  const [puterUser, setPuterUser] = useState<{ username: string } | null>(null);
   const [firebaseUser, setFirebaseUser] = useState<{ uid: string; email: string; displayName: string } | null>(null);
   const [showHistory, setShowHistory] = useState(false);
   const [chatHistory, setChatHistory] = useState<ChatSession[]>([]);
   const [signingIn, setSigningIn] = useState(false);
+  const [signInStep, setSignInStep] = useState<'none' | 'firebase' | 'puter' | 'done'>('none');
   const endRef = useRef<HTMLDivElement>(null);
   const mountedRef = useRef(true);
 
@@ -244,12 +250,29 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
   useEffect(() => {
     let cancelled = false;
     const check = async () => {
-      for (let i = 0; i < 30; i++) {
+      const maxAttempts = 50; // Increased timeout for slower connections
+      for (let i = 0; i < maxAttempts; i++) {
         if (cancelled) return;
-        const w = window as unknown as { puter?: { ai?: unknown } };
-        if (w.puter?.ai) { setPuterReady(true); return; }
+        const w = window as any;
+        if (w.puter?.ai) {
+          setPuterReady(true);
+          // Check for Puter auth
+          try {
+            if (w.puter.auth?.isSignedIn?.()) {
+              const user = await w.puter.auth.getUser();
+              if (user && mountedRef.current) {
+                setPuterUser({ username: user.username });
+                console.log('[ChatWrapper] Puter user:', user.username);
+              }
+            }
+          } catch (err) {
+            console.error('Puter auth check error:', err);
+          }
+          return;
+        }
         await new Promise(r => setTimeout(r, 200));
       }
+      console.warn('Puter.js failed to load within 10 seconds.');
     };
     check();
     return () => { cancelled = true; };
@@ -262,26 +285,56 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
       try {
         const { getOnAuthStateChanged, getAuthInstance, handleGoogleRedirect } = await import('../../lib/firebase');
 
-        // Check for redirect result first
-        await handleGoogleRedirect();
+        // Handle redirect sign-in first
+        const redirectUser = await handleGoogleRedirect();
+        if (redirectUser) {
+          console.log('[ChatWrapper] Redirect sign-in successful:', redirectUser.email);
+        }
 
         const onAuth = await getOnAuthStateChanged();
         const auth = await getAuthInstance();
-        unsub = onAuth(auth, (u) => {
+
+        unsub = onAuth(auth, async (u) => {
           if (u) {
-            setFirebaseUser({
+            const firebaseUser = {
               uid: u.uid,
               email: u.email || 'anonymous',
               displayName: u.displayName || u.email?.split('@')[0] || 'Anonymous',
-            });
+            };
+            console.log('[ChatWrapper] Firebase auth state:', firebaseUser.email);
+            setFirebaseUser(firebaseUser);
           } else {
+            console.log('[ChatWrapper] Firebase user signed out');
             setFirebaseUser(null);
           }
         });
-      } catch { }
+      } catch (err) {
+        console.error('[ChatWrapper] Firebase init error:', err);
+      }
     })();
     return () => { if (unsub) unsub(); };
   }, []);
+
+  // Load chat history when user signs in
+  useEffect(() => {
+    if (!firebaseUser) {
+      setChatHistory([]);
+      return;
+    }
+
+    const loadHistory = async () => {
+      try {
+        const { getUserChatSessions } = await import('../../lib/firebase');
+        const sessions = await getUserChatSessions(firebaseUser.uid);
+        setChatHistory(sessions);
+        console.log('[ChatWrapper] Loaded chat history:', sessions.length, 'sessions');
+      } catch (err) {
+        console.error('[ChatWrapper] Failed to load chat history:', err);
+      }
+    };
+
+    loadHistory();
+  }, [firebaseUser?.uid]);
 
   // Model dropdown options
   const modelOptions = [
@@ -369,23 +422,41 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
           // Save to Firestore if signed in
           if (firebaseUser) {
             try {
-              const { saveChatMessage } = await import('../../lib/firebase');
-              saveChatMessage(
-                firebaseUser.uid,
-                firebaseUser.email,
-                firebaseUser.displayName,
-                JSON.stringify({
-                  query: text,
-                  response: chunk.content,
+              const { saveChatSession, getUserChatSessions } = await import('../../lib/firebase');
+
+              // Save the complete chat session
+              const chatSession = {
+                id: Date.now().toString(),
+                title: text.slice(0, 50) + (text.length > 50 ? '...' : ''),
+                messages: [...messages, {
+                  role: 'user',
+                  content: text,
+                  timestamp: new Date().toISOString(),
+                }, {
+                  role: 'assistant',
+                  content: chunk.content,
+                  timestamp: new Date().toISOString(),
                   model: chunk.meta?.model,
                   intent: chunk.meta?.intent,
+                  confidence: chunk.meta?.confidence,
                   toolsUsed: chunk.meta?.toolsUsed,
-                  mode: selectedMode,
-                  page: location.pathname,
-                }),
-                location.pathname
-              ).catch(() => { });
-            } catch { }
+                }],
+                createdAt: new Date().toISOString(),
+              };
+
+              await saveChatSession(
+                firebaseUser.uid,
+                chatSession.title,
+                chatSession.messages
+              );
+              console.log('[ChatWrapper] Chat session saved to Firestore');
+
+              // Refresh chat history
+              const sessions = await getUserChatSessions(firebaseUser.uid);
+              setChatHistory(sessions);
+            } catch (err) {
+              console.error('[ChatWrapper] Failed to save chat session:', err);
+            }
           }
         } else if (chunk.type === 'error') {
           if (mountedRef.current) setMessages(prev => {
@@ -417,11 +488,31 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
 
   const handleSignIn = async () => {
     setSigningIn(true);
+    setSignInStep('firebase');
     try {
+      // 1. Firebase Sign In (Google Popup)
       const { signInWithGoogle } = await import('../../lib/firebase');
-      await signInWithGoogle();
+      const user = await signInWithGoogle();
+      if (user && mountedRef.current) {
+        setFirebaseUser({
+          uid: user.uid,
+          email: user.email || 'anonymous',
+          displayName: user.displayName || user.email?.split('@')[0] || 'Anonymous',
+        });
+      }
+
+      // 2. Puter.js Sign In
+      setSignInStep('puter');
+      const w = window as any;
+      if (w.puter?.auth && !w.puter.auth.isSignedIn()) {
+        await w.puter.auth.signIn();
+        const pUser = await w.puter.auth.getUser();
+        if (pUser && mountedRef.current) setPuterUser({ username: pUser.username });
+      }
+      setSignInStep('done');
     } catch (e) {
       console.error('Sign in error:', e);
+      setSignInStep('none');
     } finally {
       if (mountedRef.current) setSigningIn(false);
     }
@@ -500,9 +591,14 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
               </div>
               <div className="min-w-0">
                 <p className="text-sm font-semibold text-white truncate">Ask about Chirag</p>
-                <p className="text-[10px] text-white/40">
-                  {!puterReady ? 'Loading AI...' : firebaseUser ? `${firebaseUser.displayName}` : 'Sign in to save & sync your chats'}
-                </p>
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <p className="text-[10px] text-white/40">
+                    {!puterReady ? 'Loading AI...' : firebaseUser ? `${firebaseUser.displayName}` : 'Sign in to use all features'}
+                  </p>
+                  {puterReady && (
+                    <div className={`h-1.5 w-1.5 rounded-full ${puterUser ? 'bg-emerald-500' : 'bg-amber-500'}`} title={puterUser ? 'Puter.js Connected' : 'Puter.js Not Signed In'} />
+                  )}
+                </div>
               </div>
             </div>
 
@@ -547,132 +643,159 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
           </div>
 
           {/* Prominent Sign-in Banner (when not signed in) */}
-          {!firebaseUser && (
-            <div className="px-4 py-3 bg-gradient-to-r from-amber-500/10 to-orange-500/10 border-b border-amber-500/20 flex items-center justify-between flex-shrink-0">
+          {/* Integrated Sign-in & Maintenance Workflow */}
+          {(!firebaseUser || !puterUser) && (
+            <div className="px-5 py-4 bg-[#1a1a2e]/50 border-b border-white/5 space-y-3">
+              <div className="flex items-center justify-between gap-4">
+                <div className="space-y-1">
+                  <h4 className="text-xs font-semibold text-white/90">Dual Sign-in Needed</h4>
+                  <p className="text-[10px] text-white/40 leading-relaxed">
+                    Connect both <strong>Firebase</strong> (history) and <strong>Puter.js</strong> (AI engine) to start chatting.
+                  </p>
+                </div>
+                <button
+                  onClick={handleSignIn}
+                  disabled={signingIn}
+                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white text-xs font-bold shadow-lg shadow-amber-500/20 transition-all disabled:opacity-50 min-w-[120px]"
+                >
+                  {signingIn ? (
+                    <div className="flex items-center gap-2 justify-center">
+                      <svg className="h-3 w-3 animate-spin" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      </svg>
+                      <span>{signInStep === 'firebase' ? 'Firebase...' : 'Puter.js...'}</span>
+                    </div>
+                  ) : 'Finish Setup'}
+                </button>
+              </div>
+            </div>
+          )}
+          {/* Dual Sign-in Tip */}
+          {(!firebaseUser || !puterUser) && (
+            <div className="px-4 py-2 bg-amber-500/5 border-b border-amber-500/10 flex items-center justify-between flex-shrink-0 animate-in fade-in slide-in-from-top-1 duration-500">
               <div className="flex items-center gap-2">
-                <svg className="h-4 w-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span className="text-xs text-amber-200">
-                  <strong>Sign in</strong> to save your chat history and access it from any device
+                <div className="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse" />
+                <span className="text-[10px] text-amber-200/60">
+                  Tip: Sign in to sync your chat history and use advanced models.
                 </span>
               </div>
               <button
                 onClick={handleSignIn}
                 disabled={signingIn}
-                className="px-3 py-1 rounded-md text-xs font-medium bg-amber-500 text-white hover:bg-amber-400 transition-colors disabled:opacity-50"
+                className="text-[10px] font-medium text-amber-400 hover:text-amber-300 transition-colors disabled:opacity-50"
               >
-                {signingIn ? 'Signing in...' : 'Sign in'}
+                {signingIn ? 'Signing in...' : 'Sign in now →'}
               </button>
             </div>
           )}
-        {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-5 space-y-4">
-          {messages.length === 0 && (
-            <div className="flex flex-col items-center justify-center h-full text-center space-y-5">
-              <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-amber-400/20 to-orange-500/20 border border-amber-400/20 flex items-center justify-center">
-                <svg className="h-8 w-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455-2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-                </svg>
+          {/* Messages */}
+          <div className="flex-1 overflow-y-auto p-5 space-y-4">
+            {messages.length === 0 && (
+              <div className="flex flex-col items-center justify-center h-full text-center space-y-5">
+                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-amber-400/20 to-orange-500/20 border border-amber-400/20 flex items-center justify-center">
+                  <svg className="h-8 w-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455-2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-base font-medium text-white/80 mb-1">Ask me anything about Chirag</p>
+                  <p className="text-sm text-white/40">Skills, projects, experience, movies, music, and more.</p>
+                </div>
+                <div className="flex flex-wrap justify-center gap-2 max-w-sm">
+                  {SUGGESTED.map((s) => (
+                    <button
+                      key={s}
+                      onClick={() => handleSend(s)}
+                      className="px-3 py-2 text-xs rounded-xl bg-white/5 border border-white/5 text-white/50 hover:text-amber-400 hover:border-amber-400/30 hover:bg-amber-400/5 transition-all"
+                    >
+                      {s}
+                    </button>
+                  ))}
+                </div>
               </div>
-              <div>
-                <p className="text-base font-medium text-white/80 mb-1">Ask me anything about Chirag</p>
-                <p className="text-sm text-white/40">Skills, projects, experience, movies, music, and more.</p>
+            )}
+
+            {messages.map((msg, i) => (
+              <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div className="max-w-[80%]">
+                  {msg.role === 'user' ? (
+                    <div className="px-4 py-3 rounded-2xl text-sm leading-relaxed bg-gradient-to-br from-amber-500 to-orange-500 text-white rounded-br-md">
+                      {msg.content}
+                    </div>
+                  ) : (
+                    <div className="space-y-2">
+                      {/* Step indicators */}
+                      {msg.steps && msg.steps.length > 0 && (
+                        <div className="px-3 py-2 rounded-xl bg-white/[0.02] border border-white/5">
+                          <StepIndicator steps={msg.steps} streaming={msg.streaming || false} />
+                        </div>
+                      )}
+
+                      {/* Response content */}
+                      {msg.content && (
+                        <div className={`px-4 py-3 rounded-2xl text-sm leading-relaxed bg-white/5 border border-white/5 text-white/80 rounded-bl-md ${msg.streaming ? 'border-amber-400/20' : ''}`}>
+                          <div dangerouslySetInnerHTML={{ __html: renderMd(msg.content) }} />
+                          {msg.streaming && (
+                            <span className="inline-block w-2 h-4 bg-amber-400/60 animate-pulse ml-1 align-middle" />
+                          )}
+                        </div>
+                      )}
+
+                      {/* Metadata */}
+                      {!msg.streaming && msg.model && msg.model !== 'error' && (
+                        <div className="flex items-center gap-2 px-1 flex-wrap">
+                          <span className="text-[10px] text-white/20">{msg.model}</span>
+                          {msg.tier && <span className="text-[9px] px-1.5 py-0.5 rounded bg-white/5 text-white/15">{msg.tier}</span>}
+                          {msg.toolsUsed && msg.toolsUsed.length > 0 && (
+                            <span className="text-[9px] px-1.5 py-0.5 rounded bg-amber-400/10 text-amber-400/40">
+                              {msg.toolsUsed.length} tool{msg.toolsUsed.length > 1 ? 's' : ''}
+                            </span>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
-              <div className="flex flex-wrap justify-center gap-2 max-w-sm">
-                {SUGGESTED.map((s) => (
-                  <button
-                    key={s}
-                    onClick={() => handleSend(s)}
-                    className="px-3 py-2 text-xs rounded-xl bg-white/5 border border-white/5 text-white/50 hover:text-amber-400 hover:border-amber-400/30 hover:bg-amber-400/5 transition-all"
-                  >
-                    {s}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
+            ))}
 
-          {messages.map((msg, i) => (
-            <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-              <div className="max-w-[80%]">
-                {msg.role === 'user' ? (
-                  <div className="px-4 py-3 rounded-2xl text-sm leading-relaxed bg-gradient-to-br from-amber-500 to-orange-500 text-white rounded-br-md">
-                    {msg.content}
-                  </div>
-                ) : (
-                  <div className="space-y-2">
-                    {/* Step indicators */}
-                    {msg.steps && msg.steps.length > 0 && (
-                      <div className="px-3 py-2 rounded-xl bg-white/[0.02] border border-white/5">
-                        <StepIndicator steps={msg.steps} streaming={msg.streaming || false} />
-                      </div>
-                    )}
-
-                    {/* Response content */}
-                    {msg.content && (
-                      <div className={`px-4 py-3 rounded-2xl text-sm leading-relaxed bg-white/5 border border-white/5 text-white/80 rounded-bl-md ${msg.streaming ? 'border-amber-400/20' : ''}`}>
-                        <div dangerouslySetInnerHTML={{ __html: renderMd(msg.content) }} />
-                        {msg.streaming && (
-                          <span className="inline-block w-2 h-4 bg-amber-400/60 animate-pulse ml-1 align-middle" />
-                        )}
-                      </div>
-                    )}
-
-                    {/* Metadata */}
-                    {!msg.streaming && msg.model && msg.model !== 'error' && (
-                      <div className="flex items-center gap-2 px-1 flex-wrap">
-                        <span className="text-[10px] text-white/20">{msg.model}</span>
-                        {msg.tier && <span className="text-[9px] px-1.5 py-0.5 rounded bg-white/5 text-white/15">{msg.tier}</span>}
-                        {msg.toolsUsed && msg.toolsUsed.length > 0 && (
-                          <span className="text-[9px] px-1.5 py-0.5 rounded bg-amber-400/10 text-amber-400/40">
-                            {msg.toolsUsed.length} tool{msg.toolsUsed.length > 1 ? 's' : ''}
-                          </span>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-
-          <div ref={endRef} />
-        </div>
-
-        {/* Input */}
-        <form onSubmit={handleSubmit} className="p-4 border-t border-white/10 flex-shrink-0">
-          <div className="flex gap-3">
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask about Chirag..."
-              className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-amber-400/40 focus:ring-1 focus:ring-amber-400/20 transition-all"
-              disabled={loading}
-              autoFocus
-            />
-            <button
-              type="submit"
-              disabled={loading || !input.trim()}
-              className="px-4 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 disabled:opacity-40 disabled:cursor-not-allowed text-white shadow-lg shadow-amber-500/20 transition-all"
-            >
-              {loading ? (
-                <svg className="h-5 w-5 animate-spin" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                </svg>
-              ) : (
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
-              )}
-            </button>
+            <div ref={endRef} />
           </div>
-        </form>
+
+          {/* Input */}
+          <form onSubmit={handleSubmit} className="p-4 border-t border-white/10 flex-shrink-0">
+            <div className="flex gap-3">
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Ask about Chirag..."
+                className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-amber-400/40 focus:ring-1 focus:ring-amber-400/20 transition-all"
+                disabled={loading}
+                autoFocus
+              />
+              <button
+                type="submit"
+                disabled={loading || !input.trim()}
+                className="px-4 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 disabled:opacity-40 disabled:cursor-not-allowed text-white shadow-lg shadow-amber-500/20 transition-all"
+              >
+                {loading ? (
+                  <svg className="h-5 w-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  </svg>
+                ) : (
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                )}
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
   );
 }
 

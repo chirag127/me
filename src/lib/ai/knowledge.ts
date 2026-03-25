@@ -34,3 +34,17 @@ export const projectsContext = `
 
 8. OmniPublish — Content Orchestration Engine. Built with Python, Microservices, Node.js. API Gateway unifying 17+ external platforms.
 `.trim();
+
+export const codebaseContext = `
+Tech Stack: Astro 4.x (Static/SSR Hybrid), TypeScript, Tailwind CSS, Biome.js.
+Architecture: Mobile-first responsive design, islands architecture (React).
+Backend: Firebase Firestore (DB), Puter.js (AI/Cloud services), Cloudflare Workers.
+AI Features: Advanced RAG agent, intent classification, memory/history, multi-model support.
+Key Directories:
+- src/lib/ai: Core agentic engine (agent, tool registry, classifier, store)
+- src/components/islands: Interactive React components (Chat UI, Dashboard)
+- src/store: Global state management using Zustand
+- src/layouts: Base HTML structures and SEO meta tags
+- src/pages: Routing and static/dynamic content
+- public: Static assets (icons, images, PDFs)
+`.trim();

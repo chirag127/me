@@ -264,8 +264,14 @@ export async function getMediaData(categoryId: string): Promise<any> {
     const docRef = doc(db, 'media', categoryId);
     const snap = await getDoc(docRef);
     if (snap.exists()) {
-      return snap.data();
+      const data = snap.data();
+      console.log(`[Firestore] Loaded media/${categoryId}:`, {
+        updatedAt: data?.updatedAt,
+        hasData: !!data,
+      });
+      return data;
     }
+    console.warn(`[Firestore] No data found for media/${categoryId}`);
     return null;
   } catch (err) {
     console.error(`[Firestore] Failed to read media/${categoryId}:`, err);
@@ -279,7 +285,7 @@ export async function getAllMediaOverview(): Promise<Record<string, any>> {
   const db = await getFirebaseDb();
   const categories = ['movies', 'books', 'music', 'anime', 'games', 'coding', 'social'];
   const results: Record<string, any> = {};
-  
+
   for (const cat of categories) {
     try {
       const snap = await getDoc(doc(db, 'media', cat));

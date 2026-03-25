@@ -1,4 +1,6 @@
 ---
+import AuthWidget from './islands/AuthWidget';
+
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
@@ -52,6 +54,13 @@ function isActive(path: string): boolean {
 
       <!-- Right side -->
       <div class="flex items-center gap-3">
+        <!-- Auth Widget (Desktop) -->
+        <div class="hidden md:block">
+          <AuthWidget client:load />
+        </div>
+
+        <div class="h-4 w-px bg-[var(--color-border)] mx-1 hidden md:block"></div>
+
         <!-- Command Palette Trigger -->
         <button
           id="cmd-trigger"
@@ -82,20 +91,25 @@ function isActive(path: string): boolean {
 
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] bg-[var(--color-surface)]/95 backdrop-blur-xl">
-    <div class="px-4 py-3 space-y-1">
-      {navLinks.map((link) => (
-        <a
-          href={link.path}
-          class:list={[
-            "flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
-            isActive(link.path)
-              ? "text-amber-400 bg-amber-400/10"
-              : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-white/5"
-          ]}
-        >
-          {link.name}
-        </a>
-      ))}
+    <div class="px-4 py-3 space-y-4">
+      <div class="space-y-1">
+        {navLinks.map((link) => (
+          <a
+            href={link.path}
+            class:list={[
+              "flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
+              isActive(link.path)
+                ? "text-amber-400 bg-amber-400/10"
+                : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-white/5"
+            ]}
+          >
+            {link.name}
+          </a>
+        ))}
+      </div>
+      <div class="pt-2 border-t border-[var(--color-border)]">
+        <AuthWidget client:load />
+      </div>
     </div>
   </div>
 </nav>

@@ -5,7 +5,7 @@
  * a comprehensive system prompt for the LLM.
  */
 
-import { resumeContext, skillsContext, projectsContext } from './knowledge';
+import { resumeContext, skillsContext, projectsContext, codebaseContext } from './knowledge';
 import type { PersonalityMode } from './types';
 
 // ─── Site Map ────────────────────────────────────────────────────────
@@ -61,7 +61,10 @@ ${resumeContext}
 ${skillsContext}
 
 ## Projects
-${projectsContext}`);
+${projectsContext}
+
+## Website Codebase & Tech Stack
+${codebaseContext}`);
 
   // Live data from Firestore tools
   if (toolData) {

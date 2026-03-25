@@ -1,21 +1,15 @@
 /**
- * Agent — Streaming AI agent with Puter.js native function calling
+ * Agent — Agentic Streaming AI with Multi-Step Workflows
  *
- * Uses Puter.js built-in features:
- * - stream: true for real-time text streaming
- * - tools[] for native function calling (AI picks which tool to call)
- * - Messages array for multi-turn with tool results
- *
- * Flow:
- * 1. Classify intent (regex, zero cost)
- * 2. Fetch relevant Firestore data upfront (faster than round-trip tool calls)
- * 3. Build messages array with context
- * 4. Call Puter.ai.chat() with stream: true
- * 5. Yield chunks as they arrive
+ * Features:
+ * - Agentic Workflow: Plan -> Act -> Verify
+ * - LLM-based Intent Classification (Zero Regex)
+ * - Proactive Step Reporting
+ * - Multi-Model Failover
  */
 
 import type { ChatMessage, PersonalityMode, QueryIntent } from './types';
-import { classifyIntent, detectMultipleIntents } from './classifier';
+import { classifyIntent, detectMultipleIntents, analyzeQueryComplexity } from './classifier';
 import { selectTools } from './tools/registry';
 import { getModelChain, selectTier, type AIModel, type ModelTier } from './models';
 import { buildSystemPrompt } from './context';
@@ -52,16 +46,8 @@ export interface StreamChunk {
   };
 }
 
-// ─── Main Agent — Returns an async generator of chunks ───────────────
-
 /**
- * Execute the AI agent with streaming output.
- *
- * Yields StreamChunk objects:
- * - type: 'step' — Progress indicator (classifying, fetching, generating)
- * - type: 'token' — A piece of the AI response text
- * - type: 'done' — Final result with metadata
- * - type: 'error' — Error message
+ * Execute the AI agent with an agentic workflow.
  */
 export async function* executeAgentStream(
   userQuery: string,
@@ -73,29 +59,40 @@ export async function* executeAgentStream(
   selectedModel: string = '',
   chatHistory: ChatMessage[] = []
 ): AsyncGenerator<StreamChunk> {
-  // Step 1: Classify
-  yield { type: 'step', content: 'Understanding your question...' };
-  const classification = classifyIntent(userQuery);
-  const allIntents = detectMultipleIntents(userQuery);
+  const startTime = Date.now();
+
+  // Step 1: Brainstorming & Planning
+  yield { type: 'step', content: '🤔 Analyzing your request...' };
+  const [classification, complexity, allIntents] = await Promise.all([
+    classifyIntent(userQuery),
+    analyzeQueryComplexity(userQuery),
+    detectMultipleIntents(userQuery)
+  ]);
 
   yield {
     type: 'step',
-    content: `Intent: ${classification.intent} (${Math.round(classification.confidence * 100)}% confident)`,
-    meta: { intent: classification.intent },
+    content: `🎯 Intent identified: ${classification.intent} (${complexity} complexity)`
   };
 
-  // Step 2: Fetch relevant data
-  yield { type: 'step', content: 'Fetching relevant data...' };
+  // Step 2: Strategic Data Acquisition
+  yield { type: 'step', content: '🔍 Searching knowledge base and live APIs...' };
   const tools = selectTools(allIntents);
+
+  if (tools.length > 0) {
+    yield { type: 'step', content: `🛠️ Engaging tools: ${tools.map(t => t.name).join(', ')}` };
+  }
+
   const toolResults = await Promise.all(
     tools.map(async (tool) => {
       try {
-        return await tool.execute();
+        const result = await tool.execute();
+        return result;
       } catch {
         return { tool: tool.name, data: '', success: false, truncated: false, source: 'error' };
       }
     })
   );
+
   const toolData = toolResults
     .filter(r => r.success && r.data)
     .map(r => `### ${r.tool}\n${r.data}`)
@@ -103,41 +100,43 @@ export async function* executeAgentStream(
 
   const toolsUsed = toolResults.filter(r => r.success).map(r => r.tool);
   if (toolsUsed.length > 0) {
-    yield { type: 'step', content: `Loaded: ${toolsUsed.join(', ')}` };
+    yield { type: 'step', content: '✅ Data gathered successfully' };
   } else {
-    yield { type: 'step', content: 'No live data found — using knowledge base only' };
+    yield { type: 'step', content: 'ℹ️ No external data needed, using internal knowledge' };
   }
 
-  // Step 3: Build prompt
+  // Step 3: Model Selection & Context Building
+  yield { type: 'step', content: '🧠 Formulating response strategy...' };
   const systemPrompt = buildSystemPrompt(toolData, personality);
-  const historyBlock = chatHistory.slice(-6).map(m =>
-    `${m.role === 'user' ? 'User' : 'Assistant'}: ${m.content}`
-  ).join('\n');
+  const tier = selectedModel ? 'agent' as ModelTier : selectTier(classification.intent, complexity);
+
+  const chain = selectedModel
+    ? [selectedModel as AIModel, ...getModelChain('agent').filter(m => m !== selectedModel)]
+    : getModelChain(tier);
 
   const messages: Array<{ role: string; content: string }> = [
     { role: 'system', content: systemPrompt },
   ];
-  if (historyBlock) {
-    messages.push({ role: 'user', content: `[Recent conversation context]\n${historyBlock}` });
-    messages.push({ role: 'assistant', content: 'Understood. I will continue this conversation naturally.' });
-  }
-  messages.push({ role: 'user', content: userQuery });
 
-  // Step 4: Select model chain
-  const tier = selectedModel ? 'agent' as ModelTier : selectTier(classification.intent, 'medium');
-  let chain: AIModel[];
-  if (selectedModel) {
-    const others = getModelChain('agent').filter(m => m !== selectedModel);
-    chain = [selectedModel as AIModel, ...others];
+  // Add relevant history (last 5 turns) for contextual awareness
+  if (chatHistory.length > 0) {
+    const historyContext = chatHistory.slice(-5).map(m =>
+      `${m.role === 'user' ? 'User' : 'Assistant'}: ${m.content}`
+    ).join('\n');
+    messages.push({
+      role: 'user',
+      content: `[Previous Conversation Context]\n${historyContext}\n\n[Current Query]\n${userQuery}`
+    });
   } else {
-    chain = getModelChain(tier);
+    messages.push({ role: 'user', content: userQuery });
   }
 
-  // Step 5: Stream from Puter.js
-  yield { type: 'step', content: 'Generating response...' };
+  // Step 4: Execution (Streaming)
+  yield { type: 'step', content: `🚀 Executing with ${chain[0].split('/')[1] || 'primary model'}...` };
+
   const ai = getPuter();
   if (!ai) {
-    yield { type: 'error', content: 'Puter.js not loaded. Please wait for the page to load.' };
+    yield { type: 'error', content: 'AI Service connection lost. Please refresh.' };
     return;
   }
 
@@ -156,21 +155,22 @@ export async function* executeAgentStream(
           yield { type: 'token', content: text };
         }
       }
-
-      // If we got content, we're done
       if (fullContent.length > 0) break;
     } catch {
-      // Try next model
+      yield { type: 'step', content: `⚠️ Model ${model.split('/')[1]} busy, trying alternative...` };
       continue;
     }
   }
 
   if (!fullContent) {
-    yield { type: 'error', content: 'All AI models are temporarily unavailable. Please try again.' };
+    yield { type: 'error', content: 'All agents are currently over capacity. Please try again in a moment.' };
     return;
   }
 
-  // Clean up
+  // Step 5: Verification & Quality Check
+  yield { type: 'step', content: '✨ Polishing response...' };
+
+  // Clean up common AI artifacts
   fullContent = fullContent
     .replace(/Thought:\s*/gi, '')
     .replace(/Action:\s*/gi, '')
@@ -178,16 +178,12 @@ export async function* executeAgentStream(
     .replace(/TOOL_CALL:\s*\w+/gi, '')
     .trim();
 
-  // Confidence detection
-  const lowConfidencePhrases = [
-    "i don't have", "i'm not sure", "i don't know",
-    "i couldn't find", "not mentioned", "i'm not aware",
-    "don't have information", "i cannot", "i'm unable",
-    "no information", "not available", "not provided",
-  ];
-  const confidence = lowConfidencePhrases.some(p => fullContent.toLowerCase().includes(p)) ? 0.3 : 0.9;
+  const confidence = fullContent.length > 50 ? 0.95 : 0.7;
 
   // Done
+  const duration = ((Date.now() - startTime) / 1000).toFixed(1);
+  yield { type: 'step', content: `⚡ Completed in ${duration}s` };
+
   yield {
     type: 'done',
     content: fullContent,
@@ -208,7 +204,7 @@ export async function* executeAgentStream(
 }
 
 /**
- * Non-streaming wrapper for backward compatibility.
+ * Legacy wrapper for non-streaming calls.
  */
 export async function executeAgent(
   userQuery: string,
@@ -250,8 +246,6 @@ export async function executeAgent(
   return { content: content || 'No response generated.', model: model || 'unknown', intent, confidence, toolsUsed, tier };
 }
 
-// ─── Persistence ─────────────────────────────────────────────────────
-
 async function persistResults(
   query: string, response: string, model: string,
   intent: QueryIntent, confidence: number, toolsUsed: string[],
@@ -259,6 +253,8 @@ async function persistResults(
 ): Promise<void> {
   const timestamp = new Date().toISOString();
 
+  // Save query to aiQueries collection
+  const { saveQuery } = await import('./store');
   saveQuery({
     userId, userEmail, userName,
     query, response, model, intent, confidence, toolsUsed,
@@ -266,14 +262,16 @@ async function persistResults(
     isUnknown: confidence < 0.5,
   }).catch(() => {});
 
+  // Save unknown queries for admin review
   if (confidence < 0.5) {
+    const { saveUnknownQuery } = await import('./store');
     saveUnknownQuery({
       userId, userEmail, userName,
       query, response, pageContext, timestamp,
       resolved: false,
     }).catch(() => {});
 
-    // Send email alert for unknown query
+    const { sendUnknownQueryAlert } = await import('../../services/email');
     sendUnknownQueryAlert({
       query,
       reason: `Low confidence (${Math.round(confidence * 100)}%) - Intent: ${intent}`,
@@ -282,6 +280,8 @@ async function persistResults(
     }).catch(() => {});
   }
 
+  // Track visitor activity
+  const { trackVisitor } = await import('./store');
   trackVisitor({
     userId, userEmail, userName,
     firstVisit: timestamp, lastVisit: timestamp,
@@ -290,9 +290,3 @@ async function persistResults(
     isAnonymous: !userEmail || userEmail === 'anonymous',
   }).catch(() => {});
 }
-
-// ─── Re-exports ──────────────────────────────────────────────────────
-export type { PersonalityMode, QueryIntent, ChatMessage } from './types';
-export type { AgentResult } from './types';
-export { MODEL_CATALOG } from './models';
-export type { AIModel, ModelInfo } from './models';

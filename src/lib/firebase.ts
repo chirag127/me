@@ -65,11 +65,11 @@ export async function getFirebaseDb() {
 
 // Auth functions
 export async function signInWithGoogle(): Promise<User | null> {
-  const { GoogleAuthProvider, signInWithRedirect, getRedirectResult } = await import('firebase/auth');
+  const { GoogleAuthProvider, signInWithPopup, getRedirectResult } = await import('firebase/auth');
   const auth = await getFirebaseAuth();
   const provider = new GoogleAuthProvider();
   
-  // Check if we're returning from a redirect
+  // Check if we're returning from a redirect (legacy support)
   try {
     const result = await getRedirectResult(auth);
     if (result) return result.user;
@@ -77,9 +77,17 @@ export async function signInWithGoogle(): Promise<User | null> {
     console.error('Redirect result error:', e?.code, e?.message);
   }
   
-  // Start redirect
-  await signInWithRedirect(auth, provider);
-  return null; // Will redirect, so won't reach here
+  // Use popup for better UX and reliability
+  try {
+    const result = await signInWithPopup(auth, provider);
+    return result.user;
+  } catch (e: any) {
+    console.error('Popup sign-in error:', e?.code, e?.message);
+    // Fallback to redirect if popup is blocked or fails
+    const { signInWithRedirect } = await import('firebase/auth');
+    await signInWithRedirect(auth, provider);
+  }
+  return null;
 }
 
 export async function handleGoogleRedirect(): Promise<User | null> {
