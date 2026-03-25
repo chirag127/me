@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+import ChatWidget from '../../components/islands/ChatWidget';
+import AIChat from '../../components/islands/AIChat';
+---
+
+<Layout title="Changelog" description="Version history of Chirag Singhal">
+  <Navbar />
+  <CommandPalette />
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
+    <a href="/system" class="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white/60 mb-8 transition-colors">← Back to System Drive</a>
+    <h1 class="text-4xl font-bold text-white mb-2">Changelog</h1>
+    <p class="text-white/40 mb-12">Version history and updates</p>
+    <div class="space-y-8">
+      <div class="glass p-8 border-l-4 border-[var(--color-primary)]">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="px-3 py-1 text-xs font-bold rounded-full bg-[var(--color-primary)]/20 text-[var(--color-primary)]">v1.0.0</span>
+          <span class="text-xs text-white/30">March 2026</span>
+        </div>
+        <h2 class="text-lg font-semibold text-white mb-3">Initial Release</h2>
+        <ul class="space-y-2 text-sm text-white/50">
+          <li>✨ ME Drive — Dashboard, Story, Philosophy, Journal, Interests, Gear, Finance</li>
+          <li>💼 WORK Drive — Career timeline, Skills, Projects, Education, Certifications</li>
+          <li>💻 CODE Drive — GitHub analytics, Repository explorer, LeetCode stats</li>
+          <li>📚 LIBRARY Drive — Movies, Anime, Books, Music, Videos</li>
+          <li>🎮 GAMING Drive — Chess (Lichess), Game tracking (Backloggd), Speedruns</li>
+          <li>🌐 CONNECT Drive — Social profiles, Contact info</li>
+          <li>⚙️ SYSTEM Drive — Theme switcher, Changelog, Admin panel</li>
+          <li>🔐 Firebase Authentication — Google sign-in, Email/Password</li>
+          <li>💬 Chat widget with Firestore storage</li>
+          <li>🔍 Command palette (Cmd+K) for global search</li>
+          <li>🎨 Dark mode with glassmorphism design system</li>
+          <li>📱 Fully responsive mobile design</li>
+          <li>☁️ Cloudflare Pages deployment</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+  <Footer />
+  <AIChat client:load />
+  <ChatWidget client:load />
+</Layout>

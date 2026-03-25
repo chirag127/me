@@ -1,0 +1,133 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+import ChatWidget from '../../components/islands/ChatWidget';
+import AIChat from '../../components/islands/AIChat';
+import StatsCounter from '../../components/islands/StatsCounter';
+import { fetchLichessUser, fetchSpeedRunUser } from '../../lib/api';
+import CONFIG from '../../lib/config';
+
+const [lichessUser, speedrunUser] = await Promise.all([
+  fetchLichessUser(),
+  fetchSpeedRunUser(),
+]);
+
+const totalGames = lichessUser?.count?.all || 0;
+const wins = lichessUser?.count?.win || 0;
+const draws = lichessUser?.count?.draw || 0;
+const losses = lichessUser?.count?.loss || 0;
+const winRate = totalGames > 0 ? ((wins / totalGames) * 100).toFixed(1) : '0';
+
+// Chess ratings with colors
+const ratings = [
+  lichessUser?.perfs?.bullet ? { name: 'Bullet', rating: lichessUser.perfs.bullet.rating, games: lichessUser.perfs.bullet.games, color: 'text-red-400', bg: 'bg-red-400/10', border: 'border-red-400/20' } : null,
+  lichessUser?.perfs?.blitz ? { name: 'Blitz', rating: lichessUser.perfs.blitz.rating, games: lichessUser.perfs.blitz.games, color: 'text-amber-400', bg: 'bg-amber-400/10', border: 'border-amber-400/20' } : null,
+  lichessUser?.perfs?.rapid ? { name: 'Rapid', rating: lichessUser.perfs.rapid.rating, games: lichessUser.perfs.rapid.games, color: 'text-emerald-400', bg: 'bg-emerald-400/10', border: 'border-emerald-400/20' } : null,
+  lichessUser?.perfs?.classical ? { name: 'Classical', rating: lichessUser.perfs.classical.rating, games: lichessUser.perfs.classical.games, color: 'text-[var(--color-accent-violet)]', bg: 'bg-[var(--color-accent-violet)]/10', border: 'border-[var(--color-accent-violet)]/20' } : null,
+].filter(Boolean);
+
+const chessPlatforms = [
+  { name: 'Lichess', handle: `@${CONFIG.user.lichess}`, description: 'Free, open-source chess server. Bullet, blitz, and rapid rated games.', icon: '♟️' },
+  { name: 'Backloggd', handle: `@${CONFIG.user.backloggd}`, description: 'Video game tracking, reviews, and backlog management. Rate and catalog your entire library.', icon: '🎮' },
+  { name: 'Speedrun.com', handle: `@${CONFIG.user.speedrun}`, description: speedrunUser ? `Speedrunner from ${speedrunUser.data?.location?.country?.names?.international || 'Unknown'}. Submit runs and compete on leaderboards.` : 'Speedrun records and leaderboard submissions.', icon: '⚡' },
+];
+---
+
+<Layout title="Gaming Drive" description="Chess ratings, game tracking, and speedrun records — Chirag Singhal">
+  <Navbar />
+  <CommandPalette />
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 relative">
+    <div class="absolute top-0 right-0 w-72 h-72 bg-violet-500/6 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- Header -->
+    <div class="mb-12 relative">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-white/40 mb-6">
+        <span class="h-1.5 w-1.5 rounded-full bg-[var(--color-accent-violet)]"></span>
+        GAMING Drive
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-3" style="font-family: 'Outfit', sans-serif;">Gaming Stats</h1>
+      <p class="text-lg text-white/40 max-w-2xl">Chess ratings, game tracking, and speedrun records — all fetched live.</p>
+    </div>
+
+    <!-- Chess Ratings -->
+    {lichessUser?.username && (
+      <div class="glass-strong p-8 mb-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center">
+            <span class="text-2xl">♟️</span>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-white">Lichess Chess Ratings</h2>
+            <p class="text-xs text-white/40">@{lichessUser.username}</p>
+          </div>
+        </div>
+
+        <!-- Rating Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          {ratings.map((r) => (
+            <div class={`p-5 rounded-xl ${r!.bg} border ${r!.border} text-center`}>
+              <div class={`text-3xl font-bold ${r!.color}`}>{r!.rating}</div>
+              <div class="text-sm text-white/60 font-medium mt-1">{r!.name}</div>
+              <div class="text-xs text-white/30 mt-0.5">{r!.games} games played</div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Win/Loss/Draw Record -->
+        <div class="border-t border-[var(--color-border)] pt-6">
+          <h3 class="text-sm font-medium text-white/60 mb-4">Overall Record</h3>
+          <div class="grid grid-cols-3 gap-6 mb-4">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-emerald-400">{wins}</div>
+              <div class="text-xs text-white/40">Wins</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-bold text-white/50">{draws}</div>
+              <div class="text-xs text-white/40">Draws</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-bold text-red-400">{losses}</div>
+              <div class="text-xs text-white/40">Losses</div>
+            </div>
+          </div>
+          <!-- Win rate bar -->
+          <div class="flex items-center gap-3">
+            <span class="text-xs text-white/30 w-16">{winRate}% win rate</span>
+            <div class="flex-1 h-3 rounded-full overflow-hidden bg-white/5 flex">
+              <div class="h-full bg-emerald-400/80" style={`width: ${(wins/totalGames)*100}%`}></div>
+              <div class="h-full bg-white/10" style={`width: ${(draws/totalGames)*100}%`}></div>
+              <div class="h-full bg-red-400/60" style={`width: ${(losses/totalGames)*100}%`}></div>
+            </div>
+          </div>
+          <div class="text-xs text-white/25 mt-2">{totalGames} total games played</div>
+        </div>
+      </div>
+    )}
+
+    <!-- Gaming Stats Counter Row -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+      <div class="glass p-6 text-center"><StatsCounter client:visible value={totalGames} label="Chess Games" icon="♟️" /></div>
+      <div class="glass p-6 text-center"><StatsCounter client:visible value={wins} label="Wins" icon="🏆" /></div>
+      <div class="glass p-6 text-center"><StatsCounter client:visible value={ratings.length} label="Time Controls" icon="⏱️" /></div>
+      <div class="glass p-6 text-center"><StatsCounter client:visible value={chessPlatforms.length} label="Platforms" icon="🎮" /></div>
+    </div>
+
+    <!-- Gaming Platforms -->
+    <h2 class="text-xl font-bold text-white mb-6">Gaming Platforms</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {chessPlatforms.map((p) => (
+        <div class="glass p-6">
+          <span class="text-3xl mb-4 block">{p.icon}</span>
+          <h3 class="text-lg font-semibold text-white mb-1">{p.name}</h3>
+          <p class="text-sm text-[var(--color-primary)] mb-2">{p.handle}</p>
+          <p class="text-xs text-white/40 leading-relaxed">{p.description}</p>
+        </div>
+      ))}
+    </div>
+  </main>
+  <Footer />
+  <AIChat client:load />
+  <ChatWidget client:load />
+</Layout>

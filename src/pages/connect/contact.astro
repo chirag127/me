@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+import ChatWidget from '../../components/islands/ChatWidget';
+import AIChat from '../../components/islands/AIChat';
+---
+
+<Layout title="Contact" description="Contact Chirag Singhal">
+  <Navbar />
+  <CommandPalette />
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
+    <a href="/connect" class="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white/60 mb-8 transition-colors">← Back to Connect Drive</a>
+    <h1 class="text-4xl font-bold text-white mb-2">Contact</h1>
+    <p class="text-white/40 mb-12">Get in touch directly</p>
+    <div class="glass p-8">
+      <div class="space-y-6">
+        <div>
+          <label class="text-sm font-medium text-white/60 mb-2 block">Email</label>
+          <a href="mailto:hi@chirag127.in" class="text-lg text-[var(--color-primary)] hover:underline">hi@chirag127.in</a>
+        </div>
+        <div>
+          <label class="text-sm font-medium text-white/60 mb-2 block">Phone</label>
+          <a href="tel:+917428449707" class="text-lg text-white/80 hover:text-white transition-colors">+91 74284-49707</a>
+        </div>
+        <div>
+          <label class="text-sm font-medium text-white/60 mb-2 block">Location</label>
+          <p class="text-lg text-white/80">Bhubaneswar, Odisha, India</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+  <AIChat client:load />
+  <ChatWidget client:load />
+</Layout>

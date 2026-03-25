@@ -1,0 +1,114 @@
+---
+---
+
+<div
+  id="command-palette"
+  class="hidden fixed inset-0 z-[100] flex items-start justify-center pt-[15vh]"
+>
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="this.parentElement.classList.add('hidden')"></div>
+
+  <!-- Palette -->
+  <div class="relative w-full max-w-2xl mx-4 glass-strong rounded-2xl shadow-2xl overflow-hidden animate-slide-up">
+    <!-- Search Input -->
+    <div class="flex items-center gap-3 px-5 py-4 border-b border-[var(--color-border)]">
+      <svg class="h-5 w-5 text-[var(--color-text-muted)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+      <input
+        type="text"
+        id="command-input"
+        placeholder="Search Chirag's site..."
+        class="flex-1 bg-transparent text-[var(--color-text-primary)] text-lg outline-none placeholder:text-[var(--color-text-muted)]"
+        autocomplete="off"
+      />
+      <kbd class="hidden sm:inline-flex items-center rounded border border-[var(--color-border)] px-2 py-0.5 text-xs font-mono text-[var(--color-text-muted)]">
+        ESC
+      </kbd>
+    </div>
+
+    <!-- Results -->
+    <div id="command-results" class="max-h-[50vh] overflow-y-auto p-2">
+      <div class="px-3 py-2">
+        <p class="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wider">Pages</p>
+      </div>
+      <a href="/" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors group">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-400/10 text-amber-400">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-[var(--color-text-primary)]">Home</p>
+          <p class="text-xs text-[var(--color-text-muted)]">Chirag's homepage</p>
+        </div>
+      </a>
+      <a href="/work" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors group">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-[var(--color-text-primary)]">Chirag's Work</p>
+          <p class="text-xs text-[var(--color-text-muted)]">Career, experience, education</p>
+        </div>
+      </a>
+      <a href="/code" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors group">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-[var(--color-text-primary)]">Chirag's Code</p>
+          <p class="text-xs text-[var(--color-text-muted)]">GitHub repos, LeetCode, stats</p>
+        </div>
+      </a>
+      <a href="/library" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors group">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-rose-500/10 text-rose-500">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-[var(--color-text-primary)]">Chirag's Library</p>
+          <p class="text-xs text-[var(--color-text-muted)]">Movies, anime, books, music</p>
+        </div>
+      </a>
+      <a href="/gaming" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors group">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-500/10 text-violet-500">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-[var(--color-text-primary)]">Chirag's Gaming</p>
+          <p class="text-xs text-[var(--color-text-muted)]">Games, chess, speedruns</p>
+        </div>
+      </a>
+      <a href="/connect" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors group">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-500">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-[var(--color-text-primary)]">Connect with Chirag</p>
+          <p class="text-xs text-[var(--color-text-muted)]">Social profiles, contact, guestbook</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  const input = document.getElementById('command-input');
+  const results = document.getElementById('command-results');
+
+  if (input && results) {
+    input.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      const links = results.querySelectorAll('a');
+      links.forEach((link) => {
+        const text = link.textContent.toLowerCase();
+        link.style.display = text.includes(query) ? 'flex' : 'none';
+      });
+    });
+
+    const observer = new MutationObserver(() => {
+      if (!document.getElementById('command-palette')?.classList.contains('hidden')) {
+        input.focus();
+      }
+    });
+    observer.observe(document.getElementById('command-palette'), { attributes: true, attributeFilter: ['class'] });
+  }
+</script>

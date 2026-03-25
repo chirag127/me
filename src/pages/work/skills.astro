@@ -1,0 +1,84 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+import ChatWidget from '../../components/islands/ChatWidget';
+import AIChat from '../../components/islands/AIChat';
+import { skills } from '../../data/resume';
+
+const totalSkills = skills.reduce((sum, s) => sum + s.items.length, 0);
+---
+
+<Layout title="Skills" description="Technical skills of Chirag Singhal — filterable by category">
+  <Navbar />
+  <CommandPalette />
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
+    <a href="/work" class="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white/60 mb-8 transition-colors">← Back to Work Drive</a>
+
+    <div class="mb-10">
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-3" style="font-family: 'Outfit', sans-serif;">Skills</h1>
+      <p class="text-lg text-white/40">{totalSkills} skills across {skills.length} domains — click a category to filter</p>
+    </div>
+
+    <div id="skill-filters" class="flex flex-wrap gap-2 mb-8">
+      <button class="skill-filter active px-4 py-2 text-sm rounded-lg bg-[var(--color-primary)] text-[#0a0a0f] font-semibold transition-all" data-category="all">All ({totalSkills})</button>
+      {skills.map((s) => (
+        <button class="skill-filter px-4 py-2 text-sm rounded-lg bg-white/5 text-white/60 hover:bg-white/10 hover:text-white/80 border border-white/5 transition-all" data-category={s.category}>{s.category} ({s.items.length})</button>
+      ))}
+    </div>
+
+    <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {skills.map((category) => (
+        <div class="skill-card glass p-6" data-category={category.category}>
+          <h3 class="text-sm font-semibold text-[var(--color-primary)] mb-4 uppercase tracking-wider">{category.category}</h3>
+          <div class="flex flex-wrap gap-2">
+            {category.items.map((skill) => (
+              <span class="px-3 py-1.5 text-xs rounded-lg bg-white/5 text-white/70 border border-white/5 hover:border-[var(--color-primary)]/20 hover:text-white/90 transition-all cursor-default">{skill}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Skill Distribution -->
+    <div class="glass p-8 mt-12">
+      <h2 class="text-lg font-bold text-white mb-4">Skill Distribution</h2>
+      <div class="space-y-3">
+        {skills.map((s) => {
+          const pct = Math.round((s.items.length / totalSkills) * 100);
+          return (
+            <div>
+              <div class="flex items-center justify-between text-sm mb-1">
+                <span class="text-white/60">{s.category}</span>
+                <span class="text-white/40">{s.items.length} skills</span>
+              </div>
+              <div class="h-2 rounded-full bg-white/5 overflow-hidden">
+                <div class="h-full rounded-full bg-gradient-to-r from-amber-500 to-orange-400 transition-all" style={`width: ${pct}%`}></div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </main>
+  <Footer />
+  <AIChat client:load />
+  <ChatWidget client:load />
+  <script is:inline>
+    document.querySelectorAll('.skill-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.category;
+        document.querySelectorAll('.skill-filter').forEach(b => {
+          b.classList.remove('bg-[var(--color-primary)]', 'text-[#0a0a0f]', 'font-semibold');
+          b.classList.add('bg-white/5', 'text-white/60');
+        });
+        btn.classList.add('bg-[var(--color-primary)]', 'text-[#0a0a0f]', 'font-semibold');
+        btn.classList.remove('bg-white/5', 'text-white/60');
+        document.querySelectorAll('.skill-card').forEach(card => {
+          card.style.display = (cat === 'all' || card.dataset.category === cat) ? 'block' : 'none';
+        });
+      });
+    });
+  </script>
+</Layout>

@@ -1,0 +1,96 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { title, description = "Chirag Singhal — Software Engineer, building things that matter.", ogImage } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, 'https://chiragsinghal.com');
+import GlobalChatButton from '../components/islands/GlobalChatButton';
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={`Chirag Singhal — ${title}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`Chirag Singhal — ${title}`} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Puter.js for AI features -->
+    <script src="https://js.puter.com/v2/" is:inline></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Chirag Singhal",
+      url: "https://chiragsinghal.com",
+      email: "hi@chirag127.in",
+      jobTitle: "Software Engineer",
+      worksFor: {
+        "@type": "Organization",
+        name: "Tata Consultancy Services",
+      },
+      sameAs: [
+        "https://github.com/chirag127",
+        "https://linkedin.com/in/chirag127",
+        "https://dev.to/chirag127",
+        "https://bsky.app/profile/chirag127.bsky.social",
+      ],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Bhubaneswar",
+        addressRegion: "Odisha",
+        addressCountry: "India",
+      },
+    })} />
+
+    <title>Chirag Singhal — {title}</title>
+
+    <!-- Theme script - prevents flash -->
+    <script is:inline>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.classList.remove('light', 'dark');
+        document.documentElement.classList.add(theme);
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen bg-[var(--color-surface)] text-[var(--color-text-primary)] antialiased">
+    <div id="app" class="flex min-h-screen flex-col">
+      <slot />
+    </div>
+    <GlobalChatButton client:load />
+  </body>
+</html>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

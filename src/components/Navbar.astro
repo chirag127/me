@@ -1,0 +1,116 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "Work", path: "/work" },
+  { name: "Code", path: "/code" },
+  { name: "Library", path: "/library" },
+  { name: "Gaming", path: "/gaming" },
+  { name: "Connect", path: "/connect" },
+];
+
+function isActive(path: string): boolean {
+  if (path === '/') return currentPath === '/';
+  return currentPath.startsWith(path + '/');
+}
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur-xl">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 text-white font-bold text-sm transition-transform group-hover:scale-110" style="font-family: 'Outfit', sans-serif;">
+          CS
+        </div>
+        <span class="text-lg font-bold tracking-tight text-[var(--color-text-primary)]" style="font-family: 'Outfit', sans-serif;">
+          Chirag Singhal
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-1">
+        {navLinks.map((link) => (
+          <a
+            href={link.path}
+            class:list={[
+              "relative px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200",
+              isActive(link.path)
+                ? "text-amber-400 bg-amber-400/10"
+                : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-white/5"
+            ]}
+          >
+            {link.name}
+            {isActive(link.path) && (
+              <span class="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-6 rounded-full bg-amber-400" />
+            )}
+          </a>
+        ))}
+      </div>
+
+      <!-- Right side -->
+      <div class="flex items-center gap-3">
+        <!-- Command Palette Trigger -->
+        <button
+          id="cmd-trigger"
+          class="flex items-center gap-2 px-3 py-1.5 text-sm text-[var(--color-text-muted)] rounded-lg border border-[var(--color-border)] hover:border-[var(--color-border-active)] hover:text-[var(--color-text-secondary)] transition-all"
+          onclick="document.getElementById('command-palette')?.classList.remove('hidden')"
+        >
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <kbd class="hidden sm:inline-flex items-center gap-1 rounded border border-[var(--color-border)] px-1.5 py-0.5 text-xs font-mono">
+            <span class="text-xs">⌘</span>K
+          </kbd>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-btn"
+          class="md:hidden flex items-center justify-center h-9 w-9 rounded-lg border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+          onclick="document.getElementById('mobile-menu')?.classList.toggle('hidden')"
+        >
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] bg-[var(--color-surface)]/95 backdrop-blur-xl">
+    <div class="px-4 py-3 space-y-1">
+      {navLinks.map((link) => (
+        <a
+          href={link.path}
+          class:list={[
+            "flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
+            isActive(link.path)
+              ? "text-amber-400 bg-amber-400/10"
+              : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-white/5"
+          ]}
+        >
+          {link.name}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<!-- Spacer for fixed nav -->
+<div class="h-16"></div>
+
+<script is:inline>
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      document.getElementById('command-palette')?.classList.toggle('hidden');
+    }
+    if (e.key === 'Escape') {
+      document.getElementById('command-palette')?.classList.add('hidden');
+      document.getElementById('mobile-menu')?.classList.add('hidden');
+    }
+  });
+</script>

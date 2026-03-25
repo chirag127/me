@@ -1,0 +1,213 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+import ChatWidget from '../../components/islands/ChatWidget';
+import AIChat from '../../components/islands/AIChat';
+import { summary, education, experience } from '../../data/resume';
+---
+
+<Layout title="My Story" description="The journey of Chirag Singhal — from Ghaziabad to building distributed systems">
+  <Navbar />
+  <CommandPalette />
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 relative">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-violet-500/4 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <a href="/me" class="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] mb-8 transition-colors group">
+      <svg class="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+      ME Drive
+    </a>
+
+    <!-- Header -->
+    <div class="mb-12 relative">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-white/40 mb-6">
+        <span class="h-1.5 w-1.5 rounded-full bg-violet-400"></span>
+        ME / Story
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gradient mb-3" style="font-family: 'Outfit', sans-serif;">My Story</h1>
+      <p class="text-[var(--color-text-secondary)] text-lg max-w-2xl">From a curious kid in Ghaziabad to building systems that serve millions. Every line of code is a step in the journey.</p>
+    </div>
+
+    <!-- Summary Card -->
+    <div class="glass-strong p-8 mb-16 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-48 h-48 bg-emerald-500/5 rounded-full blur-[80px] pointer-events-none"></div>
+      <div class="relative">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
+          <span class="text-xs font-medium text-emerald-400 uppercase tracking-widest">Currently</span>
+        </div>
+        <p class="text-[var(--color-text-secondary)] leading-relaxed text-[15px]">
+          {summary}
+        </p>
+      </div>
+    </div>
+
+    <!-- Narrative Intro -->
+    <div class="mb-16">
+      <p class="text-[15px] text-white/50 leading-relaxed mb-4">
+        I was born in 2002 in Ghaziabad, a city in the National Capital Region of India. Growing up surrounded by the buzz of NCR, I was that kid who dismantled every gadget in the house — not to break them, but to understand how they worked. Remote controls, old phones, even the family desktop. My parents weren't always thrilled, but that curiosity became the foundation of everything.
+      </p>
+      <p class="text-[15px] text-white/50 leading-relaxed mb-4">
+        By the time I reached high school, I knew I wanted to build things with code. The two years of JEE preparation were grueling, but they taught me discipline, pattern recognition, and how to solve hard problems under pressure. When the results came in — AIR 11870 in JEE Advanced, 97% in CBSE boards — it felt like the first chapter closing and a new one beginning.
+      </p>
+      <p class="text-[15px] text-white/50 leading-relaxed">
+        College at AKTU was where everything clicked. I didn't just attend classes — I devoured every resource on distributed systems, databases, and software architecture I could find. I topped my batch (Rank 1), won coding competitions, and spent late nights building projects that went beyond the curriculum. By the time I graduated, I already had two years of professional development experience under my belt.
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <h2 class="section-heading text-xl font-bold text-white mb-10">The Timeline</h2>
+    <div class="relative pl-8 border-l border-[var(--color-border)] space-y-0">
+
+      <!-- Ghaziabad Origins -->
+      <div class="mb-14 relative">
+        <div class="absolute -left-[2.55rem] h-4 w-4 rounded-full bg-rose-400 border-4 border-[var(--color-surface)]"></div>
+        <div class="glass p-6 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-rose-500/5 rounded-full blur-[60px] pointer-events-none"></div>
+          <div class="relative">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xs font-semibold text-rose-400 bg-rose-400/10 px-2.5 py-0.5 rounded-full">2002</span>
+              <span class="text-xs text-white/30">Ghaziabad, UP</span>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Born in Ghaziabad</h3>
+            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">Grew up in the NCR region — a place where ambition is in the air. Early fascination with computers meant dismantling gadgets before understanding how to use them. Every broken remote control was a lesson in reverse engineering. The curiosity that started everything.</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="tag">NCR Region</span>
+              <span class="tag">Curious Kid</span>
+              <span class="tag">Gadget Hacker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JEE Advanced -->
+      <div class="mb-14 relative">
+        <div class="absolute -left-[2.55rem] h-4 w-4 rounded-full bg-amber-400 border-4 border-[var(--color-surface)]"></div>
+        <div class="glass p-6 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-[60px] pointer-events-none"></div>
+          <div class="relative">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xs font-semibold text-amber-400 bg-amber-400/10 px-2.5 py-0.5 rounded-full">2020</span>
+              <span class="text-xs text-white/30">DDPS, Sanjay Nagar</span>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">JEE Advanced — AIR 11870</h3>
+            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed mb-3">Two years of relentless preparation culminated in All India Rank 11870 in JEE Advanced — top 1% of all candidates who appeared. Scored 97% in Class 12th CBSE boards, topping the school. It wasn't just about the rank; it was about learning how to stay calm when the stakes are high and how to break complex problems into solvable pieces.</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="tag">AIR 11870</span>
+              <span class="tag">97% CBSE</span>
+              <span class="tag">School Topper</span>
+              <span class="tag">Top 1%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AKTU B.Tech -->
+      <div class="mb-14 relative">
+        <div class="absolute -left-[2.55rem] h-4 w-4 rounded-full bg-sky-400 border-4 border-[var(--color-surface)]"></div>
+        <div class="glass p-6 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-sky-500/5 rounded-full blur-[60px] pointer-events-none"></div>
+          <div class="relative">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xs font-semibold text-sky-400 bg-sky-400/10 px-2.5 py-0.5 rounded-full">2020 — 2024</span>
+              <span class="text-xs text-white/30">Lucknow, India</span>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">B.Tech CSE — AKTU</h3>
+            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed mb-3">Pursued Computer Science and Engineering at Dr. A.P.J. Abdul Kalam Technical University. Graduated as <strong class="text-white/70">College Topper (Rank 1)</strong> with a CGPA of 8.81. This is where theory met practice — learned distributed systems, databases, and built the foundations that power everything I do today. Won Rank 1 in the college coding competition in 2022.</p>
+            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">Late nights in the computer lab, debugging code that refused to work until 3 AM, competing in hackathons, and discovering that the best way to learn something is to build it. College wasn't just about grades — it was about becoming an engineer.</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="tag">CGPA 8.81</span>
+              <span class="tag">Rank 1</span>
+              <span class="tag">Coding Champion</span>
+              <span class="tag">Distributed Systems</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QRsay -->
+      <div class="mb-14 relative">
+        <div class="absolute -left-[2.55rem] h-4 w-4 rounded-full bg-emerald-400 border-4 border-[var(--color-surface)]"></div>
+        <div class="glass p-6 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-[60px] pointer-events-none"></div>
+          <div class="relative">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xs font-semibold text-emerald-400 bg-emerald-400/10 px-2.5 py-0.5 rounded-full">Jul 2023 — May 2025</span>
+              <span class="text-xs text-white/30">Remote, India</span>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Full Stack Developer — QRsay.com</h3>
+            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed mb-3">First real-world engineering role. Managed the full software life cycle for a high-traffic food e-commerce platform. Achieved <strong class="text-white/70">40% reduction in API response times</strong>. Built real-time order processing with Kafka. Integrated payment gateways.</p>
+            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">This is where I learned that writing code is only 30% of the job — the rest is architecture, communication, and debugging at 2 AM when production is on fire. Working remotely taught me discipline, async communication, and how to ship features that users actually need.</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="tag">Python</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Kafka</span>
+              <span class="tag">React</span>
+              <span class="tag">E-Commerce</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TCS -->
+      <div class="mb-14 relative">
+        <div class="absolute -left-[2.55rem] h-4 w-4 rounded-full bg-amber-500 border-4 border-[var(--color-surface)]"></div>
+        <div class="glass p-6 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-[60px] pointer-events-none"></div>
+          <div class="relative">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xs font-semibold text-amber-500 bg-amber-500/10 px-2.5 py-0.5 rounded-full">Jun 2025 — Present</span>
+              <span class="text-xs text-white/30">Bhubaneswar, India</span>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Software Engineer — TCS</h3>
+            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed mb-3">Working on enterprise-scale pricing engines, modular data validation pipelines, and automated CI/CD workflows. Reduced processing latency by <strong class="text-white/70">60%</strong> using Python optimization. Refactoring legacy monoliths into maintainable, object-oriented modules.</p>
+            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">The enterprise world is a different beast. Here, it's not just about writing code that works — it's about writing code that works at scale, that's secure, that can be maintained by teams of engineers who will come after you. Learning the enterprise side of software engineering — scale, governance, and the art of not breaking production.</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="tag">Python</span>
+              <span class="tag">React</span>
+              <span class="tag">CI/CD</span>
+              <span class="tag">Enterprise</span>
+              <span class="tag">Performance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Now — Chirag Singhal -->
+      <div class="relative">
+        <div class="absolute -left-[2.55rem] h-4 w-4 rounded-full bg-violet-400 border-4 border-[var(--color-surface)] animate-pulse"></div>
+        <div class="glass-strong p-6 border-violet-400/30 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-violet-500/8 rounded-full blur-[60px] pointer-events-none"></div>
+          <div class="relative">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xs font-semibold text-violet-400 bg-violet-400/10 px-2.5 py-0.5 rounded-full">Now</span>
+              <span class="text-xs text-white/30">Bhubaneswar / Everywhere</span>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Building Chirag Singhal</h3>
+            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed mb-3">This digital identity operating system. A real-time personal data engine that pulls from GitHub, Lichess, Last.fm, AniList, Letterboxd, and more. 100% client-side. ₹0 cost. Every line of code open.</p>
+            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">Because your digital identity should belong to you — not a corporation. This project represents everything I believe in: open source, privacy-first, and the idea that the best software is the kind that empowers individuals.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing Narrative -->
+    <div class="mt-16 glass-strong p-8 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-48 h-48 bg-violet-500/5 rounded-full blur-[80px] pointer-events-none"></div>
+      <div class="relative">
+        <h2 class="text-lg font-bold text-white mb-4">What's Next?</h2>
+        <p class="text-sm text-[var(--color-text-muted)] leading-relaxed mb-3">
+          I'm 23 now, and the journey is just getting started. Every project I build, every system I design, every bug I fix at 2 AM — it all compounds. I believe in building in public, shipping fast, and learning from failure. The goal isn't to be the smartest person in the room; it's to be the most relentless learner.
+        </p>
+        <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
+          If you're reading this and you're building something interesting — reach out. I'm always looking for collaborators, mentors, and fellow builders who believe that code can change the world. One commit at a time.
+        </p>
+      </div>
+    </div>
+  </main>
+  <Footer />
+  <AIChat client:load />
+  <ChatWidget client:load />
+</Layout>

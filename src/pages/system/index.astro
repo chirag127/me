@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+import ChatWidget from '../../components/islands/ChatWidget';
+import AIChat from '../../components/islands/AIChat';
+import ThemeSwitcher from '../../components/islands/ThemeSwitcher';
+---
+
+<Layout title="System Drive" description="Settings, changelog, and system configuration">
+  <Navbar />
+  <CommandPalette />
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-white mb-2">SYSTEM Drive</h1>
+      <p class="text-white/40">Settings, changelog, and configuration</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="glass p-6">
+        <h2 class="text-lg font-semibold text-white mb-4">Theme</h2>
+        <ThemeSwitcher client:load />
+      </div>
+      <a href="/system/changelog" class="card group">
+        <div class="h-12 w-12 rounded-xl bg-[var(--color-accent-cyan)]/10 flex items-center justify-center mb-4"><svg class="h-6 w-6 text-[var(--color-accent-cyan)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg></div>
+        <h2 class="text-xl font-semibold text-white group-hover:text-[var(--color-accent-cyan)] transition-colors mb-2">Changelog</h2>
+        <p class="text-sm text-white/40">Version history and updates</p>
+      </a>
+      <a href="/system/admin" class="card group">
+        <div class="h-12 w-12 rounded-xl bg-[var(--color-accent-amber)]/10 flex items-center justify-center mb-4"><svg class="h-6 w-6 text-[var(--color-accent-amber)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg></div>
+        <h2 class="text-xl font-semibold text-white group-hover:text-[var(--color-accent-amber)] transition-colors mb-2">Admin Panel</h2>
+        <p class="text-sm text-white/40">Chat history management (admin only)</p>
+      </a>
+    </div>
+  </main>
+  <Footer />
+  <AIChat client:load />
+  <ChatWidget client:load />
+</Layout>

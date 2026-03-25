@@ -1,0 +1,163 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+import ChatWidget from '../../components/islands/ChatWidget';
+import AIChat from '../../components/islands/AIChat';
+
+const categories = [
+  {
+    title: 'Movies & TV',
+    href: '/library/movies',
+    icon: '🎬',
+    accent: 'var(--color-accent-sage)',
+    accentBg: 'rgba(110, 231, 183, 0.08)',
+    description: 'Films and shows I\'ve watched, rated, and queued',
+    stats: { watched: 14, watching: 2, queued: 6 },
+    topItems: ['Interstellar', 'The Shawshank Redemption', 'Inception'],
+    tags: ['Sci-Fi', 'Drama', 'Thriller'],
+  },
+  {
+    title: 'Anime',
+    href: '/library/anime',
+    icon: '🌸',
+    accent: 'var(--color-accent-sky)',
+    accentBg: 'rgba(56, 189, 248, 0.08)',
+    description: 'Anime from AniList — watching, completed, and rated',
+    stats: { watched: 10, watching: 2, score: '8.8' },
+    topItems: ['Fullmetal Alchemist', 'Attack on Titan', 'Steins;Gate'],
+    tags: ['Action', 'Sci-Fi', 'Romance'],
+  },
+  {
+    title: 'Books',
+    href: '/library/books',
+    icon: '📚',
+    accent: 'var(--color-primary)',
+    accentBg: 'var(--color-primary-faint)',
+    description: 'Reading diary — programming, sci-fi, and non-fiction',
+    stats: { read: 10, reading: 2, queued: 5 },
+    topItems: ['Project Hail Mary', 'The Pragmatic Programmer', 'Clean Code'],
+    tags: ['Programming', 'Sci-Fi', 'Non-Fiction'],
+  },
+  {
+    title: 'Music',
+    href: '/library/music',
+    icon: '🎵',
+    accent: 'var(--color-accent-rose)',
+    accentBg: 'rgba(251, 113, 133, 0.08)',
+    description: 'Top artists, genres, and listening habits',
+    stats: { artists: 16, genres: 12, plays: '3,643' },
+    topItems: ['The Weeknd', 'Ludovico Einaudi', 'Arijit Singh'],
+    tags: ['R&B', 'Indie Pop', 'Bollywood'],
+  },
+  {
+    title: 'Videos',
+    href: '/library/videos',
+    icon: '▶️',
+    accent: 'var(--color-accent-warm)',
+    accentBg: 'rgba(249, 115, 22, 0.08)',
+    description: 'YouTube content and recommendations',
+    stats: {},
+    topItems: [],
+    tags: ['Tech', 'Science', 'Vlogs'],
+  },
+];
+---
+
+<Layout title="Library Drive" description="Movies, anime, books, music, videos — all media tracked and displayed inline">
+  <Navbar />
+  <CommandPalette />
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="h-10 w-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center">
+          <span class="text-xl">📂</span>
+        </div>
+        <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Library Drive</h1>
+      </div>
+      <p class="text-[var(--color-text-secondary)] max-w-xl">
+        Everything I watch, read, and listen to — displayed inline as a personal data dashboard. No external links.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {categories.map((cat, i) => (
+        <a
+          href={cat.href}
+          class="glass-strong group relative overflow-hidden p-6"
+          style={`animation-delay: ${i * 80}ms`}
+        >
+          <div class="absolute top-0 right-0 w-40 h-40 rounded-full blur-3xl opacity-[0.04] transition-opacity group-hover:opacity-[0.08]" style={`background: ${cat.accent}`}></div>
+
+          <div class="relative z-10">
+            <!-- Header -->
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="h-11 w-11 rounded-xl flex items-center justify-center" style={`background: ${cat.accentBg}`}>
+                  <span class="text-xl">{cat.icon}</span>
+                </div>
+                <div>
+                  <h2 class="text-lg font-semibold text-white transition-colors" style={`--hover-color: ${cat.accent}`}>
+                    {cat.title}
+                  </h2>
+                  <p class="text-xs text-[var(--color-text-muted)]">{cat.description}</p>
+                </div>
+              </div>
+              <svg class="h-5 w-5 text-white/20 group-hover:text-white/50 transition-all group-hover:translate-x-0.5 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+
+            <!-- Stats row -->
+            {Object.keys(cat.stats).length > 0 && (
+              <div class="flex items-center gap-4 mb-4">
+                {Object.entries(cat.stats).map(([key, val]) => (
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-base font-bold" style={`color: ${cat.accent}`}>{val}</span>
+                    <span class="text-[0.65rem] text-[var(--color-text-muted)] capitalize">{key}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <!-- Mini preview -->
+            {cat.topItems.length > 0 && (
+              <div class="flex items-center gap-2 mb-4">
+                {cat.topItems.map((item, j) => (
+                  <span class="text-[0.65rem] px-2 py-1 rounded-lg bg-white/[0.03] text-[var(--color-text-secondary)] truncate max-w-[120px]">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-1.5">
+              {cat.tags.map(tag => (
+                <span class="text-[0.6rem] px-2 py-0.5 rounded-full border" style={`color: ${cat.accent}; border-color: ${cat.accent}22; background: ${cat.accentBg}`}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="mt-16 glass-strong p-8 text-center">
+      <p class="text-sm text-[var(--color-text-muted)]">
+        All data is fetched at build time or displayed inline. No external profile links.
+      </p>
+    </div>
+  </main>
+  <Footer />
+  <AIChat client:load />
+  <ChatWidget client:load />
+</Layout>
+
+<style>
+  .glass-strong:hover h2 {
+    color: var(--hover-color);
+  }
+</style>

@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+---
+
+<Layout title="404" description="Page not found">
+  <Navbar />
+  <main class="min-h-[calc(100vh-8rem)] flex items-center justify-center">
+    <div class="text-center px-4">
+      <div class="text-8xl font-black text-gradient mb-4">404</div>
+      <h1 class="text-2xl font-bold text-white mb-2">Page Not Found</h1>
+      <p class="text-white/40 mb-8 max-w-md mx-auto">This drive doesn't exist in the system. Maybe it was moved or never created.</p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/" class="btn-primary px-6 py-3 rounded-xl">Return Home</a>
+        <a href="/me" class="btn-ghost px-6 py-3 rounded-xl">ME Drive</a>
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,175 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+import ChatWidget from '../../components/islands/ChatWidget';
+import AIChat from '../../components/islands/AIChat';
+
+interface Book {
+  title: string;
+  author: string;
+  genre: string;
+  rating: number;
+  emoji: string;
+  gradient: string;
+  category: 'reading' | 'read' | 'want-to-read';
+  progress?: number;
+}
+
+const books: Book[] = [
+  { title: 'Clean Code', author: 'Robert C. Martin', genre: 'Programming', rating: 9, emoji: '🧹', gradient: 'linear-gradient(135deg, #065f46, #047857)', category: 'read' },
+  { title: 'The Pragmatic Programmer', author: 'David Thomas & Andrew Hunt', genre: 'Programming', rating: 9.5, emoji: '🛠️', gradient: 'linear-gradient(135deg, #92400e, #b45309)', category: 'read' },
+  { title: 'Sapiens', author: 'Yuval Noah Harari', genre: 'Non-Fiction', rating: 8.5, emoji: '🧬', gradient: 'linear-gradient(135deg, #4a148c, #7b1fa2)', category: 'read' },
+  { title: 'Thinking, Fast and Slow', author: 'Daniel Kahneman', genre: 'Psychology', rating: 8.5, emoji: '🧠', gradient: 'linear-gradient(135deg, #1a237e, #283593)', category: 'read' },
+  { title: '1984', author: 'George Orwell', genre: 'Dystopian', rating: 9, emoji: '👁️', gradient: 'linear-gradient(135deg, #1a1a1a, #37474f)', category: 'read' },
+  { title: 'Project Hail Mary', author: 'Andy Weir', genre: 'Sci-Fi', rating: 9.5, emoji: '🚀', gradient: 'linear-gradient(135deg, #0c1445, #1565c0)', category: 'read' },
+  { title: 'The Psychology of Money', author: 'Morgan Housel', genre: 'Finance', rating: 8, emoji: '💰', gradient: 'linear-gradient(135deg, #1b5e20, #2e7d32)', category: 'read' },
+  { title: 'Educated', author: 'Tara Westover', genre: 'Memoir', rating: 8, emoji: '🎓', gradient: 'linear-gradient(135deg, #4e342e, #6d4c41)', category: 'read' },
+  { title: 'Dune', author: 'Frank Herbert', genre: 'Sci-Fi', rating: 9, emoji: '🪱', gradient: 'linear-gradient(135deg, #795548, #a1887f)', category: 'read' },
+  { title: 'Designing Data-Intensive Applications', author: 'Martin Kleppmann', genre: 'Programming', rating: 9, emoji: '⚙️', gradient: 'linear-gradient(135deg, #0d47a1, #1565c0)', category: 'read' },
+  { title: 'Atomic Habits', author: 'James Clear', genre: 'Self-Help', rating: 8.5, emoji: '⚛️', gradient: 'linear-gradient(135deg, #e65100, #f57c00)', category: 'reading', progress: 72 },
+  { title: 'Deep Work', author: 'Cal Newport', genre: 'Productivity', rating: 8.5, emoji: '🎯', gradient: 'linear-gradient(135deg, #311b92, #4527a0)', category: 'reading', progress: 45 },
+  { title: 'A Brief History of Time', author: 'Stephen Hawking', genre: 'Science', rating: 0, emoji: '⏳', gradient: 'linear-gradient(135deg, #1a1a2e, #16213e)', category: 'want-to-read' },
+  { title: 'The Design of Everyday Things', author: 'Don Norman', genre: 'Design', rating: 0, emoji: '✏️', gradient: 'linear-gradient(135deg, #bf360c, #d84315)', category: 'want-to-read' },
+  { title: 'The Lean Startup', author: 'Eric Ries', genre: 'Business', rating: 0, emoji: '📈', gradient: 'linear-gradient(135deg, #00695c, #00897b)', category: 'want-to-read' },
+  { title: 'Klara and the Sun', author: 'Kazuo Ishiguro', genre: 'Literary Fiction', rating: 0, emoji: '☀️', gradient: 'linear-gradient(135deg, #f57f17, #fbc02d)', category: 'want-to-read' },
+  { title: 'Neuromancer', author: 'William Gibson', genre: 'Cyberpunk', rating: 0, emoji: '🔌', gradient: 'linear-gradient(135deg, #006064, #00838f)', category: 'want-to-read' },
+  { title: 'The Alchemist', author: 'Paulo Coelho', genre: 'Fiction', rating: 7.5, emoji: '✨', gradient: 'linear-gradient(135deg, #f9a825, #fdd835)', category: 'read' },
+];
+
+const currentlyReading = books.filter(b => b.category === 'reading');
+const read = books.filter(b => b.category === 'read');
+const wantToRead = books.filter(b => b.category === 'want-to-read');
+
+const genreCounts: Record<string, number> = {};
+read.forEach(b => { genreCounts[b.genre] = (genreCounts[b.genre] || 0) + 1; });
+const topGenre = Object.entries(genreCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || '—';
+
+const authorCounts: Record<string, number> = {};
+read.forEach(b => { authorCounts[b.author] = (authorCounts[b.author] || 0) + 1; });
+
+const avgRating = (read.reduce((s, b) => s + b.rating, 0) / read.length).toFixed(1);
+---
+
+<Layout title="Books" description="Chirag Singhal's reading list — currently reading, completed, and want-to-read">
+  <Navbar />
+  <CommandPalette />
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
+    <a href="/library" class="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] mb-8 transition-colors">
+      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+      Back to Library Drive
+    </a>
+
+    <div class="flex items-center gap-3 mb-2">
+      <div class="h-10 w-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center">
+        <span class="text-xl">📚</span>
+      </div>
+      <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Books</h1>
+    </div>
+    <p class="text-[var(--color-text-secondary)] mb-10">Reading diary — what I've read, what I'm reading, and what's next.</p>
+
+    <!-- Stats -->
+    <div class="glass-strong p-6 mb-12 flex flex-wrap gap-8">
+      <div>
+        <div class="text-2xl font-bold text-[var(--color-success)]">{read.length}</div>
+        <div class="text-xs text-[var(--color-text-muted)]">Read</div>
+      </div>
+      <div>
+        <div class="text-2xl font-bold text-[var(--color-primary)]">{currentlyReading.length}</div>
+        <div class="text-xs text-[var(--color-text-muted)]">Reading</div>
+      </div>
+      <div>
+        <div class="text-2xl font-bold text-[var(--color-accent-rose)]">{wantToRead.length}</div>
+        <div class="text-xs text-[var(--color-text-muted)]">Want to Read</div>
+      </div>
+      <div>
+        <div class="text-2xl font-bold text-[var(--color-accent-sky)]">{avgRating}</div>
+        <div class="text-xs text-[var(--color-text-muted)]">Avg Rating</div>
+      </div>
+      <div>
+        <div class="text-lg font-bold text-[var(--color-accent-violet)]">{topGenre}</div>
+        <div class="text-xs text-[var(--color-text-muted)]">Top Genre</div>
+      </div>
+    </div>
+
+    <!-- Currently Reading -->
+    <section class="mb-16">
+      <div class="flex items-center gap-3 mb-8">
+        <h2 class="section-heading text-xl font-semibold text-white">Currently Reading</h2>
+        <div class="dot-live" style="background: var(--color-primary); box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {currentlyReading.map((book, i) => (
+          <div class="glass-strong p-5 flex gap-5 items-center" style={`animation-delay: ${i * 80}ms`}>
+            <div class="h-24 w-20 rounded-xl flex items-center justify-center text-4xl shrink-0 relative overflow-hidden" style={`background: ${book.gradient}`}>
+              <div class="absolute inset-0 bg-black/10"></div>
+              <span class="relative z-10 drop-shadow-lg">{book.emoji}</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-base font-semibold text-white">{book.title}</h3>
+              <p class="text-xs text-[var(--color-text-muted)] mt-0.5">{book.author}</p>
+              <p class="text-[0.65rem] text-[var(--color-text-faint)] mt-0.5">{book.genre}</p>
+              <div class="mt-2 flex items-center gap-3">
+                <div class="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-[var(--color-primary)] rounded-full" style={`width: ${book.progress}%`}></div>
+                </div>
+                <span class="text-xs text-[var(--color-primary)] font-medium">{book.progress}%</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <div class="divider-warm mb-16"></div>
+
+    <!-- Read -->
+    <section class="mb-16">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="section-heading text-xl font-semibold text-white">Read</h2>
+        <span class="text-xs text-[var(--color-text-faint)]">{read.length} books</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+        {read.map((book, i) => (
+          <div class="card group cursor-default" style={`animation-delay: ${i * 50}ms`}>
+            <div class="aspect-[2/3] rounded-lg mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${book.gradient}`}>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <span class="relative z-10 drop-shadow-lg">{book.emoji}</span>
+              <div class="absolute top-1.5 right-1.5 z-10 bg-black/50 backdrop-blur-sm rounded-full px-1.5 py-0.5">
+                <span class="text-[0.6rem] font-semibold" style={`color: ${book.rating >= 9 ? 'var(--color-success)' : 'var(--color-primary)'}`}>{book.rating}</span>
+              </div>
+            </div>
+            <h3 class="text-xs font-semibold text-white truncate group-hover:text-[var(--color-success)] transition-colors">{book.title}</h3>
+            <p class="text-[0.65rem] text-[var(--color-text-faint)] truncate">{book.author}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <div class="divider-warm mb-16"></div>
+
+    <!-- Want to Read -->
+    <section class="mb-16">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="section-heading text-xl font-semibold text-white">Want to Read</h2>
+        <span class="text-xs text-[var(--color-text-faint)]">{wantToRead.length} queued</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        {wantToRead.map((book, i) => (
+          <div class="card group cursor-default" style={`animation-delay: ${i * 60}ms`}>
+            <div class="aspect-[2/3] rounded-lg mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${book.gradient}`}>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <span class="relative z-10 drop-shadow-lg">{book.emoji}</span>
+            </div>
+            <h3 class="text-xs font-semibold text-white truncate group-hover:text-[var(--color-accent-rose)] transition-colors">{book.title}</h3>
+            <p class="text-[0.65rem] text-[var(--color-text-faint)] truncate">{book.author}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <AIChat client:load />
+  <ChatWidget client:load />
+</Layout>
