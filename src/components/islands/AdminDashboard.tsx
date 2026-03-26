@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useAuthStore } from '../../lib/authStore';
 import {
   type ChatDocument,
   getAllMediaOverview,
@@ -12,16 +13,9 @@ import {
   type VisitorDocument,
 } from '../../lib/ai/store';
 import {
-  ADMIN_EMAIL,
-  getAuthInstance,
-  getOnAuthStateChanged,
   isAdminEmail,
-  signInWithGoogle,
-  signInWithPhone,
   initRecaptchaVerifier,
   clearRecaptcha,
-  signOut,
-  type User,
 } from '../../lib/firebase';
 
 type Tab = 'overview' | 'chats' | 'queries' | 'unknown' | 'visitors' | 'media';
@@ -108,12 +102,19 @@ function timeAgo(dateStr: string): string {
 }
 
 export default function AdminDashboard() {
-  const [user, setUser] = useState<User | null>(null);
-  const [puterUser, setPuterUser] = useState<{ username: string } | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [authorized, setAuthorized] = useState(false);
-  const [activeTab, setActiveTab] = useState<Tab>('overview');
+  const { 
+    user, 
+    puterUser, 
+    loading, 
+    isAuthorized,
+    isFullyConnected,
+    initialize, 
+    signInWithGoogle, 
+    signInWithPuter, 
+    signOut 
+  } = useAuthStore();
 
+  const [activeTab, setActiveTab] = useState<Tab>('overview');
   const [chats, setChats] = useState<ChatDocument[]>([]);
   const [queries, setQueries] = useState<QueryDocument[]>([]);
   const [unknownQueries, setUnknownQueries] = useState<UnknownQueryDocument[]>(
@@ -126,59 +127,11 @@ export default function AdminDashboard() {
   const [querySearch, setQuerySearch] = useState('');
 
   useEffect(() => {
-    let unsubscribe: (() => void) | undefined;
-    (async () => {
-      // Firebase Auth
-      const onAuthStateChanged = await getOnAuthStateChanged();
-      const auth = await getAuthInstance();
-      unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
-      });
-
-      // Puter.js Auth
-      const checkPuter = async () => {
-        const w = window as any;
-        if (w.puter?.auth) {
-          try {
-            if (w.puter.auth.isSignedIn()) {
-              const pUser = await w.puter.auth.getUser();
-              setPuterUser({ username: pUser.username });
-            }
-          } catch (e) {
-            console.error('Puter auth check error:', e);
-          }
-        }
-      };
-
-      let attempts = 0;
-      const interval = setInterval(() => {
-        if ((window as any).puter) {
-          checkPuter();
-          clearInterval(interval);
-        }
-        if (attempts++ > 10) {
-          clearInterval(interval);
-          setLoading(false);
-        }
-      }, 500);
-    })();
-    return () => {
-      if (unsubscribe) unsubscribe();
-    };
-  }, []);
+    initialize();
+  }, [initialize]);
 
   useEffect(() => {
-    if (loading) return;
-    // Require BOTH Firebase admin email AND Puter.js sign-in
-    if (isAdminEmail(user?.email) && puterUser) {
-      setAuthorized(true);
-    } else {
-      setAuthorized(false);
-    }
-  }, [user, puterUser, loading]);
-
-  useEffect(() => {
-    if (!authorized) return;
+    if (!isAuthorized) return;
     const unsubs: (() => void)[] = [];
 
     (async () => {
@@ -196,7 +149,7 @@ export default function AdminDashboard() {
     return () => {
       unsubs.forEach((u) => u());
     };
-  }, [authorized]);
+  }, [isAuthorized]);
 
   const handleResolve = useCallback(async (docId: string) => {
     const notes = prompt('Admin notes (optional):');
@@ -205,35 +158,22 @@ export default function AdminDashboard() {
 
   const handleSignIn = async () => {
     try {
-      setLoading(true);
-      // 1. Firebase Google Sign In
       await signInWithGoogle();
-      
-      // 2. Puter Sign In
-      const w = window as any;
-      if (w.puter?.auth) {
-        if (!w.puter.auth.isSignedIn()) {
-          await w.puter.auth.signIn();
-        }
-        const pUser = await w.puter.auth.getUser();
-        if (pUser) setPuterUser({ username: pUser.username });
-      }
     } catch (err) {
       console.error('Sign in failed:', err);
-    } finally {
-      if (typeof window !== 'undefined') setLoading(false);
+    }
+  };
+
+  const handlePuterSignIn = async () => {
+    try {
+      await signInWithPuter();
+    } catch (err) {
+      console.error('Puter sign in failed:', err);
     }
   };
 
   const handleSignOut = async () => {
     await signOut();
-    const w = window as any;
-    if (w.puter?.auth?.isSignedIn()) {
-      w.puter.auth.signOut();
-    }
-    setUser(null);
-    setPuterUser(null);
-    setAuthorized(false);
   };
 
   if (loading) {
@@ -247,85 +187,76 @@ export default function AdminDashboard() {
     );
   }
 
-  if (!user || !authorized) {
+  if (!isAuthorized) {
     const isFirebaseAdmin = isAdminEmail(user?.email);
-    const isPuterConnected = !!puterUser;
+    const hasPuter = !!puterUser;
 
     return (
-      <div className="flex items-center justify-center py-20 px-4">
-        <div className="w-full max-w-lg overflow-hidden rounded-3xl border border-white/10 bg-[#0a0a0f]/80 backdrop-blur-2xl shadow-2xl">
+      <div className="flex flex-col items-center justify-center py-20 px-4">
+        <div className="w-full max-w-md overflow-hidden rounded-3xl bg-[#0a0a0f]/80 backdrop-blur-2xl border border-white/5 shadow-2xl">
           <div className="relative h-32 bg-gradient-to-br from-indigo-600/20 to-cyan-500/20 flex items-center justify-center border-b border-white/5">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
-            <div className="h-16 w-16 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-2xl relative z-10">
-              <svg className="h-8 w-8 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
+            <div className="relative flex items-center gap-4">
+              <div className={`h-12 w-12 rounded-2xl flex items-center justify-center transition-all duration-500 ${user ? 'bg-indigo-500 shadow-[0_0_20px_rgba(99,102,241,0.4)]' : 'bg-white/5 border border-white/10 opacity-40'}`}>
+                <span className="text-xl font-bold text-white">G</span>
+              </div>
+              <div className="h-px w-8 bg-white/10" />
+              <div className={`h-12 w-12 rounded-2xl flex items-center justify-center transition-all duration-500 ${hasPuter ? 'bg-cyan-500 shadow-[0_0_20px_rgba(6,182,212,0.4)]' : 'bg-white/5 border border-white/10 opacity-40'}`}>
+                <span className="text-xl font-bold text-white">P</span>
+              </div>
             </div>
           </div>
 
           <div className="p-8 text-center">
-            <h2 className="text-2xl font-bold text-white mb-2">Dual Login Required</h2>
-            <p className="text-sm text-white/40 mb-8 max-w-xs mx-auto">
-              Access to this terminal requires both Google and Puter.js authentication.
+            <h2 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: 'Outfit, sans-serif' }}>
+              {isFullyConnected ? 'Unauthorized' : 'Terminal Access Restricted'}
+            </h2>
+            <p className="text-sm text-white/40 mb-8 max-w-[280px] mx-auto">
+              {isFullyConnected 
+                ? 'Your connections are established, but you do not have administrative privileges.' 
+                : 'Please initialize both security layers to access administrative functions.'}
             </p>
 
-            <div className="space-y-4 mb-8">
-              {/* Step 1: Google */}
-              <div className={`flex items-center justify-between p-4 rounded-2xl border transition-all ${isFirebaseAdmin ? 'bg-emerald-500/5 border-emerald-500/20' : 'bg-white/2 border-white/5'}`}>
-                <div className="flex items-center gap-4 text-left">
-                  <div className={`h-10 w-10 rounded-xl flex items-center justify-center ${isFirebaseAdmin ? 'bg-emerald-500/20' : 'bg-white/5'}`}>
-                   <svg className={`h-5 w-5 ${isFirebaseAdmin ? 'text-emerald-400' : 'text-white/20'}`} viewBox="0 0 24 24">
-                     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.08z" fill="currentColor" />
-                   </svg>
-                  </div>
-                  <div>
-                    <h4 className={`text-sm font-bold ${isFirebaseAdmin ? 'text-emerald-400' : 'text-white/60'}`}>Google Account</h4>
-                    <p className="text-[10px] text-white/30 uppercase tracking-widest">{isFirebaseAdmin ? user?.email : 'Requires Admin Email'}</p>
-                  </div>
+            <div className="space-y-3">
+              {!user ? (
+                <button
+                  onClick={handleSignIn}
+                  className="w-full py-4 px-6 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all shadow-lg shadow-indigo-500/20 flex items-center justify-center gap-3 active:scale-[0.98]"
+                >
+                  <span className="text-sm">Connect Admin Google</span>
+                </button>
+              ) : (
+                <div className={`w-full py-4 px-6 rounded-2xl border text-sm font-medium flex items-center justify-center gap-3 ${isFirebaseAdmin ? 'bg-indigo-500/10 border-indigo-500/30 text-indigo-400' : 'bg-red-500/10 border-red-500/30 text-red-400'}`}>
+                  <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  {isFirebaseAdmin ? 'Firebase Identity Verified' : `Unauthorized (${user.email})`}
                 </div>
-                {isFirebaseAdmin && (
-                  <div className="h-6 w-6 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                    <svg className="h-3.5 w-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                )}
-              </div>
+              )}
 
-              {/* Step 2: Puter */}
-              <div className={`flex items-center justify-between p-4 rounded-2xl border transition-all ${isPuterConnected ? 'bg-cyan-500/5 border-cyan-500/20' : 'bg-white/2 border-white/5'}`}>
-                <div className="flex items-center gap-4 text-left">
-                  <div className={`h-10 w-10 rounded-xl flex items-center justify-center ${isPuterConnected ? 'bg-cyan-500/20' : 'bg-white/5'}`}>
-                    <div className={`h-2.5 w-2.5 rounded-full ${isPuterConnected ? 'bg-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.8)]' : 'bg-white/10'}`} />
-                  </div>
-                  <div>
-                    <h4 className={`text-sm font-bold ${isPuterConnected ? 'text-cyan-400' : 'text-white/60'}`}>Puter.js Cloud</h4>
-                    <p className="text-[10px] text-white/30 uppercase tracking-widest">{isPuterConnected ? puterUser?.username : 'Cloud Connection Required'}</p>
-                  </div>
+              {!hasPuter ? (
+                <button
+                  onClick={handlePuterSignIn}
+                  className="w-full py-4 px-6 rounded-2xl bg-cyan-600 hover:bg-cyan-500 text-white font-semibold transition-all shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-3 active:scale-[0.98]"
+                >
+                  <span className="text-sm">Connect Puter Cloud</span>
+                </button>
+              ) : (
+                <div className="w-full py-4 px-6 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-medium flex items-center justify-center gap-3">
+                  <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  Puter Connection Established
                 </div>
-                {isPuterConnected && (
-                  <div className="h-6 w-6 rounded-full bg-cyan-500/20 flex items-center justify-center">
-                    <svg className="h-3.5 w-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                )}
-              </div>
+              )}
+              
+              {/* Removed the old unauthorized message block */}
+
+              {isFullyConnected && ( // Changed condition to show sign out when fully connected but unauthorized
+                <button 
+                  onClick={handleSignOut}
+                  className="mt-6 p-2 text-[10px] text-white/20 hover:text-white/40 transition-colors uppercase tracking-[0.2em] font-bold border-t border-white/5 w-full pt-4"
+                >
+                  Reset Sessions
+                </button>
+              )}
             </div>
-
-            <button
-              onClick={handleSignIn}
-              className="w-full py-4 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm tracking-widest uppercase shadow-xl shadow-indigo-600/20 transition-all border border-indigo-400/30 group relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-              Initialize Dual Session
-            </button>
-
-            {user && !isFirebaseAdmin && (
-              <p className="mt-4 text-xs text-red-500 font-medium">
-                Invalid Admin Identity: {user.email}
-              </p>
-            )}
           </div>
         </div>
       </div>

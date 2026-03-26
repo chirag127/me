@@ -1,15 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
+import { useAuthStore } from '../../lib/authStore';
 import {
   type ChatMessage,
-  getAuthInstance,
-  getOnAuthStateChanged,
   saveChatMessage,
   subscribeToChatMessages,
-  type User,
 } from '../../lib/firebase';
 
 export default function ChatWidget() {
-  const [user, setUser] = useState<User | null>(null);
+  const { user, initialize, signInWithGoogle } = useAuthStore();
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [isOpen, setIsOpen] = useState(false);
@@ -17,18 +15,8 @@ export default function ChatWidget() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let unsubscribe: (() => void) | undefined;
-    (async () => {
-      const onAuthStateChanged = await getOnAuthStateChanged();
-      const auth = await getAuthInstance();
-      unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
-      });
-    })();
-    return () => {
-      if (unsubscribe) unsubscribe();
-    };
-  }, []);
+    initialize();
+  }, [initialize]);
 
   useEffect(() => {
     let unsubscribe: (() => void) | undefined;
@@ -75,10 +63,7 @@ export default function ChatWidget() {
     return (
       <div className="fixed bottom-6 left-6 z-40">
         <button
-          onClick={async () => {
-            const { signInWithGoogle } = await import('../../lib/firebase');
-            await signInWithGoogle();
-          }}
+          onClick={signInWithGoogle}
           className="h-14 w-14 rounded-full bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white shadow-lg shadow-indigo-500/30 hover:scale-110 transition-transform"
           title="Sign in to chat"
         >

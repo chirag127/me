@@ -57,7 +57,7 @@ function isActive(path: string): boolean {
       <div class="flex items-center gap-3">
         <!-- Auth Widget (Desktop) -->
         <div class="hidden md:block">
-          <AuthWidget client:load />
+          <AuthWidget client:only="react" />
         </div>
 
         <div class="h-4 w-px bg-[var(--color-border)] mx-1 hidden md:block"></div>
@@ -109,7 +109,7 @@ function isActive(path: string): boolean {
         ))}
       </div>
       <div class="pt-2 border-t border-[var(--color-border)]">
-        <AuthWidget client:load />
+        <AuthWidget client:only="react" />
       </div>
     </div>
   </div>

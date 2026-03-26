@@ -23,6 +23,7 @@ import { executeAgentStream } from '../../lib/ai/agent';
 import { MODEL_CATALOG } from '../../lib/ai/models';
 import type { ChatMessage, PersonalityMode } from '../../lib/ai/types';
 import { useAIChatStore } from '../../store/useAIChatStore';
+import { useAuthStore } from '../../lib/authStore';
 
 // ─── Draggable Button ──────────────────────────────────────────────
 function DraggableButton({ onOpen }: { onOpen: () => void }) {
@@ -104,7 +105,7 @@ function DraggableButton({ onOpen }: { onOpen: () => void }) {
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455-2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455-2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"
+            d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455-2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455-2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"
           />
         </svg>
         <span className="text-sm uppercase tracking-widest bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent group-hover:from-white group-hover:to-white transition-all hidden sm:inline">
@@ -278,6 +279,46 @@ function StepIndicator({
   );
 }
 
+// ─── Intent Badge & Confidence Bar ─────────────────────────────────
+function IntentBadge({ intent }: { intent: string }) {
+  const colors: Record<string, string> = {
+    career: 'bg-sky-500/15 text-sky-400 border-sky-500/20',
+    coding: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/20',
+    projects: 'bg-violet-500/15 text-violet-400 border-violet-500/20',
+    skills: 'bg-amber-500/15 text-amber-400 border-amber-500/20',
+    movies: 'bg-rose-500/15 text-rose-400 border-rose-500/20',
+    music: 'bg-pink-500/15 text-pink-400 border-pink-500/20',
+    books: 'bg-orange-500/15 text-orange-400 border-orange-500/20',
+    anime: 'bg-fuchsia-500/15 text-fuchsia-400 border-fuchsia-500/20',
+    general: 'bg-white/10 text-white/50 border-white/10',
+    unknown: 'bg-red-500/15 text-red-400 border-red-500/20',
+  };
+  return (
+    <span
+      className={`inline-flex items-center px-2 py-0.5 text-[11px] font-medium rounded-md border ${colors[intent] || colors.general}`}
+    >
+      {intent}
+    </span>
+  );
+}
+
+function ConfidenceBar({ confidence }: { confidence: number }) {
+  const pct = Math.round(confidence * 100);
+  const color =
+    pct >= 70 ? 'bg-emerald-400' : pct >= 40 ? 'bg-amber-400' : 'bg-red-400';
+  return (
+    <div className="flex items-center gap-2 min-w-[60px]">
+      <div className="flex-1 h-1 rounded-full bg-white/5 overflow-hidden">
+        <div
+          className={`h-full rounded-full ${color}`}
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+      <span className="text-[9px] text-white/20">{pct}%</span>
+    </div>
+  );
+}
+
 // ─── Main Chat Panel ────────────────────────────────────────────────
 
 interface Message {
@@ -300,21 +341,6 @@ const SUGGESTED = [
   'Show his GitHub stats',
 ];
 
-const _MODE_OPTIONS = [
-  {
-    value: 'professional',
-    label: 'Professional',
-    sub: 'Concise, formal, data-driven',
-  },
-  { value: 'casual', label: 'Casual', sub: 'Friendly, warm, conversational' },
-  { value: 'witty', label: 'Witty', sub: 'Humorous, clever, entertaining' },
-  {
-    value: 'technical',
-    label: 'Technical',
-    sub: 'Detailed, code-heavy, precise',
-  },
-];
-
 interface ChatSession {
   id: string;
   title: string;
@@ -323,19 +349,21 @@ interface ChatSession {
 }
 
 function ChatPanel({ onClose }: { onClose: () => void }) {
+  const { 
+    user: firebaseUser, 
+    puterUser, 
+    initialize, 
+    signInWithGoogle, 
+    signInWithPuter, 
+    signOut 
+  } = useAuthStore();
+
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [selectedModel, setSelectedModel] = useState('');
   const [selectedMode, _setSelectedMode] =
     useState<PersonalityMode>('professional');
-  const [puterReady, setPuterReady] = useState(false);
-  const [puterUser, setPuterUser] = useState<{ username: string } | null>(null);
-  const [firebaseUser, setFirebaseUser] = useState<{
-    uid: string;
-    email: string;
-    displayName: string;
-  } | null>(null);
   const [showHistory, setShowHistory] = useState(false);
   const [chatHistory, setChatHistory] = useState<ChatSession[]>([]);
   const [signingIn, setSigningIn] = useState(false);
@@ -347,95 +375,15 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
 
   useEffect(() => {
     mountedRef.current = true;
+    initialize();
     return () => {
       mountedRef.current = false;
     };
-  }, []);
+  }, [initialize]);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, []);
-
-  // Check Puter.js readiness
-  useEffect(() => {
-    let cancelled = false;
-    const check = async () => {
-      const maxAttempts = 50; // Increased timeout for slower connections
-      for (let i = 0; i < maxAttempts; i++) {
-        if (cancelled) return;
-        const w = window as any;
-        if (w.puter?.ai) {
-          setPuterReady(true);
-          // Check for Puter auth
-          try {
-            if (w.puter.auth?.isSignedIn?.()) {
-              const user = await w.puter.auth.getUser();
-              if (user && mountedRef.current) {
-                setPuterUser({ username: user.username });
-                console.log('[ChatWrapper] Puter user:', user.username);
-              }
-            }
-          } catch (err) {
-            console.error('Puter auth check error:', err);
-          }
-          return;
-        }
-        await new Promise((r) => setTimeout(r, 200));
-      }
-      console.warn('Puter.js failed to load within 10 seconds.');
-    };
-    check();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  // Check Firebase auth
-  useEffect(() => {
-    let unsub: (() => void) | undefined;
-    (async () => {
-      try {
-        const { getOnAuthStateChanged, getAuthInstance, handleGoogleRedirect } =
-          await import('../../lib/firebase');
-
-        // Handle redirect sign-in first
-        const redirectUser = await handleGoogleRedirect();
-        if (redirectUser) {
-          console.log(
-            '[ChatWrapper] Redirect sign-in successful:',
-            redirectUser.email,
-          );
-        }
-
-        const onAuth = await getOnAuthStateChanged();
-        const auth = await getAuthInstance();
-
-        unsub = onAuth(auth, async (u) => {
-          if (u) {
-            const firebaseUser = {
-              uid: u.uid,
-              email: u.email || 'anonymous',
-              displayName:
-                u.displayName || u.email?.split('@')[0] || 'Anonymous',
-            };
-            console.log(
-              '[ChatWrapper] Firebase auth state:',
-              firebaseUser.email,
-            );
-            setFirebaseUser(firebaseUser);
-          } else {
-            console.log('[ChatWrapper] Firebase user signed out');
-            setFirebaseUser(null);
-          }
-        });
-      } catch (err) {
-        console.error('[ChatWrapper] Firebase init error:', err);
-      }
-    })();
-    return () => {
-      if (unsub) unsub();
-    };
-  }, []);
+  }, [messages]);
 
   // Load chat history when user signs in
   useEffect(() => {
@@ -448,12 +396,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
       try {
         const { getUserChatSessions } = await import('../../lib/firebase');
         const sessions = await getUserChatSessions(firebaseUser.uid);
-        setChatHistory(sessions);
-        console.log(
-          '[ChatWrapper] Loaded chat history:',
-          sessions.length,
-          'sessions',
-        );
+        if (mountedRef.current) setChatHistory(sessions);
       } catch (err) {
         console.error('[ChatWrapper] Failed to load chat history:', err);
       }
@@ -462,7 +405,6 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
     loadHistory();
   }, [firebaseUser?.uid, firebaseUser]);
 
-  // Model dropdown options
   const modelOptions = [
     {
       value: '',
@@ -489,7 +431,6 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
     setInput('');
     setLoading(true);
 
-    // Add placeholder assistant message for streaming
     const assistantIdx = newMessages.length;
     setMessages((prev) => [
       ...prev,
@@ -503,7 +444,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
     ]);
 
     try {
-      const chatHistory: ChatMessage[] = newMessages.slice(0, -1).map((m) => ({
+      const history: ChatMessage[] = newMessages.map((m) => ({
         role: m.role,
         content: m.content,
         timestamp: m.timestamp,
@@ -517,14 +458,13 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
         window.location.pathname,
         selectedMode,
         selectedModel,
-        chatHistory,
+        history,
       );
 
       for await (const chunk of stream) {
         if (!mountedRef.current) break;
         if (chunk.type === 'step') {
           setMessages((prev) => {
-            if (!mountedRef.current) return prev;
             const updated = [...prev];
             const msg = { ...updated[assistantIdx] };
             msg.steps = [...(msg.steps || []), chunk.content];
@@ -533,7 +473,6 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
           });
         } else if (chunk.type === 'token') {
           setMessages((prev) => {
-            if (!mountedRef.current) return prev;
             const updated = [...prev];
             const msg = { ...updated[assistantIdx] };
             msg.content += chunk.content;
@@ -542,7 +481,6 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
           });
         } else if (chunk.type === 'done') {
           setMessages((prev) => {
-            if (!mountedRef.current) return prev;
             const updated = [...prev];
             const msg = { ...updated[assistantIdx] };
             msg.content = chunk.content || msg.content;
@@ -556,24 +494,16 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
             return updated;
           });
 
-          // Save to Firestore if signed in
           if (firebaseUser) {
             try {
               const { saveChatSession, getUserChatSessions } = await import(
                 '../../lib/firebase'
               );
-
-              // Save the complete chat session
-              const chatSession = {
-                id: Date.now().toString(),
-                title: text.slice(0, 50) + (text.length > 50 ? '...' : ''),
-                messages: [
-                  ...messages,
-                  {
-                    role: 'user',
-                    content: text,
-                    timestamp: new Date().toISOString(),
-                  },
+              await saveChatSession(
+                firebaseUser.uid,
+                text.slice(0, 50) + (text.length > 50 ? '...' : ''),
+                [
+                  ...newMessages,
                   {
                     role: 'assistant',
                     content: chunk.content,
@@ -581,41 +511,24 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
                     model: chunk.meta?.model,
                     intent: chunk.meta?.intent,
                     confidence: chunk.meta?.confidence,
-                    toolsUsed: chunk.meta?.toolsUsed,
                   },
                 ],
-                createdAt: new Date().toISOString(),
-              };
-
-              await saveChatSession(
-                firebaseUser.uid,
-                chatSession.title,
-                chatSession.messages,
               );
-              console.log('[ChatWrapper] Chat session saved to Firestore');
-
-              // Refresh chat history
               const sessions = await getUserChatSessions(firebaseUser.uid);
-              setChatHistory(sessions);
+              if (mountedRef.current) setChatHistory(sessions);
             } catch (err) {
-              console.error(
-                '[ChatWrapper] Failed to save chat session to Firestore:',
-                err,
-              );
-              // Non-critical - chat still works, just won't persist
+              console.error('[ChatWrapper] Save error:', err);
             }
           }
         } else if (chunk.type === 'error') {
-          if (mountedRef.current)
-            setMessages((prev) => {
-              const updated = [...prev];
-              const msg = { ...updated[assistantIdx] };
-              msg.content = chunk.content;
-              msg.model = 'error';
-              msg.streaming = false;
-              updated[assistantIdx] = msg;
-              return updated;
-            });
+          setMessages((prev) => {
+            const updated = [...prev];
+            const msg = { ...updated[assistantIdx] };
+            msg.content = chunk.content;
+            msg.streaming = false;
+            updated[assistantIdx] = msg;
+            return updated;
+          });
         }
       }
     } catch (e) {
@@ -623,15 +536,13 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
       setMessages((prev) => {
         const updated = [...prev];
         const msg = { ...updated[assistantIdx] };
-        msg.content =
-          'Something went wrong. The AI models might be temporarily unavailable.';
-        msg.model = 'error';
+        msg.content = 'Unavailable.';
         msg.streaming = false;
         updated[assistantIdx] = msg;
         return updated;
       });
     } finally {
-      setLoading(false);
+      if (mountedRef.current) setLoading(false);
     }
   };
 
@@ -639,48 +550,9 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
     setSigningIn(true);
     setSignInStep('firebase');
     try {
-      console.log('[ChatWrapper] Starting Firebase sign-in...');
-      // 1. Firebase Sign In (Google Popup)
-      const { signInWithGoogle } = await import('../../lib/firebase');
-      const user = await signInWithGoogle();
-      console.log('[ChatWrapper] Firebase sign-in result:', user?.email);
-      if (user && mountedRef.current) {
-        setFirebaseUser({
-          uid: user.uid,
-          email: user.email || 'anonymous',
-          displayName:
-            user.displayName || user.email?.split('@')[0] || 'Anonymous',
-        });
-      }
-
-      // 2. Puter.js Sign In
+      await signInWithGoogle();
       setSignInStep('puter');
-      const w = window as any;
-      try {
-        const puterAuth = w.puter?.auth;
-        if (
-          puterAuth &&
-          typeof puterAuth.isSignedIn === 'function' &&
-          !puterAuth.isSignedIn()
-        ) {
-          console.log('[ChatWrapper] Attempting Puter.js sign-in...');
-          await puterAuth.signIn();
-        }
-        if (puterAuth && typeof puterAuth.getUser === 'function') {
-          const pUser = await puterAuth.getUser();
-          console.log(
-            '[ChatWrapper] Puter.js sign-in result:',
-            pUser?.username,
-          );
-          if (pUser && mountedRef.current)
-            setPuterUser({ username: pUser.username });
-        }
-      } catch (puterErr) {
-        console.warn(
-          '[ChatWrapper] Puter.js auth failed (non-critical):',
-          puterErr,
-        );
-      }
+      await signInWithPuter();
       setSignInStep('done');
     } catch (e) {
       console.error('[ChatWrapper] Sign in error:', e);
@@ -708,61 +580,33 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
         {showHistory && (
           <div className="w-64 border-r border-white/10 bg-[#0d0d17]/90 flex flex-col flex-shrink-0">
             <div className="p-3 border-b border-white/10 flex items-center justify-between">
-              <span className="text-sm font-semibold text-white/80">
-                Chat History
-              </span>
-              <button
-                onClick={() => setShowHistory(false)}
-                className="p-1 rounded text-white/40 hover:text-white"
-              >
-                <svg
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+              <span className="text-sm font-semibold text-white/80">History</span>
+              <button onClick={() => setShowHistory(false)} className="p-1 rounded text-white/40 hover:text-white">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
             <div className="flex-1 overflow-y-auto p-2 space-y-1">
               {!firebaseUser ? (
-                <div className="p-4 text-center text-white/40 text-xs">
-                  Sign in to view your chat history
-                </div>
+                <div className="p-4 text-center text-white/40 text-xs">Sign in to view history</div>
               ) : chatHistory.length === 0 ? (
-                <div className="p-4 text-center text-white/40 text-xs">
-                  No chat history yet
-                </div>
+                <div className="p-4 text-center text-white/40 text-xs">No history yet</div>
               ) : (
-                chatHistory.map((session) => (
+                chatHistory.map((s) => (
                   <button
-                    key={session.id}
-                    onClick={() => {
-                      setMessages(session.messages);
-                      setShowHistory(false);
-                    }}
-                    className="w-full text-left px-3 py-2 rounded-lg text-xs text-white/70 hover:bg-white/5 hover:text-white transition-colors truncate"
+                    key={s.id}
+                    onClick={() => { setMessages(s.messages); setShowHistory(false); }}
+                    className="w-full text-left px-3 py-2 rounded-lg text-xs text-white/70 hover:bg-white/5 truncate"
                   >
-                    {session.title || 'New Chat'}
+                    {s.title || 'New Chat'}
                   </button>
                 ))
               )}
             </div>
             {firebaseUser && (
               <div className="p-3 border-t border-white/10">
-                <button
-                  onClick={async () => {
-                    const { signOut } = await import('../../lib/firebase');
-                    await signOut();
-                  }}
-                  className="w-full px-3 py-2 rounded-lg text-xs text-red-400 hover:bg-red-500/10 transition-colors"
-                >
+                <button onClick={() => signOut()} className="w-full px-3 py-2 rounded-lg text-xs text-red-400 hover:bg-red-500/10 transition-colors">
                   Sign Out
                 </button>
               </div>
@@ -770,361 +614,91 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
           </div>
         )}
 
-        {/* Main Chat Area */}
         <div className="flex-1 flex flex-col min-w-0">
-          {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-gradient-to-r from-amber-500/10 to-orange-500/5 flex-shrink-0">
-            <div className="flex items-center gap-3 min-w-0">
-              <button
-                onClick={() => setShowHistory(!showHistory)}
-                className="p-1.5 rounded-lg text-white/40 hover:text-white hover:bg-white/10 transition-all"
-              >
-                <svg
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
+          <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-gradient-to-r from-amber-500/10 to-orange-500/5">
+            <div className="flex items-center gap-3">
+              <button onClick={() => setShowHistory(!showHistory)} className="p-1.5 rounded-lg text-white/40 hover:text-white">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
               </button>
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/20 flex-shrink-0">
-                <svg
-                  className="h-4 w-4 text-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455-2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"
-                  />
-                </svg>
-              </div>
-              <div className="min-w-0">
-                <p className="text-sm font-semibold text-white truncate">
-                  Ask about Chirag
-                </p>
-                <div className="flex items-center gap-1.5 flex-wrap">
-                  <p className="text-[10px] text-white/40">
-                    {!puterReady
-                      ? 'Loading AI...'
-                      : firebaseUser
-                        ? `${firebaseUser.displayName}`
-                        : 'Sign in to use all features'}
-                  </p>
-                  {puterReady && (
-                    <div
-                      className={`h-1.5 w-1.5 rounded-full ${puterUser ? 'bg-emerald-500' : 'bg-amber-500'}`}
-                      title={
-                        puterUser
-                          ? 'Puter.js Connected'
-                          : 'Puter.js Not Signed In'
-                      }
-                    />
-                  )}
-                </div>
+              <div>
+                <h2 className="text-sm font-bold text-white">Chirag AI</h2>
+                <span className="text-[10px] text-white/40 uppercase tracking-widest">Assistant</span>
               </div>
             </div>
-
-            <div className="flex items-center gap-2 flex-shrink-0">
-              {/* Sign In Button (prominent when not signed in) */}
-              {!firebaseUser && (
-                <button
-                  onClick={handleSignIn}
-                  disabled={signingIn}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:from-amber-400 hover:to-orange-400 transition-all shadow-lg shadow-amber-500/20 disabled:opacity-50"
-                >
-                  <svg
-                    className="h-3.5 w-3.5"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.08z" />
-                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.84-.62z" />
-                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                  </svg>
-                  <span>
-                    {signingIn ? 'Signing in...' : 'Sign in with Google'}
-                  </span>
-                </button>
-              )}
-              {firebaseUser && (
-                <div className="flex items-center gap-2">
-                  <div className="h-7 w-7 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white text-xs font-bold">
-                    {firebaseUser.displayName?.charAt(0).toUpperCase() || 'U'}
-                  </div>
-                </div>
-              )}
-              <div className="h-4 w-px bg-white/10 mx-1" />
-              <Dropdown
-                label="Model"
-                options={modelOptions}
-                value={selectedModel}
-                onChange={setSelectedModel}
-                width="w-56"
-              />
-              <button
-                onClick={onClose}
-                className="p-1.5 rounded-lg text-white/40 hover:text-white hover:bg-white/10 transition-all"
-              >
-                <svg
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
+            <div className="flex items-center gap-2">
+              <Dropdown label="Model" options={modelOptions} value={selectedModel} onChange={setSelectedModel} width="w-64" />
+              <button onClick={onClose} className="p-1.5 rounded-lg text-white/40 hover:text-white"><svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button>
             </div>
           </div>
 
-          {/* Prominent Sign-in Banner (when not signed in) */}
-          {/* Integrated Sign-in & Maintenance Workflow */}
-          {(!firebaseUser || !puterUser) && (
-            <div className="px-5 py-4 bg-[#1a1a2e]/50 border-b border-white/5 space-y-3">
-              <div className="flex items-center justify-between gap-4">
-                <div className="space-y-1">
-                  <h4 className="text-xs font-semibold text-white/90">
-                    Dual Sign-in Needed
-                  </h4>
-                  <p className="text-[10px] text-white/40 leading-relaxed">
-                    Connect both <strong>Firebase</strong> (history) and{' '}
-                    <strong>Puter.js</strong> (AI engine) to start chatting.
-                  </p>
-                </div>
-                <button
-                  onClick={handleSignIn}
-                  disabled={signingIn}
-                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white text-xs font-bold shadow-lg shadow-amber-500/20 transition-all disabled:opacity-50 min-w-[120px]"
-                >
-                  {signingIn ? (
-                    <div className="flex items-center gap-2 justify-center">
-                      <svg className="h-3 w-3 animate-spin" viewBox="0 0 24 24">
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        />
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                        />
-                      </svg>
-                      <span>
-                        {signInStep === 'firebase'
-                          ? 'Firebase...'
-                          : 'Puter.js...'}
-                      </span>
-                    </div>
-                  ) : (
-                    'Finish Setup'
-                  )}
-                </button>
-              </div>
-            </div>
-          )}
-          {/* Dual Sign-in Tip */}
-          {(!firebaseUser || !puterUser) && (
-            <div className="px-4 py-2 bg-amber-500/5 border-b border-amber-500/10 flex items-center justify-between flex-shrink-0 animate-in fade-in slide-in-from-top-1 duration-500">
-              <div className="flex items-center gap-2">
-                <div className="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse" />
-                <span className="text-[10px] text-amber-200/60">
-                  Tip: Sign in to sync your chat history and use advanced
-                  models.
-                </span>
-              </div>
-              <button
-                onClick={handleSignIn}
-                disabled={signingIn}
-                className="text-[10px] font-medium text-amber-400 hover:text-amber-300 transition-colors disabled:opacity-50"
-              >
-                {signingIn ? 'Signing in...' : 'Sign in now →'}
-              </button>
-            </div>
-          )}
-          {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-5 space-y-4">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6">
             {messages.length === 0 && (
-              <div className="flex flex-col items-center justify-center h-full text-center space-y-5">
-                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-amber-400/20 to-orange-500/20 border border-amber-400/20 flex items-center justify-center">
-                  <svg
-                    className="h-8 w-8 text-amber-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455-2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-base font-medium text-white/80 mb-1">
-                    Ask me anything about Chirag
-                  </p>
-                  <p className="text-sm text-white/40">
-                    Skills, projects, experience, movies, music, and more.
-                  </p>
-                </div>
-                <div className="flex flex-wrap justify-center gap-2 max-w-sm">
+              <div className="flex flex-col items-center justify-center h-full text-center space-y-8">
+                <div className="h-20 w-20 rounded-3xl bg-[#1a1a2e] border border-amber-500/30 flex items-center justify-center text-4xl shadow-xl shadow-amber-500/10 rotate-3">✨</div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-lg">
                   {SUGGESTED.map((s) => (
-                    <button
-                      key={s}
-                      onClick={() => handleSend(s)}
-                      className="px-3 py-2 text-xs rounded-xl bg-white/5 border border-white/5 text-white/50 hover:text-amber-400 hover:border-amber-400/30 hover:bg-amber-400/5 transition-all"
-                    >
+                    <button key={s} onClick={() => handleSend(s)} className="p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.07] text-xs text-white/60 hover:text-white text-left transition-all">
                       {s}
                     </button>
                   ))}
                 </div>
               </div>
             )}
-
-            {messages.map((msg, i) => (
-              <div
-                key={i}
-                className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
-                <div className="max-w-[80%]">
-                  {msg.role === 'user' ? (
-                    <div className="px-4 py-3 rounded-2xl text-sm leading-relaxed bg-gradient-to-br from-amber-500 to-orange-500 text-white rounded-br-md">
-                      {msg.content}
-                    </div>
-                  ) : (
-                    <div className="space-y-2">
-                      {/* Step indicators */}
-                      {msg.steps && msg.steps.length > 0 && (
-                        <div className="px-3 py-2 rounded-xl bg-white/[0.02] border border-white/5">
-                          <StepIndicator
-                            steps={msg.steps}
-                            streaming={msg.streaming || false}
-                          />
-                        </div>
-                      )}
-
-                      {/* Response content */}
-                      {msg.content && (
-                        <div
-                          className={`px-4 py-3 rounded-2xl text-sm leading-relaxed bg-white/5 border border-white/5 text-white/80 rounded-bl-md ${msg.streaming ? 'border-amber-400/20' : ''}`}
-                        >
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: renderMd(msg.content),
-                            }}
-                          />
-                          {msg.streaming && (
-                            <span className="inline-block w-2 h-4 bg-amber-400/60 animate-pulse ml-1 align-middle" />
-                          )}
-                        </div>
-                      )}
-
-                      {/* Metadata */}
-                      {!msg.streaming && msg.model && msg.model !== 'error' && (
-                        <div className="flex items-center gap-2 px-1 flex-wrap">
-                          <span className="text-[10px] text-white/20">
-                            {msg.model}
-                          </span>
-                          {msg.tier && (
-                            <span className="text-[9px] px-1.5 py-0.5 rounded bg-white/5 text-white/15">
-                              {msg.tier}
-                            </span>
-                          )}
-                          {msg.toolsUsed && msg.toolsUsed.length > 0 && (
-                            <span className="text-[9px] px-1.5 py-0.5 rounded bg-amber-400/10 text-amber-400/40">
-                              {msg.toolsUsed.length} tool
-                              {msg.toolsUsed.length > 1 ? 's' : ''}
-                            </span>
-                          )}
-                        </div>
-                      )}
+            {messages.map((m, i) => (
+              <div key={i} className={`flex gap-4 ${m.role === 'user' ? 'justify-end' : ''}`}>
+                {m.role === 'assistant' && (
+                  <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white shrink-0 mt-1">AI</div>
+                )}
+                <div className={`max-w-[85%] space-y-2 ${m.role === 'user' ? 'text-right' : ''}`}>
+                  <div className={`px-4 py-3 rounded-2xl border text-sm leading-relaxed ${m.role === 'user' ? 'bg-amber-500/10 border-amber-500/20 text-white' : 'bg-white/[0.03] border-white/5 text-white/90'}`}>
+                    <div dangerouslySetInnerHTML={{ __html: renderMd(m.content) }} />
+                    {m.role === 'assistant' && m.streaming && !m.content && <span className="animate-pulse">...</span>}
+                  </div>
+                  {m.role === 'assistant' && m.steps && m.steps.length > 0 && <StepIndicator steps={m.steps} streaming={!!m.streaming} />}
+                  {m.role === 'assistant' && m.model && (
+                    <div className="flex items-center gap-3 pt-1">
+                      <span className="text-[10px] text-white/30">{m.model}</span>
+                      {m.intent && <IntentBadge intent={m.intent} />}
+                      {m.confidence !== undefined && <ConfidenceBar confidence={m.confidence} />}
                     </div>
                   )}
                 </div>
               </div>
             ))}
-
             <div ref={endRef} />
           </div>
 
-          {/* Input */}
-          <form
-            onSubmit={handleSubmit}
-            className="p-4 border-t border-white/10 flex-shrink-0"
-          >
-            <div className="flex gap-3">
+          <div className="p-4 sm:p-6 bg-[#0a0a14] border-t border-white/5">
+            {(!firebaseUser || !puterUser) && (
+              <div className="mb-4 p-4 rounded-xl bg-orange-500/5 border border-orange-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="text-xs text-white/60">Sign in to unlock history and premium models.</div>
+                <button
+                  onClick={handleSignIn}
+                  disabled={signingIn}
+                  className="px-6 py-2.5 rounded-xl bg-amber-500 text-black text-xs font-bold uppercase disabled:opacity-50"
+                >
+                  {signingIn ? `Verifying...` : 'Connect Identity'}
+                </button>
+              </div>
+            )}
+            <form onSubmit={handleSubmit} className="relative group">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about Chirag..."
-                className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-amber-400/40 focus:ring-1 focus:ring-amber-400/20 transition-all"
+                placeholder={loading ? 'Thinking...' : 'Ask me anything...'}
+                className="w-full px-6 py-4 rounded-2xl bg-white/[0.04] border border-white/10 text-white text-sm"
                 disabled={loading}
               />
               <button
                 type="submit"
                 disabled={loading || !input.trim()}
-                className="px-4 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 disabled:opacity-40 disabled:cursor-not-allowed text-white shadow-lg shadow-amber-500/20 transition-all"
+                className="absolute right-2 top-2 bottom-2 px-5 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 text-black font-bold text-sm disabled:opacity-50"
               >
-                {loading ? (
-                  <svg
-                    className="h-5 w-5 animate-spin"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    />
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                    />
-                  </svg>
-                )}
+                Send
               </button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>

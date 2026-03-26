@@ -165,9 +165,16 @@ export async function handleGoogleRedirect(): Promise<User | null> {
   const { getRedirectResult } = await import('firebase/auth');
   const auth = await getFirebaseAuth();
   try {
+    console.log('[Firebase] Calling getRedirectResult...');
     const result = await getRedirectResult(auth);
-    return result?.user || null;
-  } catch {
+    if (result) {
+      console.log('[Firebase] Redirect result found for user:', result.user.email);
+      return result.user;
+    }
+    console.log('[Firebase] No redirect result found.');
+    return null;
+  } catch (e: any) {
+    console.error('[Firebase] getRedirectResult error:', e?.code, e?.message);
     return null;
   }
 }

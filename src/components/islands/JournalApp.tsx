@@ -1,35 +1,27 @@
 import { useEffect, useState } from 'react';
+import { useAuthStore } from '../../lib/authStore';
 import {
   deleteJournalEntry,
-  getAuthInstance,
-  getOnAuthStateChanged,
   type JournalEntry,
   saveJournalEntry,
-  signInWithGoogle,
   subscribeToJournalEntries,
-  type User,
 } from '../../lib/firebase';
 
 export default function JournalApp() {
-  const [user, setUser] = useState<User | null>(null);
+  const { user, loading: authLoading, initialize, signInWithGoogle } = useAuthStore();
   const [entries, setEntries] = useState<JournalEntry[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let unsubscribeAuth: (() => void) | undefined;
-    (async () => {
-      const onAuthStateChanged = await getOnAuthStateChanged();
-      const auth = await getAuthInstance();
-      unsubscribeAuth = onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
-        setLoading(false);
-      });
-    })();
-    return () => {
-      if (unsubscribeAuth) unsubscribeAuth();
-    };
-  }, []);
+    initialize();
+  }, [initialize]);
+
+  useEffect(() => {
+    if (!authLoading) {
+      setLoading(false);
+    }
+  }, [authLoading]);
 
   useEffect(() => {
     let unsubscribeEntries: (() => void) | undefined;
