@@ -23,10 +23,15 @@ export async function sendUnknownQueryAlert(data: AlertData) {
       user_query: data.query,
       trigger_reason: data.reason,
       context_dump: data.context || 'None',
-      time: data.timestamp
+      time: data.timestamp,
     };
 
-    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY);
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      templateParams,
+      EMAILJS_PUBLIC_KEY,
+    );
     console.log('[Email Alert] Unknown query sent to admin.');
   } catch (error) {
     console.error('[Email Alert] Failed to send email via EmailJS', error);

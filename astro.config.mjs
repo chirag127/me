@@ -1,7 +1,8 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   output: 'static',
@@ -18,7 +19,13 @@ export default defineConfig({
     },
     optimizeDeps: {
       // Pre-bundle AI modules to avoid 404s during dev
-      include: ['zustand', 'firebase/firestore', 'firebase/auth', 'dexie', 'minisearch'],
+      include: [
+        'zustand',
+        'firebase/firestore',
+        'firebase/auth',
+        'dexie',
+        'minisearch',
+      ],
     },
   },
   security: {

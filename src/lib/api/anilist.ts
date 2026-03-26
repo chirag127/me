@@ -1,6 +1,6 @@
+import { CONFIG } from '../config';
 import { fetchGraphQL } from './fetcher';
 import type { AniListEntry } from './types';
-import { CONFIG } from '../config';
 
 const ANILIST_API_URL = 'https://graphql.anilist.co';
 
@@ -76,19 +76,35 @@ function mapEntry(entry: any, statusType: any, isManga = false): AniListEntry {
 }
 
 export async function fetchAniListAnime() {
-  const data = await fetchGraphQL<any>(ANILIST_API_URL, animeListQuery, { userName: CONFIG.user.anilist }, 'AniList');
-  if (!data?.MediaListCollection?.lists) return { watching: [], completed: [], paused: [], dropped: [], planning: [] };
-  
+  const data = await fetchGraphQL<any>(
+    ANILIST_API_URL,
+    animeListQuery,
+    { userName: CONFIG.user.anilist },
+    'AniList',
+  );
+  if (!data?.MediaListCollection?.lists)
+    return {
+      watching: [],
+      completed: [],
+      paused: [],
+      dropped: [],
+      planning: [],
+    };
+
   const lists = data.MediaListCollection.lists;
-  
+
   const result: Record<string, AniListEntry[]> = {
-    watching: [], completed: [], paused: [], dropped: [], planning: []
+    watching: [],
+    completed: [],
+    paused: [],
+    dropped: [],
+    planning: [],
   };
 
   for (const list of lists) {
     const status = list.status; // CURRENT, COMPLETED, PAUSED, DROPPED, PLANNING
     const mapped = list.entries.map((e: any) => mapEntry(e, status));
-    
+
     if (status === 'CURRENT') result.watching.push(...mapped);
     if (status === 'COMPLETED') result.completed.push(...mapped);
     if (status === 'PAUSED') result.paused.push(...mapped);
@@ -100,12 +116,19 @@ export async function fetchAniListAnime() {
 }
 
 export async function fetchAniListManga(): Promise<AniListEntry[]> {
-  const data = await fetchGraphQL<any>(ANILIST_API_URL, mangaListQuery, { userName: CONFIG.user.anilist }, 'AniList');
+  const data = await fetchGraphQL<any>(
+    ANILIST_API_URL,
+    mangaListQuery,
+    { userName: CONFIG.user.anilist },
+    'AniList',
+  );
   if (!data?.MediaListCollection?.lists) return [];
 
   const allManga: AniListEntry[] = [];
   data.MediaListCollection.lists.forEach((list: any) => {
-    allManga.push(...list.entries.map((e: any) => mapEntry(e, list.status, true)));
+    allManga.push(
+      ...list.entries.map((e: any) => mapEntry(e, list.status, true)),
+    );
   });
 
   return allManga;

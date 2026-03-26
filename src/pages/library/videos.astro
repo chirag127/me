@@ -1,8 +1,4 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import CommandPalette from '../../components/CommandPalette.astro';
 interface VideoRec {
   title: string;
   channel: string;
@@ -12,31 +8,109 @@ interface VideoRec {
   embedId: string | null;
 }
 
-const featured: VideoRec[] = [
-  { title: '3Blue1Brown — Essence of Linear Algebra', channel: '3Blue1Brown', category: 'Math', emoji: '📐', gradient: 'linear-gradient(135deg, #1e3a5f, #1e40af)', embedId: 'kjBOesZCoqc' },
-  { title: 'Kurzgesagt — The Most Satisfying Video', channel: 'Kurzgesagt', category: 'Science', emoji: '🌍', gradient: 'linear-gradient(135deg, #065f46, #059669)', embedId: 'JnEHpk5B1zE' },
-  { title: 'Fireship — 100 Seconds of Code', channel: 'Fireship', category: 'Tech', emoji: '🔥', gradient: 'linear-gradient(135deg, #dc2626, #f97316)', embedId: null },
-  { title: 'Veritasium — The Most Useful Science Videos', channel: 'Veritasium', category: 'Science', emoji: '🔬', gradient: 'linear-gradient(135deg, #4338ca, #6366f1)', embedId: null },
+const _featured: VideoRec[] = [
+  {
+    title: '3Blue1Brown — Essence of Linear Algebra',
+    channel: '3Blue1Brown',
+    category: 'Math',
+    emoji: '📐',
+    gradient: 'linear-gradient(135deg, #1e3a5f, #1e40af)',
+    embedId: 'kjBOesZCoqc',
+  },
+  {
+    title: 'Kurzgesagt — The Most Satisfying Video',
+    channel: 'Kurzgesagt',
+    category: 'Science',
+    emoji: '🌍',
+    gradient: 'linear-gradient(135deg, #065f46, #059669)',
+    embedId: 'JnEHpk5B1zE',
+  },
+  {
+    title: 'Fireship — 100 Seconds of Code',
+    channel: 'Fireship',
+    category: 'Tech',
+    emoji: '🔥',
+    gradient: 'linear-gradient(135deg, #dc2626, #f97316)',
+    embedId: null,
+  },
+  {
+    title: 'Veritasium — The Most Useful Science Videos',
+    channel: 'Veritasium',
+    category: 'Science',
+    emoji: '🔬',
+    gradient: 'linear-gradient(135deg, #4338ca, #6366f1)',
+    embedId: null,
+  },
 ];
 
-const playlists = [
-  { name: 'Tech Deep Dives', count: 42, emoji: '💻', color: 'var(--color-primary)' },
-  { name: 'Physics & Math', count: 28, emoji: '🧮', color: 'var(--color-accent-sky)' },
-  { name: 'Music Production', count: 15, emoji: '🎹', color: 'var(--color-accent-rose)' },
-  { name: 'Film Analysis', count: 20, emoji: '🎞️', color: 'var(--color-accent-sage)' },
-  { name: 'Vlogs & Travel', count: 12, emoji: '✈️', color: 'var(--color-accent-warm)' },
-  { name: 'Philosophy', count: 18, emoji: '🤔', color: 'var(--color-accent-violet)' },
+const _playlists = [
+  {
+    name: 'Tech Deep Dives',
+    count: 42,
+    emoji: '💻',
+    color: 'var(--color-primary)',
+  },
+  {
+    name: 'Physics & Math',
+    count: 28,
+    emoji: '🧮',
+    color: 'var(--color-accent-sky)',
+  },
+  {
+    name: 'Music Production',
+    count: 15,
+    emoji: '🎹',
+    color: 'var(--color-accent-rose)',
+  },
+  {
+    name: 'Film Analysis',
+    count: 20,
+    emoji: '🎞️',
+    color: 'var(--color-accent-sage)',
+  },
+  {
+    name: 'Vlogs & Travel',
+    count: 12,
+    emoji: '✈️',
+    color: 'var(--color-accent-warm)',
+  },
+  {
+    name: 'Philosophy',
+    count: 18,
+    emoji: '🤔',
+    color: 'var(--color-accent-violet)',
+  },
 ];
 
-const channels = [
+const _channels = [
   { name: '3Blue1Brown', subs: '5.8M', category: 'Math', color: '#3b82f6' },
   { name: 'Kurzgesagt', subs: '22M', category: 'Science', color: '#10b981' },
   { name: 'Fireship', subs: '3.2M', category: 'Tech', color: '#f97316' },
   { name: 'Veritasium', subs: '16M', category: 'Science', color: '#6366f1' },
-  { name: 'Mark Rober', subs: '28M', category: 'Engineering', color: '#ef4444' },
-  { name: 'The Coding Train', subs: '1.6M', category: 'Coding', color: '#ec4899' },
-  { name: 'Lex Fridman', subs: '4.5M', category: 'Interviews', color: '#8b5cf6' },
-  { name: 'ColdFusion', subs: '4M', category: 'Tech/Business', color: '#06b6d4' },
+  {
+    name: 'Mark Rober',
+    subs: '28M',
+    category: 'Engineering',
+    color: '#ef4444',
+  },
+  {
+    name: 'The Coding Train',
+    subs: '1.6M',
+    category: 'Coding',
+    color: '#ec4899',
+  },
+  {
+    name: 'Lex Fridman',
+    subs: '4.5M',
+    category: 'Interviews',
+    color: '#8b5cf6',
+  },
+  {
+    name: 'ColdFusion',
+    subs: '4M',
+    category: 'Tech/Business',
+    color: '#06b6d4',
+  },
   { name: 'Oversimplified', subs: '9M', category: 'History', color: '#f59e0b' },
   { name: 'Wisecrack', subs: '3.3M', category: 'Philosophy', color: '#a855f7' },
 ];

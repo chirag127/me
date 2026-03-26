@@ -1,6 +1,6 @@
-import { fetchJson } from './fetcher';
-import type { SteamGame, LichessStats } from './types';
 import { CONFIG } from '../config';
+import { fetchJson } from './fetcher';
+import type { LichessStats, SteamGame } from './types';
 
 const STEAM_API_URL = 'https://api.steampowered.com';
 
@@ -17,20 +17,24 @@ export async function fetchSteamGames(): Promise<SteamGame[]> {
   const data = await fetchJson<any>(
     `${STEAM_API_URL}/IPlayerService/GetOwnedGames/v0001/?key=${apiKey}&steamid=${steamId}&include_appinfo=1&include_played_free_games=1&format=json`,
     undefined,
-    'Steam'
+    'Steam',
   );
 
   if (!data?.response?.games) return [];
 
-  return data.response.games.map((g: any) => ({
-    appId: g.appid,
-    name: g.name,
-    playtimeMinutes: g.playtime_forever,
-    playtimeHours: Math.round((g.playtime_forever / 60) * 10) / 10,
-    iconUrl: g.img_icon_url ? getAppIconUrl(g.appid, g.img_icon_url) : null,
-    logoUrl: `https://steamcdn-a.akamaihd.net/steam/apps/${g.appid}/header.jpg`,
-    lastPlayed: g.rtime_last_played,
-  })).sort((a: SteamGame, b: SteamGame) => b.playtimeMinutes - a.playtimeMinutes);
+  return data.response.games
+    .map((g: any) => ({
+      appId: g.appid,
+      name: g.name,
+      playtimeMinutes: g.playtime_forever,
+      playtimeHours: Math.round((g.playtime_forever / 60) * 10) / 10,
+      iconUrl: g.img_icon_url ? getAppIconUrl(g.appid, g.img_icon_url) : null,
+      logoUrl: `https://steamcdn-a.akamaihd.net/steam/apps/${g.appid}/header.jpg`,
+      lastPlayed: g.rtime_last_played,
+    }))
+    .sort(
+      (a: SteamGame, b: SteamGame) => b.playtimeMinutes - a.playtimeMinutes,
+    );
 }
 
 export async function fetchSteamRecentGames(): Promise<SteamGame[]> {
@@ -42,7 +46,7 @@ export async function fetchSteamRecentGames(): Promise<SteamGame[]> {
   const data = await fetchJson<any>(
     `${STEAM_API_URL}/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${apiKey}&steamid=${steamId}&format=json`,
     undefined,
-    'Steam'
+    'Steam',
   );
 
   if (!data?.response?.games) return [];
@@ -63,7 +67,7 @@ export async function fetchLichessStats(): Promise<LichessStats | null> {
   const data = await fetchJson<any>(
     `https://lichess.org/api/user/${username}`,
     undefined,
-    'Lichess'
+    'Lichess',
   );
 
   if (!data) return null;
@@ -71,10 +75,22 @@ export async function fetchLichessStats(): Promise<LichessStats | null> {
   return {
     username,
     ratings: {
-      bullet: { rating: data.perfs?.bullet?.rating || 0, games: data.perfs?.bullet?.games || 0 },
-      blitz: { rating: data.perfs?.blitz?.rating || 0, games: data.perfs?.blitz?.games || 0 },
-      rapid: { rating: data.perfs?.rapid?.rating || 0, games: data.perfs?.rapid?.games || 0 },
-      classical: { rating: data.perfs?.classical?.rating || 0, games: data.perfs?.classical?.games || 0 },
+      bullet: {
+        rating: data.perfs?.bullet?.rating || 0,
+        games: data.perfs?.bullet?.games || 0,
+      },
+      blitz: {
+        rating: data.perfs?.blitz?.rating || 0,
+        games: data.perfs?.blitz?.games || 0,
+      },
+      rapid: {
+        rating: data.perfs?.rapid?.rating || 0,
+        games: data.perfs?.rapid?.games || 0,
+      },
+      classical: {
+        rating: data.perfs?.classical?.rating || 0,
+        games: data.perfs?.classical?.games || 0,
+      },
     },
     totalGames: data.count?.all || 0,
     wins: data.count?.win || 0,

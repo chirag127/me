@@ -45,28 +45,48 @@ export interface ClassificationResult {
 /**
  * Agentic classifier: uses a small LLM for high accuracy.
  */
-export async function classifyIntent(query: string): Promise<ClassificationResult> {
+export async function classifyIntent(
+  query: string,
+): Promise<ClassificationResult> {
   const ai = getPuter();
   if (!ai) {
     return { intent: 'unknown', confidence: 0.5, method: 'llm' };
   }
 
   try {
-    const response = await ai.chat([
-      { role: 'system', content: INTENT_PROMPT },
-      { role: 'user', content: query }
-    ], { 
-      model: 'liquid/lfm-2.5-1.2b-instruct:free',
-      stream: false 
-    });
+    const response = await ai.chat(
+      [
+        { role: 'system', content: INTENT_PROMPT },
+        { role: 'user', content: query },
+      ],
+      {
+        model: 'liquid/lfm-2.5-1.2b-instruct:free',
+        stream: false,
+      },
+    );
 
-    const intent = (response.content || response.message?.content || 'unknown').trim().toLowerCase() as QueryIntent;
-    
+    const intent = (response.content || response.message?.content || 'unknown')
+      .trim()
+      .toLowerCase() as QueryIntent;
+
     // Validate intent
     const validIntents: QueryIntent[] = [
-      'career', 'coding', 'projects', 'skills', 'education',
-      'movies', 'music', 'books', 'anime', 'gaming',
-      'social', 'contact', 'navigation', 'greeting', 'meta', 'unknown'
+      'career',
+      'coding',
+      'projects',
+      'skills',
+      'education',
+      'movies',
+      'music',
+      'books',
+      'anime',
+      'gaming',
+      'social',
+      'contact',
+      'navigation',
+      'greeting',
+      'meta',
+      'unknown',
     ];
 
     return {
@@ -83,32 +103,57 @@ export async function classifyIntent(query: string): Promise<ClassificationResul
 /**
  * Multi-intent detection: for agentic tool selection.
  */
-export async function detectMultipleIntents(query: string): Promise<QueryIntent[]> {
+export async function detectMultipleIntents(
+  query: string,
+): Promise<QueryIntent[]> {
   const ai = getPuter();
   if (!ai) return ['unknown'];
 
   try {
-    const response = await ai.chat([
-      { 
-        role: 'system', 
-        content: 'List all relevant intents from the list provided previously for this query. Separate with commas. Respond ONLY with the list.' 
+    const response = await ai.chat(
+      [
+        {
+          role: 'system',
+          content:
+            'List all relevant intents from the list provided previously for this query. Separate with commas. Respond ONLY with the list.',
+        },
+        { role: 'user', content: query },
+      ],
+      {
+        model: 'liquid/lfm-2.5-1.2b-instruct:free',
+        stream: false,
       },
-      { role: 'user', content: query }
-    ], { 
-      model: 'liquid/lfm-2.5-1.2b-instruct:free',
-      stream: false 
-    });
+    );
 
-    const content = (response.content || response.message?.content || 'unknown').toLowerCase();
-    const intents = content.split(',').map((s: string) => s.trim()) as QueryIntent[];
-    
+    const content = (
+      response.content ||
+      response.message?.content ||
+      'unknown'
+    ).toLowerCase();
+    const intents = content
+      .split(',')
+      .map((s: string) => s.trim()) as QueryIntent[];
+
     const validIntents: QueryIntent[] = [
-      'career', 'coding', 'projects', 'skills', 'education',
-      'movies', 'music', 'books', 'anime', 'gaming',
-      'social', 'contact', 'navigation', 'greeting', 'meta', 'unknown'
+      'career',
+      'coding',
+      'projects',
+      'skills',
+      'education',
+      'movies',
+      'music',
+      'books',
+      'anime',
+      'gaming',
+      'social',
+      'contact',
+      'navigation',
+      'greeting',
+      'meta',
+      'unknown',
     ];
 
-    return intents.filter(i => validIntents.includes(i));
+    return intents.filter((i) => validIntents.includes(i));
   } catch {
     return ['unknown'];
   }
@@ -117,23 +162,35 @@ export async function detectMultipleIntents(query: string): Promise<QueryIntent[
 /**
  * Query complexity analysis.
  */
-export async function analyzeQueryComplexity(query: string): Promise<'low' | 'medium' | 'high'> {
+export async function analyzeQueryComplexity(
+  query: string,
+): Promise<'low' | 'medium' | 'high'> {
   const ai = getPuter();
   if (!ai) return 'medium';
 
   try {
-    const response = await ai.chat([
-      { 
-        role: 'system', 
-        content: 'Analyze the complexity of this user query for an AI assistant. Respond with ONLY "low", "medium", or "high".' 
+    const response = await ai.chat(
+      [
+        {
+          role: 'system',
+          content:
+            'Analyze the complexity of this user query for an AI assistant. Respond with ONLY "low", "medium", or "high".',
+        },
+        { role: 'user', content: query },
+      ],
+      {
+        model: 'liquid/lfm-2.5-1.2b-instruct:free',
+        stream: false,
       },
-      { role: 'user', content: query }
-    ], { 
-      model: 'liquid/lfm-2.5-1.2b-instruct:free',
-      stream: false 
-    });
+    );
 
-    const complexity = (response.content || response.message?.content || 'medium').trim().toLowerCase();
+    const complexity = (
+      response.content ||
+      response.message?.content ||
+      'medium'
+    )
+      .trim()
+      .toLowerCase();
     if (['low', 'medium', 'high'].includes(complexity)) {
       return complexity as 'low' | 'medium' | 'high';
     }

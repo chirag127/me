@@ -44,11 +44,19 @@ export async function sendAlertEmail(data: AlertData): Promise<boolean> {
 
 export function isLowConfidence(response: string): boolean {
   const phrases = [
-    "i don't have", "i'm not sure", "i don't know",
-    "i couldn't find", "not mentioned", "i'm not aware",
-    "don't have information", "i cannot", "i'm unable",
-    "no information", "not available", "not provided",
+    "i don't have",
+    "i'm not sure",
+    "i don't know",
+    "i couldn't find",
+    'not mentioned',
+    "i'm not aware",
+    "don't have information",
+    'i cannot',
+    "i'm unable",
+    'no information',
+    'not available',
+    'not provided',
   ];
   const lower = response.toLowerCase();
-  return phrases.some(p => lower.includes(p));
+  return phrases.some((p) => lower.includes(p));
 }

@@ -1,36 +1,58 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import CommandPalette from '../../components/CommandPalette.astro';
-import StatsCounter from '../../components/islands/StatsCounter';
-import { fetchGitHubUser, fetchGitHubRepos, fetchLeetCodeStats, fetchCodewarsUser } from '../../lib/api';
+import {
+  fetchCodewarsUser,
+  fetchGitHubRepos,
+  fetchGitHubUser,
+  fetchLeetCodeStats,
+} from '../../lib/api';
 
-const [githubUser, githubRepos, leetcodeStats, codewarsUser] = await Promise.all([
-  fetchGitHubUser(),
-  fetchGitHubRepos(),
-  fetchLeetCodeStats(),
-  fetchCodewarsUser(),
-]);
+const [githubUser, githubRepos, leetcodeStats, _codewarsUser] =
+  await Promise.all([
+    fetchGitHubUser(),
+    fetchGitHubRepos(),
+    fetchLeetCodeStats(),
+    fetchCodewarsUser(),
+  ]);
 
-const totalStars = githubRepos.reduce((sum, r) => sum + r.stargazers_count, 0);
-const totalForks = githubRepos.reduce((sum, r) => sum + r.forks_count, 0);
+const _totalStars = githubRepos.reduce((sum, r) => sum + r.stargazers_count, 0);
+const _totalForks = githubRepos.reduce((sum, r) => sum + r.forks_count, 0);
 
 // Top languages by repo count
 const langMap = new Map<string, number>();
-githubRepos.filter(r => r.language).forEach(r => langMap.set(r.language!, (langMap.get(r.language!) || 0) + 1));
-const topLanguages = [...langMap.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10);
+githubRepos
+  .filter((r) => r.language)
+  .forEach((r) =>
+    langMap.set(r.language!, (langMap.get(r.language!) || 0) + 1),
+  );
+const _topLanguages = [...langMap.entries()]
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 10);
 
 // Recent repos (last 10 updated)
-const recentRepos = [...githubRepos].sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()).slice(0, 10);
+const _recentRepos = [...githubRepos]
+  .sort(
+    (a, b) =>
+      new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime(),
+  )
+  .slice(0, 10);
 
 // Account age
-const accountAge = githubUser ? new Date().getFullYear() - new Date(githubUser.created_at).getFullYear() : 0;
+const _accountAge = githubUser
+  ? new Date().getFullYear() - new Date(githubUser.created_at).getFullYear()
+  : 0;
 
 // LeetCode percentages
-const lecEasyPct = leetcodeStats ? Math.round((leetcodeStats.totalEasySolved / leetcodeStats.totalEasy) * 100) : 0;
-const lecMedPct = leetcodeStats ? Math.round((leetcodeStats.totalMediumSolved / leetcodeStats.totalMedium) * 100) : 0;
-const lecHardPct = leetcodeStats ? Math.round((leetcodeStats.totalHardSolved / leetcodeStats.totalHard) * 100) : 0;
+const _lecEasyPct = leetcodeStats
+  ? Math.round((leetcodeStats.totalEasySolved / leetcodeStats.totalEasy) * 100)
+  : 0;
+const _lecMedPct = leetcodeStats
+  ? Math.round(
+      (leetcodeStats.totalMediumSolved / leetcodeStats.totalMedium) * 100,
+    )
+  : 0;
+const _lecHardPct = leetcodeStats
+  ? Math.round((leetcodeStats.totalHardSolved / leetcodeStats.totalHard) * 100)
+  : 0;
 ---
 
 <Layout title="Code Drive" description="GitHub stats, LeetCode progress, Codewars rank, and coding activity — all inline">

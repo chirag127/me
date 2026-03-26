@@ -1,13 +1,17 @@
 ---
+import { fetchGitHubRepos } from '../../lib/api';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
-import { fetchGitHubRepos } from '../../lib/api';
+import Footer from '../../components/Footer.astro';
 
 const repos = await fetchGitHubRepos();
-const sortedRepos = repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
-const languages = [...new Set(repos.filter(r => r.language).map(r => r.language))].sort();
+const sortedRepos = repos.sort(
+  (a, b) => b.stargazers_count - a.stargazers_count,
+);
+const languages = [
+  ...new Set(repos.filter((r) => r.language).map((r) => r.language)),
+].sort();
 const totalStars = repos.reduce((sum, r) => sum + r.stargazers_count, 0);
 const totalForks = repos.reduce((sum, r) => sum + r.forks_count, 0);
 ---

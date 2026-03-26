@@ -1,5 +1,5 @@
-import { fetchJson } from './fetcher';
 import { CONFIG } from '../config';
+import { fetchJson } from './fetcher';
 
 const REDDIT_API = 'https://www.reddit.com';
 
@@ -9,7 +9,7 @@ export async function fetchRedditUser() {
   const data = await fetchJson<any>(
     `${REDDIT_API}/user/${username}/about.json`,
     undefined,
-    'Reddit'
+    'Reddit',
   );
 
   if (!data?.data) return null;
@@ -33,7 +33,7 @@ export async function fetchRedditPosts(limit = 25) {
   const data = await fetchJson<any>(
     `${REDDIT_API}/user/${username}/submitted.json?sort=new&limit=${limit}`,
     undefined,
-    'Reddit'
+    'Reddit',
   );
 
   if (!data?.data?.children) return [];
@@ -60,7 +60,7 @@ export async function fetchRedditComments(limit = 25) {
   const data = await fetchJson<any>(
     `${REDDIT_API}/user/${username}/comments.json?sort=new&limit=${limit}`,
     undefined,
-    'Reddit'
+    'Reddit',
   );
 
   if (!data?.data?.children) return [];

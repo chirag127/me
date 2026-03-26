@@ -1,10 +1,12 @@
 import { render, screen } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import ChatWrapper from './ChatWrapper';
 
 // Mock needed stores and external libs
 vi.mock('../../store/useAIChatStore', () => ({
-  useAIChatStore: vi.fn((selector) => selector({ isOpen: false, openChat: vi.fn(), closeChat: vi.fn() })),
+  useAIChatStore: vi.fn((selector) =>
+    selector({ isOpen: false, openChat: vi.fn(), closeChat: vi.fn() }),
+  ),
 }));
 
 describe('ChatWrapper', () => {

@@ -1,23 +1,28 @@
 ---
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import CommandPalette from '../../components/CommandPalette.astro';
-let db = { 
-  lastfm: { stats: { playcount: 0 }, topArtists: [] as any[], recentTracks: [] as any[], topTracks: [] as any[] } 
+
+let db = {
+  lastfm: {
+    stats: { playcount: 0 },
+    topArtists: [] as any[],
+    recentTracks: [] as any[],
+    topTracks: [] as any[],
+  },
 };
 
 try {
-  const raw = await fs.readFile(path.resolve('./src/data/generated/music.json'), 'utf-8');
+  const raw = await fs.readFile(
+    path.resolve('./src/data/generated/music.json'),
+    'utf-8',
+  );
   db = JSON.parse(raw);
-} catch (e) {
+} catch (_e) {
   console.warn('[Music Hub] music.json not found.');
 }
 
-const numPlays = db.lastfm?.stats?.playcount || 0;
-const artists = db.lastfm?.topArtists || [];
+const _numPlays = db.lastfm?.stats?.playcount || 0;
+const _artists = db.lastfm?.topArtists || [];
 const recentTracks = db.lastfm?.recentTracks || [];
 
 const fallbackGradients = [
@@ -31,16 +36,17 @@ const fallbackGradients = [
 ];
 const fallbackEmojis = ['🎵', '🎶', '🎤', '🎧', '🎸', '🎹', '🥁'];
 
-function getVisuals(name: string) {
-  if (!name) return { gradient: fallbackGradients[0], emoji: fallbackEmojis[0] };
+function _getVisuals(name: string) {
+  if (!name)
+    return { gradient: fallbackGradients[0], emoji: fallbackEmojis[0] };
   const idx = [...name].reduce((acc, char) => acc + char.charCodeAt(0), 0);
   return {
     gradient: fallbackGradients[idx % fallbackGradients.length],
-    emoji: fallbackEmojis[idx % fallbackEmojis.length]
+    emoji: fallbackEmojis[idx % fallbackEmojis.length],
   };
 }
 
-const currentTrack = recentTracks[0];
+const _currentTrack = recentTracks[0];
 ---
 
 <Layout title="Music" description="Chirag Singhal's music taste — top artists, tracks, and listening habits synced from Last.fm">

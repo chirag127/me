@@ -8,21 +8,33 @@
  * - Multi-Model Failover
  */
 
-import type { ChatMessage, PersonalityMode, QueryIntent } from './types';
-import { classifyIntent, detectMultipleIntents, analyzeQueryComplexity } from './classifier';
-import { selectTools } from './tools/registry';
-import { getModelChain, selectTier, type AIModel, type ModelTier } from './models';
+import {
+  analyzeQueryComplexity,
+  classifyIntent,
+  detectMultipleIntents,
+} from './classifier';
 import { buildSystemPrompt } from './context';
-import { saveQuery, saveUnknownQuery, trackVisitor } from './store';
-import { sendUnknownQueryAlert } from '../../services/email';
+import {
+  type AIModel,
+  getModelChain,
+  type ModelTier,
+  selectTier,
+} from './models';
+import { selectTools } from './tools/registry';
+import type { ChatMessage, PersonalityMode, QueryIntent } from './types';
 
 // ─── Puter.js Types ──────────────────────────────────────────────────
 
 interface PuterAI {
   chat(
     messages: Array<{ role: string; content: string }>,
-    options?: { model?: string; stream?: boolean }
-  ): AsyncIterable<{ text?: string; type?: string; message?: { content?: string; tool_calls?: unknown[] }; content?: string }>;
+    options?: { model?: string; stream?: boolean },
+  ): AsyncIterable<{
+    text?: string;
+    type?: string;
+    message?: { content?: string; tool_calls?: unknown[] };
+    content?: string;
+  }>;
 }
 
 function getPuter(): PuterAI | null {
@@ -57,7 +69,7 @@ export async function* executeAgentStream(
   pageContext: string,
   personality: PersonalityMode = 'professional',
   selectedModel: string = '',
-  chatHistory: ChatMessage[] = []
+  chatHistory: ChatMessage[] = [],
 ): AsyncGenerator<StreamChunk> {
   const startTime = Date.now();
 
@@ -66,20 +78,26 @@ export async function* executeAgentStream(
   const [classification, complexity, allIntents] = await Promise.all([
     classifyIntent(userQuery),
     analyzeQueryComplexity(userQuery),
-    detectMultipleIntents(userQuery)
+    detectMultipleIntents(userQuery),
   ]);
 
   yield {
     type: 'step',
-    content: `🎯 Intent identified: ${classification.intent} (${complexity} complexity)`
+    content: `🎯 Intent identified: ${classification.intent} (${complexity} complexity)`,
   };
 
   // Step 2: Strategic Data Acquisition
-  yield { type: 'step', content: '🔍 Searching knowledge base and live APIs...' };
+  yield {
+    type: 'step',
+    content: '🔍 Searching knowledge base and live APIs...',
+  };
   const tools = selectTools(allIntents);
 
   if (tools.length > 0) {
-    yield { type: 'step', content: `🛠️ Engaging tools: ${tools.map(t => t.name).join(', ')}` };
+    yield {
+      type: 'step',
+      content: `🛠️ Engaging tools: ${tools.map((t) => t.name).join(', ')}`,
+    };
   }
 
   const toolResults = await Promise.all(
@@ -88,30 +106,44 @@ export async function* executeAgentStream(
         const result = await tool.execute();
         return result;
       } catch {
-        return { tool: tool.name, data: '', success: false, truncated: false, source: 'error' };
+        return {
+          tool: tool.name,
+          data: '',
+          success: false,
+          truncated: false,
+          source: 'error',
+        };
       }
-    })
+    }),
   );
 
   const toolData = toolResults
-    .filter(r => r.success && r.data)
-    .map(r => `### ${r.tool}\n${r.data}`)
+    .filter((r) => r.success && r.data)
+    .map((r) => `### ${r.tool}\n${r.data}`)
     .join('\n\n');
 
-  const toolsUsed = toolResults.filter(r => r.success).map(r => r.tool);
+  const toolsUsed = toolResults.filter((r) => r.success).map((r) => r.tool);
   if (toolsUsed.length > 0) {
     yield { type: 'step', content: '✅ Data gathered successfully' };
   } else {
-    yield { type: 'step', content: 'ℹ️ No external data needed, using internal knowledge' };
+    yield {
+      type: 'step',
+      content: 'ℹ️ No external data needed, using internal knowledge',
+    };
   }
 
   // Step 3: Model Selection & Context Building
   yield { type: 'step', content: '🧠 Formulating response strategy...' };
   const systemPrompt = buildSystemPrompt(toolData, personality);
-  const tier = selectedModel ? 'agent' as ModelTier : selectTier(classification.intent, complexity);
+  const tier = selectedModel
+    ? ('agent' as ModelTier)
+    : selectTier(classification.intent, complexity);
 
   const chain = selectedModel
-    ? [selectedModel as AIModel, ...getModelChain('agent').filter(m => m !== selectedModel)]
+    ? [
+        selectedModel as AIModel,
+        ...getModelChain('agent').filter((m) => m !== selectedModel),
+      ]
     : getModelChain(tier);
 
   const messages: Array<{ role: string; content: string }> = [
@@ -120,23 +152,30 @@ export async function* executeAgentStream(
 
   // Add relevant history (last 5 turns) for contextual awareness
   if (chatHistory.length > 0) {
-    const historyContext = chatHistory.slice(-5).map(m =>
-      `${m.role === 'user' ? 'User' : 'Assistant'}: ${m.content}`
-    ).join('\n');
+    const historyContext = chatHistory
+      .slice(-5)
+      .map((m) => `${m.role === 'user' ? 'User' : 'Assistant'}: ${m.content}`)
+      .join('\n');
     messages.push({
       role: 'user',
-      content: `[Previous Conversation Context]\n${historyContext}\n\n[Current Query]\n${userQuery}`
+      content: `[Previous Conversation Context]\n${historyContext}\n\n[Current Query]\n${userQuery}`,
     });
   } else {
     messages.push({ role: 'user', content: userQuery });
   }
 
   // Step 4: Execution (Streaming)
-  yield { type: 'step', content: `🚀 Executing with ${chain[0].split('/')[1] || 'primary model'}...` };
+  yield {
+    type: 'step',
+    content: `🚀 Executing with ${chain[0].split('/')[1] || 'primary model'}...`,
+  };
 
   const ai = getPuter();
   if (!ai) {
-    yield { type: 'error', content: 'AI Service connection lost. Please refresh.' };
+    yield {
+      type: 'error',
+      content: 'AI Service connection lost. Please refresh.',
+    };
     return;
   }
 
@@ -157,13 +196,19 @@ export async function* executeAgentStream(
       }
       if (fullContent.length > 0) break;
     } catch {
-      yield { type: 'step', content: `⚠️ Model ${model.split('/')[1]} busy, trying alternative...` };
-      continue;
+      yield {
+        type: 'step',
+        content: `⚠️ Model ${model.split('/')[1]} busy, trying alternative...`,
+      };
     }
   }
 
   if (!fullContent) {
-    yield { type: 'error', content: 'All agents are currently over capacity. Please try again in a moment.' };
+    yield {
+      type: 'error',
+      content:
+        'All agents are currently over capacity. Please try again in a moment.',
+    };
     return;
   }
 
@@ -198,8 +243,16 @@ export async function* executeAgentStream(
 
   // Persist
   persistResults(
-    userQuery, fullContent, usedModel, classification.intent, confidence, toolsUsed,
-    pageContext, userId, userEmail, userName
+    userQuery,
+    fullContent,
+    usedModel,
+    classification.intent,
+    confidence,
+    toolsUsed,
+    pageContext,
+    userId,
+    userEmail,
+    userName,
   ).catch(() => {});
 }
 
@@ -214,7 +267,7 @@ export async function executeAgent(
   pageContext: string,
   personality: PersonalityMode = 'professional',
   selectedModel: string = '',
-  chatHistory: ChatMessage[] = []
+  chatHistory: ChatMessage[] = [],
 ): Promise<{
   content: string;
   model: string;
@@ -231,7 +284,14 @@ export async function executeAgent(
   let confidence = 0;
 
   for await (const chunk of executeAgentStream(
-    userQuery, userId, userEmail, userName, pageContext, personality, selectedModel, chatHistory
+    userQuery,
+    userId,
+    userEmail,
+    userName,
+    pageContext,
+    personality,
+    selectedModel,
+    chatHistory,
   )) {
     if (chunk.type === 'token') content += chunk.content;
     if (chunk.type === 'done' && chunk.meta) {
@@ -243,22 +303,44 @@ export async function executeAgent(
     }
   }
 
-  return { content: content || 'No response generated.', model: model || 'unknown', intent, confidence, toolsUsed, tier };
+  return {
+    content: content || 'No response generated.',
+    model: model || 'unknown',
+    intent,
+    confidence,
+    toolsUsed,
+    tier,
+  };
 }
 
 async function persistResults(
-  query: string, response: string, model: string,
-  intent: QueryIntent, confidence: number, toolsUsed: string[],
-  pageContext: string, userId: string, userEmail: string, userName: string
+  query: string,
+  response: string,
+  model: string,
+  intent: QueryIntent,
+  confidence: number,
+  toolsUsed: string[],
+  pageContext: string,
+  userId: string,
+  userEmail: string,
+  userName: string,
 ): Promise<void> {
   const timestamp = new Date().toISOString();
 
   // Save query to aiQueries collection
   const { saveQuery } = await import('./store');
   saveQuery({
-    userId, userEmail, userName,
-    query, response, model, intent, confidence, toolsUsed,
-    pageContext, timestamp,
+    userId,
+    userEmail,
+    userName,
+    query,
+    response,
+    model,
+    intent,
+    confidence,
+    toolsUsed,
+    pageContext,
+    timestamp,
     isUnknown: confidence < 0.5,
   }).catch(() => {});
 
@@ -266,8 +348,13 @@ async function persistResults(
   if (confidence < 0.5) {
     const { saveUnknownQuery } = await import('./store');
     saveUnknownQuery({
-      userId, userEmail, userName,
-      query, response, pageContext, timestamp,
+      userId,
+      userEmail,
+      userName,
+      query,
+      response,
+      pageContext,
+      timestamp,
       resolved: false,
     }).catch(() => {});
 
@@ -283,9 +370,13 @@ async function persistResults(
   // Track visitor activity
   const { trackVisitor } = await import('./store');
   trackVisitor({
-    userId, userEmail, userName,
-    firstVisit: timestamp, lastVisit: timestamp,
-    visitCount: 1, pagesVisited: [pageContext],
+    userId,
+    userEmail,
+    userName,
+    firstVisit: timestamp,
+    lastVisit: timestamp,
+    visitCount: 1,
+    pagesVisited: [pageContext],
     totalQueries: 1,
     isAnonymous: !userEmail || userEmail === 'anonymous',
   }).catch(() => {});

@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as dotenv from 'dotenv';
-import { initializeApp, cert } from 'firebase-admin/app';
+import { cert, initializeApp } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 
 // Load env vars
@@ -12,31 +12,76 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Import API modules
-import { fetchTraktWatchedMovies, fetchTraktWatchlistMovies, fetchTraktRatings, fetchTraktShows } from '../src/lib/api/trakt.js';
-import { fetchLastFmTopArtists, fetchLastFmTopTracks, fetchLastFmTopAlbums, fetchLastFmRecentTracks, fetchLastFmStats } from '../src/lib/api/lastfm.js';
-import { fetchSpotifyTopTracks, fetchSpotifyTopArtists } from '../src/lib/api/spotify.js';
-import { fetchOpenLibraryBooks } from '../src/lib/api/openlibrary.js';
-import { fetchAniListAnime, fetchAniListManga } from '../src/lib/api/anilist.js';
-import { fetchSteamGames, fetchSteamRecentGames, fetchLichessStats } from '../src/lib/api/steam.js';
-import { fetchWakaTimeStats } from '../src/lib/api/wakatime.js';
-import { fetchGitHubUser, fetchGitHubRepos, extractTopLanguages } from '../src/lib/api/github-api.js';
-import { fetchLeetCodeStats } from '../src/lib/api/leetcode.js';
+import {
+  fetchAniListAnime,
+  fetchAniListManga,
+} from '../src/lib/api/anilist.js';
+import { fetchBlueskyPosts } from '../src/lib/api/bluesky.js';
 import { fetchCodewarsStats } from '../src/lib/api/codewars.js';
 import { fetchDevToArticles } from '../src/lib/api/devto.js';
+import {
+  extractTopLanguages,
+  fetchGitHubRepos,
+  fetchGitHubUser,
+} from '../src/lib/api/github-api.js';
 import { fetchHackerNewsStats } from '../src/lib/api/hackernews.js';
-import { fetchBlueskyPosts } from '../src/lib/api/bluesky.js';
-import { fetchYouTubeStats, fetchYouTubeVideos } from '../src/lib/api/youtube.js';
-import { fetchJikanStats } from '../src/lib/api/jikan.js';
-
-// New API modules
-import { fetchListenBrainzStats, fetchListenBrainzTopArtists, fetchListenBrainzTopTracks, fetchListenBrainzRecentListens } from '../src/lib/api/listenbrainz.js';
-import { fetchMastodonStatuses, fetchMastodonAccount } from '../src/lib/api/mastodon.js';
-import { fetchMixcloudUser, fetchMixcloudCloudcasts } from '../src/lib/api/mixcloud.js';
-import { fetchNpmUserPackages, fetchNpmDownloads } from '../src/lib/api/npm.js';
-import { fetchStackOverflowUser, fetchStackOverflowTags, fetchStackOverflowQuestions, fetchStackOverflowAnswers } from '../src/lib/api/stackoverflow.js';
 import { fetchHolopinBadges } from '../src/lib/api/holopin.js';
-import { fetchRedditUser, fetchRedditPosts, fetchRedditComments } from '../src/lib/api/reddit.js';
+import { fetchJikanStats } from '../src/lib/api/jikan.js';
+import {
+  fetchLastFmRecentTracks,
+  fetchLastFmStats,
+  fetchLastFmTopAlbums,
+  fetchLastFmTopArtists,
+  fetchLastFmTopTracks,
+} from '../src/lib/api/lastfm.js';
+import { fetchLeetCodeStats } from '../src/lib/api/leetcode.js';
+// New API modules
+import {
+  fetchListenBrainzRecentListens,
+  fetchListenBrainzStats,
+  fetchListenBrainzTopArtists,
+  fetchListenBrainzTopTracks,
+} from '../src/lib/api/listenbrainz.js';
+import {
+  fetchMastodonAccount,
+  fetchMastodonStatuses,
+} from '../src/lib/api/mastodon.js';
+import {
+  fetchMixcloudCloudcasts,
+  fetchMixcloudUser,
+} from '../src/lib/api/mixcloud.js';
+import { fetchNpmDownloads, fetchNpmUserPackages } from '../src/lib/api/npm.js';
+import { fetchOpenLibraryBooks } from '../src/lib/api/openlibrary.js';
+import {
+  fetchRedditComments,
+  fetchRedditPosts,
+  fetchRedditUser,
+} from '../src/lib/api/reddit.js';
+import {
+  fetchSpotifyTopArtists,
+  fetchSpotifyTopTracks,
+} from '../src/lib/api/spotify.js';
+import {
+  fetchStackOverflowTags,
+  fetchStackOverflowUser,
+} from '../src/lib/api/stackoverflow.js';
+import {
+  fetchLichessStats,
+  fetchSteamGames,
+  fetchSteamRecentGames,
+} from '../src/lib/api/steam.js';
+// Import API modules
+import {
+  fetchTraktRatings,
+  fetchTraktShows,
+  fetchTraktWatchedMovies,
+  fetchTraktWatchlistMovies,
+} from '../src/lib/api/trakt.js';
+import { fetchWakaTimeStats } from '../src/lib/api/wakatime.js';
+import {
+  fetchYouTubeStats,
+  fetchYouTubeVideos,
+} from '../src/lib/api/youtube.js';
 
 // Setup directories
 const GENERATED_DIR = path.resolve(__dirname, '../src/data/generated');
@@ -45,7 +90,11 @@ const PUBLIC_DATA_DIR = path.resolve(__dirname, '../public/data');
 // Initialize Firebase Admin (Only if credentials exist - safe fallback for local dev)
 let db: FirebaseFirestore.Firestore | null = null;
 try {
-  if (process.env.FIREBASE_PROJECT_ID && process.env.FIREBASE_CLIENT_EMAIL && process.env.FIREBASE_PRIVATE_KEY) {
+  if (
+    process.env.FIREBASE_PROJECT_ID &&
+    process.env.FIREBASE_CLIENT_EMAIL &&
+    process.env.FIREBASE_PRIVATE_KEY
+  ) {
     const formattedKey = process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n');
     initializeApp({
       credential: cert({
@@ -58,11 +107,17 @@ try {
     db = getFirestore();
     console.log('[Firestore] Admin SDK initialized.');
   } else {
-    console.warn('[Firestore] Admin SDK missing credentials, skipping Firestore push.');
+    console.warn(
+      '[Firestore] Admin SDK missing credentials, skipping Firestore push.',
+    );
   }
 } catch (e: any) {
   if (e?.code === 5 || e?.message?.includes('NOT_FOUND')) {
-    console.warn('[Firestore] Database not found. Create a Firestore database at https://console.firebase.google.com/project/' + (process.env.FIREBASE_PROJECT_ID || '') + '/firestore');
+    console.warn(
+      '[Firestore] Database not found. Create a Firestore database at https://console.firebase.google.com/project/' +
+        (process.env.FIREBASE_PROJECT_ID || '') +
+        '/firestore',
+    );
   } else {
     console.error('[Firestore] Initialization failed:', e);
   }
@@ -79,7 +134,9 @@ async function writeJson(filename: string, data: any) {
   const content = JSON.stringify(data, null, 2);
   await fs.writeFile(filePath, content);
   await fs.writeFile(publicPath, content);
-  console.log(`[Cache] Wrote ${filename} (${content.length} bytes) → generated/ + public/data/`);
+  console.log(
+    `[Cache] Wrote ${filename} (${content.length} bytes) → generated/ + public/data/`,
+  );
 }
 
 async function pushToFirestore(collection: string, doc: string, data: any) {
@@ -89,10 +146,15 @@ async function pushToFirestore(collection: string, doc: string, data: any) {
     console.log(`[Firestore] Updated ${collection}/${doc}`);
   } catch (error: any) {
     if (error?.code === 5 || error?.message?.includes('NOT_FOUND')) {
-      console.warn(`[Firestore] Database not found. Create Firestore DB at: https://console.firebase.google.com/project/${process.env.FIREBASE_PROJECT_ID}/firestore`);
+      console.warn(
+        `[Firestore] Database not found. Create Firestore DB at: https://console.firebase.google.com/project/${process.env.FIREBASE_PROJECT_ID}/firestore`,
+      );
       db = null; // Stop trying further pushes
     } else {
-      console.error(`[Firestore] Failed to update ${collection}/${doc}:`, error?.message || error);
+      console.error(
+        `[Firestore] Failed to update ${collection}/${doc}:`,
+        error?.message || error,
+      );
     }
   }
 }
@@ -105,22 +167,51 @@ async function main() {
 
   // 1. Movies & Shows
   console.log('\n--- Fetching Movies & Shows ---');
-  const [traktWatched, traktWatchlist, traktRatings, traktShows] = await Promise.all([
-    fetchTraktWatchedMovies(),
-    fetchTraktWatchlistMovies(),
-    fetchTraktRatings(),
-    fetchTraktShows()
-  ]);
-  
+  const [traktWatched, traktWatchlist, traktRatings, traktShows] =
+    await Promise.all([
+      fetchTraktWatchedMovies(),
+      fetchTraktWatchlistMovies(),
+      fetchTraktRatings(),
+      fetchTraktShows(),
+    ]);
+
   // Merge ratings into movies
   const movies = {
-    watched: traktWatched.map(m => ({ ...m, rating: traktRatings[m.traktSlug]?.rating || null, ratedAt: traktRatings[m.traktSlug]?.ratedAt || null })),
-    watchlist: traktWatchlist.map(m => ({ ...m, rating: traktRatings[m.traktSlug]?.rating || null, ratedAt: traktRatings[m.traktSlug]?.ratedAt || null })),
+    watched: traktWatched.map((m) => ({
+      ...m,
+      rating: traktRatings[m.traktSlug]?.rating || null,
+      ratedAt: traktRatings[m.traktSlug]?.ratedAt || null,
+    })),
+    watchlist: traktWatchlist.map((m) => ({
+      ...m,
+      rating: traktRatings[m.traktSlug]?.rating || null,
+      ratedAt: traktRatings[m.traktSlug]?.ratedAt || null,
+    })),
     // Separate rated movies
-    rated: Object.entries(traktRatings).map(([slug, r]) => {
-      const movie = [...traktWatched, ...traktWatchlist].find(m => m.traktSlug === slug);
-      return movie ? { ...movie, rating: r.rating, ratedAt: r.ratedAt } : { traktSlug: slug, rating: r.rating, ratedAt: r.ratedAt, title: '', year: 0, tmdbId: null, imdbId: null, watchedAt: null, posterUrl: null, genres: [], overview: null, runtime: null, category: 'watched' as const };
-    }).filter((m: any) => m.title),
+    rated: Object.entries(traktRatings)
+      .map(([slug, r]) => {
+        const movie = [...traktWatched, ...traktWatchlist].find(
+          (m) => m.traktSlug === slug,
+        );
+        return movie
+          ? { ...movie, rating: r.rating, ratedAt: r.ratedAt }
+          : {
+              traktSlug: slug,
+              rating: r.rating,
+              ratedAt: r.ratedAt,
+              title: '',
+              year: 0,
+              tmdbId: null,
+              imdbId: null,
+              watchedAt: null,
+              posterUrl: null,
+              genres: [],
+              overview: null,
+              runtime: null,
+              category: 'watched' as const,
+            };
+      })
+      .filter((m: any) => m.title),
     shows: traktShows,
     stats: {
       totalWatched: traktWatched.length,
@@ -128,7 +219,7 @@ async function main() {
       totalRated: Object.keys(traktRatings).length,
       totalWatchlist: traktWatchlist.length,
     },
-    lastUpdated: timestamp
+    lastUpdated: timestamp,
   };
   await writeJson('movies.json', movies);
   await pushToFirestore('media', 'movies', movies);
@@ -138,23 +229,31 @@ async function main() {
   const [read, reading, wantToRead] = await Promise.all([
     fetchOpenLibraryBooks('already-read'),
     fetchOpenLibraryBooks('currently-reading'),
-    fetchOpenLibraryBooks('want-to-read')
+    fetchOpenLibraryBooks('want-to-read'),
   ]);
-  
+
   const books = { read, reading, wantToRead, lastUpdated: timestamp };
   await writeJson('books.json', books);
   await pushToFirestore('media', 'books', books);
 
   // 3. Music
   console.log('\n--- Fetching Music ---');
-  const [lastFmStats, topArtists, topTracks, topAlbums, recentTracks, spotTopTracks, spotTopArtists] = await Promise.all([
+  const [
+    lastFmStats,
+    topArtists,
+    topTracks,
+    topAlbums,
+    recentTracks,
+    spotTopTracks,
+    spotTopArtists,
+  ] = await Promise.all([
     fetchLastFmStats(),
     fetchLastFmTopArtists(),
     fetchLastFmTopTracks(),
     fetchLastFmTopAlbums(),
     fetchLastFmRecentTracks(),
     fetchSpotifyTopTracks(),
-    fetchSpotifyTopArtists()
+    fetchSpotifyTopArtists(),
   ]);
 
   // Also fetch ListenBrainz data
@@ -166,10 +265,21 @@ async function main() {
   ]);
 
   const music = {
-    lastfm: { stats: lastFmStats, topArtists, topTracks, topAlbums, recentTracks },
+    lastfm: {
+      stats: lastFmStats,
+      topArtists,
+      topTracks,
+      topAlbums,
+      recentTracks,
+    },
     spotify: { topTracks: spotTopTracks, topArtists: spotTopArtists },
-    listenbrainz: { stats: lbStats, topArtists: lbTopArtists, topTracks: lbTopTracks, recentListens: lbRecent },
-    lastUpdated: timestamp
+    listenbrainz: {
+      stats: lbStats,
+      topArtists: lbTopArtists,
+      topTracks: lbTopTracks,
+      recentListens: lbRecent,
+    },
+    lastUpdated: timestamp,
   };
   await writeJson('music.json', music);
   await pushToFirestore('media', 'music', music);
@@ -179,7 +289,7 @@ async function main() {
   const [anime, manga, jikanStats] = await Promise.all([
     fetchAniListAnime(),
     fetchAniListManga(),
-    fetchJikanStats()
+    fetchJikanStats(),
   ]);
 
   const animeData = { anime, manga, stats: jikanStats, lastUpdated: timestamp };
@@ -191,29 +301,37 @@ async function main() {
   const [steamGames, steamRecent, lichessStats] = await Promise.all([
     fetchSteamGames(),
     fetchSteamRecentGames(),
-    fetchLichessStats()
+    fetchLichessStats(),
   ]);
 
-  const gaming = { steamGames, steamRecent, lichessStats, lastUpdated: timestamp };
+  const gaming = {
+    steamGames,
+    steamRecent,
+    lichessStats,
+    lastUpdated: timestamp,
+  };
   await writeJson('games.json', gaming);
   await pushToFirestore('media', 'gaming', gaming);
 
   // 6. Coding
   console.log('\n--- Fetching Coding ---');
-  const [githubUser, githubRepos, wakatime, leetcode, codewars] = await Promise.all([
-    fetchGitHubUser(),
-    fetchGitHubRepos(),
-    fetchWakaTimeStats(),
-    fetchLeetCodeStats(),
-    fetchCodewarsStats()
-  ]);
+  const [githubUser, githubRepos, wakatime, leetcode, codewars] =
+    await Promise.all([
+      fetchGitHubUser(),
+      fetchGitHubRepos(),
+      fetchWakaTimeStats(),
+      fetchLeetCodeStats(),
+      fetchCodewarsStats(),
+    ]);
 
   const topLangs = extractTopLanguages(githubRepos);
-  
+
   const coding = {
     github: { user: githubUser, repos: githubRepos, topLanguages: topLangs },
-    wakatime, leetcode, codewars,
-    lastUpdated: timestamp
+    wakatime,
+    leetcode,
+    codewars,
+    lastUpdated: timestamp,
   };
   await writeJson('coding.json', coding);
   await pushToFirestore('media', 'coding', coding);
@@ -225,13 +343,15 @@ async function main() {
     fetchHackerNewsStats(),
     fetchBlueskyPosts(),
     fetchYouTubeStats(),
-    fetchYouTubeVideos()
+    fetchYouTubeVideos(),
   ]);
 
   const social = {
-    devto, hackernews, bluesky,
+    devto,
+    hackernews,
+    bluesky,
     youtube: { stats: ytStats, videos: ytVids },
-    lastUpdated: timestamp
+    lastUpdated: timestamp,
   };
   await writeJson('social.json', social);
   await pushToFirestore('media', 'social', social);
@@ -242,7 +362,11 @@ async function main() {
     fetchMastodonAccount().catch(() => null),
     fetchMastodonStatuses(20).catch(() => []),
   ]);
-  const mastodon = { account: mastodonAccount, statuses: mastodonStatuses, lastUpdated: timestamp };
+  const mastodon = {
+    account: mastodonAccount,
+    statuses: mastodonStatuses,
+    lastUpdated: timestamp,
+  };
   await writeJson('mastodon.json', mastodon);
   await pushToFirestore('social', 'mastodon', mastodon);
 
@@ -253,7 +377,12 @@ async function main() {
     fetchRedditPosts(25).catch(() => []),
     fetchRedditComments(25).catch(() => []),
   ]);
-  const reddit = { user: redditUser, posts: redditPosts, comments: redditComments, lastUpdated: timestamp };
+  const reddit = {
+    user: redditUser,
+    posts: redditPosts,
+    comments: redditComments,
+    lastUpdated: timestamp,
+  };
   await writeJson('reddit.json', reddit);
   await pushToFirestore('social', 'reddit', reddit);
 
@@ -265,7 +394,7 @@ async function main() {
   ]);
   const musicPlatforms = {
     mixcloud: { user: mixcloudUser, cloudcasts: mixcloudCasts },
-    lastUpdated: timestamp
+    lastUpdated: timestamp,
   };
   await writeJson('music-platforms.json', musicPlatforms);
   await pushToFirestore('social', 'music-platforms', musicPlatforms);
@@ -278,21 +407,25 @@ async function main() {
     npmPackages.map(async (pkg: any) => {
       const downloads = await fetchNpmDownloads(pkg.name).catch(() => null);
       return { ...pkg, downloads: downloads?.downloads || 0 };
-    })
+    }),
   );
 
   // StackOverflow - we need to find the user ID
   let soUser = null;
   let soTags: any[] = [];
   try {
-    const soData = await fetch('https://api.stackexchange.com/2.3/users?order=desc&sort=reputation&inname=chirag127&site=stackoverflow');
+    const soData = await fetch(
+      'https://api.stackexchange.com/2.3/users?order=desc&sort=reputation&inname=chirag127&site=stackoverflow',
+    );
     const soJson: any = await soData.json();
     const soUserId = soJson?.items?.[0]?.user_id;
     if (soUserId) {
       soUser = await fetchStackOverflowUser(String(soUserId));
       soTags = await fetchStackOverflowTags(String(soUserId), 20);
     }
-  } catch { /* skip */ }
+  } catch {
+    /* skip */
+  }
 
   const holopinBadges = await fetchHolopinBadges().catch(() => null);
 
@@ -300,7 +433,7 @@ async function main() {
     npm: { packages: npmData },
     stackoverflow: { user: soUser, tags: soTags },
     holopin: holopinBadges,
-    lastUpdated: timestamp
+    lastUpdated: timestamp,
   };
   await writeJson('dev-stats.json', devStats);
   await pushToFirestore('social', 'dev-stats', devStats);
@@ -308,7 +441,7 @@ async function main() {
   console.log('\n✅ Data Fetching Complete!');
 }
 
-main().catch(error => {
+main().catch((error) => {
   console.error('❌ Fatal Error in Data Fetcher:', error);
   process.exit(1);
 });

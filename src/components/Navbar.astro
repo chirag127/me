@@ -4,19 +4,19 @@ import AuthWidget from './islands/AuthWidget';
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "Work", path: "/work" },
-  { name: "Code", path: "/code" },
-  { name: "Library", path: "/library" },
-  { name: "Gaming", path: "/gaming" },
-  { name: "Me", path: "/me" },
-  { name: "Connect", path: "/connect" },
-  { name: "System", path: "/system" },
+  { name: 'Home', path: '/' },
+  { name: 'Work', path: '/work' },
+  { name: 'Code', path: '/code' },
+  { name: 'Library', path: '/library' },
+  { name: 'Gaming', path: '/gaming' },
+  { name: 'Me', path: '/me' },
+  { name: 'Connect', path: '/connect' },
+  { name: 'System', path: '/system' },
 ];
 
 function isActive(path: string): boolean {
   if (path === '/') return currentPath === '/';
-  return currentPath.startsWith(path + '/');
+  return currentPath.startsWith(`${path}/`);
 }
 ---
 

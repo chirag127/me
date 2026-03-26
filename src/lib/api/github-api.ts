@@ -1,5 +1,5 @@
-import { fetchJson } from './fetcher';
 import { CONFIG } from '../config';
+import { fetchJson } from './fetcher';
 
 const GITHUB_API_URL = 'https://api.github.com';
 
@@ -17,7 +17,7 @@ export async function fetchGitHubUser() {
   const data = await fetchJson<any>(
     `${GITHUB_API_URL}/users/${CONFIG.user.github}`,
     getOptions(),
-    'GitHub'
+    'GitHub',
   );
 
   if (!data) return null;
@@ -36,15 +36,15 @@ export async function fetchGitHubRepos() {
   const data = await fetchJson<any[]>(
     `${GITHUB_API_URL}/users/${CONFIG.user.github}/repos?per_page=100&sort=updated`,
     getOptions(),
-    'GitHub'
+    'GitHub',
   );
 
   if (!data) return [];
 
   // Filter forks and map
   return data
-    .filter(repo => !repo.fork)
-    .map(repo => ({
+    .filter((repo) => !repo.fork)
+    .map((repo) => ({
       name: repo.name,
       description: repo.description,
       language: repo.language,
@@ -56,10 +56,12 @@ export async function fetchGitHubRepos() {
     }));
 }
 
-export function extractTopLanguages(repos: any[]): { name: string; count: number }[] {
+export function extractTopLanguages(
+  repos: any[],
+): { name: string; count: number }[] {
   const counts: Record<string, number> = {};
-  
-  repos.forEach(repo => {
+
+  repos.forEach((repo) => {
     if (repo.language) {
       counts[repo.language] = (counts[repo.language] || 0) + 1;
     }

@@ -1,6 +1,6 @@
+import { CONFIG } from '../config';
 import { fetchJson } from './fetcher';
 import type { DevToArticle } from './types';
-import { CONFIG } from '../config';
 
 const DEVTO_API = 'https://dev.to/api/articles';
 
@@ -8,17 +8,17 @@ export async function fetchDevToArticles(): Promise<DevToArticle[]> {
   const apiKey = process.env.DEVTO_API_KEY;
   const username = CONFIG.user.devto;
 
-  const url = apiKey 
+  const url = apiKey
     ? `${DEVTO_API}/me/published` // If key exists, get own published (higher limit, includes hidden potentially)
     : `${DEVTO_API}?username=${username}&per_page=30`; // Public fallback
 
   const options: RequestInit = apiKey ? { headers: { 'api-key': apiKey } } : {};
 
   const data = await fetchJson<any[]>(url, options, 'Dev.to');
-  
+
   if (!data) return [];
 
-  return data.map(article => ({
+  return data.map((article) => ({
     id: article.id,
     title: article.title,
     description: article.description,

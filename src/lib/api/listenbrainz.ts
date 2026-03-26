@@ -1,5 +1,5 @@
-import { fetchJson } from './fetcher';
 import { CONFIG } from '../config';
+import { fetchJson } from './fetcher';
 
 const LB_API = 'https://api.listenbrainz.org/1';
 
@@ -8,11 +8,13 @@ export async function fetchListenBrainzStats() {
   const data = await fetchJson<any>(
     `${LB_API}/user/${username}/listening-activity`,
     undefined,
-    'ListenBrainz'
+    'ListenBrainz',
   );
 
   if (!data?.payload) {
-    console.warn(`[ListenBrainz] No stats found for user "${username}". Check that the account exists on listenbrainz.org.`);
+    console.warn(
+      `[ListenBrainz] No stats found for user "${username}". Check that the account exists on listenbrainz.org.`,
+    );
     return null;
   }
 
@@ -27,7 +29,7 @@ export async function fetchListenBrainzTopArtists(limit = 25) {
   const data = await fetchJson<any>(
     `${LB_API}/user/${username}/artists?count=${limit}`,
     undefined,
-    'ListenBrainz'
+    'ListenBrainz',
   );
 
   if (!data?.payload?.artists) return [];
@@ -44,7 +46,7 @@ export async function fetchListenBrainzTopTracks(limit = 25) {
   const data = await fetchJson<any>(
     `${LB_API}/user/${username}/recordings?count=${limit}`,
     undefined,
-    'ListenBrainz'
+    'ListenBrainz',
   );
 
   if (!data?.payload?.recordings) return [];
@@ -62,7 +64,7 @@ export async function fetchListenBrainzRecentListens(limit = 15) {
   const data = await fetchJson<any>(
     `${LB_API}/user/${username}/listens?count=${limit}`,
     undefined,
-    'ListenBrainz'
+    'ListenBrainz',
   );
 
   if (!data?.payload?.listens) return [];
@@ -70,7 +72,9 @@ export async function fetchListenBrainzRecentListens(limit = 15) {
   return data.payload.listens.map((l: any) => ({
     name: l.track_metadata?.track_name || 'Unknown',
     artist: l.track_metadata?.artist_name || 'Unknown',
-    listenedAt: l.listened_at ? new Date(l.listened_at * 1000).toISOString() : null,
+    listenedAt: l.listened_at
+      ? new Date(l.listened_at * 1000).toISOString()
+      : null,
     releaseName: l.track_metadata?.release_name || null,
   }));
 }

@@ -1,6 +1,6 @@
+import { CONFIG } from '../config';
 import { fetchJson } from './fetcher';
 import type { TraktMovie, TraktShow } from './types';
-import { CONFIG } from '../config';
 
 const TRAKT_API_URL = 'https://api.trakt.tv';
 
@@ -32,7 +32,11 @@ async function refreshAccessToken(): Promise<string | null> {
     });
 
     if (!res.ok) {
-      console.warn('[Trakt] Token refresh failed:', res.status, await res.text());
+      console.warn(
+        '[Trakt] Token refresh failed:',
+        res.status,
+        await res.text(),
+      );
       return null;
     }
 
@@ -56,7 +60,7 @@ async function getHeaders(): Promise<RequestInit> {
       'Content-Type': 'application/json',
       'trakt-api-version': '2',
       'trakt-api-key': process.env.TRAKT_CLIENT_ID || '',
-      ...(accessToken ? { 'Authorization': `Bearer ${accessToken}` } : {}),
+      ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
     } as Record<string, string>,
   };
 }
@@ -82,7 +86,7 @@ async function fetchTrakt<T>(url: string): Promise<T | null> {
 
 export async function fetchTraktWatchedMovies(): Promise<TraktMovie[]> {
   const data = await fetchTrakt<any[]>(
-    `${TRAKT_API_URL}/users/${CONFIG.user.trakt}/watched/movies?extended=full`
+    `${TRAKT_API_URL}/users/${CONFIG.user.trakt}/watched/movies?extended=full`,
   );
 
   if (!data) return [];
@@ -106,7 +110,7 @@ export async function fetchTraktWatchedMovies(): Promise<TraktMovie[]> {
 
 export async function fetchTraktWatchlistMovies(): Promise<TraktMovie[]> {
   const data = await fetchTrakt<any[]>(
-    `${TRAKT_API_URL}/users/${CONFIG.user.trakt}/watchlist/movies?extended=full`
+    `${TRAKT_API_URL}/users/${CONFIG.user.trakt}/watchlist/movies?extended=full`,
   );
 
   if (!data) return [];
@@ -128,15 +132,17 @@ export async function fetchTraktWatchlistMovies(): Promise<TraktMovie[]> {
   }));
 }
 
-export async function fetchTraktRatings(): Promise<Record<string, { rating: number; ratedAt: string }>> {
+export async function fetchTraktRatings(): Promise<
+  Record<string, { rating: number; ratedAt: string }>
+> {
   const data = await fetchTrakt<any[]>(
-    `${TRAKT_API_URL}/users/${CONFIG.user.trakt}/ratings/movies`
+    `${TRAKT_API_URL}/users/${CONFIG.user.trakt}/ratings/movies`,
   );
 
   if (!data) return {};
 
   const ratings: Record<string, { rating: number; ratedAt: string }> = {};
-  data.forEach(item => {
+  data.forEach((item) => {
     ratings[item.movie.ids.slug] = {
       rating: item.rating,
       ratedAt: item.rated_at,
@@ -148,7 +154,7 @@ export async function fetchTraktRatings(): Promise<Record<string, { rating: numb
 
 export async function fetchTraktShows(): Promise<TraktShow[]> {
   const data = await fetchTrakt<any[]>(
-    `${TRAKT_API_URL}/users/${CONFIG.user.trakt}/watched/shows?extended=full`
+    `${TRAKT_API_URL}/users/${CONFIG.user.trakt}/watched/shows?extended=full`,
   );
 
   if (!data) return [];

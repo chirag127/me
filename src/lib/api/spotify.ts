@@ -1,5 +1,4 @@
-import { fetchJson, fetchText } from './fetcher';
-import type { SpotifyTrack, LastFmArtist } from './types';
+import type { LastFmArtist, SpotifyTrack } from './types';
 
 const SPOTIFY_TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token';
 const SPOTIFY_API_BASE = 'https://api.spotify.com/v1';
@@ -14,7 +13,9 @@ async function getAccessToken(): Promise<string | null> {
     return null;
   }
 
-  const basicAuth = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
+  const basicAuth = Buffer.from(`${clientId}:${clientSecret}`).toString(
+    'base64',
+  );
 
   const params = new URLSearchParams();
   params.append('grant_type', 'refresh_token');
@@ -32,9 +33,13 @@ async function getAccessToken(): Promise<string | null> {
 
     if (!res.ok) {
       const errorText = await res.text();
-      console.warn(`[Spotify] Token refresh failed (${res.status}): ${errorText}`);
+      console.warn(
+        `[Spotify] Token refresh failed (${res.status}): ${errorText}`,
+      );
       if (res.status === 400) {
-        console.warn('[Spotify] Refresh token may be expired or revoked. Re-authorize at https://accounts.spotify.com/authorize');
+        console.warn(
+          '[Spotify] Refresh token may be expired or revoked. Re-authorize at https://accounts.spotify.com/authorize',
+        );
       }
       return null;
     }
@@ -60,9 +65,13 @@ async function fetchSpotifyApi<T>(endpoint: string): Promise<T | null> {
     if (!res.ok) {
       if (res.status === 403) {
         const body = await res.json().catch(() => ({}));
-        console.warn(`[Spotify] 403 Forbidden for ${endpoint}. Ensure 'user-top-read' scope is granted. Error: ${body?.error?.message || 'unknown'}`);
+        console.warn(
+          `[Spotify] 403 Forbidden for ${endpoint}. Ensure 'user-top-read' scope is granted. Error: ${body?.error?.message || 'unknown'}`,
+        );
       } else {
-        console.warn(`[Spotify] ${res.status} ${res.statusText} for ${endpoint}`);
+        console.warn(
+          `[Spotify] ${res.status} ${res.statusText} for ${endpoint}`,
+        );
       }
       return null;
     }
@@ -74,9 +83,11 @@ async function fetchSpotifyApi<T>(endpoint: string): Promise<T | null> {
   }
 }
 
-export async function fetchSpotifyTopTracks(limit = 10): Promise<SpotifyTrack[]> {
+export async function fetchSpotifyTopTracks(
+  limit = 10,
+): Promise<SpotifyTrack[]> {
   const data = await fetchSpotifyApi<any>(
-    `/me/top/tracks?time_range=short_term&limit=${limit}`
+    `/me/top/tracks?time_range=short_term&limit=${limit}`,
   );
 
   if (!data?.items) return [];
@@ -91,9 +102,11 @@ export async function fetchSpotifyTopTracks(limit = 10): Promise<SpotifyTrack[]>
   }));
 }
 
-export async function fetchSpotifyTopArtists(limit = 10): Promise<LastFmArtist[]> {
+export async function fetchSpotifyTopArtists(
+  limit = 10,
+): Promise<LastFmArtist[]> {
   const data = await fetchSpotifyApi<any>(
-    `/me/top/artists?time_range=short_term&limit=${limit}`
+    `/me/top/artists?time_range=short_term&limit=${limit}`,
   );
 
   if (!data?.items) return [];

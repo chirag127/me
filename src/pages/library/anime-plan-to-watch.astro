@@ -1,22 +1,21 @@
 ---
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import CommandPalette from '../../components/CommandPalette.astro';
 
 let db: any = { anime: {} };
 try {
-  const raw = await fs.readFile(path.resolve('./src/data/generated/anime.json'), 'utf-8');
+  const raw = await fs.readFile(
+    path.resolve('./src/data/generated/anime.json'),
+    'utf-8',
+  );
   db = JSON.parse(raw);
-} catch (e) {
+} catch (_e) {
   console.warn('[Anime Plan to Watch] anime.json not found.');
 }
 
-const planning = db.anime?.planning || [];
-const dropped = db.anime?.dropped || [];
-const paused = db.anime?.paused || [];
+const _planning = db.anime?.planning || [];
+const _dropped = db.anime?.dropped || [];
+const _paused = db.anime?.paused || [];
 ---
 
 <Layout title="Plan to Watch" description="Anime Chirag Singhal plans to watch, paused, or dropped">

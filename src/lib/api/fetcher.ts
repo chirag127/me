@@ -27,11 +27,9 @@ export async function fetchJson<T>(
 
       if (res.status === 429) {
         // Rate limited — wait and retry
-        const wait =
-          RETRY_DELAY_MS * Math.pow(2, attempt);
+        const wait = RETRY_DELAY_MS * 2 ** attempt;
         console.warn(
-          `[${label ?? 'API'}] Rate limited, ` +
-            `retrying in ${wait}ms...`,
+          `[${label ?? 'API'}] Rate limited, ` + `retrying in ${wait}ms...`,
         );
         await sleep(wait);
         continue;
@@ -39,8 +37,7 @@ export async function fetchJson<T>(
 
       if (!res.ok) {
         console.warn(
-          `[${label ?? 'API'}] ${res.status} ` +
-            `${res.statusText} for ${url}`,
+          `[${label ?? 'API'}] ${res.status} ` + `${res.statusText} for ${url}`,
         );
         return null;
       }
@@ -71,17 +68,12 @@ export async function fetchText(
   try {
     const res = await fetch(url);
     if (!res.ok) {
-      console.warn(
-        `[${label ?? 'API'}] ${res.status} for ${url}`,
-      );
+      console.warn(`[${label ?? 'API'}] ${res.status} for ${url}`);
       return null;
     }
     return await res.text();
   } catch (err) {
-    console.error(
-      `[${label ?? 'API'}] Text fetch failed:`,
-      err,
-    );
+    console.error(`[${label ?? 'API'}] Text fetch failed:`, err);
     return null;
   }
 }
@@ -106,10 +98,7 @@ export async function fetchGraphQL<T>(
     label,
   );
   if (data?.errors) {
-    console.warn(
-      `[${label ?? 'GraphQL'}] Errors:`,
-      data.errors,
-    );
+    console.warn(`[${label ?? 'GraphQL'}] Errors:`, data.errors);
   }
   return data?.data ?? null;
 }

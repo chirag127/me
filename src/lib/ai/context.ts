@@ -5,7 +5,12 @@
  * a comprehensive system prompt for the LLM.
  */
 
-import { resumeContext, skillsContext, projectsContext, codebaseContext } from './knowledge';
+import {
+  codebaseContext,
+  projectsContext,
+  resumeContext,
+  skillsContext,
+} from './knowledge';
 import type { PersonalityMode } from './types';
 
 // ─── Site Map ────────────────────────────────────────────────────────
@@ -43,7 +48,7 @@ const CONTACT_INFO = `
 
 export function buildSystemPrompt(
   toolData: string = '',
-  personality: PersonalityMode = 'professional'
+  personality: PersonalityMode = 'professional',
 ): string {
   const sections: string[] = [];
 

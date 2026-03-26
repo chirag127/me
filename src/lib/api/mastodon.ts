@@ -1,5 +1,5 @@
-import { fetchJson } from './fetcher';
 import { CONFIG } from '../config';
+import { fetchJson } from './fetcher';
 
 export async function fetchMastodonStatuses(limit = 20) {
   const server = CONFIG.user.mastodon.server;
@@ -8,7 +8,7 @@ export async function fetchMastodonStatuses(limit = 20) {
   const data = await fetchJson<any[]>(
     `https://${server}/api/v1/accounts/${accountId}/statuses?limit=${limit}&exclude_replies=true&exclude_reblogs=true`,
     undefined,
-    'Mastodon'
+    'Mastodon',
   );
 
   if (!data) return [];
@@ -38,7 +38,7 @@ export async function fetchMastodonAccount() {
   const data = await fetchJson<any>(
     `https://${server}/api/v1/accounts/${accountId}`,
     undefined,
-    'Mastodon'
+    'Mastodon',
   );
 
   if (!data) return null;

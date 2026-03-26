@@ -134,12 +134,7 @@ export interface AniListEntry {
   progress: number;
   episodes: number | null;
   chapters: number | null;
-  status:
-    | 'WATCHING'
-    | 'COMPLETED'
-    | 'PAUSED'
-    | 'DROPPED'
-    | 'PLANNING';
+  status: 'WATCHING' | 'COMPLETED' | 'PAUSED' | 'DROPPED' | 'PLANNING';
   genres: string[];
   format: string | null;
   type: 'ANIME' | 'MANGA';
@@ -178,10 +173,7 @@ export interface SteamGame {
 
 export interface LichessStats {
   username: string;
-  ratings: Record<
-    string,
-    { rating: number; games: number }
-  >;
+  ratings: Record<string, { rating: number; games: number }>;
   totalGames: number;
   wins: number;
   draws: number;

@@ -16,25 +16,29 @@ async function getJwtSession() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ identifier: handle, password }),
     },
-    'Bluesky Auth'
+    'Bluesky Auth',
   );
 
   return res?.accessJwt || null;
 }
 
-export async function fetchBlueskyPosts(limit = 10): Promise<{ posts: BlueskyPost[]; handle: string } | null> {
+export async function fetchBlueskyPosts(
+  limit = 10,
+): Promise<{ posts: BlueskyPost[]; handle: string } | null> {
   const handle = process.env.BLUESKY_HANDLE;
   if (!handle) return null;
 
   // We can fetch public posts without auth in AT Protocol, but using auth is safer for rate limits
   const token = await getJwtSession();
-  
-  const headers: Record<string, string> = token ? { Authorization: `Bearer ${token}` } : {};
+
+  const headers: Record<string, string> = token
+    ? { Authorization: `Bearer ${token}` }
+    : {};
 
   const data = await fetchJson<any>(
     `${BSKY_API_URL}/app.bsky.feed.getAuthorFeed?actor=${handle}&limit=${limit}`,
     { headers },
-    'Bluesky'
+    'Bluesky',
   );
 
   if (!data?.feed) return null;

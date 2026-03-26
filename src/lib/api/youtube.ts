@@ -12,7 +12,7 @@ export async function fetchYouTubeStats() {
   const data = await fetchJson<any>(
     `${YOUTUBE_API_URL}/channels?part=statistics&id=${channelId}&key=${apiKey}`,
     undefined,
-    'YouTube'
+    'YouTube',
   );
 
   if (!data?.items?.[0]?.statistics) return null;
@@ -35,17 +35,18 @@ export async function fetchYouTubeVideos(limit = 5): Promise<YouTubeVideo[]> {
   const channelData = await fetchJson<any>(
     `${YOUTUBE_API_URL}/channels?part=contentDetails&id=${channelId}&key=${apiKey}`,
     undefined,
-    'YouTube Uploads Playlist'
+    'YouTube Uploads Playlist',
   );
 
-  const playlistId = channelData?.items?.[0]?.contentDetails?.relatedPlaylists?.uploads;
+  const playlistId =
+    channelData?.items?.[0]?.contentDetails?.relatedPlaylists?.uploads;
   if (!playlistId) return [];
 
   // 2. Fetch recent videos from playlist
   const playlistData = await fetchJson<any>(
     `${YOUTUBE_API_URL}/playlistItems?part=snippet&playlistId=${playlistId}&maxResults=${limit}&key=${apiKey}`,
     undefined,
-    'YouTube Videos'
+    'YouTube Videos',
   );
 
   if (!playlistData?.items) return [];
@@ -54,7 +55,9 @@ export async function fetchYouTubeVideos(limit = 5): Promise<YouTubeVideo[]> {
     id: item.snippet.resourceId.videoId,
     title: item.snippet.title,
     description: item.snippet.description,
-    thumbnailUrl: item.snippet.thumbnails?.high?.url || item.snippet.thumbnails?.default?.url,
+    thumbnailUrl:
+      item.snippet.thumbnails?.high?.url ||
+      item.snippet.thumbnails?.default?.url,
     publishedAt: item.snippet.publishedAt,
     viewCount: 0, // Requires additional API call per video to /videos endpoint (skipping to save quota)
     likeCount: 0,

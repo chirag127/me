@@ -3,22 +3,32 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import CommandPalette from '../components/CommandPalette.astro';
-import StatsCounter from '../components/islands/StatsCounter';
-import HeroChatButton from '../components/islands/HeroChatButton';
-import { fetchGitHubUser, fetchGitHubRepos, fetchLeetCodeStats, fetchDevToArticles, fetchBlogPosts } from '../lib/api/index';
-import { skills, experience, summary, projects, honors } from '../data/resume';
+import HeroChatButton from '../components/islands/HeroChatButton.tsx';
+import StatsCounter from '../components/islands/StatsCounter.tsx';
+import { experience, projects, summary, honors } from '../data/resume';
+import {
+  fetchBlogPosts,
+  fetchDevToArticles,
+  fetchGitHubRepos,
+  fetchGitHubUser,
+  fetchLeetCodeStats,
+} from '../lib/api/index';
 
-const [githubUser, githubRepos, leetcodeStats, devtoArticles, blogPosts] = await Promise.all([
-  fetchGitHubUser(),
-  fetchGitHubRepos(),
-  fetchLeetCodeStats(),
-  fetchDevToArticles(),
-  fetchBlogPosts(),
-]);
+const [githubUser, githubRepos, leetcodeStats, devtoArticles, blogPosts] =
+  await Promise.all([
+    fetchGitHubUser(),
+    fetchGitHubRepos(),
+    fetchLeetCodeStats(),
+    fetchDevToArticles(),
+    fetchBlogPosts(),
+  ]);
 
-const totalStars = githubRepos.reduce((sum: number, r: any) => sum + (r.stargazers_count || 0), 0);
+const totalStars = githubRepos.reduce(
+  (sum: number, r: any) => sum + (r.stargazers_count || 0),
+  0,
+);
 const recentArticles = devtoArticles.slice(0, 3);
-const featuredProjects = projects.filter(p => p.featured);
+const featuredProjects = projects.filter((p) => p.featured);
 const currentRole = experience[0];
 ---
 

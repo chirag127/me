@@ -1,5 +1,5 @@
-import { fetchJson } from './fetcher';
 import { CONFIG } from '../config';
+import { fetchJson } from './fetcher';
 
 const HOLOPIN_API = 'https://holopin.io/api';
 
@@ -9,7 +9,7 @@ export async function fetchHolopinBadges() {
   const data = await fetchJson<any>(
     `${HOLOPIN_API}/user/${username}`,
     undefined,
-    'Holopin'
+    'Holopin',
   );
 
   if (!data) return null;

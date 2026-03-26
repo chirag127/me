@@ -1,5 +1,4 @@
 import { fetchJson } from './fetcher';
-import { CONFIG } from '../config';
 
 const NPM_API = 'https://registry.npmjs.org';
 const NPM_DOWNLOADS_API = 'https://api.npmjs.org/downloads';
@@ -18,7 +17,7 @@ export async function fetchNpmPackageInfo(packageName: string) {
   const data = await fetchJson<any>(
     `${NPM_API}/${packageName}`,
     undefined,
-    'NPM'
+    'NPM',
   );
 
   if (!data) return null;
@@ -42,11 +41,14 @@ export async function fetchNpmPackageInfo(packageName: string) {
   };
 }
 
-export async function fetchNpmDownloads(packageName: string, period = 'last-month') {
+export async function fetchNpmDownloads(
+  packageName: string,
+  period = 'last-month',
+) {
   const data = await fetchJson<any>(
     `${NPM_DOWNLOADS_API}/point/${period}/${packageName}`,
     undefined,
-    'NPM'
+    'NPM',
   );
 
   if (!data) return null;
@@ -58,16 +60,20 @@ export async function fetchNpmDownloads(packageName: string, period = 'last-mont
   };
 }
 
-export async function fetchNpmDownloadsRange(packageName: string, period = 'last-year') {
+export async function fetchNpmDownloadsRange(
+  packageName: string,
+  period = 'last-year',
+) {
   const data = await fetchJson<any>(
     `${NPM_DOWNLOADS_API}/range/${period}/${packageName}`,
     undefined,
-    'NPM'
+    'NPM',
   );
 
   if (!data) return null;
 
-  const totalDownloads = data.downdays?.reduce((sum: number, d: any) => sum + d.downloads, 0) || 0;
+  const totalDownloads =
+    data.downdays?.reduce((sum: number, d: any) => sum + d.downloads, 0) || 0;
 
   return {
     totalDownloads,
@@ -83,7 +89,7 @@ export async function fetchNpmUserPackages(username: string) {
   const data = await fetchJson<any>(
     `${NPM_API}/-/v1/search?text=maintainer:${username}&size=25`,
     undefined,
-    'NPM'
+    'NPM',
   );
 
   if (!data?.objects) return [];

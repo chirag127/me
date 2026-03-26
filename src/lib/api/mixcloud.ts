@@ -1,5 +1,5 @@
-import { fetchJson } from './fetcher';
 import { CONFIG } from '../config';
+import { fetchJson } from './fetcher';
 
 const MIXCLOUD_API = 'https://api.mixcloud.com';
 
@@ -9,7 +9,7 @@ export async function fetchMixcloudUser() {
   const data = await fetchJson<any>(
     `${MIXCLOUD_API}/${username}/`,
     undefined,
-    'Mixcloud'
+    'Mixcloud',
   );
 
   if (!data) return null;
@@ -38,7 +38,7 @@ export async function fetchMixcloudCloudcasts(limit = 20) {
   const data = await fetchJson<any>(
     `${MIXCLOUD_API}/${username}/cloudcasts/?limit=${limit}`,
     undefined,
-    'Mixcloud'
+    'Mixcloud',
   );
 
   if (!data?.data) return [];

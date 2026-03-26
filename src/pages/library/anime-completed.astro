@@ -1,33 +1,43 @@
 ---
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import CommandPalette from '../../components/CommandPalette.astro';
 
 let db: any = { anime: {} };
 try {
-  const raw = await fs.readFile(path.resolve('./src/data/generated/anime.json'), 'utf-8');
+  const raw = await fs.readFile(
+    path.resolve('./src/data/generated/anime.json'),
+    'utf-8',
+  );
   db = JSON.parse(raw);
-} catch (e) {
+} catch (_e) {
   console.warn('[Anime Completed] anime.json not found.');
 }
 
 const completed = db.anime?.completed || [];
 
-function scoreColor(score: number | null): string {
+function _scoreColor(score: number | null): string {
   if (!score) return 'var(--color-text-faint)';
   if (score >= 8) return 'var(--color-success)';
   if (score >= 6) return 'var(--color-primary)';
   return 'var(--color-accent-warm)';
 }
 
-const sorted = [...completed].sort((a: any, b: any) => (b.score || 0) - (a.score || 0));
-const avgScore = sorted.filter((a: any) => a.score).length > 0
-  ? (sorted.filter((a: any) => a.score).reduce((s: number, a: any) => s + a.score, 0) / sorted.filter((a: any) => a.score).length).toFixed(1)
-  : 'N/A';
-const totalEps = sorted.reduce((s: number, a: any) => s + (a.episodes || 0), 0);
+const sorted = [...completed].sort(
+  (a: any, b: any) => (b.score || 0) - (a.score || 0),
+);
+const _avgScore =
+  sorted.filter((a: any) => a.score).length > 0
+    ? (
+        sorted
+          .filter((a: any) => a.score)
+          .reduce((s: number, a: any) => s + a.score, 0) /
+        sorted.filter((a: any) => a.score).length
+      ).toFixed(1)
+    : 'N/A';
+const _totalEps = sorted.reduce(
+  (s: number, a: any) => s + (a.episodes || 0),
+  0,
+);
 ---
 
 <Layout title="Completed Anime" description="All anime Chirag Singhal has completed">

@@ -1,13 +1,9 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import CommandPalette from '../../components/CommandPalette.astro';
-import { skills, experience, projects, education, honors } from '../../data/resume';
+import { education, honors, projects, skills } from '../../data/resume';
 
-const totalSkills = skills.reduce((sum, s) => sum + s.items.length, 0);
-const featuredProjects = projects.filter(p => p.featured);
-const totalCerts = education.length + honors.length;
+const _totalSkills = skills.reduce((sum, s) => sum + s.items.length, 0);
+const _featuredProjects = projects.filter((p) => p.featured);
+const _totalCerts = education.length + honors.length;
 ---
 
 <Layout title="Work Drive" description="Career timeline, skills, projects, education — Chirag Singhal">

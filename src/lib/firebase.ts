@@ -1,11 +1,17 @@
-import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
-import type { User } from 'firebase/auth';
-import type { Timestamp } from 'firebase/firestore';
+import type { initializeApp } from 'firebase/app';
+import type { getAuth, User } from 'firebase/auth';
+import type { getFirestore, Timestamp } from 'firebase/firestore';
 
 // Admin email
 export const ADMIN_EMAIL = 'whyiswhen@gmail.com';
+
+// Multiple admin emails support
+export const ADMIN_EMAILS = ['whyiswhen@gmail.com', 'chirag127.in@gmail.com'];
+
+export function isAdminEmail(email: string | null | undefined): boolean {
+  if (!email) return false;
+  return ADMIN_EMAILS.includes(email.toLowerCase());
+}
 
 // Chat message types
 export interface ChatMessage {
@@ -44,10 +50,18 @@ const FIREBASE_CONFIG = {
 
 async function getFirebaseApp() {
   if (_app) return _app;
-  if (typeof window === 'undefined') throw new Error('Firebase can only be used on the client side');
+  if (typeof window === 'undefined')
+    throw new Error('Firebase can only be used on the client side');
 
-  const { initializeApp: firebaseInitializeApp, getApps: firebaseGetApps, getApp: firebaseGetApp } = await import('firebase/app');
-  _app = firebaseGetApps().length === 0 ? firebaseInitializeApp(FIREBASE_CONFIG) : firebaseGetApp();
+  const {
+    initializeApp: firebaseInitializeApp,
+    getApps: firebaseGetApps,
+    getApp: firebaseGetApp,
+  } = await import('firebase/app');
+  _app =
+    firebaseGetApps().length === 0
+      ? firebaseInitializeApp(FIREBASE_CONFIG)
+      : firebaseGetApp();
   return _app;
 }
 
@@ -62,7 +76,9 @@ export async function getFirebaseAuth() {
 export async function getFirebaseDb() {
   if (_db) return _db;
   const app = await getFirebaseApp();
-  const { getFirestore: firebaseGetFirestore } = await import('firebase/firestore');
+  const { getFirestore: firebaseGetFirestore } = await import(
+    'firebase/firestore'
+  );
   _db = firebaseGetFirestore(app);
   return _db;
 }
@@ -72,7 +88,7 @@ let _recaptchaVerifier: any = null;
 
 export async function initRecaptchaVerifier(
   containerOrButtonId: string,
-  size: 'invisible' | 'normal' = 'invisible'
+  size: 'invisible' | 'normal' = 'invisible',
 ): Promise<any> {
   const { RecaptchaVerifier } = await import('firebase/auth');
   const auth = await getFirebaseAuth();
@@ -92,11 +108,17 @@ export async function initRecaptchaVerifier(
 
 export async function signInWithPhone(
   phoneNumber: string,
-  appVerifier: any
+  appVerifier: any,
 ): Promise<{ confirm: (code: string) => Promise<User | null> } | null> {
-  const { signInWithPhoneNumber: firebaseSignInWithPhoneNumber } = await import('firebase/auth');
+  const { signInWithPhoneNumber: firebaseSignInWithPhoneNumber } = await import(
+    'firebase/auth'
+  );
   const auth = await getFirebaseAuth();
-  const confirmationResult = await firebaseSignInWithPhoneNumber(auth, phoneNumber, appVerifier);
+  const confirmationResult = await firebaseSignInWithPhoneNumber(
+    auth,
+    phoneNumber,
+    appVerifier,
+  );
   return {
     confirm: async (code: string) => {
       const result = await confirmationResult.confirm(code);
@@ -114,7 +136,8 @@ export async function clearRecaptcha(): Promise<void> {
 
 // Auth functions
 export async function signInWithGoogle(): Promise<User | null> {
-  const { GoogleAuthProvider, getRedirectResult, signInWithRedirect } = await import('firebase/auth');
+  const { GoogleAuthProvider, getRedirectResult, signInWithRedirect } =
+    await import('firebase/auth');
   const auth = await getFirebaseAuth();
   const provider = new GoogleAuthProvider();
   provider.addScope('email');
@@ -156,7 +179,7 @@ export async function signOut(): Promise<void> {
 }
 
 export function isAdmin(user: User | null): boolean {
-  return user?.email === ADMIN_EMAIL;
+  return isAdminEmail(user?.email);
 }
 
 export async function saveChatMessage(
@@ -164,12 +187,17 @@ export async function saveChatMessage(
   userEmail: string,
   userName: string,
   message: string,
-  pageContext?: string
+  pageContext?: string,
 ): Promise<string> {
-  const { collection, addDoc, serverTimestamp } = await import('firebase/firestore');
+  const { collection, addDoc, serverTimestamp } = await import(
+    'firebase/firestore'
+  );
   const db = await getFirebaseDb();
   const docRef = await addDoc(collection(db, 'chatMessages'), {
-    userId, userEmail, userName, message,
+    userId,
+    userEmail,
+    userName,
+    message,
     pageContext: pageContext || '/',
     timestamp: serverTimestamp(),
   });
@@ -177,23 +205,33 @@ export async function saveChatMessage(
 }
 
 export async function getUserChatSessions(userId: string): Promise<any[]> {
-  const { collection, query, orderBy, limit, where, getDocs } = await import('firebase/firestore');
+  const { collection, query, orderBy, limit, where, getDocs } = await import(
+    'firebase/firestore'
+  );
   const db = await getFirebaseDb();
   const q = query(
     collection(db, 'chatSessions'),
     where('userId', '==', userId),
     orderBy('createdAt', 'desc'),
-    limit(50)
+    limit(50),
   );
   const snapshot = await getDocs(q);
-  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 }
 
-export async function saveChatSession(userId: string, title: string, messages: any[]): Promise<string> {
-  const { collection, addDoc, serverTimestamp } = await import('firebase/firestore');
+export async function saveChatSession(
+  userId: string,
+  title: string,
+  messages: any[],
+): Promise<string> {
+  const { collection, addDoc, serverTimestamp } = await import(
+    'firebase/firestore'
+  );
   const db = await getFirebaseDb();
   const docRef = await addDoc(collection(db, 'chatSessions'), {
-    userId, title, messages,
+    userId,
+    title,
+    messages,
     createdAt: new Date().toISOString(),
     updatedAt: serverTimestamp(),
   });
@@ -211,17 +249,23 @@ export async function getAuthInstance() {
 
 export async function subscribeToChatMessages(
   callback: (messages: ChatMessage[]) => void,
-  messageLimit: number = 100
+  messageLimit: number = 100,
 ) {
-  const { collection, query, orderBy, limit: firestoreLimit, onSnapshot } = await import('firebase/firestore');
+  const {
+    collection,
+    query,
+    orderBy,
+    limit: firestoreLimit,
+    onSnapshot,
+  } = await import('firebase/firestore');
   const db = await getFirebaseDb();
   const q = query(
     collection(db, 'chatMessages'),
     orderBy('timestamp', 'desc'),
-    firestoreLimit(messageLimit)
+    firestoreLimit(messageLimit),
   );
   return onSnapshot(q, (snapshot) => {
-    const messages = snapshot.docs.map(doc => ({
+    const messages = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     })) as ChatMessage[];
@@ -232,7 +276,7 @@ export async function subscribeToChatMessages(
 export async function saveJournalEntry(
   userId: string,
   userEmail: string,
-  text: string
+  text: string,
 ): Promise<string> {
   const { collection, addDoc } = await import('firebase/firestore');
   const db = await getFirebaseDb();
@@ -253,17 +297,19 @@ export async function deleteJournalEntry(id: string): Promise<void> {
 
 export async function subscribeToJournalEntries(
   userId: string,
-  callback: (entries: JournalEntry[]) => void
+  callback: (entries: JournalEntry[]) => void,
 ) {
-  const { collection, query, where, orderBy, onSnapshot } = await import('firebase/firestore');
+  const { collection, query, where, orderBy, onSnapshot } = await import(
+    'firebase/firestore'
+  );
   const db = await getFirebaseDb();
   const q = query(
     collection(db, 'journalEntries'),
     where('userId', '==', userId),
-    orderBy('createdAt', 'desc')
+    orderBy('createdAt', 'desc'),
   );
   return onSnapshot(q, (snapshot) => {
-    const entries = snapshot.docs.map(doc => ({
+    const entries = snapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     })) as JournalEntry[];

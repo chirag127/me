@@ -15,41 +15,45 @@ function getOptions(): RequestInit {
 // Memory cache to avoid hitting TMDB for the same movie twice during the build
 const posterCache = new Map<number, string | null>();
 
-export async function fetchPosterForMovie(tmdbId: number | null): Promise<string | null> {
+export async function fetchPosterForMovie(
+  tmdbId: number | null,
+): Promise<string | null> {
   if (!tmdbId) return null;
   if (posterCache.has(tmdbId)) return posterCache.get(tmdbId) || null;
 
   // Wait a tiny bit to respect rate limits if we do many at once
-  await new Promise(resolve => setTimeout(resolve, 50));
+  await new Promise((resolve) => setTimeout(resolve, 50));
 
   const data = await fetchJson<any>(
     `${TMDB_API_URL}/movie/${tmdbId}?language=en-US`,
     getOptions(),
-    'TMDB'
+    'TMDB',
   );
 
   const posterPath = data?.poster_path;
   const url = posterPath ? `${TMDB_IMAGE_BASE_URL}${posterPath}` : null;
-  
+
   posterCache.set(tmdbId, url);
   return url;
 }
 
-export async function fetchPosterForShow(tmdbId: number | null): Promise<string | null> {
+export async function fetchPosterForShow(
+  tmdbId: number | null,
+): Promise<string | null> {
   if (!tmdbId) return null;
   if (posterCache.has(tmdbId)) return posterCache.get(tmdbId) || null;
-  
-  await new Promise(resolve => setTimeout(resolve, 50));
+
+  await new Promise((resolve) => setTimeout(resolve, 50));
 
   const data = await fetchJson<any>(
     `${TMDB_API_URL}/tv/${tmdbId}?language=en-US`,
     getOptions(),
-    'TMDB'
+    'TMDB',
   );
 
   const posterPath = data?.poster_path;
   const url = posterPath ? `${TMDB_IMAGE_BASE_URL}${posterPath}` : null;
-  
+
   posterCache.set(tmdbId, url);
   return url;
 }

@@ -1,20 +1,35 @@
 ---
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import CommandPalette from '../../components/CommandPalette.astro';
 
 let moviesDb: any = {};
 let booksDb: any = {};
 let musicDb: any = {};
 let animeDb: any = {};
 
-try { moviesDb = JSON.parse(await fs.readFile(path.resolve('./src/data/generated/movies.json'), 'utf-8')); } catch {}
-try { booksDb = JSON.parse(await fs.readFile(path.resolve('./src/data/generated/books.json'), 'utf-8')); } catch {}
-try { musicDb = JSON.parse(await fs.readFile(path.resolve('./src/data/generated/music.json'), 'utf-8')); } catch {}
-try { animeDb = JSON.parse(await fs.readFile(path.resolve('./src/data/generated/anime.json'), 'utf-8')); } catch {}
+try {
+  moviesDb = JSON.parse(
+    await fs.readFile(
+      path.resolve('./src/data/generated/movies.json'),
+      'utf-8',
+    ),
+  );
+} catch {}
+try {
+  booksDb = JSON.parse(
+    await fs.readFile(path.resolve('./src/data/generated/books.json'), 'utf-8'),
+  );
+} catch {}
+try {
+  musicDb = JSON.parse(
+    await fs.readFile(path.resolve('./src/data/generated/music.json'), 'utf-8'),
+  );
+} catch {}
+try {
+  animeDb = JSON.parse(
+    await fs.readFile(path.resolve('./src/data/generated/anime.json'), 'utf-8'),
+  );
+} catch {}
 
 const moviesWatched = moviesDb.watched?.length || 0;
 const moviesShows = moviesDb.shows?.length || 0;
@@ -30,7 +45,7 @@ const musicArtists = musicDb.lastfm?.topArtists?.length || 0;
 const animeWatching = animeDb.anime?.watching?.length || 0;
 const animeCompleted = animeDb.anime?.completed?.length || 0;
 
-const categories = [
+const _categories = [
   {
     title: 'Movies & TV',
     href: '/library/movies',
@@ -39,13 +54,19 @@ const categories = [
     accentLight: '#34d399',
     accentBg: 'rgba(16, 185, 129, 0.15)',
     gradient: 'from-emerald-500/20 to-teal-500/10',
-    description: 'Films and shows tracked via Trakt — watched, watching, and queued',
+    description:
+      'Films and shows tracked via Trakt — watched, watching, and queued',
     stats: [
       { label: 'Watched', value: moviesWatched || 14 },
       { label: 'Shows', value: moviesShows || 2 },
       { label: 'Queued', value: moviesWatchlist || 6 },
     ],
-    topItems: (moviesDb.watched || []).slice(0, 4).map((m: any) => m.title) || ['Interstellar', 'The Shawshank Redemption', 'Inception', 'The Dark Knight'],
+    topItems: (moviesDb.watched || []).slice(0, 4).map((m: any) => m.title) || [
+      'Interstellar',
+      'The Shawshank Redemption',
+      'Inception',
+      'The Dark Knight',
+    ],
     tags: ['Sci-Fi', 'Drama', 'Thriller'],
     subPages: [
       { label: 'Watched', href: '/library/movies-watched', icon: '✓' },
@@ -67,12 +88,23 @@ const categories = [
       { label: 'Completed', value: animeCompleted || 10 },
       { label: 'Mean', value: '8.8' },
     ],
-    topItems: (animeDb.anime?.completed || []).slice(0, 4).map((a: any) => a.title) || ['Fullmetal Alchemist', 'Attack on Titan', 'Steins;Gate', 'One Piece'],
+    topItems: (animeDb.anime?.completed || [])
+      .slice(0, 4)
+      .map((a: any) => a.title) || [
+      'Fullmetal Alchemist',
+      'Attack on Titan',
+      'Steins;Gate',
+      'One Piece',
+    ],
     tags: ['Action', 'Sci-Fi', 'Drama'],
     subPages: [
       { label: 'Watching', href: '/library/anime', icon: '👀' },
       { label: 'Completed', href: '/library/anime-completed', icon: '✓' },
-      { label: 'Plan to Watch', href: '/library/anime-plan-to-watch', icon: '📋' },
+      {
+        label: 'Plan to Watch',
+        href: '/library/anime-plan-to-watch',
+        icon: '📋',
+      },
       { label: 'Manga', href: '/library/manga', icon: '📖' },
     ],
   },
@@ -84,17 +116,27 @@ const categories = [
     accentLight: '#818cf8',
     accentBg: 'rgba(99, 102, 241, 0.15)',
     gradient: 'from-indigo-500/20 to-violet-500/10',
-    description: 'Reading diary synced from OpenLibrary — programming, sci-fi, and non-fiction',
+    description:
+      'Reading diary synced from OpenLibrary — programming, sci-fi, and non-fiction',
     stats: [
       { label: 'Read', value: booksRead || 10 },
       { label: 'Reading', value: booksReading || 2 },
       { label: 'Queued', value: booksQueued || 5 },
     ],
-    topItems: (booksDb.read || []).slice(0, 4).map((b: any) => b.title) || ['Project Hail Mary', 'The Pragmatic Programmer', 'Clean Code', 'Atomic Habits'],
+    topItems: (booksDb.read || []).slice(0, 4).map((b: any) => b.title) || [
+      'Project Hail Mary',
+      'The Pragmatic Programmer',
+      'Clean Code',
+      'Atomic Habits',
+    ],
     tags: ['Programming', 'Sci-Fi', 'Non-Fiction'],
     subPages: [
       { label: 'Read', href: '/library/books-read', icon: '✓' },
-      { label: 'Want to Read', href: '/library/books-want-to-read', icon: '📋' },
+      {
+        label: 'Want to Read',
+        href: '/library/books-want-to-read',
+        icon: '📋',
+      },
     ],
   },
   {
@@ -105,12 +147,23 @@ const categories = [
     accentLight: '#fb7185',
     accentBg: 'rgba(244, 63, 94, 0.15)',
     gradient: 'from-rose-500/20 to-pink-500/10',
-    description: 'Listening habits from Last.fm — top artists, scrobbles, and recent tracks',
+    description:
+      'Listening habits from Last.fm — top artists, scrobbles, and recent tracks',
     stats: [
-      { label: 'Scrobbles', value: musicScrobbles ? musicScrobbles.toLocaleString() : '3,643' },
+      {
+        label: 'Scrobbles',
+        value: musicScrobbles ? musicScrobbles.toLocaleString() : '3,643',
+      },
       { label: 'Artists', value: musicArtists || 16 },
     ],
-    topItems: (musicDb.lastfm?.topArtists || []).slice(0, 4).map((a: any) => a.name) || ['The Weeknd', 'Ludovico Einaudi', 'Arijit Singh', 'Coldplay'],
+    topItems: (musicDb.lastfm?.topArtists || [])
+      .slice(0, 4)
+      .map((a: any) => a.name) || [
+      'The Weeknd',
+      'Ludovico Einaudi',
+      'Arijit Singh',
+      'Coldplay',
+    ],
     tags: ['R&B', 'Classical', 'Bollywood'],
     subPages: [
       { label: 'Top Artists', href: '/library/music-top-artists', icon: '🎤' },
@@ -127,7 +180,8 @@ const categories = [
     accentLight: '#22d3ee',
     accentBg: 'rgba(6, 182, 212, 0.15)',
     gradient: 'from-cyan-500/20 to-sky-500/10',
-    description: 'Curated YouTube channels, playlists, and video recommendations',
+    description:
+      'Curated YouTube channels, playlists, and video recommendations',
     stats: [
       { label: 'Channels', value: 12 },
       { label: 'Playlists', value: 8 },
@@ -138,9 +192,19 @@ const categories = [
   },
 ];
 
-const additionalLinks = [
-  { title: 'Manga', href: '/library/manga', icon: '📖', desc: 'Manga & Manhwa' },
-  { title: 'Podcasts', href: '/library/podcasts', icon: '🎙️', desc: 'Podcast subs' },
+const _additionalLinks = [
+  {
+    title: 'Manga',
+    href: '/library/manga',
+    icon: '📖',
+    desc: 'Manga & Manhwa',
+  },
+  {
+    title: 'Podcasts',
+    href: '/library/podcasts',
+    icon: '🎙️',
+    desc: 'Podcast subs',
+  },
   { title: 'Twitch', href: '/library/twitch', icon: '🟣', desc: 'Streamers' },
   { title: 'Videos', href: '/library/videos', icon: '▶️', desc: 'YT channels' },
 ];

@@ -1,4 +1,4 @@
-import { getFirebaseDb, ADMIN_EMAIL } from '../firebase';
+import { ADMIN_EMAIL, getFirebaseDb } from '../firebase';
 
 // Collection names
 export const COLLECTIONS = {
@@ -76,7 +76,9 @@ export interface VisitorDocument {
 
 // Save a complete chat session
 export async function saveChatSession(session: ChatDocument): Promise<string> {
-  const { collection, addDoc, serverTimestamp } = await import('firebase/firestore');
+  const { collection, addDoc, serverTimestamp } = await import(
+    'firebase/firestore'
+  );
   const db = await getFirebaseDb();
   const docRef = await addDoc(collection(db, COLLECTIONS.CHATS), {
     ...session,
@@ -94,7 +96,9 @@ export async function saveQuery(query: QueryDocument): Promise<string> {
 }
 
 // Save unknown query for admin review
-export async function saveUnknownQuery(query: UnknownQueryDocument): Promise<string> {
+export async function saveUnknownQuery(
+  query: UnknownQueryDocument,
+): Promise<string> {
   const { collection, addDoc } = await import('firebase/firestore');
   const db = await getFirebaseDb();
   const docRef = await addDoc(collection(db, COLLECTIONS.UNKNOWN), {
@@ -106,12 +110,21 @@ export async function saveUnknownQuery(query: UnknownQueryDocument): Promise<str
 
 // Track visitor
 export async function trackVisitor(visitor: VisitorDocument): Promise<void> {
-  const { collection, query, where, getDocs, addDoc, updateDoc, doc, increment } = await import('firebase/firestore');
+  const {
+    collection,
+    query,
+    where,
+    getDocs,
+    addDoc,
+    updateDoc,
+    doc,
+    increment,
+  } = await import('firebase/firestore');
   const db = await getFirebaseDb();
 
   const q = query(
     collection(db, COLLECTIONS.VISITORS),
-    where('userId', '==', visitor.userId)
+    where('userId', '==', visitor.userId),
   );
   const snapshot = await getDocs(q);
 
@@ -129,7 +142,10 @@ export async function trackVisitor(visitor: VisitorDocument): Promise<void> {
 }
 
 // Mark unknown query as resolved
-export async function resolveUnknownQuery(docId: string, adminNotes?: string): Promise<void> {
+export async function resolveUnknownQuery(
+  docId: string,
+  adminNotes?: string,
+): Promise<void> {
   const { doc, updateDoc } = await import('firebase/firestore');
   const db = await getFirebaseDb();
   await updateDoc(doc(db, COLLECTIONS.UNKNOWN, docId), {
@@ -139,69 +155,110 @@ export async function resolveUnknownQuery(docId: string, adminNotes?: string): P
 }
 
 // Admin: Get all chats
-export async function getAllChats(limit_count: number = 200): Promise<ChatDocument[]> {
-  const { collection, query, orderBy, limit: firestoreLimit, getDocs } = await import('firebase/firestore');
+export async function getAllChats(
+  limit_count: number = 200,
+): Promise<ChatDocument[]> {
+  const {
+    collection,
+    query,
+    orderBy,
+    limit: firestoreLimit,
+    getDocs,
+  } = await import('firebase/firestore');
   const db = await getFirebaseDb();
   const q = query(
     collection(db, COLLECTIONS.CHATS),
     orderBy('lastMessageAt', 'desc'),
-    firestoreLimit(limit_count)
+    firestoreLimit(limit_count),
   );
   const snapshot = await getDocs(q);
-  return snapshot.docs.map(d => ({ id: d.id, ...d.data() })) as ChatDocument[];
+  return snapshot.docs.map((d) => ({
+    id: d.id,
+    ...d.data(),
+  })) as ChatDocument[];
 }
 
 // Admin: Get all queries
-export async function getAllQueries(limit_count: number = 500): Promise<QueryDocument[]> {
-  const { collection, query, orderBy, limit: firestoreLimit, getDocs } = await import('firebase/firestore');
+export async function getAllQueries(
+  limit_count: number = 500,
+): Promise<QueryDocument[]> {
+  const {
+    collection,
+    query,
+    orderBy,
+    limit: firestoreLimit,
+    getDocs,
+  } = await import('firebase/firestore');
   const db = await getFirebaseDb();
   const q = query(
     collection(db, COLLECTIONS.QUERIES),
     orderBy('timestamp', 'desc'),
-    firestoreLimit(limit_count)
+    firestoreLimit(limit_count),
   );
   const snapshot = await getDocs(q);
-  return snapshot.docs.map(d => ({ id: d.id, ...d.data() })) as QueryDocument[];
+  return snapshot.docs.map((d) => ({
+    id: d.id,
+    ...d.data(),
+  })) as QueryDocument[];
 }
 
 // Admin: Get unknown queries
 export async function getUnknownQueries(): Promise<UnknownQueryDocument[]> {
-  const { collection, query, orderBy, getDocs } = await import('firebase/firestore');
+  const { collection, query, orderBy, getDocs } = await import(
+    'firebase/firestore'
+  );
   const db = await getFirebaseDb();
   const q = query(
     collection(db, COLLECTIONS.UNKNOWN),
-    orderBy('timestamp', 'desc')
+    orderBy('timestamp', 'desc'),
   );
   const snapshot = await getDocs(q);
-  return snapshot.docs.map(d => ({ id: d.id, ...d.data() })) as UnknownQueryDocument[];
+  return snapshot.docs.map((d) => ({
+    id: d.id,
+    ...d.data(),
+  })) as UnknownQueryDocument[];
 }
 
 // Admin: Get all visitors
 export async function getAllVisitors(): Promise<VisitorDocument[]> {
-  const { collection, query, orderBy, getDocs } = await import('firebase/firestore');
+  const { collection, query, orderBy, getDocs } = await import(
+    'firebase/firestore'
+  );
   const db = await getFirebaseDb();
   const q = query(
     collection(db, COLLECTIONS.VISITORS),
-    orderBy('lastVisit', 'desc')
+    orderBy('lastVisit', 'desc'),
   );
   const snapshot = await getDocs(q);
-  return snapshot.docs.map(d => ({ id: d.id, ...d.data() })) as VisitorDocument[];
+  return snapshot.docs.map((d) => ({
+    id: d.id,
+    ...d.data(),
+  })) as VisitorDocument[];
 }
 
 // Admin: Subscribe to real-time updates for chats
 export async function subscribeToChats(
   callback: (chats: ChatDocument[]) => void,
-  limit_count: number = 200
+  limit_count: number = 200,
 ) {
-  const { collection, query, orderBy, limit: firestoreLimit, onSnapshot } = await import('firebase/firestore');
+  const {
+    collection,
+    query,
+    orderBy,
+    limit: firestoreLimit,
+    onSnapshot,
+  } = await import('firebase/firestore');
   const db = await getFirebaseDb();
   const q = query(
     collection(db, COLLECTIONS.CHATS),
     orderBy('lastMessageAt', 'desc'),
-    firestoreLimit(limit_count)
+    firestoreLimit(limit_count),
   );
   return onSnapshot(q, (snapshot) => {
-    const chats = snapshot.docs.map(d => ({ id: d.id, ...d.data() })) as ChatDocument[];
+    const chats = snapshot.docs.map((d) => ({
+      id: d.id,
+      ...d.data(),
+    })) as ChatDocument[];
     callback(chats);
   });
 }
@@ -209,49 +266,68 @@ export async function subscribeToChats(
 // Admin: Subscribe to real-time updates for queries
 export async function subscribeToQueries(
   callback: (queries: QueryDocument[]) => void,
-  limit_count: number = 500
+  limit_count: number = 500,
 ) {
-  const { collection, query, orderBy, limit: firestoreLimit, onSnapshot } = await import('firebase/firestore');
+  const {
+    collection,
+    query,
+    orderBy,
+    limit: firestoreLimit,
+    onSnapshot,
+  } = await import('firebase/firestore');
   const db = await getFirebaseDb();
   const q = query(
     collection(db, COLLECTIONS.QUERIES),
     orderBy('timestamp', 'desc'),
-    firestoreLimit(limit_count)
+    firestoreLimit(limit_count),
   );
   return onSnapshot(q, (snapshot) => {
-    const queries = snapshot.docs.map(d => ({ id: d.id, ...d.data() })) as QueryDocument[];
+    const queries = snapshot.docs.map((d) => ({
+      id: d.id,
+      ...d.data(),
+    })) as QueryDocument[];
     callback(queries);
   });
 }
 
 // Admin: Subscribe to real-time updates for unknown queries
 export async function subscribeToUnknownQueries(
-  callback: (queries: UnknownQueryDocument[]) => void
+  callback: (queries: UnknownQueryDocument[]) => void,
 ) {
-  const { collection, query, orderBy, onSnapshot } = await import('firebase/firestore');
+  const { collection, query, orderBy, onSnapshot } = await import(
+    'firebase/firestore'
+  );
   const db = await getFirebaseDb();
   const q = query(
     collection(db, COLLECTIONS.UNKNOWN),
-    orderBy('timestamp', 'desc')
+    orderBy('timestamp', 'desc'),
   );
   return onSnapshot(q, (snapshot) => {
-    const queries = snapshot.docs.map(d => ({ id: d.id, ...d.data() })) as UnknownQueryDocument[];
+    const queries = snapshot.docs.map((d) => ({
+      id: d.id,
+      ...d.data(),
+    })) as UnknownQueryDocument[];
     callback(queries);
   });
 }
 
 // Admin: Subscribe to real-time updates for visitors
 export async function subscribeToVisitors(
-  callback: (visitors: VisitorDocument[]) => void
+  callback: (visitors: VisitorDocument[]) => void,
 ) {
-  const { collection, query, orderBy, onSnapshot } = await import('firebase/firestore');
+  const { collection, query, orderBy, onSnapshot } = await import(
+    'firebase/firestore'
+  );
   const db = await getFirebaseDb();
   const q = query(
     collection(db, COLLECTIONS.VISITORS),
-    orderBy('lastVisit', 'desc')
+    orderBy('lastVisit', 'desc'),
   );
   return onSnapshot(q, (snapshot) => {
-    const visitors = snapshot.docs.map(d => ({ id: d.id, ...d.data() })) as VisitorDocument[];
+    const visitors = snapshot.docs.map((d) => ({
+      id: d.id,
+      ...d.data(),
+    })) as VisitorDocument[];
     callback(visitors);
   });
 }
@@ -283,7 +359,15 @@ export async function getMediaData(categoryId: string): Promise<any> {
 export async function getAllMediaOverview(): Promise<Record<string, any>> {
   const { doc, getDoc } = await import('firebase/firestore');
   const db = await getFirebaseDb();
-  const categories = ['movies', 'books', 'music', 'anime', 'games', 'coding', 'social'];
+  const categories = [
+    'movies',
+    'books',
+    'music',
+    'anime',
+    'games',
+    'coding',
+    'social',
+  ];
   const results: Record<string, any> = {};
 
   for (const cat of categories) {
@@ -292,7 +376,7 @@ export async function getAllMediaOverview(): Promise<Record<string, any>> {
       if (snap.exists()) {
         results[cat] = snap.data();
       }
-    } catch (err) {
+    } catch (_err) {
       console.warn(`[Firestore] Could not load ${cat}`);
     }
   }

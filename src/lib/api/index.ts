@@ -1,12 +1,15 @@
 import { CONFIG } from '../config';
 
 // Generic fetch with error handling
-async function fetchJson<T>(url: string, options?: RequestInit): Promise<T | null> {
+async function fetchJson<T>(
+  url: string,
+  options?: RequestInit,
+): Promise<T | null> {
   try {
     const res = await fetch(url, {
       ...options,
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         ...options?.headers,
       },
     });
@@ -50,9 +53,9 @@ export async function fetchGitHubUser(): Promise<GitHubUser | null> {
 
 export async function fetchGitHubRepos(): Promise<GitHubRepo[]> {
   const repos = await fetchJson<GitHubRepo[]>(
-    `${CONFIG.api.github}/${CONFIG.user.github}/repos?per_page=100&sort=updated`
+    `${CONFIG.api.github}/${CONFIG.user.github}/repos?per_page=100&sort=updated`,
   );
-  return (repos || []).filter(r => !r.fork);
+  return (repos || []).filter((r) => !r.fork);
 }
 
 // LeetCode API
@@ -69,7 +72,9 @@ export interface LeetCodeStats {
 }
 
 export async function fetchLeetCodeStats(): Promise<LeetCodeStats | null> {
-  return fetchJson<LeetCodeStats>(`${CONFIG.api.leetcode}/${CONFIG.user.leetcode}`);
+  return fetchJson<LeetCodeStats>(
+    `${CONFIG.api.leetcode}/${CONFIG.user.leetcode}`,
+  );
 }
 
 // Codewars API
@@ -81,13 +86,18 @@ export interface CodewarsUser {
   leaderboardPosition: number;
   ranks: {
     overall: { rank: number; name: string; color: string; score: number };
-    languages: Record<string, { rank: number; name: string; color: string; score: number }>;
+    languages: Record<
+      string,
+      { rank: number; name: string; color: string; score: number }
+    >;
   };
   codeChallenges: { totalAuthored: number; totalCompleted: number };
 }
 
 export async function fetchCodewarsUser(): Promise<CodewarsUser | null> {
-  return fetchJson<CodewarsUser>(`${CONFIG.api.codewars}/${CONFIG.user.codewars}`);
+  return fetchJson<CodewarsUser>(
+    `${CONFIG.api.codewars}/${CONFIG.user.codewars}`,
+  );
 }
 
 // Lichess API
@@ -123,7 +133,7 @@ export interface DevToArticle {
 
 export async function fetchDevToArticles(): Promise<DevToArticle[]> {
   const articles = await fetchJson<DevToArticle[]>(
-    `${CONFIG.api.devto}?username=${CONFIG.user.devto}&per_page=50`
+    `${CONFIG.api.devto}?username=${CONFIG.user.devto}&per_page=50`,
   );
   return articles || [];
 }
@@ -138,7 +148,9 @@ export interface HackerNewsUser {
 }
 
 export async function fetchHackerNewsUser(): Promise<HackerNewsUser | null> {
-  return fetchJson<HackerNewsUser>(`${CONFIG.api.hackernews}/${CONFIG.user.hackernews}.json`);
+  return fetchJson<HackerNewsUser>(
+    `${CONFIG.api.hackernews}/${CONFIG.user.hackernews}.json`,
+  );
 }
 
 // Speedrun API
@@ -152,11 +164,15 @@ export interface SpeedRunUser {
 }
 
 export async function fetchSpeedRunUser(): Promise<SpeedRunUser | null> {
-  return fetchJson<SpeedRunUser>(`${CONFIG.api.speedrun}?lookup=${CONFIG.user.speedrun}`);
+  return fetchJson<SpeedRunUser>(
+    `${CONFIG.api.speedrun}?lookup=${CONFIG.user.speedrun}`,
+  );
 }
 
 // AniList GraphQL
-export async function fetchAniListStats(username: string): Promise<Record<string, unknown> | null> {
+export async function fetchAniListStats(
+  username: string,
+): Promise<Record<string, unknown> | null> {
   const query = `
     query ($username: String) {
       User(name: $username) {
@@ -208,15 +224,19 @@ export interface LastFmRecentTracks {
   };
 }
 
-export async function fetchLastFmUser(apiKey: string): Promise<LastFmUser | null> {
+export async function fetchLastFmUser(
+  apiKey: string,
+): Promise<LastFmUser | null> {
   return fetchJson<LastFmUser>(
-    `${CONFIG.api.lastfm}?method=user.getinfo&user=${CONFIG.user.lastfm}&api_key=${apiKey}&format=json`
+    `${CONFIG.api.lastfm}?method=user.getinfo&user=${CONFIG.user.lastfm}&api_key=${apiKey}&format=json`,
   );
 }
 
-export async function fetchLastFmRecentTracks(apiKey: string): Promise<LastFmRecentTracks | null> {
+export async function fetchLastFmRecentTracks(
+  apiKey: string,
+): Promise<LastFmRecentTracks | null> {
   return fetchJson<LastFmRecentTracks>(
-    `${CONFIG.api.lastfm}?method=user.getrecenttracks&user=${CONFIG.user.lastfm}&api_key=${apiKey}&format=json&limit=10`
+    `${CONFIG.api.lastfm}?method=user.getrecenttracks&user=${CONFIG.user.lastfm}&api_key=${apiKey}&format=json&limit=10`,
   );
 }
 

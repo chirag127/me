@@ -2,9 +2,22 @@
 // Lightweight types for the AI chat system. No framework abstractions.
 
 export type QueryIntent =
-  | 'career' | 'coding' | 'projects' | 'skills' | 'education'
-  | 'movies' | 'music' | 'books' | 'anime' | 'gaming'
-  | 'social' | 'contact' | 'navigation' | 'greeting' | 'meta' | 'unknown';
+  | 'career'
+  | 'coding'
+  | 'projects'
+  | 'skills'
+  | 'education'
+  | 'movies'
+  | 'music'
+  | 'books'
+  | 'anime'
+  | 'gaming'
+  | 'social'
+  | 'contact'
+  | 'navigation'
+  | 'greeting'
+  | 'meta'
+  | 'unknown';
 
 export type PersonalityMode = 'professional' | 'casual' | 'witty' | 'technical';
 

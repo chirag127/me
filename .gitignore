@@ -35,3 +35,4 @@ firebase-debug.log
 # Generated API data (fetched at build-time)
 src/data/generated/
 public/data/*.json
+*.log

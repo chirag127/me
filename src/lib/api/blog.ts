@@ -17,18 +17,13 @@ export interface BlogPost {
 export async function fetchBlogPosts(): Promise<BlogPost[]> {
   try {
     const controller = new AbortController();
-    const timeout = setTimeout(
-      () => controller.abort(), 8_000,
-    );
-    const res = await fetch(
-      'https://blog.oriz.in/rss.xml',
-      { signal: controller.signal },
-    );
+    const timeout = setTimeout(() => controller.abort(), 8_000);
+    const res = await fetch('https://blog.oriz.in/rss.xml', {
+      signal: controller.signal,
+    });
     clearTimeout(timeout);
     if (!res.ok) {
-      console.warn(
-        `[Blog] RSS fetch failed: ${res.status}`,
-      );
+      console.warn(`[Blog] RSS fetch failed: ${res.status}`);
       return [];
     }
     const xml = await res.text();
@@ -62,19 +57,12 @@ function parseRSS(xml: string): BlogPost[] {
   return items;
 }
 
-function extractTag(
-  xml: string,
-  tag: string,
-): string {
+function extractTag(xml: string, tag: string): string {
   const cdataMatch = xml.match(
-    new RegExp(
-      `<${tag}><!\\[CDATA\\[([\\s\\S]*?)\\]\\]></${tag}>`,
-    ),
+    new RegExp(`<${tag}><!\\[CDATA\\[([\\s\\S]*?)\\]\\]></${tag}>`),
   );
   if (cdataMatch) return cdataMatch[1].trim();
 
-  const simpleMatch = xml.match(
-    new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`),
-  );
+  const simpleMatch = xml.match(new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`));
   return simpleMatch ? simpleMatch[1].trim() : '';
 }

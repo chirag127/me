@@ -6,7 +6,7 @@ export async function fetchStackOverflowUser(userId: string) {
   const data = await fetchJson<any>(
     `${SO_API}/users/${userId}?site=stackoverflow`,
     undefined,
-    'StackOverflow'
+    'StackOverflow',
   );
 
   if (!data?.items?.[0]) return null;
@@ -43,7 +43,7 @@ export async function fetchStackOverflowTags(userId: string, limit = 30) {
   const data = await fetchJson<any>(
     `${SO_API}/users/${userId}/tags?order=desc&sort=popular&site=stackoverflow&pagesize=${limit}`,
     undefined,
-    'StackOverflow'
+    'StackOverflow',
   );
 
   if (!data?.items) return [];
@@ -58,7 +58,7 @@ export async function fetchStackOverflowQuestions(userId: string, limit = 20) {
   const data = await fetchJson<any>(
     `${SO_API}/users/${userId}/questions?order=desc&sort=votes&site=stackoverflow&pagesize=${limit}`,
     undefined,
-    'StackOverflow'
+    'StackOverflow',
   );
 
   if (!data?.items) return [];
@@ -80,7 +80,7 @@ export async function fetchStackOverflowAnswers(userId: string, limit = 20) {
   const data = await fetchJson<any>(
     `${SO_API}/users/${userId}/answers?order=desc&sort=votes&site=stackoverflow&pagesize=${limit}`,
     undefined,
-    'StackOverflow'
+    'StackOverflow',
   );
 
   if (!data?.items) return [];

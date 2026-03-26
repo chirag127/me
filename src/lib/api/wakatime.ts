@@ -27,10 +27,10 @@ export async function fetchWakaTimeStats(): Promise<WakaTimeStats | null> {
     `${WAKATIME_API_URL}/users/current/stats/last_30_days`,
     {
       headers: {
-        Authorization: `Basic ${basicAuth}`
-      }
+        Authorization: `Basic ${basicAuth}`,
+      },
     },
-    'WakaTime'
+    'WakaTime',
   );
 
   if (!data?.data) {
@@ -61,10 +61,12 @@ function parseWakaTimeData(stats: any): WakaTimeStats {
       name: p.name,
       totalSeconds: p.total_seconds,
     })),
-    bestDay: stats.best_day ? {
-      date: stats.best_day.date,
-      totalSeconds: stats.best_day.total_seconds,
-      text: stats.best_day.text,
-    } : null,
+    bestDay: stats.best_day
+      ? {
+          date: stats.best_day.date,
+          totalSeconds: stats.best_day.total_seconds,
+          text: stats.best_day.text,
+        }
+      : null,
   };
 }

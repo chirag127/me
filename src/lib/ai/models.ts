@@ -3,7 +3,7 @@
  * Used by the dropdown selector and the agent's failover chain.
  */
 
-import type { QueryIntent, ModelTier } from './types';
+import type { ModelTier, QueryIntent } from './types';
 
 export type { ModelTier } from './types';
 
@@ -96,7 +96,7 @@ const TIER_CHAINS: Record<ModelTier, AIModel[]> = {
 };
 
 // All models as final fallback
-const ALL_MODELS: AIModel[] = MODEL_CATALOG.map(m => m.id);
+const ALL_MODELS: AIModel[] = MODEL_CATALOG.map((m) => m.id);
 
 // ─── Public API ──────────────────────────────────────────────────────
 
@@ -111,11 +111,25 @@ export function getAllModelIds(): AIModel[] {
 }
 
 /** Determine tier from intent */
-export function selectTier(intent: QueryIntent, complexity: 'low' | 'medium' | 'high'): ModelTier {
-  const needsTools = !['greeting', 'meta', 'navigation', 'contact', 'unknown'].includes(intent);
+export function selectTier(
+  intent: QueryIntent,
+  complexity: 'low' | 'medium' | 'high',
+): ModelTier {
+  const needsTools = ![
+    'greeting',
+    'meta',
+    'navigation',
+    'contact',
+    'unknown',
+  ].includes(intent);
   if (needsTools) return 'agent';
-  if (['greeting', 'meta', 'navigation', 'contact'].includes(intent)) return 'fast';
-  if (complexity === 'high' || ['career', 'coding', 'projects', 'skills', 'education'].includes(intent)) return 'reasoning';
+  if (['greeting', 'meta', 'navigation', 'contact'].includes(intent))
+    return 'fast';
+  if (
+    complexity === 'high' ||
+    ['career', 'coding', 'projects', 'skills', 'education'].includes(intent)
+  )
+    return 'reasoning';
   if (complexity === 'medium') return 'reasoning';
   return 'fast';
 }

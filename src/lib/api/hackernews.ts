@@ -1,5 +1,5 @@
-import { fetchJson } from './fetcher';
 import { CONFIG } from '../config';
+import { fetchJson } from './fetcher';
 
 const HN_API = 'https://hacker-news.firebaseio.com/v0';
 
@@ -8,7 +8,7 @@ export async function fetchHackerNewsStats() {
   const data = await fetchJson<any>(
     `${HN_API}/user/${username}.json`,
     undefined,
-    'HackerNews'
+    'HackerNews',
   );
 
   if (!data) return null;

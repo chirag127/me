@@ -1,13 +1,9 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import CommandPalette from '../../components/CommandPalette.astro';
 import { projects } from '../../data/resume';
 
-const featuredProjects = projects.filter(p => p.featured);
-const otherProjects = projects.filter(p => !p.featured);
-const allTechs = [...new Set(projects.flatMap(p => p.tech.split(', ')))];
+const _featuredProjects = projects.filter((p) => p.featured);
+const _otherProjects = projects.filter((p) => !p.featured);
+const _allTechs = [...new Set(projects.flatMap((p) => p.tech.split(', ')))];
 ---
 
 <Layout title="Projects" description="All 8 projects by Chirag Singhal — Oriz, NexusAI, TubeDigest, Olivia, and more">

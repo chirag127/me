@@ -1,20 +1,21 @@
 ---
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import CommandPalette from '../../components/CommandPalette.astro';
 
 let db: any = { watched: [], rated: [], stats: {} };
 try {
-  const raw = await fs.readFile(path.resolve('./src/data/generated/movies.json'), 'utf-8');
+  const raw = await fs.readFile(
+    path.resolve('./src/data/generated/movies.json'),
+    'utf-8',
+  );
   db = JSON.parse(raw);
-} catch (e) {
+} catch (_e) {
   console.warn('[Movies Rated] movies.json not found.');
 }
 
-const rated = (db.watched || []).filter((m: any) => m.rating).sort((a: any, b: any) => b.rating - a.rating);
+const rated = (db.watched || [])
+  .filter((m: any) => m.rating)
+  .sort((a: any, b: any) => b.rating - a.rating);
 
 const fallbackGradients = [
   'linear-gradient(135deg, #0c1445, #1a237e)',
@@ -26,17 +27,17 @@ const fallbackGradients = [
 ];
 const fallbackEmojis = ['🎬', '🍿', '🎟️', '📽️', '🎞️', '🌌', '💥', '🎭'];
 
-function getVisuals(title: string) {
+function _getVisuals(title: string) {
   const idx = [...title].reduce((acc, char) => acc + char.charCodeAt(0), 0);
   return {
     gradient: fallbackGradients[idx % fallbackGradients.length],
-    emoji: fallbackEmojis[idx % fallbackEmojis.length]
+    emoji: fallbackEmojis[idx % fallbackEmojis.length],
   };
 }
 
-const highRated = rated.filter((m: any) => m.rating >= 8);
-const midRated = rated.filter((m: any) => m.rating >= 6 && m.rating < 8);
-const lowRated = rated.filter((m: any) => m.rating < 6);
+const _highRated = rated.filter((m: any) => m.rating >= 8);
+const _midRated = rated.filter((m: any) => m.rating >= 6 && m.rating < 8);
+const _lowRated = rated.filter((m: any) => m.rating < 6);
 ---
 
 <Layout title="Rated Movies" description="Movies rated by Chirag Singhal — sorted by rating">
