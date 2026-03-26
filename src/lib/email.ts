@@ -1,8 +1,8 @@
 import emailjs from '@emailjs/browser';
 
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '';
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
+const SERVICE_ID = 'whyiswhen';
+const TEMPLATE_ID = 'template_vtfsvsa';
+const PUBLIC_KEY = 'ez_TbfaB5JPmwPKek';
 
 export interface AlertData {
   visitorQuery: string;
@@ -16,18 +16,13 @@ export interface AlertData {
 let initialized = false;
 
 function ensureInit() {
-  if (!initialized && PUBLIC_KEY) {
+  if (!initialized) {
     emailjs.init(PUBLIC_KEY);
     initialized = true;
   }
 }
 
 export async function sendAlertEmail(data: AlertData): Promise<boolean> {
-  if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-    console.warn('EmailJS not configured');
-    return false;
-  }
-
   ensureInit();
 
   try {

@@ -10,7 +10,7 @@
  * - Chat persistence to Firestore
  */
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, type FormEvent, type PointerEvent, type CSSProperties } from 'react';
 import { useAIChatStore } from '../../store/useAIChatStore';
 import { executeAgentStream } from '../../lib/ai/agent';
 import type { ChatMessage, PersonalityMode } from '../../lib/ai/types';
@@ -34,14 +34,14 @@ function DraggableButton({ onOpen }: { onOpen: () => void }) {
     } catch { }
   }, []);
 
-  const onPointerDown = useCallback((e: React.PointerEvent) => {
+  const onPointerDown = useCallback((e: PointerEvent) => {
     dragging.current = true;
     moved.current = false;
     start.current = { x: e.clientX, y: e.clientY, px: pos.x, py: pos.y };
     (e.target as HTMLElement).setPointerCapture(e.pointerId);
   }, [pos]);
 
-  const onPointerMove = useCallback((e: React.PointerEvent) => {
+  const onPointerMove = useCallback((e: PointerEvent) => {
     if (!dragging.current) return;
     const dx = e.clientX - start.current.x;
     const dy = e.clientY - start.current.y;
@@ -49,14 +49,14 @@ function DraggableButton({ onOpen }: { onOpen: () => void }) {
     setPos({ x: start.current.px + dx, y: start.current.py + dy });
   }, []);
 
-  const onPointerUp = useCallback((e: React.PointerEvent) => {
+  const onPointerUp = useCallback((e: PointerEvent) => {
     dragging.current = false;
     (e.target as HTMLElement).releasePointerCapture(e.pointerId);
     try { localStorage.setItem('chat-btn-pos', JSON.stringify(pos)); } catch { }
     if (!moved.current) onOpenRef.current();
   }, [pos]);
 
-  const style: React.CSSProperties = {
+  const style: CSSProperties = {
     position: 'fixed',
     bottom: pos.x === 0 && pos.y === 0 ? 32 : undefined,
     right: pos.x === 0 && pos.y === 0 ? 32 : undefined,
@@ -164,22 +164,61 @@ function Dropdown({
 
 // ─── Step Indicator ──────────────────────────────────────────────────
 function StepIndicator({ steps, streaming }: { steps: string[]; streaming: boolean }) {
+  const [visibleSteps, setVisibleSteps] = React.useState<boolean[]>([]);
+
+  React.useEffect(() => {
+    if (steps.length === 0) return;
+
+    setVisibleSteps(prev => {
+      const next = [...prev];
+      while (next.length < steps.length) next.push(true);
+
+      // Hide the previous step when a new one arrives
+      if (next.length > 1) {
+        next[next.length - 2] = false;
+      }
+      return next;
+    });
+
+    // When streaming ends, hide the last step after a brief pause
+    if (!streaming && steps.length > 0) {
+      const timeout = setTimeout(() => {
+        setVisibleSteps(prev => {
+          const next = [...prev];
+          if (next.length > 0) next[next.length - 1] = false;
+          return next;
+        });
+      }, 800);
+      return () => clearTimeout(timeout);
+    }
+  }, [steps.length, streaming]);
+
   return (
     <div className="flex flex-col gap-1.5 py-1">
-      {steps.map((step, i) => (
-        <div
-          key={i}
-          className={`flex items-center gap-2 text-[11px] transition-all duration-300 ${i === steps.length - 1 && streaming ? 'text-amber-400 font-medium' : 'text-white/40'
+      {steps.map((step, i) => {
+        const isCurrent = i === steps.length - 1 && streaming;
+        const isVisible = visibleSteps[i] !== false;
+        return (
+          <div
+            key={`${i}-${step}`}
+            className={`flex items-center gap-2 text-[11px] transition-all duration-300 ${
+              !isVisible
+                ? 'opacity-0 h-0 overflow-hidden'
+                : isCurrent
+                  ? 'text-amber-400 font-medium'
+                  : 'text-white/40'
             }`}
-          style={{ animation: 'fadeIn 0.3s ease-out forwards' }}
-        >
-          <div className={`flex-shrink-0 w-1.5 h-1.5 rounded-full ${i === steps.length - 1 && streaming
-            ? 'bg-amber-400 animate-pulse shadow-[0_0_8px_rgba(245,158,11,0.5)]'
-            : 'bg-emerald-500/50'
+            style={{ animation: isVisible ? 'fadeIn 0.3s ease-out forwards' : undefined }}
+          >
+            <div className={`flex-shrink-0 w-1.5 h-1.5 rounded-full ${
+              isCurrent
+                ? 'bg-amber-400 animate-pulse shadow-[0_0_8px_rgba(245,158,11,0.5)]'
+                : 'bg-emerald-500/50'
             }`} />
-          <span className="truncate">{step}</span>
-        </div>
-      ))}
+            <span className="truncate">{step}</span>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -222,7 +261,6 @@ interface ChatSession {
 
 function ChatPanel({ onClose }: { onClose: () => void }) {
   const [messages, setMessages] = useState<Message[]>([]);
-  // ... rest of state ...
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [selectedModel, setSelectedModel] = useState('');
@@ -507,32 +545,30 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
       // 2. Puter.js Sign In
       setSignInStep('puter');
       const w = window as any;
-      if (w.puter?.auth) {
-        try {
-          if (!w.puter.auth.isSignedIn()) {
-            console.log('[ChatWrapper] Attempting Puter.js sign-in...');
-            await w.puter.auth.signIn();
-          }
-          const pUser = await w.puter.auth.getUser();
+      try {
+        const puterAuth = w.puter?.auth;
+        if (puterAuth && typeof puterAuth.isSignedIn === 'function' && !puterAuth.isSignedIn()) {
+          console.log('[ChatWrapper] Attempting Puter.js sign-in...');
+          await puterAuth.signIn();
+        }
+        if (puterAuth && typeof puterAuth.getUser === 'function') {
+          const pUser = await puterAuth.getUser();
           console.log('[ChatWrapper] Puter.js sign-in result:', pUser?.username);
           if (pUser && mountedRef.current) setPuterUser({ username: pUser.username });
-        } catch (puterErr) {
-          console.warn('[ChatWrapper] Puter.js auth failed (non-critical):', puterErr);
-          // Puter.js auth is optional - user can still use AI without it
-          // The AI will use anonymous mode
         }
+      } catch (puterErr) {
+        console.warn('[ChatWrapper] Puter.js auth failed (non-critical):', puterErr);
       }
       setSignInStep('done');
     } catch (e) {
       console.error('[ChatWrapper] Sign in error:', e);
-      // If Firebase auth fails, still allow AI usage (anonymous)
       setSignInStep('done');
     } finally {
       if (mountedRef.current) setSigningIn(false);
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); handleSend(input); };
+  const handleSubmit = (e: FormEvent) => { e.preventDefault(); handleSend(input); };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#05050f]/80 backdrop-blur-md" onClick={onClose}>

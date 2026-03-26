@@ -1,11 +1,9 @@
 import emailjs from '@emailjs/browser';
 import { ADMIN_EMAIL } from '../lib/firebase';
 
-// Use placeholders or env variables for EmailJS config.
-// The user must replace these in production.
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'CHIRAG_SINGHAL_SERVICE';
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'CHIRAG_SINGHAL_TEMPLATE';
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'CHIRAG_SINGHAL_PUBLIC_KEY';
+const EMAILJS_SERVICE_ID = 'whyiswhen';
+const EMAILJS_TEMPLATE_ID = 'template_vtfsvsa';
+const EMAILJS_PUBLIC_KEY = 'ez_TbfaB5JPmwPKek';
 
 export interface AlertData {
   query: string;
