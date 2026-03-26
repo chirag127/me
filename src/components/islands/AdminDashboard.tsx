@@ -102,16 +102,16 @@ function timeAgo(dateStr: string): string {
 }
 
 export default function AdminDashboard() {
-  const { 
-    user, 
-    puterUser, 
-    loading, 
+  const {
+    user,
+    puterUser,
+    loading,
     isAuthorized,
     isFullyConnected,
-    initialize, 
-    signInWithGoogle, 
-    signInWithPuter, 
-    signOut 
+    initialize,
+    signInWithGoogle,
+    signInWithPuter,
+    signOut,
   } = useAuthStore();
 
   const [activeTab, setActiveTab] = useState<Tab>('overview');
@@ -197,23 +197,30 @@ export default function AdminDashboard() {
           <div className="relative h-32 bg-gradient-to-br from-indigo-600/20 to-cyan-500/20 flex items-center justify-center border-b border-white/5">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
             <div className="relative flex items-center gap-4">
-              <div className={`h-12 w-12 rounded-2xl flex items-center justify-center transition-all duration-500 ${user ? 'bg-indigo-500 shadow-[0_0_20px_rgba(99,102,241,0.4)]' : 'bg-white/5 border border-white/10 opacity-40'}`}>
+              <div
+                className={`h-12 w-12 rounded-2xl flex items-center justify-center transition-all duration-500 ${user ? 'bg-indigo-500 shadow-[0_0_20px_rgba(99,102,241,0.4)]' : 'bg-white/5 border border-white/10 opacity-40'}`}
+              >
                 <span className="text-xl font-bold text-white">G</span>
               </div>
               <div className="h-px w-8 bg-white/10" />
-              <div className={`h-12 w-12 rounded-2xl flex items-center justify-center transition-all duration-500 ${hasPuter ? 'bg-cyan-500 shadow-[0_0_20px_rgba(6,182,212,0.4)]' : 'bg-white/5 border border-white/10 opacity-40'}`}>
+              <div
+                className={`h-12 w-12 rounded-2xl flex items-center justify-center transition-all duration-500 ${hasPuter ? 'bg-cyan-500 shadow-[0_0_20px_rgba(6,182,212,0.4)]' : 'bg-white/5 border border-white/10 opacity-40'}`}
+              >
                 <span className="text-xl font-bold text-white">P</span>
               </div>
             </div>
           </div>
 
           <div className="p-8 text-center">
-            <h2 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: 'Outfit, sans-serif' }}>
+            <h2
+              className="text-2xl font-bold text-white mb-2"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
               {isFullyConnected ? 'Unauthorized' : 'Terminal Access Restricted'}
             </h2>
             <p className="text-sm text-white/40 mb-8 max-w-[280px] mx-auto">
-              {isFullyConnected 
-                ? 'Your connections are established, but you do not have administrative privileges.' 
+              {isFullyConnected
+                ? 'Your connections are established, but you do not have administrative privileges.'
                 : 'Please initialize both security layers to access administrative functions.'}
             </p>
 
@@ -226,9 +233,23 @@ export default function AdminDashboard() {
                   <span className="text-sm">Connect Google Login</span>
                 </button>
               ) : (
-                <div className={`w-full py-4 px-6 rounded-2xl border text-sm font-medium flex items-center justify-center gap-3 ${isFirebaseAdmin ? 'bg-indigo-500/10 border-indigo-500/30 text-indigo-400' : 'bg-red-500/10 border-red-500/30 text-red-400'}`}>
-                  <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
-                  {isFirebaseAdmin ? 'Google Identity Verified' : `Unauthorized (${user.email})`}
+                <div
+                  className={`w-full py-4 px-6 rounded-2xl border text-sm font-medium flex items-center justify-center gap-3 ${isFirebaseAdmin ? 'bg-indigo-500/10 border-indigo-500/30 text-indigo-400' : 'bg-red-500/10 border-red-500/30 text-red-400'}`}
+                >
+                  <svg
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  {isFirebaseAdmin
+                    ? 'Google Identity Verified'
+                    : `Unauthorized (${user.email})`}
                 </div>
               )}
 
@@ -241,15 +262,25 @@ export default function AdminDashboard() {
                 </button>
               ) : (
                 <div className="w-full py-4 px-6 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-medium flex items-center justify-center gap-3">
-                  <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                  <svg
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
                   Puter Connection Established
                 </div>
               )}
-              
+
               {/* Removed the old unauthorized message block */}
 
               {isFullyConnected && ( // Changed condition to show sign out when fully connected but unauthorized
-                <button 
+                <button
                   onClick={handleSignOut}
                   className="mt-6 p-2 text-[10px] text-white/20 hover:text-white/40 transition-colors uppercase tracking-[0.2em] font-bold border-t border-white/5 w-full pt-4"
                 >

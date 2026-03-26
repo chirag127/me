@@ -1,4 +1,9 @@
 ---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+import { summary } from '../../data/resume';
 ---
 
 <Layout title="Chirag Singhal" description="Who is Chirag Singhal — story, philosophy, interests, and personal data">
@@ -16,9 +21,7 @@
             <p class="text-sm text-[var(--color-text-muted)] mt-0.5">The person behind the code</p>
           </div>
         </div>
-        <p class="text-[var(--color-text-secondary)] max-w-2xl leading-relaxed mt-4">
-          {summary}
-        </p>
+        <p class="text-[var(--color-text-secondary)] max-w-2xl leading-relaxed mt-4" set:html={summary} />
       </div>
     </div>
 

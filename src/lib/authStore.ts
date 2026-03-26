@@ -1,12 +1,12 @@
 import { create } from 'zustand';
-import { 
-  getAuthInstance, 
-  getOnAuthStateChanged, 
-  handleGoogleRedirect, 
+import {
+  getAuthInstance,
+  getOnAuthStateChanged,
+  handleGoogleRedirect,
   signOut as firebaseSignOut,
   isAdminEmail,
   signInWithGoogle,
-  type User 
+  type User,
 } from './firebase';
 
 interface AuthState {
@@ -34,29 +34,29 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   initialized: false,
   isAuthorized: false,
   isFullyConnected: false,
-  
+
   setUser: (user) => {
     const puterUser = get().puterUser;
     const isFullyConnected = !!user && !!puterUser;
     const isAuthorized = isAdminEmail(user?.email) && !!puterUser;
     set({ user, isFullyConnected, isAuthorized });
   },
-  
+
   setPuterUser: (puterUser) => {
     const user = get().user;
     const isFullyConnected = !!user && !!puterUser;
     const isAuthorized = isAdminEmail(user?.email) && !!puterUser;
     set({ puterUser, isFullyConnected, isAuthorized });
   },
-  
+
   initialize: async () => {
     if (initializationPromise) return initializationPromise;
 
     initializationPromise = (async () => {
       if (get().initialized) return;
-      
+
       console.log('[AuthStore] Starting robust singleton initialization...');
-      
+
       // 1. Handle Redirect Result FIRST (Crucial for Firebase)
       // This MUST happen exactly once per page load to capture the token
       try {
@@ -65,10 +65,10 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         if (redirectUser) {
           console.log('[AuthStore] Found redirect user:', redirectUser.email);
           const pUser = get().puterUser;
-          set({ 
-            user: redirectUser, 
+          set({
+            user: redirectUser,
             isAuthorized: isAdminEmail(redirectUser.email) && !!pUser,
-            isFullyConnected: !!pUser
+            isFullyConnected: !!pUser,
           });
         }
       } catch (e) {
@@ -79,16 +79,19 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       try {
         const auth = await getAuthInstance();
         const onAuthStateChanged = await getOnAuthStateChanged();
-        
+
         onAuthStateChanged(auth, (currentUser) => {
-          console.log('[AuthStore] Firebase state change:', currentUser?.email || 'null');
+          console.log(
+            '[AuthStore] Firebase state change:',
+            currentUser?.email || 'null',
+          );
           const pUser = get().puterUser;
-          set({ 
-            user: currentUser, 
-            loading: false, 
+          set({
+            user: currentUser,
+            loading: false,
             initialized: true,
             isAuthorized: isAdminEmail(currentUser?.email) && !!pUser,
-            isFullyConnected: !!currentUser && !!pUser
+            isFullyConnected: !!currentUser && !!pUser,
           });
         });
       } catch (e) {
@@ -103,12 +106,15 @@ export const useAuthStore = create<AuthState>((set, get) => ({
           try {
             if (w.puter.auth.isSignedIn()) {
               const pUser = await w.puter.auth.getUser();
-              console.log('[AuthStore] Puter session detected:', pUser?.username);
+              console.log(
+                '[AuthStore] Puter session detected:',
+                pUser?.username,
+              );
               const fbUser = get().user;
-              set({ 
+              set({
                 puterUser: { username: pUser.username },
                 isAuthorized: isAdminEmail(fbUser?.email) && !!pUser,
-                isFullyConnected: !!fbUser && !!pUser
+                isFullyConnected: !!fbUser && !!pUser,
               });
             } else {
               console.log('[AuthStore] No Puter session found');
@@ -142,10 +148,10 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     if (fbUser) {
       console.log('[AuthStore] Google Sign In success (direct):', fbUser.email);
       const pUser = get().puterUser;
-      set({ 
-        user: fbUser, 
+      set({
+        user: fbUser,
         isAuthorized: isAdminEmail(fbUser.email) && !!pUser,
-        isFullyConnected: !!pUser
+        isFullyConnected: !!pUser,
       });
     }
   },
@@ -159,10 +165,10 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       const pUser = await w.puter.auth.getUser();
       if (pUser) {
         const fbUser = get().user;
-        set({ 
+        set({
           puterUser: { username: pUser.username },
           isAuthorized: isAdminEmail(fbUser?.email) && !!pUser,
-          isFullyConnected: !!fbUser && !!pUser
+          isFullyConnected: !!fbUser && !!pUser,
         });
       }
     }
@@ -176,10 +182,15 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       if (w.puter?.auth?.isSignedIn()) {
         w.puter.auth.signOut();
       }
-      set({ user: null, puterUser: null, isAuthorized: false, isFullyConnected: false });
+      set({
+        user: null,
+        puterUser: null,
+        isAuthorized: false,
+        isFullyConnected: false,
+      });
       console.log('[AuthStore] All sessions cleared');
     } catch (e) {
       console.error('[AuthStore] Sign out error:', e);
     }
-  }
+  },
 }));

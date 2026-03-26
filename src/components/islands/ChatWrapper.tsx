@@ -349,13 +349,13 @@ interface ChatSession {
 }
 
 function ChatPanel({ onClose }: { onClose: () => void }) {
-  const { 
-    user: firebaseUser, 
-    puterUser, 
-    initialize, 
-    signInWithGoogle, 
-    signInWithPuter, 
-    signOut 
+  const {
+    user: firebaseUser,
+    puterUser,
+    initialize,
+    signInWithGoogle,
+    signInWithPuter,
+    signOut,
   } = useAuthStore();
 
   const [messages, setMessages] = useState<Message[]>([]);
@@ -580,23 +580,45 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
         {showHistory && (
           <div className="w-64 border-r border-white/10 bg-[#0d0d17]/90 flex flex-col flex-shrink-0">
             <div className="p-3 border-b border-white/10 flex items-center justify-between">
-              <span className="text-sm font-semibold text-white/80">History</span>
-              <button onClick={() => setShowHistory(false)} className="p-1 rounded text-white/40 hover:text-white">
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              <span className="text-sm font-semibold text-white/80">
+                History
+              </span>
+              <button
+                onClick={() => setShowHistory(false)}
+                className="p-1 rounded text-white/40 hover:text-white"
+              >
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>
             <div className="flex-1 overflow-y-auto p-2 space-y-1">
               {!firebaseUser ? (
-                <div className="p-4 text-center text-white/40 text-xs">Sign in to view history</div>
+                <div className="p-4 text-center text-white/40 text-xs">
+                  Sign in to view history
+                </div>
               ) : chatHistory.length === 0 ? (
-                <div className="p-4 text-center text-white/40 text-xs">No history yet</div>
+                <div className="p-4 text-center text-white/40 text-xs">
+                  No history yet
+                </div>
               ) : (
                 chatHistory.map((s) => (
                   <button
                     key={s.id}
-                    onClick={() => { setMessages(s.messages); setShowHistory(false); }}
+                    onClick={() => {
+                      setMessages(s.messages);
+                      setShowHistory(false);
+                    }}
                     className="w-full text-left px-3 py-2 rounded-lg text-xs text-white/70 hover:bg-white/5 truncate"
                   >
                     {s.title || 'New Chat'}
@@ -606,7 +628,10 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
             </div>
             {firebaseUser && (
               <div className="p-3 border-t border-white/10">
-                <button onClick={() => signOut()} className="w-full px-3 py-2 rounded-lg text-xs text-red-400 hover:bg-red-500/10 transition-colors">
+                <button
+                  onClick={() => signOut()}
+                  className="w-full px-3 py-2 rounded-lg text-xs text-red-400 hover:bg-red-500/10 transition-colors"
+                >
                   Sign Out
                 </button>
               </div>
@@ -617,27 +642,73 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
         <div className="flex-1 flex flex-col min-w-0">
           <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-gradient-to-r from-amber-500/10 to-orange-500/5">
             <div className="flex items-center gap-3">
-              <button onClick={() => setShowHistory(!showHistory)} className="p-1.5 rounded-lg text-white/40 hover:text-white">
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+              <button
+                onClick={() => setShowHistory(!showHistory)}
+                className="p-1.5 rounded-lg text-white/40 hover:text-white"
+              >
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
               </button>
               <div>
                 <h2 className="text-sm font-bold text-white">Chirag AI</h2>
-                <span className="text-[10px] text-white/40 uppercase tracking-widest">Assistant</span>
+                <span className="text-[10px] text-white/40 uppercase tracking-widest">
+                  Assistant
+                </span>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <Dropdown label="Model" options={modelOptions} value={selectedModel} onChange={setSelectedModel} width="w-64" />
-              <button onClick={onClose} className="p-1.5 rounded-lg text-white/40 hover:text-white"><svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button>
+              <Dropdown
+                label="Model"
+                options={modelOptions}
+                value={selectedModel}
+                onChange={setSelectedModel}
+                width="w-64"
+              />
+              <button
+                onClick={onClose}
+                className="p-1.5 rounded-lg text-white/40 hover:text-white"
+              >
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
 
           <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6">
             {messages.length === 0 && (
               <div className="flex flex-col items-center justify-center h-full text-center space-y-8">
-                <div className="h-20 w-20 rounded-3xl bg-[#1a1a2e] border border-amber-500/30 flex items-center justify-center text-4xl shadow-xl shadow-amber-500/10 rotate-3">✨</div>
+                <div className="h-20 w-20 rounded-3xl bg-[#1a1a2e] border border-amber-500/30 flex items-center justify-center text-4xl shadow-xl shadow-amber-500/10 rotate-3">
+                  ✨
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-lg">
                   {SUGGESTED.map((s) => (
-                    <button key={s} onClick={() => handleSend(s)} className="p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.07] text-xs text-white/60 hover:text-white text-left transition-all">
+                    <button
+                      key={s}
+                      onClick={() => handleSend(s)}
+                      className="p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.07] text-xs text-white/60 hover:text-white text-left transition-all"
+                    >
                       {s}
                     </button>
                   ))}
@@ -645,21 +716,40 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
               </div>
             )}
             {messages.map((m, i) => (
-              <div key={i} className={`flex gap-4 ${m.role === 'user' ? 'justify-end' : ''}`}>
+              <div
+                key={i}
+                className={`flex gap-4 ${m.role === 'user' ? 'justify-end' : ''}`}
+              >
                 {m.role === 'assistant' && (
-                  <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white shrink-0 mt-1">AI</div>
-                )}
-                <div className={`max-w-[85%] space-y-2 ${m.role === 'user' ? 'text-right' : ''}`}>
-                  <div className={`px-4 py-3 rounded-2xl border text-sm leading-relaxed ${m.role === 'user' ? 'bg-amber-500/10 border-amber-500/20 text-white' : 'bg-white/[0.03] border-white/5 text-white/90'}`}>
-                    <div dangerouslySetInnerHTML={{ __html: renderMd(m.content) }} />
-                    {m.role === 'assistant' && m.streaming && !m.content && <span className="animate-pulse">...</span>}
+                  <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white shrink-0 mt-1">
+                    AI
                   </div>
-                  {m.role === 'assistant' && m.steps && m.steps.length > 0 && <StepIndicator steps={m.steps} streaming={!!m.streaming} />}
+                )}
+                <div
+                  className={`max-w-[85%] space-y-2 ${m.role === 'user' ? 'text-right' : ''}`}
+                >
+                  <div
+                    className={`px-4 py-3 rounded-2xl border text-sm leading-relaxed ${m.role === 'user' ? 'bg-amber-500/10 border-amber-500/20 text-white' : 'bg-white/[0.03] border-white/5 text-white/90'}`}
+                  >
+                    <div
+                      dangerouslySetInnerHTML={{ __html: renderMd(m.content) }}
+                    />
+                    {m.role === 'assistant' && m.streaming && !m.content && (
+                      <span className="animate-pulse">...</span>
+                    )}
+                  </div>
+                  {m.role === 'assistant' && m.steps && m.steps.length > 0 && (
+                    <StepIndicator steps={m.steps} streaming={!!m.streaming} />
+                  )}
                   {m.role === 'assistant' && m.model && (
                     <div className="flex items-center gap-3 pt-1">
-                      <span className="text-[10px] text-white/30">{m.model}</span>
+                      <span className="text-[10px] text-white/30">
+                        {m.model}
+                      </span>
                       {m.intent && <IntentBadge intent={m.intent} />}
-                      {m.confidence !== undefined && <ConfidenceBar confidence={m.confidence} />}
+                      {m.confidence !== undefined && (
+                        <ConfidenceBar confidence={m.confidence} />
+                      )}
                     </div>
                   )}
                 </div>
@@ -670,14 +760,25 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
 
           <div className="p-4 sm:p-6 bg-[#0a0a14] border-t border-white/5">
             {(!firebaseUser || !puterUser) && (
-              <div className="mb-4 p-4 rounded-xl bg-orange-500/5 border border-orange-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="text-xs text-white/60">Sign in to unlock history and premium models.</div>
+              <div className="mb-4 p-4 rounded-2xl bg-gradient-to-br from-amber-500/10 to-orange-500/5 border border-amber-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-[0_0_20px_rgba(245,158,11,0.05)]">
+                <div className="flex flex-col items-start gap-1">
+                  <div className="text-xs font-bold text-white/90">
+                    {!firebaseUser && !puterUser ? 'Dual Identity Required' : !firebaseUser ? 'Google Login Required' : 'Puter.js Connection Required'}
+                  </div>
+                  <div className="text-[10px] text-white/50 leading-relaxed max-w-[300px]">
+                    {!firebaseUser && !puterUser 
+                      ? 'Connect both Google (storage) and Puter.js (AI) for the full premium experience.' 
+                      : !firebaseUser 
+                        ? 'Sign in with Google to persist your chat history across devices.' 
+                        : 'Connect Puter.js to access advanced AI models and processing power.'}
+                  </div>
+                </div>
                 <button
                   onClick={handleSignIn}
                   disabled={signingIn}
-                  className="px-6 py-2.5 rounded-xl bg-amber-500 text-black text-xs font-bold uppercase disabled:opacity-50"
+                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 text-black text-[11px] font-bold uppercase tracking-wider disabled:opacity-50 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-amber-500/20"
                 >
-                  {signingIn ? `Verifying...` : 'Connect Identity'}
+                  {signingIn ? `Connecting...` : !firebaseUser && !puterUser ? 'Connect Both' : !firebaseUser ? 'Login Google' : 'Connect Puter.js'}
                 </button>
               </div>
             )}

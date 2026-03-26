@@ -136,15 +136,15 @@ export async function clearRecaptcha(): Promise<void> {
 
 // Auth functions
 export async function signInWithGoogle(): Promise<User | null> {
-  const { 
-    GoogleAuthProvider, 
-    getRedirectResult, 
-    signInWithRedirect, 
+  const {
+    GoogleAuthProvider,
+    getRedirectResult,
+    signInWithRedirect,
     signInWithPopup,
     browserLocalPersistence,
-    setPersistence
+    setPersistence,
   } = await import('firebase/auth');
-  
+
   const auth = await getFirebaseAuth();
   const provider = new GoogleAuthProvider();
   provider.addScope('email');
@@ -158,7 +158,9 @@ export async function signInWithGoogle(): Promise<User | null> {
   }
 
   // On localhost, popup is generally more reliable and avoids redirect loops/IndexedDB issues
-  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const isLocalhost =
+    window.location.hostname === 'localhost' ||
+    window.location.hostname === '127.0.0.1';
 
   if (isLocalhost) {
     try {
@@ -182,7 +184,7 @@ export async function signInWithGoogle(): Promise<User | null> {
   } catch (e: any) {
     console.error('Redirect sign-in error:', e?.code, e?.message);
   }
-  
+
   return null;
 }
 
@@ -193,7 +195,10 @@ export async function handleGoogleRedirect(): Promise<User | null> {
     console.log('[Firebase] Calling getRedirectResult...');
     const result = await getRedirectResult(auth);
     if (result) {
-      console.log('[Firebase] Redirect result found for user:', result.user.email);
+      console.log(
+        '[Firebase] Redirect result found for user:',
+        result.user.email,
+      );
       return result.user;
     }
     console.log('[Firebase] No redirect result found.');
@@ -237,18 +242,27 @@ export async function saveChatMessage(
 }
 
 export async function getUserChatSessions(userId: string): Promise<any[]> {
-  const { collection, query, orderBy, limit, where, getDocs } = await import(
-    'firebase/firestore'
-  );
-  const db = await getFirebaseDb();
-  const q = query(
-    collection(db, 'chatSessions'),
-    where('userId', '==', userId),
-    orderBy('createdAt', 'desc'),
-    limit(50),
-  );
-  const snapshot = await getDocs(q);
-  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  try {
+    const { collection, query, orderBy, limit, where, getDocs } = await import(
+      'firebase/firestore'
+    );
+    const db = await getFirebaseDb();
+    const q = query(
+      collection(db, 'chatSessions'),
+      where('userId', '==', userId),
+      orderBy('createdAt', 'desc'),
+      limit(50),
+    );
+    const snapshot = await getDocs(q);
+    return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  } catch (err: any) {
+    if (err?.message?.includes('index')) {
+      console.warn('[Firebase] Chat history index is still building. History will be available soon.');
+      return [];
+    }
+    console.error('[Firebase] Failed to get chat sessions:', err);
+    throw err;
+  }
 }
 
 export async function saveChatSession(
@@ -331,22 +345,34 @@ export async function subscribeToJournalEntries(
   userId: string,
   callback: (entries: JournalEntry[]) => void,
 ) {
-  const { collection, query, where, orderBy, onSnapshot } = await import(
-    'firebase/firestore'
-  );
-  const db = await getFirebaseDb();
-  const q = query(
-    collection(db, 'journalEntries'),
-    where('userId', '==', userId),
-    orderBy('createdAt', 'desc'),
-  );
-  return onSnapshot(q, (snapshot) => {
-    const entries = snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    })) as JournalEntry[];
-    callback(entries);
-  });
+  try {
+    const { collection, query, where, orderBy, onSnapshot } = await import(
+      'firebase/firestore'
+    );
+    const db = await getFirebaseDb();
+    const q = query(
+      collection(db, 'journalEntries'),
+      where('userId', '==', userId),
+      orderBy('createdAt', 'desc'),
+    );
+    return onSnapshot(q, (snapshot) => {
+      const entries = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      })) as JournalEntry[];
+      callback(entries);
+    }, (err) => {
+      if (err?.message?.includes('index')) {
+        console.warn('[Firebase] Journal index is still building. Entries will appear soon.');
+        callback([]);
+      } else {
+        console.error('[Firebase] Journal subscription error:', err);
+      }
+    });
+  } catch (err) {
+    console.error('[Firebase] Failed to setup journal subscription:', err);
+    return () => {};
+  }
 }
 
 export type { User };

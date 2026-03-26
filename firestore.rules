@@ -242,14 +242,75 @@ service cloud.firestore {
     }
     
     // ======================
-    // AUDIT LOGS COLLECTION
+    // AI CHATS COLLECTION
     // ======================
-    match /auditLogs/{logId} {
-      // Only admins can read audit logs
-      allow read: if isAdmin();
+    match /aiChats/{chatId} {
+      // Admins can read/write all AI chats
+      allow read, write: if isAdmin();
       
-      // No client-side writes to audit logs (write from Cloud Functions only)
-      allow write: if false;
+      // Users can create their own AI chats
+      allow create: if isSignedIn();
+      
+      // Users can read/update their own AI chats
+      allow read, update: if isSignedIn() 
+        && (resource == null || resource.data.userId == request.auth.uid);
+    }
+    
+    // ======================
+    // AI QUERIES COLLECTION
+    // ======================
+    match /aiQueries/{queryId} {
+      // Only admins can access all queries
+      allow read, write: if isAdmin();
+      
+      // Users can create queries (when interacting with AI)
+      allow create: if isSignedIn();
+    }
+    
+    // ======================
+    // UNKNOWN QUERIES COLLECTION
+    // ======================
+    match /unknownQueries/{queryId} {
+      // Admins can read/write all unknown queries
+      allow read, write: if isAdmin();
+      
+      // System/Users can create unknown queries for review
+      allow create: if isSignedIn();
+    }
+    
+    // ======================
+    // VISITORS COLLECTION
+    // ======================
+    match /visitors/{visitorId} {
+      // Admins can read/write all visitor data
+      allow read, write: if isAdmin();
+      
+      // Users can create/update their own visitor record
+      allow create: if isSignedIn();
+      allow update: if isSignedIn() 
+        && (resource.data.userId == request.auth.uid);
+    }
+    
+    // ======================
+    // FEEDBACK COLLECTION
+    // ======================
+    match /feedback/{feedbackId} {
+      // Admins can read/write all feedback
+      allow read, write: if isAdmin();
+      
+      // Users can create feedback
+      allow create: if isSignedIn();
+    }
+    
+    // ======================
+    // MEDIA COLLECTION (Cached data)
+    // ======================
+    match /media/{categoryId} {
+      // Everyone can read media data
+      allow read: if true;
+      
+      // Only admins can update media data
+      allow write: if isAdmin();
     }
     
     // ======================

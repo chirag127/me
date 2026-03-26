@@ -8,7 +8,12 @@ import {
 } from '../../lib/firebase';
 
 export default function JournalApp() {
-  const { user, loading: authLoading, initialize, signInWithGoogle } = useAuthStore();
+  const {
+    user,
+    loading: authLoading,
+    initialize,
+    signInWithGoogle,
+  } = useAuthStore();
   const [entries, setEntries] = useState<JournalEntry[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(true);

@@ -6,6 +6,12 @@ import {
   fetchLeetCodeStats,
 } from '../../lib/api';
 
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+import StatsCounter from '../../components/islands/StatsCounter';
+import Footer from '../../components/Footer.astro';
+
 const [githubUser, githubRepos, leetcodeStats, _codewarsUser] =
   await Promise.all([
     fetchGitHubUser(),
