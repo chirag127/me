@@ -36,7 +36,6 @@ const pages = [
   '/library/music-top-artists',
   '/library/music-top-tracks',
   '/library/music-recent',
-  '/library/soundcloud',
   '/library/mixcloud',
   '/library/videos',
   '/gaming',

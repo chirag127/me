@@ -3,7 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
-import ChatWidget from '../../components/islands/ChatWidget';
 import { skills } from '../../data/resume';
 ---
 
@@ -154,5 +153,4 @@ import { skills } from '../../data/resume';
     </div>
   </main>
   <Footer />
-  <ChatWidget client:load />
 </Layout>

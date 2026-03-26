@@ -3,7 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
-import ChatWidget from '../../components/islands/ChatWidget';
 import { projects } from '../../data/resume';
 
 const featuredProjects = projects.filter(p => p.featured);
@@ -113,5 +112,4 @@ const allTechs = [...new Set(projects.flatMap(p => p.tech.split(', ')))];
     </div>
   </main>
   <Footer />
-  <ChatWidget client:load />
 </Layout>

@@ -11,7 +11,10 @@ export async function fetchListenBrainzStats() {
     'ListenBrainz'
   );
 
-  if (!data?.payload) return null;
+  if (!data?.payload) {
+    console.warn(`[ListenBrainz] No stats found for user "${username}". Check that the account exists on listenbrainz.org.`);
+    return null;
+  }
 
   return {
     totalListenCount: data.payload.total_listen_count || 0,

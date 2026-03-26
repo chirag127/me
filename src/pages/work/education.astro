@@ -3,7 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
-import ChatWidget from '../../components/islands/ChatWidget';
 import { education } from '../../data/resume';
 
 const milestones = [
@@ -94,5 +93,4 @@ const milestones = [
     </div>
   </main>
   <Footer />
-  <ChatWidget client:load />
 </Layout>

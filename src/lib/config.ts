@@ -19,12 +19,11 @@ export interface UserConfig {
   anilist: string;
   letterboxd: string;
   trakt: string;
-  openlibrary: string;
+openlibrary: string;
   hardcover: string;
   backloggd: string;
   lastfm: string;
   listenbrainz: string;
-  soundcloud: string;
   mixcloud: string;
   lichess: string;
   speedrun: string;
@@ -47,12 +46,10 @@ export interface ApiConfig {
   letterboxd: string;
   trakt: string;
   mangadex: string;
-  hardcover: string;
   serializd: string;
   backloggd: string;
   lastfm: string;
   listenbrainz: string;
-  soundcloud: string;
   mixcloud: string;
   lichess: string;
   speedrun: string;
@@ -106,11 +103,9 @@ export const CONFIG = {
     letterboxd: "chirag127",
     trakt: "chirag127",
     openlibrary: "wilarchive",
-    hardcover: "chirag127",
     backloggd: "chirag127",
     lastfm: "lastfmwhy",
     listenbrainz: "chirag127",
-    soundcloud: "chirag127",
     mixcloud: "chirag127",
     lichess: "chirag127",
     speedrun: "chirag127",
@@ -132,12 +127,10 @@ export const CONFIG = {
     letterboxd: "https://letterboxd.com",
     trakt: "https://api.trakt.tv",
     mangadex: "https://api.mangadex.org/user",
-    hardcover: "https://hardcover.app/graphql",
     serializd: "https://serializd.com",
     backloggd: "https://backloggd.com/u",
     lastfm: "https://ws.audioscrobbler.com/2.0",
     listenbrainz: "https://api.listenbrainz.org/1/user",
-    soundcloud: "https://soundcloud.com",
     mixcloud: "https://api.mixcloud.com",
     lichess: "https://lichess.org/api/user",
     speedrun: "https://www.speedrun.com/api/v1/users",

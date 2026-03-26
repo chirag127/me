@@ -3,7 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
-import ChatWidget from '../../components/islands/ChatWidget';
 import StatsCounter from '../../components/islands/StatsCounter';
 import { fetchGitHubUser, fetchGitHubRepos, fetchLeetCodeStats, fetchCodewarsUser } from '../../lib/api';
 
@@ -330,5 +329,4 @@ const lecHardPct = leetcodeStats ? Math.round((leetcodeStats.totalHardSolved / l
     </div>
   </main>
   <Footer />
-  <ChatWidget client:load />
 </Layout>

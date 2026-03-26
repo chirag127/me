@@ -12,6 +12,42 @@ import type { QueryIntent } from '../types';
 import { getMediaData } from '../store';
 import { resumeContext, skillsContext, projectsContext, codebaseContext } from '../knowledge';
 
+// ─── Local JSON Fallback ───────────────────────────────────────────────────
+// When Firestore is unavailable (local dev, missing credentials), load data
+// from static JSON files served at /data/*.json (written by fetch-data.ts)
+
+const localDataCache: Record<string, any> = {};
+
+async function fetchLocalMediaData(categoryId: string): Promise<any> {
+  if (localDataCache[categoryId] !== undefined) return localDataCache[categoryId];
+  try {
+    const res = await fetch(`/data/${categoryId}.json`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    localDataCache[categoryId] = data;
+    console.log(`[LocalJSON] Loaded ${categoryId} from /data/${categoryId}.json`);
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Try Firestore first, then fall back to local JSON files.
+ * This ensures the AI chat works both locally and in deployment.
+ */
+async function getMediaDataWithFallback(categoryId: string): Promise<any> {
+  // Try Firestore first
+  const firestoreData = await getMediaData(categoryId);
+  if (firestoreData) return firestoreData;
+
+  // Fall back to local JSON files served from /data/
+  const localData = await fetchLocalMediaData(categoryId);
+  if (localData) return localData;
+
+  return null;
+}
+
 // ─── Tool Definition Schema ──────────────────────────────────────────────────
 export interface ToolDefinition {
   name: string;
@@ -39,7 +75,7 @@ const getMovies: ToolDefinition = {
   ],
   category: ['movies'],
   execute: async (args) => {
-    const data = await getMediaData('movies');
+    const data = await getMediaDataWithFallback('movies');
     if (!data) return { tool: 'getMovies', success: false, data: 'No movie data available.', truncated: false, source: 'firestore' };
     const filter = args?.filter || 'all';
     let result = JSON.stringify(data, null, 2);
@@ -62,7 +98,7 @@ const getBooks: ToolDefinition = {
   ],
   category: ['books'],
   execute: async (args) => {
-    const data = await getMediaData('books');
+    const data = await getMediaDataWithFallback('books');
     if (!data) return { tool: 'getBooks', success: false, data: 'No book data available.', truncated: false, source: 'firestore' };
     const filter = args?.filter || 'all';
     let result = JSON.stringify(data, null, 2);
@@ -84,7 +120,7 @@ const getMusic: ToolDefinition = {
   ],
   category: ['music'],
   execute: async (args) => {
-    const data = await getMediaData('music');
+    const data = await getMediaDataWithFallback('music');
     if (!data) return { tool: 'getMusic', success: false, data: 'No music data available.', truncated: false, source: 'firestore' };
     const filter = args?.filter || 'all';
     let result = JSON.stringify(data, null, 2);
@@ -107,7 +143,7 @@ const getAnime: ToolDefinition = {
   ],
   category: ['anime'],
   execute: async (args) => {
-    const data = await getMediaData('anime');
+    const data = await getMediaDataWithFallback('anime');
     if (!data) return { tool: 'getAnime', success: false, data: 'No anime data available.', truncated: false, source: 'firestore' };
     const filter = args?.filter || 'all';
     let result = JSON.stringify(data, null, 2);
@@ -130,7 +166,7 @@ const getGaming: ToolDefinition = {
   ],
   category: ['gaming'],
   execute: async (args) => {
-    const data = await getMediaData('gaming');
+    const data = await getMediaDataWithFallback('gaming');
     if (!data) return { tool: 'getGaming', success: false, data: 'No gaming data available.', truncated: false, source: 'firestore' };
     const filter = args?.filter || 'all';
     let result = JSON.stringify(data, null, 2);
@@ -153,7 +189,7 @@ const getCoding: ToolDefinition = {
   ],
   category: ['coding', 'skills'],
   execute: async (args) => {
-    const data = await getMediaData('coding');
+    const data = await getMediaDataWithFallback('coding');
     if (!data) return { tool: 'getCoding', success: false, data: 'No coding data available.', truncated: false, source: 'firestore' };
     const filter = args?.filter || 'all';
     let result = JSON.stringify(data, null, 2);
@@ -177,7 +213,7 @@ const getSocial: ToolDefinition = {
   ],
   category: ['social'],
   execute: async (args) => {
-    const data = await getMediaData('social');
+    const data = await getMediaDataWithFallback('social');
     if (!data) return { tool: 'getSocial', success: false, data: 'No social data available.', truncated: false, source: 'firestore' };
     const filter = args?.filter || 'all';
     let result = JSON.stringify(data, null, 2);

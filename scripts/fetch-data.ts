@@ -37,10 +37,10 @@ import { fetchNpmUserPackages, fetchNpmDownloads } from '../src/lib/api/npm.js';
 import { fetchStackOverflowUser, fetchStackOverflowTags, fetchStackOverflowQuestions, fetchStackOverflowAnswers } from '../src/lib/api/stackoverflow.js';
 import { fetchHolopinBadges } from '../src/lib/api/holopin.js';
 import { fetchRedditUser, fetchRedditPosts, fetchRedditComments } from '../src/lib/api/reddit.js';
-import { fetchHardcoverBooks } from '../src/lib/api/hardcover.js';
 
 // Setup directories
 const GENERATED_DIR = path.resolve(__dirname, '../src/data/generated');
+const PUBLIC_DATA_DIR = path.resolve(__dirname, '../public/data');
 
 // Initialize Firebase Admin (Only if credentials exist - safe fallback for local dev)
 let db: FirebaseFirestore.Firestore | null = null;
@@ -52,34 +52,48 @@ try {
         projectId: process.env.FIREBASE_PROJECT_ID,
         clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
         privateKey: formattedKey,
-      })
+      }),
+      projectId: process.env.FIREBASE_PROJECT_ID,
     });
     db = getFirestore();
     console.log('[Firestore] Admin SDK initialized.');
   } else {
     console.warn('[Firestore] Admin SDK missing credentials, skipping Firestore push.');
   }
-} catch (e) {
-  console.error('[Firestore] Initialization failed:', e);
+} catch (e: any) {
+  if (e?.code === 5 || e?.message?.includes('NOT_FOUND')) {
+    console.warn('[Firestore] Database not found. Create a Firestore database at https://console.firebase.google.com/project/' + (process.env.FIREBASE_PROJECT_ID || '') + '/firestore');
+  } else {
+    console.error('[Firestore] Initialization failed:', e);
+  }
 }
 
 async function ensureDir() {
   await fs.mkdir(GENERATED_DIR, { recursive: true });
+  await fs.mkdir(PUBLIC_DATA_DIR, { recursive: true });
 }
 
 async function writeJson(filename: string, data: any) {
   const filePath = path.join(GENERATED_DIR, filename);
-  await fs.writeFile(filePath, JSON.stringify(data, null, 2));
-  console.log(`[Cache] Wrote ${filename} (${JSON.stringify(data).length} bytes)`);
+  const publicPath = path.join(PUBLIC_DATA_DIR, filename);
+  const content = JSON.stringify(data, null, 2);
+  await fs.writeFile(filePath, content);
+  await fs.writeFile(publicPath, content);
+  console.log(`[Cache] Wrote ${filename} (${content.length} bytes) → generated/ + public/data/`);
 }
 
 async function pushToFirestore(collection: string, doc: string, data: any) {
   if (!db) return;
   try {
-    await db.collection(collection).doc(doc).set(data);
+    await db.collection(collection).doc(doc).set(data, { merge: true });
     console.log(`[Firestore] Updated ${collection}/${doc}`);
-  } catch (error) {
-    console.error(`[Firestore] Failed to update ${collection}/${doc}:`, error);
+  } catch (error: any) {
+    if (error?.code === 5 || error?.message?.includes('NOT_FOUND')) {
+      console.warn(`[Firestore] Database not found. Create Firestore DB at: https://console.firebase.google.com/project/${process.env.FIREBASE_PROJECT_ID}/firestore`);
+      db = null; // Stop trying further pushes
+    } else {
+      console.error(`[Firestore] Failed to update ${collection}/${doc}:`, error?.message || error);
+    }
   }
 }
 
@@ -290,14 +304,6 @@ async function main() {
   };
   await writeJson('dev-stats.json', devStats);
   await pushToFirestore('social', 'dev-stats', devStats);
-
-  // 12. Hardcover Books (optional)
-  console.log('\n--- Fetching Hardcover ---');
-  const hardcoverData = await fetchHardcoverBooks().catch(() => null);
-  if (hardcoverData) {
-    await writeJson('hardcover.json', hardcoverData);
-    await pushToFirestore('media', 'hardcover', hardcoverData);
-  }
 
   console.log('\n✅ Data Fetching Complete!');
 }

@@ -3,14 +3,13 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
-import ChatWidget from '../../components/islands/ChatWidget';
 import { socialLinks } from '../../data/social';
 
 const devLinks = socialLinks.filter(l => ['GitHub', 'Dev.to', 'LeetCode', 'Codewars', 'NPM', 'HackerNews', 'StackOverflow', 'Holopin'].includes(l.name));
 const socialPlatformLinks = socialLinks.filter(l => ['Bluesky', 'Mastodon', 'Reddit', 'Pixelfed'].includes(l.name));
 const entertainmentLinks = socialLinks.filter(l => ['AniList', 'Letterboxd', 'Trakt'].includes(l.name));
-const musicLinks = socialLinks.filter(l => ['Last.fm', 'ListenBrainz', 'SoundCloud', 'Mixcloud'].includes(l.name));
-const readingLinks = socialLinks.filter(l => ['Open Library', 'Hardcover', 'Backloggd'].includes(l.name));
+const musicLinks = socialLinks.filter(l => ['Last.fm', 'ListenBrainz', 'Mixcloud'].includes(l.name));
+const readingLinks = socialLinks.filter(l => ['Open Library', 'Backloggd'].includes(l.name));
 const gamingLinks = socialLinks.filter(l => ['Lichess', 'Speedrun'].includes(l.name));
 
 const iconPaths: Record<string, string> = {
@@ -39,7 +38,6 @@ const iconPaths: Record<string, string> = {
   openlibrary: 'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z',
   backloggd: 'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z',
   speedrun: 'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm1 17h-2v-6h2v6zm0-8h-2V7h2v2z',
-  hardcover: 'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z',
 };
 ---
 
@@ -224,5 +222,4 @@ const iconPaths: Record<string, string> = {
     )}
   </main>
   <Footer />
-  <ChatWidget client:load />
 </Layout>

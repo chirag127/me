@@ -5,7 +5,6 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
-import ChatWidget from '../../components/islands/ChatWidget';
 
 let db: any = { watched: [], stats: {} };
 try {
@@ -121,5 +120,4 @@ function getVisuals(title: string) {
     )}
   </main>
   <Footer />
-  <ChatWidget client:load />
 </Layout>

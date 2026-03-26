@@ -33,7 +33,6 @@ export const socialLinks: SocialLink[] = [
   // Music
   { name: "Last.fm", url: "https://last.fm/user/lastfmwhy", icon: "lastfm", color: "#d51007", username: "lastfmwhy", category: "music" },
   { name: "ListenBrainz", url: "https://listenbrainz.org/user/chirag127", icon: "listenbrainz", color: "#eb743b", username: "chirag127", category: "music" },
-  { name: "SoundCloud", url: "https://soundcloud.com/chirag127", icon: "soundcloud", color: "#ff5500", username: "chirag127", category: "music" },
   { name: "Mixcloud", url: "https://www.mixcloud.com/chirag127", icon: "mixcloud", color: "#5000ff", username: "chirag127", category: "music" },
 
   // Gaming

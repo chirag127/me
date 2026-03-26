@@ -15,7 +15,7 @@ async function getAccessToken(): Promise<string | null> {
   }
 
   const basicAuth = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
-  
+
   const params = new URLSearchParams();
   params.append('grant_type', 'refresh_token');
   params.append('refresh_token', refreshToken);
@@ -31,7 +31,11 @@ async function getAccessToken(): Promise<string | null> {
     });
 
     if (!res.ok) {
-      console.warn('[Spotify] Failed to get access token:', await res.text());
+      const errorText = await res.text();
+      console.warn(`[Spotify] Token refresh failed (${res.status}): ${errorText}`);
+      if (res.status === 400) {
+        console.warn('[Spotify] Refresh token may be expired or revoked. Re-authorize at https://accounts.spotify.com/authorize');
+      }
       return null;
     }
 
@@ -43,14 +47,36 @@ async function getAccessToken(): Promise<string | null> {
   }
 }
 
-export async function fetchSpotifyTopTracks(limit = 10): Promise<SpotifyTrack[]> {
+async function fetchSpotifyApi<T>(endpoint: string): Promise<T | null> {
   const token = await getAccessToken();
-  if (!token) return [];
+  if (!token) return null;
 
-  const data = await fetchJson<any>(
-    `${SPOTIFY_API_BASE}/me/top/tracks?time_range=short_term&limit=${limit}`,
-    { headers: { Authorization: `Bearer ${token}` } },
-    'Spotify'
+  const url = `${SPOTIFY_API_BASE}${endpoint}`;
+  try {
+    const res = await fetch(url, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    if (!res.ok) {
+      if (res.status === 403) {
+        const body = await res.json().catch(() => ({}));
+        console.warn(`[Spotify] 403 Forbidden for ${endpoint}. Ensure 'user-top-read' scope is granted. Error: ${body?.error?.message || 'unknown'}`);
+      } else {
+        console.warn(`[Spotify] ${res.status} ${res.statusText} for ${endpoint}`);
+      }
+      return null;
+    }
+
+    return await res.json();
+  } catch (err) {
+    console.error(`[Spotify] Request failed for ${endpoint}:`, err);
+    return null;
+  }
+}
+
+export async function fetchSpotifyTopTracks(limit = 10): Promise<SpotifyTrack[]> {
+  const data = await fetchSpotifyApi<any>(
+    `/me/top/tracks?time_range=short_term&limit=${limit}`
   );
 
   if (!data?.items) return [];
@@ -66,20 +92,15 @@ export async function fetchSpotifyTopTracks(limit = 10): Promise<SpotifyTrack[]>
 }
 
 export async function fetchSpotifyTopArtists(limit = 10): Promise<LastFmArtist[]> {
-  const token = await getAccessToken();
-  if (!token) return [];
-
-  const data = await fetchJson<any>(
-    `${SPOTIFY_API_BASE}/me/top/artists?time_range=short_term&limit=${limit}`,
-    { headers: { Authorization: `Bearer ${token}` } },
-    'Spotify'
+  const data = await fetchSpotifyApi<any>(
+    `/me/top/artists?time_range=short_term&limit=${limit}`
   );
 
   if (!data?.items) return [];
 
   return data.items.map((artist: any) => ({
     name: artist.name,
-    playcount: 0, // Spotify doesn't expose raw playcount here
+    playcount: 0,
     url: artist.external_urls?.spotify || '',
     imageUrl: artist.images?.[0]?.url || null,
   }));

@@ -5,8 +5,6 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
-import ChatWidget from '../../components/islands/ChatWidget';
-
 let db = { 
   lastfm: { stats: { playcount: 0 }, topArtists: [] as any[], recentTracks: [] as any[], topTracks: [] as any[] } 
 };
@@ -60,14 +58,13 @@ const currentTrack = recentTracks[0];
       </div>
       <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Music</h1>
     </div>
-    <p class="text-[var(--color-text-secondary)] mb-10">Top artists and listening habits — synced automatically from Last.fm.</p>
+    <p class="text-[var(--color-text-secondary)] mb-6">Top artists and listening habits — synced automatically from Last.fm.</p>
 
     <!-- Sub-page Navigation -->
-    <div class="flex flex-wrap gap-3 mb-10">
+    <div class="flex flex-wrap gap-2 mb-10">
       <a href="/library/music-top-artists" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-accent-rose)]/10 text-[var(--color-accent-rose)] border border-[var(--color-accent-rose)]/20 hover:bg-[var(--color-accent-rose)]/20 transition-colors">Top Artists</a>
-      <a href="/library/music-top-tracks" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 hover:bg-[var(--color-primary)]/20 transition-colors">Top Tracks & Albums</a>
-      <a href="/library/music-recent" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-accent-sky)]/10 text-[var(--color-accent-sky)] border border-[var(--color-accent-sky)]/20 hover:bg-[var(--color-accent-sky)]/20 transition-colors">Recent Tracks</a>
-      <a href="/library/soundcloud" class="text-xs px-3 py-1.5 rounded-full bg-[#ff5500]/10 text-[#ff5500] border border-[#ff5500]/20 hover:bg-[#ff5500]/20 transition-colors">SoundCloud</a>
+      <a href="/library/music-top-tracks" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 hover:bg-[var(--color-primary)]/20 transition-colors">Top Tracks</a>
+      <a href="/library/music-recent" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-accent-sky)]/10 text-[var(--color-accent-sky)] border border-[var(--color-accent-sky)]/20 hover:bg-[var(--color-accent-sky)]/20 transition-colors">Recent</a>
       <a href="/library/mixcloud" class="text-xs px-3 py-1.5 rounded-full bg-[#5000ff]/10 text-[#5000ff] border border-[#5000ff]/20 hover:bg-[#5000ff]/20 transition-colors">Mixcloud</a>
     </div>
 
@@ -144,7 +141,6 @@ const currentTrack = recentTracks[0];
     </section>
   </main>
   <Footer />
-  <ChatWidget client:load />
 </Layout>
 
 <style>

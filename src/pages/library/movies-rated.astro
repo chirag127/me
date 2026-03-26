@@ -5,7 +5,6 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
-import ChatWidget from '../../components/islands/ChatWidget';
 
 let db: any = { watched: [], rated: [], stats: {} };
 try {
@@ -114,5 +113,4 @@ const lowRated = rated.filter((m: any) => m.rating < 6);
     )}
   </main>
   <Footer />
-  <ChatWidget client:load />
 </Layout>

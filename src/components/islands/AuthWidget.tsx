@@ -11,6 +11,8 @@ import {
   type User,
 } from '../../lib/firebase';
 
+const PHONE_AUTH_ENABLED = false;
+
 export default function AuthWidget() {
   const [user, setUser] = useState<User | null>(null);
   const [puterUser, setPuterUser] = useState<{ username: string } | null>(null);
@@ -371,6 +373,7 @@ export default function AuthWidget() {
         )}
         {signingIn ? 'Signing In...' : 'Sign In'}
       </button>
+      {PHONE_AUTH_ENABLED && (
       <button
         onClick={() => setPhoneStep('phone')}
         className="absolute left-full top-1/2 -translate-y-1/2 ml-2 flex items-center gap-1.5 px-3 py-2 text-[11px] font-semibold text-white/70 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition-all whitespace-nowrap"
@@ -380,6 +383,7 @@ export default function AuthWidget() {
         </svg>
         Phone
       </button>
+      )}
     </div>
   );
 }

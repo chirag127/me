@@ -4,26 +4,25 @@ import type { WakaTimeStats } from './types';
 const WAKATIME_API_URL = 'https://wakatime.com/api/v1';
 
 export async function fetchWakaTimeStats(): Promise<WakaTimeStats | null> {
-  // If user uses the API key (requires base64 basic auth)
   const apiKey = process.env.WAKATIME_API_KEY;
-  const embedUrl = process.env.WAKATIME_EMBED_JSON_URL;
-
-  // We'll try the Embed URL first if provided (public JSON), as it skips auth hurdles
-  if (embedUrl) {
-    const data = await fetchJson<any>(embedUrl, undefined, 'WakaTime');
-    if (data?.data?.[0]) {
-      // It's a bit limited, but works for languages
-      // Better to use the actual API below if apiKey is set
-    }
-  }
 
   if (!apiKey) {
-    console.warn('[WakaTime] No API key provided');
+    // Fall back to embed JSON URL if no API key
+    const embedUrl = process.env.WAKATIME_EMBED_JSON_URL;
+    if (embedUrl) {
+      // Convert SVG share URL to JSON endpoint
+      const jsonUrl = embedUrl.replace(/\.svg(\?.*)?$/, '.json');
+      const data = await fetchJson<any>(jsonUrl, undefined, 'WakaTime');
+      if (data?.data) {
+        return parseWakaTimeData(data.data);
+      }
+    }
+    console.warn('[WakaTime] No API key or valid embed URL provided');
     return null;
   }
 
   const basicAuth = Buffer.from(apiKey).toString('base64');
-  
+
   const data = await fetchJson<any>(
     `${WAKATIME_API_URL}/users/current/stats/last_30_days`,
     {
@@ -39,8 +38,10 @@ export async function fetchWakaTimeStats(): Promise<WakaTimeStats | null> {
     return null;
   }
 
-  const stats = data.data;
+  return parseWakaTimeData(data.data);
+}
 
+function parseWakaTimeData(stats: any): WakaTimeStats {
   return {
     totalSeconds: stats.total_seconds || 0,
     totalText: stats.human_readable_total || '0 hrs',

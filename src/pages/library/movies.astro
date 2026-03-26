@@ -5,8 +5,6 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
-import ChatWidget from '../../components/islands/ChatWidget';
-
 // Fallback data structure
 let db = { watched: [] as any[], watchlist: [] as any[], shows: [] as any[], stats: { totalWatched: 0, totalShows: 0 } };
 
@@ -70,13 +68,13 @@ function getVisuals(title: string) {
       </div>
       <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Movies & TV</h1>
     </div>
-    <p class="text-[var(--color-text-secondary)] mb-10">Film diary — synced from Trakt automatically.</p>
+    <p class="text-[var(--color-text-secondary)] mb-6">Film diary — synced from Trakt automatically.</p>
 
     <!-- Sub-page Navigation -->
-    <div class="flex flex-wrap gap-3 mb-10">
-      <a href="/library/movies-watched" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-accent-sage)]/10 text-[var(--color-accent-sage)] border border-[var(--color-accent-sage)]/20 hover:bg-[var(--color-accent-sage)]/20 transition-colors">Watched ({watched.length})</a>
-      <a href="/library/movies-rated" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 hover:bg-[var(--color-primary)]/20 transition-colors">Rated</a>
-      <a href="/library/movies-watchlist" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-accent-rose)]/10 text-[var(--color-accent-rose)] border border-[var(--color-accent-rose)]/20 hover:bg-[var(--color-accent-rose)]/20 transition-colors">Watchlist ({wantToWatch.length})</a>
+    <div class="flex flex-wrap gap-2 mb-10">
+      <a href="/library/movies-watched" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-accent-sage)]/10 text-[var(--color-accent-sage)] border border-[var(--color-accent-sage)]/20 hover:bg-[var(--color-accent-sage)]/20 transition-colors">All Watched</a>
+      <a href="/library/movies-rated" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 hover:bg-[var(--color-primary)]/20 transition-colors">Top Rated</a>
+      <a href="/library/movies-watchlist" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-accent-rose)]/10 text-[var(--color-accent-rose)] border border-[var(--color-accent-rose)]/20 hover:bg-[var(--color-accent-rose)]/20 transition-colors">Watchlist</a>
     </div>
 
     <!-- Stats -->
@@ -221,5 +219,4 @@ function getVisuals(title: string) {
     </section>
   </main>
   <Footer />
-  <ChatWidget client:load />
 </Layout>
