@@ -17,13 +17,13 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@astrojs/react": "^5.0.1",
+    "@astrojs/react": "^5.0.2",
     "@emailjs/browser": "^4.4.1",
     "@heyputer/puter.js": "^2.2.14",
     "@tailwindcss/vite": "^4.2.2",
     "@tanstack/react-query": "^5.95.2",
     "@types/react": "^19.2.14",
-    "astro": "^6.0.8",
+    "astro": "^6.1.0",
     "dexie": "^4.3.0",
     "firebase": "^12.11.0",
     "framer-motion": "^12.38.0",
