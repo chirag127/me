@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAuthStore } from '../../lib/authStore';
-import { isAdmin } from '../../lib/firebase';
+import { isAdminEmail } from '../../lib/firebase';
 
 export default function AuthWidget() {
   const { 
@@ -112,7 +112,7 @@ export default function AuthWidget() {
                    </button>
                 )}
                 
-                {isAdmin(user) && (
+                {isAdminEmail(user?.email) && (
                   <a href="/system/admin" className="flex items-center gap-3 w-full px-3 py-2.5 text-xs text-amber-400 hover:bg-amber-400/10 rounded-xl transition-all font-bold">
                     <span>Admin Terminal</span>
                   </a>
@@ -138,7 +138,7 @@ export default function AuthWidget() {
         disabled={!!signingIn}
         className="group relative flex items-center gap-2 px-3 py-2 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-400 transition-all border border-indigo-500/20 disabled:opacity-50 active:scale-95"
       >
-        <span className="text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">Admin Login</span>
+        <span className="text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">Google Login</span>
       </button>
       <button
         onClick={handlePuterSignIn}

@@ -136,28 +136,53 @@ export async function clearRecaptcha(): Promise<void> {
 
 // Auth functions
 export async function signInWithGoogle(): Promise<User | null> {
-  const { GoogleAuthProvider, getRedirectResult, signInWithRedirect } =
-    await import('firebase/auth');
+  const { 
+    GoogleAuthProvider, 
+    getRedirectResult, 
+    signInWithRedirect, 
+    signInWithPopup,
+    browserLocalPersistence,
+    setPersistence
+  } = await import('firebase/auth');
+  
   const auth = await getFirebaseAuth();
   const provider = new GoogleAuthProvider();
   provider.addScope('email');
   provider.addScope('profile');
 
-  // Check if we're returning from a redirect first
+  // Explicitly set persistence to ensure it holds across sessions
   try {
-    const result = await getRedirectResult(auth);
-    if (result) return result.user;
-  } catch (e: any) {
-    console.error('Redirect result error:', e?.code, e?.message);
+    await setPersistence(auth, browserLocalPersistence);
+  } catch (e) {
+    console.warn('[Firebase] setPersistence error:', e);
   }
 
-  // Use redirect — avoids COOP/popup-blocked issues entirely
+  // On localhost, popup is generally more reliable and avoids redirect loops/IndexedDB issues
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+  if (isLocalhost) {
+    try {
+      console.log('[Firebase] Localhost detected, using signInWithPopup...');
+      const result = await signInWithPopup(auth, provider);
+      return result.user;
+    } catch (e: any) {
+      if (e?.code === 'auth/popup-blocked') {
+        console.warn('[Firebase] Popup blocked, falling back to redirect...');
+      } else {
+        console.error('[Firebase] Popup sign-in error:', e?.code, e?.message);
+        throw e;
+      }
+    }
+  }
+
+  // Fallback to Redirect for non-localhost or if popup was blocked
   try {
+    console.log('[Firebase] Triggering signInWithRedirect...');
     await signInWithRedirect(auth, provider);
   } catch (e: any) {
     console.error('Redirect sign-in error:', e?.code, e?.message);
   }
-  // Page will reload after redirect; return null here
+  
   return null;
 }
 

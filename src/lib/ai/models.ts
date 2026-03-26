@@ -79,13 +79,14 @@ export const MODEL_CATALOG: ModelInfo[] = [
 // ─── Tiered failover chains ──────────────────────────────────────────
 const TIER_CHAINS: Record<ModelTier, AIModel[]> = {
   fast: [
+    'arcee-ai/trinity-large-preview:free',
     'qwen/qwen3-4b:free',
     'google/gemma-3n-e2b-it:free',
     'liquid/lfm-2.5-1.2b-instruct:free',
   ],
   reasoning: [
-    'liquid/lfm-2.5-1.2b-thinking:free',
     'arcee-ai/trinity-large-preview:free',
+    'liquid/lfm-2.5-1.2b-thinking:free',
     'qwen/qwen3-4b:free',
   ],
   agent: [

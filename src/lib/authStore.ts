@@ -138,7 +138,16 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   signInWithGoogle: async () => {
     console.log('[AuthStore] Triggering Google Sign In...');
-    await signInWithGoogle();
+    const fbUser = await signInWithGoogle();
+    if (fbUser) {
+      console.log('[AuthStore] Google Sign In success (direct):', fbUser.email);
+      const pUser = get().puterUser;
+      set({ 
+        user: fbUser, 
+        isAuthorized: isAdminEmail(fbUser.email) && !!pUser,
+        isFullyConnected: !!pUser
+      });
+    }
   },
 
   signInWithPuter: async () => {
