@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+import ChatWidget from '../../components/islands/ChatWidget';
+import CONFIG from '../../lib/config';
+---
+
+<Layout title="Pixelfed" description="Chirag Singhal on Pixelfed — decentralized photo sharing">
+  <Navbar />
+  <CommandPalette />
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex items-center gap-3 mb-2">
+      <div class="h-10 w-10 rounded-xl bg-[#3b82f6]/10 flex items-center justify-center">
+        <span class="text-xl">📸</span>
+      </div>
+      <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Pixelfed</h1>
+    </div>
+    <p class="text-[var(--color-text-secondary)] mb-10">Decentralized photo sharing — {CONFIG.user.pixelfed}.</p>
+
+    <div class="glass-strong p-8 mb-12">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-16 h-16 rounded-full bg-[#3b82f6]/20 flex items-center justify-center">
+          <span class="text-3xl">📸</span>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-white">@{CONFIG.user.pixelfed}</h2>
+          <p class="text-sm text-[var(--color-text-muted)]">on pixelfed.social</p>
+        </div>
+      </div>
+      <p class="text-sm text-[var(--color-text-muted)] leading-relaxed mb-4">
+        Pixelfed is a free, ethical, federated photo sharing platform. It's part of the Fediverse,
+        connected to Mastodon and other ActivityPub services.
+      </p>
+    </div>
+
+    <div class="glass p-8 mb-12">
+      <h2 class="text-xl font-bold text-white mb-4">About Pixelfed</h2>
+      <ul class="space-y-3 text-sm text-[var(--color-text-muted)]">
+        <li class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#3b82f6]"></span>
+          Federated — part of the Fediverse
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#3b82f6]"></span>
+          Open source and privacy-focused
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#3b82f6]"></span>
+          No algorithmic manipulation
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#3b82f6]"></span>
+          Interoperable with Mastodon
+        </li>
+      </ul>
+    </div>
+
+    <div class="glass p-6 text-center">
+      <a href={`https://pixelfed.social/${CONFIG.user.pixelfed}`} target="_blank" rel="noopener noreferrer" class="text-sm text-[#3b82f6] hover:underline">View on Pixelfed →</a>
+    </div>
+  </main>
+  <Footer />
+  <ChatWidget client:load />
+</Layout>

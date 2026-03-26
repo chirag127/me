@@ -1,0 +1,119 @@
+---
+import * as fs from 'node:fs/promises';
+import * as path from 'node:path';
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+import ChatWidget from '../../components/islands/ChatWidget';
+import CONFIG from '../../lib/config';
+
+let db: any = { user: null, posts: [], comments: [] };
+try {
+  const raw = await fs.readFile(path.resolve('./src/data/generated/reddit.json'), 'utf-8');
+  db = JSON.parse(raw);
+} catch (e) {
+  console.warn('[Reddit] reddit.json not found.');
+}
+
+const user = db.user;
+const posts = db.posts || [];
+const comments = db.comments || [];
+
+function timeAgo(utc: number) {
+  const seconds = Math.floor(Date.now() / 1000 - utc);
+  if (seconds < 3600) return `${Math.floor(seconds / 60)}m`;
+  if (seconds < 86400) return `${Math.floor(seconds / 3600)}h`;
+  if (seconds < 2592000) return `${Math.floor(seconds / 86400)}d`;
+  return `${Math.floor(seconds / 2592000)}mo`;
+}
+---
+
+<Layout title="Reddit" description="Chirag Singhal on Reddit — posts, comments, and karma">
+  <Navbar />
+  <CommandPalette />
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex items-center gap-3 mb-2">
+      <div class="h-10 w-10 rounded-xl bg-[#ff4500]/10 flex items-center justify-center">
+        <span class="text-xl">🤖</span>
+      </div>
+      <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Reddit</h1>
+    </div>
+    <p class="text-[var(--color-text-secondary)] mb-10">u/{CONFIG.user.reddit} — posts and comments.</p>
+
+    {user && (
+      <div class="glass-strong p-8 mb-12">
+        <div class="flex items-center gap-4 mb-4">
+          {user.iconImg && <img src={user.iconImg} alt="Avatar" class="w-16 h-16 rounded-full" />}
+          <div>
+            <h2 class="text-xl font-bold text-white">u/{user.name}</h2>
+            <p class="text-sm text-[var(--color-text-muted)]">Redditor since {new Date(user.createdUtc * 1000).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-4">
+          <div class="text-center p-3 rounded-lg bg-white/[0.02]">
+            <div class="text-xl font-bold text-[#ff4500]">{user.totalKarma?.toLocaleString()}</div>
+            <div class="text-xs text-[var(--color-text-muted)]">Total Karma</div>
+          </div>
+          <div class="text-center p-3 rounded-lg bg-white/[0.02]">
+            <div class="text-xl font-bold text-white">{user.linkKarma?.toLocaleString()}</div>
+            <div class="text-xs text-[var(--color-text-muted)]">Post Karma</div>
+          </div>
+          <div class="text-center p-3 rounded-lg bg-white/[0.02]">
+            <div class="text-xl font-bold text-white">{user.commentKarma?.toLocaleString()}</div>
+            <div class="text-xs text-[var(--color-text-muted)]">Comment Karma</div>
+          </div>
+        </div>
+      </div>
+    )}
+
+    <h2 class="text-xl font-semibold text-white mb-6">Recent Posts</h2>
+    {posts.length > 0 ? (
+      <div class="space-y-3 mb-12">
+        {posts.slice(0, 15).map((post: any) => (
+          <a href={post.url} target="_blank" rel="noopener noreferrer" class="glass p-4 block hover:border-white/10 transition-colors group">
+            <div class="flex items-start justify-between gap-3">
+              <div class="min-w-0">
+                <h3 class="text-sm font-semibold text-white group-hover:text-[#ff4500] transition-colors">{post.title}</h3>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="text-[0.65rem] text-[var(--color-text-faint)]">r/{post.subreddit}</span>
+                  <span class="text-[0.65rem] text-[var(--color-text-faint)]">{timeAgo(post.createdAt)}</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 shrink-0 text-xs text-[var(--color-text-muted)]">
+                <span>⬆ {post.score}</span>
+                <span>💬 {post.numComments}</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="glass p-8 text-center mb-12"><p class="text-[var(--color-text-muted)]">No posts found.</p></div>
+    )}
+
+    <h2 class="text-xl font-semibold text-white mb-6">Recent Comments</h2>
+    {comments.length > 0 ? (
+      <div class="space-y-3">
+        {comments.slice(0, 10).map((comment: any) => (
+          <a href={comment.url} target="_blank" rel="noopener noreferrer" class="glass p-4 block hover:border-white/10 transition-colors group">
+            <p class="text-xs text-white/80 mb-2">{comment.body}</p>
+            <div class="flex items-center gap-2 text-[0.6rem] text-[var(--color-text-faint)]">
+              <span>r/{comment.subreddit}</span>
+              <span>⬆ {comment.score}</span>
+              <span>on: {comment.linkTitle}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="glass p-8 text-center"><p class="text-[var(--color-text-muted)]">No comments found.</p></div>
+    )}
+
+    <div class="mt-12 glass p-6 text-center">
+      <a href={`https://reddit.com/user/${CONFIG.user.reddit}`} target="_blank" rel="noopener noreferrer" class="text-sm text-[#ff4500] hover:underline">View on Reddit →</a>
+    </div>
+  </main>
+  <Footer />
+  <ChatWidget client:load />
+</Layout>

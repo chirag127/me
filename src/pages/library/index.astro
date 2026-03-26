@@ -16,6 +16,11 @@ const categories = [
     stats: { watched: 14, watching: 2, queued: 6 },
     topItems: ['Interstellar', 'The Shawshank Redemption', 'Inception'],
     tags: ['Sci-Fi', 'Drama', 'Thriller'],
+    subPages: [
+      { label: 'Watched', href: '/library/movies-watched' },
+      { label: 'Rated', href: '/library/movies-rated' },
+      { label: 'Watchlist', href: '/library/movies-watchlist' },
+    ],
   },
   {
     title: 'Anime',
@@ -27,6 +32,11 @@ const categories = [
     stats: { watched: 10, watching: 2, score: '8.8' },
     topItems: ['Fullmetal Alchemist', 'Attack on Titan', 'Steins;Gate'],
     tags: ['Action', 'Sci-Fi', 'Romance'],
+    subPages: [
+      { label: 'Completed', href: '/library/anime-completed' },
+      { label: 'Plan to Watch', href: '/library/anime-plan-to-watch' },
+      { label: 'Manga', href: '/library/manga' },
+    ],
   },
   {
     title: 'Books',
@@ -38,6 +48,10 @@ const categories = [
     stats: { read: 10, reading: 2, queued: 5 },
     topItems: ['Project Hail Mary', 'The Pragmatic Programmer', 'Clean Code'],
     tags: ['Programming', 'Sci-Fi', 'Non-Fiction'],
+    subPages: [
+      { label: 'Read', href: '/library/books-read' },
+      { label: 'Want to Read', href: '/library/books-want-to-read' },
+    ],
   },
   {
     title: 'Music',
@@ -49,6 +63,13 @@ const categories = [
     stats: { artists: 16, genres: 12, plays: '3,643' },
     topItems: ['The Weeknd', 'Ludovico Einaudi', 'Arijit Singh'],
     tags: ['R&B', 'Indie Pop', 'Bollywood'],
+    subPages: [
+      { label: 'Top Artists', href: '/library/music-top-artists' },
+      { label: 'Top Tracks', href: '/library/music-top-tracks' },
+      { label: 'Recent', href: '/library/music-recent' },
+      { label: 'SoundCloud', href: '/library/soundcloud' },
+      { label: 'Mixcloud', href: '/library/mixcloud' },
+    ],
   },
   {
     title: 'Videos',
@@ -60,6 +81,7 @@ const categories = [
     stats: {},
     topItems: [],
     tags: ['Tech', 'Science', 'Vlogs'],
+    subPages: [],
   },
 ];
 ---
@@ -132,13 +154,24 @@ const categories = [
             )}
 
             <!-- Tags -->
-            <div class="flex flex-wrap gap-1.5">
+            <div class="flex flex-wrap gap-1.5 mb-3">
               {cat.tags.map(tag => (
                 <span class="text-[0.6rem] px-2 py-0.5 rounded-full border" style={`color: ${cat.accent}; border-color: ${cat.accent}22; background: ${cat.accentBg}`}>
                   {tag}
                 </span>
               ))}
             </div>
+
+            <!-- Sub-pages -->
+            {cat.subPages?.length > 0 && (
+              <div class="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
+                {cat.subPages.map(sp => (
+                  <a href={sp.href} class="text-[0.55rem] px-2 py-0.5 rounded-full bg-white/[0.03] text-white/40 hover:text-white/60 hover:bg-white/[0.06] transition-colors">
+                    {sp.label}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
         </a>
       ))}

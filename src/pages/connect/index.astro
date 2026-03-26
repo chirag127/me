@@ -6,9 +6,12 @@ import CommandPalette from '../../components/CommandPalette.astro';
 import ChatWidget from '../../components/islands/ChatWidget';
 import { socialLinks } from '../../data/social';
 
-const devLinks = socialLinks.filter(l => ['GitHub', 'LinkedIn', 'Dev.to', 'LeetCode', 'Codewars'].includes(l.name));
-const socialPlatformLinks = socialLinks.filter(l => ['Bluesky', 'Mastodon', 'Reddit'].includes(l.name));
-const entertainmentLinks = socialLinks.filter(l => ['Lichess', 'Last.fm', 'AniList', 'Letterboxd'].includes(l.name));
+const devLinks = socialLinks.filter(l => ['GitHub', 'Dev.to', 'LeetCode', 'Codewars', 'NPM', 'HackerNews', 'StackOverflow', 'Holopin'].includes(l.name));
+const socialPlatformLinks = socialLinks.filter(l => ['Bluesky', 'Mastodon', 'Reddit', 'Pixelfed'].includes(l.name));
+const entertainmentLinks = socialLinks.filter(l => ['AniList', 'Letterboxd', 'Trakt'].includes(l.name));
+const musicLinks = socialLinks.filter(l => ['Last.fm', 'ListenBrainz', 'SoundCloud', 'Mixcloud'].includes(l.name));
+const readingLinks = socialLinks.filter(l => ['Open Library', 'Hardcover', 'Backloggd'].includes(l.name));
+const gamingLinks = socialLinks.filter(l => ['Lichess', 'Speedrun'].includes(l.name));
 
 const iconPaths: Record<string, string> = {
   github: 'M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z',
@@ -24,6 +27,19 @@ const iconPaths: Record<string, string> = {
   lastfm: 'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.5 17.5c-1.5 1.5-4 2-5.5 2-3 0-5.5-2.5-5.5-5.5 0-1.5.5-3 1.5-4l1.5 1.5c-.5.5-1 1.5-1 2.5 0 2 1.5 3.5 3.5 3.5 1 0 2-.5 2.5-1.5l1.5 1.5c-.5 1-1.5 1.5-1.5 1.5z',
   anilist: 'M6.362 1.44l-.108.003H1.18A1.182 1.182 0 000 2.624V22.44a1.182 1.182 0 001.18 1.18h1.453a1.182 1.182 0 001.179-1.18V8.204l4.73 14.873c.2.65.85 1.052 1.54 1.052h.045c.703-.014 1.339-.446 1.537-1.113L16.866 8.2v14.24a1.182 1.182 0 001.18 1.18h1.453a1.182 1.182 0 001.18-1.18V2.624A1.182 1.182 0 0019.499 1.44h-1.454a1.182 1.182 0 00-1.157.947l-4.694 14.87-4.694-14.87A1.182 1.182 0 006.362 1.44z',
   letterboxd: 'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-2 17l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z',
+  npm: 'M1.765 11.184h1.785v2.632h1.362V8.552H1.765v2.632zm5.338-2.632H5.74v7.895h2.725v-5.264h1.362v5.264h1.363V8.552H7.103zm6.7 0h-1.363v7.895h4.088v-2.632h-2.725V8.552zm5.338 0h-1.363v7.895h1.363v-5.263h1.362v5.263h1.363V8.552h-2.725z',
+  hackernews: 'M0 0v24h24V0H0zm12.2 4.8l4.5 9.4h.1l4.5-9.4h-2l-3.3 7.1-3.3-7.1h-0.5l-3.3 7.1-3.3-7.1h-2l4.5 9.4h.1l3.3-7.1 3.3 7.1h.1V20h-1.8V8.5l-3.5 7.5h-.6l-3.5-7.5V20H5.7V4h2.3l3.2 6.9L14.5 4h2.3z',
+  stackoverflow: 'M15 21H3v-8h2v6h10v-6h2v8zM17.4 8.6l-1.2-1.6L6 15.8l1.2 1.6 10.2-8.8zM18.2 4.6l-2.4-.8-.8 2.4 2.4.8.8-2.4zM16.3 1.2L13.1.4l-.8 2.4 3.2.8.8-2.4z',
+  holopin: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5',
+  pixelfed: 'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18a6 6 0 110-12 6 6 0 010 12zm0-10a4 4 0 100 8 4 4 0 000-8z',
+  soundcloud: 'M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c-.009-.057-.049-.1-.084-.1zm-.899.828c-.06 0-.091.037-.104.094L0 14.479l.165 1.308c.014.057.044.094.104.094s.09-.037.104-.094l.21-1.308-.21-1.334c-.014-.057-.044-.09-.093-.09zm1.83-1.229c-.063 0-.109.048-.116.109l-.209 2.546.209 2.469c.007.06.053.109.116.109.063 0 .109-.049.116-.109l.239-2.469-.239-2.546c-.007-.06-.053-.109-.116-.109zm.945-.089c-.073 0-.128.058-.135.128l-.178 2.635.178 2.512c.007.07.062.128.135.128.074 0 .128-.058.135-.128l.203-2.512-.203-2.635c-.007-.07-.061-.128-.135-.128zm1.084.267c-.084 0-.149.065-.157.149l-.15 2.368.15 2.49c.007.083.073.149.157.149.084 0 .149-.066.157-.149l.171-2.49-.171-2.368c-.008-.084-.073-.149-.157-.149zm1.023-.425c-.094 0-.17.075-.177.17l-.12 2.793.12 2.46c.008.094.083.17.177.17.094 0 .17-.076.177-.17l.135-2.46-.135-2.793c-.007-.095-.083-.17-.177-.17zm1.084-.178c-.104 0-.191.085-.198.191l-.09 2.971.09 2.427c.007.106.094.191.198.191.104 0 .191-.085.198-.191l.105-2.427-.105-2.971c-.007-.106-.094-.191-.198-.191zm1.059-.225c-.114 0-.21.094-.217.211l-.06 3.196.06 2.406c.007.117.103.211.217.211.114 0 .21-.094.217-.211l.075-2.406-.075-3.196c-.007-.117-.103-.211-.217-.211zm4.083.459c-.24 0-.465.045-.675.127-.165-1.875-1.77-3.345-3.72-3.345-.51 0-1.005.105-1.455.285-.165.06-.21.135-.21.27v6.465c0 .135.105.255.24.27h5.82c1.155 0 2.085-.93 2.085-2.07 0-1.14-.93-2.07-2.085-2.07z',
+  listenbrainz: 'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18a6 6 0 110-12 6 6 0 010 12zm-2-8h4v2h-4v-2zm0 3h4v2h-4v-2z',
+  mixcloud: 'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.5 16h-11c-.276 0-.5-.224-.5-.5v-7c0-.276.224-.5.5-.5h11c.276 0 .5.224.5.5v7c0 .276-.224.5-.5.5z',
+  trakt: 'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1 17H7V7h4v10zm6 0h-4V7h4v10z',
+  openlibrary: 'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z',
+  backloggd: 'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z',
+  speedrun: 'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm1 17h-2v-6h2v6zm0-8h-2V7h2v2z',
+  hardcover: 'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z',
 };
 ---
 
@@ -128,6 +144,84 @@ const iconPaths: Record<string, string> = {
         ))}
       </div>
     </div>
+
+    <!-- Music -->
+    {musicLinks.length > 0 && (
+    <div class="mb-10">
+      <div class="flex items-center gap-2 mb-5">
+        <svg class="h-4 w-4 text-white/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
+        <h2 class="text-sm font-semibold text-white/50 uppercase tracking-widest">Music</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {musicLinks.map((link) => (
+          <a href={link.url} target="_blank" rel="noopener noreferrer" class="glass p-5 group flex items-center gap-4 hover:border-white/10 transition-colors">
+            <div class="h-11 w-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors" style={`background: ${link.color}12;`}>
+              <svg class="h-5 w-5" style={`color: ${link.color}`} fill="currentColor" viewBox="0 0 24 24">
+                <path d={iconPaths[link.icon] || 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'}/>
+              </svg>
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-sm font-semibold text-white group-hover:text-[var(--color-primary)] transition-colors">{link.name}</h3>
+              <p class="text-xs text-white/35 truncate">{link.username}</p>
+            </div>
+            <svg class="h-4 w-4 text-white/15 flex-shrink-0 group-hover:text-white/40 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+          </a>
+        ))}
+      </div>
+    </div>
+    )}
+
+    <!-- Gaming -->
+    {gamingLinks.length > 0 && (
+    <div class="mb-10">
+      <div class="flex items-center gap-2 mb-5">
+        <svg class="h-4 w-4 text-white/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" /></svg>
+        <h2 class="text-sm font-semibold text-white/50 uppercase tracking-widest">Gaming</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {gamingLinks.map((link) => (
+          <a href={link.url} target="_blank" rel="noopener noreferrer" class="glass p-5 group flex items-center gap-4 hover:border-white/10 transition-colors">
+            <div class="h-11 w-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors" style={`background: ${link.color}12;`}>
+              <svg class="h-5 w-5" style={`color: ${link.color}`} fill="currentColor" viewBox="0 0 24 24">
+                <path d={iconPaths[link.icon] || 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'}/>
+              </svg>
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-sm font-semibold text-white group-hover:text-[var(--color-primary)] transition-colors">{link.name}</h3>
+              <p class="text-xs text-white/35 truncate">{link.username}</p>
+            </div>
+            <svg class="h-4 w-4 text-white/15 flex-shrink-0 group-hover:text-white/40 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+          </a>
+        ))}
+      </div>
+    </div>
+    )}
+
+    <!-- Reading -->
+    {readingLinks.length > 0 && (
+    <div class="mb-10">
+      <div class="flex items-center gap-2 mb-5">
+        <svg class="h-4 w-4 text-white/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+        <h2 class="text-sm font-semibold text-white/50 uppercase tracking-widest">Reading</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {readingLinks.map((link) => (
+          <a href={link.url} target="_blank" rel="noopener noreferrer" class="glass p-5 group flex items-center gap-4 hover:border-white/10 transition-colors">
+            <div class="h-11 w-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors" style={`background: ${link.color}12;`}>
+              <svg class="h-5 w-5" style={`color: ${link.color}`} fill="currentColor" viewBox="0 0 24 24">
+                <path d={iconPaths[link.icon] || 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'}/>
+              </svg>
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-sm font-semibold text-white group-hover:text-[var(--color-primary)] transition-colors">{link.name}</h3>
+              <p class="text-xs text-white/35 truncate">{link.username}</p>
+            </div>
+            <svg class="h-4 w-4 text-white/15 flex-shrink-0 group-hover:text-white/40 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+          </a>
+        ))}
+      </div>
+    </div>
+    )}
   </main>
   <Footer />
   <ChatWidget client:load />

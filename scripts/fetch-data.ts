@@ -29,6 +29,16 @@ import { fetchBlueskyPosts } from '../src/lib/api/bluesky.js';
 import { fetchYouTubeStats, fetchYouTubeVideos } from '../src/lib/api/youtube.js';
 import { fetchJikanStats } from '../src/lib/api/jikan.js';
 
+// New API modules
+import { fetchListenBrainzStats, fetchListenBrainzTopArtists, fetchListenBrainzTopTracks, fetchListenBrainzRecentListens } from '../src/lib/api/listenbrainz.js';
+import { fetchMastodonStatuses, fetchMastodonAccount } from '../src/lib/api/mastodon.js';
+import { fetchMixcloudUser, fetchMixcloudCloudcasts } from '../src/lib/api/mixcloud.js';
+import { fetchNpmUserPackages, fetchNpmDownloads } from '../src/lib/api/npm.js';
+import { fetchStackOverflowUser, fetchStackOverflowTags, fetchStackOverflowQuestions, fetchStackOverflowAnswers } from '../src/lib/api/stackoverflow.js';
+import { fetchHolopinBadges } from '../src/lib/api/holopin.js';
+import { fetchRedditUser, fetchRedditPosts, fetchRedditComments } from '../src/lib/api/reddit.js';
+import { fetchHardcoverBooks } from '../src/lib/api/hardcover.js';
+
 // Setup directories
 const GENERATED_DIR = path.resolve(__dirname, '../src/data/generated');
 
@@ -92,10 +102,17 @@ async function main() {
   const movies = {
     watched: traktWatched.map(m => ({ ...m, rating: traktRatings[m.traktSlug]?.rating || null, ratedAt: traktRatings[m.traktSlug]?.ratedAt || null })),
     watchlist: traktWatchlist.map(m => ({ ...m, rating: traktRatings[m.traktSlug]?.rating || null, ratedAt: traktRatings[m.traktSlug]?.ratedAt || null })),
+    // Separate rated movies
+    rated: Object.entries(traktRatings).map(([slug, r]) => {
+      const movie = [...traktWatched, ...traktWatchlist].find(m => m.traktSlug === slug);
+      return movie ? { ...movie, rating: r.rating, ratedAt: r.ratedAt } : { traktSlug: slug, rating: r.rating, ratedAt: r.ratedAt, title: '', year: 0, tmdbId: null, imdbId: null, watchedAt: null, posterUrl: null, genres: [], overview: null, runtime: null, category: 'watched' as const };
+    }).filter((m: any) => m.title),
     shows: traktShows,
     stats: {
       totalWatched: traktWatched.length,
       totalShows: traktShows.length,
+      totalRated: Object.keys(traktRatings).length,
+      totalWatchlist: traktWatchlist.length,
     },
     lastUpdated: timestamp
   };
@@ -126,9 +143,18 @@ async function main() {
     fetchSpotifyTopArtists()
   ]);
 
+  // Also fetch ListenBrainz data
+  const [lbStats, lbTopArtists, lbTopTracks, lbRecent] = await Promise.all([
+    fetchListenBrainzStats().catch(() => null),
+    fetchListenBrainzTopArtists(10).catch(() => []),
+    fetchListenBrainzTopTracks(10).catch(() => []),
+    fetchListenBrainzRecentListens(10).catch(() => []),
+  ]);
+
   const music = {
     lastfm: { stats: lastFmStats, topArtists, topTracks, topAlbums, recentTracks },
     spotify: { topTracks: spotTopTracks, topArtists: spotTopArtists },
+    listenbrainz: { stats: lbStats, topArtists: lbTopArtists, topTracks: lbTopTracks, recentListens: lbRecent },
     lastUpdated: timestamp
   };
   await writeJson('music.json', music);
@@ -195,6 +221,83 @@ async function main() {
   };
   await writeJson('social.json', social);
   await pushToFirestore('media', 'social', social);
+
+  // 8. Mastodon
+  console.log('\n--- Fetching Mastodon ---');
+  const [mastodonAccount, mastodonStatuses] = await Promise.all([
+    fetchMastodonAccount().catch(() => null),
+    fetchMastodonStatuses(20).catch(() => []),
+  ]);
+  const mastodon = { account: mastodonAccount, statuses: mastodonStatuses, lastUpdated: timestamp };
+  await writeJson('mastodon.json', mastodon);
+  await pushToFirestore('social', 'mastodon', mastodon);
+
+  // 9. Reddit
+  console.log('\n--- Fetching Reddit ---');
+  const [redditUser, redditPosts, redditComments] = await Promise.all([
+    fetchRedditUser().catch(() => null),
+    fetchRedditPosts(25).catch(() => []),
+    fetchRedditComments(25).catch(() => []),
+  ]);
+  const reddit = { user: redditUser, posts: redditPosts, comments: redditComments, lastUpdated: timestamp };
+  await writeJson('reddit.json', reddit);
+  await pushToFirestore('social', 'reddit', reddit);
+
+  // 10. Music Platforms (Mixcloud)
+  console.log('\n--- Fetching Music Platforms ---');
+  const [mixcloudUser, mixcloudCasts] = await Promise.all([
+    fetchMixcloudUser().catch(() => null),
+    fetchMixcloudCloudcasts(15).catch(() => []),
+  ]);
+  const musicPlatforms = {
+    mixcloud: { user: mixcloudUser, cloudcasts: mixcloudCasts },
+    lastUpdated: timestamp
+  };
+  await writeJson('music-platforms.json', musicPlatforms);
+  await pushToFirestore('social', 'music-platforms', musicPlatforms);
+
+  // 11. Developer Stats
+  console.log('\n--- Fetching Developer Stats ---');
+  // NPM packages - search by GitHub username
+  const npmPackages = await fetchNpmUserPackages('chirag127').catch(() => []);
+  const npmData = await Promise.all(
+    npmPackages.map(async (pkg: any) => {
+      const downloads = await fetchNpmDownloads(pkg.name).catch(() => null);
+      return { ...pkg, downloads: downloads?.downloads || 0 };
+    })
+  );
+
+  // StackOverflow - we need to find the user ID
+  let soUser = null;
+  let soTags: any[] = [];
+  try {
+    const soData = await fetch('https://api.stackexchange.com/2.3/users?order=desc&sort=reputation&inname=chirag127&site=stackoverflow');
+    const soJson: any = await soData.json();
+    const soUserId = soJson?.items?.[0]?.user_id;
+    if (soUserId) {
+      soUser = await fetchStackOverflowUser(String(soUserId));
+      soTags = await fetchStackOverflowTags(String(soUserId), 20);
+    }
+  } catch { /* skip */ }
+
+  const holopinBadges = await fetchHolopinBadges().catch(() => null);
+
+  const devStats = {
+    npm: { packages: npmData },
+    stackoverflow: { user: soUser, tags: soTags },
+    holopin: holopinBadges,
+    lastUpdated: timestamp
+  };
+  await writeJson('dev-stats.json', devStats);
+  await pushToFirestore('social', 'dev-stats', devStats);
+
+  // 12. Hardcover Books (optional)
+  console.log('\n--- Fetching Hardcover ---');
+  const hardcoverData = await fetchHardcoverBooks().catch(() => null);
+  if (hardcoverData) {
+    await writeJson('hardcover.json', hardcoverData);
+    await pushToFirestore('media', 'hardcover', hardcoverData);
+  }
 
   console.log('\n✅ Data Fetching Complete!');
 }

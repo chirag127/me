@@ -164,61 +164,28 @@ function Dropdown({
 
 // ─── Step Indicator ──────────────────────────────────────────────────
 function StepIndicator({ steps, streaming }: { steps: string[]; streaming: boolean }) {
-  const [visibleSteps, setVisibleSteps] = React.useState<boolean[]>([]);
+  const [hideTimer, setHideTimer] = React.useState<ReturnType<typeof setTimeout> | null>(null);
+  const lastStep = steps[steps.length - 1];
 
   React.useEffect(() => {
-    if (steps.length === 0) return;
-
-    setVisibleSteps(prev => {
-      const next = [...prev];
-      while (next.length < steps.length) next.push(true);
-
-      // Hide the previous step when a new one arrives
-      if (next.length > 1) {
-        next[next.length - 2] = false;
-      }
-      return next;
-    });
-
-    // When streaming ends, hide the last step after a brief pause
     if (!streaming && steps.length > 0) {
-      const timeout = setTimeout(() => {
-        setVisibleSteps(prev => {
-          const next = [...prev];
-          if (next.length > 0) next[next.length - 1] = false;
-          return next;
-        });
-      }, 800);
-      return () => clearTimeout(timeout);
+      const timer = setTimeout(() => setHideTimer(null), 100);
+      return () => clearTimeout(timer);
     }
-  }, [steps.length, streaming]);
+    setHideTimer(null);
+  }, [streaming, steps.length]);
+
+  if (steps.length === 0) return null;
 
   return (
     <div className="flex flex-col gap-1.5 py-1">
-      {steps.map((step, i) => {
-        const isCurrent = i === steps.length - 1 && streaming;
-        const isVisible = visibleSteps[i] !== false;
-        return (
-          <div
-            key={`${i}-${step}`}
-            className={`flex items-center gap-2 text-[11px] transition-all duration-300 ${
-              !isVisible
-                ? 'opacity-0 h-0 overflow-hidden'
-                : isCurrent
-                  ? 'text-amber-400 font-medium'
-                  : 'text-white/40'
-            }`}
-            style={{ animation: isVisible ? 'fadeIn 0.3s ease-out forwards' : undefined }}
-          >
-            <div className={`flex-shrink-0 w-1.5 h-1.5 rounded-full ${
-              isCurrent
-                ? 'bg-amber-400 animate-pulse shadow-[0_0_8px_rgba(245,158,11,0.5)]'
-                : 'bg-emerald-500/50'
-            }`} />
-            <span className="truncate">{step}</span>
-          </div>
-        );
-      })}
+      <div
+        className="flex items-center gap-2 text-[11px] text-amber-400 font-medium transition-all duration-200"
+        style={{ animation: 'fadeIn 0.2s ease-out forwards' }}
+      >
+        <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse shadow-[0_0_8px_rgba(245,158,11,0.5)]" />
+        <span className="truncate">{lastStep}</span>
+      </div>
     </div>
   );
 }

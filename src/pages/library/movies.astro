@@ -72,6 +72,13 @@ function getVisuals(title: string) {
     </div>
     <p class="text-[var(--color-text-secondary)] mb-10">Film diary — synced from Trakt automatically.</p>
 
+    <!-- Sub-page Navigation -->
+    <div class="flex flex-wrap gap-3 mb-10">
+      <a href="/library/movies-watched" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-accent-sage)]/10 text-[var(--color-accent-sage)] border border-[var(--color-accent-sage)]/20 hover:bg-[var(--color-accent-sage)]/20 transition-colors">Watched ({watched.length})</a>
+      <a href="/library/movies-rated" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 hover:bg-[var(--color-primary)]/20 transition-colors">Rated</a>
+      <a href="/library/movies-watchlist" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-accent-rose)]/10 text-[var(--color-accent-rose)] border border-[var(--color-accent-rose)]/20 hover:bg-[var(--color-accent-rose)]/20 transition-colors">Watchlist ({wantToWatch.length})</a>
+    </div>
+
     <!-- Stats -->
     <div class="glass-strong p-6 mb-12 flex flex-wrap gap-8">
       <div>

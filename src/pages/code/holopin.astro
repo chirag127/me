@@ -1,0 +1,65 @@
+---
+import * as fs from 'node:fs/promises';
+import * as path from 'node:path';
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+import ChatWidget from '../../components/islands/ChatWidget';
+import CONFIG from '../../lib/config';
+
+let db: any = { holopin: null };
+try {
+  const raw = await fs.readFile(path.resolve('./src/data/generated/dev-stats.json'), 'utf-8');
+  db = JSON.parse(raw);
+} catch (e) {
+  console.warn('[Holopin] dev-stats.json not found.');
+}
+
+const badges = db.holopin?.badges || [];
+---
+
+<Layout title="Holopin Badges" description="Chirag Singhal's Holopin badges — open source achievements">
+  <Navbar />
+  <CommandPalette />
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex items-center gap-3 mb-2">
+      <div class="h-10 w-10 rounded-xl bg-[#2b6cb0]/10 flex items-center justify-center">
+        <span class="text-xl">🏷️</span>
+      </div>
+      <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Holopin Badges</h1>
+    </div>
+    <p class="text-[var(--color-text-secondary)] mb-10">Open source contribution badges — from {CONFIG.user.holopin}.</p>
+
+    <div class="glass-strong p-6 mb-12 flex flex-wrap gap-8">
+      <div>
+        <div class="text-2xl font-bold text-[#2b6cb0]">{badges.length}</div>
+        <div class="text-xs text-[var(--color-text-muted)]">Badges</div>
+      </div>
+    </div>
+
+    {badges.length > 0 ? (
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        {badges.map((badge: any) => (
+          <a href={badge.link || `https://holopin.io/@${CONFIG.user.holopin}`} target="_blank" rel="noopener noreferrer" class="glass p-4 text-center hover:border-white/10 transition-colors group">
+            {badge.imageUrl && (
+              <img src={badge.imageUrl} alt={badge.name || badge.alt || 'Badge'} class="w-full h-24 object-contain mb-3" loading="lazy" />
+            )}
+            <h3 class="text-xs font-semibold text-white truncate group-hover:text-[#2b6cb0] transition-colors">{badge.name || badge.alt || 'Badge'}</h3>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="glass p-12 text-center">
+        <p class="text-[var(--color-text-muted)]">No Holopin badges found. Run fetch-data first.</p>
+        <p class="text-xs text-[var(--color-text-faint)] mt-2">Or check <a href={`https://holopin.io/@${CONFIG.user.holopin}`} target="_blank" class="text-[#2b6cb0] hover:underline">Holopin profile</a></p>
+      </div>
+    )}
+
+    <div class="mt-12 glass p-6 text-center">
+      <a href={`https://holopin.io/@${CONFIG.user.holopin}`} target="_blank" rel="noopener noreferrer" class="text-sm text-[#2b6cb0] hover:underline">View on Holopin →</a>
+    </div>
+  </main>
+  <Footer />
+  <ChatWidget client:load />
+</Layout>

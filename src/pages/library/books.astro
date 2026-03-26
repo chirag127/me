@@ -57,6 +57,12 @@ function getVisuals(title: string) {
     </div>
     <p class="text-[var(--color-text-secondary)] mb-10">Reading diary — synced automatically from OpenLibrary.</p>
 
+    <!-- Sub-page Navigation -->
+    <div class="flex flex-wrap gap-3 mb-10">
+      <a href="/library/books-read" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-success)]/10 text-[var(--color-success)] border border-[var(--color-success)]/20 hover:bg-[var(--color-success)]/20 transition-colors">Read ({read.length})</a>
+      <a href="/library/books-want-to-read" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-accent-rose)]/10 text-[var(--color-accent-rose)] border border-[var(--color-accent-rose)]/20 hover:bg-[var(--color-accent-rose)]/20 transition-colors">Want to Read ({wantToRead.length})</a>
+    </div>
+
     <!-- Stats -->
     <div class="glass-strong p-6 mb-12 flex flex-wrap gap-8">
       <div>

@@ -298,9 +298,35 @@ const lecHardPct = leetcodeStats ? Math.round((leetcodeStats.totalHardSolved / l
     </div>
 
     <!-- All Repos Count -->
-    <div class="glass p-6 text-center">
+    <div class="glass p-6 text-center mb-8">
       <div class="text-2xl font-bold text-white mb-1">{githubRepos.length}</div>
       <div class="text-xs text-white/40">Total Public Repositories</div>
+    </div>
+
+    <!-- Other Dev Platforms -->
+    <h2 class="text-xl font-bold text-white mb-6">Other Dev Platforms</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <a href="/code/npm" class="glass p-6 border border-white/5 hover:border-[#cb3837]/30 transition-colors group">
+        <div class="h-10 w-10 rounded-xl bg-[#cb3837]/10 flex items-center justify-center mb-3">
+          <svg class="h-5 w-5 text-[#cb3837]" viewBox="0 0 24 24" fill="currentColor"><path d="M1.765 11.184h1.785v2.632h1.362V8.552H1.765v2.632zm5.338-2.632H5.74v7.895h2.725v-5.264h1.362v5.264h1.363V8.552H7.103zm6.7 0h-1.363v7.895h4.088v-2.632h-2.725V8.552zm5.338 0h-1.363v7.895h1.363v-5.263h1.362v5.263h1.363V8.552h-2.725z"/></svg>
+        </div>
+        <h3 class="text-base font-semibold text-white group-hover:text-[#cb3837] transition-colors">NPM</h3>
+        <p class="text-xs text-white/40 mt-1">Published packages and download stats</p>
+      </a>
+      <a href="/code/stackoverflow" class="glass p-6 border border-white/5 hover:border-[#f48024]/30 transition-colors group">
+        <div class="h-10 w-10 rounded-xl bg-[#f48024]/10 flex items-center justify-center mb-3">
+          <svg class="h-5 w-5 text-[#f48024]" viewBox="0 0 120 120" fill="currentColor"><path d="M84.4 93.8V70.6h7.7v30.9H22.6V70.6h7.7v23.2z"/><path d="M38.8 68.4l37.8 7.9 1.6-7.6-37.8-7.9-1.6 7.6zm5-18l35 16.3 3.2-7-35-16.4-3.2 7.1zm9.7-17.2l29.7 24.7 4.9-5.9-29.7-24.7-4.9 5.9zm19.2-18.3l-6.2 4.6 23 31 6.2-4.6-23-31zM38 86h38.6v-7.7H38V86z"/></svg>
+        </div>
+        <h3 class="text-base font-semibold text-white group-hover:text-[#f48024] transition-colors">StackOverflow</h3>
+        <p class="text-xs text-white/40 mt-1">Reputation, badges, and contributions</p>
+      </a>
+      <a href="/code/holopin" class="glass p-6 border border-white/5 hover:border-[#2b6cb0]/30 transition-colors group">
+        <div class="h-10 w-10 rounded-xl bg-[#2b6cb0]/10 flex items-center justify-center mb-3">
+          <span class="text-xl">🏷️</span>
+        </div>
+        <h3 class="text-base font-semibold text-white group-hover:text-[#2b6cb0] transition-colors">Holopin</h3>
+        <p class="text-xs text-white/40 mt-1">Open source contribution badges</p>
+      </a>
     </div>
   </main>
   <Footer />
