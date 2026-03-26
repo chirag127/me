@@ -12,8 +12,9 @@ res = requests.get(url, headers={
     "X-API-Secret": api_secret,
     "Accept": "application/json"
 })
+import json
 print("oriz.in status:", res.status_code)
-print("oriz.in records:", res.text)
+print("oriz.in records:", json.dumps(res.json(), indent=2))
 
 url2 = "https://spaceship.dev/api/v1/dns/records/chirag127.in?take=100&skip=0"
 res2 = requests.get(url2, headers={
@@ -22,4 +23,4 @@ res2 = requests.get(url2, headers={
     "Accept": "application/json"
 })
 print("chirag127.in status:", res2.status_code)
-print("chirag127.in records:", res2.text)
+print("chirag127.in records:", json.dumps(res2.json(), indent=2))

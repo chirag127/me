@@ -12,7 +12,7 @@ import CommandPalette from '../../components/CommandPalette.astro';
 import StatsCounter from '../../components/islands/StatsCounter';
 import Footer from '../../components/Footer.astro';
 
-const [githubUser, githubRepos, leetcodeStats, _codewarsUser] =
+const [githubUser, githubRepos, leetcodeStats, codewarsUser] =
   await Promise.all([
     fetchGitHubUser(),
     fetchGitHubRepos(),
@@ -20,8 +20,8 @@ const [githubUser, githubRepos, leetcodeStats, _codewarsUser] =
     fetchCodewarsUser(),
   ]);
 
-const _totalStars = githubRepos.reduce((sum, r) => sum + r.stargazers_count, 0);
-const _totalForks = githubRepos.reduce((sum, r) => sum + r.forks_count, 0);
+const totalStars = githubRepos.reduce((sum, r) => sum + r.stargazers_count, 0);
+const totalForks = githubRepos.reduce((sum, r) => sum + r.forks_count, 0);
 
 // Top languages by repo count
 const langMap = new Map<string, number>();
@@ -30,12 +30,12 @@ githubRepos
   .forEach((r) =>
     langMap.set(r.language!, (langMap.get(r.language!) || 0) + 1),
   );
-const _topLanguages = [...langMap.entries()]
+const topLanguages = [...langMap.entries()]
   .sort((a, b) => b[1] - a[1])
   .slice(0, 10);
 
 // Recent repos (last 10 updated)
-const _recentRepos = [...githubRepos]
+const recentRepos = [...githubRepos]
   .sort(
     (a, b) =>
       new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime(),
@@ -43,20 +43,20 @@ const _recentRepos = [...githubRepos]
   .slice(0, 10);
 
 // Account age
-const _accountAge = githubUser
+const accountAge = githubUser
   ? new Date().getFullYear() - new Date(githubUser.created_at).getFullYear()
   : 0;
 
 // LeetCode percentages
-const _lecEasyPct = leetcodeStats
+const lecEasyPct = leetcodeStats
   ? Math.round((leetcodeStats.totalEasySolved / leetcodeStats.totalEasy) * 100)
   : 0;
-const _lecMedPct = leetcodeStats
+const lecMedPct = leetcodeStats
   ? Math.round(
       (leetcodeStats.totalMediumSolved / leetcodeStats.totalMedium) * 100,
     )
   : 0;
-const _lecHardPct = leetcodeStats
+const lecHardPct = leetcodeStats
   ? Math.round((leetcodeStats.totalHardSolved / leetcodeStats.totalHard) * 100)
   : 0;
 ---

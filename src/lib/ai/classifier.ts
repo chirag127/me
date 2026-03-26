@@ -48,20 +48,23 @@ export interface ClassificationResult {
  */
 async function callPuterAI(
   messages: Array<{ role: string; content: string }>,
-  tier: 'fast' | 'reasoning' | 'agent' = 'fast'
+  tier: 'fast' | 'reasoning' | 'agent' = 'fast',
 ): Promise<string> {
   const ai = getPuter();
   if (!ai) return '';
 
   const chain = getModelChain(tier);
-  
+
   for (const model of chain) {
     try {
       const response = await ai.chat(messages, { model, stream: false });
-      
-      // Puter AI sometimes returns structures like { success: false, error: ... } 
+
+      // Puter AI sometimes returns structures like { success: false, error: ... }
       if (response && (response as any).success === false) {
-        console.warn(`[Classifier] Model ${model} failed:`, (response as any).error);
+        console.warn(
+          `[Classifier] Model ${model} failed:`,
+          (response as any).error,
+        );
         continue;
       }
 
@@ -82,10 +85,13 @@ async function callPuterAI(
 export async function classifyIntent(
   query: string,
 ): Promise<ClassificationResult> {
-  const content = await callPuterAI([
-    { role: 'system', content: INTENT_PROMPT },
-    { role: 'user', content: query },
-  ], 'fast');
+  const content = await callPuterAI(
+    [
+      { role: 'system', content: INTENT_PROMPT },
+      { role: 'user', content: query },
+    ],
+    'fast',
+  );
 
   const intent = (content || 'unknown').toLowerCase() as QueryIntent;
 
@@ -123,14 +129,17 @@ export async function classifyIntent(
 export async function detectMultipleIntents(
   query: string,
 ): Promise<QueryIntent[]> {
-  const content = await callPuterAI([
-    {
-      role: 'system',
-      content:
-        'List all relevant intents from the list provided previously for this query. Separate with commas. Respond ONLY with the list.',
-    },
-    { role: 'user', content: query },
-  ], 'fast');
+  const content = await callPuterAI(
+    [
+      {
+        role: 'system',
+        content:
+          'List all relevant intents from the list provided previously for this query. Separate with commas. Respond ONLY with the list.',
+      },
+      { role: 'user', content: query },
+    ],
+    'fast',
+  );
 
   if (!content) return ['unknown'];
 
@@ -167,19 +176,22 @@ export async function detectMultipleIntents(
 export async function analyzeQueryComplexity(
   query: string,
 ): Promise<'low' | 'medium' | 'high'> {
-  const content = await callPuterAI([
-    {
-      role: 'system',
-      content:
-        'Analyze the complexity of this user query for an AI assistant. Respond with ONLY "low", "medium", or "high".',
-    },
-    { role: 'user', content: query },
-  ], 'fast');
+  const content = await callPuterAI(
+    [
+      {
+        role: 'system',
+        content:
+          'Analyze the complexity of this user query for an AI assistant. Respond with ONLY "low", "medium", or "high".',
+      },
+      { role: 'user', content: query },
+    ],
+    'fast',
+  );
 
   const complexity = (content || 'medium').toLowerCase();
   if (complexity.includes('low')) return 'low';
   if (complexity.includes('medium')) return 'medium';
   if (complexity.includes('high')) return 'high';
-  
+
   return 'medium';
 }

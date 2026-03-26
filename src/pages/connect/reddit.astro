@@ -1,4 +1,9 @@
 ---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+import { CONFIG } from '../../lib/config';
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
 
@@ -13,11 +18,11 @@ try {
   console.warn('[Reddit] reddit.json not found.');
 }
 
-const _user = db.user;
-const _posts = db.posts || [];
-const _comments = db.comments || [];
+const user = db.user;
+const posts = db.posts || [];
+const comments = db.comments || [];
 
-function _timeAgo(utc: number) {
+function timeAgo(utc: number) {
   const seconds = Math.floor(Date.now() / 1000 - utc);
   if (seconds < 3600) return `${Math.floor(seconds / 60)}m`;
   if (seconds < 86400) return `${Math.floor(seconds / 3600)}h`;

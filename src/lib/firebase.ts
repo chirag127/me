@@ -257,7 +257,9 @@ export async function getUserChatSessions(userId: string): Promise<any[]> {
     return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   } catch (err: any) {
     if (err?.message?.includes('index')) {
-      console.warn('[Firebase] Chat history index is still building. History will be available soon.');
+      console.warn(
+        '[Firebase] Chat history index is still building. History will be available soon.',
+      );
       return [];
     }
     console.error('[Firebase] Failed to get chat sessions:', err);
@@ -355,20 +357,26 @@ export async function subscribeToJournalEntries(
       where('userId', '==', userId),
       orderBy('createdAt', 'desc'),
     );
-    return onSnapshot(q, (snapshot) => {
-      const entries = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      })) as JournalEntry[];
-      callback(entries);
-    }, (err) => {
-      if (err?.message?.includes('index')) {
-        console.warn('[Firebase] Journal index is still building. Entries will appear soon.');
-        callback([]);
-      } else {
-        console.error('[Firebase] Journal subscription error:', err);
-      }
-    });
+    return onSnapshot(
+      q,
+      (snapshot) => {
+        const entries = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        })) as JournalEntry[];
+        callback(entries);
+      },
+      (err) => {
+        if (err?.message?.includes('index')) {
+          console.warn(
+            '[Firebase] Journal index is still building. Entries will appear soon.',
+          );
+          callback([]);
+        } else {
+          console.error('[Firebase] Journal subscription error:', err);
+        }
+      },
+    );
   } catch (err) {
     console.error('[Firebase] Failed to setup journal subscription:', err);
     return () => {};

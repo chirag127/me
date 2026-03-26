@@ -1,0 +1,160 @@
+oriz.in status: 200
+oriz.in records: {
+  "items": [
+    {
+      "value": "c261473b61edca9c8c2efdf0dfc473",
+      "name": "_github-pages-challenge-chirag127.chirag127.in",
+      "type": "TXT",
+      "ttl": 1800,
+      "group": {
+        "type": "custom"
+      }
+    },
+    {
+      "value": "v=spf1 include:spf.efwd.spaceship.net ~all",
+      "name": "@",
+      "type": "TXT",
+      "ttl": 1200,
+      "group": {
+        "type": "product"
+      }
+    },
+    {
+      "exchange": "mx1.efwd.spaceship.net",
+      "preference": 0,
+      "name": "@",
+      "type": "MX",
+      "ttl": 1200,
+      "group": {
+        "type": "product"
+      }
+    },
+    {
+      "exchange": "mx2.efwd.spaceship.net",
+      "preference": 0,
+      "name": "@",
+      "type": "MX",
+      "ttl": 1200,
+      "group": {
+        "type": "product"
+      }
+    },
+    {
+      "cname": "chirag127.pages.dev.",
+      "name": "chirag",
+      "type": "CNAME",
+      "ttl": 1800,
+      "group": {
+        "type": "custom"
+      }
+    },
+    {
+      "cname": "chirag127.pages.dev.",
+      "name": "chirag127",
+      "type": "CNAME",
+      "ttl": 1800,
+      "group": {
+        "type": "custom"
+      }
+    },
+    {
+      "cname": "chirag127.pages.dev.",
+      "name": "me",
+      "type": "CNAME",
+      "ttl": 1800,
+      "group": {
+        "type": "custom"
+      }
+    },
+    {
+      "value": "9f3121e3-4b93-41f7-bc81-fbbcd20abdc7",
+      "name": "tbolt",
+      "type": "TXT",
+      "ttl": 300,
+      "group": {
+        "type": "product"
+      }
+    }
+  ],
+  "total": 8
+}
+chirag127.in status: 200
+chirag127.in records: {
+  "items": [
+    {
+      "exchange": "mx2.efwd.spaceship.net",
+      "preference": 0,
+      "name": "@",
+      "type": "MX",
+      "ttl": 1200,
+      "group": {
+        "type": "product"
+      }
+    },
+    {
+      "exchange": "mx1.efwd.spaceship.net",
+      "preference": 0,
+      "name": "@",
+      "type": "MX",
+      "ttl": 1200,
+      "group": {
+        "type": "product"
+      }
+    },
+    {
+      "value": "v=spf1 include:spf.efwd.spaceship.net ~all",
+      "name": "@",
+      "type": "TXT",
+      "ttl": 1200,
+      "group": {
+        "type": "product"
+      }
+    },
+    {
+      "cname": "project-omnibus.pages.dev",
+      "name": "@",
+      "type": "CNAME",
+      "ttl": 3600,
+      "group": {
+        "type": "custom"
+      }
+    },
+    {
+      "value": "bitmedia-site-verification=b15e3c61825f18eb2f91ce30253a532e",
+      "name": "@",
+      "type": "TXT",
+      "ttl": 3600,
+      "group": {
+        "type": "custom"
+      }
+    },
+    {
+      "cname": "project-omnibus.pages.dev",
+      "name": "now",
+      "type": "CNAME",
+      "ttl": 3600,
+      "group": {
+        "type": "custom"
+      }
+    },
+    {
+      "cname": "project-omnibus.pages.dev",
+      "name": "portfolio",
+      "type": "CNAME",
+      "ttl": 3600,
+      "group": {
+        "type": "custom"
+      }
+    },
+    {
+      "cname": "project-omnibus.pages.dev",
+      "name": "www",
+      "type": "CNAME",
+      "ttl": 3600,
+      "group": {
+        "type": "custom"
+      }
+    }
+  ],
+  "total": 8
+}

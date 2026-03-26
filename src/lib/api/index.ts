@@ -123,6 +123,7 @@ export interface DevToArticle {
   title: string;
   description: string;
   readable_publish_date: string;
+  published_at: string;
   url: string;
   tag_list: string[];
   positive_reactions_count: number;

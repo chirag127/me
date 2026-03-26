@@ -21,6 +21,17 @@ export type QueryIntent =
 
 export type PersonalityMode = 'professional' | 'casual' | 'witty' | 'technical';
 
+export interface ModelInfo {
+  id: string;
+  name: string;
+  params: string;
+  bestFor: string;
+  speed: 'fast' | 'medium' | 'slow';
+  reasoning: 'low' | 'medium' | 'high';
+  isFree: boolean;
+  paramSize?: number; // Numeric value for sorting (in billions)
+}
+
 export type ModelTier = 'fast' | 'reasoning' | 'agent';
 
 // ─── Chat Messages ───────────────────────────────────────────────────

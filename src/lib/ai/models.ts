@@ -1,30 +1,18 @@
 /**
- * Model Catalog — 6 free Puter.js models
+ * Model Catalog — Puter.js models (Dynamic + Fallback)
  * Used by the dropdown selector and the agent's failover chain.
  */
 
-import type { ModelTier, QueryIntent } from './types';
+import type { ModelTier, QueryIntent, ModelInfo } from './types';
 
-export type { ModelTier } from './types';
+export type { ModelTier, ModelInfo } from './types';
 
-export type AIModel =
-  | 'arcee-ai/trinity-large-preview:free'
-  | 'liquid/lfm-2.5-1.2b-instruct:free'
-  | 'liquid/lfm-2.5-1.2b-thinking:free'
-  | 'google/gemma-3n-e2b-it:free'
-  | 'cognitivecomputations/dolphin-mistral-24b-venice-edition:free'
-  | 'qwen/qwen3-4b:free';
+// Declare puter global for TypeScript
+declare const puter: any;
 
-export interface ModelInfo {
-  id: AIModel;
-  name: string;
-  params: string;
-  bestFor: string;
-  speed: 'fast' | 'medium' | 'slow';
-  reasoning: 'low' | 'medium' | 'high';
-}
+export type AIModel = string;
 
-// ─── Full catalog for the dropdown ───────────────────────────────────
+// ─── Initial Fallback Catalog ────────────────────────────────────────
 export const MODEL_CATALOG: ModelInfo[] = [
   {
     id: 'arcee-ai/trinity-large-preview:free',
@@ -33,6 +21,8 @@ export const MODEL_CATALOG: ModelInfo[] = [
     bestFor: 'Creative writing, tool use, agentic coding',
     speed: 'slow',
     reasoning: 'high',
+    isFree: true,
+    paramSize: 400,
   },
   {
     id: 'liquid/lfm-2.5-1.2b-instruct:free',
@@ -41,6 +31,8 @@ export const MODEL_CATALOG: ModelInfo[] = [
     bestFor: 'Instruction following, RAG, data extraction',
     speed: 'fast',
     reasoning: 'medium',
+    isFree: true,
+    paramSize: 1.2,
   },
   {
     id: 'liquid/lfm-2.5-1.2b-thinking:free',
@@ -49,6 +41,8 @@ export const MODEL_CATALOG: ModelInfo[] = [
     bestFor: 'Chain-of-thought reasoning',
     speed: 'medium',
     reasoning: 'high',
+    isFree: true,
+    paramSize: 1.2,
   },
   {
     id: 'google/gemma-3n-e2b-it:free',
@@ -57,6 +51,8 @@ export const MODEL_CATALOG: ModelInfo[] = [
     bestFor: 'General instruction following, fast responses',
     speed: 'fast',
     reasoning: 'low',
+    isFree: true,
+    paramSize: 2,
   },
   {
     id: 'cognitivecomputations/dolphin-mistral-24b-venice-edition:free',
@@ -65,6 +61,8 @@ export const MODEL_CATALOG: ModelInfo[] = [
     bestFor: 'Uncensored, creative tasks',
     speed: 'slow',
     reasoning: 'high',
+    isFree: true,
+    paramSize: 24,
   },
   {
     id: 'qwen/qwen3-4b:free',
@@ -73,8 +71,69 @@ export const MODEL_CATALOG: ModelInfo[] = [
     bestFor: 'General chat, multilingual, balanced',
     speed: 'fast',
     reasoning: 'medium',
+    isFree: true,
+    paramSize: 4,
   },
 ];
+
+/**
+ * Parse parameter size from string (e.g., "400B", "2.5B", "7B")
+ * returns value in Billions.
+ */
+function parseParamSize(str: string): number {
+  const match = str.match(/(\d+(\.\d+)?)\s*[Bb]/);
+  if (!match) return 0;
+  return parseFloat(match[1]);
+}
+
+/**
+ * Fetch latest models from Puter.js API
+ */
+export async function fetchAvailableModels(): Promise<ModelInfo[]> {
+  if (typeof puter === 'undefined') return MODEL_CATALOG;
+
+  try {
+    const rawModels = await puter.ai.listModels();
+    
+    const dynamicModels: ModelInfo[] = rawModels.map((m: any) => {
+      const isFree = m.id.includes(':free') || (m.cost?.input === 0 && m.cost?.output === 0);
+      
+      // Try to find in our hardcoded catalog for better meta
+      const existing = MODEL_CATALOG.find(ext => ext.id === m.id);
+      if (existing) return { ...existing, isFree };
+
+      // Infer params from name or ID
+      const inferredParams = m.name?.includes('B') ? m.name.match(/\d+(\.\d+)?[Bb]/)?.[0] || 'Unknown' : 'Unknown';
+      const paramSize = parseParamSize(inferredParams || m.id);
+
+      return {
+        id: m.id,
+        name: m.name || m.id,
+        params: inferredParams,
+        bestFor: isFree ? 'Free Access' : 'Premium Tasks',
+        speed: 'medium',
+        reasoning: 'medium',
+        isFree,
+        paramSize,
+      };
+    });
+
+    // Waterfall Sorting:
+    // 1. Paid models first
+    // 2. Free models at the bottom, sorted by paramSize (Largest last)
+    return dynamicModels.sort((a, b) => {
+      if (a.isFree && !b.isFree) return 1;
+      if (!a.isFree && b.isFree) return -1;
+      if (a.isFree && b.isFree) {
+        return (a.paramSize || 0) - (b.paramSize || 0);
+      }
+      return a.name.localeCompare(b.name);
+    });
+  } catch (err) {
+    console.warn('[Models] Failed to fetch dynamic models, using fallback:', err);
+    return MODEL_CATALOG;
+  }
+}
 
 // ─── Tiered failover chains ──────────────────────────────────────────
 const TIER_CHAINS: Record<ModelTier, AIModel[]> = {
@@ -96,19 +155,9 @@ const TIER_CHAINS: Record<ModelTier, AIModel[]> = {
   ],
 };
 
-// All models as final fallback
-const ALL_MODELS: AIModel[] = MODEL_CATALOG.map((m) => m.id);
-
-// ─── Public API ──────────────────────────────────────────────────────
-
 /** Get the failover chain for a given tier */
 export function getModelChain(tier: ModelTier): AIModel[] {
-  return TIER_CHAINS[tier] || ALL_MODELS;
-}
-
-/** Get all model IDs for the dropdown */
-export function getAllModelIds(): AIModel[] {
-  return ALL_MODELS;
+  return TIER_CHAINS[tier] || MODEL_CATALOG.map(m => m.id);
 }
 
 /** Determine tier from intent */
@@ -134,3 +183,4 @@ export function selectTier(
   if (complexity === 'medium') return 'reasoning';
   return 'fast';
 }
+

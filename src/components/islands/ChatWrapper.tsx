@@ -20,8 +20,8 @@ import React, {
   useState,
 } from 'react';
 import { executeAgentStream } from '../../lib/ai/agent';
-import { MODEL_CATALOG } from '../../lib/ai/models';
-import type { ChatMessage, PersonalityMode } from '../../lib/ai/types';
+import { MODEL_CATALOG, fetchAvailableModels } from '../../lib/ai/models';
+import type { ChatMessage, PersonalityMode, ModelInfo } from '../../lib/ai/types';
 import { useAIChatStore } from '../../store/useAIChatStore';
 import { useAuthStore } from '../../lib/authStore';
 
@@ -163,7 +163,7 @@ function Dropdown({
   width = 'w-44',
 }: {
   label: string;
-  options: { value: string; label: string; sub?: string }[];
+  options: { value: string; label: string; sub?: string; isFree?: boolean }[];
   value: string;
   onChange: (v: string) => void;
   width?: string;
@@ -214,29 +214,48 @@ function Dropdown({
           <div className="p-2 text-[10px] text-white/40 uppercase tracking-wider sticky top-0 bg-[#1a1a2e]">
             {label}
           </div>
-          {options.map((opt) => (
-            <button
-              key={opt.value}
-              onClick={() => {
-                onChange(opt.value);
-                setOpen(false);
-              }}
-              className={`w-full px-3 py-2 text-left hover:bg-white/5 transition-colors ${
-                value === opt.value ? 'bg-amber-500/10' : ''
-              }`}
-            >
-              <div
-                className={`text-sm ${value === opt.value ? 'text-amber-400' : 'text-white/80'}`}
-              >
-                {opt.label}
-              </div>
-              {opt.sub && (
-                <div className="text-[10px] text-white/40 mt-0.5">
-                  {opt.sub}
-                </div>
-              )}
-            </button>
-          ))}
+          {options.map((opt, idx) => {
+            const prev = idx > 0 ? options[idx - 1] : null;
+            const showDivider = opt.isFree && prev && !prev.isFree;
+            return (
+              <React.Fragment key={opt.value}>
+                {showDivider && (
+                  <div className="px-3 py-1.5 text-[9px] text-emerald-400/60 uppercase tracking-widest border-t border-white/5 mt-1 pt-2 flex items-center gap-2">
+                    <span className="h-px flex-1 bg-white/5" />
+                    Free Models
+                    <span className="h-px flex-1 bg-white/5" />
+                  </div>
+                )}
+                <button
+                  onClick={() => {
+                    onChange(opt.value);
+                    setOpen(false);
+                  }}
+                  className={`w-full px-3 py-2 text-left hover:bg-white/5 transition-colors group/opt ${
+                    value === opt.value ? 'bg-amber-500/10' : ''
+                  }`}
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <div
+                      className={`text-sm flex items-center gap-1.5 ${value === opt.value ? 'text-amber-400' : 'text-white/80'}`}
+                    >
+                      {opt.label}
+                    </div>
+                    {opt.isFree && (
+                      <span className="text-[9px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-1.5 py-0.5 rounded uppercase">
+                        Free
+                      </span>
+                    )}
+                  </div>
+                  {opt.sub && (
+                    <div className="text-[10px] text-white/40 mt-0.5">
+                      {opt.sub}
+                    </div>
+                  )}
+                </button>
+              </React.Fragment>
+            );
+          })}
         </div>
       )}
     </div>
@@ -370,16 +389,36 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
   const [signInStep, setSignInStep] = useState<
     'none' | 'firebase' | 'puter' | 'done'
   >('none');
+  const [availableModels, setAvailableModels] =
+    useState<ModelInfo[]>(MODEL_CATALOG);
+  const [modelsLoading, setModelsLoading] = useState(true);
   const endRef = useRef<HTMLDivElement>(null);
   const mountedRef = useRef(true);
 
   useEffect(() => {
     mountedRef.current = true;
     initialize();
+
+    // Fetch models on mount
+    fetchAvailableModels().then((models) => {
+      if (!mountedRef.current) return;
+      setAvailableModels(models);
+
+      // Auto-select largest free model if none selected
+      const freeModels = models.filter((m) => m.isFree);
+      if (freeModels.length > 0 && !selectedModel) {
+        const largest = freeModels.reduce((a, b) =>
+          (a.paramSize || 0) >= (b.paramSize || 0) ? a : b,
+        );
+        setSelectedModel(largest.id);
+      }
+      setModelsLoading(false);
+    });
+
     return () => {
       mountedRef.current = false;
     };
-  }, [initialize]);
+  }, [initialize, selectedModel]);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -411,10 +450,11 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
       label: 'Auto (Smart)',
       sub: 'Picks best model for your query',
     },
-    ...MODEL_CATALOG.map((m) => ({
+    ...availableModels.map((m) => ({
       value: m.id,
-      label: m.name,
-      sub: `${m.params} — ${m.bestFor}`,
+      label: m.isFree ? `🆓 ${m.name}` : m.name,
+      sub: m.isFree ? `FREE · ${m.params} — ${m.bestFor}` : `${m.params} — ${m.bestFor}`,
+      isFree: m.isFree,
     })),
   ];
 
@@ -662,18 +702,21 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
               </button>
               <div>
                 <h2 className="text-sm font-bold text-white">Chirag AI</h2>
-                <span className="text-[10px] text-white/40 uppercase tracking-widest">
-                  Assistant
+                <span className="text-[10px] text-white/40 uppercase tracking-widest truncate max-w-[120px]">
+                  {selectedModel
+                    ? availableModels.find((m) => m.id === selectedModel)?.name ||
+                      'AI Agent'
+                    : 'Auto-Select'}
                 </span>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <Dropdown
-                label="Model"
+                label={modelsLoading ? "Loading..." : "Model"}
                 options={modelOptions}
                 value={selectedModel}
                 onChange={setSelectedModel}
-                width="w-64"
+                width="w-80"
               />
               <button
                 onClick={onClose}
