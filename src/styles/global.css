@@ -1466,12 +1466,12 @@
 }
 
 /* Suppress default Puter.js banner and loading indicators */
-#puter-banner, 
-.puter-banner, 
-#puter-loading, 
+#puter-banner,
+.puter-banner,
+#puter-loading,
 .puter-loading,
-.puter-ui-loading-overlay { 
-  display: none !important; 
-  visibility: hidden !important; 
-  pointer-events: none !important; 
+.puter-ui-loading-overlay {
+  display: none;
+  visibility: hidden;
+  pointer-events: none;
 }

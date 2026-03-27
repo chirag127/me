@@ -4,8 +4,8 @@
  * Includes automatic failover if the primary model is busy/unavailable.
  */
 
-import type { QueryIntent } from './types';
 import { getModelChain } from './models';
+import type { QueryIntent } from './types';
 
 // Helper to get Puter AI
 function getPuter() {

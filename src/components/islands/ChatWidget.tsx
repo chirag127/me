@@ -63,6 +63,7 @@ export default function ChatWidget() {
     return (
       <div className="fixed bottom-6 left-6 z-40">
         <button
+          type="button"
           onClick={signInWithGoogle}
           className="h-14 w-14 rounded-full bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white shadow-lg shadow-indigo-500/30 hover:scale-110 transition-transform"
           title="Sign in to chat"
@@ -100,6 +101,7 @@ export default function ChatWidget() {
               </div>
             </div>
             <button
+              type="button"
               onClick={() => setIsOpen(false)}
               className="p-1.5 rounded-lg text-white/40 hover:text-white hover:bg-white/10 transition-all"
             >
@@ -165,6 +167,7 @@ export default function ChatWidget() {
         </div>
       ) : (
         <button
+          type="button"
           onClick={() => setIsOpen(true)}
           className="h-14 w-14 rounded-full bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white shadow-lg shadow-indigo-500/30 hover:scale-110 transition-transform"
         >

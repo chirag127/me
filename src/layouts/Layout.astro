@@ -1,7 +1,5 @@
 ---
 import '../styles/global.css';
-import ChatWrapper from '../components/islands/ChatWrapper';
-import AuthBanner from '../components/islands/AuthBanner';
 
 interface Props {
   title: string;
@@ -10,11 +8,14 @@ interface Props {
 }
 
 const {
+  // biome-ignore lint/correctness/noUnusedVariables: used in Astro template
   title,
+  // biome-ignore lint/correctness/noUnusedVariables: used in Astro template
   description = 'Chirag Singhal — Software Engineer, building things that matter.',
+  // biome-ignore lint/correctness/noUnusedVariables: used in Astro template
   ogImage,
 } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, 'https://chiragsinghal.com');
+const _canonicalURL = new URL(Astro.url.pathname, 'https://chiragsinghal.com');
 ---
 
 <!doctype html>

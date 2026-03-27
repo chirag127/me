@@ -138,7 +138,6 @@ export async function clearRecaptcha(): Promise<void> {
 export async function signInWithGoogle(): Promise<User | null> {
   const {
     GoogleAuthProvider,
-    getRedirectResult,
     signInWithRedirect,
     signInWithPopup,
     browserLocalPersistence,

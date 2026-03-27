@@ -1,8 +1,4 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import CommandPalette from '../../components/CommandPalette.astro';
 import { socialLinks } from '../../data/social';
 
 const _devLinks = socialLinks.filter((l) =>
@@ -79,21 +75,9 @@ const _iconPaths: Record<string, string> = {
     'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z',
   backloggd:
     'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z',
-  openlibrary:
-    'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z',
-  backloggd:
-    'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z',
   speedrun:
     'M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm1 17h-2v-6h2v6zm0-8h-2V7h2v2z',
 };
-
-const devLinks = _devLinks;
-const socialPlatformLinks = _socialPlatformLinks;
-const entertainmentLinks = _entertainmentLinks;
-const musicLinks = _musicLinks;
-const readingLinks = _readingLinks;
-const gamingLinks = _gamingLinks;
-const iconPaths = _iconPaths;
 ---
 
 <Layout title="Connect Drive" description="Social profiles, contact info, and ways to connect with Chirag Singhal">

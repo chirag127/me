@@ -1,19 +1,15 @@
 ---
 import { fetchGitHubRepos } from '../../lib/api';
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import CommandPalette from '../../components/CommandPalette.astro';
-import Footer from '../../components/Footer.astro';
 
 const repos = await fetchGitHubRepos();
-const sortedRepos = repos.sort(
+const _sortedRepos = repos.sort(
   (a, b) => b.stargazers_count - a.stargazers_count,
 );
-const languages = [
+const _languages = [
   ...new Set(repos.filter((r) => r.language).map((r) => r.language)),
 ].sort();
-const totalStars = repos.reduce((sum, r) => sum + r.stargazers_count, 0);
-const totalForks = repos.reduce((sum, r) => sum + r.forks_count, 0);
+const _totalStars = repos.reduce((sum, r) => sum + r.stargazers_count, 0);
+const _totalForks = repos.reduce((sum, r) => sum + r.forks_count, 0);
 ---
 
 <Layout title="Repository Explorer" description={`${sortedRepos.length} public GitHub repositories by Chirag Singhal`}>

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useAuthStore } from '../../lib/authStore';
 
 export default function AuthBanner() {
-  const { isFullyConnected, initialize, user, puterUser } = useAuthStore();
+  const { initialize } = useAuthStore();
 
   useEffect(() => {
     initialize();

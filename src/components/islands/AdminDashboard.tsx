@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useAuthStore } from '../../lib/authStore';
 import {
   type ChatDocument,
   getAllMediaOverview,
@@ -12,11 +11,8 @@ import {
   type UnknownQueryDocument,
   type VisitorDocument,
 } from '../../lib/ai/store';
-import {
-  isAdminEmail,
-  initRecaptchaVerifier,
-  clearRecaptcha,
-} from '../../lib/firebase';
+import { useAuthStore } from '../../lib/authStore';
+import { isAdminEmail } from '../../lib/firebase';
 
 type Tab = 'overview' | 'chats' | 'queries' | 'unknown' | 'visitors' | 'media';
 
@@ -147,7 +143,9 @@ export default function AdminDashboard() {
     })();
 
     return () => {
-      unsubs.forEach((u) => u());
+      unsubs.forEach((u) => {
+        u();
+      });
     };
   }, [isAuthorized]);
 
@@ -227,6 +225,7 @@ export default function AdminDashboard() {
             <div className="space-y-3">
               {!user ? (
                 <button
+                  type="button"
                   onClick={handleSignIn}
                   className="w-full py-4 px-6 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all shadow-lg shadow-indigo-500/20 flex items-center justify-center gap-3 active:scale-[0.98]"
                 >
@@ -255,6 +254,7 @@ export default function AdminDashboard() {
 
               {!hasPuter ? (
                 <button
+                  type="button"
                   onClick={handlePuterSignIn}
                   className="w-full py-4 px-6 rounded-2xl bg-cyan-600 hover:bg-cyan-500 text-white font-semibold transition-all shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-3 active:scale-[0.98]"
                 >
@@ -281,6 +281,7 @@ export default function AdminDashboard() {
 
               {isFullyConnected && ( // Changed condition to show sign out when fully connected but unauthorized
                 <button
+                  type="button"
                   onClick={handleSignOut}
                   className="mt-6 p-2 text-[10px] text-white/20 hover:text-white/40 transition-colors uppercase tracking-[0.2em] font-bold border-t border-white/5 w-full pt-4"
                 >
@@ -359,6 +360,7 @@ export default function AdminDashboard() {
             <span className="text-xs text-emerald-400 font-medium">Live</span>
           </div>
           <button
+            type="button"
             onClick={handleSignOut}
             className="px-3 py-1.5 text-sm text-white/40 hover:text-white/70 rounded-lg hover:bg-white/5 transition-all"
           >
@@ -371,6 +373,7 @@ export default function AdminDashboard() {
       <div className="flex gap-1 p-1 rounded-xl bg-white/[0.02] border border-white/[0.06]">
         {tabs.map((tab) => (
           <button
+            type="button"
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
@@ -557,6 +560,7 @@ export default function AdminDashboard() {
               className="flex-1 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-violet-500/40"
             />
             <button
+              type="button"
               onClick={() => exportCSV(filteredChats, 'chats_export.csv')}
               className="px-4 py-2 rounded-xl bg-violet-500/20 text-violet-400 text-sm font-medium hover:bg-violet-500/30 transition-colors"
             >
@@ -574,6 +578,7 @@ export default function AdminDashboard() {
               className="rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden"
             >
               <button
+                type="button"
                 onClick={() =>
                   setExpandedChat(expandedChat === chat.id! ? null : chat.id!)
                 }
@@ -680,6 +685,7 @@ export default function AdminDashboard() {
               className="flex-1 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-500/40"
             />
             <button
+              type="button"
               onClick={() => exportCSV(filteredQueries, 'queries_export.csv')}
               className="px-4 py-2 rounded-xl bg-amber-500/20 text-amber-400 text-sm font-medium hover:bg-amber-500/30 transition-colors"
             >
@@ -819,6 +825,7 @@ export default function AdminDashboard() {
                 </div>
                 {!q.resolved && (
                   <button
+                    type="button"
                     onClick={() => handleResolve(q.id!)}
                     className="shrink-0 px-3 py-1.5 text-xs font-medium rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors"
                   >

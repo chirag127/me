@@ -41,7 +41,8 @@ function parseRSS(xml: string): BlogPost[] {
   const itemRegex = /<item>([\s\S]*?)<\/item>/g;
   let match: RegExpExecArray | null;
 
-  while ((match = itemRegex.exec(xml)) !== null) {
+  match = itemRegex.exec(xml);
+  while (match !== null) {
     const block = match[1];
     const title = extractTag(block, 'title');
     const link = extractTag(block, 'link');
@@ -53,6 +54,7 @@ function parseRSS(xml: string): BlogPost[] {
     if (title && link) {
       items.push({ title, link, pubDate, description });
     }
+    match = itemRegex.exec(xml);
   }
   return items;
 }

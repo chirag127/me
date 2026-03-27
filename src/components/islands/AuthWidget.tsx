@@ -62,6 +62,7 @@ export default function AuthWidget() {
     return (
       <div className="relative">
         <button
+          type="button"
           onClick={() => setShowDropdown(!showDropdown)}
           className={`flex items-center gap-2 p-1 pr-3 rounded-xl border transition-all active:scale-95 ${isBoth ? 'bg-indigo-500/10 border-indigo-500/30 shadow-[0_0_15px_rgba(99,102,241,0.1)]' : 'bg-white/5 border-white/10'}`}
         >
@@ -127,6 +128,7 @@ export default function AuthWidget() {
               <div className="p-1 space-y-1">
                 {!user && (
                   <button
+                    type="button"
                     onClick={handleGoogleSignIn}
                     className="flex items-center gap-3 w-full px-3 py-2 text-xs text-white/70 hover:bg-white/5 rounded-lg transition-all group"
                   >
@@ -138,6 +140,7 @@ export default function AuthWidget() {
                 )}
                 {!puterUser && (
                   <button
+                    type="button"
                     onClick={handlePuterSignIn}
                     className="flex items-center justify-between w-full px-3 py-2.5 text-xs text-cyan-400 bg-cyan-400/5 hover:bg-cyan-400/10 rounded-xl transition-all group border border-cyan-400/20 mb-1"
                   >
@@ -147,11 +150,23 @@ export default function AuthWidget() {
                       </div>
                       <div className="flex flex-col items-start">
                         <span className="font-bold">Connect Puter.js</span>
-                        <span className="text-[9px] text-cyan-400/50">Required for AI Models</span>
+                        <span className="text-[9px] text-cyan-400/50">
+                          Required for AI Models
+                        </span>
                       </div>
                     </div>
-                    <svg className="h-4 w-4 opacity-50 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                    <svg
+                      className="h-4 w-4 opacity-50 group-hover:translate-x-0.5 transition-transform"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M9 5l7 7-7 7"
+                      />
                     </svg>
                   </button>
                 )}
@@ -167,6 +182,7 @@ export default function AuthWidget() {
 
                 <div className="h-px bg-white/5 my-2" />
                 <button
+                  type="button"
                   onClick={handleSignOut}
                   className="flex items-center gap-3 w-full px-3 py-2 text-xs text-red-400 hover:bg-red-400/10 rounded-lg transition-all group"
                 >
@@ -196,6 +212,7 @@ export default function AuthWidget() {
   return (
     <div className="flex items-center gap-2">
       <button
+        type="button"
         onClick={handleGoogleSignIn}
         disabled={!!signingIn}
         className="group relative flex items-center gap-2 px-3 py-2 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-400 transition-all border border-indigo-500/20 disabled:opacity-50 active:scale-95"
@@ -205,6 +222,7 @@ export default function AuthWidget() {
         </span>
       </button>
       <button
+        type="button"
         onClick={handlePuterSignIn}
         disabled={!!signingIn}
         className="group relative flex items-center gap-2 px-3 py-2 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 transition-all border border-cyan-500/20 disabled:opacity-50 active:scale-95"

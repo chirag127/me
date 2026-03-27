@@ -20,10 +20,14 @@ import React, {
   useState,
 } from 'react';
 import { executeAgentStream } from '../../lib/ai/agent';
-import { MODEL_CATALOG, fetchAvailableModels } from '../../lib/ai/models';
-import type { ChatMessage, PersonalityMode, ModelInfo } from '../../lib/ai/types';
-import { useAIChatStore } from '../../store/useAIChatStore';
+import { fetchAvailableModels, MODEL_CATALOG } from '../../lib/ai/models';
+import type {
+  ChatMessage,
+  ModelInfo,
+  PersonalityMode,
+} from '../../lib/ai/types';
 import { useAuthStore } from '../../lib/authStore';
+import { useAIChatStore } from '../../store/useAIChatStore';
 
 // ─── Draggable Button ──────────────────────────────────────────────
 function DraggableButton({ onOpen }: { onOpen: () => void }) {
@@ -187,6 +191,7 @@ function Dropdown({
   return (
     <div className="relative" ref={ref}>
       <button
+        type="button"
         onClick={() => setOpen(!open)}
         className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs text-white/60 hover:text-white/80 hover:bg-white/5 border border-white/10 transition-all"
       >
@@ -227,6 +232,7 @@ function Dropdown({
                   </div>
                 )}
                 <button
+                  type="button"
                   onClick={() => {
                     onChange(opt.value);
                     setOpen(false);
@@ -386,7 +392,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
   const [showHistory, setShowHistory] = useState(false);
   const [chatHistory, setChatHistory] = useState<ChatSession[]>([]);
   const [signingIn, setSigningIn] = useState(false);
-  const [signInStep, setSignInStep] = useState<
+  const [_signInStep, setSignInStep] = useState<
     'none' | 'firebase' | 'puter' | 'done'
   >('none');
   const [availableModels, setAvailableModels] =
@@ -422,7 +428,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+  }, []);
 
   // Load chat history when user signs in
   useEffect(() => {
@@ -453,7 +459,9 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
     ...availableModels.map((m) => ({
       value: m.id,
       label: m.isFree ? `🆓 ${m.name}` : m.name,
-      sub: m.isFree ? `FREE · ${m.params} — ${m.bestFor}` : `${m.params} — ${m.bestFor}`,
+      sub: m.isFree
+        ? `FREE · ${m.params} — ${m.bestFor}`
+        : `${m.params} — ${m.bestFor}`,
       isFree: m.isFree,
     })),
   ];
@@ -624,6 +632,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
                 History
               </span>
               <button
+                type="button"
                 onClick={() => setShowHistory(false)}
                 className="p-1 rounded text-white/40 hover:text-white"
               >
@@ -654,6 +663,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
               ) : (
                 chatHistory.map((s) => (
                   <button
+                    type="button"
                     key={s.id}
                     onClick={() => {
                       setMessages(s.messages);
@@ -669,6 +679,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
             {firebaseUser && (
               <div className="p-3 border-t border-white/10">
                 <button
+                  type="button"
                   onClick={() => signOut()}
                   className="w-full px-3 py-2 rounded-lg text-xs text-red-400 hover:bg-red-500/10 transition-colors"
                 >
@@ -683,6 +694,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
           <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-gradient-to-r from-amber-500/10 to-orange-500/5">
             <div className="flex items-center gap-3">
               <button
+                type="button"
                 onClick={() => setShowHistory(!showHistory)}
                 className="p-1.5 rounded-lg text-white/40 hover:text-white"
               >
@@ -704,21 +716,22 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
                 <h2 className="text-sm font-bold text-white">Chirag AI</h2>
                 <span className="text-[10px] text-white/40 uppercase tracking-widest truncate max-w-[120px]">
                   {selectedModel
-                    ? availableModels.find((m) => m.id === selectedModel)?.name ||
-                      'AI Agent'
+                    ? availableModels.find((m) => m.id === selectedModel)
+                        ?.name || 'AI Agent'
                     : 'Auto-Select'}
                 </span>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <Dropdown
-                label={modelsLoading ? "Loading..." : "Model"}
+                label={modelsLoading ? 'Loading...' : 'Model'}
                 options={modelOptions}
                 value={selectedModel}
                 onChange={setSelectedModel}
                 width="w-80"
               />
               <button
+                type="button"
                 onClick={onClose}
                 className="p-1.5 rounded-lg text-white/40 hover:text-white"
               >
@@ -748,6 +761,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-lg">
                   {SUGGESTED.map((s) => (
                     <button
+                      type="button"
                       key={s}
                       onClick={() => handleSend(s)}
                       className="p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.07] text-xs text-white/60 hover:text-white text-left transition-all"
@@ -806,22 +820,33 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
               <div className="mb-4 p-4 rounded-2xl bg-gradient-to-br from-amber-500/10 to-orange-500/5 border border-amber-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-[0_0_20px_rgba(245,158,11,0.05)]">
                 <div className="flex flex-col items-start gap-1">
                   <div className="text-xs font-bold text-white/90">
-                    {!firebaseUser && !puterUser ? 'Dual Identity Required' : !firebaseUser ? 'Google Login Required' : 'Puter.js Connection Required'}
+                    {!firebaseUser && !puterUser
+                      ? 'Dual Identity Required'
+                      : !firebaseUser
+                        ? 'Google Login Required'
+                        : 'Puter.js Connection Required'}
                   </div>
                   <div className="text-[10px] text-white/50 leading-relaxed max-w-[300px]">
-                    {!firebaseUser && !puterUser 
-                      ? 'Connect both Google (storage) and Puter.js (AI) for the full premium experience.' 
-                      : !firebaseUser 
-                        ? 'Sign in with Google to persist your chat history across devices.' 
+                    {!firebaseUser && !puterUser
+                      ? 'Connect both Google (storage) and Puter.js (AI) for the full premium experience.'
+                      : !firebaseUser
+                        ? 'Sign in with Google to persist your chat history across devices.'
                         : 'Connect Puter.js to access advanced AI models and processing power.'}
                   </div>
                 </div>
                 <button
+                  type="button"
                   onClick={handleSignIn}
                   disabled={signingIn}
                   className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 text-black text-[11px] font-bold uppercase tracking-wider disabled:opacity-50 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-amber-500/20"
                 >
-                  {signingIn ? `Connecting...` : !firebaseUser && !puterUser ? 'Connect Both' : !firebaseUser ? 'Login Google' : 'Connect Puter.js'}
+                  {signingIn
+                    ? `Connecting...`
+                    : !firebaseUser && !puterUser
+                      ? 'Connect Both'
+                      : !firebaseUser
+                        ? 'Login Google'
+                        : 'Connect Puter.js'}
                 </button>
               </div>
             )}

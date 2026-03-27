@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 import {
+  signOut as firebaseSignOut,
   getAuthInstance,
   getOnAuthStateChanged,
   handleGoogleRedirect,
-  signOut as firebaseSignOut,
   isAdminEmail,
   signInWithGoogle,
   type User,

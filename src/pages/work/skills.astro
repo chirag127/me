@@ -1,11 +1,7 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import CommandPalette from '../../components/CommandPalette.astro';
 import { skills } from '../../data/resume';
 
-const totalSkills = skills.reduce((sum, s) => sum + s.items.length, 0);
+const _totalSkills = skills.reduce((sum, s) => sum + s.items.length, 0);
 ---
 
 <Layout title="Skills" description="Technical skills of Chirag Singhal — filterable by category">

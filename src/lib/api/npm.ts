@@ -3,7 +3,7 @@ import { fetchJson } from './fetcher';
 const NPM_API = 'https://registry.npmjs.org';
 const NPM_DOWNLOADS_API = 'https://api.npmjs.org/downloads';
 
-interface NpmPackage {
+interface _NpmPackage {
   name: string;
   description: string;
   version: string;

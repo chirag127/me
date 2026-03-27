@@ -3,9 +3,9 @@
  * Used by the dropdown selector and the agent's failover chain.
  */
 
-import type { ModelTier, QueryIntent, ModelInfo } from './types';
+import type { ModelInfo, ModelTier, QueryIntent } from './types';
 
-export type { ModelTier, ModelInfo } from './types';
+export type { ModelInfo, ModelTier } from './types';
 
 // Declare puter global for TypeScript
 declare const puter: any;
@@ -94,16 +94,19 @@ export async function fetchAvailableModels(): Promise<ModelInfo[]> {
 
   try {
     const rawModels = await puter.ai.listModels();
-    
+
     const dynamicModels: ModelInfo[] = rawModels.map((m: any) => {
-      const isFree = m.id.includes(':free') || (m.cost?.input === 0 && m.cost?.output === 0);
-      
+      const isFree =
+        m.id.includes(':free') || (m.cost?.input === 0 && m.cost?.output === 0);
+
       // Try to find in our hardcoded catalog for better meta
-      const existing = MODEL_CATALOG.find(ext => ext.id === m.id);
+      const existing = MODEL_CATALOG.find((ext) => ext.id === m.id);
       if (existing) return { ...existing, isFree };
 
       // Infer params from name or ID
-      const inferredParams = m.name?.includes('B') ? m.name.match(/\d+(\.\d+)?[Bb]/)?.[0] || 'Unknown' : 'Unknown';
+      const inferredParams = m.name?.includes('B')
+        ? m.name.match(/\d+(\.\d+)?[Bb]/)?.[0] || 'Unknown'
+        : 'Unknown';
       const paramSize = parseParamSize(inferredParams || m.id);
 
       return {
@@ -130,7 +133,10 @@ export async function fetchAvailableModels(): Promise<ModelInfo[]> {
       return a.name.localeCompare(b.name);
     });
   } catch (err) {
-    console.warn('[Models] Failed to fetch dynamic models, using fallback:', err);
+    console.warn(
+      '[Models] Failed to fetch dynamic models, using fallback:',
+      err,
+    );
     return MODEL_CATALOG;
   }
 }
@@ -157,7 +163,7 @@ const TIER_CHAINS: Record<ModelTier, AIModel[]> = {
 
 /** Get the failover chain for a given tier */
 export function getModelChain(tier: ModelTier): AIModel[] {
-  return TIER_CHAINS[tier] || MODEL_CATALOG.map(m => m.id);
+  return TIER_CHAINS[tier] || MODEL_CATALOG.map((m) => m.id);
 }
 
 /** Determine tier from intent */
@@ -183,4 +189,3 @@ export function selectTier(
   if (complexity === 'medium') return 'reasoning';
   return 'fast';
 }
-

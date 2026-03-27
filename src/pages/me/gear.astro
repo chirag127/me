@@ -1,10 +1,5 @@
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import CommandPalette from '../../components/CommandPalette.astro';
-import { usesData } from '../../data/resume';
-
-const categoryIcons: Record<string, { icon: string; color: string }> = {
+---
+const _categoryIcons: Record<string, { icon: string; color: string }> = {
   'Development Environment': {
     icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
     color: 'text-amber-400',

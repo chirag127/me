@@ -22,6 +22,7 @@ export default function ThemeSwitcher() {
 
   return (
     <button
+      type="button"
       onClick={toggleTheme}
       className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-sm text-white/70 hover:text-white transition-all"
       aria-label="Toggle theme"

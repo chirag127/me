@@ -119,7 +119,11 @@ export default function JournalApp() {
           Your journal entries will be safely synced and securely linked to your
           email address in Firestore.
         </p>
-        <button onClick={signInWithGoogle} className="btn-primary">
+        <button
+          type="button"
+          onClick={signInWithGoogle}
+          className="btn-primary"
+        >
           Sign in with Google
         </button>
       </div>
@@ -142,6 +146,7 @@ export default function JournalApp() {
             {input.length} characters
           </span>
           <button
+            type="button"
             onClick={handleSave}
             disabled={!input.trim()}
             className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
@@ -213,6 +218,7 @@ export default function JournalApp() {
                     <span className="text-xs text-white/20">{timeStr}</span>
                   </div>
                   <button
+                    type="button"
                     onClick={() => handleDelete(entry.id)}
                     className="text-xs text-white/20 hover:text-red-400 transition-colors opacity-0 group-hover:opacity-100"
                   >
