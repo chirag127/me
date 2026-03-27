@@ -1,4 +1,8 @@
----
+---import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
 
@@ -14,9 +18,9 @@ try {
 }
 
 const manga = db.anime?.manga || db.manga || [];
-const _reading = manga.filter((m: any) => m.status === 'CURRENT');
-const _completed = manga.filter((m: any) => m.status === 'COMPLETED');
-const _planning = manga.filter((m: any) => m.status === 'PLANNING');
+const reading = manga.filter((m: any) => m.status === 'CURRENT');
+const completed = manga.filter((m: any) => m.status === 'COMPLETED');
+const planning = manga.filter((m: any) => m.status === 'PLANNING');
 
 function _scoreColor(score: number | null): string {
   if (!score) return 'var(--color-text-faint)';

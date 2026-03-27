@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import AuthBanner from '../components/islands/AuthBanner';
+import ChatWrapper from '../components/islands/ChatWrapper';
 
 interface Props {
   title: string;
@@ -15,7 +17,7 @@ const {
   // biome-ignore lint/correctness/noUnusedVariables: used in Astro template
   ogImage,
 } = Astro.props;
-const _canonicalURL = new URL(Astro.url.pathname, 'https://chiragsinghal.com');
+const canonicalURL = new URL(Astro.url.pathname, 'https://chiragsinghal.com');
 ---
 
 <!doctype html>

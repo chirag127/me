@@ -1,5 +1,11 @@
----
-const _highlightMetrics = [
+---import { experience } from '../../data/resume';
+import { summary } from '../../data/resume';
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+
+const highlightMetrics = [
   {
     label: 'Latency Reduction',
     value: '60%',

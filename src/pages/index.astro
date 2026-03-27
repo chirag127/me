@@ -1,5 +1,5 @@
 ---
-import { experience, honors, projects } from '../data/resume';
+import { experience, honors, projects, summary } from '../data/resume';
 import {
   fetchBlogPosts,
   fetchDevToArticles,
@@ -7,8 +7,13 @@ import {
   fetchGitHubUser,
   fetchLeetCodeStats,
 } from '../lib/api/index';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import CommandPalette from '../components/CommandPalette.astro';
+import HeroChatButton from '../components/islands/HeroChatButton';
+import Footer from '../components/Footer.astro';
 
-const [_githubUser, githubRepos, _leetcodeStats, devtoArticles, _blogPosts] =
+const [, githubRepos, leetcodeStats, devtoArticles] =
   await Promise.all([
     fetchGitHubUser(),
     fetchGitHubRepos(),
@@ -17,14 +22,13 @@ const [_githubUser, githubRepos, _leetcodeStats, devtoArticles, _blogPosts] =
     fetchBlogPosts(),
   ]);
 
-const _totalStars = githubRepos.reduce(
+const totalStars = githubRepos.reduce(
   (sum: number, r: any) => sum + (r.stargazers_count || 0),
   0,
 );
-const _recentArticles = devtoArticles.slice(0, 3);
-const _featuredProjects = projects.filter((p) => p.featured);
-const _activeRole = experience[0];
-const _activeHonors = honors.slice(0, 2);
+const recentArticles = devtoArticles.slice(0, 3);
+const featuredProjects = projects.filter((p) => p.featured);
+const activeRole = experience[0];
 ---
 
 <Layout title="Chirag Singhal — Software Engineer" description={summary.substring(0, 155) + '...'}>

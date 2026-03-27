@@ -1,4 +1,9 @@
----
+---import StatsCounter from '../../components/islands/StatsCounter';
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
 import { fetchSpeedRunUser } from '../../lib/api';
@@ -18,19 +23,19 @@ try {
 }
 
 const lichessStats = db.lichessStats || null;
-const _steamGames = db.steamGames || [];
-const _steamRecent = db.steamRecent || [];
+const steamGames = db.steamGames || [];
+const steamRecent = db.steamRecent || [];
 
 const speedrunUser = await fetchSpeedRunUser().catch(() => null);
 
 const totalGames = lichessStats?.totalGames || 0;
 const wins = lichessStats?.wins || 0;
-const _draws = lichessStats?.draws || 0;
-const _losses = lichessStats?.losses || 0;
-const _winRate = totalGames > 0 ? ((wins / totalGames) * 100).toFixed(1) : '0';
+const draws = lichessStats?.draws || 0;
+const losses = lichessStats?.losses || 0;
+const winRate = totalGames > 0 ? ((wins / totalGames) * 100).toFixed(1) : '0';
 
 // Chess ratings with colors
-const _ratings = [
+const ratings = [
   lichessStats?.ratings?.bullet
     ? {
         name: 'Bullet',
@@ -73,7 +78,7 @@ const _ratings = [
     : null,
 ].filter(Boolean);
 
-const _chessPlatforms = [
+const chessPlatforms = [
   {
     name: 'Lichess',
     handle: `@${CONFIG.user.lichess}`,

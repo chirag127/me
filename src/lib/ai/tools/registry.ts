@@ -8,7 +8,14 @@
  * - Category mapping for intent-based selection
  */
 
-import { codebaseContext, projectsContext, resumeContext } from '../knowledge';
+import {
+  codebaseContext,
+  contactContext,
+  educationContext,
+  gearsContext,
+  projectsContext,
+  resumeContext,
+} from '../knowledge';
 import { getMediaData } from '../store';
 import type { QueryIntent } from '../types';
 

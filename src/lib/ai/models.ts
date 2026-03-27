@@ -121,15 +121,20 @@ export async function fetchAvailableModels(): Promise<ModelInfo[]> {
       };
     });
 
-    // Waterfall Sorting:
-    // 1. Paid models first
-    // 2. Free models at the bottom, sorted by paramSize (Largest last)
+    // Sorting:
+    // 1. Free models first (Arcee AI Trinity Large Preview at very top)
+    // 2. Paid models below, sorted alphabetically
     return dynamicModels.sort((a, b) => {
-      if (a.isFree && !b.isFree) return 1;
-      if (!a.isFree && b.isFree) return -1;
+      // Arcee AI Trinity Large Preview free always first
+      if (a.id === 'arcee-ai/trinity-large-preview:free') return -1;
+      if (b.id === 'arcee-ai/trinity-large-preview:free') return 1;
+      // Other free models next, sorted by paramSize (largest first)
+      if (a.isFree && !b.isFree) return -1;
+      if (!a.isFree && b.isFree) return 1;
       if (a.isFree && b.isFree) {
-        return (a.paramSize || 0) - (b.paramSize || 0);
+        return (b.paramSize || 0) - (a.paramSize || 0);
       }
+      // Paid models sorted alphabetically
       return a.name.localeCompare(b.name);
     });
   } catch (err) {

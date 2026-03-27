@@ -1,4 +1,8 @@
----
+---import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+
 interface VideoRec {
   title: string;
   channel: string;
@@ -8,7 +12,7 @@ interface VideoRec {
   embedId: string | null;
 }
 
-const _featured: VideoRec[] = [
+const featured: VideoRec[] = [
   {
     title: '3Blue1Brown — Essence of Linear Algebra',
     channel: '3Blue1Brown',
@@ -43,7 +47,7 @@ const _featured: VideoRec[] = [
   },
 ];
 
-const _playlists = [
+const playlists = [
   {
     name: 'Tech Deep Dives',
     count: 42,
@@ -82,7 +86,7 @@ const _playlists = [
   },
 ];
 
-const _channels = [
+const channels = [
   { name: '3Blue1Brown', subs: '5.8M', category: 'Math', color: '#3b82f6' },
   { name: 'Kurzgesagt', subs: '22M', category: 'Science', color: '#10b981' },
   { name: 'Fireship', subs: '3.2M', category: 'Tech', color: '#f97316' },

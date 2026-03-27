@@ -1,4 +1,8 @@
----
+---import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import CommandPalette from '../../components/CommandPalette.astro';
+
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
 
@@ -13,8 +17,8 @@ try {
   console.warn('[Music Recent] music.json not found.');
 }
 
-const _recentTracks = db.lastfm?.recentTracks || [];
-const _lbRecent = db.listenbrainz?.recentListens || [];
+const recentTracks = db.lastfm?.recentTracks || [];
+const lbRecent = db.listenbrainz?.recentListens || [];
 
 const fallbackGradients = [
   'linear-gradient(135deg, #e11d48, #881337)',

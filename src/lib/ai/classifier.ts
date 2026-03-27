@@ -14,27 +14,53 @@ function getPuter() {
 }
 
 const INTENT_PROMPT = `
-You are an intent classifier for Chirag's personal portfolio assistant.
-Analyze the user's query and categorize it into EXACTLY ONE of these intents:
+You are an intent classifier for Chirag Singhal's personal portfolio assistant at chirag127.in.
+Analyze the user's query and respond with EXACTLY two lines:
+Line 1: The intent name (lowercase, one word)
+Line 2: A confidence score between 0.0 and 1.0
 
-- 'career': Work experience, jobs, companies (TCS, etc.), resume.
-- 'coding': GitHub, repos, programming languages, LeetCode, WakaTime.
-- 'projects': Specific projects built (Oriz, Nexus, etc.), portfolio items.
-- 'skills': Technical stack, frameworks, tools (React, Astro, etc.).
-- 'education': University, college, degrees, CGPA, certifications.
-- 'movies': Watched movies, Letterboxd, cinema, ratings.
-- 'music': Listening history, Last.fm, Spotify, artists.
-- 'books': Reading list, library, authors, novels.
-- 'anime': AniList, manga, watched episodes.
-- 'gaming': Steam, playtime, achievements, Lichess/Chess.
-- 'social': Bluesky, Twitter, Dev.to, YouTube posts.
-- 'contact': How to reach, email, social links, hiring.
-- 'navigation': Requests to go to a page or open a section.
-- 'greeting': Hi, hello, how are you.
-- 'meta': Questions about the AI itself, its capabilities, or how the site was built.
-- 'unknown': Anything else that doesn't fit.
+Valid intents:
+- 'career': Work experience, jobs, companies (TCS, QRsay), resume, hiring.
+- 'coding': GitHub repos, programming languages, LeetCode, Codewars, NPM packages, StackOverflow.
+- 'projects': Specific projects built (Oriz, NexusAI, TubeDigest, Olivia, Crawl4AI, etc.), portfolio items, project details.
+- 'skills': Technical stack, frameworks, tools (React, Astro, Python, FastAPI, Docker, etc.), what he knows.
+- 'education': University (AKTU), college, B.Tech, degrees, CGPA (8.81), JEE Advanced, certifications, CBSE.
+- 'movies': Watched movies, Letterboxd ratings, cinema, film preferences, TV shows, Trakt.
+- 'music': Listening history, Last.fm scrobbles, Spotify, artists, tracks, albums, Mixcloud.
+- 'books': Reading list, Open Library, Hardcover, authors, novels, what he reads.
+- 'anime': AniList anime, manga, watched episodes, anime scores, plan to watch.
+- 'gaming': Steam games, Lichess chess ratings, Speedrun.com, playtime, achievements, chess openings.
+- 'social': Bluesky posts, Mastodon, Reddit, Dev.to articles, YouTube, Pixelfed, social media.
+- 'contact': How to reach Chirag, email, social links, phone, hiring inquiries, collaboration.
+- 'navigation': Requests to go to a page, open a section, or find something on the website.
+- 'greeting': Hi, hello, how are you, good morning, what's up.
+- 'meta': Questions about the AI assistant itself, its capabilities, how the site was built, Puter.js.
+- 'unknown': Anything else that doesn't fit the above categories.
 
-Respond with ONLY the intent name in lowercase.
+Examples:
+User: "What movies has Chirag watched?"
+movies
+0.95
+
+User: "Tell me about his projects"
+projects
+0.90
+
+User: "hi there"
+greeting
+0.99
+
+User: "What's his email?"
+contact
+0.85
+
+User: "How does the AI work?"
+meta
+0.80
+
+User: "Show me the gaming page"
+navigation
+0.92
 `;
 
 export interface ClassificationResult {
@@ -81,6 +107,7 @@ async function callPuterAI(
 
 /**
  * Agentic classifier: uses a small LLM for high accuracy.
+ * Returns intent + confidence score from the LLM itself.
  */
 export async function classifyIntent(
   query: string,
@@ -93,9 +120,6 @@ export async function classifyIntent(
     'fast',
   );
 
-  const intent = (content || 'unknown').toLowerCase() as QueryIntent;
-
-  // Validate intent
   const validIntents: QueryIntent[] = [
     'career',
     'coding',
@@ -115,10 +139,29 @@ export async function classifyIntent(
     'unknown',
   ];
 
-  const isValid = validIntents.includes(intent);
+  if (!content) {
+    return { intent: 'unknown', confidence: 0.3, method: 'llm' };
+  }
+
+  // Parse the two-line response: intent on line 1, confidence on line 2
+  const lines = content
+    .trim()
+    .split('\n')
+    .map((l: string) => l.trim())
+    .filter(Boolean);
+  const rawIntent = (lines[0] || 'unknown')
+    .toLowerCase()
+    .replace(/['"]/g, '') as QueryIntent;
+  const rawConfidence = parseFloat(lines[1] || '0.7');
+
+  const isValid = validIntents.includes(rawIntent);
+  const confidence = isNaN(rawConfidence)
+    ? 0.7
+    : Math.min(1, Math.max(0, rawConfidence));
+
   return {
-    intent: isValid ? intent : 'unknown',
-    confidence: content && isValid ? 0.9 : 0.5,
+    intent: isValid ? rawIntent : 'unknown',
+    confidence: isValid ? confidence : 0.4,
     method: 'llm',
   };
 }
