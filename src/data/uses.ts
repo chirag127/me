@@ -52,7 +52,10 @@ export const usesData: UseCategory[] = [
       { name: 'Google Gemini', description: 'Primary LLM for AI features' },
       { name: 'LangChain / LangGraph', description: 'AI agent orchestration' },
       { name: 'Hugging Face', description: 'ML models and Transformers' },
-      { name: 'OpenRouter', description: 'Multi-provider LLM access' },
+      {
+        name: 'Puter.js',
+        description: 'Free AI models via browser-native SDK',
+      },
     ],
   },
   {

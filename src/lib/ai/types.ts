@@ -12,6 +12,7 @@ export type QueryIntent =
   | 'books'
   | 'anime'
   | 'gaming'
+  | 'gear'
   | 'social'
   | 'contact'
   | 'navigation'

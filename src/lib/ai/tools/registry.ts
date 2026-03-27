@@ -536,6 +536,44 @@ const getCodebaseInfo: ToolDefinition = {
   }),
 };
 
+const getEducation: ToolDefinition = {
+  name: 'getEducation',
+  description:
+    "Get Chirag's education details: B.Tech, AKTU, CGPA 8.81, JEE Advanced AIR 11870, CBSE 97%, certifications.",
+  parameters: [],
+  category: ['education', 'career'],
+  execute: async () => ({
+    tool: 'getEducation',
+    success: true,
+    data: educationContext,
+    truncated: false,
+    source: 'static:knowledge',
+  }),
+};
+
+const getGear: ToolDefinition = {
+  name: 'getGear',
+  description:
+    "Get Chirag's gear, products, and gadgets purchased from Flipkart. Electronics, clothing, peripherals, appliances, food items.",
+  parameters: [
+    {
+      name: 'category',
+      type: 'string',
+      description:
+        'Filter by category: electronics, audio, peripherals, clothing, appliances, food, all',
+      required: false,
+    },
+  ],
+  category: ['gear', 'meta', 'unknown'],
+  execute: async () => ({
+    tool: 'getGear',
+    success: true,
+    data: gearsContext,
+    truncated: false,
+    source: 'static:knowledge',
+  }),
+};
+
 export const TOOL_REGISTRY: ToolDefinition[] = [
   getMovies,
   getBooks,
@@ -547,6 +585,8 @@ export const TOOL_REGISTRY: ToolDefinition[] = [
   getResume,
   getProjects,
   getContactInfo,
+  getEducation,
+  getGear,
   navigateTo,
   getCodebaseInfo,
 ];
@@ -561,7 +601,7 @@ export function selectTools(intents: QueryIntent[]): ToolDefinition[] {
     intents.includes('greeting') ||
     intents.includes('meta')
   ) {
-    return [getResume, getProjects, getContactInfo, navigateTo];
+    return [getResume, getProjects, getContactInfo, getGear, navigateTo];
   }
   return TOOL_REGISTRY.filter((tool) =>
     tool.category.some((cat) => intents.includes(cat)),

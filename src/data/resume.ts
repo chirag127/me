@@ -115,7 +115,7 @@ export const skills: Skill[] = [
       'Mistral AI',
       'Cohere',
       'NVIDIA NIM',
-      'OpenRouter',
+      'Puter.js',
       'Multi-Provider LLM Integration',
       'ETL Pipelines',
       'PyTorch',

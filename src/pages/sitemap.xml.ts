@@ -38,6 +38,8 @@ const pages = [
   '/library/music-recent',
   '/library/mixcloud',
   '/library/videos',
+  '/library/podcasts',
+  '/library/twitch',
   '/gaming',
   '/connect',
   '/connect/contact',

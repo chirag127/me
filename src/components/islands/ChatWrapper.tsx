@@ -311,10 +311,16 @@ function IntentBadge({ intent }: { intent: string }) {
     coding: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/20',
     projects: 'bg-violet-500/15 text-violet-400 border-violet-500/20',
     skills: 'bg-amber-500/15 text-amber-400 border-amber-500/20',
+    education: 'bg-teal-500/15 text-teal-400 border-teal-500/20',
     movies: 'bg-rose-500/15 text-rose-400 border-rose-500/20',
     music: 'bg-pink-500/15 text-pink-400 border-pink-500/20',
     books: 'bg-orange-500/15 text-orange-400 border-orange-500/20',
     anime: 'bg-fuchsia-500/15 text-fuchsia-400 border-fuchsia-500/20',
+    gaming: 'bg-indigo-500/15 text-indigo-400 border-indigo-500/20',
+    gear: 'bg-cyan-500/15 text-cyan-400 border-cyan-500/20',
+    social: 'bg-blue-500/15 text-blue-400 border-blue-500/20',
+    contact: 'bg-lime-500/15 text-lime-400 border-lime-500/20',
+    navigation: 'bg-gray-500/15 text-gray-400 border-gray-500/20',
     general: 'bg-white/10 text-white/50 border-white/10',
     unknown: 'bg-red-500/15 text-red-400 border-red-500/20',
   };
@@ -363,7 +369,9 @@ const SUGGESTED = [
   'What does Chirag work on?',
   'What are his skills?',
   'What movies has he watched?',
+  'What gear does he use?',
   'Show his GitHub stats',
+  'What anime is he watching?',
 ];
 
 interface ChatSession {
@@ -454,14 +462,14 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
     {
       value: '',
       label: 'Auto (Smart)',
-      sub: 'Picks best model for your query',
+      sub: 'Picks best Puter.js model for your query',
     },
     ...availableModels.map((m) => ({
       value: m.id,
       label: m.isFree ? `🆓 ${m.name}` : m.name,
       sub: m.isFree
-        ? `FREE · ${m.params} — ${m.bestFor}`
-        : `${m.params} — ${m.bestFor}`,
+        ? `FREE · Puter.js · ${m.params} — ${m.bestFor}`
+        : `Puter.js · ${m.params} — ${m.bestFor}`,
       isFree: m.isFree,
     })),
   ];

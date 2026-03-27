@@ -30,6 +30,7 @@ Valid intents:
 - 'books': Reading list, Open Library, Hardcover, authors, novels, what he reads.
 - 'anime': AniList anime, manga, watched episodes, anime scores, plan to watch.
 - 'gaming': Steam games, Lichess chess ratings, Speedrun.com, playtime, achievements, chess openings.
+- 'gear': Products bought, gadgets, Flipkart purchases, electronics, clothing, peripherals, appliances, things Chirag owns, hardware.
 - 'social': Bluesky posts, Mastodon, Reddit, Dev.to articles, YouTube, Pixelfed, social media.
 - 'contact': How to reach Chirag, email, social links, phone, hiring inquiries, collaboration.
 - 'navigation': Requests to go to a page, open a section, or find something on the website.
@@ -131,6 +132,7 @@ export async function classifyIntent(
     'books',
     'anime',
     'gaming',
+    'gear',
     'social',
     'contact',
     'navigation',
@@ -202,6 +204,7 @@ export async function detectMultipleIntents(
     'books',
     'anime',
     'gaming',
+    'gear',
     'social',
     'contact',
     'navigation',

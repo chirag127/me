@@ -182,9 +182,10 @@ export function selectTier(
     'navigation',
     'contact',
     'unknown',
+    'gear',
   ].includes(intent);
   if (needsTools) return 'agent';
-  if (['greeting', 'meta', 'navigation', 'contact'].includes(intent))
+  if (['greeting', 'meta', 'navigation', 'contact', 'gear'].includes(intent))
     return 'fast';
   if (
     complexity === 'high' ||
