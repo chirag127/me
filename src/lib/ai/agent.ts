@@ -70,6 +70,7 @@ export async function* executeAgentStream(
   personality: PersonalityMode = 'professional',
   selectedModel: string = '',
   chatHistory: ChatMessage[] = [],
+  liveDataContext: string = '',
 ): AsyncGenerator<StreamChunk> {
   const startTime = Date.now();
 
@@ -134,7 +135,11 @@ export async function* executeAgentStream(
 
   // Step 3: Model Selection & Context Building
   yield { type: 'step', content: '🧠 Formulating response strategy...' };
-  const systemPrompt = buildSystemPrompt(toolData, personality);
+  const systemPrompt = buildSystemPrompt(
+    toolData,
+    personality,
+    liveDataContext,
+  );
   const tier = selectedModel
     ? ('agent' as ModelTier)
     : selectTier(classification.intent, complexity);

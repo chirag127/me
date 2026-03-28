@@ -122,7 +122,7 @@ const getMovies: ToolDefinition = {
     return {
       tool: 'getMovies',
       success: true,
-      data: result,
+      data: `${result}\n\n📎 Related pages: /library/movies, /library/movies-watched, /library/movies-rated, /library/movies-watchlist`,
       truncated,
       source: 'firestore:media/movies',
     };
@@ -167,7 +167,7 @@ const getBooks: ToolDefinition = {
     return {
       tool: 'getBooks',
       success: true,
-      data: result,
+      data: `${result}\n\n📎 Related pages: /library/books, /library/books-read, /library/books-want-to-read`,
       truncated,
       source: 'firestore:media/books',
     };
@@ -214,7 +214,7 @@ const getMusic: ToolDefinition = {
     return {
       tool: 'getMusic',
       success: true,
-      data: result,
+      data: `${result}\n\n📎 Related pages: /library/music, /library/music-top-artists, /library/music-top-tracks, /library/music-recent`,
       truncated,
       source: 'firestore:media/music',
     };
@@ -262,7 +262,7 @@ const getAnime: ToolDefinition = {
     return {
       tool: 'getAnime',
       success: true,
-      data: result,
+      data: `${result}\n\n📎 Related pages: /library/anime, /library/anime-completed, /library/anime-plan-to-watch, /library/manga`,
       truncated,
       source: 'firestore:media/anime',
     };
@@ -309,7 +309,7 @@ const getGaming: ToolDefinition = {
     return {
       tool: 'getGaming',
       success: true,
-      data: result,
+      data: `${result}\n\n📎 Related pages: /gaming`,
       truncated,
       source: 'firestore:media/gaming',
     };
@@ -358,7 +358,7 @@ const getCoding: ToolDefinition = {
     return {
       tool: 'getCoding',
       success: true,
-      data: result,
+      data: `${result}\n\n📎 Related pages: /code, /code/repos, /code/npm, /code/stackoverflow`,
       truncated,
       source: 'firestore:media/coding',
     };
@@ -421,7 +421,7 @@ const getResume: ToolDefinition = {
   execute: async () => ({
     tool: 'getResume',
     success: true,
-    data: resumeContext,
+    data: `${resumeContext}\n\n📎 Related pages: /work, /work/career, /work/education, /work/certifications`,
     truncated: false,
     source: 'static:knowledge',
   }),
@@ -436,7 +436,7 @@ const getProjects: ToolDefinition = {
   execute: async () => ({
     tool: 'getProjects',
     success: true,
-    data: projectsContext,
+    data: `${projectsContext}\n\n📎 Related pages: /work/projects`,
     truncated: false,
     source: 'static:knowledge',
   }),
@@ -457,7 +457,9 @@ const getContactInfo: ToolDefinition = {
 - LinkedIn: https://linkedin.com/in/chirag127
 - Email: Available on website contact form
 - Bluesky: https://chirag127.bsky.social
-- Dev.to: https://dev.to/chirag127`,
+- Dev.to: https://dev.to/chirag127
+
+📎 Related pages: /connect, /connect/contact`,
     truncated: false,
     source: 'static:config',
   }),
@@ -472,30 +474,102 @@ const navigateTo: ToolDefinition = {
       name: 'page',
       type: 'string',
       description:
-        'Page name: home, movies, books, music, anime, gaming, code, projects, skills, career, connect, admin',
+        'Page name: home, movies, books, music, anime, manga, gaming, code, repos, projects, skills, career, education, connect, contact, gear, story, philosophy, journal, interests, finance, writing, blog, library, videos, podcasts, twitch, mixcloud, bluesky, mastodon, reddit, hackernews, npm, stackoverflow, holopin, certifications, admin, changelog',
       required: true,
     },
   ],
-  category: ['navigation'],
+  category: [
+    'navigation',
+    'movies',
+    'books',
+    'music',
+    'anime',
+    'gaming',
+    'coding',
+    'career',
+    'education',
+    'social',
+    'contact',
+    'gear',
+    'meta',
+    'unknown',
+  ],
   execute: async (args) => {
     const sitemap: Record<string, string> = {
       home: '/',
-      movies: '/library/movies',
-      books: '/library/books',
-      music: '/library/music',
-      anime: '/library/anime',
-      gaming: '/gaming',
-      code: '/code',
-      projects: '/work/projects',
-      skills: '/work/skills',
-      career: '/work/career',
-      education: '/work/education',
-      connect: '/connect',
-      admin: '/system/admin',
+      me: '/me',
+      about: '/me',
       story: '/me/story',
       philosophy: '/me/philosophy',
       journal: '/me/journal',
       interests: '/me/interests',
+      gear: '/me/gear',
+      products: '/me/gear',
+      finance: '/me/finance',
+      // Career
+      work: '/work',
+      career: '/work/career',
+      resume: '/work/career',
+      skills: '/work/skills',
+      projects: '/work/projects',
+      education: '/work/education',
+      certifications: '/work/certifications',
+      // Code
+      code: '/code',
+      repos: '/code/repos',
+      repositories: '/code/repos',
+      github: '/code/repos',
+      npm: '/code/npm',
+      stackoverflow: '/code/stackoverflow',
+      holopin: '/code/holopin',
+      // Library
+      library: '/library',
+      movies: '/library/movies',
+      'movies-watched': '/library/movies-watched',
+      'movies-rated': '/library/movies-rated',
+      'movies-watchlist':
+        '/library/movies-watchlist',
+      watchlist: '/library/movies-watchlist',
+      anime: '/library/anime',
+      'anime-completed':
+        '/library/anime-completed',
+      'plan-to-watch':
+        '/library/anime-plan-to-watch',
+      manga: '/library/manga',
+      books: '/library/books',
+      'books-read': '/library/books-read',
+      reading: '/library/books',
+      'want-to-read':
+        '/library/books-want-to-read',
+      music: '/library/music',
+      'top-artists':
+        '/library/music-top-artists',
+      'top-tracks': '/library/music-top-tracks',
+      'recent-music': '/library/music-recent',
+      videos: '/library/videos',
+      podcasts: '/library/podcasts',
+      twitch: '/library/twitch',
+      mixcloud: '/library/mixcloud',
+      // Gaming
+      gaming: '/gaming',
+      chess: '/gaming',
+      // Social
+      connect: '/connect',
+      contact: '/connect/contact',
+      bluesky: '/connect/bluesky',
+      mastodon: '/connect/mastodon',
+      reddit: '/connect/reddit',
+      hackernews: '/connect/hackernews',
+      pixelfed: '/connect/pixelfed',
+      // System
+      admin: '/system/admin',
+      changelog: '/system/changelog',
+      // Writing
+      writing: '/writing',
+      blog: '/writing',
+      // Amazon / Orders
+      amazon: '/me/gear#tab-amazon',
+      orders: '/me/gear#tab-amazon',
     };
     const page = (args?.page || '').toLowerCase();
     const url = sitemap[page];
@@ -508,7 +582,9 @@ const navigateTo: ToolDefinition = {
         source: 'static:sitemap',
       };
     }
-    const available = Object.keys(sitemap).join(', ');
+    const available = Object.keys(sitemap).join(
+      ', ',
+    );
     return {
       tool: 'navigateTo',
       success: false,
@@ -554,7 +630,7 @@ const getEducation: ToolDefinition = {
 const getGear: ToolDefinition = {
   name: 'getGear',
   description:
-    "Get Chirag's gear, products, and gadgets purchased from Flipkart. Electronics, clothing, peripherals, appliances, food items.",
+    "Get Chirag's gear, products, and gadgets purchased from Flipkart and Amazon. Including Amazon Orders, Electronics, clothing, peripherals, appliances, food items.",
   parameters: [
     {
       name: 'category',
@@ -568,7 +644,7 @@ const getGear: ToolDefinition = {
   execute: async () => ({
     tool: 'getGear',
     success: true,
-    data: gearsContext,
+    data: `${gearsContext}\n\n📎 Related pages: /me/gear`,
     truncated: false,
     source: 'static:knowledge',
   }),

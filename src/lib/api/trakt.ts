@@ -4,84 +4,35 @@ import type { TraktMovie, TraktShow } from './types';
 
 const TRAKT_API_URL = 'https://api.trakt.tv';
 
-let cachedAccessToken: string | null = null;
+/**
+ * Build headers for Trakt API requests.
+ * Requires OAuth access token since user profile is private.
+ * Falls back to client ID only for public profiles.
+ */
+function getHeaders(): RequestInit {
+  const clientId =
+    process.env.TRAKT_CLIENT_ID ||
+    CONFIG.keys.traktClientId;
+  const accessToken =
+    process.env.TRAKT_ACCESS_TOKEN || '';
 
-async function refreshAccessToken(): Promise<string | null> {
-  const clientId = process.env.TRAKT_CLIENT_ID;
-  const clientSecret = process.env.TRAKT_CLIENT_SECRET;
-  const refreshToken = process.env.TRAKT_REFRESH_TOKEN;
-
-  if (!clientId || !clientSecret || !refreshToken) {
-    console.warn('[Trakt] Missing credentials for token refresh.');
-    return null;
-  }
-
-  try {
-    const res = await fetch('https://api.trakt.tv/oauth/token', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        refresh_token: refreshToken,
-        client_id: clientId,
-        client_secret: clientSecret,
-        redirect_uri: 'urn:ietf:wg:oauth:2.0:oob',
-        grant_type: 'refresh_token',
-      }),
-    });
-
-    if (!res.ok) {
-      console.warn(
-        '[Trakt] Token refresh failed:',
-        res.status,
-        await res.text(),
-      );
-      return null;
-    }
-
-    const data = await res.json();
-    console.log('[Trakt] Token refreshed successfully.');
-    return data.access_token;
-  } catch (err) {
-    console.error('[Trakt] Token refresh error:', err);
-    return null;
-  }
-}
-
-async function getHeaders(): Promise<RequestInit> {
-  if (!cachedAccessToken) {
-    cachedAccessToken = process.env.TRAKT_ACCESS_TOKEN || null;
-  }
-
-  const accessToken = cachedAccessToken;
   return {
     headers: {
       'Content-Type': 'application/json',
       'trakt-api-version': '2',
-      'trakt-api-key': process.env.TRAKT_CLIENT_ID || '',
-      ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
+      'trakt-api-key': clientId,
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+      ...(accessToken
+        ? { Authorization: `Bearer ${accessToken}` }
+        : {}),
     } as Record<string, string>,
   };
 }
 
 async function fetchTrakt<T>(url: string): Promise<T | null> {
-  const headers = await getHeaders();
-  for (let attempt = 0; attempt < 2; attempt++) {
-    const data = await fetchJson<T>(url, headers, 'Trakt');
-    if (data !== null) return data;
-
-    // If we got a 403/401 and haven't refreshed yet, try refreshing
-    if (attempt === 0) {
-      const refreshed = await refreshAccessToken();
-      if (refreshed) {
-        cachedAccessToken = refreshed;
-        continue;
-      }
-    }
-    break;
-  }
-  return null;
+  const opts = getHeaders();
+  const data = await fetchJson<T>(url, opts, 'Trakt');
+  return data;
 }
 
 export async function fetchTraktWatchedMovies(): Promise<TraktMovie[]> {

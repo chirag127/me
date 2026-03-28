@@ -86,64 +86,8 @@ function parseParamSize(str: string): number {
   return parseFloat(match[1]);
 }
 
-/**
- * Fetch latest models from Puter.js API
- */
 export async function fetchAvailableModels(): Promise<ModelInfo[]> {
-  if (typeof puter === 'undefined') return MODEL_CATALOG;
-
-  try {
-    const rawModels = await puter.ai.listModels();
-
-    const dynamicModels: ModelInfo[] = rawModels.map((m: any) => {
-      const isFree =
-        m.id.includes(':free') || (m.cost?.input === 0 && m.cost?.output === 0);
-
-      // Try to find in our hardcoded catalog for better meta
-      const existing = MODEL_CATALOG.find((ext) => ext.id === m.id);
-      if (existing) return { ...existing, isFree };
-
-      // Infer params from name or ID
-      const inferredParams = m.name?.includes('B')
-        ? m.name.match(/\d+(\.\d+)?[Bb]/)?.[0] || 'Unknown'
-        : 'Unknown';
-      const paramSize = parseParamSize(inferredParams || m.id);
-
-      return {
-        id: m.id,
-        name: m.name || m.id,
-        params: inferredParams,
-        bestFor: isFree ? 'Free Access' : 'Premium Tasks',
-        speed: 'medium',
-        reasoning: 'medium',
-        isFree,
-        paramSize,
-      };
-    });
-
-    // Sorting:
-    // 1. Free models first (Arcee AI Trinity Large Preview at very top)
-    // 2. Paid models below, sorted alphabetically
-    return dynamicModels.sort((a, b) => {
-      // Arcee AI Trinity Large Preview free always first
-      if (a.id === 'arcee-ai/trinity-large-preview:free') return -1;
-      if (b.id === 'arcee-ai/trinity-large-preview:free') return 1;
-      // Other free models next, sorted by paramSize (largest first)
-      if (a.isFree && !b.isFree) return -1;
-      if (!a.isFree && b.isFree) return 1;
-      if (a.isFree && b.isFree) {
-        return (b.paramSize || 0) - (a.paramSize || 0);
-      }
-      // Paid models sorted alphabetically
-      return a.name.localeCompare(b.name);
-    });
-  } catch (err) {
-    console.warn(
-      '[Models] Failed to fetch dynamic models, using fallback:',
-      err,
-    );
-    return MODEL_CATALOG;
-  }
+  return MODEL_CATALOG;
 }
 
 // ─── Tiered failover chains ──────────────────────────────────────────

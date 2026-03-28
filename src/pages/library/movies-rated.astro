@@ -1,4 +1,5 @@
----import Layout from '../../layouts/Layout.astro';
+---
+import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
@@ -31,7 +32,7 @@ const fallbackGradients = [
 ];
 const fallbackEmojis = ['🎬', '🍿', '🎟️', '📽️', '🎞️', '🌌', '💥', '🎭'];
 
-function _getVisuals(title: string) {
+function getVisuals(title: string) {
   const idx = [...title].reduce((acc, char) => acc + char.charCodeAt(0), 0);
   return {
     gradient: fallbackGradients[idx % fallbackGradients.length],

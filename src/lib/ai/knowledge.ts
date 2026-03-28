@@ -129,69 +129,57 @@ export const gamingContext = `
 `.trim();
 
 export const gearsContext = `
-## Gear & Products (Purchased from Flipkart)
-Chirag owns and uses the following products, purchased from Flipkart:
+## Gear & Products (Purchased from Flipkart & Amazon)
+Chirag owns and uses the following products:
 
 ### Electronics & Gadgets
-- POCO F7 5G (Cyber Silver Edition, 512GB) - ₹32,241 - Primary smartphone
-- Infinix Note 12 Pro 5G (Snowfall, 128GB) - ₹15,028 - Previous smartphone
-- Infinix Zero Book Ultra AI PC (Intel Core, Silver) - ₹57,403 - Laptop (returned)
-- realme 80cm (32 inch) HD Ready LED Smart TV - ₹12,999 - TV
-- SAMSUNG EVO Plus 512GB MicroSDXC Class - ₹3,512 - Storage
-- SanDisk Cruzer Blade USB 2.0 32GB Flash Drive - ₹286 - USB storage
-- Mi 4A Wireless MU-MIMO Gigabit 1200Mbps Router - ₹1,232 - WiFi router
+- POCO F7 5G (Cyber Silver Edition, 512GB) - ₹32,241
+- Infinix Note 12 Pro 5G (Snowfall, 128GB) - ₹15,028
+- Micromax All-New X1i Smart Dual Sim Keypad Phone - ₹734 (Amazon)
+- realme 80cm (32 inch) HD Ready LED Smart TV - ₹12,999
+- SAMSUNG EVO Plus 512GB MicroSDXC Class - ₹3,512
+- SanDisk Cruzer Blade USB 2.0 32GB Flash Drive - ₹286
+- Mi 4A Wireless MU-MIMO Gigabit 1200Mbps Router - ₹1,232
 
 ### Audio
-- boAt Rockerz 255F Pro+ Bluetooth Headset - ₹899 - Wireless earphones
-- Boult Audio Curve ANC with Active Noise Cancellation - ₹1,299 - ANC earphones
-- CMF by Nothing 100W Power GaN 5A 3 Port Charger - ₹2,993 - Fast charger
-- PHILIPS Wired Earphones with C-Type Audio - ₹198 - Wired earphones
-- truke Buds A1 with 30dB ANC, Quad Mic - ₹899 - TWS earbuds
+- realme Buds Wireless 5 ANC - ₹1,739 (Amazon)
+- Boat Rockerz 150 Pro - ₹999 (Amazon)
+- boAt Rockerz 255F Pro+ Bluetooth Headset - ₹899
+- Boult Audio Curve ANC with Active Noise Cancellation - ₹1,299
+- CMF by Nothing 100W Power GaN 5A 3 Port Charger - ₹2,993
+- PHILIPS Wired Earphones with C-Type Audio - ₹198
+- truke Buds A1 with 30dB ANC, Quad Mic - ₹899
 
 ### Peripherals & Accessories
-- Flipkart SmartBuy Wireless Keyboard & Mouse Combo - ₹762 - Wireless input
-- ZEBRONICS Zeb-Power Wired Optical Mouse - ₹128 - Wired mouse
-- HOPPUP GRAND Smartwatch with Power Bank Function - ₹499 - Smartwatch
-- QHMPL QUANTUM QHM6660 USB Hub - ₹189 - USB hub
-- Portronics Power Plate 7 2500W with 6 sockets - ₹591 - Power strip
-- Portronics Power Plate 5 1500W 3USB + 3 socket - ₹236 - Power strip
-- Portronics Power Plate 10 Multi Plug 1500W - ₹302 - Power strip
-- Flipkart SmartBuy 4 Universal Socket 3 Switch - ₹165 - Socket board
-- Flipkart SmartBuy 9W Basic Round B22 LED Bulb (3-pack) - ₹252 - LED bulbs
-- Flipkart SmartBuy 1m USB Type-C Cable - ₹74 - Charging cable
-- Portronics POR-654 Konnect Core 1M USB cable - ₹65 - USB cable
-
-### Clothing & Footwear
-- COMBRAIDED Slim Fit Men Black Trousers (Size 36) - ₹231 - Formal trousers
-- COMBRAIDED Slim Fit Men Blue Trousers (Size 36) - ₹240 - Formal trousers
-- METRONAUT Slim Fit Men Polycotton Black Trousers (Size 34) - ₹429 - Trousers
-- METRONAUT Slim Men Blue Jeans (Size 36) - ₹402 - Jeans
-- METRONAUT by Flipkart Skinny Men Blue Jeans (Size 32) - ₹421 - Jeans
-- Bata Casual Shoes for Men Black (Size 10) - ₹306 - Casual shoes
-- Hambler Men EXTRA SOFT slippers (Size 10, Green) - ₹90 - Slippers
-- RUDHAARI Men Solid Formal White Shirt (3XL) - ₹272 - White shirt
-- VTEXX Men Solid Formal Light Blue Shirt (4XL) -373 - Blue shirt
-- MOD YOUNG Solid Men Polo Neck Multicolor T-Shirt (3XL) - ₹433 - Polo t-shirt
-- TRIPR Solid Men V Neck Multicolor T-Shirt (XXL) - ₹252 - V-neck t-shirt
-- ARISTOCRAT 3P Set Luggage (Cabin+Medium+Large, Blue) - ₹6,049 - Luggage set
+- Flipkart SmartBuy Wireless Keyboard & Mouse Combo - ₹762
+- ENVIE Battery Charger + AAA/AA batteries - ₹1,053 (Amazon)
+- Amazon Basics 12W Charger - ₹249 (Amazon)
+- ZEBRONICS Zeb-Power Wired Optical Mouse - ₹128
+- HOPPUP GRAND Smartwatch with Power Bank Function - ₹499
+- QHMPL QUANTUM QHM6660 USB Hub - ₹189
+- Portronics Power Plate 7 2500W with 6 sockets - ₹591
 
 ### Appliances
-- realme TechLife 8kg 5 Star Rating Garment Steamer - ₹15,990 - Garment steamer
-- realme RMH2016 Beard Trimmer (Runtime 120min) - ₹898 - Beard trimmer
-- Syska 9W Standard B22 LED Bulb - ₹440 - LED bulb
-- Wipro 10W Standard B22 LED Bulb - ₹400 - LED bulb
+- realme TechLife 8kg 5 Star Rating Garment Steamer - ₹15,990
+- Pigeon Pressure Cooker - ₹699 (Amazon)
+- realme RMH2016 Beard Trimmer (Runtime 120min) - ₹898
 
-### Food & Groceries
-- Saffola Peanut Butter with Jaggery - ₹178
-- Kwality Choco Flakes (Whole Wheat) - ₹188
-- HORLICKS Chocolate Delight Flavor - ₹210
-- Kwality Crunchy Muesli Almonds, Raisins - ₹213
+### Clothing & Footwear
+- ARISTOCRAT 3P Set Luggage (Cabin+Medium+Large, Blue) - ₹6,049
+- COMBRAIDED Slim Fit Men Black Trousers (Size 36) - ₹231
+- METRONAUT Slim Men Blue Jeans (Size 36) - ₹402
 
-### Gift Cards & Services
-- Uber Digital Gift Card - ₹100
-- Flipkart Minutes - Regular grocery delivery orders
+### Food & Groceries (Amazon/Flipkart)
+- Quenchlabz Whey Protein - ₹1,090
+- Ferrero Rocher - ₹360
+- HORLICKS Chocolate Delight Flavor - ₹302
+- DiSano Oats, NutMix, Seeds, etc.
 
-The gear list is also available on the /me/gear page.
+### Subscriptions & Amazon Orders
+- Audible Premium Plus Subscription - ₹199/month (Amazon)
+- Total Amazon Orders in 2026: 6 orders (including cancelled/failed ones).
+
+The full gear list and Amazon orders are available on the /me/gear page.
 `.trim();
 
 export const educationContext = `

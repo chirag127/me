@@ -20,10 +20,13 @@ import React, {
   useState,
 } from 'react';
 import { executeAgentStream } from '../../lib/ai/agent';
-import { fetchAvailableModels, MODEL_CATALOG } from '../../lib/ai/models';
+import {
+  fetchAllLiveData,
+  buildLiveDataContext,
+} from '../../lib/api/client-fetchers';
+import { MODEL_CATALOG } from '../../lib/ai/models';
 import type {
   ChatMessage,
-  ModelInfo,
   PersonalityMode,
 } from '../../lib/ai/types';
 import { useAuthStore } from '../../lib/authStore';
@@ -381,6 +384,51 @@ interface ChatSession {
   createdAt: string;
 }
 
+// ─── localStorage chat persistence ─────────────────────────────────
+const CHAT_STORAGE_KEY = 'chirag-chat-sessions';
+const CURRENT_SESSION_KEY = 'chirag-current-session-id';
+const MAX_LOCAL_SESSIONS = 100;
+
+function generateSessionId(): string {
+  return `chat_${Date.now()}_${Math.random()
+    .toString(36)
+    .slice(2, 8)}`;
+}
+
+function loadLocalSessions(): ChatSession[] {
+  try {
+    const raw = localStorage.getItem(CHAT_STORAGE_KEY);
+    if (!raw) return [];
+    return JSON.parse(raw) as ChatSession[];
+  } catch {
+    return [];
+  }
+}
+
+function saveLocalSessions(sessions: ChatSession[]): void {
+  try {
+    // Keep only the newest MAX_LOCAL_SESSIONS
+    const trimmed = sessions.slice(0, MAX_LOCAL_SESSIONS);
+    localStorage.setItem(
+      CHAT_STORAGE_KEY,
+      JSON.stringify(trimmed),
+    );
+  } catch (e) {
+    console.warn('[Chat] localStorage save failed:', e);
+  }
+}
+
+function upsertLocalSession(session: ChatSession): void {
+  const sessions = loadLocalSessions();
+  const idx = sessions.findIndex((s) => s.id === session.id);
+  if (idx >= 0) {
+    sessions[idx] = session;
+  } else {
+    sessions.unshift(session);
+  }
+  saveLocalSessions(sessions);
+}
+
 function ChatPanel({ onClose }: { onClose: () => void }) {
   const {
     user: firebaseUser,
@@ -399,64 +447,96 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
     useState<PersonalityMode>('professional');
   const [showHistory, setShowHistory] = useState(false);
   const [chatHistory, setChatHistory] = useState<ChatSession[]>([]);
+  const [currentSessionId, setCurrentSessionId] = useState<string>('');
   const [signingIn, setSigningIn] = useState(false);
   const [_signInStep, setSignInStep] = useState<
     'none' | 'firebase' | 'puter' | 'done'
   >('none');
-  const [availableModels, setAvailableModels] =
-    useState<ModelInfo[]>(MODEL_CATALOG);
-  const [modelsLoading, setModelsLoading] = useState(true);
   const endRef = useRef<HTMLDivElement>(null);
   const mountedRef = useRef(true);
+
+  // Reload the history sidebar from localStorage
+  // (merged with Firestore if signed in)
+  const refreshHistory = useCallback(async () => {
+    const localSessions = loadLocalSessions();
+
+    if (firebaseUser) {
+      try {
+        const { getUserChatSessions } = await import(
+          '../../lib/firebase'
+        );
+        const firestoreSessions: ChatSession[] =
+          await getUserChatSessions(firebaseUser.uid);
+        // Merge: local first, then Firestore-only (by id)
+        const seenIds = new Set(
+          localSessions.map((s) => s.id),
+        );
+        const merged = [
+          ...localSessions,
+          ...firestoreSessions.filter(
+            (s) => !seenIds.has(s.id),
+          ),
+        ];
+        // Sort newest-first
+        merged.sort(
+          (a, b) =>
+            new Date(b.createdAt).getTime() -
+            new Date(a.createdAt).getTime(),
+        );
+        if (mountedRef.current) setChatHistory(merged);
+      } catch (err) {
+        console.warn(
+          '[Chat] Firestore history load failed, using local:',
+          err,
+        );
+        if (mountedRef.current) setChatHistory(localSessions);
+      }
+    } else {
+      if (mountedRef.current) setChatHistory(localSessions);
+    }
+  }, [firebaseUser]);
 
   useEffect(() => {
     mountedRef.current = true;
     initialize();
 
-    // Fetch models on mount
-    fetchAvailableModels().then((models) => {
-      if (!mountedRef.current) return;
-      setAvailableModels(models);
-
-      // Auto-select largest free model if none selected
-      const freeModels = models.filter((m) => m.isFree);
-      if (freeModels.length > 0 && !selectedModel) {
+    // Auto-select largest free model if none selected
+    if (!selectedModel) {
+      const freeModels = MODEL_CATALOG.filter((m) => m.isFree);
+      if (freeModels.length > 0) {
         const largest = freeModels.reduce((a, b) =>
           (a.paramSize || 0) >= (b.paramSize || 0) ? a : b,
         );
         setSelectedModel(largest.id);
       }
-      setModelsLoading(false);
-    });
+    }
+
+    // Restore current session from localStorage
+    try {
+      const savedId = localStorage.getItem(CURRENT_SESSION_KEY);
+      if (savedId) {
+        const sessions = loadLocalSessions();
+        const found = sessions.find((s) => s.id === savedId);
+        if (found && found.messages.length > 0) {
+          setCurrentSessionId(found.id);
+          setMessages(found.messages);
+        }
+      }
+    } catch {}
 
     return () => {
       mountedRef.current = false;
     };
   }, [initialize, selectedModel]);
 
+  // Load history whenever firebase user changes or on mount
+  useEffect(() => {
+    refreshHistory();
+  }, [refreshHistory]);
+
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, []);
-
-  // Load chat history when user signs in
-  useEffect(() => {
-    if (!firebaseUser) {
-      setChatHistory([]);
-      return;
-    }
-
-    const loadHistory = async () => {
-      try {
-        const { getUserChatSessions } = await import('../../lib/firebase');
-        const sessions = await getUserChatSessions(firebaseUser.uid);
-        if (mountedRef.current) setChatHistory(sessions);
-      } catch (err) {
-        console.error('[ChatWrapper] Failed to load chat history:', err);
-      }
-    };
-
-    loadHistory();
-  }, [firebaseUser?.uid, firebaseUser]);
 
   const modelOptions = [
     {
@@ -464,7 +544,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
       label: 'Auto (Smart)',
       sub: 'Picks best Puter.js model for your query',
     },
-    ...availableModels.map((m) => ({
+    ...MODEL_CATALOG.map((m) => ({
       value: m.id,
       label: m.isFree ? `🆓 ${m.name}` : m.name,
       sub: m.isFree
@@ -474,8 +554,42 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
     })),
   ];
 
+  // Start a fresh conversation
+  const handleNewChat = useCallback(() => {
+    const newId = generateSessionId();
+    setMessages([]);
+    setCurrentSessionId(newId);
+    try {
+      localStorage.setItem(CURRENT_SESSION_KEY, newId);
+    } catch {}
+    setShowHistory(false);
+  }, []);
+
+  // Restore a session from the sidebar
+  const handleRestoreSession = useCallback(
+    (session: ChatSession) => {
+      setMessages(session.messages);
+      setCurrentSessionId(session.id);
+      try {
+        localStorage.setItem(CURRENT_SESSION_KEY, session.id);
+      } catch {}
+      setShowHistory(false);
+    },
+    [],
+  );
+
   const handleSend = async (text: string) => {
     if (!text.trim() || loading) return;
+
+    // Ensure we have a session id
+    let sessionId = currentSessionId;
+    if (!sessionId) {
+      sessionId = generateSessionId();
+      setCurrentSessionId(sessionId);
+      try {
+        localStorage.setItem(CURRENT_SESSION_KEY, sessionId);
+      } catch {}
+    }
 
     const userMsg: Message = {
       role: 'user',
@@ -499,12 +613,37 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
       },
     ]);
 
+    // Immediately persist the user message to localStorage
+    const sessionTitle =
+      newMessages.length <= 1
+        ? text.slice(0, 60) + (text.length > 60 ? '...' : '')
+        : chatHistory.find((s) => s.id === sessionId)?.title ||
+          text.slice(0, 60);
+    const sessionSoFar: ChatSession = {
+      id: sessionId,
+      title: sessionTitle,
+      messages: newMessages,
+      createdAt:
+        chatHistory.find((s) => s.id === sessionId)?.createdAt ||
+        new Date().toISOString(),
+    };
+    upsertLocalSession(sessionSoFar);
+
     try {
       const history: ChatMessage[] = newMessages.map((m) => ({
         role: m.role,
         content: m.content,
         timestamp: m.timestamp,
       }));
+
+      // Fetch live data for AI context
+      let liveCtx = '';
+      try {
+        const liveData = await fetchAllLiveData();
+        liveCtx = buildLiveDataContext(liveData);
+      } catch {
+        // Proceed without live data
+      }
 
       const stream = executeAgentStream(
         text.trim(),
@@ -515,6 +654,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
         selectedMode,
         selectedModel,
         history,
+        liveCtx,
       );
 
       for await (const chunk of stream) {
@@ -536,44 +676,55 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
             return updated;
           });
         } else if (chunk.type === 'done') {
+          const finalAssistantMsg: Message = {
+            role: 'assistant',
+            content: chunk.content || '',
+            timestamp: new Date().toISOString(),
+            model: chunk.meta?.model,
+            intent: chunk.meta?.intent,
+            confidence: chunk.meta?.confidence,
+            toolsUsed: chunk.meta?.toolsUsed,
+            tier: chunk.meta?.tier,
+            streaming: false,
+          };
+
           setMessages((prev) => {
             const updated = [...prev];
-            const msg = { ...updated[assistantIdx] };
-            msg.content = chunk.content || msg.content;
-            msg.model = chunk.meta?.model;
-            msg.intent = chunk.meta?.intent;
-            msg.confidence = chunk.meta?.confidence;
-            msg.toolsUsed = chunk.meta?.toolsUsed;
-            msg.tier = chunk.meta?.tier;
-            msg.streaming = false;
-            updated[assistantIdx] = msg;
+            updated[assistantIdx] = finalAssistantMsg;
             return updated;
           });
 
+          // Persist complete conversation to localStorage
+          const completeMessages = [
+            ...newMessages,
+            finalAssistantMsg,
+          ];
+          const completeSession: ChatSession = {
+            id: sessionId,
+            title: sessionTitle,
+            messages: completeMessages,
+            createdAt: sessionSoFar.createdAt,
+          };
+          upsertLocalSession(completeSession);
+          refreshHistory();
+
+          // Also persist to Firestore if signed in
           if (firebaseUser) {
             try {
-              const { saveChatSession, getUserChatSessions } = await import(
+              const { saveChatSession } = await import(
                 '../../lib/firebase'
               );
               await saveChatSession(
                 firebaseUser.uid,
-                text.slice(0, 50) + (text.length > 50 ? '...' : ''),
-                [
-                  ...newMessages,
-                  {
-                    role: 'assistant',
-                    content: chunk.content,
-                    timestamp: new Date().toISOString(),
-                    model: chunk.meta?.model,
-                    intent: chunk.meta?.intent,
-                    confidence: chunk.meta?.confidence,
-                  },
-                ],
+                sessionTitle,
+                completeMessages,
+                sessionId,
               );
-              const sessions = await getUserChatSessions(firebaseUser.uid);
-              if (mountedRef.current) setChatHistory(sessions);
             } catch (err) {
-              console.error('[ChatWrapper] Save error:', err);
+              console.error(
+                '[Chat] Firestore save error (local ok):',
+                err,
+              );
             }
           }
         } else if (chunk.type === 'error') {
@@ -635,36 +786,44 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
         {/* History Sidebar */}
         {showHistory && (
           <div className="w-64 border-r border-white/10 bg-[#0d0d17]/90 flex flex-col flex-shrink-0">
-            <div className="p-3 border-b border-white/10 flex items-center justify-between">
-              <span className="text-sm font-semibold text-white/80">
-                History
-              </span>
+            <div className="p-3 border-b border-white/10 flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-semibold text-white/80">
+                  History
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setShowHistory(false)}
+                  className="p-1 rounded text-white/40 hover:text-white"
+                >
+                  <svg
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
               <button
                 type="button"
-                onClick={() => setShowHistory(false)}
-                className="p-1 rounded text-white/40 hover:text-white"
+                onClick={handleNewChat}
+                className="w-full flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium text-amber-400 bg-amber-500/10 border border-amber-500/20 hover:bg-amber-500/20 transition-colors"
               >
-                <svg
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                 </svg>
+                New Chat
               </button>
             </div>
             <div className="flex-1 overflow-y-auto p-2 space-y-1">
-              {!firebaseUser ? (
-                <div className="p-4 text-center text-white/40 text-xs">
-                  Sign in to view history
-                </div>
-              ) : chatHistory.length === 0 ? (
+              {chatHistory.length === 0 ? (
                 <div className="p-4 text-center text-white/40 text-xs">
                   No history yet
                 </div>
@@ -673,19 +832,23 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
                   <button
                     type="button"
                     key={s.id}
-                    onClick={() => {
-                      setMessages(s.messages);
-                      setShowHistory(false);
-                    }}
-                    className="w-full text-left px-3 py-2 rounded-lg text-xs text-white/70 hover:bg-white/5 truncate"
+                    onClick={() => handleRestoreSession(s)}
+                    className={`w-full text-left px-3 py-2 rounded-lg text-xs truncate transition-colors ${
+                      s.id === currentSessionId
+                        ? 'text-amber-400 bg-amber-500/10'
+                        : 'text-white/70 hover:bg-white/5'
+                    }`}
                   >
                     {s.title || 'New Chat'}
+                    <div className="text-[10px] text-white/30 mt-0.5">
+                      {new Date(s.createdAt).toLocaleDateString()} · {s.messages.length} msgs
+                    </div>
                   </button>
                 ))
               )}
             </div>
-            {firebaseUser && (
-              <div className="p-3 border-t border-white/10">
+            <div className="p-3 border-t border-white/10 space-y-1">
+              {firebaseUser && (
                 <button
                   type="button"
                   onClick={() => signOut()}
@@ -693,8 +856,8 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
                 >
                   Sign Out
                 </button>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         )}
 
@@ -724,7 +887,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
                 <h2 className="text-sm font-bold text-white">Chirag AI</h2>
                 <span className="text-[10px] text-white/40 uppercase tracking-widest truncate max-w-[120px]">
                   {selectedModel
-                    ? availableModels.find((m) => m.id === selectedModel)
+                    ? MODEL_CATALOG.find((m) => m.id === selectedModel)
                         ?.name || 'AI Agent'
                     : 'Auto-Select'}
                 </span>
@@ -732,7 +895,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
             </div>
             <div className="flex items-center gap-2">
               <Dropdown
-                label={modelsLoading ? 'Loading...' : 'Model'}
+                label={'Model'}
                 options={modelOptions}
                 value={selectedModel}
                 onChange={setSelectedModel}

@@ -270,18 +270,40 @@ export async function saveChatSession(
   userId: string,
   title: string,
   messages: any[],
+  sessionId?: string,
 ): Promise<string> {
-  const { collection, addDoc, serverTimestamp } = await import(
-    'firebase/firestore'
-  );
+  const { collection, addDoc, doc, setDoc, serverTimestamp } =
+    await import('firebase/firestore');
   const db = await getFirebaseDb();
-  const docRef = await addDoc(collection(db, 'chatSessions'), {
-    userId,
-    title,
-    messages,
-    createdAt: new Date().toISOString(),
-    updatedAt: serverTimestamp(),
-  });
+
+  if (sessionId) {
+    // Update existing session doc in-place
+    const docRef = doc(db, 'chatSessions', sessionId);
+    await setDoc(
+      docRef,
+      {
+        userId,
+        title,
+        messages,
+        createdAt: new Date().toISOString(),
+        updatedAt: serverTimestamp(),
+      },
+      { merge: true },
+    );
+    return sessionId;
+  }
+
+  // Fallback: create new if no sessionId given
+  const docRef = await addDoc(
+    collection(db, 'chatSessions'),
+    {
+      userId,
+      title,
+      messages,
+      createdAt: new Date().toISOString(),
+      updatedAt: serverTimestamp(),
+    },
+  );
   return docRef.id;
 }
 
