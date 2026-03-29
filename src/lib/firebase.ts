@@ -138,7 +138,6 @@ export async function clearRecaptcha(): Promise<void> {
 export async function signInWithGoogle(): Promise<User | null> {
   const {
     GoogleAuthProvider,
-    signInWithRedirect,
     signInWithPopup,
     browserLocalPersistence,
     setPersistence,
@@ -157,34 +156,14 @@ export async function signInWithGoogle(): Promise<User | null> {
   }
 
   // On localhost, popup is generally more reliable and avoids redirect loops/IndexedDB issues
-  const isLocalhost =
-    window.location.hostname === 'localhost' ||
-    window.location.hostname === '127.0.0.1';
-
-  if (isLocalhost) {
-    try {
-      console.log('[Firebase] Localhost detected, using signInWithPopup...');
-      const result = await signInWithPopup(auth, provider);
-      return result.user;
-    } catch (e: any) {
-      if (e?.code === 'auth/popup-blocked') {
-        console.warn('[Firebase] Popup blocked, falling back to redirect...');
-      } else {
-        console.error('[Firebase] Popup sign-in error:', e?.code, e?.message);
-        throw e;
-      }
-    }
-  }
-
-  // Fallback to Redirect for non-localhost or if popup was blocked
   try {
-    console.log('[Firebase] Triggering signInWithRedirect...');
-    await signInWithRedirect(auth, provider);
+    console.log('[Firebase] Triggering signInWithPopup...');
+    const result = await signInWithPopup(auth, provider);
+    return result.user;
   } catch (e: any) {
-    console.error('Redirect sign-in error:', e?.code, e?.message);
+    console.error('[Firebase] Popup sign-in error:', e?.code, e?.message);
+    throw e;
   }
-
-  return null;
 }
 
 export async function handleGoogleRedirect(): Promise<User | null> {
