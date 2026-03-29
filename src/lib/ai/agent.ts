@@ -9,7 +9,6 @@
  */
 
 import {
-  analyzeQueryComplexity,
   classifyIntent,
   detectMultipleIntents,
 } from './classifier';
@@ -74,17 +73,20 @@ export async function* executeAgentStream(
 ): AsyncGenerator<StreamChunk> {
   const startTime = Date.now();
 
-  // Step 1: Brainstorming & Planning
-  yield { type: 'step', content: '🤔 Analyzing your request...' };
-  const [classification, complexity, allIntents] = await Promise.all([
-    classifyIntent(userQuery),
-    analyzeQueryComplexity(userQuery),
-    detectMultipleIntents(userQuery),
-  ]);
+  // Step 1: Unified Classification (single LLM call)
+  yield {
+    type: 'step',
+    content: '🤔 Analyzing your request...',
+  };
+  const [classification, allIntents] =
+    await Promise.all([
+      classifyIntent(userQuery),
+      detectMultipleIntents(userQuery),
+    ]);
 
   yield {
     type: 'step',
-    content: `🎯 Intent identified: ${classification.intent} (${complexity} complexity)`,
+    content: `🎯 Intent: ${classification.intent} (${classification.complexity} complexity)`,
   };
 
   // Step 2: Strategic Data Acquisition
@@ -142,7 +144,10 @@ export async function* executeAgentStream(
   );
   const tier = selectedModel
     ? ('agent' as ModelTier)
-    : selectTier(classification.intent, complexity);
+    : selectTier(
+        classification.intent,
+        classification.complexity,
+      );
 
   const chain = selectedModel
     ? [

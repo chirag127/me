@@ -204,7 +204,7 @@ const activeRole = experience[0];
             <h2 class="text-3xl font-black text-white mb-2">Technical Insights</h2>
             <p class="text-white/40 font-medium">Writings on backend architecture and AI</p>
           </div>
-          <a href="/writing" class="px-6 py-2.5 rounded-xl border border-white/10 text-white/60 font-semibold hover:bg-white/5 hover:text-white transition-all text-sm">
+          <a href="https://dev.to/chirag127" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 rounded-xl border border-white/10 text-white/60 font-semibold hover:bg-white/5 hover:text-white transition-all text-sm">
             Read Blog
           </a>
         </div>
@@ -259,23 +259,5 @@ const activeRole = experience[0];
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.05);
   }
-  
-  .reveal-stagger > * {
-    opacity: 0;
-    transform: translateY(20px);
-  }
 </style>
 
-<script>
-  import { observeElements } from '../lib/utils';
-  
-  observeElements('.will-animate', {
-    threshold: 0.1,
-    rootMargin: '50px'
-  });
-
-  observeElements('.reveal-stagger > *', {
-    threshold: 0.1,
-    stagger: 100
-  });
-</script>

@@ -114,7 +114,7 @@ export const CONFIG = {
   api: {
     rss2json: 'https://api.rss2json.com/v1/api.json?rss_url=',
     github: 'https://api.github.com/users',
-    leetcode: 'https://leetcode-stats-api.herokuapp.com',
+    leetcode: 'https://alfa-leetcode-api.onrender.com',
     stackoverflow: 'https://api.stackexchange.com/2.2/users',
     codewars: 'https://www.codewars.com/api/v1/users',
     gitlab: 'https://gitlab.com/api/v4/users',

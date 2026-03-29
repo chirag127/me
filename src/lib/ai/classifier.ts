@@ -1,7 +1,9 @@
 /**
  * Agentic Intent Classifier
- * Uses a small LLM (LFM-2.5 1.2B) to understand user intent with high accuracy.
- * Includes automatic failover if the primary model is busy/unavailable.
+ * Consolidated classifier: single LLM call returns
+ * intent, confidence, and complexity.
+ * Includes automatic failover if primary model is
+ * busy/unavailable.
  */
 
 import { getModelChain } from './models';
@@ -13,60 +15,88 @@ function getPuter() {
   return (window as any).puter?.ai ?? null;
 }
 
-const INTENT_PROMPT = `
-You are an intent classifier for Chirag Singhal's personal portfolio assistant at chirag127.in.
-Analyze the user's query and respond with EXACTLY two lines:
-Line 1: The intent name (lowercase, one word)
+const VALID_INTENTS: QueryIntent[] = [
+  'career',
+  'coding',
+  'projects',
+  'skills',
+  'education',
+  'movies',
+  'music',
+  'books',
+  'anime',
+  'gaming',
+  'gear',
+  'social',
+  'contact',
+  'navigation',
+  'greeting',
+  'meta',
+  'unknown',
+];
+
+const UNIFIED_PROMPT = `
+You are an intent classifier for Chirag Singhal's
+personal portfolio assistant at me.oriz.in.
+Analyze the user's query and respond with EXACTLY
+three lines:
+Line 1: The primary intent name (lowercase, one word)
 Line 2: A confidence score between 0.0 and 1.0
+Line 3: Query complexity: "low", "medium", or "high"
+
+If the query touches multiple topics, still pick the
+MOST relevant single intent for Line 1.
 
 Valid intents:
-- 'career': Work experience, jobs, companies (TCS, QRsay), resume, hiring.
-- 'coding': GitHub repos, programming languages, LeetCode, Codewars, NPM packages, StackOverflow.
-- 'projects': Specific projects built (Oriz, NexusAI, TubeDigest, Olivia, Crawl4AI, etc.), portfolio items, project details.
-- 'skills': Technical stack, frameworks, tools (React, Astro, Python, FastAPI, Docker, etc.), what he knows.
-- 'education': University (AKTU), college, B.Tech, degrees, CGPA (8.81), JEE Advanced, certifications, CBSE.
-- 'movies': Watched movies, Letterboxd ratings, cinema, film preferences, TV shows, Trakt.
-- 'music': Listening history, Last.fm scrobbles, Spotify, artists, tracks, albums, Mixcloud.
-- 'books': Reading list, Open Library, Hardcover, authors, novels, what he reads.
-- 'anime': AniList anime, manga, watched episodes, anime scores, plan to watch.
-- 'gaming': Steam games, Lichess chess ratings, Speedrun.com, playtime, achievements, chess openings.
-- 'gear': Products bought, gadgets, Flipkart purchases, electronics, clothing, peripherals, appliances, things Chirag owns, hardware.
-- 'social': Bluesky posts, Mastodon, Reddit, Dev.to articles, YouTube, Pixelfed, social media.
-- 'contact': How to reach Chirag, email, social links, phone, hiring inquiries, collaboration.
-- 'navigation': Requests to go to a page, open a section, or find something on the website.
-- 'greeting': Hi, hello, how are you, good morning, what's up.
-- 'meta': Questions about the AI assistant itself, its capabilities, how the site was built, Puter.js.
-- 'unknown': Anything else that doesn't fit the above categories.
+- 'career': Work experience, jobs, companies
+  (TCS, QRsay), resume, hiring.
+- 'coding': GitHub repos, programming languages,
+  LeetCode, Codewars, NPM, StackOverflow.
+- 'projects': Specific projects built (Oriz, NexusAI,
+  TubeDigest, Olivia, Crawl4AI, etc.), portfolio.
+- 'skills': Technical stack, frameworks, tools
+  (React, Astro, Python, FastAPI, Docker).
+- 'education': University (AKTU), B.Tech, CGPA 8.81,
+  JEE Advanced, certifications, CBSE.
+- 'movies': Watched movies, Letterboxd, cinema,
+  film preferences, TV shows, Trakt.
+- 'music': Listening history, Last.fm scrobbles,
+  Spotify, artists, tracks, Mixcloud.
+- 'books': Reading list, Open Library, Hardcover,
+  authors, novels.
+- 'anime': AniList anime, manga, episodes, scores.
+- 'gaming': Lichess chess, Speedrun.com, games.
+- 'gear': Products bought, gadgets, peripherals,
+  electronics, things Chirag owns.
+- 'social': Bluesky posts, Mastodon, Reddit, Dev.to,
+  YouTube, Pixelfed, social media.
+- 'contact': How to reach Chirag, email, links.
+- 'navigation': Go to a page, open a section.
+- 'greeting': Hi, hello, how are you.
+- 'meta': About the AI assistant, site tech stack.
+- 'unknown': Doesn't fit above categories.
 
 Examples:
 User: "What movies has Chirag watched?"
 movies
 0.95
+low
 
-User: "Tell me about his projects"
-projects
-0.90
+User: "Compare his education with his projects"
+education
+0.80
+high
 
-User: "hi there"
+User: "hi"
 greeting
 0.99
-
-User: "What's his email?"
-contact
-0.85
-
-User: "How does the AI work?"
-meta
-0.80
-
-User: "Show me the gaming page"
-navigation
-0.92
+low
 `;
 
 export interface ClassificationResult {
   intent: QueryIntent;
   confidence: number;
+  complexity: 'low' | 'medium' | 'high';
   method: 'llm';
 }
 
@@ -84,10 +114,16 @@ async function callPuterAI(
 
   for (const model of chain) {
     try {
-      const response = await ai.chat(messages, { model, stream: false });
+      const response = await ai.chat(
+        messages,
+        { model, stream: false },
+      );
 
-      // Puter AI sometimes returns structures like { success: false, error: ... }
-      if (response && (response as any).success === false) {
+      // Puter AI sometimes returns error structures
+      if (
+        response &&
+        (response as any).success === false
+      ) {
         console.warn(
           `[Classifier] Model ${model} failed:`,
           (response as any).error,
@@ -95,10 +131,21 @@ async function callPuterAI(
         continue;
       }
 
-      const content = response.content || response.message?.content || '';
-      if (typeof content === 'string' && content.trim()) return content.trim();
+      const content =
+        response.content ||
+        response.message?.content ||
+        '';
+      if (
+        typeof content === 'string' &&
+        content.trim()
+      ) {
+        return content.trim();
+      }
     } catch (err) {
-      console.warn(`[Classifier] Error with model ${model}:`, err);
+      console.warn(
+        `[Classifier] Error with model ${model}:`,
+        err,
+      );
       // Try next model in chain
     }
   }
@@ -107,79 +154,83 @@ async function callPuterAI(
 }
 
 /**
- * Agentic classifier: uses a small LLM for high accuracy.
- * Returns intent + confidence score from the LLM itself.
+ * Unified classifier: single LLM call returns intent,
+ * confidence, AND complexity.
+ * Replaces the previous 3 separate API calls.
  */
 export async function classifyIntent(
   query: string,
 ): Promise<ClassificationResult> {
   const content = await callPuterAI(
     [
-      { role: 'system', content: INTENT_PROMPT },
+      { role: 'system', content: UNIFIED_PROMPT },
       { role: 'user', content: query },
     ],
     'fast',
   );
 
-  const validIntents: QueryIntent[] = [
-    'career',
-    'coding',
-    'projects',
-    'skills',
-    'education',
-    'movies',
-    'music',
-    'books',
-    'anime',
-    'gaming',
-    'gear',
-    'social',
-    'contact',
-    'navigation',
-    'greeting',
-    'meta',
-    'unknown',
-  ];
-
   if (!content) {
-    return { intent: 'unknown', confidence: 0.3, method: 'llm' };
+    return {
+      intent: 'unknown',
+      confidence: 0.3,
+      complexity: 'medium',
+      method: 'llm',
+    };
   }
 
-  // Parse the two-line response: intent on line 1, confidence on line 2
+  // Parse the three-line response
   const lines = content
     .trim()
     .split('\n')
     .map((l: string) => l.trim())
     .filter(Boolean);
+
   const rawIntent = (lines[0] || 'unknown')
     .toLowerCase()
-    .replace(/['"]/g, '') as QueryIntent;
-  const rawConfidence = parseFloat(lines[1] || '0.7');
+    .replace(/['\"]/g, '') as QueryIntent;
+  const rawConfidence = parseFloat(
+    lines[1] || '0.7',
+  );
+  const rawComplexity = (
+    lines[2] || 'medium'
+  ).toLowerCase();
 
-  const isValid = validIntents.includes(rawIntent);
+  const isValid = VALID_INTENTS.includes(rawIntent);
   const confidence = isNaN(rawConfidence)
     ? 0.7
     : Math.min(1, Math.max(0, rawConfidence));
 
+  let complexity: 'low' | 'medium' | 'high' =
+    'medium';
+  if (rawComplexity.includes('low')) {
+    complexity = 'low';
+  }
+  if (rawComplexity.includes('high')) {
+    complexity = 'high';
+  }
+
   return {
     intent: isValid ? rawIntent : 'unknown',
     confidence: isValid ? confidence : 0.4,
+    complexity,
     method: 'llm',
   };
 }
 
 /**
  * Multi-intent detection: for agentic tool selection.
+ * Fixed: includes the full valid intents list in
+ * the prompt (was previously missing).
  */
 export async function detectMultipleIntents(
   query: string,
 ): Promise<QueryIntent[]> {
+  const intentList = VALID_INTENTS.join(', ');
   const content = await callPuterAI(
     [
       {
         role: 'system',
-        content:
-          'List all relevant intents from the list provided previously for this query. Separate with commas. Respond ONLY with the list.',
+        content: `List all relevant intents for this query. Valid intents: ${intentList}. Separate with commas. Respond ONLY with the comma-separated list.`,
       },
       { role: 'user', content: query },
     ],
@@ -193,51 +244,21 @@ export async function detectMultipleIntents(
     .split(',')
     .map((s: string) => s.trim()) as QueryIntent[];
 
-  const validIntents: QueryIntent[] = [
-    'career',
-    'coding',
-    'projects',
-    'skills',
-    'education',
-    'movies',
-    'music',
-    'books',
-    'anime',
-    'gaming',
-    'gear',
-    'social',
-    'contact',
-    'navigation',
-    'greeting',
-    'meta',
-    'unknown',
-  ];
-
-  return intents.filter((i) => validIntents.includes(i));
+  return intents.filter((i) =>
+    VALID_INTENTS.includes(i),
+  );
 }
 
 /**
  * Query complexity analysis.
+ * @deprecated Use classifyIntent() which now returns
+ * complexity in a single call.
  */
 export async function analyzeQueryComplexity(
-  query: string,
+  _query: string,
 ): Promise<'low' | 'medium' | 'high'> {
-  const content = await callPuterAI(
-    [
-      {
-        role: 'system',
-        content:
-          'Analyze the complexity of this user query for an AI assistant. Respond with ONLY "low", "medium", or "high".',
-      },
-      { role: 'user', content: query },
-    ],
-    'fast',
-  );
-
-  const complexity = (content || 'medium').toLowerCase();
-  if (complexity.includes('low')) return 'low';
-  if (complexity.includes('medium')) return 'medium';
-  if (complexity.includes('high')) return 'high';
-
+  // No longer makes a separate API call.
+  // Kept for backward compatibility; callers should
+  // use classifyIntent().complexity instead.
   return 'medium';
 }

@@ -565,8 +565,8 @@ const navigateTo: ToolDefinition = {
       admin: '/system/admin',
       changelog: '/system/changelog',
       // Writing
-      writing: '/writing',
-      blog: '/writing',
+      writing: 'https://dev.to/chirag127',
+      blog: 'https://dev.to/chirag127',
       // Amazon / Orders
       amazon: '/me/gear#tab-amazon',
       orders: '/me/gear#tab-amazon',

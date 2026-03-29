@@ -1,6 +1,8 @@
 /**
  * Utility: Scroll Animations Observer
- * Provides a simple wrapper around IntersectionObserver for scroll-based animations.
+ * Provides a simple wrapper around IntersectionObserver
+ * for scroll-based animations.
+ * NOTE: Uses 'visible' class to match global.css
  */
 export function observeElements(
   selector: string,
@@ -20,22 +22,26 @@ export function observeElements(
         // Handle staggered children if specified
         if (options.stagger) {
           const children = el.children;
-          Array.from(children).forEach((child, index) => {
-            (child as HTMLElement).style.transitionDelay = `${
-              index * options.stagger!
-            }ms`;
-            child.classList.add('is-visible');
-          });
+          Array.from(children).forEach(
+            (child, index) => {
+              (child as HTMLElement)
+                .style.transitionDelay =
+                  `${index * options.stagger!}ms`;
+              child.classList.add('visible');
+            },
+          );
         }
 
-        el.classList.add('is-visible');
+        el.classList.add('visible');
         // Stop observing once animated
         observer.unobserve(el);
       }
     });
   }, options);
 
-  document.querySelectorAll(selector).forEach((el) => {
-    observer.observe(el);
-  });
+  document.querySelectorAll(selector).forEach(
+    (el) => {
+      observer.observe(el);
+    },
+  );
 }

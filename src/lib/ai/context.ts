@@ -22,6 +22,10 @@ import {
   skillsContext,
 } from './knowledge';
 import type { PersonalityMode } from './types';
+import {
+  TOOL_REGISTRY,
+  formatToolsForPrompt,
+} from './tools/registry';
 
 // ─── Complete Site Map ──────────────────────────────
 const SITEMAP = `
@@ -208,6 +212,11 @@ or: "Check out [Chirag's movies page](/library/movies) for the full list."
 2. Tool data (cached from Firestore/JSON)
 3. Static knowledge (from system prompt)
 4. Say "I don't have that info" if nothing matches`);
+
+  // Available tools (so LLM knows data sources)
+  sections.push(
+    `## Available Data Tools\n${formatToolsForPrompt(TOOL_REGISTRY)}`,
+  );
 
   // Sitemap
   sections.push(SITEMAP);

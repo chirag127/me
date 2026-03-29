@@ -41,7 +41,7 @@ export const projectsContext = `
 `.trim();
 
 export const codebaseContext = `
-Tech Stack: Astro 4.x (Static/SSR Hybrid), TypeScript, Tailwind CSS, Biome.js.
+Tech Stack: Astro 6.x (Static/SSR Hybrid), TypeScript, Tailwind CSS 4, Biome.js.
 Architecture: Mobile-first responsive design, islands architecture (React).
 Backend: Firebase Firestore (DB), Puter.js (AI/Cloud services), Cloudflare Workers.
 AI Features: Advanced RAG agent, intent classification, memory/history, multi-model support.

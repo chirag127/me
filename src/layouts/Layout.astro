@@ -17,7 +17,7 @@ const {
   // biome-ignore lint/correctness/noUnusedVariables: used in Astro template
   ogImage,
 } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, 'https://chiragsinghal.com');
+const canonicalURL = new URL(Astro.url.pathname, 'https://me.oriz.in');
 ---
 
 <!doctype html>
@@ -26,6 +26,7 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://chiragsinghal.com');
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#030303" />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonicalURL} />
 
@@ -47,17 +48,18 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://chiragsinghal.com');
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://js.puter.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <!-- Puter.js for AI features -->
-    <script src="https://js.puter.com/v2/" is:inline></script>
+    <!-- Puter.js for AI features (deferred) -->
+    <script src="https://js.puter.com/v2/" is:inline defer></script>
 
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Person",
       name: "Chirag Singhal",
-      url: "https://chiragsinghal.com",
+      url: "https://me.oriz.in",
       email: "hi@chirag127.in",
       jobTitle: "Software Engineer",
       worksFor: {
