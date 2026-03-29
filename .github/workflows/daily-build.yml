@@ -20,6 +20,25 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
 
+      - name: Lint
+        continue-on-error: true
+        run: pnpm run lint
+
+      - name: Type-Check
+        continue-on-error: true
+        run: pnpm run type-check
+
+      - name: Unit & Integration Tests
+        continue-on-error: true
+        run: pnpm run test
+
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps
+
+      - name: E2E Tests
+        continue-on-error: true
+        run: pnpm run test:e2e
+
       - name: Fetch API Data
         run: pnpm run fetch-data
         env:

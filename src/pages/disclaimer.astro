@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Disclaimer" description="Disclaimer for Chirag Singhal's Digital Identity">
+  <main class="container mx-auto max-w-4xl px-4 py-24 pb-32">
+    <div class="prose prose-invert max-w-none">
+      <h1 class="text-4xl font-bold mb-8">Disclaimer</h1>
+      <p class="text-[var(--color-text-secondary)] mb-8">Last Updated: {new Date().toLocaleDateString()}</p>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">1. General Information</h2>
+        <p>
+          The information contained on this website is for general information purposes only. 
+          While we endeavor to keep the information up to date and correct, we make no representations 
+          or warranties of any kind, express or implied, about the completeness, accuracy, reliability, 
+          suitability, or availability with respect to the website.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">2. External Links</h2>
+        <p>
+          Through this website, you are able to link to other websites which are not under our control. 
+          We have no control over the nature, content, and availability of those sites. The inclusion 
+          of any links does not necessarily imply a recommendation or endorse the views expressed within them.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">3. AI Generated Content</h2>
+        <p>
+          This website utilizes artificial intelligence tools to interact and generate content (e.g., chat agent). 
+          Any outputs, answers, or code suggested by the AI are provided "as is" and should be reviewed thoroughly 
+          before any real-world application. We take no responsibility for errors, hallucinations, or damages 
+          arising from AI-generated answers.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">4. Contact us</h2>
+        <p>
+          Questions about this disclaimer should be directed to:
+          <a href="mailto:hi@chirag127.in" class="text-[var(--color-primary)] hover:underline ml-1">hi@chirag127.in</a>
+        </p>
+      </section>
+    </div>
+  </main>
+</Layout>
