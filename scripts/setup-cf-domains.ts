@@ -29,7 +29,7 @@ const RECORDS_TO_SET = {
 };
 
 async function api(endpoint: string, method = 'GET', body: any = null) {
-  const url = 'https://api.cloudflare.com/client/v4' + endpoint;
+  const url = `https://api.cloudflare.com/client/v4${endpoint}`;
   const init: any = {
     method,
     headers: {
