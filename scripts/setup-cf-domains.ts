@@ -1,6 +1,5 @@
 import path from 'node:path';
 import dotenv from 'dotenv';
-import fs from 'node:fs';
 
 dotenv.config({ path: path.join(process.cwd(), '.env') });
 
