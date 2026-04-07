@@ -84,12 +84,12 @@ const totalEpisodes = shows.reduce((acc, s) => acc + (s.episodesWatched || 0), 0
           >
             {i + 1}
           </div>
-          <div
-            class="flex items-center justify-center
-              h-8 w-8 rounded-lg bg-violet-500/10
-              text-lg flex-shrink-0 text-violet-400"
-          >
-            📺
+          <div class="relative h-12 w-8 flex-shrink-0 overflow-hidden rounded bg-violet-500/10">
+            {show.posterUrl ? (
+              <img src={show.posterUrl} alt={show.title} class="w-full h-full object-cover" loading="lazy" />
+            ) : (
+              <div class="w-full h-full flex items-center justify-center text-lg text-violet-400">📺</div>
+            )}
           </div>
           <div class="flex-1 min-w-0">
             <h3

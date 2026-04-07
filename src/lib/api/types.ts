@@ -27,6 +27,7 @@ export interface TraktShow {
   year: number;
   traktSlug: string;
   tmdbId: number | null;
+  imdbId: string | null;
   rating: number | null;
   posterUrl: string | null;
   genres: string[];

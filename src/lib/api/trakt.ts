@@ -47,7 +47,9 @@ export async function fetchTraktWatchedMovies(): Promise<TraktMovie[]> {
     rating: null,
     ratedAt: null,
     watchedAt: item.last_watched_at,
-    posterUrl: null,
+    posterUrl: item.movie.ids.imdb
+      ? `https://imdb.iamidiotareyoutoo.com/photo/${item.movie.ids.imdb}?w=500&h=750`
+      : null,
     genres: item.movie.genres || [],
     overview: item.movie.overview,
     runtime: item.movie.runtime,
@@ -71,7 +73,9 @@ export async function fetchTraktWatchlistMovies(): Promise<TraktMovie[]> {
     rating: null,
     ratedAt: null,
     watchedAt: null,
-    posterUrl: null,
+    posterUrl: item.movie.ids.imdb
+      ? `https://imdb.iamidiotareyoutoo.com/photo/${item.movie.ids.imdb}?w=500&h=750`
+      : null,
     genres: item.movie.genres || [],
     overview: item.movie.overview,
     runtime: item.movie.runtime,
@@ -111,8 +115,11 @@ export async function fetchTraktShows(): Promise<TraktShow[]> {
     year: item.show.year,
     traktSlug: item.show.ids.slug,
     tmdbId: item.show.ids.tmdb,
+    imdbId: item.show.ids.imdb,
     rating: null,
-    posterUrl: null,
+    posterUrl: item.show.ids.imdb
+      ? `https://imdb.iamidiotareyoutoo.com/photo/${item.show.ids.imdb}?w=500&h=750`
+      : null,
     genres: item.show.genres || [],
     overview: item.show.overview,
     category: 'watched' as const,
