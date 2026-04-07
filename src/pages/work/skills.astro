@@ -1,7 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 
 import { skills } from '../../data/resume';
@@ -9,9 +7,7 @@ import { skills } from '../../data/resume';
 const totalSkills = skills.reduce((sum, s) => sum + s.items.length, 0);
 ---
 
-<Layout title="Skills" description="Technical skills of Chirag Singhal — filterable by category">
-  <Navbar />
-  <CommandPalette />
+<Layout title="Skills" description="Technical skills of Chirag Singhal — filterable by category">  <CommandPalette />
   <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
     <a href="/work" class="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white/60 mb-8 transition-colors">← Back to Work Drive</a>
 
@@ -60,9 +56,7 @@ const totalSkills = skills.reduce((sum, s) => sum + s.items.length, 0);
         })}
       </div>
     </div>
-  </main>
-  <Footer />
-  <script is:inline>
+  </main>  <script is:inline>
     document.querySelectorAll('.skill-filter').forEach(btn => {
       btn.addEventListener('click', () => {
         const cat = btn.dataset.category;

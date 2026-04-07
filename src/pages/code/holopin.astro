@@ -1,8 +1,6 @@
 ---
 import { CONFIG } from '../../lib/config';
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 
 import * as fs from 'node:fs/promises';
@@ -22,9 +20,7 @@ try {
 const badges = db.holopin?.badges || [];
 ---
 
-<Layout title="Holopin Badges" description="Chirag Singhal's Holopin badges — open source achievements">
-  <Navbar />
-  <CommandPalette />
+<Layout title="Holopin Badges" description="Chirag Singhal's Holopin badges — open source achievements">  <CommandPalette />
   <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
     <div class="flex items-center gap-3 mb-2">
       <div class="h-10 w-10 rounded-xl bg-[#2b6cb0]/10 flex items-center justify-center">
@@ -62,6 +58,4 @@ const badges = db.holopin?.badges || [];
     <div class="mt-12 glass p-6 text-center">
       <a href={`https://holopin.io/@${CONFIG.user.holopin}`} target="_blank" rel="noopener noreferrer" class="text-sm text-[#2b6cb0] hover:underline">View on Holopin →</a>
     </div>
-  </main>
-  <Footer />
-</Layout>
+  </main></Layout>

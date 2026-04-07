@@ -1,15 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 import ThemeSwitcher from '../../components/islands/ThemeSwitcher';
 
 ---
 
-<Layout title="System Drive" description="Settings, changelog, and system configuration">
-  <Navbar />
-  <CommandPalette />
+<Layout title="System Drive" description="Settings, changelog, and system configuration">  <CommandPalette />
   <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
     <div class="mb-12">
       <h1 class="text-4xl font-bold text-white mb-2">SYSTEM Drive</h1>
@@ -31,6 +27,4 @@ import ThemeSwitcher from '../../components/islands/ThemeSwitcher';
         <p class="text-sm text-white/40">Chat history management (admin only)</p>
       </a>
     </div>
-  </main>
-  <Footer />
-</Layout>
+  </main></Layout>

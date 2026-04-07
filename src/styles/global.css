@@ -15,18 +15,18 @@
   --color-base-overlay: #141418;
   --color-base-input: #08080a;
 
-  /* ── Primary: Electric Indigo / Cyan ── */
-  --color-primary: #6366f1;
-  --color-primary-light: #818cf8;
-  --color-primary-lighter: #a5b4fc;
-  --color-primary-dark: #4f46e5;
-  --color-primary-darker: #4338ca;
-  --color-primary-faint: rgba(99, 102, 241, 0.06);
-  --color-primary-muted: rgba(99, 102, 241, 0.15);
-  --color-primary-subtle: rgba(99, 102, 241, 0.25);
+  /* ── Primary: Teal / Violet ── */
+  --color-primary: #14b8a6;
+  --color-primary-light: #2dd4bf;
+  --color-primary-lighter: #5eead4;
+  --color-primary-dark: #0d9488;
+  --color-primary-darker: #0f766e;
+  --color-primary-faint: rgba(20, 184, 166, 0.06);
+  --color-primary-muted: rgba(20, 184, 166, 0.15);
+  --color-primary-subtle: rgba(20, 184, 166, 0.25);
 
-  /* ── Secondary accents (Futuristic) ── */
-  --color-accent-warm: #06b6d4; /* Cyan */
+  /* ── Secondary accents ── */
+  --color-accent-warm: #8b5cf6; /* Violet */
   --color-accent-rose: #f43f5e;
   --color-accent-sage: #10b981;
   --color-accent-violet: #8b5cf6;
@@ -51,8 +51,8 @@
   --color-border: rgba(255, 255, 255, 0.06);
   --color-border-subtle: rgba(255, 255, 255, 0.03);
   --color-border-hover: rgba(255, 255, 255, 0.12);
-  --color-border-active: rgba(99, 102, 241, 0.4);
-  --color-border-accent: rgba(6, 182, 212, 0.3);
+  --color-border-active: rgba(20, 184, 166, 0.4);
+  --color-border-accent: rgba(20, 184, 166, 0.3);
 
   /* ── Radii (Crisp Bento corners) ── */
   --radius-sm: 0.25rem;
@@ -69,8 +69,8 @@
     0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
   --shadow-card-hover:
     0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.2);
-  --shadow-glow-strong: 0 0 40px rgba(99, 102, 241, 0.4);
+  --shadow-glow: 0 0 20px rgba(20, 184, 166, 0.2);
+  --shadow-glow-strong: 0 0 40px rgba(20, 184, 166, 0.4);
 
   /* ── Transitions ── */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -100,12 +100,12 @@
     background-image:
       radial-gradient(
         ellipse 80% 50% at 50% -20%,
-        rgba(99, 102, 241, 0.08),
+        rgba(20, 184, 166, 0.08),
         transparent
       ),
       radial-gradient(
         ellipse 60% 40% at 80% 100%,
-        rgba(6, 182, 212, 0.04),
+        rgba(139, 92, 246, 0.04),
         transparent
       );
     color: var(--color-text-primary);
@@ -147,12 +147,12 @@
 
   /* ── Selection ── */
   ::selection {
-    background-color: rgba(245, 158, 11, 0.2);
+    background-color: rgba(20, 184, 166, 0.2);
     color: var(--color-text-primary);
   }
 
   ::-moz-selection {
-    background-color: rgba(245, 158, 11, 0.2);
+    background-color: rgba(20, 184, 166, 0.2);
     color: var(--color-text-primary);
   }
 
@@ -244,9 +244,9 @@
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(245, 158, 11, 0.15) 30%,
-      rgba(245, 158, 11, 0.35) 50%,
-      rgba(245, 158, 11, 0.15) 70%,
+      rgba(20, 184, 166, 0.15) 30%,
+      rgba(20, 184, 166, 0.35) 50%,
+      rgba(20, 184, 166, 0.15) 70%,
       transparent 100%
     );
   }
@@ -456,8 +456,8 @@
     padding: 0.75rem 2rem;
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(245, 158, 11, 0.2);
-    color: #f59e0b;
+    border: 1px solid rgba(20, 184, 166, 0.2);
+    color: #14b8a6;
     border-radius: var(--radius-2xl);
     font-family: var(--font-display);
     font-weight: 600;
@@ -473,12 +473,12 @@
   }
 
   .btn-ai-magic:hover {
-    background: rgba(245, 158, 11, 0.08);
-    border-color: rgba(245, 158, 11, 0.5);
+    background: rgba(20, 184, 166, 0.08);
+    border-color: rgba(20, 184, 166, 0.5);
     box-shadow:
-      0 8px 24px rgba(245, 158, 11, 0.2),
-      0 0 12px rgba(245, 158, 11, 0.1);
-    color: #fbbf24;
+      0 8px 24px rgba(20, 184, 166, 0.2),
+      0 0 12px rgba(20, 184, 166, 0.1);
+    color: #2dd4bf;
   }
 
   .btn-ai-magic::after {
@@ -830,7 +830,7 @@
   .input-warm:focus {
     outline: none;
     border-color: var(--color-border-active);
-    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.08);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.08);
   }
 
   /* ── Badges ── */
@@ -877,10 +877,6 @@
 
   .glow-amber {
     background: var(--color-primary);
-  }
-
-  .glow-warm {
-    background: var(--color-accent-warm);
   }
 
   .glow-sage {
@@ -1010,7 +1006,7 @@
     animation: pulse-dot 2s ease-in-out infinite;
     box-shadow:
       0 0 0 3px var(--color-primary-faint),
-      0 0 12px rgba(245, 158, 11, 0.3);
+      0 0 12px rgba(20, 184, 166, 0.3);
   }
 
   /* ── Chat prose styles ── */
@@ -1026,7 +1022,7 @@
     color: rgba(255, 255, 255, 0.7);
   }
   .prose-chat a {
-    color: #fbbf24;
+    color: #2dd4bf;
     text-decoration: underline;
   }
   .prose-chat li {
@@ -1058,7 +1054,7 @@
     border-radius: 0.25rem;
     font-family: var(--font-mono);
     font-size: 0.85em;
-    color: #fbbf24;
+    color: #2dd4bf;
   }
 }
 
@@ -1398,10 +1394,10 @@
 
 @keyframes glow {
   from {
-    box-shadow: 0 0 16px rgba(245, 158, 11, 0.08);
+    box-shadow: 0 0 16px rgba(20, 184, 166, 0.08);
   }
   to {
-    box-shadow: 0 0 36px rgba(245, 158, 11, 0.2);
+    box-shadow: 0 0 36px rgba(20, 184, 166, 0.2);
   }
 }
 

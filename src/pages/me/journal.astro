@@ -1,15 +1,11 @@
 ---
 import JournalApp from '../../components/islands/JournalApp';
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 
 ---
 
-<Layout title="Journal" description="Personal journal entries — stored locally in your browser">
-  <Navbar />
-  <CommandPalette />
+<Layout title="Journal" description="Personal journal entries — stored locally in your browser">  <CommandPalette />
   <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
     <a href="/me" class="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] mb-8 transition-colors group">
       <svg class="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
@@ -29,6 +25,4 @@ import CommandPalette from '../../components/CommandPalette.astro';
 
     <JournalApp client:load />
     
-  </main>
-  <Footer />
-</Layout>
+  </main></Layout>

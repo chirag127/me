@@ -34,7 +34,64 @@ export interface Honor {
   year: string;
 }
 
-export const summary = `Results-oriented Software Engineer with extensive experience across the full Software Development Life Cycle (SDLC), specializing in scalable backend architectures, full-stack development, <strong class="text-white">AI Agent & Multi-Agent Systems</strong>, AI-driven automation, and cloud-native deployments. Proficient in modern Python and JavaScript/TypeScript ecosystems (React, Node.js, FastAPI, Astro) with deep expertise in <strong class="text-white">Agentic AI Frameworks (LangChain, LangGraph, AutoGen, CrewAI)</strong>, Microservices, Serverless Architectures, DevOps, and Security Engineering. Passionate about designing and deploying <strong class="text-white">autonomous, goal-driven AI agents</strong> capable of tool use, long-horizon reasoning, memory management, and multi-agent orchestration. A rapid learner and academic topper (JEE Advanced Rank Holder) with a proven ability to reduce system latency, build production-grade platforms, optimize enterprise data pipelines, and implement robust security practices in distributed environments.`;
+export const tagline =
+  'Software Engineer · AI Agent Specialist · 4+ Years';
+
+export const summary =
+  'Software Engineer specializing in scalable backend ' +
+  'systems, AI-driven automation, and multi-agent ' +
+  'orchestration. Building production-grade platforms ' +
+  'with Python, TypeScript, React, and cloud-native ' +
+  'architectures.';
+
+/** Extended bio for /me page (preserves original) */
+export const extendedSummary =
+  'Results-oriented Software Engineer with extensive ' +
+  'experience across the full SDLC, specializing in ' +
+  'scalable backend architectures, full-stack ' +
+  'development, AI Agent & Multi-Agent Systems, ' +
+  'AI-driven automation, and cloud-native deployments. ' +
+  'Proficient in modern Python and JavaScript/TypeScript ' +
+  'ecosystems (React, Node.js, FastAPI, Astro) with deep ' +
+  'expertise in Agentic AI Frameworks (LangChain, ' +
+  'LangGraph, AutoGen, CrewAI), Microservices, ' +
+  'Serverless Architectures, DevOps, and Security ' +
+  'Engineering.';
+
+export const valueProposition = [
+  {
+    title: 'Backend & AI Systems',
+    description:
+      'Scalable APIs, multi-agent orchestration, ' +
+      'RAG pipelines, and production ML deployments.',
+    icon: 'server',
+  },
+  {
+    title: 'Full-Stack Engineering',
+    description:
+      'React, Astro, Node.js — from pixel-perfect ' +
+      'UIs to high-throughput data pipelines.',
+    icon: 'layers',
+  },
+  {
+    title: 'Cloud & DevOps',
+    description:
+      'AWS, Cloudflare, Docker, Kubernetes, CI/CD — ' +
+      'zero-downtime deployments at scale.',
+    icon: 'cloud',
+  },
+];
+
+export const availability = {
+  status: 'available' as const,
+  message: 'Open to new opportunities',
+  preferredRoles: [
+    'Software Engineer',
+    'Backend Engineer',
+    'AI/ML Engineer',
+    'Full-Stack Engineer',
+  ],
+};
 
 export const skills: Skill[] = [
   {

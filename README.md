@@ -2,7 +2,7 @@
 
 Personal digital identity platform for Chirag Singhal, Software Engineer at TCS.
 
-**Live:** [chiragsinghal.com](https://chiragsinghal.com)
+**Live:** [me.oriz.in](https://me.oriz.in)
 
 ## Tech Stack
 - **Framework:** Astro 6 + React 19 (Islands Architecture)

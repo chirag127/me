@@ -1,8 +1,6 @@
 ---
 import StatsCounter from '../../components/islands/StatsCounter';
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 
 import * as fs from 'node:fs/promises';
@@ -104,9 +102,7 @@ const chessPlatforms = [
 ];
 ---
 
-<Layout title="Gaming Drive" description="Chess ratings, game tracking, and speedrun records — Chirag Singhal">
-  <Navbar />
-  <CommandPalette />
+<Layout title="Gaming Drive" description="Chess ratings, game tracking, and speedrun records — Chirag Singhal">  <CommandPalette />
   <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 relative">
     <div class="absolute top-0 right-0 w-72 h-72 bg-violet-500/6 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -234,6 +230,4 @@ const chessPlatforms = [
       </div>
     </div>
 
-  </main>
-  <Footer />
-</Layout>
+  </main></Layout>

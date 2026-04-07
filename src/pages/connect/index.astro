@@ -1,7 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 
 import { socialLinks } from '../../data/social';
@@ -87,9 +85,7 @@ const iconPaths: Record<string, string> = {
 };
 ---
 
-<Layout title="Connect Drive" description="Social profiles, contact info, and ways to connect with Chirag Singhal">
-  <Navbar />
-  <CommandPalette />
+<Layout title="Connect Drive" description="Social profiles, contact info, and ways to connect with Chirag Singhal">  <CommandPalette />
   <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 relative">
     <div class="absolute top-0 right-0 w-96 h-96 bg-[var(--color-primary)]/5 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -266,6 +262,4 @@ const iconPaths: Record<string, string> = {
       </div>
     </div>
     )}
-  </main>
-  <Footer />
-</Layout>
+  </main></Layout>

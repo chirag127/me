@@ -1,14 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 
 ---
 
-<Layout title="Philosophy" description="The engineering principles and personal values that guide Chirag Singhal">
-  <Navbar />
-  <CommandPalette />
+<Layout title="Philosophy" description="The engineering principles and personal values that guide Chirag Singhal">  <CommandPalette />
   <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
     <a href="/me" class="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] mb-8 transition-colors group">
       <svg class="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
@@ -84,6 +80,4 @@ import CommandPalette from '../../components/CommandPalette.astro';
         <p class="text-[var(--color-text-secondary)] leading-relaxed">Chirag Singhal exists because I believe your digital life — your watch history, your chess rating, your music taste, your code — shouldn't be locked inside someone else's platform. Data sovereignty isn't a buzzword. It's a right. This site costs ₹0 to run, stores nothing on my servers, and gives you full control. That's how the internet should work.</p>
       </div>
     </div>
-  </main>
-  <Footer />
-</Layout>
+  </main></Layout>

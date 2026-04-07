@@ -1,7 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 
 interface VideoRec {
@@ -121,9 +119,7 @@ const channels = [
 ];
 ---
 
-<Layout title="Videos" description="Chirag Singhal's video picks — curated YouTube content and recommendations">
-  <Navbar />
-  <CommandPalette />
+<Layout title="Videos" description="Chirag Singhal's video picks — curated YouTube content and recommendations">  <CommandPalette />
   <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
     <a href="/library" class="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] mb-8 transition-colors">
       <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
@@ -248,6 +244,4 @@ const channels = [
         <p class="text-xs text-[var(--color-text-muted)]">Channels and videos I enjoy. Updated periodically with new finds.</p>
       </div>
     </div>
-  </main>
-  <Footer />
-</Layout>
+  </main></Layout>

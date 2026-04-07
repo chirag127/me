@@ -1,7 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 
 const streamers = [
@@ -14,9 +12,7 @@ const streamers = [
 ];
 ---
 
-<Layout title="Twitch" description="Streamers I follow on Twitch">
-  <Navbar />
-  <CommandPalette />
+<Layout title="Twitch" description="Streamers I follow on Twitch">  <CommandPalette />
   <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
     <a href="/library" class="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] mb-8 transition-colors">
       <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
@@ -49,6 +45,4 @@ const streamers = [
     <div class="mt-12 glass p-8 text-center">
       <p class="text-white/50">Twitch API integration coming soon...</p>
     </div>
-  </main>
-  <Footer />
-</Layout>
+  </main></Layout>

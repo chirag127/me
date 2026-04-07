@@ -1,8 +1,6 @@
 ---
 import { CONFIG } from '../../lib/config';
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 
 import * as fs from 'node:fs/promises';
@@ -22,9 +20,7 @@ try {
 const hnStats = db.hackernews;
 ---
 
-<Layout title="HackerNews" description="Chirag Singhal on HackerNews — karma and activity">
-  <Navbar />
-  <CommandPalette />
+<Layout title="HackerNews" description="Chirag Singhal on HackerNews — karma and activity">  <CommandPalette />
   <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
     <div class="flex items-center gap-3 mb-2">
       <div class="h-10 w-10 rounded-xl bg-[#ff6600]/10 flex items-center justify-center">
@@ -74,6 +70,4 @@ const hnStats = db.hackernews;
     <div class="glass p-6 text-center">
       <a href={`https://news.ycombinator.com/user?id=${CONFIG.user.hackernews}`} target="_blank" rel="noopener noreferrer" class="text-sm text-[#ff6600] hover:underline">View on HackerNews →</a>
     </div>
-  </main>
-  <Footer />
-</Layout>
+  </main></Layout>

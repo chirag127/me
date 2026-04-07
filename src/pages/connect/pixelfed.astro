@@ -1,14 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
-import Footer from '../../components/Footer.astro';
 import { CONFIG } from '../../lib/config';
 ---
 
-<Layout title="Pixelfed" description="Chirag Singhal on Pixelfed — decentralized photo sharing">
-  <Navbar />
-  <CommandPalette />
+<Layout title="Pixelfed" description="Chirag Singhal on Pixelfed — decentralized photo sharing">  <CommandPalette />
   <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
     <div class="flex items-center gap-3 mb-2">
       <div class="h-10 w-10 rounded-xl bg-[#3b82f6]/10 flex items-center justify-center">
@@ -59,6 +55,4 @@ import { CONFIG } from '../../lib/config';
     <div class="glass p-6 text-center">
       <a href={`https://pixelfed.social/${CONFIG.user.pixelfed}`} target="_blank" rel="noopener noreferrer" class="text-sm text-[#3b82f6] hover:underline">View on Pixelfed →</a>
     </div>
-  </main>
-  <Footer />
-</Layout>
+  </main></Layout>

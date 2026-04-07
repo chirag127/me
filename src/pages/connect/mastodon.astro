@@ -1,7 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 
 import * as fs from 'node:fs/promises';
@@ -26,9 +24,7 @@ function _stripHtml(html: string) {
 }
 ---
 
-<Layout title="Mastodon" description="Chirag Singhal on Mastodon — recent posts and profile">
-  <Navbar />
-  <CommandPalette />
+<Layout title="Mastodon" description="Chirag Singhal on Mastodon — recent posts and profile">  <CommandPalette />
   <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
     <div class="flex items-center gap-3 mb-2">
       <div class="h-10 w-10 rounded-xl bg-[#6364ff]/10 flex items-center justify-center">
@@ -101,6 +97,4 @@ function _stripHtml(html: string) {
     <div class="mt-12 glass p-6 text-center">
       <a href="https://mastodon.social/@chirag127" target="_blank" rel="noopener noreferrer" class="text-sm text-[#6364ff] hover:underline">View on Mastodon →</a>
     </div>
-  </main>
-  <Footer />
-</Layout>
+  </main></Layout>

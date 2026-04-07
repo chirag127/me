@@ -1,20 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 import AdminDashboard from '../../components/islands/AdminDashboard';
-import Footer from '../../components/Footer.astro';
 ---
 
-<Layout title="Admin Panel" description="Admin dashboard — Firestore analytics">
-  <Navbar />
-  <CommandPalette />
+<Layout title="Admin Panel" description="Admin dashboard — Firestore analytics">  <CommandPalette />
   <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
     <a href="/system" class="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white/60 mb-8 transition-colors">
       <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
       Back to System Drive
     </a>
     <AdminDashboard client:only="react" />
-  </main>
-  <Footer />
-</Layout>
+  </main></Layout>

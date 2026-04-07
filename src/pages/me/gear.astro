@@ -2,8 +2,6 @@
 import { usesData } from '../../data/uses';
 import { amazonOrders, amazonBuyAgainProducts } from '../../data/amazon';
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 
 const categoryIcons: Record<string, { icon: string; color: string }> = {
@@ -131,9 +129,7 @@ const gearCategories = [
 ];
 ---
 
-<Layout title="Gear & Setup" description="The tools, products, and gadgets Chirag uses — from dev setup to daily carry">
-  <Navbar />
-  <CommandPalette />
+<Layout title="Gear & Setup" description="The tools, products, and gadgets Chirag uses — from dev setup to daily carry">  <CommandPalette />
   <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12">
     <a href="/me" class="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] mb-8 transition-colors group">
       <svg class="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
@@ -265,9 +261,7 @@ const gearCategories = [
       <svg class="h-5 w-5 text-amber-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
       <p class="text-xs text-[var(--color-text-muted)]">This page is inspired by <a href="https://uses.tech" target="_blank" rel="noopener noreferrer" class="text-amber-400/70 hover:text-amber-400 transition-colors">uses.tech</a>. Updated periodically as my stack evolves.</p>
     </div>
-  </main>
-  <Footer />
-</Layout>
+  </main></Layout>
 
 <script is:inline>
   document.querySelectorAll('.gear-tab').forEach(function(btn) {

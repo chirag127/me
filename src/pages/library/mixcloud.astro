@@ -1,8 +1,6 @@
 ---
 import { CONFIG } from '../../lib/config';
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 
 import * as fs from 'node:fs/promises';
@@ -23,9 +21,7 @@ const user = db.mixcloud?.user;
 const cloudcasts = db.mixcloud?.cloudcasts || [];
 ---
 
-<Layout title="Mixcloud" description="Chirag Singhal on Mixcloud — DJ mixes and radio shows">
-  <Navbar />
-  <CommandPalette />
+<Layout title="Mixcloud" description="Chirag Singhal on Mixcloud — DJ mixes and radio shows">  <CommandPalette />
   <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
     <div class="flex items-center gap-3 mb-2">
       <div class="h-10 w-10 rounded-xl bg-[#5000ff]/10 flex items-center justify-center">
@@ -109,6 +105,4 @@ const cloudcasts = db.mixcloud?.cloudcasts || [];
     <div class="mt-12 glass p-6 text-center">
       <a href={`https://www.mixcloud.com/${CONFIG.user.mixcloud}`} target="_blank" rel="noopener noreferrer" class="text-sm text-[#5000ff] hover:underline">View on Mixcloud →</a>
     </div>
-  </main>
-  <Footer />
-</Layout>
+  </main></Layout>

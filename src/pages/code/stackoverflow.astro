@@ -1,7 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 
 import * as fs from 'node:fs/promises';
@@ -22,9 +20,7 @@ const user = db.stackoverflow?.user;
 const tags = db.stackoverflow?.tags || [];
 ---
 
-<Layout title="StackOverflow" description="Chirag Singhal's StackOverflow profile — reputation, badges, and tags">
-  <Navbar />
-  <CommandPalette />
+<Layout title="StackOverflow" description="Chirag Singhal's StackOverflow profile — reputation, badges, and tags">  <CommandPalette />
   <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
     <div class="flex items-center gap-3 mb-2">
       <div class="h-10 w-10 rounded-xl bg-[#f48024]/10 flex items-center justify-center">
@@ -88,6 +84,4 @@ const tags = db.stackoverflow?.tags || [];
     <div class="glass p-6 text-center">
       <a href="https://stackoverflow.com/users/18901471/chirag127" target="_blank" rel="noopener noreferrer" class="text-sm text-[#f48024] hover:underline">View on StackOverflow →</a>
     </div>
-  </main>
-  <Footer />
-</Layout>
+  </main></Layout>

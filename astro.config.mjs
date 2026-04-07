@@ -8,6 +8,9 @@ export default defineConfig({
   output: 'static',
   site: 'https://me.oriz.in',
   integrations: [react()],
+  devToolbar: {
+    enabled: false,
+  },
   vite: {
     plugins: [tailwindcss()],
     server: {
@@ -17,6 +20,7 @@ export default defineConfig({
         usePolling: false,
       },
     },
+    logLevel: 'silent',
     optimizeDeps: {
       // Pre-bundle AI modules to avoid 404s during dev
       include: [

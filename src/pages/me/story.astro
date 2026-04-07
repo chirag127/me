@@ -3,16 +3,12 @@ import { experience } from '../../data/resume';
 import { projects } from '../../data/resume';
 import { summary } from '../../data/resume';
 import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
 
 ---
 ---
 
-<Layout title="My Story" description="The journey of Chirag Singhal — from Ghaziabad to building distributed systems">
-  <Navbar />
-  <CommandPalette />
+<Layout title="My Story" description="The journey of Chirag Singhal — from Ghaziabad to building distributed systems">  <CommandPalette />
   <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 relative">
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-violet-500/4 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -208,6 +204,4 @@ import CommandPalette from '../../components/CommandPalette.astro';
         </p>
       </div>
     </div>
-  </main>
-  <Footer />
-</Layout>
+  </main></Layout>
