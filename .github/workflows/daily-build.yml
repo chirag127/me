@@ -1,7 +1,7 @@
 name: Daily Build & Deploy
 on:
   schedule:
-    - cron: '0 20 * * *'  # 2:00 AM IST daily data refresh
+    - cron: '30 20 * * *'  # 2:00 AM IST (UTC+5:30) daily data refresh
   push:
     branches: [main]
   workflow_dispatch:
