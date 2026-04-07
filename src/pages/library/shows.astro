@@ -46,6 +46,23 @@ const totalEpisodes = shows.reduce(
 );
 
 const recentShows = [...shows].slice(0, 8);
+const fallbackGradients = [
+  'linear-gradient(135deg, #2e1065, #4c1d95)',
+  'linear-gradient(135deg, #1e3a8a, #1e40af)',
+  'linear-gradient(135deg, #065f46, #047857)',
+  'linear-gradient(135deg, #78350f, #92400e)',
+  'linear-gradient(135deg, #44403c, #57534e)',
+  'linear-gradient(135deg, #171717, #262626)',
+];
+const fallbackEmojis = ['📺', '🍿', '🎟️', '📽️', '🎞️', '🌌', '💥', '🎭'];
+
+function getVisuals(title: string) {
+  const idx = [...title].reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return {
+    gradient: fallbackGradients[idx % fallbackGradients.length],
+    emoji: fallbackEmojis[idx % fallbackEmojis.length],
+  };
+}
 ---
 
 <Layout
@@ -56,87 +73,86 @@ const recentShows = [...shows].slice(0, 8);
 
   <div
     class="mx-auto max-w-[var(--content-max-width)]
-      px-6 py-10"
+      px-6 py-12"
   >
     <!-- Breadcrumb -->
     <a
       href="/library"
       class="inline-flex items-center gap-1.5
-        text-xs text-white/30
-        hover:text-white/50 transition-colors mb-6"
+        text-xs text-white/20
+        hover:text-white/40 transition-colors mb-8"
     >
       <svg
         class="h-3.5 w-3.5"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
-        stroke-width="2"
+        stroke-width="2.5"
       >
         <path d="M15 19l-7-7 7-7" />
       </svg>
-      Library
+      Library Drive
     </a>
 
     <!-- Header -->
     <div class="mb-10">
-      <h1
-        class="text-3xl font-black text-white mb-2"
-        style="font-family:
-          var(--font-display, 'Outfit');"
-      >
-        TV Shows
-      </h1>
-      <p class="text-sm text-white/35">
-        TV diary — synced from Trakt automatically.
-      </p>
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-xs font-medium text-violet-400 mb-4">
+        DISCOVER
+      </div>
+      <div class="flex items-center gap-3 mb-2">
+        <div class="h-10 w-10 rounded-xl bg-violet-500/10 flex items-center justify-center">
+          <span class="text-xl">📺</span>
+        </div>
+        <h1 class="text-4xl font-bold text-white uppercase tracking-tighter" style="font-family: 'Outfit', sans-serif;">TV Shows</h1>
+      </div>
+      <p class="text-white/40">TV diary and series tracking — synced automatically.</p>
     </div>
 
     <!-- Quick Navigation -->
-    <div class="flex flex-wrap gap-2 mb-10">
+    <div class="flex flex-wrap gap-2 mb-12">
       <a
         href="/library/shows-watched"
-        class="text-[10px] px-3 py-1.5 rounded-full
+        class="text-[10px] px-4 py-2 rounded-full
           bg-violet-500/10 text-violet-400
           border border-violet-500/20
           hover:bg-violet-500/20
-          transition-colors font-semibold
-          uppercase tracking-wider"
+          transition-all font-bold
+          uppercase tracking-widest"
       >
-        All Tracked ({showCount})
+        All History ({showCount})
       </a>
     </div>
 
     <!-- Stats Grid -->
     <div
-      class="grid grid-cols-2 gap-3 mb-14 max-w-sm"
+      class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16"
     >
       {[
         {
-          label: 'Tracked Shows',
+          label: 'Total Shows',
           value: showCount,
           color: 'text-violet-400',
         },
         {
-          label: 'Total Episodes',
+          label: 'Episodes Watched',
           value: totalEpisodes,
           color: 'text-sky-400',
         },
       ].map((stat) => (
         <div
-          class="p-4 rounded-xl bg-white/[0.015]
+          class="p-5 glass rounded-2xl
             border border-white/5 text-center"
         >
           <div
-            class={`text-2xl font-black ${stat.color} truncate`}
-            style="font-family:
-              var(--font-display, 'Outfit');"
+            class={`text-3xl font-black ${stat.color} truncate`}
+            style="font-family: 'Outfit', sans-serif;"
           >
             {stat.value}
           </div>
           <div
-            class="text-[9px] text-white/25
-              uppercase tracking-widest mt-1
-              font-semibold"
+            class="text-[9px] text-white/20
+              uppercase tracking-[0.2em] mt-1
+              font-bold"
           >
             {stat.label}
           </div>
@@ -144,95 +160,53 @@ const recentShows = [...shows].slice(0, 8);
       ))}
     </div>
 
-    <!-- ═══ TRACKED SHOWS ═══ -->
-    <section class="mb-16 reveal-stagger">
-      <div
-        class="flex items-center justify-between mb-6"
-      >
-        <div class="flex items-center gap-2">
-          <span class="text-lg">📺</span>
-          <h2
-            class="text-xl font-bold text-white"
-            style="font-family:
-              var(--font-display, 'Outfit');"
-          >
-            Tracked Shows
-          </h2>
-        </div>
+    <!-- ═══ TRACKED SHOWS (RECENT) ═══ -->
+    <section class="mb-20">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-xl font-bold text-white relative inline-block uppercase tracking-tight">
+          Recent Activity
+          <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-violet-400 to-transparent rounded-full"></span>
+        </h2>
+        <a href="/library/shows-watched" class="text-[10px] uppercase tracking-widest text-white/20 hover:text-violet-400 transition-colors font-bold">
+          View Complete History →
+        </a>
       </div>
 
-      <div class="space-y-2 mb-6">
-        {recentShows.map((show) => (
-          <div
-            class="group flex items-center gap-4
-              p-4 rounded-xl bg-white/[0.015]
-              border border-white/5
-              hover:border-violet-500/15
-              hover:bg-white/[0.025]
-              transition-all duration-200"
-          >
-            <div class="relative h-14 w-10 flex-shrink-0 overflow-hidden rounded-lg bg-violet-500/5">
-              {show.posterUrl ? (
-                <img src={show.posterUrl} alt={show.title} class="w-full h-full object-cover" loading="lazy" />
-              ) : (
-                <div class="w-full h-full flex items-center justify-center text-lg text-violet-400/60">📺</div>
-              )}
-            </div>
-            <div class="flex-1 min-w-0">
-              <h4
-                class="text-sm font-semibold
-                  text-white/80
-                  group-hover:text-violet-300
-                  transition-colors"
-              >
-                {show.title}
-              </h4>
-              <div
-                class="flex items-center gap-2
-                  text-[10px] text-white/20 mt-0.5"
-              >
-                <span>{show.year}</span>
-                {(show.genres || [])[0] && (
-                  <>
-                    <span
-                      class="h-0.5 w-0.5 rounded-full
-                        bg-white/10"
-                    ></span>
-                    <span>
-                      {(show.genres || [])[0]}
-                    </span>
-                  </>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+        {recentShows.map((show, i) => {
+          const vis = getVisuals(show.title);
+          return (
+            <div class="glass rounded-2xl border border-white/5 hover:border-violet-500/20 transition-all group cursor-default" style={`animation-delay: ${i * 40}ms`}>
+              <div class="aspect-[2/3] rounded-t-2xl mb-3 flex items-center justify-center text-3xl relative overflow-hidden bg-white/[0.02]">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                
+                {show.posterUrl ? (
+                  <img src={show.posterUrl} alt={show.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                ) : (
+                  <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style={`background: ${vis.gradient}`}>
+                    <span class="drop-shadow-lg opacity-40">{vis.emoji}</span>
+                  </div>
                 )}
-              </div>
-            </div>
-            <div class="flex items-center gap-3
-              flex-shrink-0">
-              <div class="text-right">
-                <div
-                  class="text-xs font-bold
-                    text-violet-400/60"
-                >
-                  {show.episodesWatched || 0}
-                </div>
-                <div
-                  class="text-[8px] text-white/15
-                    uppercase tracking-wider"
-                >
-                  episodes
+
+                <!-- Episode Badge -->
+                <div class="absolute top-2 right-2 z-20 bg-black/60 backdrop-blur-md rounded-full px-2 py-0.5 border border-white/10">
+                  <span class="text-[10px] font-bold text-violet-400">
+                    {show.episodesWatched || 0} <span class="text-[8px] text-white/30 uppercase">eps</span>
+                  </span>
                 </div>
               </div>
-              {show.rating && (
-                <div
-                  class="px-2 py-0.5 rounded-md
-                    bg-violet-500/10 text-violet-400
-                    text-[10px] font-bold"
-                >
-                  {show.rating}/10
-                </div>
-              )}
+
+              <div class="px-3 pb-4">
+                <h3 class="text-xs font-bold text-white/90 truncate group-hover:text-violet-400 transition-colors">
+                  {show.title}
+                </h3>
+                <p class="text-[10px] text-white/30 truncate mt-0.5">
+                  {show.year} · {(show.genres || [])[0]}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
       
       <div class="flex justify-center">

@@ -68,25 +68,34 @@ function getVisuals(title: string) {
     </div>
 
     {wantToRead.length > 0 ? (
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
         {wantToRead.map((book: any, i: number) => {
           const vis = getVisuals(book.title);
           return (
-          <div class="glass rounded-2xl border border-white/5 hover:border-rose-500/15 transition-all group cursor-default" style={`animation-delay: ${i * 40}ms`}>
-            <div class="aspect-[2/3] rounded-t-2xl mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
-              <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-              {book.coverUrl ? (
-                <img src={book.coverUrl} alt={book.title} class="w-full h-full object-cover relative z-10 opacity-80" loading="lazy" />
-              ) : (
-                <span class="relative z-10 drop-shadow-lg">{vis.emoji}</span>
-              )}
+            <div class="glass rounded-2xl border border-white/5 hover:border-rose-500/20 transition-all group cursor-default" style={`animation-delay: ${i * 30}ms`}>
+              <div class="aspect-[2/3] rounded-t-2xl mb-3 flex items-center justify-center text-3xl relative overflow-hidden bg-white/[0.02]">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                
+                {book.coverUrl ? (
+                  <img src={book.coverUrl} alt={book.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                ) : (
+                  <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style={`background: ${vis.gradient}`}>
+                    <span class="drop-shadow-lg opacity-40">{vis.emoji}</span>
+                  </div>
+                )}
+              </div>
+
+              <div class="px-3 pb-4">
+                <h3 class="text-xs font-bold text-white/90 truncate group-hover:text-rose-400 transition-colors">
+                  {book.title}
+                </h3>
+                <p class="text-[10px] text-white/30 truncate mt-0.5">
+                  {(book.authors || [])[0]}
+                </p>
+              </div>
             </div>
-            <div class="px-3 pb-3">
-              <h3 class="text-xs font-semibold text-white truncate group-hover:text-rose-400 transition-colors">{book.title}</h3>
-              <p class="text-[0.65rem] text-white/20 truncate block max-w-full">{(book.authors || []).join(', ')}</p>
-            </div>
-          </div>
-        )})}
+          );
+        })}
       </div>
     ) : (
       <div class="glass p-12 text-center rounded-2xl border border-white/5"><p class="text-white/30">Reading queue is empty.</p></div>

@@ -71,6 +71,23 @@ const topGenres = Object.entries(genreCounts)
   .sort((a, b) => b[1] - a[1])
   .slice(0, 4)
   .map(([g]) => g);
+const fallbackGradients = [
+  'linear-gradient(135deg, #064e3b, #065f46)',
+  'linear-gradient(135deg, #1e3a8a, #1e40af)',
+  'linear-gradient(135deg, #4c1d95, #5b21b6)',
+  'linear-gradient(135deg, #78350f, #92400e)',
+  'linear-gradient(135deg, #831843, #9d174d)',
+  'linear-gradient(135deg, #0f172a, #1e293b)',
+];
+const fallbackEmojis = ['🎬', '🍿', '🎟️', '📽️', '🎞️', '🌌', '💥', '🎭'];
+
+function getVisuals(title: string) {
+  const idx = [...title].reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return {
+    gradient: fallbackGradients[idx % fallbackGradients.length],
+    emoji: fallbackEmojis[idx % fallbackEmojis.length],
+  };
+}
 ---
 
 <Layout
@@ -81,95 +98,95 @@ const topGenres = Object.entries(genreCounts)
 
   <div
     class="mx-auto max-w-[var(--content-max-width)]
-      px-6 py-10"
+      px-6 py-12"
   >
     <!-- Breadcrumb -->
     <a
       href="/library"
       class="inline-flex items-center gap-1.5
-        text-xs text-white/30
-        hover:text-white/50 transition-colors mb-6"
+        text-xs text-white/20
+        hover:text-white/40 transition-colors mb-8"
     >
       <svg
         class="h-3.5 w-3.5"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
-        stroke-width="2"
+        stroke-width="2.5"
       >
         <path d="M15 19l-7-7 7-7" />
       </svg>
-      Library
+      Library Drive
     </a>
 
     <!-- Header -->
     <div class="mb-10">
-      <h1
-        class="text-3xl font-black text-white mb-2"
-        style="font-family:
-          var(--font-display, 'Outfit');"
-      >
-        Movies
-      </h1>
-      <p class="text-sm text-white/35">
-        Film diary — synced from Trakt automatically.
-      </p>
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-medium text-emerald-400 mb-4">
+        DISCOVER
+      </div>
+      <div class="flex items-center gap-3 mb-2">
+        <div class="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+          <span class="text-xl">🎬</span>
+        </div>
+        <h1 class="text-4xl font-bold text-white uppercase tracking-tighter" style="font-family: 'Outfit', sans-serif;">Movies</h1>
+      </div>
+      <p class="text-white/40">Film diary and watchlists — synced automatically.</p>
     </div>
 
     <!-- Quick Navigation -->
-    <div class="flex flex-wrap gap-2 mb-10">
+    <div class="flex flex-wrap gap-2 mb-12">
       <a
         href="/library/movies-watched"
-        class="text-[10px] px-3 py-1.5 rounded-full
-          bg-teal-500/10 text-teal-400
-          border border-teal-500/20
-          hover:bg-teal-500/20
-          transition-colors font-semibold
-          uppercase tracking-wider"
+        class="text-[10px] px-4 py-2 rounded-full
+          bg-emerald-500/10 text-emerald-400
+          border border-emerald-500/20
+          hover:bg-emerald-500/20
+          transition-all font-bold
+          uppercase tracking-widest"
       >
-        All Watched ({movieCount})
+        History ({movieCount})
       </a>
       <a
         href="/library/movies-rated"
-        class="text-[10px] px-3 py-1.5 rounded-full
+        class="text-[10px] px-4 py-2 rounded-full
           bg-amber-500/10 text-amber-400
           border border-amber-500/20
           hover:bg-amber-500/20
-          transition-colors font-semibold
-          uppercase tracking-wider"
+          transition-all font-bold
+          uppercase tracking-widest"
       >
-        Top Rated
+        Ranked
       </a>
       <a
         href="/library/movies-watchlist"
-        class="text-[10px] px-3 py-1.5 rounded-full
+        class="text-[10px] px-4 py-2 rounded-full
           bg-rose-500/10 text-rose-400
           border border-rose-500/20
           hover:bg-rose-500/20
-          transition-colors font-semibold
-          uppercase tracking-wider"
+          transition-all font-bold
+          uppercase tracking-widest"
       >
-        Watchlist ({watchlist.length})
+        Queue ({watchlist.length})
       </a>
     </div>
 
     <!-- Stats Grid -->
     <div
-      class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-14"
+      class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16"
     >
       {[
         {
-          label: 'Total Movies',
+          label: 'Films Logged',
           value: movieCount,
-          color: 'text-teal-400',
+          color: 'text-emerald-400',
         },
         {
-          label: 'Avg Rating',
+          label: 'Mean Rating',
           value: avgMovieRating,
           color: 'text-amber-400',
         },
         {
-          label: 'Watchlist',
+          label: 'Plan to Watch',
           value: watchlist.length,
           color: 'text-rose-400',
         },
@@ -180,20 +197,19 @@ const topGenres = Object.entries(genreCounts)
         },
       ].map((stat) => (
         <div
-          class="p-4 rounded-xl bg-white/[0.015]
+          class="p-5 glass rounded-2xl
             border border-white/5 text-center"
         >
           <div
-            class={`text-2xl font-black ${stat.color} truncate`}
-            style="font-family:
-              var(--font-display, 'Outfit');"
+            class={`text-3xl font-black ${stat.color} truncate`}
+            style="font-family: 'Outfit', sans-serif;"
           >
             {stat.value}
           </div>
           <div
-            class="text-[9px] text-white/25
-              uppercase tracking-widest mt-1
-              font-semibold"
+            class="text-[9px] text-white/20
+              uppercase tracking-[0.2em] mt-1
+              font-bold"
           >
             {stat.label}
           </div>
@@ -201,107 +217,103 @@ const topGenres = Object.entries(genreCounts)
       ))}
     </div>
 
-    <!-- ═══ RECENT MOVIES ═══ -->
-    <section class="mb-16 reveal-stagger">
-      <div
-        class="flex items-center justify-between mb-6"
-      >
-        <div class="flex items-center gap-2">
-          <span class="text-lg">🎬</span>
-          <h2
-            class="text-xl font-bold text-white"
-            style="font-family:
-              var(--font-display, 'Outfit');"
-          >
-            Recently Watched
-          </h2>
-        </div>
+    <!-- ═══ RECENTLY WATCHED ═══ -->
+    <section class="mb-20">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-xl font-bold text-white relative inline-block uppercase tracking-tight">
+          Recently Watched
+          <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent rounded-full"></span>
+        </h2>
+        <a href="/library/movies-watched" class="text-[10px] uppercase tracking-widest text-white/20 hover:text-emerald-400 transition-colors font-bold">
+          View All History →
+        </a>
       </div>
 
-      <div class="space-y-2 mb-6">
-        {recentMovies.map((movie) => (
-          <div
-            class="group flex items-center gap-4
-              p-3 rounded-xl bg-white/[0.01]
-              border border-white/[0.03]
-              hover:border-white/8
-              hover:bg-white/[0.02]
-              transition-all duration-200"
-          >
-            <div class="relative h-12 w-8 flex-shrink-0 overflow-hidden rounded bg-white/[0.03]">
-              {movie.posterUrl ? (
-                <img src={movie.posterUrl} alt={movie.title} class="w-full h-full object-cover" loading="lazy" />
-              ) : (
-                <div class="w-full h-full flex items-center justify-center text-[10px] text-white/20">
-                  {movie.rating ? movie.rating : '—'}
-                </div>
-              )}
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+        {recentMovies.map((movie, i) => {
+          const vis = getVisuals(movie.title);
+          return (
+            <div class="glass rounded-2xl border border-white/5 hover:border-emerald-500/20 transition-all group cursor-default" style={`animation-delay: ${i * 40}ms`}>
+              <div class="aspect-[2/3] rounded-t-2xl mb-3 flex items-center justify-center text-3xl relative overflow-hidden bg-white/[0.02]">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                
+                {movie.posterUrl ? (
+                  <img src={movie.posterUrl} alt={movie.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                ) : (
+                  <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style={`background: ${vis.gradient}`}>
+                    <span class="drop-shadow-lg opacity-40">{vis.emoji}</span>
+                  </div>
+                )}
+
+                {movie.rating && (
+                  <div class="absolute top-2 right-2 z-20 bg-black/60 backdrop-blur-md rounded-full px-2 py-0.5 border border-white/10">
+                    <span class="text-[10px] font-bold text-emerald-400">{movie.rating}</span>
+                  </div>
+                )}
+              </div>
+
+              <div class="px-3 pb-4">
+                <h3 class="text-xs font-bold text-white/90 truncate group-hover:text-emerald-400 transition-colors">
+                  {movie.title}
+                </h3>
+                <p class="text-[10px] text-white/30 truncate mt-0.5">
+                  {movie.year} · {(movie.genres || [])[0]}
+                </p>
+              </div>
             </div>
-            <div class="flex-1 min-w-0">
-              <h4
-                class="text-sm font-medium
-                  text-white/70 truncate
-                  group-hover:text-white/90
-                  transition-colors"
-              >
-                {movie.title}
-              </h4>
-              <p class="text-[10px] text-white/20">
-                {movie.year}
-                {(movie.genres || [])[0] &&
-                  ` · ${(movie.genres || [])[0]}`}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-      
-      <div class="flex justify-center">
-        <a href="/library/movies-watched" class="text-xs px-4 py-2 rounded-lg bg-white/[0.03] border border-white/5 hover:bg-white/[0.05] text-white/60 hover:text-white transition-colors">
-          View all history
-        </a>
+          );
+        })}
       </div>
     </section>
 
     <!-- ═══ TOP RATED ═══ -->
     {topRatedMovies.length > 0 && (
-      <section class="mb-16 reveal-stagger">
-        <div class="flex items-center justify-between mb-6">
-          <div class="flex items-center gap-2">
-            <span class="text-lg">⭐</span>
-            <h2 class="text-xl font-bold text-white" style="font-family: var(--font-display, 'Outfit');">
-              Top Rated
-            </h2>
-          </div>
+      <section class="mb-20">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-xl font-bold text-white relative inline-block uppercase tracking-tight">
+            Top Rated
+            <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-amber-400 to-transparent rounded-full"></span>
+          </h2>
+          <a href="/library/movies-rated" class="text-[10px] uppercase tracking-widest text-white/20 hover:text-amber-400 transition-colors font-bold">
+            View Ranking →
+          </a>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-          {topRatedMovies.map((movie) => (
-            <div class="group p-4 rounded-xl bg-white/[0.015] border border-white/5 hover:border-amber-500/15 transition-all duration-200">
-              <div class="flex items-center gap-3 mb-3">
-                <div class="relative h-14 w-10 flex-shrink-0 overflow-hidden rounded-md bg-white/[0.03]">
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+          {topRatedMovies.map((movie, i) => {
+            const vis = getVisuals(movie.title);
+            return (
+              <div class="glass rounded-2xl border border-white/5 hover:border-amber-500/20 transition-all group cursor-default" style={`animation-delay: ${i * 40}ms`}>
+                <div class="aspect-[2/3] rounded-t-2xl mb-3 flex items-center justify-center text-3xl relative overflow-hidden bg-white/[0.02]">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                  
                   {movie.posterUrl ? (
-                    <img src={movie.posterUrl} alt={movie.title} class="w-full h-full object-cover" loading="lazy" />
+                    <img src={movie.posterUrl} alt={movie.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                   ) : (
-                    <div class="w-full h-full flex items-center justify-center text-xs text-white/20">{movie.rating}</div>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style={`background: ${vis.gradient}`}>
+                      <span class="drop-shadow-lg opacity-40">{vis.emoji}</span>
+                    </div>
                   )}
+
+                  <div class="absolute top-2 right-2 z-20 bg-amber-500/20 backdrop-blur-md rounded-full px-2 py-0.5 border border-amber-500/30">
+                    <span class="text-[10px] font-black text-amber-400">{movie.rating}</span>
+                  </div>
                 </div>
-                <div class="flex flex-col">
-                  <span class="flex items-center justify-center h-6 w-8 rounded bg-amber-500/10 text-amber-400 text-xs font-black">
-                    {movie.rating}
-                  </span>
-                  <span class="text-[9px] text-white/20 uppercase tracking-wider mt-0.5 mt-1 text-center">/10</span>
+
+                <div class="px-3 pb-4">
+                  <h3 class="text-xs font-bold text-white/90 truncate group-hover:text-amber-400 transition-colors">
+                    {movie.title}
+                  </h3>
+                  <p class="text-[10px] text-white/30 truncate mt-0.5">
+                    {movie.year} · {(movie.genres || [])[0]}
+                  </p>
                 </div>
               </div>
-              <h4 class="text-sm font-semibold text-white/80 mb-1 line-clamp-2 group-hover:text-amber-300 transition-colors leading-tight">
-                {movie.title}
-              </h4>
-              <p class="text-[10px] text-white/20">
-                {movie.year}
-                {(movie.genres || [])[0] && ` · ${(movie.genres || [])[0]}`}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
+      </section>
+    )}
         
         <div class="flex justify-center">
           <a href="/library/movies-rated" class="text-xs px-4 py-2 rounded-lg bg-white/[0.03] border border-white/5 hover:bg-white/[0.05] text-white/60 hover:text-white transition-colors">

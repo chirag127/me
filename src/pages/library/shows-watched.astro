@@ -23,6 +23,28 @@ try {
 }
 
 const totalEpisodes = shows.reduce((acc, s) => acc + (s.episodesWatched || 0), 0);
+const sortedByDate = [...shows].sort(
+  (a: any, b: any) =>
+    new Date(b.watchedAt || 0).getTime() - new Date(a.watchedAt || 0).getTime(),
+);
+
+const fallbackGradients = [
+  'linear-gradient(135deg, #0c1445, #1a237e)',
+  'linear-gradient(135deg, #1b3a2d, #2e7d32)',
+  'linear-gradient(135deg, #4a148c, #e91e63)',
+  'linear-gradient(135deg, #795548, #d7ccc8)',
+  'linear-gradient(135deg, #1e3a5f, #0f4c75)',
+  'linear-gradient(135deg, #bf360c, #e65100)',
+];
+const fallbackEmojis = ['📺', '🍿', '🎟️', '📽️', '🎞️', '🌌', '💥', '🎭'];
+
+function getVisuals(title: string) {
+  const idx = [...title].reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return {
+    gradient: fallbackGradients[idx % fallbackGradients.length],
+    emoji: fallbackEmojis[idx % fallbackEmojis.length],
+  };
+}
 ---
 
 <Layout
@@ -33,11 +55,11 @@ const totalEpisodes = shows.reduce((acc, s) => acc + (s.episodesWatched || 0), 0
 
   <div
     class="mx-auto max-w-[var(--content-max-width)]
-      px-6 py-10"
+      px-6 py-12"
   >
     <!-- Breadcrumb -->
     <div class="flex items-center gap-1.5
-      text-xs text-white/25 mb-6">
+      text-xs text-white/20 mb-8">
       <a
         href="/library"
         class="hover:text-white/40 transition-colors"
@@ -48,83 +70,68 @@ const totalEpisodes = shows.reduce((acc, s) => acc + (s.episodesWatched || 0), 0
         class="hover:text-white/40 transition-colors"
       >TV Shows</a>
       <span>/</span>
-      <span class="text-white/40">All Tracked</span>
+      <span class="text-white/40">History</span>
     </div>
 
     <!-- Header -->
-    <div class="mb-8">
-      <h1
-        class="text-2xl font-black text-white mb-2"
-        style="font-family:
-          var(--font-display, 'Outfit');"
-      >
-        All Tracked Shows
-      </h1>
-      <p class="text-sm text-white/30">
-        {shows.length} shows · {totalEpisodes} episodes watched
-      </p>
-    </div>
-
-    <!-- Show List -->
-    <div class="space-y-2">
-      {shows.map((show, i) => (
-        <div
-          class="group flex items-center gap-4
-            p-3 rounded-xl bg-white/[0.01]
-            border border-white/[0.03]
-            hover:border-violet-500/10
-            hover:bg-white/[0.02]
-            transition-all duration-200"
-        >
-          <div
-            class="flex items-center justify-center
-              h-7 w-7 rounded-md bg-white/[0.02]
-              text-[10px] text-white/15 font-mono
-              flex-shrink-0"
-          >
-            {i + 1}
-          </div>
-          <div class="relative h-12 w-8 flex-shrink-0 overflow-hidden rounded bg-violet-500/10">
-            {show.posterUrl ? (
-              <img src={show.posterUrl} alt={show.title} class="w-full h-full object-cover" loading="lazy" />
-            ) : (
-              <div class="w-full h-full flex items-center justify-center text-lg text-violet-400">📺</div>
-            )}
-          </div>
-          <div class="flex-1 min-w-0">
-            <h3
-              class="text-sm font-medium
-                text-white/70 truncate
-                group-hover:text-violet-300
-                transition-colors"
-            >
-              {show.title}
-            </h3>
-            <p class="text-[10px] text-white/20">
-              {show.year}
-              {(show.genres || [])[0] &&
-                ` · ${(show.genres || [])[0]}`}
-            </p>
-          </div>
-          <div class="text-right flex-shrink-0">
-             <div class="text-xs font-bold text-violet-400/60">
-                 {show.episodesWatched || 0}
-             </div>
-             <div class="text-[8px] text-white/15 uppercase tracking-wider">
-                 eps
-             </div>
-          </div>
+    <div class="mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-xs font-medium text-violet-400 mb-4">
+        HISTORY
+      </div>
+      <div class="flex items-center gap-3 mb-2">
+        <div class="h-10 w-10 rounded-xl bg-violet-500/10 flex items-center justify-center">
+          <span class="text-xl">📺</span>
         </div>
-      ))}
+        <h1 class="text-4xl font-bold text-white uppercase tracking-tighter" style="font-family: 'Outfit', sans-serif;">Tracked Shows</h1>
+      </div>
+      <p class="text-white/40">{shows.length} shows tracked · {totalEpisodes} episodes watched.</p>
     </div>
 
-    {shows.length === 0 && (
+    <!-- Grid Layout -->
+    {sortedByDate.length > 0 ? (
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+        {sortedByDate.map((show, i) => {
+          const vis = getVisuals(show.title);
+          return (
+            <div class="glass rounded-2xl border border-white/5 hover:border-violet-500/20 transition-all group cursor-default" style={`animation-delay: ${i * 30}ms`}>
+              <div class="aspect-[2/3] rounded-t-2xl mb-3 flex items-center justify-center text-3xl relative overflow-hidden bg-white/[0.02]">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                
+                {show.posterUrl ? (
+                  <img src={show.posterUrl} alt={show.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                ) : (
+                  <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style={`background: ${vis.gradient}`}>
+                    <span class="drop-shadow-lg opacity-50">{vis.emoji}</span>
+                  </div>
+                )}
+
+                <!-- Episode Badge -->
+                <div class="absolute top-2 right-2 z-20 bg-black/60 backdrop-blur-md rounded-full px-2 py-0.5 border border-white/10">
+                  <span class="text-[10px] font-bold text-violet-400">
+                    {show.episodesWatched || 0} <span class="text-[8px] text-white/30 uppercase">eps</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="px-3 pb-4">
+                <h3 class="text-xs font-bold text-white/90 truncate group-hover:text-violet-400 transition-colors">
+                  {show.title}
+                </h3>
+                <p class="text-[10px] text-white/30 truncate mt-0.5">
+                  {show.year} · {(show.genres || [])[0]}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    ) : (
       <div
         class="text-center py-20 text-white/20
-          text-sm"
+          text-sm glass rounded-2xl border border-white/5"
       >
         No shows tracked yet. Run
-        <code class="text-violet-400/50">
+        <code class="text-violet-400/50 mx-1">
           pnpm run fetch-data
         </code>
         to sync.
@@ -132,10 +139,10 @@ const totalEpisodes = shows.reduce((acc, s) => acc + (s.episodesWatched || 0), 0
     )}
 
     <!-- Trakt Profile Link -->
-    <div class="mt-16 text-center">
-      <a href="https://trakt.tv" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-red-500/10 text-red-500 hover:text-red-400 hover:bg-red-500/20 font-semibold text-sm transition-all">
-        View complete profile on Trakt
-        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <div class="mt-20 py-8 border-t border-white/5 text-center">
+      <a href="https://trakt.tv" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-red-500/10 text-red-500 hover:text-red-400 hover:bg-red-500/20 font-bold text-xs uppercase tracking-widest transition-all">
+        Full History on Trakt
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
         </svg>
       </a>

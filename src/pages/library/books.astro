@@ -88,35 +88,42 @@ function getVisuals(title: string) {
 
     <!-- Currently Reading -->
     {currentlyReading.length > 0 && (
-      <section class="mb-16">
+      <section class="mb-20">
         <div class="flex items-center gap-3 mb-8">
-          <h2 class="text-xl font-semibold text-white relative inline-block">
+          <h2 class="text-xl font-bold text-white relative inline-block uppercase tracking-tight">
             Currently Reading
             <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-amber-400 to-transparent rounded-full"></span>
           </h2>
-          <span class="h-2 w-2 rounded-full bg-amber-400 animate-pulse"></span>
+          <span class="h-2.5 w-2.5 rounded-full bg-amber-400 animate-pulse"></span>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           {currentlyReading.map((book, i) => {
             const vis = getVisuals(book.title);
             return (
-            <div class="glass-strong p-5 flex gap-5 items-center rounded-2xl border border-white/10" style={`animation-delay: ${i * 80}ms`}>
-              <div class="h-24 w-20 rounded-xl flex items-center justify-center text-4xl shrink-0 relative overflow-hidden" style={`background: ${vis.gradient}`}>
-                <div class="absolute inset-0 bg-black/10"></div>
+            <div class="glass-strong p-6 flex gap-6 items-center rounded-3xl border border-white/10 hover:border-amber-500/20 transition-all group" style={`animation-delay: ${i * 80}ms`}>
+              <div class="h-32 w-24 rounded-2xl flex items-center justify-center text-4xl shrink-0 relative overflow-hidden bg-white/[0.03] shadow-2xl">
+                <div class="absolute inset-0 bg-black/20 z-10"></div>
                 {book.coverUrl ? (
-                  <img src={book.coverUrl} alt={book.title} class="w-full h-full object-cover relative z-10" loading="lazy" />
+                  <img src={book.coverUrl} alt={book.title} class="w-full h-full object-cover relative z-10 group-hover:scale-110 transition-transform duration-700" loading="lazy" />
                 ) : (
-                  <span class="relative z-10 drop-shadow-lg">{vis.emoji}</span>
+                  <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style={`background: ${vis.gradient}`}>
+                    <span class="drop-shadow-lg opacity-40 text-2xl">{vis.emoji}</span>
+                  </div>
                 )}
               </div>
               <div class="flex-1 min-w-0">
-                <h3 class="text-base font-semibold text-white">{book.title}</h3>
-                <p class="text-xs text-white/30 mt-0.5">{(book.authors || []).join(', ')}</p>
-                {book.firstPublishYear && <p class="text-[0.65rem] text-white/20 mt-0.5">{book.firstPublishYear}</p>}
-                <div class="mt-2 flex items-center gap-3">
-                  <div class="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
-                    <div class="h-full bg-amber-400 rounded-full w-full opacity-50"></div>
-                  </div>
+                <div class="inline-flex items-center px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 text-[8px] font-bold uppercase tracking-widest mb-2">Active</div>
+                <h3 class="text-lg font-bold text-white truncate group-hover:text-amber-400 transition-colors leading-tight">{book.title}</h3>
+                <p class="text-xs text-white/40 mt-1 font-medium truncate">{(book.authors || []).join(', ')}</p>
+                
+                <div class="mt-4">
+                    <div class="flex items-center justify-between text-[9px] uppercase tracking-widest font-bold text-white/20 mb-1.5">
+                        <span>Progress</span>
+                        <span>{(book.percentCompleted || 0)}%</span>
+                    </div>
+                    <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full transition-all duration-1000" style={`width: ${book.percentCompleted || 0}%`}></div>
+                    </div>
                 </div>
               </div>
             </div>
@@ -128,30 +135,34 @@ function getVisuals(title: string) {
     {currentlyReading.length > 0 && <hr class="border-white/5 mb-16" />}
 
     <!-- Read -->
-    <section class="mb-16">
+    <section class="mb-20">
       <div class="flex items-center justify-between mb-8">
-        <h2 class="text-xl font-semibold text-white relative inline-block">
-          Read
+        <h2 class="text-xl font-bold text-white relative inline-block uppercase tracking-tight">
+          Recent Reads
           <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent rounded-full"></span>
         </h2>
-        <span class="text-xs text-white/20">{read.length} books</span>
+        <a href="/library/books-read" class="text-[10px] uppercase tracking-widest text-white/20 hover:text-emerald-400 transition-colors font-bold">
+           View All {read.length} →
+        </a>
       </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-        {read.map((book, i) => {
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+        {read.slice(0, 12).map((book, i) => {
           const vis = getVisuals(book.title);
           return (
-          <div class="glass rounded-2xl border border-white/5 hover:border-emerald-500/15 transition-all group cursor-default" style={`animation-delay: ${i * 50}ms`}>
-            <div class="aspect-[2/3] rounded-t-2xl mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
-              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+          <div class="glass rounded-2xl border border-white/5 hover:border-emerald-500/20 transition-all group cursor-default" style={`animation-delay: ${i * 40}ms`}>
+            <div class="aspect-[2/3] rounded-t-2xl mb-3 flex items-center justify-center text-3xl relative overflow-hidden bg-white/[0.02]">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
               {book.coverUrl ? (
-                <img src={book.coverUrl} alt={book.title} class="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                <img src={book.coverUrl} alt={book.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
               ) : (
-                <span class="relative z-10 drop-shadow-lg">{vis.emoji}</span>
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style={`background: ${vis.gradient}`}>
+                    <span class="drop-shadow-lg opacity-40">{vis.emoji}</span>
+                </div>
               )}
             </div>
-            <div class="px-3 pb-3">
-              <h3 class="text-xs font-semibold text-white truncate group-hover:text-emerald-400 transition-colors">{book.title}</h3>
-              <p class="text-[0.65rem] text-white/20 truncate max-w-full block">{(book.authors || []).join(', ')}</p>
+            <div class="px-3 pb-4">
+              <h3 class="text-xs font-bold text-white/90 truncate group-hover:text-emerald-400 transition-colors">{book.title}</h3>
+              <p class="text-[10px] text-white/30 truncate mt-0.5">{(book.authors || [])[0]}</p>
             </div>
           </div>
         )})}
@@ -161,33 +172,38 @@ function getVisuals(title: string) {
     <hr class="border-white/5 mb-16" />
 
     <!-- Want to Read -->
-    <section class="mb-16">
+    <section class="mb-20">
       <div class="flex items-center justify-between mb-8">
-        <h2 class="text-xl font-semibold text-white relative inline-block">
-          Want to Read
+        <h2 class="text-xl font-bold text-white relative inline-block uppercase tracking-tight">
+          Queue
           <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-rose-400 to-transparent rounded-full"></span>
         </h2>
-        <span class="text-xs text-white/20">{wantToRead.length} queued</span>
+        <a href="/library/books-want-to-read" class="text-[10px] uppercase tracking-widest text-white/20 hover:text-rose-400 transition-colors font-bold">
+           View Wishlist →
+        </a>
       </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        {wantToRead.map((book, i) => {
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+        {wantToRead.slice(0, 6).map((book, i) => {
           const vis = getVisuals(book.title);
           return (
-          <div class="glass rounded-2xl border border-white/5 hover:border-rose-500/15 transition-all group cursor-default" style={`animation-delay: ${i * 60}ms`}>
-            <div class="aspect-[2/3] rounded-t-2xl mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
-              <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+          <div class="glass rounded-2xl border border-white/5 hover:border-rose-500/20 transition-all group cursor-default" style={`animation-delay: ${i * 40}ms`}>
+            <div class="aspect-[2/3] rounded-t-2xl mb-3 flex items-center justify-center text-3xl relative overflow-hidden bg-white/[0.02]">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
               {book.coverUrl ? (
-                <img src={book.coverUrl} alt={book.title} class="w-full h-full object-cover relative z-10 opacity-80" loading="lazy" />
+                <img src={book.coverUrl} alt={book.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60" loading="lazy" />
               ) : (
-                <span class="relative z-10 drop-shadow-lg">{vis.emoji}</span>
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style={`background: ${vis.gradient}`}>
+                    <span class="drop-shadow-lg opacity-20">{vis.emoji}</span>
+                </div>
               )}
             </div>
-            <div class="px-3 pb-3">
-              <h3 class="text-xs font-semibold text-white truncate group-hover:text-rose-400 transition-colors">{book.title}</h3>
-              <p class="text-[0.65rem] text-white/20 truncate block max-w-full">{(book.authors || []).join(', ')}</p>
+            <div class="px-3 pb-4">
+              <h3 class="text-xs font-bold text-white/70 truncate group-hover:text-rose-400 transition-colors">{book.title}</h3>
+              <p class="text-[10px] text-white/30 truncate mt-0.5">{(book.authors || [])[0]}</p>
             </div>
           </div>
         )})}
+      </div>
     </section>
 
     <!-- OpenLibrary Profile Link -->
