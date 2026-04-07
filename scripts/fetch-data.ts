@@ -165,15 +165,12 @@ async function main() {
 
   const timestamp = new Date().toISOString();
 
-  // 1. Movies & Shows
+  // 1. Movies & Shows (serialized — Trakt rejects concurrent reqs)
   console.log('\n--- Fetching Movies & Shows ---');
-  const [traktWatched, traktWatchlist, traktRatings, traktShows] =
-    await Promise.all([
-      fetchTraktWatchedMovies(),
-      fetchTraktWatchlistMovies(),
-      fetchTraktRatings(),
-      fetchTraktShows(),
-    ]);
+  const traktWatched = await fetchTraktWatchedMovies();
+  const traktWatchlist = await fetchTraktWatchlistMovies();
+  const traktRatings = await fetchTraktRatings();
+  const traktShows = await fetchTraktShows();
 
   // Merge ratings into movies
   const movies = {

@@ -107,7 +107,7 @@ export const CONFIG = {
     lastfm: 'lastfmwhy',
     listenbrainz: 'chirag127',
     mixcloud: 'chirag127',
-    lichess: 'chirag127',
+    lichess: 'chiragsinghal127',
     speedrun: 'chirag127',
     myanimelist: 'chirag127',
   },

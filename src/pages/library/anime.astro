@@ -5,16 +5,6 @@ import CommandPalette from '../../components/CommandPalette.astro';
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
 
-interface CuratedAnime {
-  title: string;
-  genre: string;
-  rating: number;
-  emoji: string;
-  gradient: string;
-  episodes: number;
-  year: string;
-}
-
 let db: any = { anime: { watching: [], completed: [] } };
 
 try {
@@ -32,99 +22,6 @@ try {
 const currentlyWatching = db.anime?.watching || [];
 const completedAnime = db.anime?.completed || [];
 
-const curatedFallback: CuratedAnime[] = [
-  {
-    title: 'Fullmetal Alchemist: Brotherhood',
-    genre: 'Action',
-    rating: 10,
-    emoji: '⚗️',
-    gradient: 'linear-gradient(135deg, #b91c1c, #dc2626)',
-    episodes: 64,
-    year: '2009',
-  },
-  {
-    title: 'Attack on Titan',
-    genre: 'Action',
-    rating: 9.5,
-    emoji: '⚔️',
-    gradient: 'linear-gradient(135deg, #365314, #4d7c0f)',
-    episodes: 87,
-    year: '2013',
-  },
-  {
-    title: 'Steins;Gate',
-    genre: 'Sci-Fi',
-    rating: 9.5,
-    emoji: '🔬',
-    gradient: 'linear-gradient(135deg, #065f46, #047857)',
-    episodes: 24,
-    year: '2011',
-  },
-  {
-    title: 'Death Note',
-    genre: 'Thriller',
-    rating: 9,
-    emoji: '📓',
-    gradient: 'linear-gradient(135deg, #1a1a1a, #292524)',
-    episodes: 37,
-    year: '2006',
-  },
-  {
-    title: 'Your Name',
-    genre: 'Romance',
-    rating: 9.5,
-    emoji: '🌠',
-    gradient: 'linear-gradient(135deg, #1e3a5f, #0369a1)',
-    episodes: 1,
-    year: '2016',
-  },
-  {
-    title: 'Cowboy Bebop',
-    genre: 'Sci-Fi',
-    rating: 9,
-    emoji: '🚀',
-    gradient: 'linear-gradient(135deg, #78350f, #b45309)',
-    episodes: 26,
-    year: '1998',
-  },
-  {
-    title: 'Violet Evergarden',
-    genre: 'Drama',
-    rating: 9,
-    emoji: '✉️',
-    gradient: 'linear-gradient(135deg, #6d28d9, #8b5cf6)',
-    episodes: 13,
-    year: '2018',
-  },
-  {
-    title: 'Demon Slayer',
-    genre: 'Action',
-    rating: 8.5,
-    emoji: '🔥',
-    gradient: 'linear-gradient(135deg, #166534, #15803d)',
-    episodes: 44,
-    year: '2019',
-  },
-  {
-    title: 'Spy x Family',
-    genre: 'Comedy',
-    rating: 8.5,
-    emoji: '🕵️',
-    gradient: 'linear-gradient(135deg, #eab308, #facc15)',
-    episodes: 37,
-    year: '2022',
-  },
-  {
-    title: 'Jujutsu Kaisen',
-    genre: 'Action',
-    rating: 8.5,
-    emoji: '👁️',
-    gradient: 'linear-gradient(135deg, #7c2d12, #9a3412)',
-    episodes: 47,
-    year: '2020',
-  },
-];
-
 function scoreColor(score: number | null): string {
   if (!score) return '#52525b';
   if (score >= 8) return '#34d399';
@@ -133,18 +30,15 @@ function scoreColor(score: number | null): string {
 }
 
 const hasApiData = currentlyWatching.length > 0 || completedAnime.length > 0;
-const totalWatched = completedAnime.length || curatedFallback.length;
-const totalWatching = currentlyWatching.length || 2;
+const totalWatched = completedAnime.length;
+const totalWatching = currentlyWatching.length;
 const meanScore =
   hasApiData && completedAnime.length > 0
     ? (
         completedAnime.reduce((s: number, e: any) => s + (e.score || 0), 0) /
         completedAnime.filter((e: any) => e.score).length
       ).toFixed(1)
-    : (
-        curatedFallback.reduce((s, a) => s + a.rating, 0) /
-        curatedFallback.length
-      ).toFixed(1);
+    : '—';
 ---
 
 <Layout title="Anime" description="Chirag Singhal's anime watchlist - currently watching and completed">
@@ -194,7 +88,7 @@ const meanScore =
         <div class="text-2xl font-bold text-violet-400">
           {hasApiData
             ? currentlyWatching.reduce((sum: number, e: any) => sum + (e.progress || 0), 0) + completedAnime.reduce((sum: number, e: any) => sum + (e.episodes || 0), 0)
-            : curatedFallback.reduce((s, a) => s + a.episodes, 0)}
+            : 0}
         </div>
         <div class="text-xs text-white/30">Total Episodes</div>
       </div>
@@ -210,7 +104,7 @@ const meanScore =
         <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
       </div>
 
-      {hasApiData && currentlyWatching.length > 0 ? (
+      {currentlyWatching.length > 0 ? (
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
           {currentlyWatching.map((entry: any, i: number) => {
             const pct = entry.episodes ? Math.round((entry.progress / entry.episodes) * 100) : 0;
@@ -244,40 +138,22 @@ const meanScore =
           })}
         </div>
       ) : (
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {curatedFallback.slice(0, 2).map((anime, i) => (
-            <div class="glass-strong p-5 flex gap-5 items-center rounded-2xl border border-white/10" style={`animation-delay: ${i * 80}ms`}>
-              <div class="h-24 w-20 rounded-xl flex items-center justify-center text-4xl shrink-0 relative overflow-hidden" style={`background: ${anime.gradient}`}>
-                <div class="absolute inset-0 bg-black/10"></div>
-                <span class="relative z-10 drop-shadow-lg">{anime.emoji}</span>
-              </div>
-              <div class="flex-1 min-w-0">
-                <h3 class="text-base font-semibold text-white">{anime.title}</h3>
-                <p class="text-xs text-white/30 mt-0.5">{anime.year} · {anime.genre}</p>
-                <div class="mt-2 h-1.5 bg-white/5 rounded-full overflow-hidden">
-                  <div class="h-full bg-sky-400 rounded-full" style={`width: ${Math.round(60 + i * 20)}%`}></div>
-                </div>
-                <p class="text-[0.65rem] text-white/20 mt-1">{Math.round(anime.episodes * 0.6)}/{anime.episodes} eps</p>
-              </div>
-              <div class="shrink-0 bg-sky-500/10 text-sky-400 text-xs font-semibold px-2.5 py-1 rounded-full">
-                {anime.rating}
-              </div>
-            </div>
-          ))}
+        <div class="text-center py-12 text-white/30 text-sm border border-white/5 rounded-2xl">
+          Not currently watching any anime.
         </div>
       )}
     </section>
 
     <hr class="border-white/5 mb-16" />
 
-    <!-- Completed / Curated -->
+    <!-- Completed -->
     <section class="mb-16">
       <h2 class="text-xl font-semibold text-white mb-8 relative inline-block">
-        {hasApiData ? 'Completed' : 'Favorites'}
+        Completed
         <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent rounded-full"></span>
       </h2>
 
-      {hasApiData && completedAnime.length > 0 ? (
+      {completedAnime.length > 0 ? (
         <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
           {completedAnime.map((entry: any, i: number) => {
             return (
@@ -304,26 +180,10 @@ const meanScore =
           })}
         </div>
       ) : (
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-          {curatedFallback.map((anime, i) => (
-            <div class="glass rounded-2xl border border-white/5 hover:border-emerald-500/15 transition-all group cursor-default" style={`animation-delay: ${i * 50}ms`}>
-              <div class="aspect-[2/3] rounded-t-2xl mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${anime.gradient}`}>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <span class="relative z-10 drop-shadow-lg">{anime.emoji}</span>
-                <div class="absolute top-1.5 right-1.5 z-10 bg-black/50 backdrop-blur-sm rounded-full px-1.5 py-0.5">
-                  <span class="text-[0.6rem] font-semibold" style={`color: ${anime.rating >= 9 ? '#34d399' : '#2dd4bf'}`}>{anime.rating}</span>
-                </div>
-              </div>
-              <div class="px-3 pb-3">
-                <h3 class="text-xs font-semibold text-white truncate group-hover:text-emerald-400 transition-colors">{anime.title}</h3>
-                <span class="text-[0.65rem] text-white/20">{anime.year} · {anime.genre}</span>
-              </div>
-            </div>
-          ))}
+        <div class="text-center py-12 text-white/30 text-sm border border-white/5 rounded-2xl">
+          No completed anime tracked on AniList.
         </div>
       )}
-    </section>
-
     </section>
 
     <!-- AniList Profile Link -->
@@ -335,7 +195,7 @@ const meanScore =
       <p class="text-sm text-white/40 mb-6 max-w-md">
         For the complete, unfiltered history of every anime and manga I've rated and reviewed.
       </p>
-      <a href="https://anilist.co" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sky-500/10 text-sky-500 hover:text-sky-400 hover:bg-sky-500/20 font-semibold text-sm transition-all outline-none focus:ring-2 focus:ring-sky-500/50">
+      <a href="https://anilist.co/user/chirag127" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sky-500/10 text-sky-500 hover:text-sky-400 hover:bg-sky-500/20 font-semibold text-sm transition-all outline-none focus:ring-2 focus:ring-sky-500/50">
         View AniList Profile
         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />

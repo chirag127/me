@@ -6,25 +6,21 @@ const TRAKT_API_URL = 'https://api.trakt.tv';
 
 /**
  * Build headers for Trakt API requests.
- * Requires OAuth access token since user profile is private.
- * Falls back to client ID only for public profiles.
+ * Uses client ID only (public profile).
  */
 function getHeaders(): RequestInit {
   const clientId =
     process.env.TRAKT_CLIENT_ID ||
     CONFIG.keys.traktClientId;
-  const accessToken =
-    process.env.TRAKT_ACCESS_TOKEN || '';
 
   return {
     headers: {
       'Content-Type': 'application/json',
       'trakt-api-version': '2',
       'trakt-api-key': clientId,
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-      ...(accessToken
-        ? { Authorization: `Bearer ${accessToken}` }
-        : {}),
+      'User-Agent':
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) ' +
+        'AppleWebKit/537.36',
     } as Record<string, string>,
   };
 }

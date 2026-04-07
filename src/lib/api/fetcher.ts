@@ -29,7 +29,8 @@ export async function fetchJson<T>(
         // Rate limited — wait and retry
         const wait = RETRY_DELAY_MS * 2 ** attempt;
         console.warn(
-          `[${label ?? 'API'}] Rate limited, ` + `retrying in ${wait}ms...`,
+          `[${label ?? 'API'}] Rate limited, ` +
+            `retrying in ${wait}ms...`,
         );
         await sleep(wait);
         continue;
