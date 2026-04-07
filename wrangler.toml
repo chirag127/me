@@ -2,6 +2,11 @@ name = "chirag127"
 pages_build_output_dir = "dist"
 compatibility_date = "2024-03-24"
 
+# R2 Buckets configuration
+r2_buckets = [
+  { binding = "POSTERS", bucket_name = "chirag-media-posters", preview_bucket_name = "chirag-media-posters-preview" }
+]
+
 # Basic headers for Astro sites
 [[headers]]
   for = "/*"

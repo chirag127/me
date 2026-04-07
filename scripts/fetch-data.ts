@@ -82,6 +82,121 @@ import {
   fetchYouTubeStats,
   fetchYouTubeVideos,
 } from '../src/lib/api/youtube.js';
+import { imageExists, uploadImage, getPosterUrl } from '../src/lib/api/r2.js';
+import pLimit from 'p-limit';
+
+// Concurrency limit for media operations to prevent rate-limiting/timeouts
+const limit = pLimit(2);
+
+/**
+ * Resolves posters for a list of items (movies or shows).
+ * 3-Tier Strategy:
+ * 1. Cloudflare R2 (Check Cache)
+ * 2. TMDB API (Official Studio Source - Using Read Access Token)
+ * 3. Zero-Auth Fallbacks (TVMaze for TV, Jikan for Anime)
+ */
+async function resolvePosters(items: any[]) {
+  const TMDB_TOKEN = process.env.TMDB_READ_ACCESS_TOKEN;
+  console.log(`[Media] Resolving posters for ${items.length} items (Slow Mode + Retries)...`);
+  
+  const tasks = items.map((item) => limit(async () => {
+    if (!item.imdbId && !item.tmdbId) return item;
+
+    const filename = `${item.imdbId || item.tmdbId}.jpg`;
+    
+    // Tier 1: Check R2 Cache
+    const exists = await imageExists(filename);
+    if (exists) return { ...item, posterUrl: getPosterUrl(filename) };
+
+    const fetchWithRetry = async (url: string, options = {}, retries = 3): Promise<Response | null> => {
+      for (let i = 0; i < retries; i++) {
+        try {
+          const res = await fetch(url, options);
+          if (res.ok) return res;
+        } catch (err) {}
+        await new Promise(r => setTimeout(r, 1000 * (i + 1))); // Exponential backoff
+      }
+      return null;
+    };
+
+    let buffer: Buffer | null = null;
+    try {
+      // Tier 2: Official TMDB (High Quality)
+      if (TMDB_TOKEN) {
+        const id = item.tmdbId || item.imdbId;
+        const type = item.episodesWatched !== undefined ? 'tv' : 'movie';
+        const tmdbUrl = `https://api.themoviedb.org/3/${type}/${id}?append_to_response=images`;
+        
+        const tmdbRes = await fetchWithRetry(tmdbUrl, {
+          headers: {
+            'Authorization': `Bearer ${TMDB_TOKEN}`,
+            'accept': 'application/json'
+          }
+        });
+
+        if (tmdbRes) {
+          const data: any = await tmdbRes.json();
+          if (data.poster_path) {
+            const imgRes = await fetchWithRetry(`https://image.tmdb.org/t/p/w500${data.poster_path}`);
+            if (imgRes) {
+              buffer = Buffer.from(await imgRes.arrayBuffer());
+              console.log(`[TMDB] Resolved: ${item.title}`);
+            }
+          }
+        }
+      }
+
+      // Tier 3: Zero-Auth Fallbacks
+      if (!buffer) {
+        // Fallback A: TVMaze (For TV Shows)
+        if (item.traktId && item.episodesWatched !== undefined) {
+          const mazeRes = await fetchWithRetry(`https://api.tvmaze.com/lookup/shows?trakt=${item.traktId}`);
+          if (mazeRes) {
+            const mazeData: any = await mazeRes.json();
+            if (mazeData.image?.original) {
+              const imgRes = await fetchWithRetry(mazeData.image.original);
+              if (imgRes) {
+                buffer = Buffer.from(await imgRes.arrayBuffer());
+                console.log(`[TVMaze] Resolved: ${item.title}`);
+              }
+            }
+          }
+        }
+
+        // Fallback B: Jikan/MyAnimeList (For Anime)
+        const isAnime = item.genres?.some((g: string) => g.toLowerCase() === 'anime' || g.toLowerCase() === 'donghua');
+        if (!buffer && isAnime && item.tmdbId) {
+          const animeRes = await fetchWithRetry(`https://api.jikan.moe/v4/anime/${item.tmdbId}`);
+          if (animeRes) {
+            const animeData: any = await animeRes.json();
+            const poster = animeData.data?.images?.jpg?.large_image_url;
+            if (poster) {
+              const imgRes = await fetchWithRetry(poster);
+              if (imgRes) {
+                buffer = Buffer.from(await imgRes.arrayBuffer());
+                console.log(`[Jikan] Resolved: ${item.title}`);
+              }
+            }
+          }
+        }
+      }
+
+      // If resolved, cache to R2
+      if (buffer) {
+        const r2Url = await uploadImage(filename, buffer);
+        // Small delay to prevent R2 hammer
+        await new Promise(r => setTimeout(r, 500));
+        return { ...item, posterUrl: r2Url };
+      }
+    } catch (err: any) {
+      console.warn(`[Media] Error on ${item.title}:`, err.message);
+    }
+
+    return item;
+  }));
+
+  return Promise.all(tasks);
+}
 
 // Setup directories
 const GENERATED_DIR = path.resolve(__dirname, '../src/data/generated');
@@ -167,10 +282,16 @@ async function main() {
 
   // 1. Movies & Shows (serialized — Trakt rejects concurrent reqs)
   console.log('\n--- Fetching Movies & Shows ---');
-  const traktWatched = await fetchTraktWatchedMovies();
-  const traktWatchlist = await fetchTraktWatchlistMovies();
+  let traktWatched = await fetchTraktWatchedMovies();
+  let traktWatchlist = await fetchTraktWatchlistMovies();
   const traktRatings = await fetchTraktRatings();
-  const traktShows = await fetchTraktShows();
+  let traktShows = await fetchTraktShows();
+
+  // 1.1 Resolve Posters through R2 Caching
+  console.log('\n--- Caching Posters to R2 ---');
+  traktWatched = await resolvePosters(traktWatched);
+  traktWatchlist = await resolvePosters(traktWatchlist);
+  traktShows = await resolvePosters(traktShows);
 
   // Merge ratings into movies
   const movies = {
