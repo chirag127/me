@@ -78,6 +78,61 @@
 }
 
 /* ═══════════════════════════════════════════
+   BACKWARD-COMPAT ALIASES
+   Map old --color-* variable names to new tokens
+   ═══════════════════════════════════════════ */
+
+:root {
+  /* Primary (Teal) */
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-lighter: var(--primary-lighter);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-darker: var(--primary-darker, #0f766e);
+  --color-primary-faint: var(--primary-faint);
+  --color-primary-muted: var(--primary-muted);
+  --color-primary-subtle: var(--primary-subtle, rgba(20, 184, 166, 0.25));
+
+  /* Accent (Violet) */
+  --color-accent-violet: var(--accent);
+  --color-accent-primary: var(--accent);
+  --color-accent-warm: var(--accent);
+
+  /* Additional accent colors used across pages */
+  --color-accent-sage: #10b981;
+  --color-accent-sage-soft: rgba(16, 185, 129, 0.1);
+  --color-accent-sky: #38bdf8;
+  --color-accent-sky-soft: rgba(56, 189, 248, 0.1);
+  --color-accent-rose: #f43f5e;
+  --color-accent-rose-soft: rgba(244, 63, 94, 0.1);
+  --color-accent-cyan: #06b6d4;
+  --color-accent-amber: #f59e0b;
+
+  /* Status colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #f43f5e;
+  --color-info: #0ea5e9;
+
+  /* Surface & Text aliases */
+  --color-surface: var(--surface-base);
+  --color-surface-card: var(--surface-card);
+  --color-surface-card-hover: var(--surface-card-hover);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
+
+  /* Border aliases */
+  --color-border: var(--border-default);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-hover: var(--border-hover);
+  --color-border-active: var(--border-active);
+  --color-border-focus: var(--border-focus, rgba(139, 92, 246, 0.50));
+}
+
+/* ═══════════════════════════════════════════
    BASE LAYER
    ═══════════════════════════════════════════ */
 

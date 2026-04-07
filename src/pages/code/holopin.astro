@@ -20,42 +20,59 @@ try {
 const badges = db.holopin?.badges || [];
 ---
 
-<Layout title="Holopin Badges" description="Chirag Singhal's Holopin badges — open source achievements">  <CommandPalette />
-  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
-    <div class="flex items-center gap-3 mb-2">
-      <div class="h-10 w-10 rounded-xl bg-[#2b6cb0]/10 flex items-center justify-center">
-        <span class="text-xl">🏷️</span>
+<Layout title="Holopin Badges" description="Chirag Singhal's Holopin badges — open source achievements">
+  <CommandPalette />
+  <main class="mx-auto max-w-[var(--content-max-width)] px-6 py-12 relative">
+    <!-- Header -->
+    <div class="mb-10 relative reveal">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-[11px] font-semibold text-teal-400 uppercase tracking-wider mb-5">
+        <span class="h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+        CODE
       </div>
-      <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Holopin Badges</h1>
+      <h1 class="text-3xl sm:text-4xl font-black text-white mb-2" style="font-family: var(--font-display, 'Outfit');">Holopin Badges</h1>
+      <p class="text-base text-white/40">Open source contribution badges — from @{CONFIG.user.holopin}.</p>
     </div>
-    <p class="text-[var(--color-text-secondary)] mb-10">Open source contribution badges — from {CONFIG.user.holopin}.</p>
 
-    <div class="glass-strong p-6 mb-12 flex flex-wrap gap-8">
+    <!-- Stats Row -->
+    <div class="glass-strong p-6 mb-10 flex flex-wrap gap-8 reveal">
       <div>
-        <div class="text-2xl font-bold text-[#2b6cb0]">{badges.length}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Badges</div>
+        <div class="text-2xl font-bold text-blue-400">{badges.length}</div>
+        <div class="text-xs text-white/40">Badges Earned</div>
       </div>
     </div>
 
     {badges.length > 0 ? (
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-10">
         {badges.map((badge: any) => (
-          <a href={badge.link || `https://holopin.io/@${CONFIG.user.holopin}`} target="_blank" rel="noopener noreferrer" class="glass p-4 text-center hover:border-white/10 transition-colors group">
+          <a
+            href={badge.link || `https://holopin.io/@${CONFIG.user.holopin}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="glass p-4 text-center group hover:border-blue-500/30 transition-colors"
+          >
             {badge.imageUrl && (
-              <img src={badge.imageUrl} alt={badge.name || badge.alt || 'Badge'} class="w-full h-24 object-contain mb-3" loading="lazy" />
+              <img
+                src={badge.imageUrl}
+                alt={badge.name || badge.alt || 'Badge'}
+                class="w-full h-24 object-contain mb-3 group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
             )}
-            <h3 class="text-xs font-semibold text-white truncate group-hover:text-[#2b6cb0] transition-colors">{badge.name || badge.alt || 'Badge'}</h3>
+            <h3 class="text-xs font-semibold text-white truncate group-hover:text-blue-400 transition-colors">
+              {badge.name || badge.alt || 'Badge'}
+            </h3>
           </a>
         ))}
       </div>
     ) : (
       <div class="glass p-12 text-center">
-        <p class="text-[var(--color-text-muted)]">No Holopin badges found. Run fetch-data first.</p>
-        <p class="text-xs text-[var(--color-text-faint)] mt-2">Or check <a href={`https://holopin.io/@${CONFIG.user.holopin}`} target="_blank" class="text-[#2b6cb0] hover:underline">Holopin profile</a></p>
+        <p class="text-white/40">No Holopin badges found. Run fetch-data first.</p>
+        <p class="text-xs text-white/25 mt-2">Or check <a href={`https://holopin.io/@${CONFIG.user.holopin}`} target="_blank" class="text-blue-400 hover:underline">Holopin profile</a></p>
       </div>
     )}
 
-    <div class="mt-12 glass p-6 text-center">
-      <a href={`https://holopin.io/@${CONFIG.user.holopin}`} target="_blank" rel="noopener noreferrer" class="text-sm text-[#2b6cb0] hover:underline">View on Holopin →</a>
+    <div class="glass p-6 text-center">
+      <a href={`https://holopin.io/@${CONFIG.user.holopin}`} target="_blank" rel="noopener noreferrer" class="text-sm text-blue-400 hover:underline">View on Holopin &rarr;</a>
     </div>
-  </main></Layout>
+  </main>
+</Layout>

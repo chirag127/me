@@ -20,55 +20,68 @@ const user = db.stackoverflow?.user;
 const tags = db.stackoverflow?.tags || [];
 ---
 
-<Layout title="StackOverflow" description="Chirag Singhal's StackOverflow profile — reputation, badges, and tags">  <CommandPalette />
-  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
-    <div class="flex items-center gap-3 mb-2">
-      <div class="h-10 w-10 rounded-xl bg-[#f48024]/10 flex items-center justify-center">
-        <svg class="h-5 w-5 text-[#f48024]" viewBox="0 0 120 120" fill="currentColor"><path d="M84.4 93.8V70.6h7.7v30.9H22.6V70.6h7.7v23.2z"/><path d="M38.8 68.4l37.8 7.9 1.6-7.6-37.8-7.9-1.6 7.6zm5-18l35 16.3 3.2-7-35-16.4-3.2 7.1zm9.7-17.2l29.7 24.7 4.9-5.9-29.7-24.7-4.9 5.9zm19.2-18.3l-6.2 4.6 23 31 6.2-4.6-23-31zM38 86h38.6v-7.7H38V86z"/></svg>
+<Layout title="StackOverflow" description="Chirag Singhal's StackOverflow profile — reputation, badges, and tags">
+  <CommandPalette />
+  <main class="mx-auto max-w-[var(--content-max-width)] px-6 py-12 relative">
+    <!-- Header -->
+    <div class="mb-10 relative reveal">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-[11px] font-semibold text-teal-400 uppercase tracking-wider mb-5">
+        <span class="h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+        CODE
       </div>
-      <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">StackOverflow</h1>
+      <h1 class="text-3xl sm:text-4xl font-black text-white mb-2" style="font-family: var(--font-display, 'Outfit');">StackOverflow</h1>
+      <p class="text-base text-white/40">Developer reputation and community contributions.</p>
     </div>
-    <p class="text-[var(--color-text-secondary)] mb-10">Developer reputation and community contributions.</p>
 
     {user ? (
       <>
-        <div class="glass-strong p-8 mb-12">
+        <!-- Profile Hero -->
+        <div class="glass-strong p-8 mb-8 reveal">
           <div class="flex items-center gap-4 mb-6">
-            {user.profileImage && <img src={user.profileImage} alt="Avatar" class="w-16 h-16 rounded-full" />}
+            {user.profileImage && (
+              <img src={user.profileImage} alt="Avatar" class="w-16 h-16 rounded-full ring-2 ring-orange-500/20" />
+            )}
             <div>
               <h2 class="text-xl font-bold text-white">{user.displayName}</h2>
-              <p class="text-sm text-[var(--color-text-muted)]">Member since {new Date(user.creationDate * 1000).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
+              <p class="text-sm text-white/40">Member since {new Date(user.creationDate * 1000).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
             </div>
           </div>
 
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-            <div class="text-center p-4 rounded-lg bg-white/[0.02]">
-              <div class="text-2xl font-bold text-[#f48024]">{user.reputation?.toLocaleString()}</div>
-              <div class="text-xs text-[var(--color-text-muted)]">Reputation</div>
+          <!-- Stats Grid -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="p-4 rounded-lg bg-white/[0.02] border border-white/5 text-center">
+              <div class="text-2xl font-bold text-orange-400">{user.reputation?.toLocaleString()}</div>
+              <div class="text-xs text-white/40">Reputation</div>
             </div>
-            <div class="text-center p-4 rounded-lg bg-white/[0.02]">
-              <div class="text-2xl font-bold text-yellow-400">{user.badgeCounts?.gold}</div>
-              <div class="text-xs text-[var(--color-text-muted)]">Gold Badges</div>
+            <div class="p-4 rounded-lg bg-white/[0.02] border border-white/5 text-center">
+              <div class="text-2xl font-bold text-yellow-400">{user.badgeCounts?.gold || 0}</div>
+              <div class="text-xs text-white/40">Gold Badges</div>
             </div>
-            <div class="text-center p-4 rounded-lg bg-white/[0.02]">
-              <div class="text-2xl font-bold text-gray-300">{user.badgeCounts?.silver}</div>
-              <div class="text-xs text-[var(--color-text-muted)]">Silver Badges</div>
+            <div class="p-4 rounded-lg bg-white/[0.02] border border-white/5 text-center">
+              <div class="text-2xl font-bold text-gray-300">{user.badgeCounts?.silver || 0}</div>
+              <div class="text-xs text-white/40">Silver Badges</div>
             </div>
-            <div class="text-center p-4 rounded-lg bg-white/[0.02]">
-              <div class="text-2xl font-bold text-amber-600">{user.badgeCounts?.bronze}</div>
-              <div class="text-xs text-[var(--color-text-muted)]">Bronze Badges</div>
+            <div class="p-4 rounded-lg bg-white/[0.02] border border-white/5 text-center">
+              <div class="text-2xl font-bold text-amber-600">{user.badgeCounts?.bronze || 0}</div>
+              <div class="text-xs text-white/40">Bronze Badges</div>
             </div>
           </div>
         </div>
 
+        <!-- Top Tags -->
         {tags.length > 0 && (
-          <div class="glass p-8 mb-12">
+          <div class="glass p-8 mb-8 reveal">
             <h2 class="text-xl font-bold text-white mb-6">Top Tags</h2>
             <div class="flex flex-wrap gap-3">
               {tags.map((tag: any) => (
-                <a href={`https://stackoverflow.com/questions/tagged/${tag.name}`} target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-white/[0.02] border border-white/5 hover:border-[#f48024]/30 transition-colors">
+                <a
+                  href={`https://stackoverflow.com/questions/tagged/${tag.name}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="px-4 py-2 rounded-lg bg-white/[0.02] border border-white/5 hover:border-orange-500/30 transition-colors"
+                >
                   <span class="text-sm text-white font-medium">{tag.name}</span>
-                  <span class="text-xs text-[#f48024] ml-2">× {tag.count}</span>
+                  <span class="text-xs text-orange-400 ml-2">&times; {tag.count}</span>
                 </a>
               ))}
             </div>
@@ -77,11 +90,12 @@ const tags = db.stackoverflow?.tags || [];
       </>
     ) : (
       <div class="glass p-12 text-center">
-        <p class="text-[var(--color-text-muted)]">StackOverflow data not available. Run fetch-data first.</p>
+        <p class="text-white/40">StackOverflow data not available. Run fetch-data first.</p>
       </div>
     )}
 
     <div class="glass p-6 text-center">
-      <a href="https://stackoverflow.com/users/18901471/chirag127" target="_blank" rel="noopener noreferrer" class="text-sm text-[#f48024] hover:underline">View on StackOverflow →</a>
+      <a href="https://stackoverflow.com/users/18901471/chirag127" target="_blank" rel="noopener noreferrer" class="text-sm text-orange-400 hover:underline">View on StackOverflow &rarr;</a>
     </div>
-  </main></Layout>
+  </main>
+</Layout>
