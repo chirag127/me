@@ -1,10 +1,13 @@
 name: Daily Build & Deploy
 on:
   schedule:
-    - cron: '30 20 * * *'  # 2:00 AM IST (UTC+5:30) daily data refresh
+    - cron: '30 20 * * *'  # 2:00 AM IST (UTC+5:30)
   push:
     branches: [main]
   workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build-and-deploy:
@@ -38,6 +41,7 @@ jobs:
         run: pnpm run test
 
       - name: Install Playwright Browsers
+        continue-on-error: true
         run: pnpm exec playwright install --with-deps
 
       - name: E2E Tests
@@ -45,6 +49,7 @@ jobs:
         run: pnpm run test:e2e
 
       - name: Fetch API Data
+        continue-on-error: true
         run: pnpm run fetch-data
         env:
           TRAKT_CLIENT_ID: ${{ secrets.TRAKT_CLIENT_ID }}
@@ -80,8 +85,7 @@ jobs:
           VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=chirag127
+        run: npx wrangler pages deploy dist --project-name=chirag127
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
