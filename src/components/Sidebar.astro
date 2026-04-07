@@ -1,3 +1,4 @@
+```astro
 ---
 /**
  * Sidebar Navigation — Desktop persistent, mobile overlay.
@@ -7,85 +8,6 @@
  */
 
 const currentPath = Astro.url.pathname;
-
-// Define navigation structure for rendering
-// Used directly in the template below
-const navSections = [
-  {
-    name: 'Home',
-    path: '/',
-    icon: 'home',
-    exact: true,
-  },
-  {
-    name: 'Work',
-    path: '/work',
-    icon: 'briefcase',
-    children: [
-      { name: 'Career', path: '/work/career' },
-      { name: 'Skills', path: '/work/skills' },
-      { name: 'Projects', path: '/work/projects' },
-      { name: 'Education', path: '/work/education' },
-      { name: 'Certifications', path: '/work/certifications' },
-    ],
-  },
-  {
-    name: 'Code',
-    path: '/code',
-    icon: 'code',
-    children: [
-      { name: 'Dashboard', path: '/code' },
-      { name: 'Repositories', path: '/code/repos' },
-      { name: 'NPM', path: '/code/npm' },
-      { name: 'StackOverflow', path: '/code/stackoverflow' },
-    ],
-  },
-  {
-    name: 'Library',
-    path: '/library',
-    icon: 'book-open',
-    children: [
-      { name: 'Movies', path: '/library/movies' },
-      { name: 'Anime', path: '/library/anime' },
-      { name: 'Books', path: '/library/books' },
-      { name: 'Music', path: '/library/music' },
-      { name: 'Manga', path: '/library/manga' },
-    ],
-  },
-  {
-    name: 'Gaming',
-    path: '/gaming',
-    icon: 'gamepad-2',
-  },
-  {
-    name: 'Me',
-    path: '/me',
-    icon: 'user',
-    children: [
-      { name: 'Story', path: '/me/story' },
-      { name: 'Philosophy', path: '/me/philosophy' },
-      { name: 'Interests', path: '/me/interests' },
-      { name: 'Gear', path: '/me/gear' },
-      { name: 'Journal', path: '/me/journal' },
-      { name: 'Finance', path: '/me/finance' },
-    ],
-  },
-  {
-    name: 'Connect',
-    path: '/connect',
-    icon: 'link',
-  },
-  {
-    name: 'System',
-    path: '/system',
-    icon: 'settings',
-    children: [
-      { name: 'Settings', path: '/system' },
-      { name: 'Changelog', path: '/system/changelog' },
-      { name: 'Admin', path: '/system/admin' },
-    ],
-  },
-];
 
 /**
  * Determines whether a nav item is active based on current path.
@@ -166,7 +88,82 @@ const iconPaths: Record<string, string> = {
   <nav class="flex-1 overflow-y-auto py-4 px-3
     scrollbar-hidden" aria-label="Site sections">
     <ul class="space-y-1" role="list">
-      {navSections.map((section) => {
+      {[
+        {
+          name: 'Home',
+          path: '/',
+          icon: 'home',
+          exact: true,
+        },
+        {
+          name: 'Work',
+          path: '/work',
+          icon: 'briefcase',
+          children: [
+            { name: 'Career', path: '/work/career' },
+            { name: 'Skills', path: '/work/skills' },
+            { name: 'Projects', path: '/work/projects' },
+            { name: 'Education', path: '/work/education' },
+            { name: 'Certifications', path: '/work/certifications' },
+          ],
+        },
+        {
+          name: 'Code',
+          path: '/code',
+          icon: 'code',
+          children: [
+            { name: 'Dashboard', path: '/code' },
+            { name: 'Repositories', path: '/code/repos' },
+            { name: 'NPM', path: '/code/npm' },
+            { name: 'StackOverflow', path: '/code/stackoverflow' },
+          ],
+        },
+        {
+          name: 'Library',
+          path: '/library',
+          icon: 'book-open',
+          children: [
+            { name: 'Movies', path: '/library/movies' },
+            { name: 'Anime', path: '/library/anime' },
+            { name: 'Books', path: '/library/books' },
+            { name: 'Music', path: '/library/music' },
+            { name: 'Manga', path: '/library/manga' },
+          ],
+        },
+        {
+          name: 'Gaming',
+          path: '/gaming',
+          icon: 'gamepad-2',
+        },
+        {
+          name: 'Me',
+          path: '/me',
+          icon: 'user',
+          children: [
+            { name: 'Story', path: '/me/story' },
+            { name: 'Philosophy', path: '/me/philosophy' },
+            { name: 'Interests', path: '/me/interests' },
+            { name: 'Gear', path: '/me/gear' },
+            { name: 'Journal', path: '/me/journal' },
+            { name: 'Finance', path: '/me/finance' },
+          ],
+        },
+        {
+          name: 'Connect',
+          path: '/connect',
+          icon: 'link',
+        },
+        {
+          name: 'System',
+          path: '/system',
+          icon: 'settings',
+          children: [
+            { name: 'Settings', path: '/system' },
+            { name: 'Changelog', path: '/system/changelog' },
+            { name: 'Admin', path: '/system/admin' },
+          ],
+        },
+      ].map((section) => {
         const active = isActive(section.path, section.exact);
         const iconPath = iconPaths[section.icon] || '';
         const hasChildren = section.children && section.children.length > 0;
@@ -320,3 +317,4 @@ const iconPaths: Record<string, string> = {
     scrollbar-width: none;
   }
 </style>
+```
