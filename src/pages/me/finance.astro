@@ -102,8 +102,8 @@ import CommandPalette from '../../components/CommandPalette.astro';
         const income = latest.income || 0;
         const expenses = latest.expenses || 0;
         const savingsRate = income > 0 ? Math.round(((income - expenses) / income) * 100) : 0;
-        document.getElementById('income-display').textContent = '\u20B9' + income.toLocaleString('en-IN');
-        document.getElementById('expenses-display').textContent = '\u20B9' + expenses.toLocaleString('en-IN');
+        document.getElementById('income-display').textContent = '₹' + income.toLocaleString('en-IN');
+        document.getElementById('expenses-display').textContent = '₹' + expenses.toLocaleString('en-IN');
         document.getElementById('savings-display').textContent = savingsRate + '%';
       }
 
@@ -119,8 +119,8 @@ import CommandPalette from '../../components/CommandPalette.astro';
             <button onclick="deleteFinance('${e.id}')" class="text-xs text-white/30 hover:text-red-400 transition-colors opacity-0 group-hover:opacity-100">Delete</button>
           </div>
           <div class="flex gap-6 text-sm">
-            <span class="text-teal-400/80">Income: \u20B9${(e.income || 0).toLocaleString('en-IN')}</span>
-            <span class="text-rose-400/80">Expenses: \u20B9${(e.expenses || 0).toLocaleString('en-IN')}</span>
+            <span class="text-teal-400/80">Income: ₹${(e.income || 0).toLocaleString('en-IN')}</span>
+            <span class="text-rose-400/80">Expenses: ₹${(e.expenses || 0).toLocaleString('en-IN')}</span>
             <span class="text-amber-400/80">Savings: ${e.income > 0 ? Math.round(((e.income - e.expenses) / e.income) * 100) : 0}%</span>
           </div>
           ${e.notes ? `<p class="text-xs text-white/40 mt-2">${e.notes}</p>` : ''}

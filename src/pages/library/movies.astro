@@ -1,15 +1,29 @@
 ---
+/**
+ * Movies Hub — Redesigned with only movie contents.
+ * No colored image placeholders.
+ */
 import Layout from '../../layouts/Layout.astro';
-import CommandPalette from '../../components/CommandPalette.astro';
+import CommandPalette from
+  '../../components/CommandPalette.astro';
 
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
 
+interface Movie {
+  title: string;
+  year: number;
+  rating: number | null;
+  genres: string[];
+  watchedAt: string | null;
+  posterUrl?: string;
+  runtime?: number;
+  overview?: string;
+}
+
 let db = {
-  watched: [] as any[],
-  watchlist: [] as any[],
-  shows: [] as any[],
-  stats: { totalWatched: 0, totalShows: 0 },
+  watched: [] as Movie[],
+  watchlist: [] as Movie[],
 };
 
 try {
@@ -18,243 +32,298 @@ try {
     'utf-8',
   );
   db = JSON.parse(raw);
-} catch (_e) {
+} catch {
   console.warn(
-    '[Movies Hub] movies.json not found. Run pnpm run fetch-data first.',
+    '[Movies] movies.json not found.',
   );
 }
 
-const watched = db.watched || [];
-const wantToWatch = db.watchlist || [];
-const _currentlyWatching =
-  db.shows?.filter((s) => s.category === 'watching') || [];
-const topRated = [...watched]
+const movies = db.watched || [];
+const watchlist = db.watchlist || [];
+
+// Movie stats
+const movieCount = movies.length;
+const ratedMovies = movies.filter((m) => m.rating);
+const avgMovieRating = ratedMovies.length > 0
+  ? (
+      ratedMovies.reduce(
+        (s, m) => s + (m.rating || 0),
+        0,
+      ) / ratedMovies.length
+    ).toFixed(1)
+  : '—';
+
+const topRatedMovies = [...movies]
+  .filter((m) => m.rating)
   .sort((a, b) => (b.rating || 0) - (a.rating || 0))
   .slice(0, 8);
-const shows = db.shows || [];
 
+const recentMovies = [...movies].slice(0, 8);
+
+// Genre analysis (movies only)
 const genreCounts: Record<string, number> = {};
-watched.forEach((m) => {
-  if (m.genres && m.genres.length > 0) {
-    const genre = m.genres[0];
-    genreCounts[genre] = (genreCounts[genre] || 0) + 1;
-  }
+movies.forEach((m) => {
+  (m.genres || []).forEach((g: string) => {
+    genreCounts[g] = (genreCounts[g] || 0) + 1;
+  });
 });
-const favoriteGenres = Object.entries(genreCounts)
+const topGenres = Object.entries(genreCounts)
   .sort((a, b) => b[1] - a[1])
-  .slice(0, 3)
-  .map((g) => g[0]);
-const validRatings = watched.filter((w) => w.rating);
-const avgRating =
-  validRatings.length > 0
-    ? (
-        validRatings.reduce((s, m) => s + m.rating, 0) / validRatings.length
-      ).toFixed(1)
-    : '0.0';
-
-const fallbackGradients = [
-  'linear-gradient(135deg, #0c1445, #1a237e)',
-  'linear-gradient(135deg, #1b3a2d, #2e7d32)',
-  'linear-gradient(135deg, #4a148c, #e91e63)',
-  'linear-gradient(135deg, #795548, #d7ccc8)',
-  'linear-gradient(135deg, #1e3a5f, #0f4c75)',
-  'linear-gradient(135deg, #bf360c, #e65100)',
-];
-const fallbackEmojis = ['🎬', '🍿', '🎟️', '📽️', '🎞️', '🌌', '💥', '🎭'];
-
-function getVisuals(title: string) {
-  const idx = [...title].reduce((acc, char) => acc + char.charCodeAt(0), 0);
-  return {
-    gradient: fallbackGradients[idx % fallbackGradients.length],
-    emoji: fallbackEmojis[idx % fallbackEmojis.length],
-  };
-}
+  .slice(0, 4)
+  .map(([g]) => g);
 ---
 
-<Layout title="Movies & TV" description="Chirag Singhal's movie and TV show diary - curated picks, ratings, and watchlist">
+<Layout
+  title="Movies"
+  description="Film diary — tracked via Trakt"
+>
   <CommandPalette />
-  <main class="mx-auto max-w-[var(--content-max-width)] px-6 py-12">
-    <a href="/library" class="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white/60 mb-8 transition-colors">
-      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
-      Back to Library Drive
+
+  <div
+    class="mx-auto max-w-[var(--content-max-width)]
+      px-6 py-10"
+  >
+    <!-- Breadcrumb -->
+    <a
+      href="/library"
+      class="inline-flex items-center gap-1.5
+        text-xs text-white/30
+        hover:text-white/50 transition-colors mb-6"
+    >
+      <svg
+        class="h-3.5 w-3.5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M15 19l-7-7 7-7" />
+      </svg>
+      Library
     </a>
 
-    <!-- Page header -->
+    <!-- Header -->
     <div class="mb-10">
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-medium text-emerald-400 mb-4">
-        LIBRARY
-      </div>
-      <div class="flex items-center gap-3 mb-2">
-        <div class="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
-          <span class="text-xl">🎬</span>
-        </div>
-        <h1 class="text-4xl font-bold text-white" style="font-family: 'Outfit', sans-serif;">Movies & TV</h1>
-      </div>
-      <p class="text-white/40">Film diary - synced from Trakt automatically.</p>
+      <h1
+        class="text-3xl font-black text-white mb-2"
+        style="font-family:
+          var(--font-display, 'Outfit');"
+      >
+        Movies
+      </h1>
+      <p class="text-sm text-white/35">
+        Film diary — synced from Trakt automatically.
+      </p>
     </div>
 
-    <!-- Sub-page Navigation -->
+    <!-- Quick Navigation -->
     <div class="flex flex-wrap gap-2 mb-10">
-      <a href="/library/movies-watched" class="text-xs px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors">All Watched</a>
-      <a href="/library/movies-rated" class="text-xs px-3 py-1.5 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20 hover:bg-teal-500/20 transition-colors">Top Rated</a>
-      <a href="/library/movies-watchlist" class="text-xs px-3 py-1.5 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20 hover:bg-rose-500/20 transition-colors">Watchlist</a>
+      <a
+        href="/library/movies-watched"
+        class="text-[10px] px-3 py-1.5 rounded-full
+          bg-teal-500/10 text-teal-400
+          border border-teal-500/20
+          hover:bg-teal-500/20
+          transition-colors font-semibold
+          uppercase tracking-wider"
+      >
+        All Watched ({movieCount})
+      </a>
+      <a
+        href="/library/movies-rated"
+        class="text-[10px] px-3 py-1.5 rounded-full
+          bg-amber-500/10 text-amber-400
+          border border-amber-500/20
+          hover:bg-amber-500/20
+          transition-colors font-semibold
+          uppercase tracking-wider"
+      >
+        Top Rated
+      </a>
+      <a
+        href="/library/movies-watchlist"
+        class="text-[10px] px-3 py-1.5 rounded-full
+          bg-rose-500/10 text-rose-400
+          border border-rose-500/20
+          hover:bg-rose-500/20
+          transition-colors font-semibold
+          uppercase tracking-wider"
+      >
+        Watchlist ({watchlist.length})
+      </a>
     </div>
 
-    <!-- Stats -->
-    <div class="glass-strong p-6 mb-12 flex flex-wrap gap-8 rounded-2xl border border-white/10">
-      <div>
-        <div class="text-2xl font-bold text-emerald-400">{db.stats.totalWatched || watched.length}</div>
-        <div class="text-xs text-white/30">Films Watched</div>
-      </div>
-      <div>
-        <div class="text-2xl font-bold text-sky-400">{db.stats.totalShows || shows.length}</div>
-        <div class="text-xs text-white/30">Shows</div>
-      </div>
-      <div>
-        <div class="text-2xl font-bold text-rose-400">{wantToWatch.length}</div>
-        <div class="text-xs text-white/30">Watchlist Queue</div>
-      </div>
-      <div>
-        <div class="text-2xl font-bold text-teal-400">{avgRating}</div>
-        <div class="text-xs text-white/30">Avg Rating /10</div>
-      </div>
-      <div>
-        <div class="text-lg font-bold text-violet-400 truncate max-w-[150px] sm:max-w-none">{favoriteGenres.join(', ') || 'N/A'}</div>
-        <div class="text-xs text-white/30">Top Genres</div>
-      </div>
+    <!-- Stats Grid -->
+    <div
+      class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-14"
+    >
+      {[
+        {
+          label: 'Total Movies',
+          value: movieCount,
+          color: 'text-teal-400',
+        },
+        {
+          label: 'Avg Rating',
+          value: avgMovieRating,
+          color: 'text-amber-400',
+        },
+        {
+          label: 'Watchlist',
+          value: watchlist.length,
+          color: 'text-rose-400',
+        },
+        {
+          label: 'Top Genre',
+          value: topGenres[0] || 'N/A',
+          color: 'text-sky-400',
+        },
+      ].map((stat) => (
+        <div
+          class="p-4 rounded-xl bg-white/[0.015]
+            border border-white/5 text-center"
+        >
+          <div
+            class={`text-2xl font-black ${stat.color} truncate`}
+            style="font-family:
+              var(--font-display, 'Outfit');"
+          >
+            {stat.value}
+          </div>
+          <div
+            class="text-[9px] text-white/25
+              uppercase tracking-widest mt-1
+              font-semibold"
+          >
+            {stat.label}
+          </div>
+        </div>
+      ))}
     </div>
 
-    <!-- Shows / Currently Watching -->
-    <section class="mb-16">
-      <h2 class="text-xl font-semibold text-white mb-8 relative inline-block">
-        Tracking Shows
-        <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent rounded-full"></span>
-      </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        {shows.slice(0, 4).map((show, i) => {
-          const vis = getVisuals(show.title);
-          return (
-          <div class="glass-strong p-5 flex gap-5 items-center rounded-2xl border border-white/10" style={`animation-delay: ${i * 80}ms`}>
-            <div class="h-24 w-24 rounded-xl flex items-center justify-center text-4xl shrink-0 relative overflow-hidden" style={`background: ${vis.gradient}`}>
-              <div class="absolute inset-0 bg-black/10"></div>
-              <span class="relative z-10 drop-shadow-lg">{vis.emoji}</span>
+    <!-- ═══ RECENT MOVIES ═══ -->
+    <section class="mb-16 reveal-stagger">
+      <div
+        class="flex items-center justify-between mb-6"
+      >
+        <div class="flex items-center gap-2">
+          <span class="text-lg">🎬</span>
+          <h2
+            class="text-xl font-bold text-white"
+            style="font-family:
+              var(--font-display, 'Outfit');"
+          >
+            Recently Watched
+          </h2>
+        </div>
+      </div>
+
+      <div class="space-y-2 mb-6">
+        {recentMovies.map((movie) => (
+          <div
+            class="group flex items-center gap-4
+              p-3 rounded-xl bg-white/[0.01]
+              border border-white/[0.03]
+              hover:border-white/8
+              hover:bg-white/[0.02]
+              transition-all duration-200"
+          >
+            <div
+              class="flex items-center
+                justify-center h-8 w-8
+                rounded-lg bg-white/[0.03]
+                text-xs font-bold text-white/20
+                flex-shrink-0"
+            >
+              {movie.rating ? (
+                <span class="text-teal-400/70">
+                  {movie.rating}
+                </span>
+              ) : (
+                <span>—</span>
+              )}
             </div>
             <div class="flex-1 min-w-0">
-              <h3 class="text-base font-semibold text-white">{show.title}</h3>
-              <p class="text-xs text-white/30 mt-0.5">{show.year} · {(show.genres||[])[0]}</p>
-              <div class="flex items-center gap-2 mt-2">
-                <span class="text-xs text-sky-400 font-medium">Plays: {show.episodesWatched || 0}</span>
-              </div>
+              <h4
+                class="text-sm font-medium
+                  text-white/70 truncate
+                  group-hover:text-white/90
+                  transition-colors"
+              >
+                {movie.title}
+              </h4>
+              <p class="text-[10px] text-white/20">
+                {movie.year}
+                {(movie.genres || [])[0] &&
+                  ` · ${(movie.genres || [])[0]}`}
+              </p>
             </div>
-            {show.rating && (
-              <div class="shrink-0 bg-sky-500/10 text-sky-400 text-xs font-semibold px-2.5 py-1 rounded-full">
-                {show.rating}/10
-              </div>
-            )}
           </div>
-        )})}
+        ))}
+      </div>
+      
+      <div class="flex justify-center">
+        <a href="/library/movies-watched" class="text-xs px-4 py-2 rounded-lg bg-white/[0.03] border border-white/5 hover:bg-white/[0.05] text-white/60 hover:text-white transition-colors">
+          View all history
+        </a>
       </div>
     </section>
 
-    <hr class="border-white/5 mb-16" />
-
-    <!-- Top Rated -->
-    {topRated.length > 0 && (
-      <section class="mb-16">
-        <h2 class="text-xl font-semibold text-white mb-8 relative inline-block">
-          Top Rated
-          <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent rounded-full"></span>
-        </h2>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {topRated.map((movie, i) => {
-            const vis = getVisuals(movie.title);
-            return (
-            <div class="glass rounded-2xl border border-white/5 hover:border-emerald-500/15 transition-all group cursor-default" style={`animation-delay: ${i * 60}ms`}>
-              <div class="aspect-[2/3] rounded-t-2xl mb-3 flex items-center justify-center text-4xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                {movie.posterUrl ? (
-                  <img src={movie.posterUrl} alt={movie.title} class="w-full h-full object-cover relative z-10" />
-                ) : (
-                  <span class="relative z-10 drop-shadow-lg">{vis.emoji}</span>
-                )}
-                <div class="absolute top-2 right-2 z-20 bg-black/50 backdrop-blur-sm rounded-full px-2 py-0.5">
-                  <span class="text-xs font-semibold" style={`color: ${movie.rating >= 9 ? '#34d399' : '#2dd4bf'}`}>{movie.rating}</span>
-                </div>
+    <!-- ═══ TOP RATED ═══ -->
+    {topRatedMovies.length > 0 && (
+      <section class="mb-16 reveal-stagger">
+        <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">⭐</span>
+            <h2 class="text-xl font-bold text-white" style="font-family: var(--font-display, 'Outfit');">
+              Top Rated
+            </h2>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+          {topRatedMovies.map((movie) => (
+            <div class="group p-4 rounded-xl bg-white/[0.015] border border-white/5 hover:border-amber-500/15 transition-all duration-200">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="flex items-center justify-center h-7 w-7 rounded-lg bg-amber-500/10 text-amber-400 text-xs font-black">
+                  {movie.rating}
+                </span>
+                <span class="text-[9px] text-white/20 uppercase tracking-wider">/10</span>
               </div>
-              <div class="px-3 pb-3">
-                <h3 class="text-sm font-semibold text-white truncate group-hover:text-emerald-400 transition-colors">{movie.title}</h3>
-                <div class="flex items-center gap-2 mt-1">
-                  <span class="text-xs text-white/30">{movie.year}</span>
-                  <span class="w-1 h-1 rounded-full bg-white/20"></span>
-                  <span class="text-xs text-white/30 truncate">{(movie.genres||[])[0]}</span>
-                </div>
-              </div>
+              <h4 class="text-sm font-semibold text-white/80 mb-1 line-clamp-2 group-hover:text-amber-300 transition-colors leading-tight">
+                {movie.title}
+              </h4>
+              <p class="text-[10px] text-white/20">
+                {movie.year}
+                {(movie.genres || [])[0] && ` · ${(movie.genres || [])[0]}`}
+              </p>
             </div>
-          )})}
+          ))}
+        </div>
+        
+        <div class="flex justify-center">
+          <a href="/library/movies-rated" class="text-xs px-4 py-2 rounded-lg bg-white/[0.03] border border-white/5 hover:bg-white/[0.05] text-white/60 hover:text-white transition-colors">
+            View all top rated
+          </a>
         </div>
       </section>
     )}
 
-    {topRated.length > 0 && <hr class="border-white/5 mb-16" />}
+    <!-- Trakt Profile Link -->
+    <div class="mt-20 p-6 rounded-2xl bg-gradient-to-br from-red-500/5 to-rose-500/5 border border-red-500/10 text-center flex flex-col items-center">
+      <div class="h-12 w-12 rounded-full bg-red-500/10 text-red-400 flex items-center justify-center text-xl mb-4">
+        📽️
+      </div>
+      <h3 class="text-lg font-bold text-white mb-2">Complete Profile</h3>
+      <p class="text-sm text-white/40 mb-6 max-w-md">
+        For the complete, unfiltered history of everything I've watched, rated, and reviewed.
+      </p>
+      <a href="https://trakt.tv" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-red-500/10 text-red-400 font-semibold text-sm hover:bg-red-500/20 hover:scale-105 transition-all outline-none focus:ring-2 focus:ring-red-500/50">
+        View Trakt Profile
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </a>
+    </div>
 
-    <!-- Recently Watched -->
-    <section class="mb-16">
-      <div class="flex items-center justify-between mb-8">
-        <h2 class="text-xl font-semibold text-white relative inline-block">
-          Recently Watched
-          <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent rounded-full"></span>
-        </h2>
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-        {watched.slice(0, 12).map((movie, i) => {
-          const vis = getVisuals(movie.title);
-          return (
-          <div class="glass rounded-2xl border border-white/5 hover:border-emerald-500/15 transition-all group cursor-default" style={`animation-delay: ${i * 50}ms`}>
-            <div class="aspect-[2/3] rounded-t-2xl mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
-              <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-              <span class="relative z-10 drop-shadow-lg">{vis.emoji}</span>
-              {movie.rating && (
-                <div class="absolute top-1.5 right-1.5 z-20 bg-black/50 backdrop-blur-sm rounded-full px-1.5 py-0.5">
-                  <span class="text-[0.6rem] font-semibold text-teal-400">{movie.rating}</span>
-                </div>
-              )}
-            </div>
-            <div class="px-3 pb-3">
-              <h3 class="text-xs font-semibold text-white truncate group-hover:text-emerald-400 transition-colors">{movie.title}</h3>
-              <span class="text-[0.65rem] text-white/20 truncate max-w-full block">{movie.year} · {(movie.genres||[])[0]}</span>
-            </div>
-          </div>
-        )})}
-      </div>
-    </section>
-
-    <hr class="border-white/5 mb-16" />
-
-    <!-- Watchlist -->
-    <section class="mb-16">
-      <div class="flex items-center justify-between mb-8">
-        <h2 class="text-xl font-semibold text-white relative inline-block">
-          Watchlist
-          <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-rose-400 to-transparent rounded-full"></span>
-        </h2>
-        <span class="text-xs text-white/20">{wantToWatch.length} queued</span>
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        {wantToWatch.slice(0, 8).map((movie, i) => {
-          const vis = getVisuals(movie.title);
-          return (
-          <div class="glass rounded-2xl border border-white/5 hover:border-rose-500/15 transition-all group cursor-default" style={`animation-delay: ${i * 60}ms`}>
-            <div class="aspect-[2/3] rounded-t-2xl mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
-              <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-              <span class="relative z-10 drop-shadow-lg">{vis.emoji}</span>
-            </div>
-            <div class="px-3 pb-3">
-              <h3 class="text-xs font-semibold text-white truncate group-hover:text-rose-400 transition-colors">{movie.title}</h3>
-              <span class="text-[0.65rem] text-white/20 block truncate max-w-full">{movie.year} · {(movie.genres||[])[0]}</span>
-            </div>
-          </div>
-        )})}
-      </div>
-    </section>
-  </main>
+  </div>
 </Layout>

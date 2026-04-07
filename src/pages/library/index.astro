@@ -89,18 +89,21 @@ interface Category {
 
 const categories: Category[] = [
   {
-    title: 'Movies & TV',
+    title: 'Movies',
     href: '/library/movies',
     icon: '🎬',
     accent: 'teal',
     description:
-      'Films and shows tracked via Trakt',
+      'Films tracked via Trakt',
     stats: [
       {
         label: 'Movies',
         value: moviesWatched || 0,
       },
-      { label: 'Shows', value: moviesShows || 0 },
+      {
+        label: 'Top Rated',
+        value: (moviesDb.watched || []).filter((m: any) => m.rating).length,
+      },
       {
         label: 'Watchlist',
         value: moviesWatchlist || 0,
@@ -118,6 +121,30 @@ const categories: Category[] = [
       {
         label: 'Watchlist',
         href: '/library/movies-watchlist',
+      },
+    ],
+  },
+  {
+    title: 'TV Shows',
+    href: '/library/shows',
+    icon: '📺',
+    accent: 'violet',
+    description:
+      'TV shows tracked via Trakt',
+    stats: [
+      {
+        label: 'Tracked',
+        value: moviesShows || 0,
+      },
+      {
+        label: 'Episodes',
+        value: (moviesDb.shows || []).reduce((acc: number, s: any) => acc + (s.episodesWatched || 0), 0),
+      },
+    ],
+    subPages: [
+      {
+        label: 'All Tracked',
+        href: '/library/shows-watched', // We will create this
       },
     ],
   },

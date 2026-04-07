@@ -1,6 +1,6 @@
 ---
 /**
- * Top Rated Movies — sorted by rating (movies only)
+ * All Tracked Shows — Full history of TV Shows
  */
 import Layout from '../../layouts/Layout.astro';
 import CommandPalette from
@@ -9,7 +9,7 @@ import CommandPalette from
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
 
-let topRated: any[] = [];
+let shows: any[] = [];
 
 try {
   const raw = await fs.readFile(
@@ -17,20 +17,17 @@ try {
     'utf-8',
   );
   const db = JSON.parse(raw);
-  topRated = (db.watched || [])
-    .filter((m: any) => m.rating)
-    .sort(
-      (a: any, b: any) =>
-        (b.rating || 0) - (a.rating || 0),
-    );
+  shows = db.shows || [];
 } catch {
-  console.warn('[Movies] movies.json not found.');
+  console.warn('[Shows] movies.json not found.');
 }
+
+const totalEpisodes = shows.reduce((acc, s) => acc + (s.episodesWatched || 0), 0);
 ---
 
 <Layout
-  title="Top Rated Movies"
-  description="Highest rated movies from my Trakt diary"
+  title="All Tracked Shows"
+  description="Complete TV show tracking history"
 >
   <CommandPalette />
 
@@ -47,77 +44,90 @@ try {
       >Library</a>
       <span>/</span>
       <a
-        href="/library/movies"
+        href="/library/shows"
         class="hover:text-white/40 transition-colors"
-      >Movies & TV</a>
+      >TV Shows</a>
       <span>/</span>
-      <span class="text-white/40">Top Rated</span>
+      <span class="text-white/40">All Tracked</span>
     </div>
 
+    <!-- Header -->
     <div class="mb-8">
       <h1
         class="text-2xl font-black text-white mb-2"
         style="font-family:
           var(--font-display, 'Outfit');"
       >
-        Top Rated Movies
+        All Tracked Shows
       </h1>
       <p class="text-sm text-white/30">
-        {topRated.length} rated movies
+        {shows.length} shows · {totalEpisodes} episodes watched
       </p>
     </div>
 
+    <!-- Show List -->
     <div class="space-y-2">
-      {topRated.map((movie, i) => (
+      {shows.map((show, i) => (
         <div
           class="group flex items-center gap-4
-            p-4 rounded-xl bg-white/[0.015]
-            border border-white/5
-            hover:border-amber-500/15
-            hover:bg-white/[0.025]
+            p-3 rounded-xl bg-white/[0.01]
+            border border-white/[0.03]
+            hover:border-violet-500/10
+            hover:bg-white/[0.02]
             transition-all duration-200"
         >
           <div
             class="flex items-center justify-center
-              h-8 w-8 rounded-lg bg-white/[0.03]
-              text-xs font-mono text-white/15
+              h-7 w-7 rounded-md bg-white/[0.02]
+              text-[10px] text-white/15 font-mono
               flex-shrink-0"
           >
-            #{i + 1}
+            {i + 1}
           </div>
           <div
             class="flex items-center justify-center
-              h-9 w-9 rounded-xl bg-amber-500/10
-              text-amber-400 text-sm font-black
-              flex-shrink-0"
+              h-8 w-8 rounded-lg bg-violet-500/10
+              text-lg flex-shrink-0 text-violet-400"
           >
-            {movie.rating}
+            📺
           </div>
           <div class="flex-1 min-w-0">
             <h3
-              class="text-sm font-semibold
-                text-white/80
-                group-hover:text-amber-300
+              class="text-sm font-medium
+                text-white/70 truncate
+                group-hover:text-violet-300
                 transition-colors"
             >
-              {movie.title}
+              {show.title}
             </h3>
             <p class="text-[10px] text-white/20">
-              {movie.year}
-              {(movie.genres || [])[0] &&
-                ` · ${(movie.genres || [])[0]}`}
+              {show.year}
+              {(show.genres || [])[0] &&
+                ` · ${(show.genres || [])[0]}`}
             </p>
+          </div>
+          <div class="text-right flex-shrink-0">
+             <div class="text-xs font-bold text-violet-400/60">
+                 {show.episodesWatched || 0}
+             </div>
+             <div class="text-[8px] text-white/15 uppercase tracking-wider">
+                 eps
+             </div>
           </div>
         </div>
       ))}
     </div>
 
-    {topRated.length === 0 && (
+    {shows.length === 0 && (
       <div
         class="text-center py-20 text-white/20
           text-sm"
       >
-        No rated movies yet.
+        No shows tracked yet. Run
+        <code class="text-violet-400/50">
+          pnpm run fetch-data
+        </code>
+        to sync.
       </div>
     )}
 

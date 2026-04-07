@@ -324,17 +324,23 @@ const meanScore =
       )}
     </section>
 
-    <!-- Source note -->
-    <div class="glass p-6 flex items-center gap-4 rounded-2xl border border-white/5">
-      <div class="h-10 w-10 rounded-xl bg-sky-500/10 flex items-center justify-center shrink-0">
-        <svg class="h-5 w-5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </section>
+
+    <!-- AniList Profile Link -->
+    <div class="mt-20 p-6 rounded-2xl bg-gradient-to-br from-sky-500/5 to-blue-500/5 border border-sky-500/10 text-center flex flex-col items-center">
+      <div class="h-12 w-12 rounded-full bg-sky-500/10 text-sky-500 flex items-center justify-center text-xl mb-4">
+        🌸
+      </div>
+      <h3 class="text-lg font-bold text-white mb-2">Complete Profile</h3>
+      <p class="text-sm text-white/40 mb-6 max-w-md">
+        For the complete, unfiltered history of every anime and manga I've rated and reviewed.
+      </p>
+      <a href="https://anilist.co" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sky-500/10 text-sky-500 hover:text-sky-400 hover:bg-sky-500/20 font-semibold text-sm transition-all outline-none focus:ring-2 focus:ring-sky-500/50">
+        View AniList Profile
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
         </svg>
-      </div>
-      <div>
-        <p class="text-sm text-white font-medium">{hasApiData ? 'Data fetched from AniList at Build Time' : 'Curated picks'}</p>
-        <p class="text-xs text-white/30">{hasApiData ? 'Stats refreshed automatically during site build via GitHub Actions.' : 'AniList data unavailable at build - showing hand-curated favorites.'}</p>
-      </div>
+      </a>
     </div>
   </main>
 </Layout>
