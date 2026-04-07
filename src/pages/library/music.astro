@@ -52,85 +52,93 @@ function getVisuals(name: string) {
 const currentTrack = recentTracks[0];
 ---
 
-<Layout title="Music" description="Chirag Singhal's music taste — top artists, tracks, and listening habits synced from Last.fm">  <CommandPalette />
-  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
-    <a href="/library" class="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] mb-8 transition-colors">
+<Layout title="Music" description="Chirag Singhal's music taste - top artists, tracks, and listening habits synced from Last.fm">
+  <CommandPalette />
+  <main class="mx-auto max-w-[var(--content-max-width)] px-6 py-12">
+    <a href="/library" class="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white/60 mb-8 transition-colors">
       <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
       Back to Library Drive
     </a>
 
-    <div class="flex items-center gap-3 mb-2">
-      <div class="h-10 w-10 rounded-xl bg-[var(--color-accent-rose)]/10 flex items-center justify-center">
-        <span class="text-xl">🎵</span>
+    <!-- Page header -->
+    <div class="mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-xs font-medium text-violet-400 mb-4">
+        LIBRARY
       </div>
-      <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Music</h1>
+      <div class="flex items-center gap-3 mb-2">
+        <div class="h-10 w-10 rounded-xl bg-violet-500/10 flex items-center justify-center">
+          <span class="text-xl">🎵</span>
+        </div>
+        <h1 class="text-4xl font-bold text-white" style="font-family: 'Outfit', sans-serif;">Music</h1>
+      </div>
+      <p class="text-white/40">Top artists and listening habits - synced automatically from Last.fm.</p>
     </div>
-    <p class="text-[var(--color-text-secondary)] mb-6">Top artists and listening habits — synced automatically from Last.fm.</p>
 
     <!-- Sub-page Navigation -->
     <div class="flex flex-wrap gap-2 mb-10">
-      <a href="/library/music-top-artists" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-accent-rose)]/10 text-[var(--color-accent-rose)] border border-[var(--color-accent-rose)]/20 hover:bg-[var(--color-accent-rose)]/20 transition-colors">Top Artists</a>
-      <a href="/library/music-top-tracks" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20 hover:bg-[var(--color-primary)]/20 transition-colors">Top Tracks</a>
-      <a href="/library/music-recent" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-accent-sky)]/10 text-[var(--color-accent-sky)] border border-[var(--color-accent-sky)]/20 hover:bg-[var(--color-accent-sky)]/20 transition-colors">Recent</a>
-      <a href="/library/mixcloud" class="text-xs px-3 py-1.5 rounded-full bg-[#5000ff]/10 text-[#5000ff] border border-[#5000ff]/20 hover:bg-[#5000ff]/20 transition-colors">Mixcloud</a>
+      <a href="/library/music-top-artists" class="text-xs px-3 py-1.5 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/20 hover:bg-violet-500/20 transition-colors">Top Artists</a>
+      <a href="/library/music-top-tracks" class="text-xs px-3 py-1.5 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20 hover:bg-teal-500/20 transition-colors">Top Tracks</a>
+      <a href="/library/music-recent" class="text-xs px-3 py-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 transition-colors">Recent</a>
+      <a href="/library/mixcloud" class="text-xs px-3 py-1.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 hover:bg-indigo-500/20 transition-colors">Mixcloud</a>
     </div>
 
     <!-- Now Playing / Last Played -->
     {currentTrack && (
-    <div class="glass-strong p-8 mb-12 relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl opacity-10 bg-[var(--color-accent-rose)]"></div>
+    <div class="glass-strong p-8 mb-12 relative overflow-hidden rounded-2xl border border-white/10">
+      <div class="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl opacity-10 bg-violet-500"></div>
       <div class="relative z-10 flex items-center gap-6">
-        <div class="h-20 w-20 rounded-2xl bg-gradient-to-br from-[var(--color-accent-rose)]/20 to-[var(--color-primary)]/20 flex items-center justify-center shrink-0 relative overflow-hidden">
+        <div class="h-20 w-20 rounded-2xl bg-gradient-to-br from-violet-500/20 to-teal-500/20 flex items-center justify-center shrink-0 relative overflow-hidden">
           {currentTrack.imageUrl ? (
             <img src={currentTrack.imageUrl} alt="Album Art" class="w-full h-full object-cover" />
           ) : (
             <div class="flex items-end gap-[3px] h-8 relative z-10">
-              <div class="w-[3px] bg-[var(--color-accent-rose)] rounded-full animate-[bounce_0.8s_ease-in-out_infinite]" style="height: 60%"></div>
-              <div class="w-[3px] bg-[var(--color-accent-rose)] rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.1s]" style="height: 100%"></div>
-              <div class="w-[3px] bg-[var(--color-accent-rose)] rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.2s]" style="height: 40%"></div>
-              <div class="w-[3px] bg-[var(--color-accent-rose)] rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.3s]" style="height: 80%"></div>
-              <div class="w-[3px] bg-[var(--color-accent-rose)] rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.15s]" style="height: 50%"></div>
+              <div class="w-[3px] bg-violet-400 rounded-full animate-[bounce_0.8s_ease-in-out_infinite]" style="height: 60%"></div>
+              <div class="w-[3px] bg-violet-400 rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.1s]" style="height: 100%"></div>
+              <div class="w-[3px] bg-violet-400 rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.2s]" style="height: 40%"></div>
+              <div class="w-[3px] bg-violet-400 rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.3s]" style="height: 80%"></div>
+              <div class="w-[3px] bg-violet-400 rounded-full animate-[bounce_0.8s_ease-in-out_infinite_0.15s]" style="height: 50%"></div>
             </div>
           )}
         </div>
         <div>
-          <p class="text-xs text-[var(--color-text-muted)] uppercase tracking-wider mb-1">
+          <p class="text-xs text-white/30 uppercase tracking-wider mb-1">
             {currentTrack.nowPlaying ? 'Now Playing' : 'Last Played'}
           </p>
           <p class="text-lg text-white font-semibold">{currentTrack.name}</p>
-          <p class="text-sm text-[var(--color-text-secondary)]">{currentTrack.artist}</p>
+          <p class="text-sm text-white/40">{currentTrack.artist}</p>
         </div>
       </div>
     </div>
     )}
 
     <!-- Stats -->
-    <div class="glass-strong p-6 mb-12 flex flex-wrap gap-8">
+    <div class="glass-strong p-6 mb-12 flex flex-wrap gap-8 rounded-2xl border border-white/10">
       <div>
-        <div class="text-2xl font-bold text-[var(--color-accent-sky)]">{numPlays.toLocaleString()}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Total Scrobbles</div>
+        <div class="text-2xl font-bold text-sky-400">{numPlays.toLocaleString()}</div>
+        <div class="text-xs text-white/30">Total Scrobbles</div>
       </div>
       <div>
-        <div class="text-2xl font-bold text-[var(--color-accent-rose)]">{artists.length}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Top Artists Tracked</div>
+        <div class="text-2xl font-bold text-violet-400">{artists.length}</div>
+        <div class="text-xs text-white/30">Top Artists Tracked</div>
       </div>
       <div>
-        <div class="text-2xl font-bold text-[var(--color-primary)]">{recentTracks.length}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Recent Tracks</div>
+        <div class="text-2xl font-bold text-teal-400">{recentTracks.length}</div>
+        <div class="text-xs text-white/30">Recent Tracks</div>
       </div>
     </div>
 
     <!-- Top Artists -->
     <section class="mb-16">
-      <div class="flex items-center justify-between mb-8">
-        <h2 class="section-heading text-xl font-semibold text-white">Top Artists</h2>
-      </div>
+      <h2 class="text-xl font-semibold text-white mb-8 relative inline-block">
+        Top Artists
+        <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-violet-400 to-transparent rounded-full"></span>
+      </h2>
       <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-4">
         {artists.map((artist, i) => {
           const vis = getVisuals(artist.name);
           return (
-          <a href={artist.url} target="_blank" rel="noopener noreferrer" class="card group cursor-default text-center block" style={`animation-delay: ${i * 40}ms`}>
-            <div class="w-20 h-20 mx-auto rounded-full mb-3 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
+          <a href={artist.url} target="_blank" rel="noopener noreferrer" class="glass rounded-2xl border border-white/5 hover:border-violet-500/15 transition-all group cursor-default text-center block" style={`animation-delay: ${i * 40}ms`}>
+            <div class="w-20 h-20 mx-auto rounded-full mb-3 flex items-center justify-center text-3xl relative overflow-hidden mt-4" style={`background: ${vis.gradient}`}>
               <div class="absolute inset-0 bg-black/10"></div>
               {artist.imageUrl ? (
                 <img src={artist.imageUrl} alt={artist.name} class="w-full h-full object-cover relative z-10" />
@@ -138,15 +146,18 @@ const currentTrack = recentTracks[0];
                 <span class="relative z-10 drop-shadow-lg">{vis.emoji}</span>
               )}
             </div>
-            <h3 class="text-xs font-semibold text-white truncate group-hover:text-[var(--color-accent-rose)] transition-colors">{artist.name}</h3>
-            <div class="mt-1">
-              <span class="text-[0.65rem] text-[var(--color-accent-rose)] font-medium">{artist.playcount.toLocaleString()} plays</span>
+            <div class="px-4 pb-4">
+              <h3 class="text-xs font-semibold text-white truncate group-hover:text-violet-400 transition-colors">{artist.name}</h3>
+              <div class="mt-1">
+                <span class="text-[0.65rem] text-violet-400 font-medium">{artist.playcount.toLocaleString()} plays</span>
+              </div>
             </div>
           </a>
         )})}
       </div>
     </section>
-  </main></Layout>
+  </main>
+</Layout>
 
 <style>
   @keyframes bounce {

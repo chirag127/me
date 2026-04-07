@@ -21,55 +21,65 @@ const user = db.mixcloud?.user;
 const cloudcasts = db.mixcloud?.cloudcasts || [];
 ---
 
-<Layout title="Mixcloud" description="Chirag Singhal on Mixcloud — DJ mixes and radio shows">  <CommandPalette />
-  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
-    <div class="flex items-center gap-3 mb-2">
-      <div class="h-10 w-10 rounded-xl bg-[#5000ff]/10 flex items-center justify-center">
-        <span class="text-xl">🎧</span>
+<Layout title="Mixcloud" description="Chirag Singhal on Mixcloud - DJ mixes and radio shows">
+  <CommandPalette />
+  <main class="mx-auto max-w-[var(--content-max-width)] px-6 py-12">
+    <!-- Page header -->
+    <div class="mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-xs font-medium text-violet-400 mb-4">
+        LIBRARY
       </div>
-      <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Mixcloud</h1>
+      <div class="flex items-center gap-3 mb-2">
+        <div class="h-10 w-10 rounded-xl bg-indigo-500/10 flex items-center justify-center">
+          <span class="text-xl">🎧</span>
+        </div>
+        <h1 class="text-4xl font-bold text-white" style="font-family: 'Outfit', sans-serif;">Mixcloud</h1>
+      </div>
+      <p class="text-white/40">DJ mixes and radio shows - from {CONFIG.user.mixcloud}.</p>
     </div>
-    <p class="text-[var(--color-text-secondary)] mb-10">DJ mixes and radio shows — from {CONFIG.user.mixcloud}.</p>
 
     {user && (
-      <div class="glass-strong p-8 mb-12">
+      <div class="glass-strong p-8 mb-12 rounded-2xl border border-white/10">
         <div class="flex items-center gap-4 mb-4">
           {user.pictures?.medium && <img src={user.pictures.medium} alt="Avatar" class="w-16 h-16 rounded-full" />}
           <div>
             <h2 class="text-xl font-bold text-white">{user.name || CONFIG.user.mixcloud}</h2>
-            <p class="text-sm text-[var(--color-text-muted)]">@{CONFIG.user.mixcloud}</p>
+            <p class="text-sm text-white/30">@{CONFIG.user.mixcloud}</p>
           </div>
         </div>
         <div class="grid grid-cols-3 gap-4">
-          <div class="text-center p-3 rounded-lg bg-white/[0.02]">
-            <div class="text-lg font-bold text-[#5000ff]">{user.cloudcastCount}</div>
-            <div class="text-xs text-[var(--color-text-muted)]">Mixes</div>
+          <div class="text-center p-3 rounded-xl bg-white/[0.02]">
+            <div class="text-lg font-bold text-indigo-400">{user.cloudcastCount}</div>
+            <div class="text-xs text-white/30">Mixes</div>
           </div>
-          <div class="text-center p-3 rounded-lg bg-white/[0.02]">
+          <div class="text-center p-3 rounded-xl bg-white/[0.02]">
             <div class="text-lg font-bold text-white">{user.followerCount}</div>
-            <div class="text-xs text-[var(--color-text-muted)]">Followers</div>
+            <div class="text-xs text-white/30">Followers</div>
           </div>
-          <div class="text-center p-3 rounded-lg bg-white/[0.02]">
+          <div class="text-center p-3 rounded-xl bg-white/[0.02]">
             <div class="text-lg font-bold text-white">{user.listenCount?.toLocaleString()}</div>
-            <div class="text-xs text-[var(--color-text-muted)]">Listens</div>
+            <div class="text-xs text-white/30">Listens</div>
           </div>
         </div>
       </div>
     )}
 
-    <h2 class="text-xl font-semibold text-white mb-6">Mixes</h2>
+    <h2 class="text-xl font-semibold text-white mb-6 relative inline-block">
+      Mixes
+      <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-indigo-400 to-transparent rounded-full"></span>
+    </h2>
     {cloudcasts.length > 0 ? (
       <div class="space-y-4">
         {cloudcasts.map((cast: any) => (
-          <div class="glass p-5">
+          <div class="glass p-5 rounded-2xl border border-white/5">
             <div class="flex items-start justify-between gap-4 mb-3">
               <div class="min-w-0">
                 <h3 class="text-sm font-semibold text-white truncate">{cast.name}</h3>
-                {cast.description && <p class="text-xs text-[var(--color-text-muted)] mt-1 line-clamp-2">{cast.description}</p>}
+                {cast.description && <p class="text-xs text-white/30 mt-1 line-clamp-2">{cast.description}</p>}
               </div>
-              <a href={cast.url} target="_blank" rel="noopener noreferrer" class="shrink-0 text-[#5000ff] text-xs hover:underline">Play</a>
+              <a href={cast.url} target="_blank" rel="noopener noreferrer" class="shrink-0 text-indigo-400 text-xs hover:underline">Play</a>
             </div>
-            <div class="flex items-center gap-4 text-xs text-[var(--color-text-muted)]">
+            <div class="flex items-center gap-4 text-xs text-white/30">
               {cast.playCount > 0 && <span>▶ {cast.playCount}</span>}
               {cast.favoriteCount > 0 && <span>❤ {cast.favoriteCount}</span>}
               {cast.duration > 0 && <span>⏱ {Math.floor(cast.duration / 60)}m</span>}
@@ -89,7 +99,7 @@ const cloudcasts = db.mixcloud?.cloudcasts || [];
             {cast.tags?.length > 0 && (
               <div class="flex flex-wrap gap-1 mt-2">
                 {cast.tags.slice(0, 5).map((tag: string) => (
-                  <span class="text-[0.55rem] px-1.5 py-0.5 rounded-full bg-[#5000ff]/10 text-[#5000ff]/70">{tag}</span>
+                  <span class="text-[0.55rem] px-1.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400/70">{tag}</span>
                 ))}
               </div>
             )}
@@ -97,12 +107,13 @@ const cloudcasts = db.mixcloud?.cloudcasts || [];
         ))}
       </div>
     ) : (
-      <div class="glass p-12 text-center">
-        <p class="text-[var(--color-text-muted)]">No mixes found. Run fetch-data first.</p>
+      <div class="glass p-12 text-center rounded-2xl border border-white/5">
+        <p class="text-white/30">No mixes found. Run fetch-data first.</p>
       </div>
     )}
 
-    <div class="mt-12 glass p-6 text-center">
-      <a href={`https://www.mixcloud.com/${CONFIG.user.mixcloud}`} target="_blank" rel="noopener noreferrer" class="text-sm text-[#5000ff] hover:underline">View on Mixcloud →</a>
+    <div class="mt-12 glass p-6 text-center rounded-2xl border border-white/5">
+      <a href={`https://www.mixcloud.com/${CONFIG.user.mixcloud}`} target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-400 hover:underline">View on Mixcloud →</a>
     </div>
-  </main></Layout>
+  </main>
+</Layout>

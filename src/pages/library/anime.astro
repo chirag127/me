@@ -125,11 +125,11 @@ const curatedFallback: CuratedAnime[] = [
   },
 ];
 
-function _scoreColor(score: number | null): string {
-  if (!score) return 'var(--color-text-faint)';
-  if (score >= 8) return 'var(--color-success)';
-  if (score >= 6) return 'var(--color-primary)';
-  return 'var(--color-accent-warm)';
+function scoreColor(score: number | null): string {
+  if (!score) return '#52525b';
+  if (score >= 8) return '#34d399';
+  if (score >= 6) return '#2dd4bf';
+  return '#fbbf24';
 }
 
 const hasApiData = currentlyWatching.length > 0 || completedAnime.length > 0;
@@ -147,57 +147,67 @@ const meanScore =
       ).toFixed(1);
 ---
 
-<Layout title="Anime" description="Chirag Singhal's anime watchlist — currently watching and completed">  <CommandPalette />
-  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
-    <a href="/library" class="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] mb-8 transition-colors">
+<Layout title="Anime" description="Chirag Singhal's anime watchlist - currently watching and completed">
+  <CommandPalette />
+  <main class="mx-auto max-w-[var(--content-max-width)] px-6 py-12">
+    <a href="/library" class="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white/60 mb-8 transition-colors">
       <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
       Back to Library Drive
     </a>
 
-    <div class="flex items-center gap-3 mb-2">
-      <div class="h-10 w-10 rounded-xl bg-[var(--color-accent-sky)]/10 flex items-center justify-center">
-        <span class="text-xl">🌸</span>
+    <!-- Page header -->
+    <div class="mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/20 text-xs font-medium text-sky-400 mb-4">
+        LIBRARY
       </div>
-      <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Anime</h1>
+      <div class="flex items-center gap-3 mb-2">
+        <div class="h-10 w-10 rounded-xl bg-sky-500/10 flex items-center justify-center">
+          <span class="text-xl">🌸</span>
+        </div>
+        <h1 class="text-4xl font-bold text-white" style="font-family: 'Outfit', sans-serif;">Anime</h1>
+      </div>
+      <p class="text-white/40">Watching, completed, and rated - from AniList automatically.</p>
     </div>
-    <p class="text-[var(--color-text-secondary)] mb-6">Watching, completed, and rated — from AniList automatically.</p>
 
     <!-- Sub-page Navigation -->
     <div class="flex flex-wrap gap-2 mb-10">
-      <a href="/library/anime-completed" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-success)]/10 text-[var(--color-success)] border border-[var(--color-success)]/20 hover:bg-[var(--color-success)]/20 transition-colors">Completed</a>
-      <a href="/library/anime-plan-to-watch" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-accent-rose)]/10 text-[var(--color-accent-rose)] border border-[var(--color-accent-rose)]/20 hover:bg-[var(--color-accent-rose)]/20 transition-colors">Plan to Watch</a>
-      <a href="/library/manga" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-accent-violet)]/10 text-[var(--color-accent-violet)] border border-[var(--color-accent-violet)]/20 hover:bg-[var(--color-accent-violet)]/20 transition-colors">Manga</a>
+      <a href="/library/anime-completed" class="text-xs px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors">Completed</a>
+      <a href="/library/anime-plan-to-watch" class="text-xs px-3 py-1.5 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20 hover:bg-rose-500/20 transition-colors">Plan to Watch</a>
+      <a href="/library/manga" class="text-xs px-3 py-1.5 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/20 hover:bg-violet-500/20 transition-colors">Manga</a>
     </div>
 
     <!-- Stats -->
-    <div class="glass-strong p-6 mb-12 flex flex-wrap gap-8">
+    <div class="glass-strong p-6 mb-12 flex flex-wrap gap-8 rounded-2xl border border-white/10">
       <div>
-        <div class="text-2xl font-bold text-[var(--color-accent-sky)]">{totalWatching}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Watching</div>
+        <div class="text-2xl font-bold text-sky-400">{totalWatching}</div>
+        <div class="text-xs text-white/30">Watching</div>
       </div>
       <div>
-        <div class="text-2xl font-bold text-[var(--color-success)]">{totalWatched}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Completed</div>
+        <div class="text-2xl font-bold text-emerald-400">{totalWatched}</div>
+        <div class="text-xs text-white/30">Completed</div>
       </div>
       <div>
-        <div class="text-2xl font-bold text-[var(--color-primary)]">{meanScore}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Mean Score</div>
+        <div class="text-2xl font-bold text-teal-400">{meanScore}</div>
+        <div class="text-xs text-white/30">Mean Score</div>
       </div>
       <div>
-        <div class="text-2xl font-bold text-[var(--color-accent-violet)]">
+        <div class="text-2xl font-bold text-violet-400">
           {hasApiData
             ? currentlyWatching.reduce((sum: number, e: any) => sum + (e.progress || 0), 0) + completedAnime.reduce((sum: number, e: any) => sum + (e.episodes || 0), 0)
             : curatedFallback.reduce((s, a) => s + a.episodes, 0)}
         </div>
-        <div class="text-xs text-[var(--color-text-muted)]">Total Episodes</div>
+        <div class="text-xs text-white/30">Total Episodes</div>
       </div>
     </div>
 
     <!-- Currently Watching -->
     <section class="mb-16">
       <div class="flex items-center gap-3 mb-8">
-        <h2 class="section-heading text-xl font-semibold text-white">Currently Watching</h2>
-        <div class="dot-live"></div>
+        <h2 class="text-xl font-semibold text-white relative inline-block">
+          Currently Watching
+          <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-sky-400 to-transparent rounded-full"></span>
+        </h2>
+        <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
       </div>
 
       {hasApiData && currentlyWatching.length > 0 ? (
@@ -205,8 +215,8 @@ const meanScore =
           {currentlyWatching.map((entry: any, i: number) => {
             const pct = entry.episodes ? Math.round((entry.progress / entry.episodes) * 100) : 0;
             return (
-              <div class="card group cursor-default" style={`animation-delay: ${i * 60}ms`}>
-                <div class="relative rounded-lg overflow-hidden mb-3">
+              <div class="glass rounded-2xl border border-white/5 hover:border-sky-500/15 transition-all group cursor-default" style={`animation-delay: ${i * 60}ms`}>
+                <div class="relative rounded-t-2xl overflow-hidden mb-3">
                   <img
                     src={entry.coverUrl}
                     alt={entry.title}
@@ -215,7 +225,7 @@ const meanScore =
                   />
                   <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                   <div class="absolute bottom-0 left-0 right-0 h-1 bg-black/40">
-                    <div class="h-full bg-[var(--color-accent-sky)] transition-all" style={`width: ${pct}%`}></div>
+                    <div class="h-full bg-sky-400 transition-all" style={`width: ${pct}%`}></div>
                   </div>
                   {entry.score && (
                     <div class="absolute top-2 right-2 bg-black/60 backdrop-blur-sm rounded-full px-2 py-0.5">
@@ -223,10 +233,12 @@ const meanScore =
                     </div>
                   )}
                 </div>
-                <h3 class="text-xs font-semibold text-white truncate group-hover:text-[var(--color-accent-sky)] transition-colors">{entry.title}</h3>
-                <p class="text-[0.65rem] text-[var(--color-text-faint)] mt-0.5">
-                  {entry.progress}{entry.episodes ? ` / ${entry.episodes}` : ''} eps
-                </p>
+                <div class="px-4 pb-4">
+                  <h3 class="text-xs font-semibold text-white truncate group-hover:text-sky-400 transition-colors">{entry.title}</h3>
+                  <p class="text-[0.65rem] text-white/25 mt-0.5">
+                    {entry.progress}{entry.episodes ? ` / ${entry.episodes}` : ''} eps
+                  </p>
+                </div>
               </div>
             );
           })}
@@ -234,20 +246,20 @@ const meanScore =
       ) : (
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {curatedFallback.slice(0, 2).map((anime, i) => (
-            <div class="glass-strong p-5 flex gap-5 items-center" style={`animation-delay: ${i * 80}ms`}>
+            <div class="glass-strong p-5 flex gap-5 items-center rounded-2xl border border-white/10" style={`animation-delay: ${i * 80}ms`}>
               <div class="h-24 w-20 rounded-xl flex items-center justify-center text-4xl shrink-0 relative overflow-hidden" style={`background: ${anime.gradient}`}>
                 <div class="absolute inset-0 bg-black/10"></div>
                 <span class="relative z-10 drop-shadow-lg">{anime.emoji}</span>
               </div>
               <div class="flex-1 min-w-0">
                 <h3 class="text-base font-semibold text-white">{anime.title}</h3>
-                <p class="text-xs text-[var(--color-text-muted)] mt-0.5">{anime.year} · {anime.genre}</p>
+                <p class="text-xs text-white/30 mt-0.5">{anime.year} · {anime.genre}</p>
                 <div class="mt-2 h-1.5 bg-white/5 rounded-full overflow-hidden">
-                  <div class="h-full bg-[var(--color-accent-sky)] rounded-full" style={`width: ${Math.round(60 + i * 20)}%`}></div>
+                  <div class="h-full bg-sky-400 rounded-full" style={`width: ${Math.round(60 + i * 20)}%`}></div>
                 </div>
-                <p class="text-[0.65rem] text-[var(--color-text-faint)] mt-1">{Math.round(anime.episodes * 0.6)}/{anime.episodes} eps</p>
+                <p class="text-[0.65rem] text-white/20 mt-1">{Math.round(anime.episodes * 0.6)}/{anime.episodes} eps</p>
               </div>
-              <div class="shrink-0 bg-[var(--color-accent-sky)]/10 text-[var(--color-accent-sky)] text-xs font-semibold px-2.5 py-1 rounded-full">
+              <div class="shrink-0 bg-sky-500/10 text-sky-400 text-xs font-semibold px-2.5 py-1 rounded-full">
                 {anime.rating}
               </div>
             </div>
@@ -256,20 +268,21 @@ const meanScore =
       )}
     </section>
 
-    <div class="divider-warm mb-16"></div>
+    <hr class="border-white/5 mb-16" />
 
     <!-- Completed / Curated -->
     <section class="mb-16">
-      <h2 class="section-heading text-xl font-semibold text-white mb-8">
+      <h2 class="text-xl font-semibold text-white mb-8 relative inline-block">
         {hasApiData ? 'Completed' : 'Favorites'}
+        <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent rounded-full"></span>
       </h2>
 
       {hasApiData && completedAnime.length > 0 ? (
         <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
           {completedAnime.map((entry: any, i: number) => {
             return (
-              <div class="card group cursor-default" style={`animation-delay: ${i * 40}ms`}>
-                <div class="relative rounded-lg overflow-hidden mb-2">
+              <div class="glass rounded-2xl border border-white/5 hover:border-emerald-500/15 transition-all group cursor-default" style={`animation-delay: ${i * 40}ms`}>
+                <div class="relative rounded-t-2xl overflow-hidden mb-2">
                   <img
                     src={entry.coverUrl}
                     alt={entry.title}
@@ -282,8 +295,10 @@ const meanScore =
                     </div>
                   )}
                 </div>
-                <h3 class="text-[0.65rem] font-semibold text-white truncate group-hover:text-[var(--color-success)] transition-colors">{entry.title}</h3>
-                <p class="text-[0.6rem] text-[var(--color-text-faint)]">{entry.episodes || '?'} eps</p>
+                <div class="px-3 pb-3">
+                  <h3 class="text-[0.65rem] font-semibold text-white truncate group-hover:text-emerald-400 transition-colors">{entry.title}</h3>
+                  <p class="text-[0.6rem] text-white/20">{entry.episodes || '?'} eps</p>
+                </div>
               </div>
             );
           })}
@@ -291,16 +306,18 @@ const meanScore =
       ) : (
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           {curatedFallback.map((anime, i) => (
-            <div class="card group cursor-default" style={`animation-delay: ${i * 50}ms`}>
-              <div class="aspect-[2/3] rounded-lg mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${anime.gradient}`}>
+            <div class="glass rounded-2xl border border-white/5 hover:border-emerald-500/15 transition-all group cursor-default" style={`animation-delay: ${i * 50}ms`}>
+              <div class="aspect-[2/3] rounded-t-2xl mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${anime.gradient}`}>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <span class="relative z-10 drop-shadow-lg">{anime.emoji}</span>
                 <div class="absolute top-1.5 right-1.5 z-10 bg-black/50 backdrop-blur-sm rounded-full px-1.5 py-0.5">
-                  <span class="text-[0.6rem] font-semibold" style={`color: ${anime.rating >= 9 ? 'var(--color-success)' : 'var(--color-primary)'}`}>{anime.rating}</span>
+                  <span class="text-[0.6rem] font-semibold" style={`color: ${anime.rating >= 9 ? '#34d399' : '#2dd4bf'}`}>{anime.rating}</span>
                 </div>
               </div>
-              <h3 class="text-xs font-semibold text-white truncate group-hover:text-[var(--color-success)] transition-colors">{anime.title}</h3>
-              <span class="text-[0.65rem] text-[var(--color-text-faint)]">{anime.year} · {anime.genre}</span>
+              <div class="px-3 pb-3">
+                <h3 class="text-xs font-semibold text-white truncate group-hover:text-emerald-400 transition-colors">{anime.title}</h3>
+                <span class="text-[0.65rem] text-white/20">{anime.year} · {anime.genre}</span>
+              </div>
             </div>
           ))}
         </div>
@@ -308,15 +325,16 @@ const meanScore =
     </section>
 
     <!-- Source note -->
-    <div class="glass p-6 flex items-center gap-4">
-      <div class="h-10 w-10 rounded-xl bg-[var(--color-accent-sky)]/10 flex items-center justify-center shrink-0">
-        <svg class="h-5 w-5 text-[var(--color-accent-sky)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <div class="glass p-6 flex items-center gap-4 rounded-2xl border border-white/5">
+      <div class="h-10 w-10 rounded-xl bg-sky-500/10 flex items-center justify-center shrink-0">
+        <svg class="h-5 w-5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       </div>
       <div>
         <p class="text-sm text-white font-medium">{hasApiData ? 'Data fetched from AniList at Build Time' : 'Curated picks'}</p>
-        <p class="text-xs text-[var(--color-text-muted)]">{hasApiData ? 'Stats refreshed automatically during site build via GitHub Actions.' : 'AniList data unavailable at build — showing hand-curated favorites.'}</p>
+        <p class="text-xs text-white/30">{hasApiData ? 'Stats refreshed automatically during site build via GitHub Actions.' : 'AniList data unavailable at build - showing hand-curated favorites.'}</p>
       </div>
     </div>
-  </main></Layout>
+  </main>
+</Layout>

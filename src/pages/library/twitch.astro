@@ -12,29 +12,36 @@ const streamers = [
 ];
 ---
 
-<Layout title="Twitch" description="Streamers I follow on Twitch">  <CommandPalette />
-  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
-    <a href="/library" class="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] mb-8 transition-colors">
+<Layout title="Twitch" description="Streamers I follow on Twitch">
+  <CommandPalette />
+  <main class="mx-auto max-w-[var(--content-max-width)] px-6 py-12">
+    <a href="/library" class="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white/60 mb-8 transition-colors">
       <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
       Back to Library
     </a>
 
-    <div class="flex items-center gap-3 mb-2">
-      <div class="h-10 w-10 rounded-xl bg-[#9146ff]/10 flex items-center justify-center">
-        <span class="text-xl">🟣</span>
+    <!-- Page header -->
+    <div class="mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-xs font-medium text-violet-400 mb-4">
+        LIBRARY
       </div>
-      <h1 class="text-4xl font-bold text-white">Twitch</h1>
+      <div class="flex items-center gap-3 mb-2">
+        <div class="h-10 w-10 rounded-xl bg-violet-500/10 flex items-center justify-center">
+          <span class="text-xl">🟣</span>
+        </div>
+        <h1 class="text-4xl font-bold text-white" style="font-family: 'Outfit', sans-serif;">Twitch</h1>
+      </div>
+      <p class="text-white/40">Streamers I follow and watch regularly.</p>
     </div>
-    <p class="text-[var(--color-text-secondary)] mb-10">Streamers I follow and watch regularly.</p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {streamers.map((streamer) => (
-        <div class="glass p-6 rounded-xl hover:bg-white/[0.04] transition-colors border border-white/5 hover:border-white/10 group">
+        <div class="glass p-6 rounded-2xl hover:bg-white/[0.04] transition-colors border border-white/5 hover:border-violet-500/15 group">
           <div class="flex items-start gap-4">
             <div class="text-3xl">{streamer.icon}</div>
             <div class="flex-1">
               <h3 class="font-semibold text-white group-hover:text-violet-400 transition-colors">{streamer.name}</h3>
-              <p class="text-sm text-white/50 mt-1">{streamer.category}</p>
+              <p class="text-sm text-white/40 mt-1">{streamer.category}</p>
               <span class="text-xs text-violet-400 mt-2 inline-block">{streamer.viewers} avg viewers</span>
             </div>
           </div>
@@ -42,7 +49,8 @@ const streamers = [
       ))}
     </div>
 
-    <div class="mt-12 glass p-8 text-center">
-      <p class="text-white/50">Twitch API integration coming soon...</p>
+    <div class="mt-12 glass p-8 text-center rounded-2xl border border-white/5">
+      <p class="text-white/40">Twitch API integration coming soon...</p>
     </div>
-  </main></Layout>
+  </main>
+</Layout>

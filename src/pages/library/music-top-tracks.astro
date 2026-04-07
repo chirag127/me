@@ -41,29 +41,39 @@ function getVisuals(name: string) {
 }
 ---
 
-<Layout title="Top Tracks" description="Chirag Singhal's most played tracks">  <CommandPalette />
-  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
-    <a href="/library/music" class="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] mb-8 transition-colors">
+<Layout title="Top Tracks" description="Chirag Singhal's most played tracks">
+  <CommandPalette />
+  <main class="mx-auto max-w-[var(--content-max-width)] px-6 py-12">
+    <a href="/library/music" class="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white/60 mb-8 transition-colors">
       <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
       Back to Music
     </a>
 
-    <div class="flex items-center gap-3 mb-2">
-      <div class="h-10 w-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center">
-        <span class="text-xl">🎵</span>
+    <!-- Page header -->
+    <div class="mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-xs font-medium text-violet-400 mb-4">
+        LIBRARY
       </div>
-      <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Top Tracks & Albums</h1>
+      <div class="flex items-center gap-3 mb-2">
+        <div class="h-10 w-10 rounded-xl bg-teal-500/10 flex items-center justify-center">
+          <span class="text-xl">🎵</span>
+        </div>
+        <h1 class="text-4xl font-bold text-white" style="font-family: 'Outfit', sans-serif;">Top Tracks & Albums</h1>
+      </div>
+      <p class="text-white/40">Most played tracks and albums - weekly data.</p>
     </div>
-    <p class="text-[var(--color-text-secondary)] mb-10">Most played tracks and albums — weekly data.</p>
 
     <!-- Top Tracks -->
     <section class="mb-16">
-      <h2 class="section-heading text-xl font-semibold text-white mb-8">Top Tracks (7 Days)</h2>
+      <h2 class="text-xl font-semibold text-white mb-8 relative inline-block">
+        Top Tracks (7 Days)
+        <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-violet-400 to-transparent rounded-full"></span>
+      </h2>
       {topTracks.length > 0 ? (
         <div class="space-y-2">
           {topTracks.map((track: any, i: number) => (
-            <a href={track.url} target="_blank" rel="noopener noreferrer" class="glass p-4 flex items-center gap-4 hover:border-white/10 transition-colors group">
-              <span class="text-sm font-bold text-[var(--color-primary)] w-8 text-right">{i + 1}</span>
+            <a href={track.url} target="_blank" rel="noopener noreferrer" class="glass p-4 flex items-center gap-4 hover:border-violet-500/15 transition-colors group rounded-2xl border border-white/5">
+              <span class="text-sm font-bold text-teal-400 w-8 text-right">{i + 1}</span>
               <div class="w-10 h-10 rounded-lg flex items-center justify-center text-lg shrink-0" style={`background: ${getVisuals(track.name).gradient}`}>
                 {track.imageUrl ? (
                   <img src={track.imageUrl} alt={track.name} class="w-full h-full object-cover rounded-lg" />
@@ -72,37 +82,42 @@ function getVisuals(name: string) {
                 )}
               </div>
               <div class="flex-1 min-w-0">
-                <h3 class="text-sm font-semibold text-white truncate group-hover:text-[var(--color-primary)] transition-colors">{track.name}</h3>
-                <p class="text-xs text-[var(--color-text-muted)] truncate">{track.artist}</p>
+                <h3 class="text-sm font-semibold text-white truncate group-hover:text-teal-400 transition-colors">{track.name}</h3>
+                <p class="text-xs text-white/30 truncate">{track.artist}</p>
               </div>
-              <span class="text-xs text-[var(--color-accent-rose)] font-medium shrink-0">{track.playcount} plays</span>
+              <span class="text-xs text-violet-400 font-medium shrink-0">{track.playcount} plays</span>
             </a>
           ))}
         </div>
       ) : (
-        <div class="glass p-8 text-center"><p class="text-[var(--color-text-muted)]">No track data available.</p></div>
+        <div class="glass p-8 text-center rounded-2xl border border-white/5"><p class="text-white/30">No track data available.</p></div>
       )}
     </section>
 
     <!-- Top Albums -->
     {topAlbums.length > 0 && (
       <section class="mb-16">
-        <div class="divider-warm mb-16"></div>
-        <h2 class="section-heading text-xl font-semibold text-white mb-8">Top Albums (7 Days)</h2>
+        <hr class="border-white/5 mb-16" />
+        <h2 class="text-xl font-semibold text-white mb-8 relative inline-block">
+          Top Albums (7 Days)
+          <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-violet-400 to-transparent rounded-full"></span>
+        </h2>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           {topAlbums.map((album: any, i: number) => {
             const vis = getVisuals(album.name);
             return (
-            <a href={album.url} target="_blank" rel="noopener noreferrer" class="card group cursor-default block" style={`animation-delay: ${i * 40}ms`}>
-              <div class="aspect-square rounded-lg mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
+            <a href={album.url} target="_blank" rel="noopener noreferrer" class="glass rounded-2xl border border-white/5 hover:border-teal-500/15 transition-all group cursor-default block" style={`animation-delay: ${i * 40}ms`}>
+              <div class="aspect-square rounded-t-2xl mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
                 {album.imageUrl ? (
                   <img src={album.imageUrl} alt={album.name} class="w-full h-full object-cover" loading="lazy" />
                 ) : (
                   <span class="drop-shadow-lg">{vis.emoji}</span>
                 )}
               </div>
-              <h3 class="text-xs font-semibold text-white truncate group-hover:text-[var(--color-primary)] transition-colors">{album.name}</h3>
-              <p class="text-[0.65rem] text-[var(--color-text-faint)] truncate">{album.artist} · {album.playcount} plays</p>
+              <div class="px-3 pb-3">
+                <h3 class="text-xs font-semibold text-white truncate group-hover:text-teal-400 transition-colors">{album.name}</h3>
+                <p class="text-[0.65rem] text-white/20 truncate">{album.artist} · {album.playcount} plays</p>
+              </div>
             </a>
           )})}
         </div>
@@ -112,20 +127,24 @@ function getVisuals(name: string) {
     <!-- ListenBrainz Top Tracks -->
     {lbTracks.length > 0 && (
       <section class="mb-16">
-        <div class="divider-warm mb-16"></div>
-        <h2 class="section-heading text-xl font-semibold text-white mb-8">ListenBrainz — Top Tracks</h2>
+        <hr class="border-white/5 mb-16" />
+        <h2 class="text-xl font-semibold text-white mb-8 relative inline-block">
+          ListenBrainz - Top Tracks
+          <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-violet-400 to-transparent rounded-full"></span>
+        </h2>
         <div class="space-y-2">
           {lbTracks.map((track: any, i: number) => (
-            <div class="glass p-4 flex items-center gap-4">
-              <span class="text-sm font-bold text-[var(--color-accent-warm)] w-8 text-right">{i + 1}</span>
+            <div class="glass p-4 flex items-center gap-4 rounded-2xl border border-white/5">
+              <span class="text-sm font-bold text-violet-400 w-8 text-right">{i + 1}</span>
               <div class="flex-1 min-w-0">
                 <h3 class="text-sm font-semibold text-white truncate">{track.name}</h3>
-                <p class="text-xs text-[var(--color-text-muted)] truncate">{track.artist}</p>
+                <p class="text-xs text-white/30 truncate">{track.artist}</p>
               </div>
-              <span class="text-xs text-[var(--color-accent-warm)] font-medium shrink-0">{track.listenCount} listens</span>
+              <span class="text-xs text-violet-400 font-medium shrink-0">{track.listenCount} listens</span>
             </div>
           ))}
         </div>
       </section>
     )}
-  </main></Layout>
+  </main>
+</Layout>

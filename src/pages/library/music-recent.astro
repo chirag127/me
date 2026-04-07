@@ -38,28 +38,38 @@ function getVisuals(name: string) {
 }
 ---
 
-<Layout title="Recent Tracks" description="Recently played music — from Last.fm and ListenBrainz">  <CommandPalette />
-  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
-    <a href="/library/music" class="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] mb-8 transition-colors">
+<Layout title="Recent Tracks" description="Recently played music - from Last.fm and ListenBrainz">
+  <CommandPalette />
+  <main class="mx-auto max-w-[var(--content-max-width)] px-6 py-12">
+    <a href="/library/music" class="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white/60 mb-8 transition-colors">
       <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
       Back to Music
     </a>
 
-    <div class="flex items-center gap-3 mb-2">
-      <div class="h-10 w-10 rounded-xl bg-[var(--color-accent-sky)]/10 flex items-center justify-center">
-        <span class="text-xl">🎧</span>
+    <!-- Page header -->
+    <div class="mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-xs font-medium text-violet-400 mb-4">
+        LIBRARY
       </div>
-      <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Recent Tracks</h1>
+      <div class="flex items-center gap-3 mb-2">
+        <div class="h-10 w-10 rounded-xl bg-sky-500/10 flex items-center justify-center">
+          <span class="text-xl">🎧</span>
+        </div>
+        <h1 class="text-4xl font-bold text-white" style="font-family: 'Outfit', sans-serif;">Recent Tracks</h1>
+      </div>
+      <p class="text-white/40">Recently played songs - live scrobble history.</p>
     </div>
-    <p class="text-[var(--color-text-secondary)] mb-10">Recently played songs — live scrobble history.</p>
 
     <!-- Last.fm Recent -->
     <section class="mb-16">
-      <h2 class="section-heading text-xl font-semibold text-white mb-8">Last.fm — Recent Tracks</h2>
+      <h2 class="text-xl font-semibold text-white mb-8 relative inline-block">
+        Last.fm - Recent Tracks
+        <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-sky-400 to-transparent rounded-full"></span>
+      </h2>
       {recentTracks.length > 0 ? (
         <div class="space-y-2">
           {recentTracks.map((track: any, i: number) => (
-            <a href={track.url} target="_blank" rel="noopener noreferrer" class="glass p-4 flex items-center gap-4 hover:border-white/10 transition-colors group" style={`animation-delay: ${i * 30}ms`}>
+            <a href={track.url} target="_blank" rel="noopener noreferrer" class="glass p-4 flex items-center gap-4 hover:border-sky-500/15 transition-colors group rounded-2xl border border-white/5" style={`animation-delay: ${i * 30}ms`}>
               <div class="w-10 h-10 rounded-lg flex items-center justify-center text-lg shrink-0" style={`background: ${getVisuals(track.name).gradient}`}>
                 {track.imageUrl ? (
                   <img src={track.imageUrl} alt={track.name} class="w-full h-full object-cover rounded-lg" />
@@ -68,38 +78,42 @@ function getVisuals(name: string) {
                 )}
               </div>
               <div class="flex-1 min-w-0">
-                <h3 class="text-sm font-semibold text-white truncate group-hover:text-[var(--color-accent-sky)] transition-colors">{track.name}</h3>
-                <p class="text-xs text-[var(--color-text-muted)] truncate">{track.artist}</p>
+                <h3 class="text-sm font-semibold text-white truncate group-hover:text-sky-400 transition-colors">{track.name}</h3>
+                <p class="text-xs text-white/30 truncate">{track.artist}</p>
               </div>
               {track.nowPlaying && (
-                <span class="text-[0.6rem] text-[var(--color-success)] font-medium uppercase animate-pulse">Now Playing</span>
+                <span class="text-[0.6rem] text-emerald-400 font-medium uppercase animate-pulse">Now Playing</span>
               )}
             </a>
           ))}
         </div>
       ) : (
-        <div class="glass p-8 text-center"><p class="text-[var(--color-text-muted)]">No recent tracks.</p></div>
+        <div class="glass p-8 text-center rounded-2xl border border-white/5"><p class="text-white/30">No recent tracks.</p></div>
       )}
     </section>
 
     <!-- ListenBrainz Recent -->
     {lbRecent.length > 0 && (
       <section class="mb-16">
-        <div class="divider-warm mb-16"></div>
-        <h2 class="section-heading text-xl font-semibold text-white mb-8">ListenBrainz — Recent Listens</h2>
+        <hr class="border-white/5 mb-16" />
+        <h2 class="text-xl font-semibold text-white mb-8 relative inline-block">
+          ListenBrainz - Recent Listens
+          <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-sky-400 to-transparent rounded-full"></span>
+        </h2>
         <div class="space-y-2">
           {lbRecent.map((listen: any, i: number) => (
-            <div class="glass p-4 flex items-center gap-4" style={`animation-delay: ${i * 30}ms`}>
+            <div class="glass p-4 flex items-center gap-4 rounded-2xl border border-white/5" style={`animation-delay: ${i * 30}ms`}>
               <div class="flex-1 min-w-0">
                 <h3 class="text-sm font-semibold text-white truncate">{listen.name}</h3>
-                <p class="text-xs text-[var(--color-text-muted)] truncate">{listen.artist}</p>
+                <p class="text-xs text-white/30 truncate">{listen.artist}</p>
               </div>
               {listen.listenedAt && (
-                <span class="text-[0.6rem] text-[var(--color-text-faint)] shrink-0">{new Date(listen.listenedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
+                <span class="text-[0.6rem] text-white/20 shrink-0">{new Date(listen.listenedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
               )}
             </div>
           ))}
         </div>
       </section>
     )}
-  </main></Layout>
+  </main>
+</Layout>

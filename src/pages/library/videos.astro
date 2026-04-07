@@ -13,15 +13,15 @@ interface VideoRec {
 
 const featured: VideoRec[] = [
   {
-    title: '3Blue1Brown — Essence of Linear Algebra',
+    title: '3Blue1Brown - Essence of Linear Algebra',
     channel: '3Blue1Brown',
     category: 'Math',
-    emoji: '📐',
+    emoji: '📍',
     gradient: 'linear-gradient(135deg, #1e3a5f, #1e40af)',
     embedId: 'kjBOesZCoqc',
   },
   {
-    title: 'Kurzgesagt — The Most Satisfying Video',
+    title: 'Kurzgesagt - The Most Satisfying Video',
     channel: 'Kurzgesagt',
     category: 'Science',
     emoji: '🌍',
@@ -29,7 +29,7 @@ const featured: VideoRec[] = [
     embedId: 'JnEHpk5B1zE',
   },
   {
-    title: 'Fireship — 100 Seconds of Code',
+    title: 'Fireship - 100 Seconds of Code',
     channel: 'Fireship',
     category: 'Tech',
     emoji: '🔥',
@@ -37,7 +37,7 @@ const featured: VideoRec[] = [
     embedId: null,
   },
   {
-    title: 'Veritasium — The Most Useful Science Videos',
+    title: 'Veritasium - The Most Useful Science Videos',
     channel: 'Veritasium',
     category: 'Science',
     emoji: '🔬',
@@ -51,37 +51,43 @@ const playlists = [
     name: 'Tech Deep Dives',
     count: 42,
     emoji: '💻',
-    color: 'var(--color-primary)',
+    color: 'text-teal-400',
+    colorBg: 'bg-teal-500/10',
   },
   {
     name: 'Physics & Math',
     count: 28,
     emoji: '🧮',
-    color: 'var(--color-accent-sky)',
+    color: 'text-sky-400',
+    colorBg: 'bg-sky-500/10',
   },
   {
     name: 'Music Production',
     count: 15,
     emoji: '🎹',
-    color: 'var(--color-accent-rose)',
+    color: 'text-violet-400',
+    colorBg: 'bg-violet-500/10',
   },
   {
     name: 'Film Analysis',
     count: 20,
     emoji: '🎞️',
-    color: 'var(--color-accent-sage)',
+    color: 'text-emerald-400',
+    colorBg: 'bg-emerald-500/10',
   },
   {
     name: 'Vlogs & Travel',
     count: 12,
     emoji: '✈️',
-    color: 'var(--color-accent-warm)',
+    color: 'text-amber-400',
+    colorBg: 'bg-amber-500/10',
   },
   {
     name: 'Philosophy',
     count: 18,
     emoji: '🤔',
-    color: 'var(--color-accent-violet)',
+    color: 'text-violet-400',
+    colorBg: 'bg-violet-500/10',
   },
 ];
 
@@ -119,29 +125,39 @@ const channels = [
 ];
 ---
 
-<Layout title="Videos" description="Chirag Singhal's video picks — curated YouTube content and recommendations">  <CommandPalette />
-  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
-    <a href="/library" class="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] mb-8 transition-colors">
+<Layout title="Videos" description="Chirag Singhal's video picks - curated YouTube content and recommendations">
+  <CommandPalette />
+  <main class="mx-auto max-w-[var(--content-max-width)] px-6 py-12">
+    <a href="/library" class="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white/60 mb-8 transition-colors">
       <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
       Back to Library Drive
     </a>
 
-    <div class="flex items-center gap-3 mb-2">
-      <div class="h-10 w-10 rounded-xl bg-[var(--color-accent-warm)]/10 flex items-center justify-center">
-        <span class="text-xl">▶️</span>
+    <!-- Page header -->
+    <div class="mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-medium text-cyan-400 mb-4">
+        LIBRARY
       </div>
-      <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Videos</h1>
+      <div class="flex items-center gap-3 mb-2">
+        <div class="h-10 w-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
+          <span class="text-xl">▶️</span>
+        </div>
+        <h1 class="text-4xl font-bold text-white" style="font-family: 'Outfit', sans-serif;">Videos</h1>
+      </div>
+      <p class="text-white/40">Curated YouTube content - channels, playlists, and recommendations.</p>
     </div>
-    <p class="text-[var(--color-text-secondary)] mb-10">Curated YouTube content — channels, playlists, and recommendations.</p>
 
     <!-- Featured Videos -->
     <section class="mb-16">
-      <h2 class="section-heading text-xl font-semibold text-white mb-8">Featured Videos</h2>
+      <h2 class="text-xl font-semibold text-white mb-8 relative inline-block">
+        Featured Videos
+        <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-amber-400 to-transparent rounded-full"></span>
+      </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {featured.map((video, i) => (
-          <div class="card group cursor-default" style={`animation-delay: ${i * 80}ms`}>
+          <div class="glass rounded-2xl border border-white/5 hover:border-amber-500/15 transition-all group cursor-default" style={`animation-delay: ${i * 80}ms`}>
             {video.embedId ? (
-              <div class="aspect-video rounded-lg mb-4 overflow-hidden relative">
+              <div class="aspect-video rounded-t-2xl overflow-hidden relative">
                 <iframe
                   src={`https://www.youtube.com/embed/${video.embedId}`}
                   title={video.title}
@@ -153,7 +169,7 @@ const channels = [
                 ></iframe>
               </div>
             ) : (
-              <div class="aspect-video rounded-lg mb-4 flex items-center justify-center text-5xl relative overflow-hidden" style={`background: ${video.gradient}`}>
+              <div class="aspect-video rounded-t-2xl flex items-center justify-center text-5xl relative overflow-hidden" style={`background: ${video.gradient}`}>
                 <div class="absolute inset-0 bg-black/20"></div>
                 <div class="absolute top-3 left-3 bg-black/50 backdrop-blur-sm rounded-full px-3 py-1">
                   <span class="text-xs text-white/80">{video.category}</span>
@@ -161,47 +177,59 @@ const channels = [
                 <span class="relative z-10 drop-shadow-lg">{video.emoji}</span>
               </div>
             )}
-            <h3 class="text-sm font-semibold text-white group-hover:text-[var(--color-accent-warm)] transition-colors">{video.title}</h3>
-            <p class="text-xs text-[var(--color-text-muted)] mt-1">{video.channel}</p>
+            <div class="p-4">
+              <h3 class="text-sm font-semibold text-white group-hover:text-amber-400 transition-colors">{video.title}</h3>
+              <p class="text-xs text-white/30 mt-1">{video.channel}</p>
+            </div>
           </div>
         ))}
       </div>
     </section>
 
-    <div class="divider-warm mb-16"></div>
+    <hr class="border-white/5 mb-16" />
 
     <!-- Playlists -->
     <section class="mb-16">
-      <h2 class="section-heading text-xl font-semibold text-white mb-8">Watch Later Playlists</h2>
+      <h2 class="text-xl font-semibold text-white mb-8 relative inline-block">
+        Watch Later Playlists
+        <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-amber-400 to-transparent rounded-full"></span>
+      </h2>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
         {playlists.map((pl, i) => (
-          <div class="card group cursor-default text-center" style={`animation-delay: ${i * 50}ms`}>
-            <div class="h-14 w-14 mx-auto rounded-2xl mb-3 flex items-center justify-center text-2xl" style={`background: ${pl.color}12`}>
+          <div class="glass rounded-2xl border border-white/5 hover:border-amber-500/15 transition-all group cursor-default text-center" style={`animation-delay: ${i * 50}ms`}>
+            <div class={`h-14 w-14 mx-auto rounded-2xl mb-3 flex items-center justify-center text-2xl mt-4 ${pl.colorBg}`}>
               {pl.emoji}
             </div>
-            <h3 class="text-xs font-semibold text-white group-hover:transition-colors" style={`--tw-hover-text-opacity: 1;`}>{pl.name}</h3>
-            <p class="text-[0.65rem] text-[var(--color-text-faint)]">{pl.count} videos</p>
+            <div class="px-3 pb-4">
+              <h3 class="text-xs font-semibold text-white group-hover:text-amber-400 transition-colors">{pl.name}</h3>
+              <p class="text-[0.65rem] text-white/20">{pl.count} videos</p>
+            </div>
           </div>
         ))}
       </div>
     </section>
 
-    <div class="divider-warm mb-16"></div>
+    <hr class="border-white/5 mb-16" />
 
     <!-- Favorite Channels -->
     <section class="mb-16">
-      <h2 class="section-heading text-xl font-semibold text-white mb-8">Favorite Channels</h2>
+      <h2 class="text-xl font-semibold text-white mb-8 relative inline-block">
+        Favorite Channels
+        <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-amber-400 to-transparent rounded-full"></span>
+      </h2>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
         {channels.map((ch, i) => (
-          <div class="card group cursor-default" style={`animation-delay: ${i * 40}ms`}>
-            <div class="w-14 h-14 rounded-full mb-3 flex items-center justify-center text-xl font-bold text-white" style={`background: ${ch.color}`}>
+          <div class="glass rounded-2xl border border-white/5 hover:border-amber-500/15 transition-all group cursor-default" style={`animation-delay: ${i * 40}ms`}>
+            <div class={`w-14 h-14 rounded-full mx-auto mt-4 mb-3 flex items-center justify-center text-xl font-bold text-white`} style={`background: ${ch.color}`}>
               {ch.name.charAt(0)}
             </div>
-            <h3 class="text-xs font-semibold text-white truncate group-hover:transition-colors" style={`color: ${ch.color}; --tw-hover-text-opacity: 1;`}>{ch.name}</h3>
-            <div class="flex items-center gap-1.5 mt-1">
-              <span class="text-[0.6rem] text-[var(--color-text-faint)]">{ch.subs} subs</span>
-              <span class="w-1 h-1 rounded-full bg-[var(--color-text-faint)]"></span>
-              <span class="text-[0.6rem] text-[var(--color-text-faint)]">{ch.category}</span>
+            <div class="px-3 pb-4 text-center">
+              <h3 class="text-xs font-semibold text-white truncate group-hover:text-amber-400 transition-colors" style={`color: ${ch.color};`}>{ch.name}</h3>
+              <div class="flex items-center justify-center gap-1.5 mt-1">
+                <span class="text-[0.6rem] text-white/20">{ch.subs} subs</span>
+                <span class="w-1 h-1 rounded-full bg-white/20"></span>
+                <span class="text-[0.6rem] text-white/20">{ch.category}</span>
+              </div>
             </div>
           </div>
         ))}
@@ -209,39 +237,40 @@ const channels = [
     </section>
 
     <!-- Viewing Stats -->
-    <div class="glass p-8 mb-16">
+    <div class="glass p-8 mb-16 rounded-2xl border border-white/5">
       <h2 class="text-lg font-semibold text-white mb-6">Viewing Habits</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div class="text-center">
-          <div class="text-3xl font-bold text-[var(--color-accent-warm)] mb-1">10+</div>
-          <div class="text-xs text-[var(--color-text-muted)]">Channels Followed</div>
+          <div class="text-3xl font-bold text-amber-400 mb-1">10+</div>
+          <div class="text-xs text-white/30">Channels Followed</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold text-[var(--color-accent-sky)] mb-1">6</div>
-          <div class="text-xs text-[var(--color-text-muted)]">Playlists</div>
+          <div class="text-3xl font-bold text-sky-400 mb-1">6</div>
+          <div class="text-xs text-white/30">Playlists</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold text-[var(--color-primary)] mb-1">Tech</div>
-          <div class="text-xs text-[var(--color-text-muted)]">Top Category</div>
+          <div class="text-3xl font-bold text-teal-400 mb-1">Tech</div>
+          <div class="text-xs text-white/30">Top Category</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold text-[var(--color-success)] mb-1">Daily</div>
-          <div class="text-xs text-[var(--color-text-muted)]">Watching</div>
+          <div class="text-3xl font-bold text-emerald-400 mb-1">Daily</div>
+          <div class="text-xs text-white/30">Watching</div>
         </div>
       </div>
     </div>
 
     <!-- Source note -->
-    <div class="glass p-6 flex items-center gap-4">
-      <div class="h-10 w-10 rounded-xl bg-[var(--color-accent-warm)]/10 flex items-center justify-center shrink-0">
-        <svg class="h-5 w-5 text-[var(--color-accent-warm)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <div class="glass p-6 flex items-center gap-4 rounded-2xl border border-white/5">
+      <div class="h-10 w-10 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0">
+        <svg class="h-5 w-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
           <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       </div>
       <div>
         <p class="text-sm text-white font-medium">Curated video recommendations</p>
-        <p class="text-xs text-[var(--color-text-muted)]">Channels and videos I enjoy. Updated periodically with new finds.</p>
+        <p class="text-xs text-white/30">Channels and videos I enjoy. Updated periodically with new finds.</p>
       </div>
     </div>
-  </main></Layout>
+  </main>
+</Layout>

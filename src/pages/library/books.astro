@@ -5,7 +5,6 @@ import CommandPalette from '../../components/CommandPalette.astro';
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
 
-// Fallback data structure
 let db = { read: [] as any[], reading: [] as any[], wantToRead: [] as any[] };
 
 try {
@@ -43,40 +42,47 @@ function getVisuals(title: string) {
 }
 ---
 
-<Layout title="Books" description="Chirag Singhal's reading list — currently reading, completed, and want-to-read synced from OpenLibrary">  <CommandPalette />
-  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
-    <a href="/library" class="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] mb-8 transition-colors">
+<Layout title="Books" description="Chirag Singhal's reading list - currently reading, completed, and want-to-read synced from OpenLibrary">
+  <CommandPalette />
+  <main class="mx-auto max-w-[var(--content-max-width)] px-6 py-12">
+    <a href="/library" class="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white/60 mb-8 transition-colors">
       <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
       Back to Library Drive
     </a>
 
-    <div class="flex items-center gap-3 mb-2">
-      <div class="h-10 w-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center">
-        <span class="text-xl">📚</span>
+    <!-- Page header -->
+    <div class="mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-medium text-amber-400 mb-4">
+        LIBRARY
       </div>
-      <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Books</h1>
+      <div class="flex items-center gap-3 mb-2">
+        <div class="h-10 w-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
+          <span class="text-xl">📚</span>
+        </div>
+        <h1 class="text-4xl font-bold text-white" style="font-family: 'Outfit', sans-serif;">Books</h1>
+      </div>
+      <p class="text-white/40">Reading diary - synced automatically from OpenLibrary.</p>
     </div>
-    <p class="text-[var(--color-text-secondary)] mb-6">Reading diary — synced automatically from OpenLibrary.</p>
 
     <!-- Sub-page Navigation -->
     <div class="flex flex-wrap gap-2 mb-10">
-      <a href="/library/books-read" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-success)]/10 text-[var(--color-success)] border border-[var(--color-success)]/20 hover:bg-[var(--color-success)]/20 transition-colors">All Read</a>
-      <a href="/library/books-want-to-read" class="text-xs px-3 py-1.5 rounded-full bg-[var(--color-accent-rose)]/10 text-[var(--color-accent-rose)] border border-[var(--color-accent-rose)]/20 hover:bg-[var(--color-accent-rose)]/20 transition-colors">Want to Read</a>
+      <a href="/library/books-read" class="text-xs px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors">All Read</a>
+      <a href="/library/books-want-to-read" class="text-xs px-3 py-1.5 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20 hover:bg-rose-500/20 transition-colors">Want to Read</a>
     </div>
 
     <!-- Stats -->
-    <div class="glass-strong p-6 mb-12 flex flex-wrap gap-8">
+    <div class="glass-strong p-6 mb-12 flex flex-wrap gap-8 rounded-2xl border border-white/10">
       <div>
-        <div class="text-2xl font-bold text-[var(--color-success)]">{read.length}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Books Read</div>
+        <div class="text-2xl font-bold text-emerald-400">{read.length}</div>
+        <div class="text-xs text-white/30">Books Read</div>
       </div>
       <div>
-        <div class="text-2xl font-bold text-[var(--color-primary)]">{currentlyReading.length}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Currently Reading</div>
+        <div class="text-2xl font-bold text-amber-400">{currentlyReading.length}</div>
+        <div class="text-xs text-white/30">Currently Reading</div>
       </div>
       <div>
-        <div class="text-2xl font-bold text-[var(--color-accent-rose)]">{wantToRead.length}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Want to Read</div>
+        <div class="text-2xl font-bold text-rose-400">{wantToRead.length}</div>
+        <div class="text-xs text-white/30">Want to Read</div>
       </div>
     </div>
 
@@ -84,14 +90,17 @@ function getVisuals(title: string) {
     {currentlyReading.length > 0 && (
       <section class="mb-16">
         <div class="flex items-center gap-3 mb-8">
-          <h2 class="section-heading text-xl font-semibold text-white">Currently Reading</h2>
-          <div class="dot-live" style="background: var(--color-primary); box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);"></div>
+          <h2 class="text-xl font-semibold text-white relative inline-block">
+            Currently Reading
+            <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-amber-400 to-transparent rounded-full"></span>
+          </h2>
+          <span class="h-2 w-2 rounded-full bg-amber-400 animate-pulse"></span>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {currentlyReading.map((book, i) => {
             const vis = getVisuals(book.title);
             return (
-            <div class="glass-strong p-5 flex gap-5 items-center" style={`animation-delay: ${i * 80}ms`}>
+            <div class="glass-strong p-5 flex gap-5 items-center rounded-2xl border border-white/10" style={`animation-delay: ${i * 80}ms`}>
               <div class="h-24 w-20 rounded-xl flex items-center justify-center text-4xl shrink-0 relative overflow-hidden" style={`background: ${vis.gradient}`}>
                 <div class="absolute inset-0 bg-black/10"></div>
                 {book.coverUrl ? (
@@ -102,11 +111,11 @@ function getVisuals(title: string) {
               </div>
               <div class="flex-1 min-w-0">
                 <h3 class="text-base font-semibold text-white">{book.title}</h3>
-                <p class="text-xs text-[var(--color-text-muted)] mt-0.5">{(book.authors || []).join(', ')}</p>
-                {book.firstPublishYear && <p class="text-[0.65rem] text-[var(--color-text-faint)] mt-0.5">{book.firstPublishYear}</p>}
+                <p class="text-xs text-white/30 mt-0.5">{(book.authors || []).join(', ')}</p>
+                {book.firstPublishYear && <p class="text-[0.65rem] text-white/20 mt-0.5">{book.firstPublishYear}</p>}
                 <div class="mt-2 flex items-center gap-3">
                   <div class="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
-                    <div class="h-full bg-[var(--color-primary)] rounded-full w-full animate-pulse opacity-50"></div>
+                    <div class="h-full bg-amber-400 rounded-full w-full opacity-50"></div>
                   </div>
                 </div>
               </div>
@@ -116,20 +125,23 @@ function getVisuals(title: string) {
       </section>
     )}
 
-    {currentlyReading.length > 0 && <div class="divider-warm mb-16"></div>}
+    {currentlyReading.length > 0 && <hr class="border-white/5 mb-16" />}
 
     <!-- Read -->
     <section class="mb-16">
       <div class="flex items-center justify-between mb-8">
-        <h2 class="section-heading text-xl font-semibold text-white">Read</h2>
-        <span class="text-xs text-[var(--color-text-faint)]">{read.length} books</span>
+        <h2 class="text-xl font-semibold text-white relative inline-block">
+          Read
+          <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-emerald-400 to-transparent rounded-full"></span>
+        </h2>
+        <span class="text-xs text-white/20">{read.length} books</span>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
         {read.map((book, i) => {
           const vis = getVisuals(book.title);
           return (
-          <div class="card group cursor-default" style={`animation-delay: ${i * 50}ms`}>
-            <div class="aspect-[2/3] rounded-lg mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
+          <div class="glass rounded-2xl border border-white/5 hover:border-emerald-500/15 transition-all group cursor-default" style={`animation-delay: ${i * 50}ms`}>
+            <div class="aspect-[2/3] rounded-t-2xl mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
               <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               {book.coverUrl ? (
                 <img src={book.coverUrl} alt={book.title} class="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500" loading="lazy" />
@@ -137,27 +149,32 @@ function getVisuals(title: string) {
                 <span class="relative z-10 drop-shadow-lg">{vis.emoji}</span>
               )}
             </div>
-            <h3 class="text-xs font-semibold text-white truncate group-hover:text-[var(--color-success)] transition-colors">{book.title}</h3>
-            <p class="text-[0.65rem] text-[var(--color-text-faint)] truncate max-w-full block">{(book.authors || []).join(', ')}</p>
+            <div class="px-3 pb-3">
+              <h3 class="text-xs font-semibold text-white truncate group-hover:text-emerald-400 transition-colors">{book.title}</h3>
+              <p class="text-[0.65rem] text-white/20 truncate max-w-full block">{(book.authors || []).join(', ')}</p>
+            </div>
           </div>
         )})}
       </div>
     </section>
 
-    <div class="divider-warm mb-16"></div>
+    <hr class="border-white/5 mb-16" />
 
     <!-- Want to Read -->
     <section class="mb-16">
       <div class="flex items-center justify-between mb-8">
-        <h2 class="section-heading text-xl font-semibold text-white">Want to Read</h2>
-        <span class="text-xs text-[var(--color-text-faint)]">{wantToRead.length} queued</span>
+        <h2 class="text-xl font-semibold text-white relative inline-block">
+          Want to Read
+          <span class="absolute bottom-[-0.5rem] left-0 w-8 h-0.5 bg-gradient-to-r from-rose-400 to-transparent rounded-full"></span>
+        </h2>
+        <span class="text-xs text-white/20">{wantToRead.length} queued</span>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {wantToRead.map((book, i) => {
           const vis = getVisuals(book.title);
           return (
-          <div class="card group cursor-default" style={`animation-delay: ${i * 60}ms`}>
-            <div class="aspect-[2/3] rounded-lg mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
+          <div class="glass rounded-2xl border border-white/5 hover:border-rose-500/15 transition-all group cursor-default" style={`animation-delay: ${i * 60}ms`}>
+            <div class="aspect-[2/3] rounded-t-2xl mb-2.5 flex items-center justify-center text-3xl relative overflow-hidden" style={`background: ${vis.gradient}`}>
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               {book.coverUrl ? (
                 <img src={book.coverUrl} alt={book.title} class="w-full h-full object-cover relative z-10 opacity-80" loading="lazy" />
@@ -165,10 +182,13 @@ function getVisuals(title: string) {
                 <span class="relative z-10 drop-shadow-lg">{vis.emoji}</span>
               )}
             </div>
-            <h3 class="text-xs font-semibold text-white truncate group-hover:text-[var(--color-accent-rose)] transition-colors">{book.title}</h3>
-            <p class="text-[0.65rem] text-[var(--color-text-faint)] truncate block max-w-full">{(book.authors || []).join(', ')}</p>
+            <div class="px-3 pb-3">
+              <h3 class="text-xs font-semibold text-white truncate group-hover:text-rose-400 transition-colors">{book.title}</h3>
+              <p class="text-[0.65rem] text-white/20 truncate block max-w-full">{(book.authors || []).join(', ')}</p>
+            </div>
           </div>
         )})}
       </div>
     </section>
-  </main></Layout>
+  </main>
+</Layout>

@@ -18,11 +18,11 @@ try {
 
 const completed = db.anime?.completed || [];
 
-function _scoreColor(score: number | null): string {
-  if (!score) return 'var(--color-text-faint)';
-  if (score >= 8) return 'var(--color-success)';
-  if (score >= 6) return 'var(--color-primary)';
-  return 'var(--color-accent-warm)';
+function scoreColor(score: number | null): string {
+  if (!score) return '#52525b';
+  if (score >= 8) return '#34d399';
+  if (score >= 6) return '#2dd4bf';
+  return '#fbbf24';
 }
 
 const sorted = [...completed].sort(
@@ -43,45 +43,53 @@ const totalEps = sorted.reduce(
 );
 ---
 
-<Layout title="Completed Anime" description="All anime Chirag Singhal has completed">  <CommandPalette />
-  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
-    <a href="/library/anime" class="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] mb-8 transition-colors">
+<Layout title="Completed Anime" description="All anime Chirag Singhal has completed">
+  <CommandPalette />
+  <main class="mx-auto max-w-[var(--content-max-width)] px-6 py-12">
+    <a href="/library/anime" class="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white/60 mb-8 transition-colors">
       <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
       Back to Anime
     </a>
 
-    <div class="flex items-center gap-3 mb-2">
-      <div class="h-10 w-10 rounded-xl bg-[var(--color-success)]/10 flex items-center justify-center">
-        <span class="text-xl">✅</span>
+    <!-- Page header -->
+    <div class="mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/20 text-xs font-medium text-sky-400 mb-4">
+        LIBRARY
       </div>
-      <h1 class="text-4xl font-bold font-[var(--font-display)] text-white">Completed Anime</h1>
+      <div class="flex items-center gap-3 mb-2">
+        <div class="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+          <span class="text-xl">✅</span>
+        </div>
+        <h1 class="text-4xl font-bold text-white" style="font-family: 'Outfit', sans-serif;">Completed Anime</h1>
+      </div>
+      <p class="text-white/40">All {sorted.length} completed anime - sorted by score.</p>
     </div>
-    <p class="text-[var(--color-text-secondary)] mb-10">All {sorted.length} completed anime — sorted by score.</p>
 
-    <div class="glass-strong p-6 mb-12 flex flex-wrap gap-8">
+    <!-- Stats -->
+    <div class="glass-strong p-6 mb-12 flex flex-wrap gap-8 rounded-2xl border border-white/10">
       <div>
-        <div class="text-2xl font-bold text-[var(--color-success)]">{sorted.length}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Completed</div>
+        <div class="text-2xl font-bold text-emerald-400">{sorted.length}</div>
+        <div class="text-xs text-white/30">Completed</div>
       </div>
       <div>
-        <div class="text-2xl font-bold text-[var(--color-primary)]">{avgScore}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Mean Score</div>
+        <div class="text-2xl font-bold text-teal-400">{avgScore}</div>
+        <div class="text-xs text-white/30">Mean Score</div>
       </div>
       <div>
-        <div class="text-2xl font-bold text-[var(--color-accent-sky)]">{totalEps.toLocaleString()}</div>
-        <div class="text-xs text-[var(--color-text-muted)]">Total Episodes</div>
+        <div class="text-2xl font-bold text-sky-400">{totalEps.toLocaleString()}</div>
+        <div class="text-xs text-white/30">Total Episodes</div>
       </div>
     </div>
 
     {sorted.length > 0 ? (
       <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
         {sorted.map((entry: any, i: number) => (
-          <div class="card group cursor-default" style={`animation-delay: ${i * 30}ms`}>
-            <div class="relative rounded-lg overflow-hidden mb-2">
+          <div class="glass rounded-2xl border border-white/5 hover:border-emerald-500/15 transition-all group cursor-default" style={`animation-delay: ${i * 30}ms`}>
+            <div class="relative rounded-t-2xl overflow-hidden mb-2">
               {entry.coverUrl ? (
                 <img src={entry.coverUrl} alt={entry.title} class="w-full aspect-[3/4] object-cover" loading="lazy" />
               ) : (
-                <div class="w-full aspect-[3/4] bg-[var(--color-accent-sky)]/10 flex items-center justify-center text-3xl">🌸</div>
+                <div class="w-full aspect-[3/4] bg-sky-500/10 flex items-center justify-center text-3xl">🌸</div>
               )}
               {entry.score && (
                 <div class="absolute top-1.5 right-1.5 bg-black/60 backdrop-blur-sm rounded-full px-1.5 py-0.5">
@@ -89,12 +97,15 @@ const totalEps = sorted.reduce(
                 </div>
               )}
             </div>
-            <h3 class="text-[0.65rem] font-semibold text-white truncate group-hover:text-[var(--color-success)] transition-colors">{entry.title}</h3>
-            <p class="text-[0.6rem] text-[var(--color-text-faint)]">{entry.episodes || '?'} eps</p>
+            <div class="px-3 pb-3">
+              <h3 class="text-[0.65rem] font-semibold text-white truncate group-hover:text-emerald-400 transition-colors">{entry.title}</h3>
+              <p class="text-[0.6rem] text-white/20">{entry.episodes || '?'} eps</p>
+            </div>
           </div>
         ))}
       </div>
     ) : (
-      <div class="glass p-12 text-center"><p class="text-[var(--color-text-muted)]">No completed anime found.</p></div>
+      <div class="glass p-12 text-center rounded-2xl border border-white/5"><p class="text-white/30">No completed anime found.</p></div>
     )}
-  </main></Layout>
+  </main>
+</Layout>

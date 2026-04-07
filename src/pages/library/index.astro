@@ -1,6 +1,12 @@
 ---
+/**
+ * Library Drive — Hub for all media consumption.
+ * Clean, no-image design with the new teal→violet
+ * palette.
+ */
 import Layout from '../../layouts/Layout.astro';
-import CommandPalette from '../../components/CommandPalette.astro';
+import CommandPalette from
+  '../../components/CommandPalette.astro';
 
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
@@ -13,132 +19,160 @@ let animeDb: any = {};
 try {
   moviesDb = JSON.parse(
     await fs.readFile(
-      path.resolve('./src/data/generated/movies.json'),
+      path.resolve(
+        './src/data/generated/movies.json',
+      ),
       'utf-8',
     ),
   );
 } catch {}
 try {
   booksDb = JSON.parse(
-    await fs.readFile(path.resolve('./src/data/generated/books.json'), 'utf-8'),
+    await fs.readFile(
+      path.resolve(
+        './src/data/generated/books.json',
+      ),
+      'utf-8',
+    ),
   );
 } catch {}
 try {
   musicDb = JSON.parse(
-    await fs.readFile(path.resolve('./src/data/generated/music.json'), 'utf-8'),
+    await fs.readFile(
+      path.resolve(
+        './src/data/generated/music.json',
+      ),
+      'utf-8',
+    ),
   );
 } catch {}
 try {
   animeDb = JSON.parse(
-    await fs.readFile(path.resolve('./src/data/generated/anime.json'), 'utf-8'),
+    await fs.readFile(
+      path.resolve(
+        './src/data/generated/anime.json',
+      ),
+      'utf-8',
+    ),
   );
 } catch {}
 
-const moviesWatched = moviesDb.watched?.length || 0;
-const moviesShows = moviesDb.shows?.length || 0;
-const moviesWatchlist = moviesDb.watchlist?.length || 0;
-
+const moviesWatched =
+  moviesDb.watched?.length || 0;
+const moviesShows =
+  moviesDb.shows?.length || 0;
+const moviesWatchlist =
+  moviesDb.watchlist?.length || 0;
 const booksRead = booksDb.read?.length || 0;
-const booksReading = booksDb.reading?.length || 0;
-const booksQueued = booksDb.wantToRead?.length || 0;
+const booksReading =
+  booksDb.reading?.length || 0;
+const booksQueued =
+  booksDb.wantToRead?.length || 0;
+const musicScrobbles =
+  musicDb.lastfm?.stats?.playcount || 0;
+const musicArtists =
+  musicDb.lastfm?.topArtists?.length || 0;
+const animeWatching =
+  animeDb.anime?.watching?.length || 0;
+const animeCompleted =
+  animeDb.anime?.completed?.length || 0;
 
-const musicScrobbles = musicDb.lastfm?.stats?.playcount || 0;
-const musicArtists = musicDb.lastfm?.topArtists?.length || 0;
+interface Category {
+  title: string;
+  href: string;
+  icon: string;
+  accent: string;
+  description: string;
+  stats: { label: string; value: string | number }[];
+  subPages: { label: string; href: string }[];
+}
 
-const animeWatching = animeDb.anime?.watching?.length || 0;
-const animeCompleted = animeDb.anime?.completed?.length || 0;
-
-const categories = [
+const categories: Category[] = [
   {
     title: 'Movies & TV',
     href: '/library/movies',
     icon: '🎬',
-    accent: '#10b981',
-    accentLight: '#34d399',
-    accentBg: 'rgba(16, 185, 129, 0.15)',
-    gradient: 'from-emerald-500/20 to-teal-500/10',
+    accent: 'teal',
     description:
-      'Films and shows tracked via Trakt — watched, watching, and queued',
+      'Films and shows tracked via Trakt',
     stats: [
-      { label: 'Watched', value: moviesWatched || 14 },
-      { label: 'Shows', value: moviesShows || 2 },
-      { label: 'Queued', value: moviesWatchlist || 6 },
+      {
+        label: 'Movies',
+        value: moviesWatched || 0,
+      },
+      { label: 'Shows', value: moviesShows || 0 },
+      {
+        label: 'Watchlist',
+        value: moviesWatchlist || 0,
+      },
     ],
-    topItems: (moviesDb.watched || []).slice(0, 4).map((m: any) => m.title) || [
-      'Interstellar',
-      'The Shawshank Redemption',
-      'Inception',
-      'The Dark Knight',
-    ],
-    tags: ['Sci-Fi', 'Drama', 'Thriller'],
     subPages: [
-      { label: 'Watched', href: '/library/movies-watched', icon: '✓' },
-      { label: 'Rated', href: '/library/movies-rated', icon: '⭐' },
-      { label: 'Watchlist', href: '/library/movies-watchlist', icon: '📋' },
+      {
+        label: 'All Watched',
+        href: '/library/movies-watched',
+      },
+      {
+        label: 'Top Rated',
+        href: '/library/movies-rated',
+      },
+      {
+        label: 'Watchlist',
+        href: '/library/movies-watchlist',
+      },
     ],
   },
   {
     title: 'Anime',
     href: '/library/anime',
     icon: '🌸',
-    accent: '#38bdf8',
-    accentLight: '#7dd3fc',
-    accentBg: 'rgba(56, 189, 248, 0.15)',
-    gradient: 'from-sky-500/20 to-blue-500/10',
-    description: 'Anime tracked via AniList — watching, completed, and rated',
+    accent: 'sky',
+    description:
+      'Anime tracked via AniList',
     stats: [
-      { label: 'Watching', value: animeWatching || 2 },
-      { label: 'Completed', value: animeCompleted || 10 },
-      { label: 'Mean', value: '8.8' },
+      {
+        label: 'Watching',
+        value: animeWatching || 0,
+      },
+      {
+        label: 'Completed',
+        value: animeCompleted || 0,
+      },
     ],
-    topItems: (animeDb.anime?.completed || [])
-      .slice(0, 4)
-      .map((a: any) => a.title) || [
-      'Fullmetal Alchemist',
-      'Attack on Titan',
-      'Steins;Gate',
-      'One Piece',
-    ],
-    tags: ['Action', 'Sci-Fi', 'Drama'],
     subPages: [
-      { label: 'Watching', href: '/library/anime', icon: '👀' },
-      { label: 'Completed', href: '/library/anime-completed', icon: '✓' },
+      {
+        label: 'Completed',
+        href: '/library/anime-completed',
+      },
       {
         label: 'Plan to Watch',
         href: '/library/anime-plan-to-watch',
-        icon: '📋',
       },
-      { label: 'Manga', href: '/library/manga', icon: '📖' },
+      { label: 'Manga', href: '/library/manga' },
     ],
   },
   {
     title: 'Books',
     href: '/library/books',
     icon: '📚',
-    accent: '#6366f1',
-    accentLight: '#818cf8',
-    accentBg: 'rgba(99, 102, 241, 0.15)',
-    gradient: 'from-indigo-500/20 to-violet-500/10',
+    accent: 'violet',
     description:
-      'Reading diary synced from OpenLibrary — programming, sci-fi, and non-fiction',
+      'Reading diary from OpenLibrary',
     stats: [
-      { label: 'Read', value: booksRead || 10 },
-      { label: 'Reading', value: booksReading || 2 },
-      { label: 'Queued', value: booksQueued || 5 },
+      { label: 'Read', value: booksRead || 0 },
+      {
+        label: 'Reading',
+        value: booksReading || 0,
+      },
+      { label: 'Queued', value: booksQueued || 0 },
     ],
-    topItems: (booksDb.read || []).slice(0, 4).map((b: any) => b.title) || [
-      'Project Hail Mary',
-      'The Pragmatic Programmer',
-      'Clean Code',
-      'Atomic Habits',
-    ],
-    tags: ['Programming', 'Sci-Fi', 'Non-Fiction'],
     subPages: [
-      { label: 'Read', href: '/library/books-read', icon: '✓' },
+      {
+        label: 'Read',
+        href: '/library/books-read',
+      },
       {
         label: 'Want to Read',
         href: '/library/books-want-to-read',
-        icon: '📋',
       },
     ],
   },
@@ -146,224 +180,301 @@ const categories = [
     title: 'Music',
     href: '/library/music',
     icon: '🎵',
-    accent: '#f43f5e',
-    accentLight: '#fb7185',
-    accentBg: 'rgba(244, 63, 94, 0.15)',
-    gradient: 'from-rose-500/20 to-pink-500/10',
+    accent: 'rose',
     description:
-      'Listening habits from Last.fm — top artists, scrobbles, and recent tracks',
+      'Listening habits from Last.fm',
     stats: [
       {
         label: 'Scrobbles',
-        value: musicScrobbles ? musicScrobbles.toLocaleString() : '3,643',
+        value: musicScrobbles
+          ? musicScrobbles.toLocaleString()
+          : '0',
       },
-      { label: 'Artists', value: musicArtists || 16 },
+      {
+        label: 'Artists',
+        value: musicArtists || 0,
+      },
     ],
-    topItems: (musicDb.lastfm?.topArtists || [])
-      .slice(0, 4)
-      .map((a: any) => a.name) || [
-      'The Weeknd',
-      'Ludovico Einaudi',
-      'Arijit Singh',
-      'Coldplay',
-    ],
-    tags: ['R&B', 'Classical', 'Bollywood'],
     subPages: [
-      { label: 'Top Artists', href: '/library/music-top-artists', icon: '🎤' },
-      { label: 'Top Tracks', href: '/library/music-top-tracks', icon: '🎶' },
-      { label: 'Recent', href: '/library/music-recent', icon: '🕐' },
-      { label: 'Mixcloud', href: '/library/mixcloud', icon: '☁️' },
+      {
+        label: 'Top Artists',
+        href: '/library/music-top-artists',
+      },
+      {
+        label: 'Top Tracks',
+        href: '/library/music-top-tracks',
+      },
+      {
+        label: 'Recent',
+        href: '/library/music-recent',
+      },
     ],
-  },
-  {
-    title: 'Videos',
-    href: '/library/videos',
-    icon: '▶️',
-    accent: '#06b6d4',
-    accentLight: '#22d3ee',
-    accentBg: 'rgba(6, 182, 212, 0.15)',
-    gradient: 'from-cyan-500/20 to-sky-500/10',
-    description:
-      'Curated YouTube channels, playlists, and video recommendations',
-    stats: [
-      { label: 'Channels', value: 12 },
-      { label: 'Playlists', value: 8 },
-    ],
-    topItems: ['3Blue1Brown', 'Kurzgesagt', 'Fireship', 'The Coding Train'],
-    tags: ['Tech', 'Science', 'Math'],
-    subPages: [],
   },
 ];
 
-const additionalLinks = [
+const accentColors: Record<string, {
+  text: string;
+  bg: string;
+  border: string;
+}> = {
+  teal: {
+    text: 'text-teal-400',
+    bg: 'bg-teal-500/5',
+    border: 'border-teal-500/15',
+  },
+  sky: {
+    text: 'text-sky-400',
+    bg: 'bg-sky-500/5',
+    border: 'border-sky-500/15',
+  },
+  violet: {
+    text: 'text-violet-400',
+    bg: 'bg-violet-500/5',
+    border: 'border-violet-500/15',
+  },
+  rose: {
+    text: 'text-rose-400',
+    bg: 'bg-rose-500/5',
+    border: 'border-rose-500/15',
+  },
+};
+
+const moreLinks = [
   {
     title: 'Manga',
     href: '/library/manga',
     icon: '📖',
-    desc: 'Manga & Manhwa',
   },
   {
     title: 'Podcasts',
     href: '/library/podcasts',
     icon: '🎙️',
-    desc: 'Podcast subs',
   },
-  { title: 'Twitch', href: '/library/twitch', icon: '🟣', desc: 'Streamers' },
-  { title: 'Videos', href: '/library/videos', icon: '▶️', desc: 'YT channels' },
+  {
+    title: 'Twitch',
+    href: '/library/twitch',
+    icon: '🟣',
+  },
+  {
+    title: 'Videos',
+    href: '/library/videos',
+    icon: '▶️',
+  },
 ];
 ---
 
-<Layout title="Library Drive" description="Movies, anime, books, music, videos — all media tracked and displayed inline">  <CommandPalette />
+<Layout
+  title="Library"
+  description="Everything I watch, read, and listen to"
+>
+  <CommandPalette />
 
-  <main class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-    <!-- Ambient glow effects -->
-    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-emerald-500/8 rounded-full blur-[150px] pointer-events-none"></div>
-    <div class="absolute top-40 right-0 w-[400px] h-[400px] bg-violet-500/6 rounded-full blur-[120px] pointer-events-none"></div>
-
+  <div
+    class="mx-auto max-w-[var(--content-max-width)]
+      px-6 py-10"
+  >
     <!-- Header -->
-    <div class="mb-12 relative">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-500/10 to-violet-500/10 border border-emerald-500/20 text-xs text-emerald-400 mb-6">
-        <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        LIBRARY Drive
-      </div>
-      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-4" style="font-family: 'Outfit', sans-serif;">
-        My <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Library</span>
+    <div class="mb-10">
+      <h1
+        class="text-3xl font-black text-white mb-2"
+        style="font-family:
+          var(--font-display, 'Outfit');"
+      >
+        Library
       </h1>
-      <p class="text-lg text-white/50 max-w-2xl">
-        Everything I watch, read, and listen to — tracked automatically and displayed inline.
+      <p class="text-sm text-white/35">
+        Everything I watch, read, and listen to —
+        tracked automatically.
       </p>
     </div>
 
     <!-- Main Category Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-      {categories.map((cat, i) => (
-        <a
-          href={cat.href}
-          class={`group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br ${cat.gradient} hover:border-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-${cat.accent}/5`}
-          style={`animation-delay: ${i * 100}ms`}
-        >
-          <!-- Animated background gradient -->
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
-               style={`background: radial-gradient(circle at 80% 20%, ${cat.accent}15 0%, transparent 50%);`}>
-          </div>
-
-          <div class="relative z-10 p-6">
-            <!-- Header with icon -->
-            <div class="flex items-start justify-between mb-5">
-              <div class="flex items-center gap-4">
-                <div class="h-14 w-14 rounded-xl flex items-center justify-center shrink-0" style={`background: ${cat.accentBg}; box-shadow: 0 0 20px ${cat.accent}20;`}>
-                  <span class="text-3xl">{cat.icon}</span>
-                </div>
-                <div class="min-w-0">
-                  <h2 class="text-xl font-bold text-white group-hover:text-white transition-colors flex items-center gap-2">
-                    {cat.title}
-                    <svg class="h-4 w-4 text-white/30 group-hover:text-white/60 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </h2>
-                  <p class="text-sm text-white/40 mt-1">{cat.description}</p>
-                </div>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2  gap-5
+        mb-12"
+    >
+      {categories.map((cat) => {
+        const colors = accentColors[cat.accent];
+        return (
+          <a
+            href={cat.href}
+            class="group p-6 rounded-2xl
+              bg-white/[0.015] border border-white/5
+              hover:border-white/10
+              hover:bg-white/[0.025]
+              transition-all duration-300"
+          >
+            <!-- Header -->
+            <div
+              class="flex items-center gap-3 mb-4"
+            >
+              <div
+                class={`flex items-center
+                  justify-center h-11 w-11
+                  rounded-xl ${colors.bg}
+                  text-xl`}
+              >
+                {cat.icon}
               </div>
-            </div>
-
-            <!-- Stats row -->
-            <div class="flex items-center gap-6 mb-5 py-3 border-y border-white/5">
-              {cat.stats.map((stat) => (
-                <div class="flex items-baseline gap-2">
-                  <span class="text-2xl font-bold" style={`color: ${cat.accentLight}; text-shadow: 0 0 20px ${cat.accent}40;`}>{stat.value}</span>
-                  <span class="text-xs text-white/40 uppercase tracking-wide">{stat.label}</span>
-                </div>
-              ))}
-            </div>
-
-            <!-- Top items preview -->
-            {cat.topItems.length > 0 && (
-              <div class="mb-5">
-                <p class="text-[10px] text-white/30 uppercase tracking-widest mb-2">Top Picks</p>
-                <div class="flex flex-wrap gap-2">
-                  {cat.topItems.slice(0, 4).map((item) => (
-                    <span class="text-xs px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-white/70 truncate max-w-[140px] group-hover:bg-white/10 transition-colors">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <!-- Tags -->
-            <div class="flex flex-wrap gap-2 mb-4">
-              {cat.tags.map(tag => (
-                <span
-                  class="text-[11px] px-2.5 py-1 rounded-full font-medium"
-                  style={`color: ${cat.accentLight}; background: ${cat.accentBg}; border: 1px solid ${cat.accent}30;`}
+              <div class="min-w-0 flex-1">
+                <h2
+                  class="text-lg font-bold text-white
+                    group-hover:text-white/90
+                    transition-colors flex
+                    items-center gap-2"
+                  style="font-family:
+                    var(--font-display, 'Outfit');"
                 >
-                  {tag}
-                </span>
+                  {cat.title}
+                  <svg
+                    class="h-3.5 w-3.5 text-white/15
+                      group-hover:text-white/40
+                      group-hover:translate-x-0.5
+                      transition-all"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M9 5l7 7-7 7" />
+                  </svg>
+                </h2>
+                <p
+                  class="text-xs text-white/25
+                    mt-0.5"
+                >
+                  {cat.description}
+                </p>
+              </div>
+            </div>
+
+            <!-- Stats -->
+            <div
+              class="flex items-center gap-5  mb-4
+                py-3 border-y border-white/[0.03]"
+            >
+              {cat.stats.map((stat) => (
+                <div>
+                  <div
+                    class={`text-xl font-black
+                      ${colors.text}`}
+                    style="font-family:
+                      var(--font-display, 'Outfit');"
+                  >
+                    {stat.value}
+                  </div>
+                  <div
+                    class="text-[8px] text-white/20
+                      uppercase tracking-widest
+                      font-semibold"
+                  >
+                    {stat.label}
+                  </div>
+                </div>
               ))}
             </div>
 
-            <!-- Sub-pages - ENHANCED AND VISIBLE -->
-            {cat.subPages && cat.subPages.length > 0 && (
-              <div class="pt-4 border-t border-white/10">
-                <p class="text-[10px] text-white/30 uppercase tracking-widest mb-3">Quick Access</p>
-                <div class="flex flex-wrap gap-2">
-                  {cat.subPages.map(sp => (
-                    <a 
-                      href={sp.href} 
-                      class="group/sub flex items-center gap-2 text-xs px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/15 hover:border-white/20 text-white/60 hover:text-white transition-all duration-200"
-                      onclick={(e) => e.stopPropagation()}
-                    >
-                      <span class="text-white/40 group-hover/sub:text-white/70">{sp.icon}</span>
-                      <span class="font-medium">{sp.label}</span>
-                      <svg class="h-3 w-3 text-white/30 group-hover/sub:text-white/50 group-hover/sub:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                  ))}
-                </div>
+            <!-- Sub-pages -->
+            {cat.subPages.length > 0 && (
+              <div class="flex flex-wrap gap-1.5">
+                {cat.subPages.map((sp) => (
+                  <span
+                    class="text-[9px] px-2.5 py-1
+                      rounded-md bg-white/[0.03]
+                      text-white/30
+                      border border-white/[0.03]
+                      font-semibold
+                      group-hover:bg-white/[0.05]
+                      group-hover:text-white/40
+                      transition-colors"
+                  >
+                    {sp.label}
+                  </span>
+                ))}
               </div>
             )}
-          </div>
-        </a>
-      ))}
+          </a>
+        );
+      })}
     </div>
 
-    <!-- Additional Library Sections -->
-    <div class="mb-12">
-      <h2 class="text-lg font-semibold text-white mb-6 flex items-center gap-2">
-        <span class="h-px flex-1 bg-white/10"></span>
-        <span class="text-white/60 px-4">More Collections</span>
-        <span class="h-px flex-1 bg-white/10"></span>
-      </h2>
-      
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {additionalLinks.map((link) => (
-          <a href={link.href} class="group glass p-5 rounded-xl hover:bg-white/[0.06] transition-all border border-white/5 hover:border-white/15">
-            <div class="text-2xl mb-3">{link.icon}</div>
-            <h3 class="text-sm font-semibold text-white group-hover:text-emerald-400 transition-colors">{link.title}</h3>
-            <p class="text-xs text-white/40 mt-1">{link.desc}</p>
+    <!-- More Collections -->
+    <div class="mb-10">
+      <div
+        class="flex items-center gap-3 mb-5"
+      >
+        <span
+          class="h-px flex-1 bg-white/5"
+        ></span>
+        <span
+          class="text-[9px] text-white/20
+            uppercase tracking-widest
+            font-semibold px-3"
+        >
+          More Collections
+        </span>
+        <span
+          class="h-px flex-1 bg-white/5"
+        ></span>
+      </div>
+
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 gap-3"
+      >
+        {moreLinks.map((link) => (
+          <a
+            href={link.href}
+            class="group p-4 rounded-xl
+              bg-white/[0.01]
+              border border-white/[0.03]
+              hover:border-white/8
+              hover:bg-white/[0.02]
+              transition-all duration-200"
+          >
+            <div class="text-xl mb-2">
+              {link.icon}
+            </div>
+            <h3
+              class="text-sm font-semibold
+                text-white/60
+                group-hover:text-teal-400
+                transition-colors"
+            >
+              {link.title}
+            </h3>
           </a>
         ))}
-        
-        <!-- Connect section -->
-        <a href="/connect" class="group glass p-5 rounded-xl hover:bg-white/[0.06] transition-all border border-white/5 hover:border-white/15">
-          <div class="text-2xl mb-3">🔗</div>
-          <h3 class="text-sm font-semibold text-white group-hover:text-emerald-400 transition-colors">Social Profiles</h3>
-          <p class="text-xs text-white/40 mt-1">Track on external platforms</p>
-        </a>
       </div>
     </div>
 
     <!-- Footer note -->
-    <div class="glass-strong p-8 text-center border border-white/10">
-      <div class="flex items-center justify-center gap-2 mb-3">
-        <svg class="h-5 w-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+    <div
+      class="p-6 rounded-xl bg-white/[0.01]
+        border border-white/[0.03] text-center"
+    >
+      <div
+        class="flex items-center justify-center
+          gap-2 mb-2"
+      >
+        <svg
+          class="h-4 w-4 text-teal-400/50"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
-        <span class="text-sm font-medium text-white/60">Build-Time Sync</span>
+        <span
+          class="text-xs font-medium text-white/30"
+        >
+          Build-Time Sync
+        </span>
       </div>
-      <p class="text-sm text-white/40">
-        All data is fetched at build time via GitHub Actions. No external profile links required.
+      <p class="text-xs text-white/20">
+        All data is fetched at build time via
+        GitHub Actions.
       </p>
     </div>
-  </main></Layout>
+  </div>
+</Layout>
