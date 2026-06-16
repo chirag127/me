@@ -75,6 +75,7 @@
   /* ── Transitions ── */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* ═══════════════════════════════════════════
@@ -84,19 +85,19 @@
 
 :root {
   /* Primary (Teal) */
-  --color-primary: var(--primary);
-  --color-primary-light: var(--primary-light);
-  --color-primary-lighter: var(--primary-lighter);
-  --color-primary-dark: var(--primary-dark);
+  --color-primary: var(--primary, #14b8a6);
+  --color-primary-light: var(--primary-light, #2dd4bf);
+  --color-primary-lighter: var(--primary-lighter, #5eead4);
+  --color-primary-dark: var(--primary-dark, #0d9488);
   --color-primary-darker: var(--primary-darker, #0f766e);
-  --color-primary-faint: var(--primary-faint);
-  --color-primary-muted: var(--primary-muted);
+  --color-primary-faint: var(--primary-faint, rgba(20, 184, 166, 0.06));
+  --color-primary-muted: var(--primary-muted, rgba(20, 184, 166, 0.15));
   --color-primary-subtle: var(--primary-subtle, rgba(20, 184, 166, 0.25));
 
   /* Accent (Violet) */
-  --color-accent-violet: var(--accent);
-  --color-accent-primary: var(--accent);
-  --color-accent-warm: var(--accent);
+  --color-accent-violet: var(--accent, #8b5cf6);
+  --color-accent-primary: var(--accent, #8b5cf6);
+  --color-accent-warm: var(--accent, #8b5cf6);
 
   /* Additional accent colors used across pages */
   --color-accent-sage: #10b981;
@@ -115,20 +116,20 @@
   --color-info: #0ea5e9;
 
   /* Surface & Text aliases */
-  --color-surface: var(--surface-base);
-  --color-surface-card: var(--surface-card);
-  --color-surface-card-hover: var(--surface-card-hover);
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-tertiary: var(--text-tertiary);
-  --color-text-muted: var(--text-muted);
-  --color-text-faint: var(--text-faint);
+  --color-surface: var(--surface-base, #030303);
+  --color-surface-card: var(--surface-card, rgba(255, 255, 255, 0.02));
+  --color-surface-card-hover: var(--surface-card-hover, rgba(255, 255, 255, 0.04));
+  --color-text-primary: var(--text-primary, #ffffff);
+  --color-text-secondary: var(--text-secondary, #a1a1aa);
+  --color-text-tertiary: var(--text-tertiary, #71717a);
+  --color-text-muted: var(--text-muted, #52525b);
+  --color-text-faint: var(--text-faint, #3f3f46);
 
   /* Border aliases */
-  --color-border: var(--border-default);
-  --color-border-subtle: var(--border-subtle);
-  --color-border-hover: var(--border-hover);
-  --color-border-active: var(--border-active);
+  --color-border: var(--border-default, rgba(255, 255, 255, 0.07));
+  --color-border-subtle: var(--border-subtle, rgba(255, 255, 255, 0.04));
+  --color-border-hover: var(--border-hover, rgba(255, 255, 255, 0.12));
+  --color-border-active: var(--border-active, rgba(20, 184, 166, 0.4));
   --color-border-focus: var(--border-focus, rgba(139, 92, 246, 0.50));
 }
 

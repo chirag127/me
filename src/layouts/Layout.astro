@@ -184,7 +184,8 @@ const canonicalURL = new URL(
             class="lg:hidden flex items-center
               justify-center h-9 w-9 rounded-lg
               text-white/50 hover:text-white
-              hover:bg-white/5 transition-colors"
+              hover:bg-white/5 transition-colors
+              flex-shrink-0"
             aria-label="Open navigation"
             type="button"
           >
@@ -202,14 +203,15 @@ const canonicalURL = new URL(
           <!-- Page title -->
           <h1
             class="text-sm font-medium text-white/60
-              hidden sm:block"
+              truncate flex-1 text-center
+              sm:text-left sm:pl-0"
             style="font-family: var(--font-sans);"
           >
             {title}
           </h1>
 
           <!-- Right side CTAs -->
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 flex-shrink-0">
             <!-- Hire Me CTA -->
             <a
               href="/connect"
@@ -231,7 +233,7 @@ const canonicalURL = new URL(
             <!-- Command palette trigger -->
             <button
               id="cmd-palette-btn"
-              class="flex items-center gap-1.5 px-3
+              class="hidden sm:flex items-center gap-1.5 px-3
                 py-1.5 rounded-lg border
                 border-[var(--border-default)]
                 text-xs text-white/40
@@ -251,7 +253,7 @@ const canonicalURL = new URL(
                 <circle cx="11" cy="11" r="8" />
                 <path d="m21 21-4.3-4.3" />
               </svg>
-              <span class="hidden sm:inline">⌘K</span>
+              <span>⌘K</span>
             </button>
           </div>
         </header>
@@ -280,14 +282,14 @@ const canonicalURL = new URL(
             </p>
             <div class="flex items-center gap-4">
               <a
-                href="/legal/privacy"
+                href="/privacy"
                 class="text-xs text-white/25
                   hover:text-white/50 transition-colors"
               >
                 Privacy
               </a>
               <a
-                href="/legal/terms"
+                href="/terms"
                 class="text-xs text-white/25
                   hover:text-white/50 transition-colors"
               >

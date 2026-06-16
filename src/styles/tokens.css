@@ -90,8 +90,10 @@
   --primary-light: var(--raw-teal-400);
   --primary-lighter: var(--raw-teal-300);
   --primary-dark: var(--raw-teal-600);
+  --primary-darker: var(--raw-teal-700);
   --primary-faint: var(--raw-teal-50);
   --primary-muted: var(--raw-teal-100);
+  --primary-subtle: var(--raw-teal-200);
 
   /* Accent (Violet) */
   --accent: var(--raw-violet-500);
