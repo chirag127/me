@@ -36,3 +36,18 @@ firebase-debug.log
 src/data/generated/
 public/data/*.json
 *.log
+
+# TypeScript incremental build cache
+*.tsbuildinfo
+
+# Local scratch / one-off diagnostic dumps (do not commit)
+*_error*.txt
+*_errors*.txt
+dns_*.json
+search_results.md
+setup-domains.log
+missing_*.txt
+
+# Test output
+test-results/
+playwright-report/
