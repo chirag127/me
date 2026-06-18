@@ -12,11 +12,15 @@
     "preview": "astro preview",
     "astro": "astro",
     "fetch-data": "tsx scripts/fetch-data.ts",
+    "validate-content": "tsx scripts/validate-content.ts",
     "lint": "biome check .",
+    "lint:fix": "biome check --write .",
     "format": "biome format --write .",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "type-check": "tsc --noEmit"
+    "test:e2e:desktop": "playwright test --project=chromium-desktop",
+    "typecheck": "astro check && tsc --noEmit",
+    "type-check": "astro check && tsc --noEmit"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.2",
