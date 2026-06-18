@@ -130,8 +130,58 @@ export function parseParamSize(str: string): number {
   return parseFloat(match[1]);
 }
 
+// ─── Daily snapshot loader ───────────────────────────────────────────
+// scripts/fetch-openrouter-models.ts writes this JSON daily via
+// .github/workflows/refresh-models.yml. The static MODEL_CATALOG and
+// TIER_CHAINS below are the offline fallbacks.
+const SNAPSHOT_URL = '/data/openrouter-free-models.json';
+
+interface SnapshotFile {
+  fetchedAt: string;
+  source: string;
+  models: ModelInfo[];
+  tiers: Record<ModelTier, AIModel[]>;
+}
+
+let snapshotCache: SnapshotFile | null = null;
+let snapshotPromise: Promise<SnapshotFile | null> | null = null;
+
+async function loadSnapshot(): Promise<SnapshotFile | null> {
+  if (snapshotCache) return snapshotCache;
+  if (snapshotPromise) return snapshotPromise;
+  // Browser-only: SSG/SSR builds skip the fetch and use the bundled
+  // fallback so a missing /data/* doesn't break a static prerender.
+  if (typeof window === 'undefined') return null;
+  snapshotPromise = (async () => {
+    try {
+      const res = await fetch(SNAPSHOT_URL, { cache: 'force-cache' });
+      if (!res.ok) return null;
+      const json = (await res.json()) as SnapshotFile;
+      if (!Array.isArray(json.models) || json.models.length === 0) return null;
+      snapshotCache = json;
+      return json;
+    } catch {
+      return null;
+    }
+  })();
+  return snapshotPromise;
+}
+
 export async function fetchAvailableModels(): Promise<ModelInfo[]> {
-  return MODEL_CATALOG;
+  const snap = await loadSnapshot();
+  return snap?.models ?? MODEL_CATALOG;
+}
+
+/**
+ * Async tier chain — uses the daily snapshot when available, falls
+ * back to the bundled chains otherwise. Prefer this over getModelChain()
+ * for new code; getModelChain stays sync for legacy callers.
+ */
+export async function fetchModelChain(tier: ModelTier): Promise<AIModel[]> {
+  const snap = await loadSnapshot();
+  return (
+    snap?.tiers[tier] ?? TIER_CHAINS[tier] ?? MODEL_CATALOG.map((m) => m.id)
+  );
 }
 
 // ─── Tiered failover chains ──────────────────────────────────────────
