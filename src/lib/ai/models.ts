@@ -1,28 +1,90 @@
 /**
- * Model Catalog — Puter.js models (Dynamic + Fallback)
- * Used by the dropdown selector and the agent's failover chain.
+ * Model Catalog — Puter.js → OpenRouter free-tier models.
+ *
+ * The catalog lists models whose OpenRouter id ends in `:free` so the entire
+ * AI feature runs on free-tier inference. Puter.js is the runtime and it
+ * routes these slugs to OpenRouter's free pool.
+ *
+ * Sourced from `https://openrouter.ai/api/v1/models` (filter id ":free");
+ * verified live 2026-06-19. Refresh by re-running that query and updating
+ * the entries below — keep the failover chains pointing at ids that still
+ * exist (the previous Trinity slug was silently retired).
  */
 
 import type { ModelInfo, ModelTier, QueryIntent } from './types';
 
 export type { ModelInfo, ModelTier } from './types';
 
-// Declare puter global for TypeScript
+// Declare puter global for TypeScript. Puter.js ships as a runtime
+// `<script>` and has no upstream .d.ts, so the global stays loosely typed.
+// TODO(personal-os/#types): replace `any` once @heyputer/puter.js exports types.
 declare const puter: any;
 
 export type AIModel = string;
 
-// ─── Initial Fallback Catalog ────────────────────────────────────────
+// ─── Model catalog (OpenRouter :free slugs) ──────────────────────────
+// Ordered roughly by descending capability so UIs that pick CATALOG[0]
+// land on a strong default.
 export const MODEL_CATALOG: ModelInfo[] = [
   {
-    id: 'arcee-ai/trinity-large-preview:free',
-    name: 'Trinity Large',
-    params: '400B (13B active)',
-    bestFor: 'Creative writing, tool use, agentic coding',
+    id: 'qwen/qwen3-next-80b-a3b-instruct:free',
+    name: 'Qwen3 Next 80B',
+    params: '80B (3B active)',
+    bestFor: 'General reasoning, tool use, agentic flows',
+    speed: 'medium',
+    reasoning: 'high',
+    isFree: true,
+    paramSize: 80,
+  },
+  {
+    id: 'meta-llama/llama-3.3-70b-instruct:free',
+    name: 'Llama 3.3 70B',
+    params: '70B',
+    bestFor: 'Strong general chat, instruction following',
+    speed: 'medium',
+    reasoning: 'high',
+    isFree: true,
+    paramSize: 70,
+  },
+  {
+    id: 'qwen/qwen3-coder:free',
+    name: 'Qwen3 Coder',
+    params: '480B (35B active)',
+    bestFor: 'Code generation, debugging, repo-level edits',
+    speed: 'medium',
+    reasoning: 'high',
+    isFree: true,
+    paramSize: 480,
+  },
+  {
+    id: 'openai/gpt-oss-120b:free',
+    name: 'GPT-OSS 120B',
+    params: '120B',
+    bestFor: 'Open-weights GPT, balanced reasoning + chat',
     speed: 'slow',
     reasoning: 'high',
     isFree: true,
-    paramSize: 400,
+    paramSize: 120,
+  },
+  {
+    id: 'openai/gpt-oss-20b:free',
+    name: 'GPT-OSS 20B',
+    params: '20B',
+    bestFor: 'Lighter open-weights GPT for fast replies',
+    speed: 'fast',
+    reasoning: 'medium',
+    isFree: true,
+    paramSize: 20,
+  },
+  {
+    id: 'liquid/lfm-2.5-1.2b-thinking:free',
+    name: 'LFM 2.5 Thinking',
+    params: '1.2B',
+    bestFor: 'Chain-of-thought reasoning at low cost',
+    speed: 'fast',
+    reasoning: 'high',
+    isFree: true,
+    paramSize: 1.2,
   },
   {
     id: 'liquid/lfm-2.5-1.2b-instruct:free',
@@ -35,24 +97,14 @@ export const MODEL_CATALOG: ModelInfo[] = [
     paramSize: 1.2,
   },
   {
-    id: 'liquid/lfm-2.5-1.2b-thinking:free',
-    name: 'LFM 2.5 Thinking',
-    params: '1.2B',
-    bestFor: 'Chain-of-thought reasoning',
-    speed: 'medium',
-    reasoning: 'high',
-    isFree: true,
-    paramSize: 1.2,
-  },
-  {
-    id: 'google/gemma-3n-e2b-it:free',
-    name: 'Gemma 3n 2B',
-    params: '2B',
-    bestFor: 'General instruction following, fast responses',
+    id: 'meta-llama/llama-3.2-3b-instruct:free',
+    name: 'Llama 3.2 3B',
+    params: '3B',
+    bestFor: 'Cheap fast replies, greetings, navigation',
     speed: 'fast',
     reasoning: 'low',
     isFree: true,
-    paramSize: 2,
+    paramSize: 3,
   },
   {
     id: 'cognitivecomputations/dolphin-mistral-24b-venice-edition:free',
@@ -64,23 +116,15 @@ export const MODEL_CATALOG: ModelInfo[] = [
     isFree: true,
     paramSize: 24,
   },
-  {
-    id: 'qwen/qwen3-4b:free',
-    name: 'Qwen3 4B',
-    params: '4B',
-    bestFor: 'General chat, multilingual, balanced',
-    speed: 'fast',
-    reasoning: 'medium',
-    isFree: true,
-    paramSize: 4,
-  },
 ];
 
 /**
  * Parse parameter size from string (e.g., "400B", "2.5B", "7B")
- * returns value in Billions.
+ * returns value in Billions. Exported because external callers (e.g.
+ * the model picker) sort the catalog by size when the JSON form is
+ * preferred over the static `paramSize` field.
  */
-function parseParamSize(str: string): number {
+export function parseParamSize(str: string): number {
   const match = str.match(/(\d+(\.\d+)?)\s*[Bb]/);
   if (!match) return 0;
   return parseFloat(match[1]);
@@ -91,22 +135,28 @@ export async function fetchAvailableModels(): Promise<ModelInfo[]> {
 }
 
 // ─── Tiered failover chains ──────────────────────────────────────────
+// `fast` — short, latency-sensitive replies (greetings, navigation hints).
+// `reasoning` — chain-of-thought / multi-step answers.
+// `agent` — tool use, structured outputs, code edits. Falls back to
+// reasoning-class models if the agent-tier head doesn't respond.
 const TIER_CHAINS: Record<ModelTier, AIModel[]> = {
   fast: [
-    'arcee-ai/trinity-large-preview:free',
-    'qwen/qwen3-4b:free',
-    'google/gemma-3n-e2b-it:free',
     'liquid/lfm-2.5-1.2b-instruct:free',
+    'meta-llama/llama-3.2-3b-instruct:free',
+    'openai/gpt-oss-20b:free',
+    'qwen/qwen3-next-80b-a3b-instruct:free',
   ],
   reasoning: [
-    'arcee-ai/trinity-large-preview:free',
+    'qwen/qwen3-next-80b-a3b-instruct:free',
+    'meta-llama/llama-3.3-70b-instruct:free',
+    'openai/gpt-oss-120b:free',
     'liquid/lfm-2.5-1.2b-thinking:free',
-    'qwen/qwen3-4b:free',
   ],
   agent: [
-    'arcee-ai/trinity-large-preview:free',
-    'liquid/lfm-2.5-1.2b-thinking:free',
-    'qwen/qwen3-4b:free',
+    'qwen/qwen3-coder:free',
+    'qwen/qwen3-next-80b-a3b-instruct:free',
+    'meta-llama/llama-3.3-70b-instruct:free',
+    'openai/gpt-oss-120b:free',
   ],
 };
 
