@@ -1,10 +1,17 @@
 ---
 type: decision
-title: Why Firestore (not Turso/Postgres/SQLite) for events
-description: Firestore was already wired for auth/chat. Using it for events too avoids a second DB.
-tags: [decision, firestore, infra]
+title: "[SUPERSEDED] Why Firestore (not Turso/Postgres/SQLite) for events"
+description: "SUPERSEDED 2026-06-19 by 100-year-strategy.md. Kept as historical context. Do NOT follow this doc's conclusions."
+tags: [decision, firestore, infra, superseded]
 timestamp: 2026-06-19T00:00:00Z
 ---
+
+> **⚠ SUPERSEDED 2026-06-19** by [`100-year-strategy.md`](./100-year-strategy.md).
+> The new strategy is: **canonical = JSONL in a git repo
+> (`chirag127/oriz-me-data`); Turso is the warm cache rebuilt from git;
+> Firestore stays for non-event data (auth, chat, mutable user state).**
+> Do not follow this doc's conclusions. It is preserved only as a record
+> of the prior reasoning.
 
 # Decision: Firestore for events, not Turso
 
