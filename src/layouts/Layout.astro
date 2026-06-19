@@ -136,6 +136,9 @@ const ogImageAbsolute = new URL(resolvedOgImage, Astro.url).toString();
 
     <title>Chirag Singhal — {title}</title>
 
+    <!-- Per-page head injection (e.g. AgeGatedLayout adds rating + noindex). -->
+    <slot name="head" />
+
     <!-- Theme + accent FOUC paint — must run BEFORE first paint to avoid
          a flash of the wrong theme/accent. Reads localStorage and sets
          data-theme + data-accent on <html>, plus the legacy dark/light
