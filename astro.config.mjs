@@ -4,9 +4,25 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 
+// Survival-layer toggle (per 100-year-strategy §16):
+//   MIRROR_BUILD=1 BASE_URL=/oriz-me/ pnpm build
+// produces a build for chirag127.github.io/oriz-me, the bare-minimum
+// `/work` + `/me` + legal-pages mirror that survives even if Cloudflare,
+// the oriz.in domain, or the Turso cache all disappear. The `dist/` is
+// pruned by `scripts/build-mirror.ts` after the build to drop every
+// non-survival route, so nothing changes about the route table here —
+// only the `site` + `base` so internal links resolve under the mirror's
+// path prefix.
+const isMirror = process.env.MIRROR_BUILD === '1';
+const baseUrl = process.env.BASE_URL || (isMirror ? '/oriz-me/' : undefined);
+const siteUrl = isMirror
+  ? 'https://chirag127.github.io'
+  : 'https://me.oriz.in';
+
 export default defineConfig({
   output: 'static',
-  site: 'https://me.oriz.in',
+  site: siteUrl,
+  ...(baseUrl ? { base: baseUrl } : {}),
   integrations: [react()],
   devToolbar: {
     enabled: false,

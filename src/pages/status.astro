@@ -1,0 +1,291 @@
+---
+/**
+ * /status — survival/freshness page for the lifestream ingesters.
+ *
+ * Per the ingester contract (knowledge/decisions/ingester-contract.md)
+ * + 100-year-strategy §16, this page is HONEST: when a source breaks,
+ * a red dot shows up here within 24 hours. No spin, no "everything's
+ * fine" placeholder. If an ingester auto-paused, that's visible too.
+ *
+ * Two data sources, both Turso-cache reads via `getReadClient()`:
+ *
+ *   1. `sources` table — one row per ingester, holding `last_synced_at`
+ *      and `last_error`. Updated on every ingest run via
+ *      `recordSyncStatus()` in `src/lib/lifestream/upsert.ts`.
+ *   2. `events` table — per-day count grouped by source over the last
+ *      8 days. Drives the sparkline (green dot = at least one event
+ *      that day, red dot = silent that day).
+ *
+ * If Turso is unreachable (no env, no DB yet), the page renders a
+ * fallback panel pointing readers at the canonical JSONL repo. The
+ * page itself doesn't go down — that would defeat the entire purpose.
+ */
+
+import Layout from '../layouts/Layout.astro';
+
+interface SourceRow {
+  name: string;
+  last_synced_at: string | null;
+  last_error: string | null;
+}
+
+const LOOKBACK_DAYS = 8;
+
+let sources: SourceRow[] = [];
+let countsBySource: Map<string, Map<string, number>> = new Map();
+let cacheAvailable = true;
+let cacheError: string | null = null;
+
+try {
+  // Lazy-load so a missing env var doesn't blow up the whole page —
+  // we want /status to render even when the cache is gone.
+  const { getReadClient } = await import('../lib/lifestream/db.ts');
+  const client = getReadClient();
+
+  const sourcesResult = await client.execute(
+    'SELECT name, last_synced_at, last_error FROM sources ORDER BY name',
+  );
+  sources = sourcesResult.rows.map((r) => ({
+    name: String(r.name ?? ''),
+    last_synced_at: r.last_synced_at == null ? null : String(r.last_synced_at),
+    last_error: r.last_error == null ? null : String(r.last_error),
+  }));
+
+  // Per-day counts for the sparkline. SQLite's date() coerces ISO
+  // timestamps to YYYY-MM-DD so a GROUP BY collapses cleanly.
+  const sinceIso = new Date(
+    Date.now() - LOOKBACK_DAYS * 24 * 3600 * 1000,
+  ).toISOString();
+  const countsResult = await client.execute({
+    sql: `
+      SELECT source,
+             date(occurred_at) AS day,
+             COUNT(*) AS n
+      FROM events
+      WHERE occurred_at >= ?
+      GROUP BY source, day
+    `,
+    args: [sinceIso],
+  });
+  for (const row of countsResult.rows) {
+    const source = String(row.source ?? '');
+    const day = String(row.day ?? '');
+    const n = Number(row.n ?? 0);
+    if (!source || !day) continue;
+    let inner = countsBySource.get(source);
+    if (!inner) {
+      inner = new Map();
+      countsBySource.set(source, inner);
+    }
+    inner.set(day, n);
+  }
+} catch (err) {
+  cacheAvailable = false;
+  cacheError = err instanceof Error ? err.message : String(err);
+}
+
+/** Build the array of YYYY-MM-DD strings for the sparkline columns. */
+function buildDayAxis(days: number): string[] {
+  const out: string[] = [];
+  const today = new Date();
+  for (let i = days - 1; i >= 0; i -= 1) {
+    const d = new Date(today);
+    d.setUTCDate(d.getUTCDate() - i);
+    out.push(d.toISOString().slice(0, 10));
+  }
+  return out;
+}
+
+/** Truncate a long error string to 80 chars with ellipsis. */
+function truncate(s: string, n = 80): string {
+  if (s.length <= n) return s;
+  return `${s.slice(0, n - 1)}…`;
+}
+
+/** Render "2h ago" / "3d ago" / "never" given an ISO date or null. */
+function relativeTime(iso: string | null): string {
+  if (!iso) return 'never';
+  const t = new Date(iso).getTime();
+  if (Number.isNaN(t)) return 'unknown';
+  const diff = Date.now() - t;
+  if (diff < 0) return 'just now';
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return 'just now';
+  if (mins < 60) return `${mins}m ago`;
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) return `${hours}h ago`;
+  const days = Math.floor(hours / 24);
+  if (days < 30) return `${days}d ago`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `${months}mo ago`;
+  const years = Math.floor(days / 365);
+  return `${years}y ago`;
+}
+
+const dayAxis = buildDayAxis(LOOKBACK_DAYS);
+---
+
+<Layout
+  title="Status"
+  description="Lifestream ingester health — per-source last sync, last error, 8-day activity sparkline. Honest about what's broken."
+>
+  <main class="mx-auto max-w-[var(--content-max-width)] px-6 py-12">
+    <div class="mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-xs text-teal-300/80 mb-6">
+        <span class="h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+        Survival layer
+      </div>
+      <h1
+        class="text-4xl sm:text-5xl font-bold text-white mb-3"
+        style="font-family: 'Outfit', sans-serif;"
+      >
+        Status
+      </h1>
+      <p class="text-lg text-white/40 max-w-2xl">
+        Per-source ingester health. Green dot = events landed that
+        day, red dot = silent. When a source has been red for 7+ days
+        it's auto-paused per the ingester contract.
+      </p>
+    </div>
+
+    {!cacheAvailable && (
+      <div class="rounded-lg border border-amber-500/30 bg-amber-500/5 p-6 mb-10">
+        <h2 class="text-amber-300 text-sm font-semibold mb-2 uppercase tracking-wider">
+          Lifestream cache not configured
+        </h2>
+        <p class="text-white/60 text-sm leading-relaxed mb-3">
+          The Turso warm-cache isn't reachable from this build, so live
+          per-source status can't render. The canonical archive is
+          unaffected — it's plain JSONL in a separate repo.
+        </p>
+        <p class="text-white/40 text-sm leading-relaxed">
+          See{' '}
+          <a
+            href="https://github.com/chirag127/oriz-me-data"
+            class="text-teal-400 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            chirag127/oriz-me-data
+          </a>{' '}
+          for the canonical lifestream archive, or{' '}
+          <a
+            href="https://github.com/chirag127/oriz-me/blob/main/scripts/README-data-repo.md"
+            class="text-teal-400 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            scripts/README-data-repo.md
+          </a>{' '}
+          for the recovery contract.
+        </p>
+        {cacheError && (
+          <p class="text-white/30 text-xs mt-4 font-mono">
+            error: {truncate(cacheError, 200)}
+          </p>
+        )}
+      </div>
+    )}
+
+    {cacheAvailable && sources.length === 0 && (
+      <div class="rounded-lg border border-white/10 bg-white/[0.02] p-6 mb-10">
+        <p class="text-white/60 text-sm">
+          No sources have reported sync status yet. Run an ingester to
+          populate this page.
+        </p>
+      </div>
+    )}
+
+    {cacheAvailable && sources.length > 0 && (
+      <div class="space-y-3">
+        {sources.map((src) => {
+          const dayCounts = countsBySource.get(src.name) ?? new Map();
+          const isHealthy =
+            !src.last_error &&
+            src.last_synced_at !== null &&
+            Date.now() - new Date(src.last_synced_at).getTime() <
+              7 * 24 * 3600 * 1000;
+          return (
+            <div
+              class="rounded-lg border border-white/10 bg-white/[0.02] p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4"
+            >
+              <div class="flex-shrink-0 sm:w-40">
+                <div
+                  class="font-mono text-xs uppercase tracking-wider text-white/80"
+                  style="letter-spacing: 0.08em;"
+                >
+                  {src.name}
+                </div>
+                <div
+                  class:list={[
+                    'mt-1 text-[10px] uppercase font-semibold tracking-wider',
+                    isHealthy ? 'text-emerald-400' : 'text-rose-400',
+                  ]}
+                >
+                  {isHealthy ? 'healthy' : 'stale'}
+                </div>
+              </div>
+
+              <div class="flex-shrink-0 flex items-center gap-1">
+                {dayAxis.map((day) => {
+                  const n = dayCounts.get(day) ?? 0;
+                  const ok = n > 0;
+                  return (
+                    <span
+                      class:list={[
+                        'h-2.5 w-2.5 rounded-full',
+                        ok ? 'bg-emerald-400/80' : 'bg-rose-500/40',
+                      ]}
+                      title={`${day}: ${n} event${n === 1 ? '' : 's'}`}
+                    />
+                  );
+                })}
+              </div>
+
+              <div class="flex-1 min-w-0 text-sm">
+                <div class="text-white/60">
+                  last sync{' '}
+                  <span class="text-white/90">
+                    {relativeTime(src.last_synced_at)}
+                  </span>
+                </div>
+                {src.last_error && (
+                  <div
+                    class="text-rose-300/80 text-xs mt-1 font-mono truncate"
+                    title={src.last_error}
+                  >
+                    {truncate(src.last_error)}
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    )}
+
+    <div class="mt-12 pt-8 border-t border-white/5 text-xs text-white/30 leading-relaxed">
+      <p>
+        Canonical lifestream archive:{' '}
+        <a
+          href="https://github.com/chirag127/oriz-me-data"
+          class="text-teal-400/70 hover:text-teal-400 hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          chirag127/oriz-me-data
+        </a>
+        . Rendered HTML mirror:{' '}
+        <a
+          href="https://chirag127.github.io/oriz-me/"
+          class="text-teal-400/70 hover:text-teal-400 hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          chirag127.github.io/oriz-me
+        </a>
+        . If this page is wrong, both fallbacks still work.
+      </p>
+    </div>
+  </main>
+</Layout>
