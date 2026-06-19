@@ -1,8 +1,10 @@
 rules_version = '2';
 
+// Journal collection removed 2026-06-19
+
 service cloud.firestore {
   match /databases/{database}/documents {
-    
+
     // Helper functions
     function isSignedIn() {
       return request.auth != null;
@@ -52,17 +54,7 @@ service cloud.firestore {
           && data.title.size() <= 200
           && data.messages is list;
     }
-    
-    function isValidJournalEntry() {
-      let data = request.resource.data;
-      return data.userId == request.auth.uid
-          && data.userEmail is string
-          && data.userEmail == request.auth.token.email
-          && data.text is string
-          && data.text.size() > 0
-          && data.text.size() <= 50000;
-    }
-    
+
     function isValidUserSettings() {
       let data = request.resource.data;
       return data.userId == request.auth.uid
@@ -145,25 +137,7 @@ service cloud.firestore {
       // Only the owner or admin can delete sessions
       allow delete: if isOwnerOrAdmin(resource.data.userId);
     }
-    
-    // ======================
-    // JOURNAL ENTRIES COLLECTION
-    // ======================
-    match /journalEntries/{entryId} {
-      // Users can read their own journal entries
-      // Admins can read all journal entries (for moderation)
-      allow read: if isOwnerOrAdmin(resource.data.userId);
-      
-      // Only the owner can create journal entries
-      allow create: if isOwner(request.resource.data.userId) && isValidJournalEntry();
-      
-      // Only the owner can update their own entries
-      allow update: if isOwner(resource.data.userId);
-      
-      // Only the owner or admin can delete entries
-      allow delete: if isOwnerOrAdmin(resource.data.userId);
-    }
-    
+
     // ======================
     // USER DATA (General user-specific data)
     // ======================

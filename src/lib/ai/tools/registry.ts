@@ -474,7 +474,7 @@ const navigateTo: ToolDefinition = {
       name: 'page',
       type: 'string',
       description:
-        'Page name: home, movies, books, music, anime, manga, gaming, code, repos, projects, skills, career, education, connect, contact, gear, story, philosophy, journal, interests, finance, writing, blog, library, videos, podcasts, twitch, mixcloud, bluesky, mastodon, reddit, hackernews, npm, stackoverflow, holopin, certifications, admin, changelog',
+        'Page name: home, movies, books, music, anime, manga, gaming, code, repos, projects, skills, career, education, connect, contact, gear, story, philosophy, interests, finance, writing, blog, library, videos, podcasts, twitch, mixcloud, bluesky, mastodon, reddit, hackernews, npm, stackoverflow, holopin, certifications, admin, changelog',
       required: true,
     },
   ],
@@ -501,7 +501,6 @@ const navigateTo: ToolDefinition = {
       about: '/me',
       story: '/me/story',
       philosophy: '/me/philosophy',
-      journal: '/me/journal',
       interests: '/me/interests',
       gear: '/me/gear',
       products: '/me/gear',

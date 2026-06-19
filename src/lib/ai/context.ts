@@ -39,7 +39,6 @@ The base URL is https://me.oriz.in
 - 🧠 Philosophy: /me/philosophy — Values and principles
 - 💡 Interests: /me/interests — Hobbies and passions
 - 🛒 Gear & Products: /me/gear — Tech gear, Amazon orders
-- 📓 Journal: /me/journal — Personal journal entries
 - 💰 Finance: /me/finance — Financial overview
 
 ### Career & Professional

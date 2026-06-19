@@ -5,7 +5,6 @@ const pages = [
   '/me',
   '/me/story',
   '/me/philosophy',
-  '/me/journal',
   '/me/interests',
   '/me/gear',
   '/me/finance',

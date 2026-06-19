@@ -10,7 +10,7 @@
 | Index | 1 | Strong hero with gradient text, ambient glows, floating badges |
 | Work | 6 | index, career, skills, projects, education, certifications |
 | Library | 18 | index + movies/tv/anime/books/music groups + manga, podcasts, twitch, videos, mixcloud |
-| Me | 7 | index, story, philosophy, interests, gear, journal, finance |
+| Me | 7 | index, story, philosophy, interests, gear, finance |
 | Connect | 17 | index, contact, + 14 social/dev/gaming/music/reading link pages |
 | Code | 5 | index, repos, npm, stackoverflow, holopin |
 | Gaming | 1 | index |

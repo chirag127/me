@@ -49,7 +49,6 @@
 - `/system/admin` page wired to Firestore: page-view counter, chat-history viewer (admin emails only)
 - Re-enable `aiQueries`/`aiChats`/`unknownQueries` collections from `firestore.rules`
 - AI 22-tool registry data sources: confirm each tool reads from `src/content/generated/<key>.json`; backfill the missing wires
-- `journalEntries`: admin-only write, public read of latest N
 
 ## Phase 4 — CI hardening
 
@@ -61,7 +60,6 @@
 
 - Blog: MDX with Sandpack code playgrounds, Pagefind search index built at CI, Mermaid diagram support via remark plugin
 - Migrate the lone existing post; document the `src/content/blog/*.mdx` schema
-- Journal: WYSIWYG editor on `/system/admin/journal/new` (admin-only), saves to `journalEntries` Firestore collection, public reads on `/me/journal`
 
 ## Phase 6 — Onboarding & forking
 

@@ -24,15 +24,6 @@ export interface ChatMessage {
   pageContext?: string;
 }
 
-// Journal entry type
-export interface JournalEntry {
-  id?: string;
-  userId: string;
-  userEmail: string;
-  text: string;
-  createdAt: string;
-}
-
 // Lazy Firebase initialization - only on client side
 let _app: ReturnType<typeof initializeApp> | null = null;
 let _auth: ReturnType<typeof getAuth> | null = null;
@@ -319,68 +310,6 @@ export async function subscribeToChatMessages(
     })) as ChatMessage[];
     callback(messages);
   });
-}
-
-export async function saveJournalEntry(
-  userId: string,
-  userEmail: string,
-  text: string,
-): Promise<string> {
-  const { collection, addDoc } = await import('firebase/firestore');
-  const db = await getFirebaseDb();
-  const docRef = await addDoc(collection(db, 'journalEntries'), {
-    userId,
-    userEmail,
-    text,
-    createdAt: new Date().toISOString(),
-  });
-  return docRef.id;
-}
-
-export async function deleteJournalEntry(id: string): Promise<void> {
-  const { doc, deleteDoc } = await import('firebase/firestore');
-  const db = await getFirebaseDb();
-  await deleteDoc(doc(db, 'journalEntries', id));
-}
-
-export async function subscribeToJournalEntries(
-  userId: string,
-  callback: (entries: JournalEntry[]) => void,
-) {
-  try {
-    const { collection, query, where, orderBy, onSnapshot } = await import(
-      'firebase/firestore'
-    );
-    const db = await getFirebaseDb();
-    const q = query(
-      collection(db, 'journalEntries'),
-      where('userId', '==', userId),
-      orderBy('createdAt', 'desc'),
-    );
-    return onSnapshot(
-      q,
-      (snapshot) => {
-        const entries = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        })) as JournalEntry[];
-        callback(entries);
-      },
-      (err) => {
-        if (err?.message?.includes('index')) {
-          console.warn(
-            '[Firebase] Journal index is still building. Entries will appear soon.',
-          );
-          callback([]);
-        } else {
-          console.error('[Firebase] Journal subscription error:', err);
-        }
-      },
-    );
-  } catch (err) {
-    console.error('[Firebase] Failed to setup journal subscription:', err);
-    return () => {};
-  }
 }
 
 export type { User };
