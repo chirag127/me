@@ -2,6 +2,7 @@
 import { summary, extendedSummary } from '../../content';
 import Layout from '../../layouts/Layout.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
+import PageHeader from '../../components/PageHeader.astro';
 
 const subPages = [
   {
@@ -62,18 +63,12 @@ const colorMap: Record<string, { bg: string; text: string; hover: string }> = {
   <CommandPalette />
   <main class="mx-auto max-w-[var(--content-max-width)] px-6 py-12">
     <!-- Page Header -->
-    <div class="mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--primary-faint)] border border-[var(--primary-subtle)] text-[11px] font-semibold text-[var(--primary-light)] uppercase tracking-wider mb-5">
-        <span class="h-1.5 w-1.5 rounded-full bg-[var(--primary-light)] animate-pulse"></span>
-        ME
-      </div>
-      <h1 class="text-3xl sm:text-4xl font-black text-white mb-2" style="font-family: var(--font-display, 'Outfit');">
-        About Me
-      </h1>
-      <p class="text-base text-white/40 max-w-2xl">
-        The person behind the code.
-      </p>
-    </div>
+    <PageHeader
+      section="ME"
+      emoji="🧑"
+      title="About Me"
+      description="The person behind the code."
+    />
 
     <!-- Hero -->
     <div class="glass-strong p-8 mb-10 relative overflow-hidden">

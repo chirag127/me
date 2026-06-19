@@ -1,5 +1,13 @@
 import { defineConfig, devices } from '@playwright/test';
 
+// Allow forcing a specific Chromium binary when the bundled one can't
+// download (e.g. Windows Defender ASR blocking the post-install script).
+// Set CHROME_EXECUTABLE_PATH=... in the shell to override.
+const chromeExecutablePath = process.env.CHROME_EXECUTABLE_PATH;
+const chromiumLaunchOptions = chromeExecutablePath
+  ? { launchOptions: { executablePath: chromeExecutablePath } }
+  : {};
+
 export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
@@ -15,11 +23,11 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium-desktop',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'], ...chromiumLaunchOptions },
     },
     {
       name: 'chromium-mobile',
-      use: { ...devices['Pixel 5'] },
+      use: { ...devices['Pixel 5'], ...chromiumLaunchOptions },
     },
     {
       name: 'webkit-mobile',
@@ -27,9 +35,13 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'pnpm run build && pnpm run preview',
+    // PLAYWRIGHT_PREVIEW_ONLY=1 → skip the build (assumes dist/ is fresh).
+    // Default still builds first so CI runs work without manual prep.
+    command: process.env.PLAYWRIGHT_PREVIEW_ONLY
+      ? 'pnpm run preview'
+      : 'pnpm run build && pnpm run preview',
     url: 'http://localhost:4321',
     reuseExistingServer: !process.env.CI,
-    timeout: 120000,
+    timeout: 240000,
   },
 });

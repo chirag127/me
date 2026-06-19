@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
+import PageHeader from '../../components/PageHeader.astro';
 
 import { socialLinks } from '../../content';
 
@@ -90,14 +91,12 @@ const iconPaths: Record<string, string> = {
     <div class="absolute top-0 right-0 w-96 h-96 bg-[var(--color-primary)]/5 rounded-full blur-[120px] pointer-events-none"></div>
 
     <!-- Header -->
-    <div class="mb-12 relative reveal">
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-white/40 mb-6">
-        <span class="h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] animate-pulse"></span>
-        CONNECT Drive
-      </div>
-      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-3" style="font-family: 'Outfit', sans-serif;">Connect</h1>
-      <p class="text-lg text-white/40 max-w-2xl">All platforms and social profiles — find me wherever you are.</p>
-    </div>
+    <PageHeader
+      section="CONNECT"
+      emoji="🔗"
+      title="Connect"
+      description="All platforms and social profiles — find me wherever you are."
+    />
 
     <!-- Email Hero Card -->
     <a href="mailto:hi@chirag127.in" class="glass-strong p-8 mb-10 reveal group flex items-center gap-6 relative overflow-hidden hover:border-[var(--color-primary)]/30 transition-colors">

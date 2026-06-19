@@ -20,6 +20,8 @@ import CommandPalette from
   '../components/CommandPalette.astro';
 import HeroChatButton from
   '../components/islands/HeroChatButton';
+import StatusStrip from
+  '../components/StatusStrip.astro';
 
 const [, githubRepos, leetcodeStats, devtoArticles] =
   await Promise.all([
@@ -195,6 +197,11 @@ const vpIcons: Record<string, string> = {
                 Hire Me
               </a>
               <HeroChatButton client:load />
+            </div>
+
+            <!-- Live status strip -->
+            <div class="mb-8 reveal">
+              <StatusStrip />
             </div>
 
             <!-- Social links -->

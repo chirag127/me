@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
+import EmptyState from '../../components/EmptyState.astro';
 
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
@@ -94,6 +95,14 @@ function getVisuals(title: string) {
       </div>
       <p class="text-white/40">Watchlist and completed history synced automatically.</p>
     </div>
+
+    {!hasApiData && (
+      <EmptyState
+        emoji="🌸"
+        title="Anime not loaded yet"
+        message="Run fetch-data with `ANILIST_USER` set. Empty for now — populate locally or via the CI Firestore sync."
+      />
+    )}
 
     <!-- Quick Navigation -->
     <div class="flex flex-wrap gap-2 mb-12">

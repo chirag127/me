@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CommandPalette from '../../components/CommandPalette.astro';
+import EmptyState from '../../components/EmptyState.astro';
 
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
@@ -22,6 +23,8 @@ try {
 const currentlyReading = db.reading || [];
 const read = db.read || [];
 const wantToRead = db.wantToRead || [];
+
+const hasData = (read.length || 0) + (currentlyReading.length || 0) + (wantToRead.length || 0) > 0;
 
 const fallbackGradients = [
   'linear-gradient(135deg, #065f46, #047857)',
@@ -63,6 +66,16 @@ function getVisuals(title: string) {
       </div>
       <p class="text-white/40">Reading diary - synced automatically from OpenLibrary.</p>
     </div>
+
+    {!hasData && (
+      <EmptyState
+        emoji="📖"
+        title="Books not loaded yet"
+        message="Run `pnpm run fetch-data` once you've added your OpenLibrary credentials to `.env.local`. The list will populate from your reading shelves."
+        actionLabel="Add credentials"
+        actionHref="/system"
+      />
+    )}
 
     <!-- Sub-page Navigation -->
     <div class="flex flex-wrap gap-2 mb-10">

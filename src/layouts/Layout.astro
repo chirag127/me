@@ -30,6 +30,14 @@ const canonicalURL = new URL(
   Astro.url.pathname,
   'https://me.oriz.in',
 );
+
+const pathname = Astro.url.pathname;
+const slug =
+  pathname === '/'
+    ? 'home'
+    : pathname.replace(/^\/|\/$/g, '').replace(/\//g, '-');
+const resolvedOgImage = ogImage || `/og/${slug}.png`;
+const ogImageAbsolute = new URL(resolvedOgImage, Astro.url).toString();
 ---
 
 <!doctype html>
@@ -60,9 +68,7 @@ const canonicalURL = new URL(
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
-    {ogImage && (
-      <meta property="og:image" content={ogImage} />
-    )}
+    <meta property="og:image" content={ogImageAbsolute} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -74,6 +80,7 @@ const canonicalURL = new URL(
       name="twitter:description"
       content={description}
     />
+    <meta name="twitter:image" content={ogImageAbsolute} />
 
     <!-- Fonts — preload critical weights -->
     <link
