@@ -1,36 +1,48 @@
 ---
 /**
- * BaseLayout — thin wrapper around @chirag127/astro-shell's Base.
+ * BaseLayout — per-app chrome composition for me.oriz.in.
  *
- * The shell handles <head>, theme tokens, and named slots (head, seo,
- * analytics, consent, header, footer). We just import its global
- * stylesheet here so every page gets Tailwind v4 + the family theme
- * tokens.
+ * Uses astro-shell/Base for <head> plumbing (theme tokens, named slots),
+ * then composes the page with:
+ *   - local Header.astro (tabs: Home / Now / Uses / CV / Contact)
+ *   - package Sidebar wrapper with local AppSidebarContent slotted in
+ *   - package Footer
+ *   - package BottomBar (mobile-only) with per-app actions
  *
- * TODO(astro-chrome): when @chirag127/astro-chrome ships, mount its
- * <Header />, <Footer />, <Analytics />, <Consent />, and <Auth />
- * components into the shell's named slots from this file.
+ * Sweep #5 revert: Header is per-app divergent; Footer + BottomBar
+ * structure stay from the package.
  */
 import Base from "@chirag127/astro-shell/layouts/Base.astro";
-import Layout from "@chirag127/astro-chrome/Layout.astro";
+import Sidebar from "@chirag127/astro-chrome/Sidebar.astro";
+import Footer from "@chirag127/astro-chrome/Footer.astro";
+import BottomBar from "@chirag127/astro-chrome/BottomBar.astro";
+import Header from "../components/Header.astro";
+import AppSidebarContent from "../components/AppSidebarContent.astro";
+import { bottomBarActions } from "../data/bottombar-actions";
+import "@chirag127/astro-shell/tokens.css";
 import "../styles.css";
 
 export type Props = Parameters<typeof Base>[0];
 const props = Astro.props;
-const bottomBarActions = [
-  { icon: '⌂', label: 'Home', href: 'https://oriz.in/' },
-  { icon: '✎', label: 'Blog', href: 'https://blog.oriz.in/' },
-  { icon: '⚒', label: 'Tools', href: 'https://oriz.in/tools/' },
-  { icon: 'ℹ', label: 'About', href: '/' },
-]
-import '@chirag127/astro-shell/tokens.css'
 ---
-
 <Base {...props}>
-	<slot name="head" slot="head" />
-	<slot name="seo" slot="seo" />
-	<Layout bottomBarActions={bottomBarActions}>
-		<slot />
-	</Layout>
-	<slot name="footer" slot="footer" />
+  <slot name="head" slot="head" />
+  <slot name="seo" slot="seo" />
+  <Header />
+  <div class="app-shell">
+    <Sidebar>
+      <AppSidebarContent />
+    </Sidebar>
+    <main class="app-main">
+      <slot />
+    </main>
+  </div>
+  <Footer />
+  <BottomBar actions={bottomBarActions} />
+  <slot name="footer" slot="footer" />
 </Base>
+<style>
+  .app-shell { display: flex; min-height: calc(100vh - 120px); }
+  .app-main { flex: 1; padding: 1.5rem; padding-bottom: 72px; }
+  @media (min-width: 768px) { .app-main { padding-bottom: 1.5rem; } }
+</style>

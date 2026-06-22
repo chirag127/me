@@ -1,0 +1,49 @@
+---
+/*
+ * AppSidebarContent — slot content for the package Sidebar drawer.
+ * Per-app navigation groups for me.oriz.in.
+ */
+const groups = [
+  { label: 'Profile', items: [
+    { href: '/',    label: 'Home' },
+    { href: '/now', label: 'Now' },
+    { href: '/uses', label: 'Uses' },
+    { href: '/cv',  label: 'CV / Resume' },
+  ]},
+  { label: 'Work', items: [
+    { href: '/projects', label: 'Projects' },
+    { href: '/writing',  label: 'Writing' },
+  ]},
+  { label: 'Interests', items: [
+    { href: '/reading', label: 'Reading' },
+    { href: '/music',   label: 'Music' },
+    { href: '/movies',  label: 'Movies' },
+  ]},
+  { label: 'Contact', items: [
+    { href: '/contact', label: 'Contact' },
+    { href: '/privacy', label: 'Privacy' },
+  ]},
+]
+---
+{groups.map((g) => (
+  <section class="sb-group">
+    <h3>{g.label}</h3>
+    <ul>{g.items.map((i) => (<li><a href={i.href}>{i.label}</a></li>))}</ul>
+  </section>
+))}
+<style>
+  .sb-group { margin-bottom: 1rem; }
+  .sb-group h3 {
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--color-ink-mute, var(--ink-mute, #888));
+    margin: 0 0 0.4rem; padding: 0 0.5rem;
+  }
+  .sb-group ul { list-style: none; margin: 0; padding: 0; }
+  .sb-group li a {
+    display: block; padding: 0.3rem 0.5rem;
+    color: var(--color-ink, var(--ink, #111));
+    text-decoration: none; font-size: 0.9rem;
+  }
+  .sb-group li a:hover { background: var(--color-rule, var(--rule, #eee)); }
+</style>

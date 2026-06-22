@@ -1,0 +1,58 @@
+---
+/*
+ * Header — per-app horizontal tab bar for me.oriz.in.
+ *
+ * Datasheet-white theme, hairline rule under, brand left + tabs right.
+ * Pure HTML/CSS — no JS, no JSON-LD.
+ */
+const tabs = [
+  { href: '/',        label: 'Home' },
+  { href: '/now',     label: 'Now' },
+  { href: '/uses',    label: 'Uses' },
+  { href: '/cv',      label: 'CV' },
+  { href: '/contact', label: 'Contact' },
+]
+const current = Astro.url.pathname.replace(/\/$/, '') || '/'
+---
+<header class="app-header">
+  <a href="/" class="brand"><span class="b-oriz">oriz</span><span class="b-sep">/</span><span class="b-app">cs</span></a>
+  <nav aria-label="Primary">
+    <ul>
+      {tabs.map((t) => {
+        const active = t.href === '/' ? current === '/' : current === t.href
+        return (
+          <li>
+            <a href={t.href} aria-current={active ? 'page' : undefined}>{t.label}</a>
+          </li>
+        )
+      })}
+    </ul>
+  </nav>
+</header>
+<style>
+  .app-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid var(--color-rule, var(--rule, #e5e5e5));
+    background: var(--color-paper, var(--paper, #fafafa));
+    font-family: var(--font-mono, ui-monospace, monospace);
+  }
+  .brand { text-decoration: none; color: var(--color-ink, var(--ink, #111)); letter-spacing: 0.02em; }
+  .b-sep { margin: 0 0.35rem; color: var(--color-ink-mute, var(--ink-mute, #888)); }
+  .b-app { color: var(--color-accent, var(--mustard, #b8860b)); }
+  nav ul {
+    display: flex; gap: 1.25rem; list-style: none; margin: 0; padding: 0;
+    font-size: 0.9rem;
+  }
+  nav a {
+    color: var(--color-ink-mute, var(--ink-mute, #666));
+    text-decoration: none; letter-spacing: 0.02em;
+  }
+  nav a:hover, nav a[aria-current="page"] {
+    color: var(--color-ink, var(--ink, #111));
+  }
+  @media (max-width: 600px) {
+    nav ul { gap: 0.75rem; font-size: 0.8rem; }
+    .app-header { padding: 0.5rem 0.75rem; }
+  }
+</style>
