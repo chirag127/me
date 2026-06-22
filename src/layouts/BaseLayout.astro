@@ -12,16 +12,25 @@
  * components into the shell's named slots from this file.
  */
 import Base from "@chirag127/astro-shell/layouts/Base.astro";
+import Layout from "@chirag127/astro-chrome/Layout.astro";
 import "../styles.css";
 
 export type Props = Parameters<typeof Base>[0];
 const props = Astro.props;
+const bottomBarActions = [
+  { icon: '⌂', label: 'Home', href: 'https://oriz.in/' },
+  { icon: '✎', label: 'Blog', href: 'https://blog.oriz.in/' },
+  { icon: '⚒', label: 'Tools', href: 'https://oriz.in/tools/' },
+  { icon: 'ℹ', label: 'About', href: '/' },
+]
 import '@chirag127/astro-shell/tokens.css'
 ---
 
 <Base {...props}>
 	<slot name="head" slot="head" />
 	<slot name="seo" slot="seo" />
-	<slot />
+	<Layout bottomBarActions={bottomBarActions}>
+		<slot />
+	</Layout>
 	<slot name="footer" slot="footer" />
 </Base>
