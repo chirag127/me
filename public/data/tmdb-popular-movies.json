@@ -7,15 +7,15 @@
     "overview": "Odysseus, the legendary King of Ithaca, embarks on a long and perilous journey home following the Trojan War. Throughout his voyage, he is forced to confront the whims of gods, mythological monsters, and trials that stretch both his cunning and his humanity to the breaking point.",
     "poster": "https://image.tmdb.org/t/p/w342/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/tYuC9kUwqhpDQ3pv1kLMqyMF1Jw.jpg",
-    "rating": 8,
-    "votes": 1276,
+    "rating": 7.9,
+    "votes": 1401,
     "release": "2026-07-15",
     "genres": [
       12,
       28,
       14
     ],
-    "popularity": 979.0823
+    "popularity": 1009.6524
   },
   {
     "id": 1275779,
@@ -25,14 +25,14 @@
     "overview": "A cybersecurity expert becomes a whistleblower after uncovering secrets about aliens, putting him on the run from a corporation. Meanwhile, a meteorologist experiencing strange phenomena joins forces with him to prove there's life beyond our understanding.",
     "poster": "https://image.tmdb.org/t/p/w342/AnJ8IQJI23hNpYXVNaythu061Ru.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/flxau5Iu7bChQHsESqvGZ3FQRaI.jpg",
-    "rating": 7.196,
-    "votes": 1508,
+    "rating": 7.275,
+    "votes": 1632,
     "release": "2026-06-10",
     "genres": [
       878,
       53
     ],
-    "popularity": 558.4583
+    "popularity": 570.1557
   },
   {
     "id": 1108427,
@@ -41,9 +41,9 @@
     "title": "Moana",
     "overview": "Teenage Moana answers the Ocean's call and, for the first time, voyages beyond the reef of her island of Motunui with infamous demigod Maui on an unforgettable journey to restore prosperity to her people.",
     "poster": "https://image.tmdb.org/t/p/w342/zKVgiv5qHCvCLT4A2ymJi5QeXDH.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/76WFQTmh4gsqYpWTejxuEu5Iu69.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/c6BPbkO5Npt1OdwttAxCFo06wtH.jpg",
     "rating": 5.9,
-    "votes": 139,
+    "votes": 140,
     "release": "2026-07-08",
     "genres": [
       10751,
@@ -51,7 +51,7 @@
       35,
       12
     ],
-    "popularity": 515.4828
+    "popularity": 524.7725
   },
   {
     "id": 1339713,
@@ -61,14 +61,14 @@
     "overview": "After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.",
     "poster": "https://image.tmdb.org/t/p/w342/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/r013C8Me2bZ0pUi0OWJRh0h7MzT.jpg",
-    "rating": 8.241,
-    "votes": 3591,
+    "rating": 8.243,
+    "votes": 3641,
     "release": "2026-05-13",
     "genres": [
       27,
       53
     ],
-    "popularity": 407.6643
+    "popularity": 399.8726
   },
   {
     "id": 1083381,
@@ -79,14 +79,50 @@
     "poster": "https://image.tmdb.org/t/p/w342/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/2aA8iPlMCks3k131ymFBAY6FL0b.jpg",
     "rating": 7.089,
-    "votes": 2025,
+    "votes": 2070,
     "release": "2026-05-27",
     "genres": [
       27,
       9648,
       878
     ],
-    "popularity": 385.4853
+    "popularity": 385.1439
+  },
+  {
+    "id": 1081003,
+    "tmdb_id": 1081003,
+    "type": "movie",
+    "title": "Supergirl",
+    "overview": "When an unexpected and ruthless adversary strikes too close to home, Kara Zor-El, aka Supergirl, reluctantly joins forces with an unlikely companion on an epic, interstellar journey of vengeance and justice.",
+    "poster": "https://image.tmdb.org/t/p/w342/niSvU02l2BONH9ivubV6K1a5QiK.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/8CIgg0gCHIYz0jrx5IcZEOy047J.jpg",
+    "rating": 6.1,
+    "votes": 519,
+    "release": "2026-06-24",
+    "genres": [
+      28,
+      12,
+      878
+    ],
+    "popularity": 371.4728
+  },
+  {
+    "id": 454639,
+    "tmdb_id": 454639,
+    "type": "movie",
+    "title": "Masters of the Universe",
+    "overview": "After being separated for 15 years, the Sword of Power leads Prince Adam back to Eternia, where he discovers his home shattered under the fiendish rule of Skeletor. To save his family and his world, Adam must join forces with his closest allies, Teela and Duncan/Man-At-Arms, and embrace his true destiny as He-Man — the most powerful man in the universe.",
+    "poster": "https://image.tmdb.org/t/p/w342/oRuyGUHdoaQxWP3SDfafGkStxTC.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/piV2OnzTZCyGBP9JCjlHIgKGlfo.jpg",
+    "rating": 7.342,
+    "votes": 971,
+    "release": "2026-06-03",
+    "genres": [
+      28,
+      14,
+      878
+    ],
+    "popularity": 341.3882
   },
   {
     "id": 1315772,
@@ -97,7 +133,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/nz7i42yhLIJ4ve9JKgM6NthoLHO.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/kkcwhgSFd81QDlXo8ytrpHPQjhy.jpg",
     "rating": 6.4,
-    "votes": 223,
+    "votes": 231,
     "release": "2026-06-24",
     "genres": [
       12,
@@ -106,25 +142,7 @@
       10751,
       14
     ],
-    "popularity": 333.0288
-  },
-  {
-    "id": 1081003,
-    "tmdb_id": 1081003,
-    "type": "movie",
-    "title": "Supergirl",
-    "overview": "When an unexpected and ruthless adversary strikes too close to home, Kara Zor-El, aka Supergirl, reluctantly joins forces with an unlikely companion on an epic, interstellar journey of vengeance and justice.",
-    "poster": "https://image.tmdb.org/t/p/w342/niSvU02l2BONH9ivubV6K1a5QiK.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/8CIgg0gCHIYz0jrx5IcZEOy047J.jpg",
-    "rating": 6.2,
-    "votes": 518,
-    "release": "2026-06-24",
-    "genres": [
-      28,
-      12,
-      878
-    ],
-    "popularity": 364.8746
+    "popularity": 325.4656
   },
   {
     "id": 1084244,
@@ -134,8 +152,8 @@
     "overview": "When Bonnie receives a Lilypad tablet as a gift and becomes obsessed, Buzz, Woody, Jessie and the rest of the gang's jobs become exponentially harder when they have to go head to head with the all-new threat to playtime.",
     "poster": "https://image.tmdb.org/t/p/w342/sfQtVlIHljToOwYjhe21KPGzZWK.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/qjTqY5coNiz6sVtPng40IzltsoN.jpg",
-    "rating": 7.425,
-    "votes": 693,
+    "rating": 7.4,
+    "votes": 696,
     "release": "2026-06-17",
     "genres": [
       16,
@@ -143,25 +161,7 @@
       35,
       12
     ],
-    "popularity": 322.0636
-  },
-  {
-    "id": 454639,
-    "tmdb_id": 454639,
-    "type": "movie",
-    "title": "Masters of the Universe",
-    "overview": "After being separated for 15 years, the Sword of Power leads Prince Adam back to Eternia, where he discovers his home shattered under the fiendish rule of Skeletor. To save his family and his world, Adam must join forces with his closest allies, Teela and Duncan/Man-At-Arms, and embrace his true destiny as He-Man — the most powerful man in the universe.",
-    "poster": "https://image.tmdb.org/t/p/w342/oRuyGUHdoaQxWP3SDfafGkStxTC.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/piV2OnzTZCyGBP9JCjlHIgKGlfo.jpg",
-    "rating": 7.373,
-    "votes": 825,
-    "release": "2026-06-03",
-    "genres": [
-      28,
-      14,
-      878
-    ],
-    "popularity": 359.8509
+    "popularity": 332.9207
   },
   {
     "id": 1273221,
@@ -171,48 +171,14 @@
     "overview": "Twenty-six years after outrunning a suspiciously familiar masked killer, the Core Four are back in the killer's crosshairs and no horror movie IP is safe.",
     "poster": "https://image.tmdb.org/t/p/w342/znHT8peERZRWG1ME3r0Db0EV8k8.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/xWBiXclrRmTggQHMRsIn84YHavs.jpg",
-    "rating": 6.467,
-    "votes": 1018,
+    "rating": 6.476,
+    "votes": 1083,
     "release": "2026-06-03",
     "genres": [
       35,
       27
     ],
-    "popularity": 314.886
-  },
-  {
-    "id": 1228710,
-    "tmdb_id": 1228710,
-    "type": "movie",
-    "title": "The Mandalorian and Grogu",
-    "overview": "The evil Empire has fallen, and Imperial warlords remain scattered throughout the galaxy. As the fledgling New Republic works to protect everything the Rebellion fought for, they have enlisted the help of legendary Mandalorian bounty hunter Din Djarin and his young apprentice Grogu.",
-    "poster": "https://image.tmdb.org/t/p/w342/7GV5rrUJf0BRUhoh2cyFoeNthlQ.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/ysLlsAxwgNSxBWHCgTKJrmjxpRQ.jpg",
-    "rating": 7.139,
-    "votes": 837,
-    "release": "2026-05-20",
-    "genres": [
-      28,
-      12,
-      878
-    ],
-    "popularity": 217.959
-  },
-  {
-    "id": 1727780,
-    "tmdb_id": 1727780,
-    "type": "movie",
-    "title": "Borderline",
-    "overview": "Convinced they are our secret saviors, rogue U.S. operatives abduct Mexican gang members and seed them across major American cities, unleashing criminal chaos, swaying voters by playing on nativist prejudices, and forcing law enforcement into a race to expose the plot as the escalating carnage threatens democracy itself.",
-    "poster": "https://image.tmdb.org/t/p/w342/sAA2mjpYJFAKydtzG4P4aHC4mZk.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/t5iMyppJhIdjPQDAWIWoilO5iYf.jpg",
-    "rating": 7.5,
-    "votes": 2,
-    "release": "2026-07-17",
-    "genres": [
-      53
-    ],
-    "popularity": 219.5783
+    "popularity": 294.0742
   },
   {
     "id": 1668364,
@@ -222,31 +188,48 @@
     "overview": "Lucero’s life appears immaculate: a wealthy household, a devoted husband, and two children who embody the promise of a perfect family. Yet beneath this surface simmers a quiet dissatisfaction. When Matías, a young swimming coach hired by her husband, enters their lives, Lucero finds herself pulled into a risky and consuming relationship. As secrecy, desire, and jealousy tighten their grip, the boundaries within the family begin to collapse, placing mother and daughter in a dangerous emotional triangle that threatens to shatter everything Lucero has built.",
     "poster": "https://image.tmdb.org/t/p/w342/3bEqHqeaQlFykaLQ7N4gDkIvL5w.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/oBter8Y5p2ZFUwWgQ1T9pulGFTJ.jpg",
-    "rating": 7,
-    "votes": 105,
+    "rating": 7.116,
+    "votes": 112,
     "release": "2026-05-07",
     "genres": [
       9648,
       18
     ],
-    "popularity": 308.5165
+    "popularity": 269.1514
   },
   {
-    "id": 687163,
-    "tmdb_id": 687163,
+    "id": 1727780,
+    "tmdb_id": 1727780,
     "type": "movie",
-    "title": "Project Hail Mary",
-    "overview": "Science teacher Ryland Grace wakes up on a spaceship light years from home with no recollection of who he is or how he got there. As his memory returns, he begins to uncover his mission: solve the riddle of the mysterious substance causing the sun to die out. He must call on his scientific knowledge and unorthodox ideas to save everything on Earth from extinction.",
-    "poster": "https://image.tmdb.org/t/p/w342/yihdXomYb5kTeSivtFndMy5iDmf.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/2I1OFQJ0L9T0dpU6FobKFWV2PxX.jpg",
-    "rating": 8.659,
-    "votes": 6380,
-    "release": "2026-03-15",
+    "title": "Borderline",
+    "overview": "Convinced they are our secret saviors, rogue U.S. operatives abduct Mexican gang members and seed them across major American cities, unleashing criminal chaos, swaying voters by playing on nativist prejudices, and forcing law enforcement into a race to expose the plot as the escalating carnage threatens democracy itself.",
+    "poster": "https://image.tmdb.org/t/p/w342/sAA2mjpYJFAKydtzG4P4aHC4mZk.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/t5iMyppJhIdjPQDAWIWoilO5iYf.jpg",
+    "rating": 7.667,
+    "votes": 3,
+    "release": "2026-07-17",
     "genres": [
-      878,
-      12
+      53
     ],
-    "popularity": 183.9877
+    "popularity": 243.8598
+  },
+  {
+    "id": 1228710,
+    "tmdb_id": 1228710,
+    "type": "movie",
+    "title": "The Mandalorian and Grogu",
+    "overview": "The evil Empire has fallen, and Imperial warlords remain scattered throughout the galaxy. As the fledgling New Republic works to protect everything the Rebellion fought for, they have enlisted the help of legendary Mandalorian bounty hunter Din Djarin and his young apprentice Grogu.",
+    "poster": "https://image.tmdb.org/t/p/w342/7GV5rrUJf0BRUhoh2cyFoeNthlQ.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/ysLlsAxwgNSxBWHCgTKJrmjxpRQ.jpg",
+    "rating": 7.2,
+    "votes": 879,
+    "release": "2026-05-20",
+    "genres": [
+      28,
+      12,
+      878
+    ],
+    "popularity": 220.7612
   },
   {
     "id": 969681,
@@ -256,15 +239,50 @@
     "overview": "Fighting crime full-time as Spider-Man in a world that doesn't remember him—and the pressure of seeing his old friends move on without him—sparks a change in Peter Parker he may not have the power to control. But that transformation might also be the only thing that can stop a shocking new threat to the city and those he loves - a powerful villain no one can even see.",
     "poster": "https://image.tmdb.org/t/p/w342/6Q21yptoOCUq4ErwVncesLPVplb.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/vjMvFSmGUxEtqVdaZgvFee9XkZl.jpg",
-    "rating": 8.8,
-    "votes": 10,
+    "rating": 9.1,
+    "votes": 13,
     "release": "2026-07-28",
     "genres": [
       878,
       28,
       12
     ],
-    "popularity": 187.0969
+    "popularity": 204.9524
+  },
+  {
+    "id": 687163,
+    "tmdb_id": 687163,
+    "type": "movie",
+    "title": "Project Hail Mary",
+    "overview": "Science teacher Ryland Grace wakes up on a spaceship light years from home with no recollection of who he is or how he got there. As his memory returns, he begins to uncover his mission: solve the riddle of the mysterious substance causing the sun to die out. He must call on his scientific knowledge and unorthodox ideas to save everything on Earth from extinction.",
+    "poster": "https://image.tmdb.org/t/p/w342/yihdXomYb5kTeSivtFndMy5iDmf.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/2I1OFQJ0L9T0dpU6FobKFWV2PxX.jpg",
+    "rating": 8.657,
+    "votes": 6414,
+    "release": "2026-03-15",
+    "genres": [
+      878,
+      12
+    ],
+    "popularity": 197.9798
+  },
+  {
+    "id": 1630409,
+    "tmdb_id": 1630409,
+    "type": "movie",
+    "title": "The Debt Collector",
+    "overview": "Tormented by past mistakes and a terminal diagnosis, an ex-debt collector returns to the underworld to protect the victims of a violent organization.",
+    "poster": "https://image.tmdb.org/t/p/w342/7HEMg4ZonD0YIcztf1Sp199cBb9.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/5Va6qlwvpneo0XLzGFlvgYH5ncP.jpg",
+    "rating": 7.2,
+    "votes": 12,
+    "release": "2026-07-20",
+    "genres": [
+      28,
+      53,
+      80
+    ],
+    "popularity": 176.7201
   },
   {
     "id": 1318621,
@@ -274,15 +292,16 @@
     "overview": "Now that the Queen of Hearts is nice and Cinderella is safe, things seem perfect for Red and Chloe… But little do they know that changing the past created a new villain — Maddox Hatter. When Maddox captures the Queen of Hearts, Red and Chloe must work alongside Red’s new sister Pink, Luisa Madrigal’s son Luis, and Maddox’s son Max to save her and Wonderland.",
     "poster": "https://image.tmdb.org/t/p/w342/xdhLAADGSse8KCrsDLBuM5b68Cg.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/idRLKyu43mRhMWNjzd6FiEromNI.jpg",
-    "rating": 7.7,
-    "votes": 98,
+    "rating": 7.8,
+    "votes": 103,
     "release": "2026-07-16",
     "genres": [
       14,
       10751,
-      10770
+      10770,
+      12
     ],
-    "popularity": 167.2502
+    "popularity": 163.3879
   },
   {
     "id": 1523145,
@@ -298,7 +317,7 @@
     "genres": [
       10749
     ],
-    "popularity": 162.5813
+    "popularity": 179.7306
   },
   {
     "id": 1314481,
@@ -308,47 +327,32 @@
     "overview": "Andy Sachs returns to Runway as Miranda Priestly navigates a new media landscape and Runway's position within. The duo reconnect with former assistant Emily Charlton, now the head of a luxury brand that possesses funding which could ensure Runway's survival.",
     "poster": "https://image.tmdb.org/t/p/w342/fCAURTUx3YfsJ8k9I0UamjSILiR.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/Af907x5h9W1wVis8XrSd7ynTWuy.jpg",
-    "rating": 7.135,
-    "votes": 1635,
+    "rating": 7.1,
+    "votes": 1651,
     "release": "2026-04-29",
     "genres": [
       35,
       18
     ],
-    "popularity": 153.6012
+    "popularity": 153.641
   },
   {
-    "id": 1127384,
-    "tmdb_id": 1127384,
+    "id": 980431,
+    "tmdb_id": 980431,
     "type": "movie",
-    "title": "Deep Water",
-    "overview": "A group of international passengers on a flight from Los Angeles to Shanghai is forced to make an emergency landing in shark-infested waters. The terrified group is forced to work together and overcome their differences if they hope to escape their sinking plane and the frenzy of sharks drawn to the wreckage.",
-    "poster": "https://image.tmdb.org/t/p/w342/kjcuS7xaRyqRjVaVcH4t0qHshuX.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/szKv713FcUXx6hcfdY369vtkmzr.jpg",
-    "rating": 7.374,
-    "votes": 282,
-    "release": "2026-04-30",
+    "title": "Avatar Aang: The Last Airbender",
+    "overview": "Avatar Aang, the world's last Airbender, learns of an ancient power that could save his culture.",
+    "poster": "https://image.tmdb.org/t/p/w342/3sgnSfNT27Bx5O5ukr7B26mhEQq.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/yQe50s6d8DYiFZ6P0cyRSNhTVCz.jpg",
+    "rating": 9.356,
+    "votes": 73,
+    "release": "2026-07-24",
     "genres": [
-      27,
-      53
+      16,
+      28,
+      12,
+      14
     ],
-    "popularity": 146.807
-  },
-  {
-    "id": 1368314,
-    "tmdb_id": 1368314,
-    "type": "movie",
-    "title": "Passenger",
-    "overview": "After a young couple witnesses a gruesome highway accident, they soon realize they did not leave the crash scene alone, as a demonic presence called the Passenger that won't stop until it claims them both turns their van life adventure into a nightmare.",
-    "poster": "https://image.tmdb.org/t/p/w342/2sOEJzhPzjTkZSlPbGxOJ7xgIyS.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/3pDfu71mrzSuFYyIfnKEjt8z4BC.jpg",
-    "rating": 7.263,
-    "votes": 556,
-    "release": "2026-05-20",
-    "genres": [
-      27,
-      53
-    ],
-    "popularity": 122.5057
+    "popularity": 149.2326
   }
 ]
