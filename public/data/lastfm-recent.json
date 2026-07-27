@@ -1,6 +1,942 @@
 [
   {
     "artist": {
+      "mbid": "",
+      "#text": "America Banned Nvidia Chips to Stop China's AI"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "It Backfired",
+    "url": "https://www.last.fm/music/America+Banned+Nvidia+Chips+to+Stop+China%27s+AI/_/It+Backfired",
+    "date": {
+      "uts": "1785088654",
+      "#text": "26 Jul 2026, 17:57"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Problem #3"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "China's Data Center Masterplan",
+    "url": "https://www.last.fm/music/Problem+%233/_/China%27s+Data+Center+Masterplan",
+    "date": {
+      "uts": "1785088554",
+      "#text": "26 Jul 2026, 17:55"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Problem #2"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "How DeepSeek Made AI Dirt Cheap",
+    "url": "https://www.last.fm/music/Problem+%232/_/How+DeepSeek+Made+AI+Dirt+Cheap",
+    "date": {
+      "uts": "1785088439",
+      "#text": "26 Jul 2026, 17:53"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Problem #1"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "China Builds Its Own Chips",
+    "url": "https://www.last.fm/music/Problem+%231/_/China+Builds+Its+Own+Chips",
+    "date": {
+      "uts": "1785088405",
+      "#text": "26 Jul 2026, 17:53"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "America Banned Nvidia Chips to Stop China's AI"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "China Just Beat America at AI",
+    "url": "https://www.last.fm/music/America+Banned+Nvidia+Chips+to+Stop+China%27s+AI/_/China+Just+Beat+America+at+AI",
+    "date": {
+      "uts": "1785088237",
+      "#text": "26 Jul 2026, 17:50"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Dharmendra Pradhan Resigns"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "Amit Shah Speaks On Education Minister's Resignation",
+    "url": "https://www.last.fm/music/Dharmendra+Pradhan+Resigns/_/Amit+Shah+Speaks+On+Education+Minister%27s+Resignation",
+    "date": {
+      "uts": "1785080180",
+      "#text": "26 Jul 2026, 15:36"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Akshat Shrivastava"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "STOP Investing in Indian Markets? (2 years=0 returns!)",
+    "url": "https://www.last.fm/music/Akshat+Shrivastava/_/STOP+Investing+in+Indian+Markets%3F+(2+years=0+returns!)",
+    "date": {
+      "uts": "1785079580",
+      "#text": "26 Jul 2026, 15:26"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Ponytail commands explained (light"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "full/ultra/review/audit/debt)",
+    "url": "https://www.last.fm/music/Ponytail+commands+explained+(light/_/full%2Fultra%2Freview%2Faudit%2Fdebt)",
+    "date": {
+      "uts": "1785076384",
+      "#text": "26 Jul 2026, 14:33"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Brandon Melville"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "Does this need to exist? (YAGNI principle)",
+    "url": "https://www.last.fm/music/Brandon+Melville/_/Does+this+need+to+exist%3F+(YAGNI+principle)",
+    "date": {
+      "uts": "1785076304",
+      "#text": "26 Jul 2026, 14:31"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Intro"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "What is Ponytail?",
+    "url": "https://www.last.fm/music/Intro/_/What+is+Ponytail%3F",
+    "date": {
+      "uts": "1785076254",
+      "#text": "26 Jul 2026, 14:30"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Evan Zhou"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "I Found OpenAI’s $3B Loophole",
+    "url": "https://www.last.fm/music/Evan+Zhou/_/I+Found+OpenAI%E2%80%99s+$3B+Loophole",
+    "date": {
+      "uts": "1785071995",
+      "#text": "26 Jul 2026, 13:19"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "OmniRoute + OpenCode"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "100% Free AI Coding Setup, Free AI Gateway",
+    "url": "https://www.last.fm/music/OmniRoute+%252B+OpenCode/_/100%25+Free+AI+Coding+Setup,+Free+AI+Gateway",
+    "date": {
+      "uts": "1785071205",
+      "#text": "26 Jul 2026, 13:06"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Minimax M3 + Open Design"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "100% Free Claude Design Alternative For UI Designs",
+    "url": "https://www.last.fm/music/Minimax+M3+%252B+Open+Design/_/100%25+Free+Claude+Design+Alternative+For+UI+Designs",
+    "date": {
+      "uts": "1785070314",
+      "#text": "26 Jul 2026, 12:51"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "AI Stack Engineer"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "Supercharge OpenCode With 1300+ Free Skills in One Command Makes It 100x  Powerful",
+    "url": "https://www.last.fm/music/AI+Stack+Engineer/_/Supercharge+OpenCode+With+1300%252B+Free+Skills+in+One+Command+Makes+It+100x++Powerful",
+    "date": {
+      "uts": "1785070090",
+      "#text": "26 Jul 2026, 12:48"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "What Jantar Mantar looks like after protests, clean"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "up & repainting underway",
+    "url": "https://www.last.fm/music/What+Jantar+Mantar+looks+like+after+protests,+clean/_/up+&+repainting+underway",
+    "date": {
+      "uts": "1785069045",
+      "#text": "26 Jul 2026, 12:30"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "News Buzz"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "Rahul Gandhi Reaction To New Education Minister Pralhad Joshi Aggressive Speech In Lok Sabha",
+    "url": "https://www.last.fm/music/News+Buzz/_/Rahul+Gandhi+Reaction+To+New+Education+Minister+Pralhad+Joshi+Aggressive+Speech+In+Lok+Sabha",
+    "date": {
+      "uts": "1785068874",
+      "#text": "26 Jul 2026, 12:27"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "AI Stack Engineer"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "OpenCode Persistent Memory Across Sessions, 10x Token Savings",
+    "url": "https://www.last.fm/music/AI+Stack+Engineer/_/OpenCode+Persistent+Memory+Across+Sessions,+10x+Token+Savings",
+    "date": {
+      "uts": "1785068714",
+      "#text": "26 Jul 2026, 12:25"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Graphify vs GitNexus vs CodeGraph"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "Which Code Knowledge Graph Should You Use?",
+    "url": "https://www.last.fm/music/Graphify+vs+GitNexus+vs+CodeGraph/_/Which+Code+Knowledge+Graph+Should+You+Use%3F",
+    "date": {
+      "uts": "1785067268",
+      "#text": "26 Jul 2026, 12:01"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Graphify vs. RAG"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "Deterministic mapping explained",
+    "url": "https://www.last.fm/music/Graphify+vs.+RAG/_/Deterministic+mapping+explained",
+    "date": {
+      "uts": "1785066473",
+      "#text": "26 Jul 2026, 11:47"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Chase AI"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "Graphify + Obsidian",
+    "url": "https://www.last.fm/music/Chase+AI/_/Graphify+%252B+Obsidian",
+    "date": {
+      "uts": "1785066241",
+      "#text": "26 Jul 2026, 11:44"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Little Coder"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "Intro",
+    "url": "https://www.last.fm/music/Little+Coder/_/Intro",
+    "date": {
+      "uts": "1785066156",
+      "#text": "26 Jul 2026, 11:42"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Graphify + Obsidian is INSANE"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "Building an Obsidian AI Second Brain",
+    "url": "https://www.last.fm/music/Graphify+%252B+Obsidian+is+INSANE/_/Building+an+Obsidian+AI+Second+Brain",
+    "date": {
+      "uts": "1785066108",
+      "#text": "26 Jul 2026, 11:41"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Graphify + Obsidian is INSANE"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "Parsing Code, Audio & Documents",
+    "url": "https://www.last.fm/music/Graphify+%252B+Obsidian+is+INSANE/_/Parsing+Code,+Audio+&+Documents",
+    "date": {
+      "uts": "1785066018",
+      "#text": "26 Jul 2026, 11:40"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "The Myth of Modi's Invincibility Was Just Broken"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "Indian Express",
+    "url": "https://www.last.fm/music/The+Myth+of+Modi%27s+Invincibility+Was+Just+Broken/_/Indian+Express",
+    "date": {
+      "uts": "1785064159",
+      "#text": "26 Jul 2026, 11:09"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "War Of Words Between Rahul Gandhi vs Amit Shah , PM Modi Reaction In Lok Sabha"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "News Buzz",
+    "url": "https://www.last.fm/music/War+Of+Words+Between+Rahul+Gandhi+vs+Amit+Shah+,+PM+Modi+Reaction+In+Lok+Sabha/_/News+Buzz",
+    "date": {
+      "uts": "1785063830",
+      "#text": "26 Jul 2026, 11:03"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Colibri : Run a 744B AI Model on 25GB RAM Locally"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "No GPU Required",
+    "url": "https://www.last.fm/music/Colibri+:+Run+a+744B+AI+Model+on+25GB+RAM+Locally/_/No+GPU+Required",
+    "date": {
+      "uts": "1785063486",
+      "#text": "26 Jul 2026, 10:58"
+    }
+  },
+  {
+    "artist": {
       "mbid": "97e69730-3791-423b-9770-287261588854",
       "#text": "Alessia Cara"
     },
@@ -95,7 +1031,7 @@
         "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/c7cf0cd2fcd6efb0a33e063a8d82ff0e.png"
       }
     ],
-    "mbid": "be1195eb-6b1b-4525-ac42-11efe507fb98",
+    "mbid": "",
     "album": {
       "mbid": "0835769f-8995-4720-9937-6ed89eff8b42",
       "#text": "Unorthodox Jukebox"
@@ -2661,942 +3597,6 @@
     "date": {
       "uts": "1783752853",
       "#text": "11 Jul 2026, 06:54"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "The Solo Entrepreneur"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "OpenAI is so back... GPT 5.6 Sol first look",
-    "url": "https://www.last.fm/music/The+Solo+Entrepreneur/_/OpenAI+is+so+back...+GPT+5.6+Sol+first+look",
-    "date": {
-      "uts": "1783752803",
-      "#text": "11 Jul 2026, 06:53"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "The Viral GLM 5.2"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "World’s #1 FREE Open-Source AI Model!",
-    "url": "https://www.last.fm/music/The+Viral+GLM+5.2/_/World%E2%80%99s+%231+FREE+Open-Source+AI+Model!",
-    "date": {
-      "uts": "1783752638",
-      "#text": "11 Jul 2026, 06:50"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "Fireship"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "Functions",
-    "url": "https://www.last.fm/music/Fireship/_/Functions",
-    "date": {
-      "uts": "1783752147",
-      "#text": "11 Jul 2026, 06:42"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "Fireship"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "Data Types",
-    "url": "https://www.last.fm/music/Fireship/_/Data+Types",
-    "date": {
-      "uts": "1783752077",
-      "#text": "11 Jul 2026, 06:41"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "Fireship"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "Binary",
-    "url": "https://www.last.fm/music/Fireship/_/Binary",
-    "date": {
-      "uts": "1783752008",
-      "#text": "11 Jul 2026, 06:40"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "Fireship"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "The Computer",
-    "url": "https://www.last.fm/music/Fireship/_/The+Computer",
-    "date": {
-      "uts": "1783751970",
-      "#text": "11 Jul 2026, 06:39"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "Mehul Mohan"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "I Tried GPT 5.6, Fable 5, Grok 4.5 For 24 Hours",
-    "url": "https://www.last.fm/music/Mehul+Mohan/_/I+Tried+GPT+5.6,+Fable+5,+Grok+4.5+For+24+Hours",
-    "date": {
-      "uts": "1783751173",
-      "#text": "11 Jul 2026, 06:26"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "AI News: GPT"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "OpenAI SuperApp",
-    "url": "https://www.last.fm/music/AI+News:+GPT/_/OpenAI+SuperApp",
-    "date": {
-      "uts": "1783701838",
-      "#text": "10 Jul 2026, 16:43"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "GPT"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "6",
-    "url": "https://www.last.fm/music/GPT/_/6",
-    "date": {
-      "uts": "1783701798",
-      "#text": "10 Jul 2026, 16:43"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "Dr Shashi Tharoor MP"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "Britain Does Owe Reparations",
-    "url": "https://www.last.fm/music/Dr+Shashi+Tharoor+MP/_/Britain+Does+Owe+Reparations",
-    "date": {
-      "uts": "1783701138",
-      "#text": "10 Jul 2026, 16:32"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "Shashi Tharoor Vs Vikram Sampath"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "Debating Heritage, History & Hubris",
-    "url": "https://www.last.fm/music/Shashi+Tharoor+Vs+Vikram+Sampath/_/Debating+Heritage,+History+&+Hubris",
-    "date": {
-      "uts": "1783700591",
-      "#text": "10 Jul 2026, 16:23"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "Brut India"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "Is Reservation Compromising Merit? Shashi Tharoor & D.Y. Chandrachud Answers",
-    "url": "https://www.last.fm/music/Brut+India/_/Is+Reservation+Compromising+Merit%3F+Shashi+Tharoor+&+D.Y.+Chandrachud+Answers",
-    "date": {
-      "uts": "1783700356",
-      "#text": "10 Jul 2026, 16:19"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "Are Men Unsafe in India?"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "National Commission for Men Bill Introduced",
-    "url": "https://www.last.fm/music/Are+Men+Unsafe+in+India%3F/_/National+Commission+for+Men+Bill+Introduced",
-    "date": {
-      "uts": "1783699964",
-      "#text": "10 Jul 2026, 16:12"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "Troye Sivan"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "In A Dream EP Live",
-    "url": "https://www.last.fm/music/Troye+Sivan/_/In+A+Dream+EP+Live",
-    "date": {
-      "uts": "1783698346",
-      "#text": "10 Jul 2026, 15:45"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "Troye Sivan"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "Blue Neighbourhood Trilogy (Director’s Cut)",
-    "url": "https://www.last.fm/music/Troye+Sivan/_/Blue+Neighbourhood+Trilogy+(Director%E2%80%99s+Cut)",
-    "date": {
-      "uts": "1783697822",
-      "#text": "10 Jul 2026, 15:37"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "BIG BASH LEAGUE IN INDIA"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "PM Modi's Major Cricket Announcement",
-    "url": "https://www.last.fm/music/BIG+BASH+LEAGUE+IN+INDIA/_/PM+Modi%27s+Major+Cricket+Announcement",
-    "date": {
-      "uts": "1783697589",
-      "#text": "10 Jul 2026, 15:33"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "Iran's 'Savage' Threat To Europe After Gulf Strikes"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "Ankit Agrawal Study IQ",
-    "url": "https://www.last.fm/music/Iran%27s+%27Savage%27+Threat+To+Europe+After+Gulf+Strikes/_/Ankit+Agrawal+Study+IQ",
-    "date": {
-      "uts": "1783673914",
-      "#text": "10 Jul 2026, 08:58"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "7eb1ce54-a355-41f9-8d68-e018b096d427",
-      "#text": "Harry Styles"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/7940fbb1df766b4683951aed490a8b5a.jpg"
-      },
-      {
-        "size": "medium",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/7940fbb1df766b4683951aed490a8b5a.jpg"
-      },
-      {
-        "size": "large",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/7940fbb1df766b4683951aed490a8b5a.jpg"
-      },
-      {
-        "size": "extralarge",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/7940fbb1df766b4683951aed490a8b5a.jpg"
-      }
-    ],
-    "mbid": "bf02e5a2-3f7e-4e1f-8253-b592c11befea",
-    "album": {
-      "mbid": "5c8a772d-fb0a-46ab-a5d8-6317546b727a",
-      "#text": "Fine Line"
-    },
-    "name": "Adore You",
-    "url": "https://www.last.fm/music/Harry+Styles/_/Adore+You",
-    "date": {
-      "uts": "1783669491",
-      "#text": "10 Jul 2026, 07:44"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "525f1f1c-03f0-4bc8-8dfd-e7521f87631b",
-      "#text": "Charlie Puth"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "3acffba9-6cb5-49cc-8b10-80f97206f5f0",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "That's Not How This Works (feat. dan + shay)",
-    "url": "https://www.last.fm/music/Charlie+Puth/_/That%27s+Not+How+This+Works+(feat.+dan+%252B+shay)",
-    "date": {
-      "uts": "1783669279",
-      "#text": "10 Jul 2026, 07:41"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "bc153bd5-7963-4195-a6fb-c38588f31007",
-      "#text": "Ruel"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/eacc91cc917f7f7ee54a743db731cb70.jpg"
-      },
-      {
-        "size": "medium",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/eacc91cc917f7f7ee54a743db731cb70.jpg"
-      },
-      {
-        "size": "large",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/eacc91cc917f7f7ee54a743db731cb70.jpg"
-      },
-      {
-        "size": "extralarge",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/eacc91cc917f7f7ee54a743db731cb70.jpg"
-      }
-    ],
-    "mbid": "3f809996-08c9-41f6-ab68-e89fa0bf3c65",
-    "album": {
-      "mbid": "2c629936-0e61-4f49-a93d-266f604a40ca",
-      "#text": "Younger"
-    },
-    "name": "Younger",
-    "url": "https://www.last.fm/music/Ruel/_/Younger",
-    "date": {
-      "uts": "1783668989",
-      "#text": "10 Jul 2026, 07:36"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
-      "#text": "Troye Sivan"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/f5882ddaea5c7724e229b86849df4daa.jpg"
-      },
-      {
-        "size": "medium",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/f5882ddaea5c7724e229b86849df4daa.jpg"
-      },
-      {
-        "size": "large",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/f5882ddaea5c7724e229b86849df4daa.jpg"
-      },
-      {
-        "size": "extralarge",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/f5882ddaea5c7724e229b86849df4daa.jpg"
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "8f1e2ccc-43b3-40d9-8ddf-8c2eedb630d7",
-      "#text": "Angel Baby"
-    },
-    "name": "Angel Baby",
-    "url": "https://www.last.fm/music/Troye+Sivan/_/Angel+Baby",
-    "date": {
-      "uts": "1783668767",
-      "#text": "10 Jul 2026, 07:32"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "e116e0be-c371-4d57-bc09-e2d762d82540",
-      "#text": "Jeremy Zucker"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "medium",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "large",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "extralarge",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": "Indie Mix"
-    },
-    "name": "comethru",
-    "url": "https://www.last.fm/music/Jeremy+Zucker/_/comethru",
-    "date": {
-      "uts": "1783668577",
-      "#text": "10 Jul 2026, 07:29"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "b7d92248-97e3-4450-8057-6fe06738f735",
-      "#text": "Shawn Mendes"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/ae06e2fcdfade4102007dcc5ffa9423d.jpg"
-      },
-      {
-        "size": "medium",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/ae06e2fcdfade4102007dcc5ffa9423d.jpg"
-      },
-      {
-        "size": "large",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/ae06e2fcdfade4102007dcc5ffa9423d.jpg"
-      },
-      {
-        "size": "extralarge",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/ae06e2fcdfade4102007dcc5ffa9423d.jpg"
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": "Illuminate (Deluxe)"
-    },
-    "name": "Three Empty Words",
-    "url": "https://www.last.fm/music/Shawn+Mendes/_/Three+Empty+Words",
-    "date": {
-      "uts": "1783668353",
-      "#text": "10 Jul 2026, 07:25"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "b8a7c51f-362c-4dcb-a259-bc6e0095f0a6",
-      "#text": "Ed Sheeran"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/d904dd085fb44fabcfd0834b8d2a5d92.png"
-      },
-      {
-        "size": "medium",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/d904dd085fb44fabcfd0834b8d2a5d92.png"
-      },
-      {
-        "size": "large",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/d904dd085fb44fabcfd0834b8d2a5d92.png"
-      },
-      {
-        "size": "extralarge",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/d904dd085fb44fabcfd0834b8d2a5d92.png"
-      }
-    ],
-    "mbid": "83183d93-a7ec-4470-95f7-25a99156eba3",
-    "album": {
-      "mbid": "3ec0cc3a-d3ff-4dff-8509-a133637debca",
-      "#text": "x (Deluxe Edition)"
-    },
-    "name": "Photograph",
-    "url": "https://www.last.fm/music/Ed+Sheeran/_/Photograph",
-    "date": {
-      "uts": "1783668078",
-      "#text": "10 Jul 2026, 07:21"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "7eb1ce54-a355-41f9-8d68-e018b096d427",
-      "#text": "Harry Styles"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/7940fbb1df766b4683951aed490a8b5a.jpg"
-      },
-      {
-        "size": "medium",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/7940fbb1df766b4683951aed490a8b5a.jpg"
-      },
-      {
-        "size": "large",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/7940fbb1df766b4683951aed490a8b5a.jpg"
-      },
-      {
-        "size": "extralarge",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/7940fbb1df766b4683951aed490a8b5a.jpg"
-      }
-    ],
-    "mbid": "60df9158-1815-4b02-887f-d4c4b5b63579",
-    "album": {
-      "mbid": "5c8a772d-fb0a-46ab-a5d8-6317546b727a",
-      "#text": "Fine Line"
-    },
-    "name": "Falling",
-    "url": "https://www.last.fm/music/Harry+Styles/_/Falling",
-    "date": {
-      "uts": "1783667829",
-      "#text": "10 Jul 2026, 07:17"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
-      "#text": "Troye Sivan"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/0aba7bb154427e3825073d9fd0c4f9ea.png"
-      },
-      {
-        "size": "medium",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/0aba7bb154427e3825073d9fd0c4f9ea.png"
-      },
-      {
-        "size": "large",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/0aba7bb154427e3825073d9fd0c4f9ea.png"
-      },
-      {
-        "size": "extralarge",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/0aba7bb154427e3825073d9fd0c4f9ea.png"
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "7f2ef001-7a96-49d3-8978-e22d3ad7b138",
-      "#text": "WILD"
-    },
-    "name": "EASE",
-    "url": "https://www.last.fm/music/Troye+Sivan/_/EASE",
-    "date": {
-      "uts": "1783667585",
-      "#text": "10 Jul 2026, 07:13"
     }
   }
 ]

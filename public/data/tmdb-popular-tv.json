@@ -7,31 +7,13 @@
     "overview": "German daily news program, the oldest still existing program on German television.",
     "poster": "https://image.tmdb.org/t/p/w342/7dFZJ2ZJJdcmkp05B9NWlqTJ5tq.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/jWXrQstj7p3Wl5MfYWY6IHqRpDb.jpg",
-    "rating": 6.743,
-    "votes": 257,
+    "rating": 6.768,
+    "votes": 256,
     "release": "1952-12-26",
     "genres": [
       10763
     ],
-    "popularity": 405.9462
-  },
-  {
-    "id": 94997,
-    "tmdb_id": 94997,
-    "type": "tv",
-    "title": "House of the Dragon",
-    "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
-    "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
-    "rating": 8.375,
-    "votes": 6706,
-    "release": "2022-08-21",
-    "genres": [
-      10765,
-      18,
-      10759
-    ],
-    "popularity": 320.3215
+    "popularity": 362.7664
   },
   {
     "id": 2734,
@@ -49,7 +31,59 @@
       18,
       9648
     ],
-    "popularity": 319.9703
+    "popularity": 331.1511
+  },
+  {
+    "id": 94997,
+    "tmdb_id": 94997,
+    "type": "tv",
+    "title": "House of the Dragon",
+    "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
+    "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
+    "rating": 8.376,
+    "votes": 6722,
+    "release": "2022-08-21",
+    "genres": [
+      10765,
+      18,
+      10759
+    ],
+    "popularity": 321.724
+  },
+  {
+    "id": 5920,
+    "tmdb_id": 5920,
+    "type": "tv",
+    "title": "The Mentalist",
+    "overview": "Patrick Jane, a former celebrity psychic medium, uses his razor sharp skills of observation and expertise at \"reading\" people to solve serious crimes with the California Bureau of Investigation.",
+    "poster": "https://image.tmdb.org/t/p/w342/acYXu4KaDj1NIkMgObnhe4C4a0T.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/q3pCsNvJ7CmdJUz2sJEEUY3pOPC.jpg",
+    "rating": 8.364,
+    "votes": 4450,
+    "release": "2008-09-23",
+    "genres": [
+      80,
+      18,
+      9648
+    ],
+    "popularity": 291.026
+  },
+  {
+    "id": 204269,
+    "tmdb_id": 204269,
+    "type": "tv",
+    "title": "Caressing My Hibernating Bear",
+    "overview": "Nowa, a bear living in the forest, decides to take an abandoned puppy under his wing. He names it Airi and takes care of it with great care. Time passes and Nowa soon has to leave him temporarily alone in order to hibernate. Waking up several months later, he discovers that Airi has grown well into an attractive young man.",
+    "poster": "https://image.tmdb.org/t/p/w342/jSRmnyrqY1wmECpCCk7jv7AGFn6.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/gH3HCoEBuiLqzZii0sOMfMyXSR8.jpg",
+    "rating": 5.9,
+    "votes": 7,
+    "release": "2022-07-04",
+    "genres": [
+      16
+    ],
+    "popularity": 277.8552
   },
   {
     "id": 27181,
@@ -66,41 +100,7 @@
       10766,
       18
     ],
-    "popularity": 309.0089
-  },
-  {
-    "id": 5920,
-    "tmdb_id": 5920,
-    "type": "tv",
-    "title": "The Mentalist",
-    "overview": "Patrick Jane, a former celebrity psychic medium, uses his razor sharp skills of observation and expertise at \"reading\" people to solve serious crimes with the California Bureau of Investigation.",
-    "poster": "https://image.tmdb.org/t/p/w342/acYXu4KaDj1NIkMgObnhe4C4a0T.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/q3pCsNvJ7CmdJUz2sJEEUY3pOPC.jpg",
-    "rating": 8.363,
-    "votes": 4447,
-    "release": "2008-09-23",
-    "genres": [
-      80,
-      18,
-      9648
-    ],
-    "popularity": 268.7662
-  },
-  {
-    "id": 204269,
-    "tmdb_id": 204269,
-    "type": "tv",
-    "title": "Caressing My Hibernating Bear",
-    "overview": "Nowa, a bear living in the forest, decides to take an abandoned puppy under his wing. He names it Airi and takes care of it with great care. Time passes and Nowa soon has to leave him temporarily alone in order to hibernate. Waking up several months later, he discovers that Airi has grown well into an attractive young man.",
-    "poster": "https://image.tmdb.org/t/p/w342/jSRmnyrqY1wmECpCCk7jv7AGFn6.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/gH3HCoEBuiLqzZii0sOMfMyXSR8.jpg",
-    "rating": 5.9,
-    "votes": 7,
-    "release": "2022-07-04",
-    "genres": [
-      16
-    ],
-    "popularity": 263.259
+    "popularity": 272.668
   },
   {
     "id": 549,
@@ -117,25 +117,7 @@
       80,
       18
     ],
-    "popularity": 231.9232
-  },
-  {
-    "id": 79744,
-    "tmdb_id": 79744,
-    "type": "tv",
-    "title": "The Rookie",
-    "overview": "Starting over isn't easy, especially for small-town guy John Nolan who, after a life-altering incident, is pursuing his dream of being an LAPD officer. As the force's oldest rookie, he's met with skepticism from some higher-ups who see him as just a walking midlife crisis.",
-    "poster": "https://image.tmdb.org/t/p/w342/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/6iNWfGVCEfASDdlNb05TP5nG0ll.jpg",
-    "rating": 8.548,
-    "votes": 3394,
-    "release": "2018-10-16",
-    "genres": [
-      80,
-      18,
-      35
-    ],
-    "popularity": 226.0568
+    "popularity": 255.8079
   },
   {
     "id": 233643,
@@ -151,7 +133,7 @@
     "genres": [
       16
     ],
-    "popularity": 222.5244
+    "popularity": 235.5274
   },
   {
     "id": 125988,
@@ -161,14 +143,14 @@
     "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
     "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
-    "rating": 8.178,
-    "votes": 2317,
+    "rating": 8.2,
+    "votes": 2323,
     "release": "2023-05-04",
     "genres": [
       10765,
       18
     ],
-    "popularity": 221.0217
+    "popularity": 232.3088
   },
   {
     "id": 1622,
@@ -179,32 +161,14 @@
     "poster": "https://image.tmdb.org/t/p/w342/8iixmfGx5EIFPdpNvB2JvI3VIqX.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/ro0tlgnsco4SwbdAgmscLkSlMSL.jpg",
     "rating": 8.312,
-    "votes": 8554,
+    "votes": 8556,
     "release": "2005-09-13",
     "genres": [
       18,
       9648,
       10765
     ],
-    "popularity": 211.9933
-  },
-  {
-    "id": 124364,
-    "tmdb_id": 124364,
-    "type": "tv",
-    "title": "FROM",
-    "overview": "Unravel the mystery of a nightmarish town in middle America that traps all those who enter. As the unwilling residents fight to keep a sense of normalcy and search for a way out, they must also survive the threats of the surrounding forest – including the terrifying creatures that come out when the sun goes down.",
-    "poster": "https://image.tmdb.org/t/p/w342/pRtJagIxpfODzzb0T0NAvZSzErC.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/xLdw1xdHocKYFFvx7w41NchXMfJ.jpg",
-    "rating": 8.5,
-    "votes": 4049,
-    "release": "2022-02-20",
-    "genres": [
-      9648,
-      18,
-      10765
-    ],
-    "popularity": 210.4965
+    "popularity": 229.5685
   },
   {
     "id": 1416,
@@ -215,12 +179,47 @@
     "poster": "https://image.tmdb.org/t/p/w342/hjJkrLXhWvGHpLeLBDFznpBTY1S.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/jP0Rhj9OTPDAwQlHQwOLFDdeE8t.jpg",
     "rating": 8.207,
-    "votes": 10977,
+    "votes": 10979,
     "release": "2005-03-27",
     "genres": [
       18
     ],
-    "popularity": 205.3698
+    "popularity": 227.9726
+  },
+  {
+    "id": 124364,
+    "tmdb_id": 124364,
+    "type": "tv",
+    "title": "FROM",
+    "overview": "Unravel the mystery of a nightmarish town in middle America that traps all those who enter. As the unwilling residents fight to keep a sense of normalcy and search for a way out, they must also survive the threats of the surrounding forest – including the terrifying creatures that come out when the sun goes down.",
+    "poster": "https://image.tmdb.org/t/p/w342/pRtJagIxpfODzzb0T0NAvZSzErC.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/xLdw1xdHocKYFFvx7w41NchXMfJ.jpg",
+    "rating": 8.502,
+    "votes": 4057,
+    "release": "2022-02-20",
+    "genres": [
+      9648,
+      18,
+      10765
+    ],
+    "popularity": 219.4552
+  },
+  {
+    "id": 1396,
+    "tmdb_id": 1396,
+    "type": "tv",
+    "title": "Breaking Bad",
+    "overview": "Walter White, a New Mexico chemistry teacher, is diagnosed with Stage III cancer and given a prognosis of only two years left to live. He becomes filled with a sense of fearlessness and an unrelenting desire to secure his family's financial future at any cost as he enters the dangerous world of drugs and crime.",
+    "poster": "https://image.tmdb.org/t/p/w342/anFx9aTOOYqgS3v7x3R84Kz67ly.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg",
+    "rating": 8.948,
+    "votes": 18188,
+    "release": "2008-01-20",
+    "genres": [
+      18,
+      80
+    ],
+    "popularity": 216.6017
   },
   {
     "id": 60625,
@@ -229,9 +228,9 @@
     "title": "Rick and Morty",
     "overview": "Follows a sociopathic genius scientist who drags his inherently timid grandson on adventures across the universe.",
     "poster": "https://image.tmdb.org/t/p/w342/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/5BDNWWHweQL0q1fmTv7gmRXfnl4.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/7DE67DzAlZmCOm1OYnAL7gV1B8w.jpg",
     "rating": 8.679,
-    "votes": 11160,
+    "votes": 11167,
     "release": "2013-12-02",
     "genres": [
       16,
@@ -239,40 +238,25 @@
       10765,
       10759
     ],
-    "popularity": 200.575
+    "popularity": 215.3392
   },
   {
-    "id": 113266,
-    "tmdb_id": 113266,
+    "id": 79744,
+    "tmdb_id": 79744,
     "type": "tv",
-    "title": "Kaatelal & Sons",
-    "overview": "Dharampal Thakur lives with his twin daughters Garima and Susheela and owns a haircutting salon. However, things change when the daughters decide to run their father's business.",
-    "poster": "https://image.tmdb.org/t/p/w342/cIHvYSONXUF17lUlschDDiw1Trz.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/97uGOtjEQjTRcdm5WV7yW52foWL.jpg",
-    "rating": 0,
-    "votes": 0,
-    "release": "2020-11-15",
+    "title": "The Rookie",
+    "overview": "Starting over isn't easy, especially for small-town guy John Nolan who, after a life-altering incident, is pursuing his dream of being an LAPD officer. As the force's oldest rookie, he's met with skepticism from some higher-ups who see him as just a walking midlife crisis.",
+    "poster": "https://image.tmdb.org/t/p/w342/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/6iNWfGVCEfASDdlNb05TP5nG0ll.jpg",
+    "rating": 8.55,
+    "votes": 3400,
+    "release": "2018-10-16",
     "genres": [
-      35,
-      18
+      80,
+      18,
+      35
     ],
-    "popularity": 196.0442
-  },
-  {
-    "id": 51025,
-    "tmdb_id": 51025,
-    "type": "tv",
-    "title": "Paradise Hotel",
-    "overview": "Danish version of the reality series \"Paradise Hotel\".",
-    "poster": "https://image.tmdb.org/t/p/w342/ycSBcACecVR0zSnP2ZF83k5f7he.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/nun8Ssmni886Ib4v7chgQbswDfl.jpg",
-    "rating": 5.6,
-    "votes": 10,
-    "release": "2005-09-14",
-    "genres": [
-      10764
-    ],
-    "popularity": 192.0183
+    "popularity": 204.0638
   },
   {
     "id": 22980,
@@ -289,24 +273,25 @@
       10767,
       35
     ],
-    "popularity": 190.8055
+    "popularity": 199.0124
   },
   {
-    "id": 237020,
-    "tmdb_id": 237020,
+    "id": 4614,
+    "tmdb_id": 4614,
     "type": "tv",
-    "title": "Lecture Room",
-    "overview": "",
-    "poster": "https://image.tmdb.org/t/p/w342/7bS6LJn4EpopXSGSOUxrO9BEUjS.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/3iZrlYvakyQepd1zfIQJAki47eO.jpg",
-    "rating": 7,
-    "votes": 3,
-    "release": "2001-07-09",
+    "title": "NCIS",
+    "overview": "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has any connection to Navy and Marine Corps personnel, regardless of rank or position.",
+    "poster": "https://image.tmdb.org/t/p/w342/mBcu8d6x6zB1el3MPNl7cZQEQ31.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/nn3SuLTO4hum8yAxaY4ql8h6kRk.jpg",
+    "rating": 7.61,
+    "votes": 2538,
+    "release": "2003-09-23",
     "genres": [
-      10767,
-      99
+      80,
+      18,
+      10759
     ],
-    "popularity": 190.0144
+    "popularity": 196.131
   },
   {
     "id": 63770,
@@ -323,22 +308,42 @@
       35,
       10767
     ],
-    "popularity": 185.2517
+    "popularity": 192.6089
   },
   {
-    "id": 206559,
-    "tmdb_id": 206559,
+    "id": 4057,
+    "tmdb_id": 4057,
     "type": "tv",
-    "title": "Binnelanders",
-    "overview": "A South African Afrikaans soap opera. It is set in and around the fictional private hospital, Binneland Kliniek, in Pretoria, and the storyline follows the trials, trauma and tribulations of the staff and patients of the hospital.",
-    "poster": "https://image.tmdb.org/t/p/w342/3bzECfllho8PphdYujLUIuhncJD.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/s1dTt4M31q2HwD5Fkl1tf5tQzJg.jpg",
-    "rating": 5.5,
-    "votes": 111,
-    "release": "2005-10-13",
+    "title": "Criminal Minds",
+    "overview": "An elite team of FBI profilers analyze the country's most twisted criminal minds, anticipating their next moves before they strike again. The Behavioral Analysis Unit's most experienced agent is David Rossi, a founding member of the BAU who returns to help the team solve new cases.",
+    "poster": "https://image.tmdb.org/t/p/w342/hWSb4UnIjlTvnvrP98NbFSO60HA.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/tUtXfyVy54BY7eJnRtI8Xnmr1ZL.jpg",
+    "rating": 8.303,
+    "votes": 4133,
+    "release": "2005-09-22",
     "genres": [
-      10766
+      80,
+      18,
+      9648
     ],
-    "popularity": 179.6118
+    "popularity": 187.4268
+  },
+  {
+    "id": 456,
+    "tmdb_id": 456,
+    "type": "tv",
+    "title": "The Simpsons",
+    "overview": "Set in Springfield, the average American town, the show focuses on the antics and everyday adventures of the Simpson family; Homer, Marge, Bart, Lisa and Maggie, as well as a virtual cast of thousands. Since the beginning, the series has been a pop culture icon, attracting hundreds of celebrities to guest star. The show has also made name for itself in its fearless satirical take on politics, media and American life in general.",
+    "poster": "https://image.tmdb.org/t/p/w342/uWpG7GqfKGQqX4YMAo3nv5OrglV.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/jIArNHIekrCSVgdMbKPAXpPY03Y.jpg",
+    "rating": 8,
+    "votes": 10894,
+    "release": "1989-12-17",
+    "genres": [
+      10751,
+      16,
+      35
+    ],
+    "popularity": 187.2549
   }
 ]

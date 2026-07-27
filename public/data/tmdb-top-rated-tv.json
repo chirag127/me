@@ -7,7 +7,7 @@
     "overview": "An inspector from the Educational Rights Protection Bureau (ERPB) who is authorized by the government to use physical intervention and unconventional methods to discipline delinquent students and reform the educational system.",
     "poster": "https://image.tmdb.org/t/p/w342/fMECSPrTmRClSViMsXFYmiYIcWP.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/vyG93jhmPL7tBIhRtCLa5mdBKob.jpg",
-    "rating": 9.436,
+    "rating": 9.449,
     "votes": 731,
     "release": "2026-06-05",
     "genres": [
@@ -25,8 +25,8 @@
     "overview": "Rip Wheeler and Beth Dutton gamble everything on a new life in South Texas, but the promise of building a future far from the ghosts of Yellowstone quickly collides with brutal new realities and a rival ranch that will stop at nothing to protect its empire.",
     "poster": "https://image.tmdb.org/t/p/w342/xsiecCxd8lkcAluw0wWwbW5CwSv.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/wh5agdl3b7fqC7mSjsCkHx4fMAs.jpg",
-    "rating": 9.24,
-    "votes": 466,
+    "rating": 9.238,
+    "votes": 468,
     "release": "2026-05-15",
     "genres": [
       37,
@@ -43,32 +43,13 @@
     "poster": "https://image.tmdb.org/t/p/w342/anFx9aTOOYqgS3v7x3R84Kz67ly.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg",
     "rating": 8.948,
-    "votes": 18177,
+    "votes": 18189,
     "release": "2008-01-20",
     "genres": [
       18,
       80
     ],
     "popularity": 216.6017
-  },
-  {
-    "id": 259837,
-    "tmdb_id": 259837,
-    "type": "tv",
-    "title": "The WONDERfools",
-    "overview": "A goofy group of townies stumbles into superpowers and fights rising evil as doomsday panic grows in this wild, turn-of-the-century action comedy.",
-    "poster": "https://image.tmdb.org/t/p/w342/jj7AYkz2OLRDL1wfJmjTXyWQ5I4.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/810mXC0xkxXVtoKIPGGVgO9PuLh.jpg",
-    "rating": 8.927,
-    "votes": 225,
-    "release": "2026-05-15",
-    "genres": [
-      10759,
-      35,
-      10765,
-      18
-    ],
-    "popularity": 24.8055
   },
   {
     "id": 273240,
@@ -79,12 +60,31 @@
     "poster": "https://image.tmdb.org/t/p/w342/cbODFqkcmRgrYH8NkG4Q4Hcg8Z1.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/52sp0vPhLOWrZ1QoZIWiapronM.jpg",
     "rating": 8.919,
-    "votes": 736,
+    "votes": 738,
     "release": "2026-05-13",
     "genres": [
       18
     ],
     "popularity": 95.9526
+  },
+  {
+    "id": 259837,
+    "tmdb_id": 259837,
+    "type": "tv",
+    "title": "The WONDERfools",
+    "overview": "A goofy group of townies stumbles into superpowers and fights rising evil as doomsday panic grows in this wild, turn-of-the-century action comedy.",
+    "poster": "https://image.tmdb.org/t/p/w342/jj7AYkz2OLRDL1wfJmjTXyWQ5I4.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/810mXC0xkxXVtoKIPGGVgO9PuLh.jpg",
+    "rating": 8.905,
+    "votes": 226,
+    "release": "2026-05-15",
+    "genres": [
+      10759,
+      35,
+      10765,
+      18
+    ],
+    "popularity": 24.8055
   },
   {
     "id": 209867,
@@ -94,8 +94,8 @@
     "overview": "After the party of heroes defeated the Demon King, they restored peace to the land and returned to lives of solitude.  Generations pass, and the elven mage Frieren comes face to face with humanity’s mortality. She takes on a new apprentice and promises to fulfill old friends’ dying wishes. Can an elven mind make peace with the nature of life and death? Frieren embarks on her quest to find out.",
     "poster": "https://image.tmdb.org/t/p/w342/dqZENchTd7lp5zht7BdlqM7RBhD.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/rBOnrVlck7BIlGeWVlzYiZeg4l2.jpg",
-    "rating": 8.804,
-    "votes": 902,
+    "rating": 8.806,
+    "votes": 904,
     "release": "2023-09-29",
     "genres": [
       16,
@@ -106,22 +106,6 @@
     "popularity": 72.6528
   },
   {
-    "id": 219246,
-    "tmdb_id": 219246,
-    "type": "tv",
-    "title": "When Life Gives You Tangerines",
-    "overview": "In Jeju, a spirited girl and a steadfast boy's island story blossoms into a lifelong tale of setbacks and triumphs — proving love endures across time.",
-    "poster": "https://image.tmdb.org/t/p/w342/1VC3sEFxYXYDqQUCAnvWfUsYg1s.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/a9qlroMOHewiDsUR93PYMVfpbF5.jpg",
-    "rating": 8.759,
-    "votes": 557,
-    "release": "2025-03-07",
-    "genres": [
-      18
-    ],
-    "popularity": 26.6503
-  },
-  {
     "id": 85077,
     "tmdb_id": 85077,
     "type": "tv",
@@ -129,8 +113,8 @@
     "overview": "The life of Christ through the eyes of those who encountered him.",
     "poster": "https://image.tmdb.org/t/p/w342/dqVUFuNrMFWt7uGNWlpo91VKYOI.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/3siv3RaQrdr2tQiv9jHq71sLlzo.jpg",
-    "rating": 8.8,
-    "votes": 927,
+    "rating": 8.778,
+    "votes": 931,
     "release": "2019-04-21",
     "genres": [
       10759,
@@ -148,7 +132,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/yaGt4GIutpbXHsv48tWceWg6s56.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/kU98MbVVgi72wzceyrEbClZmMFe.jpg",
     "rating": 8.773,
-    "votes": 4982,
+    "votes": 4983,
     "release": "2005-02-21",
     "genres": [
       16,
@@ -174,6 +158,22 @@
     "popularity": 15.1002
   },
   {
+    "id": 301507,
+    "tmdb_id": 301507,
+    "type": "tv",
+    "title": "Heated Rivalry",
+    "overview": "Two of the biggest stars in Major League Hockey are bound by ambition, rivalry, and a magnetic pull neither of them fully understands. What begins as a secret fling between two fresh faced rookies evolves into a years-long journey of love, denial, and self-discovery. Over the next eight years, as they chase glory on the ice, they struggle to navigate their feelings for each other. Torn between the sport they live for and the love they can’t ignore, they must decide if there’s room in their fiercely competitive world for something as fragile – and powerful – as real love.",
+    "poster": "https://image.tmdb.org/t/p/w342/3YCKbtAkYWCMDLHvkUjGhG7eWoS.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/iS76c29IrS3lKI2X5CFySguiAWU.jpg",
+    "rating": 8.752,
+    "votes": 557,
+    "release": "2025-11-28",
+    "genres": [
+      18
+    ],
+    "popularity": 26.0115
+  },
+  {
     "id": 94605,
     "tmdb_id": 94605,
     "type": "tv",
@@ -182,7 +182,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/abf8tHznhSvl9BAElD2cQeRr7do.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/q8eejQcg1bAqImEV8jh8RtBD4uH.jpg",
     "rating": 8.751,
-    "votes": 6043,
+    "votes": 6045,
     "release": "2021-11-06",
     "genres": [
       16,
@@ -190,22 +190,6 @@
       10765
     ],
     "popularity": 32.7378
-  },
-  {
-    "id": 301507,
-    "tmdb_id": 301507,
-    "type": "tv",
-    "title": "Heated Rivalry",
-    "overview": "Two of the biggest stars in Major League Hockey are bound by ambition, rivalry, and a magnetic pull neither of them fully understands. What begins as a secret fling between two fresh faced rookies evolves into a years-long journey of love, denial, and self-discovery. Over the next eight years, as they chase glory on the ice, they struggle to navigate their feelings for each other. Torn between the sport they live for and the love they can’t ignore, they must decide if there’s room in their fiercely competitive world for something as fragile – and powerful – as real love.",
-    "poster": "https://image.tmdb.org/t/p/w342/3YCKbtAkYWCMDLHvkUjGhG7eWoS.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/iS76c29IrS3lKI2X5CFySguiAWU.jpg",
-    "rating": 8.75,
-    "votes": 555,
-    "release": "2025-11-28",
-    "genres": [
-      18
-    ],
-    "popularity": 26.0115
   },
   {
     "id": 37854,
@@ -216,7 +200,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/dB4EDhre2dsC2kxYDavyKWqLQwi.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/2rmK7mnchw9Xr3XdiTFSxTTLXqv.jpg",
     "rating": 8.747,
-    "votes": 5440,
+    "votes": 5441,
     "release": "1999-10-20",
     "genres": [
       10759,
@@ -224,6 +208,22 @@
       16
     ],
     "popularity": 56.7496
+  },
+  {
+    "id": 219246,
+    "tmdb_id": 219246,
+    "type": "tv",
+    "title": "When Life Gives You Tangerines",
+    "overview": "In Jeju, a spirited girl and a steadfast boy's island story blossoms into a lifelong tale of setbacks and triumphs — proving love endures across time.",
+    "poster": "https://image.tmdb.org/t/p/w342/1VC3sEFxYXYDqQUCAnvWfUsYg1s.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/a9qlroMOHewiDsUR93PYMVfpbF5.jpg",
+    "rating": 8.748,
+    "votes": 559,
+    "release": "2025-03-07",
+    "genres": [
+      18
+    ],
+    "popularity": 26.6503
   },
   {
     "id": 250307,
@@ -250,7 +250,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/3URK0z9PzpVNJrGE7XOuyy6KFzk.jpg",
     "rating": 8.719,
-    "votes": 8070,
+    "votes": 8075,
     "release": "2019-05-06",
     "genres": [
       18
@@ -266,7 +266,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/5ZFUEOULaVml7pQuXxhpR2SmVUw.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/2UG177tWHy7xRmMKWJHB7nAUmKd.jpg",
     "rating": 8.713,
-    "votes": 2517,
+    "votes": 2519,
     "release": "2009-04-05",
     "genres": [
       16,
@@ -277,23 +277,6 @@
     "popularity": 45.3306
   },
   {
-    "id": 200709,
-    "tmdb_id": 200709,
-    "type": "tv",
-    "title": "Weak Hero",
-    "overview": "With the aid of unexpected friends, a gifted but introverted student confronts bullies and violent foes — unaware of how dangerous his world will become.",
-    "poster": "https://image.tmdb.org/t/p/w342/5Sd01WeraL2oA3Vv6O4rcRxockn.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/q5mJ4oKfGc6Cr9reIHFzD0pQzre.jpg",
-    "rating": 8.695,
-    "votes": 489,
-    "release": "2022-11-18",
-    "genres": [
-      10759,
-      18
-    ],
-    "popularity": 59.0952
-  },
-  {
     "id": 60059,
     "tmdb_id": 60059,
     "type": "tv",
@@ -302,13 +285,30 @@
     "poster": "https://image.tmdb.org/t/p/w342/zjg4jpK1Wp2kiRvtt5ND0kznako.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/rfxryDIv8huejujg4JueDJx8zCz.jpg",
     "rating": 8.709,
-    "votes": 6670,
+    "votes": 6672,
     "release": "2015-02-08",
     "genres": [
       80,
       18
     ],
     "popularity": 74.0671
+  },
+  {
+    "id": 200709,
+    "tmdb_id": 200709,
+    "type": "tv",
+    "title": "Weak Hero",
+    "overview": "With the aid of unexpected friends, a gifted but introverted student confronts bullies and violent foes — unaware of how dangerous his world will become.",
+    "poster": "https://image.tmdb.org/t/p/w342/5Sd01WeraL2oA3Vv6O4rcRxockn.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/q5mJ4oKfGc6Cr9reIHFzD0pQzre.jpg",
+    "rating": 8.699,
+    "votes": 491,
+    "release": "2022-11-18",
+    "genres": [
+      10759,
+      18
+    ],
+    "popularity": 59.0952
   },
   {
     "id": 1429,
@@ -318,8 +318,8 @@
     "overview": "100 years ago, the last remnants of humanity were forced to retreat behind the towering walls of a fortified city to escape the massive, man-eating Titans that roamed the land outside their fortress. Only the members of the Scouting Legion dared to stray beyond the safety of the walls – but even those brave warriors seldom returned alive. Those within the city clung to the illusion of a peaceful existence until the day that dream was shattered, and their slim chance at survival was reduced to one horrifying choice: kill – or be devoured!",
     "poster": "https://image.tmdb.org/t/p/w342/hTP1DtLGFamjfu8WqjnuQdP1n4i.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/rqbCbjB19amtOtFQbb3K2lgm2zv.jpg",
-    "rating": 8.7,
-    "votes": 7573,
+    "rating": 8.683,
+    "votes": 7575,
     "release": "2013-04-07",
     "genres": [
       16,
@@ -335,9 +335,9 @@
     "title": "Rick and Morty",
     "overview": "Follows a sociopathic genius scientist who drags his inherently timid grandson on adventures across the universe.",
     "poster": "https://image.tmdb.org/t/p/w342/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/5BDNWWHweQL0q1fmTv7gmRXfnl4.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/7DE67DzAlZmCOm1OYnAL7gV1B8w.jpg",
     "rating": 8.679,
-    "votes": 11160,
+    "votes": 11167,
     "release": "2013-12-02",
     "genres": [
       16,
