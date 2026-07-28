@@ -6,8 +6,8 @@
     {
       "name": "Other",
       "total_seconds": 23.926,
-      "ai_coding_seconds": "0.000000",
-      "manual_coding_seconds": "0.000000",
+      "ai_coding_seconds": 0,
+      "manual_coding_seconds": 0,
       "percent": 100,
       "digital": "0:00",
       "decimal": "0.00",

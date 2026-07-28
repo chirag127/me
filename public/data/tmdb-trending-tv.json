@@ -8,69 +8,14 @@
     "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
     "rating": 8.378,
-    "votes": 6738,
+    "votes": 6757,
     "release": "2022-08-21",
     "genres": [
       10765,
       18,
       10759
     ],
-    "popularity": 350.637
-  },
-  {
-    "id": 30984,
-    "tmdb_id": 30984,
-    "type": "tv",
-    "title": "Bleach",
-    "overview": "For as long as he can remember, Ichigo Kurosaki has been able to see ghosts. But when he meets Rukia, a Soul Reaper who battles evil spirits known as Hollows, he finds his life is changed forever. Now, with a newfound wealth of spiritual energy, Ichigo discovers his true calling: to protect the living and the dead from evil.",
-    "poster": "https://image.tmdb.org/t/p/w342/5iVUUnE2tgBPypACYNobCKHagfV.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/o0NsbcIvsllg6CJX0FBFY8wWbsn.jpg",
-    "rating": 8.367,
-    "votes": 2190,
-    "release": "2004-10-05",
-    "genres": [
-      10759,
-      16,
-      10765
-    ],
-    "popularity": 111.952
-  },
-  {
-    "id": 296206,
-    "tmdb_id": 296206,
-    "type": "tv",
-    "title": "Agent Kim Reactivated",
-    "overview": "When an unassuming dad's daughter goes missing, he dusts off his old black-ops skills to track her down — only to attract the wrong kind of attention.",
-    "poster": "https://image.tmdb.org/t/p/w342/mxa7YxVln3Rwnd2Va82PoclTznj.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/g1LJLlmWP74zv9yXKEXm7g9p10O.jpg",
-    "rating": 7.763,
-    "votes": 57,
-    "release": "2026-06-26",
-    "genres": [
-      10759,
-      80,
-      18
-    ],
-    "popularity": 186.5824
-  },
-  {
-    "id": 60625,
-    "tmdb_id": 60625,
-    "type": "tv",
-    "title": "Rick and Morty",
-    "overview": "Follows a sociopathic genius scientist who drags his inherently timid grandson on adventures across the universe.",
-    "poster": "https://image.tmdb.org/t/p/w342/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/iFOkrSrJRwE27PwbyQeYLlMJXzw.jpg",
-    "rating": 8.7,
-    "votes": 11169,
-    "release": "2013-12-02",
-    "genres": [
-      16,
-      35,
-      10765,
-      10759
-    ],
-    "popularity": 219.6046
+    "popularity": 423.6179
   },
   {
     "id": 125988,
@@ -81,13 +26,86 @@
     "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
     "rating": 8.179,
-    "votes": 2324,
+    "votes": 2333,
     "release": "2023-05-04",
     "genres": [
       10765,
       18
     ],
-    "popularity": 237.993
+    "popularity": 225.9759
+  },
+  {
+    "id": 296206,
+    "tmdb_id": 296206,
+    "type": "tv",
+    "title": "Agent Kim Reactivated",
+    "overview": "When an unassuming dad's daughter goes missing, he dusts off his old black-ops skills to track her down — only to attract the wrong kind of attention.",
+    "poster": "https://image.tmdb.org/t/p/w342/mxa7YxVln3Rwnd2Va82PoclTznj.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/g1LJLlmWP74zv9yXKEXm7g9p10O.jpg",
+    "rating": 7.746,
+    "votes": 59,
+    "release": "2026-06-26",
+    "genres": [
+      10759,
+      80,
+      18
+    ],
+    "popularity": 162.0506
+  },
+  {
+    "id": 60625,
+    "tmdb_id": 60625,
+    "type": "tv",
+    "title": "Rick and Morty",
+    "overview": "Follows a sociopathic genius scientist who drags his inherently timid grandson on adventures across the universe.",
+    "poster": "https://image.tmdb.org/t/p/w342/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/i4PpW1XyRlBuSNSIBRIIwSjEpjl.jpg",
+    "rating": 8.679,
+    "votes": 11176,
+    "release": "2013-12-02",
+    "genres": [
+      16,
+      35,
+      10765,
+      10759
+    ],
+    "popularity": 214.3835
+  },
+  {
+    "id": 30984,
+    "tmdb_id": 30984,
+    "type": "tv",
+    "title": "Bleach",
+    "overview": "For as long as he can remember, Ichigo Kurosaki has been able to see ghosts. But when he meets Rukia, a Soul Reaper who battles evil spirits known as Hollows, he finds his life is changed forever. Now, with a newfound wealth of spiritual energy, Ichigo discovers his true calling: to protect the living and the dead from evil.",
+    "poster": "https://image.tmdb.org/t/p/w342/5iVUUnE2tgBPypACYNobCKHagfV.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/o0NsbcIvsllg6CJX0FBFY8wWbsn.jpg",
+    "rating": 8.4,
+    "votes": 2190,
+    "release": "2004-10-05",
+    "genres": [
+      10759,
+      16,
+      10765
+    ],
+    "popularity": 102.3283
+  },
+  {
+    "id": 281281,
+    "tmdb_id": 281281,
+    "type": "tv",
+    "title": "Elite Force",
+    "overview": "After an unprecedented attack on his unit, a high-ranking officer set to leave the field leads a perilous mission that forces him to confront his past.",
+    "poster": "https://image.tmdb.org/t/p/w342/ymjYmuHG4Af93fcoF0NKwx9Rovb.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/tMpfa73LmKpeZ3Fix1QmFGIUrKI.jpg",
+    "rating": 6.845,
+    "votes": 29,
+    "release": "2026-07-22",
+    "genres": [
+      10759,
+      80,
+      18
+    ],
+    "popularity": 92.1355
   },
   {
     "id": 215072,
@@ -105,25 +123,7 @@
       10759,
       9648
     ],
-    "popularity": 80.3265
-  },
-  {
-    "id": 281281,
-    "tmdb_id": 281281,
-    "type": "tv",
-    "title": "Elite Force",
-    "overview": "After an unprecedented attack on his unit, a high-ranking officer set to leave the field leads a perilous mission that forces him to confront his past.",
-    "poster": "https://image.tmdb.org/t/p/w342/ymjYmuHG4Af93fcoF0NKwx9Rovb.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/tMpfa73LmKpeZ3Fix1QmFGIUrKI.jpg",
-    "rating": 7,
-    "votes": 25,
-    "release": "2026-07-22",
-    "genres": [
-      10759,
-      80,
-      18
-    ],
-    "popularity": 97.5405
+    "popularity": 80.5862
   },
   {
     "id": 37854,
@@ -134,49 +134,14 @@
     "poster": "https://image.tmdb.org/t/p/w342/dB4EDhre2dsC2kxYDavyKWqLQwi.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/2rmK7mnchw9Xr3XdiTFSxTTLXqv.jpg",
     "rating": 8.748,
-    "votes": 5442,
+    "votes": 5445,
     "release": "1999-10-20",
     "genres": [
       10759,
       35,
       16
     ],
-    "popularity": 61.0392
-  },
-  {
-    "id": 194583,
-    "tmdb_id": 194583,
-    "type": "tv",
-    "title": "The Walking Dead: Dead City",
-    "overview": "Maggie and Negan travel to post-apocalyptic Manhattan - long ago cut off from the mainland. The crumbling city is filled with the dead and denizens who have made it a world full of anarchy, danger, beauty, and terror.",
-    "poster": "https://image.tmdb.org/t/p/w342/wq3vuQzQgbS83zX3malAFWMsSwX.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/siYv4AKB7BBCWjFle5zqbARYFS2.jpg",
-    "rating": 7.9,
-    "votes": 750,
-    "release": "2023-06-18",
-    "genres": [
-      10759,
-      18,
-      10765
-    ],
-    "popularity": 42.4617
-  },
-  {
-    "id": 287620,
-    "tmdb_id": 287620,
-    "type": "tv",
-    "title": "Stuart Fails to Save the Universe",
-    "overview": "After accidentally creating a new multiverse, comic book store owner Stuart Bloom must locate a quantum-interference device to restore reality.",
-    "poster": "https://image.tmdb.org/t/p/w342/bvH9g6TXhQaTG1WhU7hbfXM8LNP.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/2ngdvUiEKW8Q37ta8BBdydE2cuq.jpg",
-    "rating": 9.185,
-    "votes": 27,
-    "release": "2026-07-23",
-    "genres": [
-      35,
-      10765
-    ],
-    "popularity": 83.7364
+    "popularity": 57.8516
   },
   {
     "id": 103516,
@@ -186,14 +151,49 @@
     "overview": "Follow Captain Christopher Pike, Science Officer Spock and Number One in the years before Captain Kirk boarded the U.S.S. Enterprise, as they explore new worlds around the galaxy.",
     "poster": "https://image.tmdb.org/t/p/w342/w6KapI2JvrCkOPmQhkwYPJNjqeo.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/fZJs6xgU9dqIg9phIXjZAZOInzy.jpg",
-    "rating": 7.9,
-    "votes": 784,
+    "rating": 7.922,
+    "votes": 785,
     "release": "2022-05-05",
     "genres": [
       10765,
       18
     ],
-    "popularity": 60.258
+    "popularity": 58.0875
+  },
+  {
+    "id": 194583,
+    "tmdb_id": 194583,
+    "type": "tv",
+    "title": "The Walking Dead: Dead City",
+    "overview": "Maggie and Negan travel to post-apocalyptic Manhattan - long ago cut off from the mainland. The crumbling city is filled with the dead and denizens who have made it a world full of anarchy, danger, beauty, and terror.",
+    "poster": "https://image.tmdb.org/t/p/w342/wq3vuQzQgbS83zX3malAFWMsSwX.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/vV5LKWmuysEe5wsuZJGbdiL5XJ2.jpg",
+    "rating": 7.9,
+    "votes": 752,
+    "release": "2023-06-18",
+    "genres": [
+      10759,
+      18,
+      10765
+    ],
+    "popularity": 65.6583
+  },
+  {
+    "id": 287620,
+    "tmdb_id": 287620,
+    "type": "tv",
+    "title": "Stuart Fails to Save the Universe",
+    "overview": "After accidentally creating a new multiverse, comic book store owner Stuart Bloom must locate a quantum-interference device to restore reality.",
+    "poster": "https://image.tmdb.org/t/p/w342/bvH9g6TXhQaTG1WhU7hbfXM8LNP.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/2ngdvUiEKW8Q37ta8BBdydE2cuq.jpg",
+    "rating": 9.156,
+    "votes": 32,
+    "release": "2026-07-23",
+    "genres": [
+      35,
+      10765
+    ],
+    "popularity": 82.8759
   },
   {
     "id": 278624,
@@ -203,14 +203,31 @@
     "overview": "When a multi-million-dollar heist goes sideways, con artist Lucky is forced to go on the run. Pursued by both the FBI and a ruthless crime boss, Lucky must fight for her life—and a way out.",
     "poster": "https://image.tmdb.org/t/p/w342/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
-    "rating": 7.184,
-    "votes": 87,
+    "rating": 7.193,
+    "votes": 88,
     "release": "2026-07-14",
     "genres": [
       18,
       80
     ],
-    "popularity": 121.2631
+    "popularity": 111.267
+  },
+  {
+    "id": 296756,
+    "tmdb_id": 296756,
+    "type": "tv",
+    "title": "President Curtis",
+    "overview": "Follow the Commander-in-Chief and his eccentric staff as they tackle the kind of crises that Rick Sanchez could never be bothered with - from interdimensional diplomacy to paranormal investigations and unexplained phenomena.",
+    "poster": "https://image.tmdb.org/t/p/w342/lc9riW73Oee2pBxi1UrDPgyQjEr.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/yoTP91XZZjSvE2gZgGvwNxVW96w.jpg",
+    "rating": 5.8,
+    "votes": 9,
+    "release": "2026-07-26",
+    "genres": [
+      16,
+      35
+    ],
+    "popularity": 33.1768
   },
   {
     "id": 279323,
@@ -220,8 +237,8 @@
     "overview": "A man who walks the spirit world and a court lady who hears the dead enter the East Palace by the king's orders — can they unravel its dark secrets?",
     "poster": "https://image.tmdb.org/t/p/w342/yfYohBszGqoAW8oM0qydOtJ4kPh.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/8PHBAdPyfIwS5W6cfKLhItEb875.jpg",
-    "rating": 8.07,
-    "votes": 43,
+    "rating": 8,
+    "votes": 44,
     "release": "2026-07-17",
     "genres": [
       9648,
@@ -229,7 +246,24 @@
       10765,
       18
     ],
-    "popularity": 83.3269
+    "popularity": 70.2319
+  },
+  {
+    "id": 240993,
+    "tmdb_id": 240993,
+    "type": "tv",
+    "title": "Ransom Canyon",
+    "overview": "Passions run deep in a small Texas town, as three ranching dynasties fight for their land, their legacies and the people they love.",
+    "poster": "https://image.tmdb.org/t/p/w342/1efzyMfIe3WauOCWk7Gn56gj7sL.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/29P64FqDp0UVa9oJsIl49PHn5tH.jpg",
+    "rating": 7.21,
+    "votes": 112,
+    "release": "2025-04-17",
+    "genres": [
+      18,
+      37
+    ],
+    "popularity": 54.3237
   },
   {
     "id": 94664,
@@ -240,14 +274,30 @@
     "poster": "https://image.tmdb.org/t/p/w342/gLKOYIMyKlUHW0SVdskhgf9C0yy.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/j9fRIimor0AMFJR9kjZubXcABzZ.jpg",
     "rating": 8.5,
-    "votes": 1616,
+    "votes": 1619,
     "release": "2021-01-11",
     "genres": [
       10759,
       16,
       10765
     ],
-    "popularity": 204.853
+    "popularity": 211.8328
+  },
+  {
+    "id": 300259,
+    "tmdb_id": 300259,
+    "type": "tv",
+    "title": "Bloody Smart",
+    "overview": "In a town where strict rules shape students into their “best selves,” a hidden Bloodfruit Tree bears crimson fruit. A mysterious boy in black delivers these fruits only to those who truly “need” them. Once received, they awaken long-suppressed desires—gently unraveling the heart, and quietly leading the town toward irreversible collapse.",
+    "poster": "https://image.tmdb.org/t/p/w342/gXMmTQZFk7XZotVse4dCGfowkm7.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/gp01i35kvgpJLarGIGopnBWuzKE.jpg",
+    "rating": 0,
+    "votes": 0,
+    "release": "2026-07-28",
+    "genres": [
+      9648
+    ],
+    "popularity": 7.2226
   },
   {
     "id": 298610,
@@ -257,7 +307,7 @@
     "overview": "When a ghost-seeing heir and an ace prosecutor learn that a single touch makes them a strangely effective duo, they team up to crack unsolved murders.",
     "poster": "https://image.tmdb.org/t/p/w342/acVOH8Pr5LEZ7WKZCbzwNuHVr9x.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/p9tpGftvG18M5y5wsBmPrQpVBsd.jpg",
-    "rating": 8.643,
+    "rating": 8.6,
     "votes": 14,
     "release": "2026-07-18",
     "genres": [
@@ -265,25 +315,7 @@
       10765,
       18
     ],
-    "popularity": 49.2361
-  },
-  {
-    "id": 138502,
-    "tmdb_id": 138502,
-    "type": "tv",
-    "title": "X-Men '97",
-    "overview": "The X-Men, a band of mutants who use their uncanny gifts to protect a world that hates and fears them, are challenged like never before, forced to face a dangerous and unexpected new future.",
-    "poster": "https://image.tmdb.org/t/p/w342/2HKBc5UiFw8JrruHq8S1Y7TnlW0.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/jIyEmnBrZtl6SEWyBoMO2hZnzMa.jpg",
-    "rating": 8.648,
-    "votes": 797,
-    "release": "2024-03-20",
-    "genres": [
-      16,
-      10759,
-      10765
-    ],
-    "popularity": 77.9224
+    "popularity": 50.6604
   },
   {
     "id": 241882,
@@ -293,63 +325,29 @@
     "overview": "Best friends Debbie and Judith are forced on the run when Debbie discovers Judith isn't a forensic accountant, she's an international assassin! With a mysterious figure chasing them, and Debbie's husband involved in something deeply corrupt, it's a race against time and a road trip across Europe to untangle the truth and stay alive.",
     "poster": "https://image.tmdb.org/t/p/w342/uWqEnvpwa2U28QheMdUdEcr4U0M.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/jwCXxvbLno5GrGDA9KvQ22uLziM.jpg",
-    "rating": 5.673,
-    "votes": 55,
+    "rating": 5.892,
+    "votes": 60,
     "release": "2026-07-15",
     "genres": [
       10759
     ],
-    "popularity": 57.6254
+    "popularity": 51.3739
   },
   {
-    "id": 240993,
-    "tmdb_id": 240993,
+    "id": 277439,
+    "tmdb_id": 277439,
     "type": "tv",
-    "title": "Ransom Canyon",
-    "overview": "Passions run deep in a small Texas town, as three ranching dynasties fight for their land, their legacies and the people they love.",
-    "poster": "https://image.tmdb.org/t/p/w342/1efzyMfIe3WauOCWk7Gn56gj7sL.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/29P64FqDp0UVa9oJsIl49PHn5tH.jpg",
-    "rating": 7.257,
-    "votes": 111,
-    "release": "2025-04-17",
+    "title": "Cape Fear",
+    "overview": "When convicted murderer Max Cady is released from prison, he begins infiltrating the family of the married attorneys who helped put him behind bars.",
+    "poster": "https://image.tmdb.org/t/p/w342/wlwyFRwz2GXFZzaeMjKKNhhjrKG.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/rvMmQj3nMZbJmoW6QrzU0nq9Xky.jpg",
+    "rating": 7.148,
+    "votes": 81,
+    "release": "2026-06-04",
     "genres": [
       18,
-      37
+      80
     ],
-    "popularity": 51.9573
-  },
-  {
-    "id": 289139,
-    "tmdb_id": 289139,
-    "type": "tv",
-    "title": "Overdo",
-    "overview": "In Republican Shanghai, Murong Qingyi, a warlord’s son swapped at birth, endures years of torment. His life changes when Ren Susu saves him, but tragedy strikes her family because of it. Years later, love sparks between them, but Ren Susu fakes her death to save another, leaving Qingyi heartbroken. Three years on, she returns as his future sister-in-law. Love, hate, betrayal, and old wounds resurface. As war looms, the two must defy fate together, but can love survive a nation’s fall?",
-    "poster": "https://image.tmdb.org/t/p/w342/hg9fl45RQVR2yZ63DUWqy0hCZ1G.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/24Jiw958Hb7okfxWFedeDkWX8WU.jpg",
-    "rating": 8.2,
-    "votes": 6,
-    "release": "2026-07-19",
-    "genres": [
-      18
-    ],
-    "popularity": 117.8144
-  },
-  {
-    "id": 324434,
-    "tmdb_id": 324434,
-    "type": "tv",
-    "title": "Soy Luna: Let's Roll Again",
-    "overview": "After an accident that sidelined her, Luna returns to her beloved Jam & Roller. Putting on her skates again won't be easy, especially when a hidden villain's plan starts to complicate her life. She'll also face a dilemma, torn between old flames. Amidst songs, adventures, and reunions with friends, Luna will have to overcome many obstacles to fulfill her dream.",
-    "poster": "https://image.tmdb.org/t/p/w342/bxVoTkGOLPYqjA4sAcxPMgspDSz.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/bATlRn3qaRgx49C6DkPCe8poU02.jpg",
-    "rating": 7.519,
-    "votes": 26,
-    "release": "2026-07-24",
-    "genres": [
-      10751,
-      35,
-      18
-    ],
-    "popularity": 40.2986
+    "popularity": 62.4608
   }
 ]
