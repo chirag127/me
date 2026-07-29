@@ -8,7 +8,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
     "rating": 8.378,
-    "votes": 6757,
+    "votes": 6767,
     "release": "2022-08-21",
     "genres": [
       10765,
@@ -35,22 +35,6 @@
     "popularity": 279.3532
   },
   {
-    "id": 206559,
-    "tmdb_id": 206559,
-    "type": "tv",
-    "title": "Binnelanders",
-    "overview": "A South African Afrikaans soap opera. It is set in and around the fictional private hospital, Binneland Kliniek, in Pretoria, and the storyline follows the trials, trauma and tribulations of the staff and patients of the hospital.",
-    "poster": "https://image.tmdb.org/t/p/w342/3bzECfllho8PphdYujLUIuhncJD.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/s1dTt4M31q2HwD5Fkl1tf5tQzJg.jpg",
-    "rating": 5.5,
-    "votes": 111,
-    "release": "2005-10-13",
-    "genres": [
-      10766
-    ],
-    "popularity": 174.4972
-  },
-  {
     "id": 125988,
     "tmdb_id": 125988,
     "type": "tv",
@@ -58,8 +42,8 @@
     "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
     "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
-    "rating": 8.179,
-    "votes": 2333,
+    "rating": 8.2,
+    "votes": 2337,
     "release": "2023-05-04",
     "genres": [
       10765,
@@ -76,7 +60,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/gLKOYIMyKlUHW0SVdskhgf9C0yy.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/j9fRIimor0AMFJR9kjZubXcABzZ.jpg",
     "rating": 8.5,
-    "votes": 1619,
+    "votes": 1623,
     "release": "2021-01-11",
     "genres": [
       10759,
@@ -84,6 +68,39 @@
       10765
     ],
     "popularity": 211.8328
+  },
+  {
+    "id": 61818,
+    "tmdb_id": 61818,
+    "type": "tv",
+    "title": "Late Night with Seth Meyers",
+    "overview": "Seth Meyers, who is \"Saturday Night Live's\" longest serving anchor on the show's wildly popular \"Weekend Update,\" takes over as host of NBC's \"Late Night\" — home to A-list celebrity guests, memorable comedy and the best in musical talent. As the Emmy Award-winning head writer for \"SNL,\" Meyers has established a reputation for sharp wit and perfectly timed comedy, and has gained fame for his spot-on jokes and satire. Meyers takes his departure from \"SNL\" to his new post at \"Late Night,\" as Jimmy Fallon moves to \"The Tonight Show\".",
+    "poster": "https://image.tmdb.org/t/p/w342/u8VruEGv7mtyJihVn2CSA1u90pk.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/dfX2UaHVE5c7kLBFbgmEZJuy4Ev.jpg",
+    "rating": 5.1,
+    "votes": 131,
+    "release": "2014-02-25",
+    "genres": [
+      10767,
+      35
+    ],
+    "popularity": 197.4402
+  },
+  {
+    "id": 206559,
+    "tmdb_id": 206559,
+    "type": "tv",
+    "title": "Binnelanders",
+    "overview": "A South African Afrikaans soap opera. It is set in and around the fictional private hospital, Binneland Kliniek, in Pretoria, and the storyline follows the trials, trauma and tribulations of the staff and patients of the hospital.",
+    "poster": "https://image.tmdb.org/t/p/w342/3bzECfllho8PphdYujLUIuhncJD.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/s1dTt4M31q2HwD5Fkl1tf5tQzJg.jpg",
+    "rating": 5.5,
+    "votes": 111,
+    "release": "2005-10-13",
+    "genres": [
+      10766
+    ],
+    "popularity": 174.4972
   },
   {
     "id": 2224,
@@ -110,8 +127,8 @@
     "overview": "When an unassuming dad's daughter goes missing, he dusts off his old black-ops skills to track her down — only to attract the wrong kind of attention.",
     "poster": "https://image.tmdb.org/t/p/w342/mxa7YxVln3Rwnd2Va82PoclTznj.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/g1LJLlmWP74zv9yXKEXm7g9p10O.jpg",
-    "rating": 7.746,
-    "votes": 59,
+    "rating": 7.75,
+    "votes": 60,
     "release": "2026-06-26",
     "genres": [
       10759,
@@ -119,125 +136,6 @@
       18
     ],
     "popularity": 162.0506
-  },
-  {
-    "id": 65701,
-    "tmdb_id": 65701,
-    "type": "tv",
-    "title": "Good Mythical Morning",
-    "overview": "Two \"Internetainers\" (Rhett & Link) go far out and do the weirdest things, giving you a daily dose of casual comedy every Monday-Friday.",
-    "poster": "https://image.tmdb.org/t/p/w342/jMpBQr2aNOFAI6wsC47zsOG6qOh.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/hvFCS0dMeC3ffiF4uYTKzUAkvYL.jpg",
-    "rating": 6.9,
-    "votes": 91,
-    "release": "2012-01-09",
-    "genres": [
-      35
-    ],
-    "popularity": 140.3175
-  },
-  {
-    "id": 14750,
-    "tmdb_id": 14750,
-    "type": "tv",
-    "title": "Na Wspólnej",
-    "overview": "Na Wspólnej is a Polish soap opera. It has been running since 2003 on the TVN channel as its flagship primetime weekday soap opera. It is loosely based on the German production Unter Uns and it follows the lives of the inhabitants of an apartment block in Wspólna Street, Warsaw. Episodes tend to last around 20 minutes. It is a Polish version of the Hungarian \"Barátok közt\".\n\nThe series is shot almost entirely in Warsaw and produced by the Polish branch of Freemantle Media. On 9 September 2008 it celebrated its 1000th episode; \"Na Wspólnej\" was the fourth Polish television series ever to achieve such status. A special episode was broadcast in which characters from some other of TVN's most popular shows visited Wspólna Street.",
-    "poster": "https://image.tmdb.org/t/p/w342/uksRhdaOn64bO5d33d7rcTbrhJI.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/pmB8uYJF1WKQCZnJjhnAx2IJjhk.jpg",
-    "rating": 4.7,
-    "votes": 12,
-    "release": "2003-01-27",
-    "genres": [
-      10766
-    ],
-    "popularity": 120.1508
-  },
-  {
-    "id": 79917,
-    "tmdb_id": 79917,
-    "type": "tv",
-    "title": "Bares für Rares",
-    "overview": "In the show, selected applicants each present a curiosity, rarity or antique they have brought with them. Once they have received their expertise, they will have the opportunity on site to offer their exhibit to a changing five-person podium for sale and, ideally, to sell it to the highest bidder for „Bares“ (\"cash\").",
-    "poster": "https://image.tmdb.org/t/p/w342/j9SzcU00nl64FdgLs4otaHBfRkj.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/wNzhjVcigBJx3dATrlEmaoKbRpx.jpg",
-    "rating": 7.6,
-    "votes": 9,
-    "release": "2013-08-04",
-    "genres": [
-      10767,
-      10764,
-      99
-    ],
-    "popularity": 109.024
-  },
-  {
-    "id": 6060,
-    "tmdb_id": 6060,
-    "type": "tv",
-    "title": "Kyunki... Saas Bhi Kabhi Bahu Thi...",
-    "overview": "A mother-in-law's struggle to put up with her three bahu's. The three bahu's have grown up sons. The bahu's sons start to get involved with having girlfriends and the bahu's try and break their relationships up.",
-    "poster": "https://image.tmdb.org/t/p/w342/rJfoyxt7FOKr7WPB6FPuffarpcn.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/gwXnESfjDqop3tDLoGxSwCUP8GD.jpg",
-    "rating": 3.417,
-    "votes": 12,
-    "release": "2000-07-03",
-    "genres": [
-      18,
-      10751,
-      10766
-    ],
-    "popularity": 115.3243
-  },
-  {
-    "id": 61818,
-    "tmdb_id": 61818,
-    "type": "tv",
-    "title": "Late Night with Seth Meyers",
-    "overview": "Seth Meyers, who is \"Saturday Night Live's\" longest serving anchor on the show's wildly popular \"Weekend Update,\" takes over as host of NBC's \"Late Night\" — home to A-list celebrity guests, memorable comedy and the best in musical talent. As the Emmy Award-winning head writer for \"SNL,\" Meyers has established a reputation for sharp wit and perfectly timed comedy, and has gained fame for his spot-on jokes and satire. Meyers takes his departure from \"SNL\" to his new post at \"Late Night,\" as Jimmy Fallon moves to \"The Tonight Show\".",
-    "poster": "https://image.tmdb.org/t/p/w342/u8VruEGv7mtyJihVn2CSA1u90pk.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/dfX2UaHVE5c7kLBFbgmEZJuy4Ev.jpg",
-    "rating": 5.1,
-    "votes": 131,
-    "release": "2014-02-25",
-    "genres": [
-      10767,
-      35
-    ],
-    "popularity": 197.4402
-  },
-  {
-    "id": 16807,
-    "tmdb_id": 16807,
-    "type": "tv",
-    "title": "Jornal Nacional",
-    "overview": "Jornal Nacional is a Brazilian Emmy-winning primetime news program aired by Rede Globo since September 1, 1969. It was the first news program broadcast live by a television network throughout Brazil.",
-    "poster": "https://image.tmdb.org/t/p/w342/59iVuixNWRgtkT1aN8BR9RrJOBR.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/ngmekOxfGjiTtNbWM5T5U4WvzlS.jpg",
-    "rating": 7,
-    "votes": 7,
-    "release": "1969-09-01",
-    "genres": [
-      10763
-    ],
-    "popularity": 97.7114
-  },
-  {
-    "id": 2661,
-    "tmdb_id": 2661,
-    "type": "tv",
-    "title": "Kamen Rider",
-    "overview": "Takeshi Hongo is a promising young man with a passion for motorcycle racing. However, his dreams are suddenly ruined when he gets kidnapped by Shocker, the evil secret organization planning to dominate the world. After being remodeled into a cyborg, Takeshi escapes and swears to protect the world from the inhuman monsters.",
-    "poster": "https://image.tmdb.org/t/p/w342/2DIBDFHiKQawz4WPsYekl9DHwyA.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/usLRh1bcbL0Q9X8zf6rL4OV1qrA.jpg",
-    "rating": 6.4,
-    "votes": 103,
-    "release": "1971-04-03",
-    "genres": [
-      10759,
-      10765,
-      18
-    ],
-    "popularity": 114.6139
   },
   {
     "id": 30983,
@@ -259,6 +157,22 @@
     "popularity": 142.6337
   },
   {
+    "id": 65701,
+    "tmdb_id": 65701,
+    "type": "tv",
+    "title": "Good Mythical Morning",
+    "overview": "Two \"Internetainers\" (Rhett & Link) go far out and do the weirdest things, giving you a daily dose of casual comedy every Monday-Friday.",
+    "poster": "https://image.tmdb.org/t/p/w342/jMpBQr2aNOFAI6wsC47zsOG6qOh.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/hvFCS0dMeC3ffiF4uYTKzUAkvYL.jpg",
+    "rating": 6.9,
+    "votes": 91,
+    "release": "2012-01-09",
+    "genres": [
+      35
+    ],
+    "popularity": 140.3175
+  },
+  {
     "id": 91555,
     "tmdb_id": 91555,
     "type": "tv",
@@ -276,23 +190,6 @@
     "popularity": 129.0855
   },
   {
-    "id": 33238,
-    "tmdb_id": 33238,
-    "type": "tv",
-    "title": "Running Man",
-    "overview": "These days, as variety shows are gradually disappearing, this is one of Korea’s representative variety shows that has been responsible for Sunday evenings for over 10 years. This program features numerous stars and members going around various places, playing games, and completing missions. In particular, among the many fun elements of variety shows, this one focuses solely on laughter.\n\nOpen your eyes! Big fun is coming in!\n\nOpen your mouth! Big laughter is coming in!\n\nOpen your heart! Useful lessons are coming in!",
-    "poster": "https://image.tmdb.org/t/p/w342/2Wmmu1MkqxJ48J7aySET9EKEjXz.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/wsHj4oHQJoe7DMYaqNFwVoyLiAh.jpg",
-    "rating": 8.2,
-    "votes": 214,
-    "release": "2010-07-11",
-    "genres": [
-      35,
-      10764
-    ],
-    "popularity": 124.0133
-  },
-  {
     "id": 45140,
     "tmdb_id": 45140,
     "type": "tv",
@@ -301,7 +198,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/kPKAigYUlWRpnfo4Ptiwlz4FWXU.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/bIHCUqaapZdRjd2kzSDiwzYyrpC.jpg",
     "rating": 6.4,
-    "votes": 711,
+    "votes": 712,
     "release": "2013-04-23",
     "genres": [
       16,
@@ -311,6 +208,55 @@
       10765
     ],
     "popularity": 126.6999
+  },
+  {
+    "id": 4656,
+    "tmdb_id": 4656,
+    "type": "tv",
+    "title": "Raw",
+    "overview": "A regularly scheduled, live, year-round program featuring some of the biggest WWE Superstars.",
+    "poster": "https://image.tmdb.org/t/p/w342/fstEe6RsyNyPUnMwNcL20iNl0nE.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/384Lam787FIDBnwjwQBvC8gjB2d.jpg",
+    "rating": 6.792,
+    "votes": 367,
+    "release": "1993-01-11",
+    "genres": [
+      10764
+    ],
+    "popularity": 125.1297
+  },
+  {
+    "id": 33238,
+    "tmdb_id": 33238,
+    "type": "tv",
+    "title": "Running Man",
+    "overview": "These days, as variety shows are gradually disappearing, this is one of Korea’s representative variety shows that has been responsible for Sunday evenings for over 10 years. This program features numerous stars and members going around various places, playing games, and completing missions. In particular, among the many fun elements of variety shows, this one focuses solely on laughter.\n\nOpen your eyes! Big fun is coming in!\n\nOpen your mouth! Big laughter is coming in!\n\nOpen your heart! Useful lessons are coming in!",
+    "poster": "https://image.tmdb.org/t/p/w342/2Wmmu1MkqxJ48J7aySET9EKEjXz.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/wsHj4oHQJoe7DMYaqNFwVoyLiAh.jpg",
+    "rating": 8.174,
+    "votes": 215,
+    "release": "2010-07-11",
+    "genres": [
+      35,
+      10764
+    ],
+    "popularity": 124.0133
+  },
+  {
+    "id": 14750,
+    "tmdb_id": 14750,
+    "type": "tv",
+    "title": "Na Wspólnej",
+    "overview": "Na Wspólnej is a Polish soap opera. It has been running since 2003 on the TVN channel as its flagship primetime weekday soap opera. It is loosely based on the German production Unter Uns and it follows the lives of the inhabitants of an apartment block in Wspólna Street, Warsaw. Episodes tend to last around 20 minutes. It is a Polish version of the Hungarian \"Barátok közt\".\n\nThe series is shot almost entirely in Warsaw and produced by the Polish branch of Freemantle Media. On 9 September 2008 it celebrated its 1000th episode; \"Na Wspólnej\" was the fourth Polish television series ever to achieve such status. A special episode was broadcast in which characters from some other of TVN's most popular shows visited Wspólna Street.",
+    "poster": "https://image.tmdb.org/t/p/w342/uksRhdaOn64bO5d33d7rcTbrhJI.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/pmB8uYJF1WKQCZnJjhnAx2IJjhk.jpg",
+    "rating": 4.7,
+    "votes": 12,
+    "release": "2003-01-27",
+    "genres": [
+      10766
+    ],
+    "popularity": 120.1508
   },
   {
     "id": 303084,
@@ -329,19 +275,74 @@
     "popularity": 116.1117
   },
   {
-    "id": 4656,
-    "tmdb_id": 4656,
+    "id": 6060,
+    "tmdb_id": 6060,
     "type": "tv",
-    "title": "Raw",
-    "overview": "A regularly scheduled, live, year-round program featuring some of the biggest WWE Superstars.",
-    "poster": "https://image.tmdb.org/t/p/w342/fstEe6RsyNyPUnMwNcL20iNl0nE.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/384Lam787FIDBnwjwQBvC8gjB2d.jpg",
-    "rating": 6.783,
-    "votes": 366,
-    "release": "1993-01-11",
+    "title": "Kyunki... Saas Bhi Kabhi Bahu Thi...",
+    "overview": "A mother-in-law's struggle to put up with her three bahu's. The three bahu's have grown up sons. The bahu's sons start to get involved with having girlfriends and the bahu's try and break their relationships up.",
+    "poster": "https://image.tmdb.org/t/p/w342/rJfoyxt7FOKr7WPB6FPuffarpcn.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/gwXnESfjDqop3tDLoGxSwCUP8GD.jpg",
+    "rating": 3.417,
+    "votes": 12,
+    "release": "2000-07-03",
     "genres": [
-      10764
+      18,
+      10751,
+      10766
     ],
-    "popularity": 125.1297
+    "popularity": 115.3243
+  },
+  {
+    "id": 2661,
+    "tmdb_id": 2661,
+    "type": "tv",
+    "title": "Kamen Rider",
+    "overview": "Takeshi Hongo is a promising young man with a passion for motorcycle racing. However, his dreams are suddenly ruined when he gets kidnapped by Shocker, the evil secret organization planning to dominate the world. After being remodeled into a cyborg, Takeshi escapes and swears to protect the world from the inhuman monsters.",
+    "poster": "https://image.tmdb.org/t/p/w342/2DIBDFHiKQawz4WPsYekl9DHwyA.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/usLRh1bcbL0Q9X8zf6rL4OV1qrA.jpg",
+    "rating": 6.4,
+    "votes": 103,
+    "release": "1971-04-03",
+    "genres": [
+      10759,
+      10765,
+      18
+    ],
+    "popularity": 114.6139
+  },
+  {
+    "id": 278624,
+    "tmdb_id": 278624,
+    "type": "tv",
+    "title": "Lucky",
+    "overview": "When a multi-million-dollar heist goes sideways, con artist Lucky is forced to go on the run. Pursued by both the FBI and a ruthless crime boss, Lucky must fight for her life—and a way out.",
+    "poster": "https://image.tmdb.org/t/p/w342/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
+    "rating": 7.2,
+    "votes": 90,
+    "release": "2026-07-14",
+    "genres": [
+      18,
+      80
+    ],
+    "popularity": 111.267
+  },
+  {
+    "id": 79917,
+    "tmdb_id": 79917,
+    "type": "tv",
+    "title": "Bares für Rares",
+    "overview": "In the show, selected applicants each present a curiosity, rarity or antique they have brought with them. Once they have received their expertise, they will have the opportunity on site to offer their exhibit to a changing five-person podium for sale and, ideally, to sell it to the highest bidder for „Bares“ (\"cash\").",
+    "poster": "https://image.tmdb.org/t/p/w342/j9SzcU00nl64FdgLs4otaHBfRkj.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/wNzhjVcigBJx3dATrlEmaoKbRpx.jpg",
+    "rating": 7.6,
+    "votes": 9,
+    "release": "2013-08-04",
+    "genres": [
+      10767,
+      10764,
+      99
+    ],
+    "popularity": 109.024
   }
 ]

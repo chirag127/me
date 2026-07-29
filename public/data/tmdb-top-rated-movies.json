@@ -1,5 +1,24 @@
 [
   {
+    "id": 980431,
+    "tmdb_id": 980431,
+    "type": "movie",
+    "title": "Avatar Aang: The Last Airbender",
+    "overview": "Avatar Aang, the world's last Airbender, learns of an ancient power that could save his culture from extinction. With the help of his friends, he embarks on a global quest to find it before it falls into the wrong hands and threatens to upend the peace they sacrificed everything to achieve.",
+    "poster": "https://image.tmdb.org/t/p/w342/3sgnSfNT27Bx5O5ukr7B26mhEQq.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/ezbrL1dMymKQZw7mDEWa2ZTzN7d.jpg",
+    "rating": 9.39,
+    "votes": 368,
+    "release": "2026-07-24",
+    "genres": [
+      16,
+      28,
+      12,
+      14
+    ],
+    "popularity": 277.122
+  },
+  {
     "id": 1632181,
     "tmdb_id": 1632181,
     "type": "movie",
@@ -7,14 +26,14 @@
     "overview": "Two women discover they were both scammed by the same man (who also got them pregnant). They form an alliance to take revenge.",
     "poster": "https://image.tmdb.org/t/p/w342/j0CIVzeR7hRAPBPGR54qDZoOQpp.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/iCML6fBe3X0y06P33bM7dyYXPKZ.jpg",
-    "rating": 8.994,
-    "votes": 324,
+    "rating": 8.97,
+    "votes": 328,
     "release": "2026-03-12",
     "genres": [
       35,
       10749
     ],
-    "popularity": 31.9745
+    "popularity": 32.2876
   },
   {
     "id": 1007757,
@@ -24,8 +43,8 @@
     "overview": "A small woodland creature and a majestic bird, two natural sworn enemies of the Valley, magically trade places and set off on an adventure of a lifetime to switch back. Their journey soon uncovers a greater threat—one that could endanger not only their species, but the entire valley they call home.",
     "poster": "https://image.tmdb.org/t/p/w342/tHhxWxge06goXU6ZQH1hj7vK8Hd.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/zMwhWailP1WY7sb6AoE6b8ugoy.jpg",
-    "rating": 8.896,
-    "votes": 2009,
+    "rating": 8.893,
+    "votes": 2013,
     "release": "2026-05-01",
     "genres": [
       12,
@@ -33,7 +52,7 @@
       10751,
       14
     ],
-    "popularity": 71.2324
+    "popularity": 68.6634
   },
   {
     "id": 278,
@@ -44,13 +63,13 @@
     "poster": "https://image.tmdb.org/t/p/w342/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/zfbjgQE1uSd9wiPTX4VzsLi0rGG.jpg",
     "rating": 8.726,
-    "votes": 30860,
+    "votes": 30872,
     "release": "1994-09-23",
     "genres": [
       18,
       80
     ],
-    "popularity": 99.7554
+    "popularity": 114.2776
   },
   {
     "id": 936075,
@@ -60,14 +79,14 @@
     "overview": "The story of Michael Jackson, one of the most influential artists the world has ever known, and his life beyond the music. His journey from the discovery of his extraordinary talent as the lead of the Jackson Five, to the visionary artist whose creative ambition fueled a relentless pursuit to become the biggest entertainer in the world, highlighting both his life off-stage and some of the most iconic performances from his early solo career.",
     "poster": "https://image.tmdb.org/t/p/w342/zm0KAbOjlt9eR5y7vDiL2dEOwMl.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/ufSwlnECLoUbBjPrFqEQcWBzHwc.jpg",
-    "rating": 8.696,
-    "votes": 3734,
+    "rating": 8.697,
+    "votes": 3747,
     "release": "2026-04-22",
     "genres": [
       10402,
       18
     ],
-    "popularity": 130.0099
+    "popularity": 129.1904
   },
   {
     "id": 238,
@@ -77,14 +96,14 @@
     "overview": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.",
     "poster": "https://image.tmdb.org/t/p/w342/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/tSPT36ZKlP2WVHJLM4cQPLSzv3b.jpg",
-    "rating": 8.7,
-    "votes": 23219,
+    "rating": 8.686,
+    "votes": 23226,
     "release": "1972-03-14",
     "genres": [
       18,
       80
     ],
-    "popularity": 52.0454
+    "popularity": 49.9465
   },
   {
     "id": 687163,
@@ -93,15 +112,15 @@
     "title": "Project Hail Mary",
     "overview": "Science teacher Ryland Grace wakes up on a spaceship light years from home with no recollection of who he is or how he got there. As his memory returns, he begins to uncover his mission: solve the riddle of the mysterious substance causing the sun to die out. He must call on his scientific knowledge and unorthodox ideas to save everything on Earth from extinction.",
     "poster": "https://image.tmdb.org/t/p/w342/yihdXomYb5kTeSivtFndMy5iDmf.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/8Tfys3mDZVp4tNoH2ktm06a0Tau.jpg",
-    "rating": 8.66,
-    "votes": 6504,
+    "backdrop": "https://image.tmdb.org/t/p/w780/qL4dBGLkWOVP5vImN7EEoqJQYd8.jpg",
+    "rating": 8.661,
+    "votes": 6547,
     "release": "2026-03-15",
     "genres": [
       878,
       12
     ],
-    "popularity": 201.2387
+    "popularity": 193.4652
   },
   {
     "id": 240,
@@ -112,13 +131,13 @@
     "poster": "https://image.tmdb.org/t/p/w342/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/kGzFbGhp99zva6oZODW5atUtnqi.jpg",
     "rating": 8.571,
-    "votes": 14088,
+    "votes": 14093,
     "release": "1974-12-20",
     "genres": [
       18,
       80
     ],
-    "popularity": 31.1927
+    "popularity": 32.5481
   },
   {
     "id": 424,
@@ -129,14 +148,14 @@
     "poster": "https://image.tmdb.org/t/p/w342/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/zb6fM1CX41D9rF9hdgclu0peUmy.jpg",
     "rating": 8.57,
-    "votes": 17646,
+    "votes": 17650,
     "release": "1993-12-15",
     "genres": [
       18,
       36,
       10752
     ],
-    "popularity": 29.2549
+    "popularity": 31.5373
   },
   {
     "id": 389,
@@ -147,30 +166,12 @@
     "poster": "https://image.tmdb.org/t/p/w342/ppd84D2i9W8jXmsyInGyihiSyqz.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/qqHQsStV6exghCM7zbObuYBiYxw.jpg",
     "rating": 8.566,
-    "votes": 10154,
+    "votes": 10157,
     "release": "1957-04-10",
     "genres": [
       18
     ],
-    "popularity": 24.8318
-  },
-  {
-    "id": 129,
-    "tmdb_id": 129,
-    "type": "movie",
-    "title": "Spirited Away",
-    "overview": "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.",
-    "poster": "https://image.tmdb.org/t/p/w342/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/dyJvKsNs2KP8qQnAXbRwDjblViy.jpg",
-    "rating": 8.534,
-    "votes": 18590,
-    "release": "2001-07-20",
-    "genres": [
-      16,
-      10751,
-      14
-    ],
-    "popularity": 31.7959
+    "popularity": 24.8293
   },
   {
     "id": 155,
@@ -181,14 +182,32 @@
     "poster": "https://image.tmdb.org/t/p/w342/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/dqK9Hag1054tghRQSqLSfrkvQnA.jpg",
     "rating": 8.533,
-    "votes": 36189,
+    "votes": 36202,
     "release": "2008-07-16",
     "genres": [
       28,
       80,
       53
     ],
-    "popularity": 57.5176
+    "popularity": 58.7941
+  },
+  {
+    "id": 129,
+    "tmdb_id": 129,
+    "type": "movie",
+    "title": "Spirited Away",
+    "overview": "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.",
+    "poster": "https://image.tmdb.org/t/p/w342/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/dyJvKsNs2KP8qQnAXbRwDjblViy.jpg",
+    "rating": 8.534,
+    "votes": 18597,
+    "release": "2001-07-20",
+    "genres": [
+      16,
+      10751,
+      14
+    ],
+    "popularity": 34.7412
   },
   {
     "id": 19404,
@@ -198,15 +217,15 @@
     "overview": "Raj is a rich, carefree, happy-go-lucky second generation NRI. Simran is the daughter of Chaudhary Baldev Singh, who in spite of being an NRI is very strict about adherence to Indian values. Simran has left for India to be married to her childhood fiancé. Raj leaves for India with a mission at his hands, to claim his lady love under the noses of her whole family. Thus begins a saga.",
     "poster": "https://image.tmdb.org/t/p/w342/tFbfCkS7q6g96wVoAu8kyr93iPm.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/84beTJf26mfhoasUlKSOiNSutyS.jpg",
-    "rating": 8.51,
-    "votes": 4603,
+    "rating": 8.509,
+    "votes": 4604,
     "release": "1995-10-20",
     "genres": [
       35,
       18,
       10749
     ],
-    "popularity": 12.6291
+    "popularity": 14.4335
   },
   {
     "id": 497,
@@ -217,14 +236,14 @@
     "poster": "https://image.tmdb.org/t/p/w342/8VG8fDNiy50H4FedGwdSVUPoaJe.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/b6HWTOxn1xevvyHU2K9ICvaRU6g.jpg",
     "rating": 8.506,
-    "votes": 19493,
+    "votes": 19504,
     "release": "1999-12-10",
     "genres": [
       14,
       18,
       80
     ],
-    "popularity": 36.9016
+    "popularity": 38.2068
   },
   {
     "id": 122,
@@ -235,14 +254,14 @@
     "poster": "https://image.tmdb.org/t/p/w342/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/2u7zbn8EudG6kLlBzUYqP8RyFU4.jpg",
     "rating": 8.502,
-    "votes": 26924,
+    "votes": 26932,
     "release": "2003-12-17",
     "genres": [
       12,
       14,
       28
     ],
-    "popularity": 47.2977
+    "popularity": 51.8194
   },
   {
     "id": 1330021,
@@ -252,14 +271,14 @@
     "overview": "Through unlikely bonds formed during night shifts at a local aquarium, Tova, an elderly widow, learns of a life-changing discovery that may bring her joy and wonder once again.",
     "poster": "https://image.tmdb.org/t/p/w342/9HcEqn3D4J6b2Z0jK54id9nA0fr.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/bVGHSe47W6oCQL1Q88pvRAet51A.jpg",
-    "rating": 8.498,
-    "votes": 779,
+    "rating": 8.496,
+    "votes": 781,
     "release": "2026-05-07",
     "genres": [
       18,
       9648
     ],
-    "popularity": 31.9834
+    "popularity": 33.2397
   },
   {
     "id": 496243,
@@ -270,14 +289,31 @@
     "poster": "https://image.tmdb.org/t/p/w342/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/hiKmpZMGZsrkA3cdce8a7Dpos1j.jpg",
     "rating": 8.49,
-    "votes": 20938,
+    "votes": 20949,
     "release": "2019-05-30",
     "genres": [
       35,
       53,
       18
     ],
-    "popularity": 34.4576
+    "popularity": 38.3709
+  },
+  {
+    "id": 1181678,
+    "tmdb_id": 1181678,
+    "type": "movie",
+    "title": "¿Quieres ser mi hijo?",
+    "overview": "Lu, a conformist woman in her forties, learns that her 15-year partner has been having extramarital affairs. Starting from scratch, she gets involved in an unexpected relationship with a young womanizer.",
+    "poster": "https://image.tmdb.org/t/p/w342/6PQJsmuvSMZQMmlJfTpjIkrizUh.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/xyWKrni8WrYzqn7ztvI5nIY0h62.jpg",
+    "rating": 8.483,
+    "votes": 359,
+    "release": "2023-09-21",
+    "genres": [
+      35,
+      10749
+    ],
+    "popularity": 12.1018
   },
   {
     "id": 157336,
@@ -287,15 +323,15 @@
     "overview": "The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
     "poster": "https://image.tmdb.org/t/p/w342/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/5XNQBqnBwPA9yT0jZ0p3s8bbLh0.jpg",
-    "rating": 8.5,
-    "votes": 40461,
+    "rating": 8.483,
+    "votes": 40480,
     "release": "2014-11-05",
     "genres": [
       12,
       18,
       878
     ],
-    "popularity": 78.7607
+    "popularity": 80.8917
   },
   {
     "id": 680,
@@ -306,48 +342,13 @@
     "poster": "https://image.tmdb.org/t/p/w342/vQWk5YBFWF4bZaofAbv0tShwBvQ.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg",
     "rating": 8.482,
-    "votes": 30496,
+    "votes": 30504,
     "release": "1994-09-10",
     "genres": [
       53,
       80,
       35
     ],
-    "popularity": 38.8723
-  },
-  {
-    "id": 372058,
-    "tmdb_id": 372058,
-    "type": "movie",
-    "title": "Your Name.",
-    "overview": "High schoolers Mitsuha and Taki are complete strangers living separate lives. But one night, they suddenly switch places. Mitsuha wakes up in Taki’s body, and he in hers. This bizarre occurrence continues to happen randomly, and the two must adjust their lives around each other.",
-    "poster": "https://image.tmdb.org/t/p/w342/q719jXXEzOoYaps6babgKnONONX.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/mMtUybQ6hL24FXo0F3Z4j2KG7kZ.jpg",
-    "rating": 8.481,
-    "votes": 12725,
-    "release": "2016-07-01",
-    "genres": [
-      16,
-      10749,
-      18
-    ],
-    "popularity": 23.6876
-  },
-  {
-    "id": 1181678,
-    "tmdb_id": 1181678,
-    "type": "movie",
-    "title": "¿Quieres ser mi hijo?",
-    "overview": "Lu, a conformist woman in her forties, learns that her 15-year partner has been having extramarital affairs. Starting from scratch, she gets involved in an unexpected relationship with a young womanizer.",
-    "poster": "https://image.tmdb.org/t/p/w342/6PQJsmuvSMZQMmlJfTpjIkrizUh.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/xyWKrni8WrYzqn7ztvI5nIY0h62.jpg",
-    "rating": 8.479,
-    "votes": 358,
-    "release": "2023-09-21",
-    "genres": [
-      35,
-      10749
-    ],
-    "popularity": 11.1149
+    "popularity": 41.0655
   }
 ]

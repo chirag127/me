@@ -34,7 +34,7 @@
     "@attr": {
       "rank": "1"
     },
-    "playcount": "23"
+    "playcount": "22"
   },
   {
     "streamable": {
@@ -78,43 +78,6 @@
       "fulltrack": "0",
       "#text": "0"
     },
-    "mbid": "0758cc5d-9b6d-4791-b600-87ebd14c4f1f",
-    "name": "Animal",
-    "image": [
-      {
-        "size": "small",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "medium",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "large",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "extralarge",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
-      }
-    ],
-    "artist": {
-      "url": "https://www.last.fm/music/Troye+Sivan",
-      "name": "Troye Sivan",
-      "mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
-    },
-    "url": "https://www.last.fm/music/Troye+Sivan/_/Animal",
-    "duration": "265",
-    "@attr": {
-      "rank": "3"
-    },
-    "playcount": "12"
-  },
-  {
-    "streamable": {
-      "fulltrack": "0",
-      "#text": "0"
-    },
     "mbid": "0ac42915-c526-4d51-a2e4-b72f617f53f8",
     "name": "YOUTH",
     "image": [
@@ -143,7 +106,7 @@
     "url": "https://www.last.fm/music/Troye+Sivan/_/YOUTH",
     "duration": "185",
     "@attr": {
-      "rank": "4"
+      "rank": "3"
     },
     "playcount": "12"
   },
@@ -152,8 +115,8 @@
       "fulltrack": "0",
       "#text": "0"
     },
-    "mbid": "02b59898-c15d-4427-830f-424fc2e74180",
-    "name": "Nervous",
+    "mbid": "0758cc5d-9b6d-4791-b600-87ebd14c4f1f",
+    "name": "Animal",
     "image": [
       {
         "size": "small",
@@ -173,14 +136,14 @@
       }
     ],
     "artist": {
-      "url": "https://www.last.fm/music/Shawn+Mendes",
-      "name": "Shawn Mendes",
-      "mbid": "b7d92248-97e3-4450-8057-6fe06738f735"
+      "url": "https://www.last.fm/music/Troye+Sivan",
+      "name": "Troye Sivan",
+      "mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
     },
-    "url": "https://www.last.fm/music/Shawn+Mendes/_/Nervous",
-    "duration": "164",
+    "url": "https://www.last.fm/music/Troye+Sivan/_/Animal",
+    "duration": "265",
     "@attr": {
-      "rank": "5"
+      "rank": "4"
     },
     "playcount": "11"
   },
@@ -217,9 +180,9 @@
     "url": "https://www.last.fm/music/Troye+Sivan/_/One+of+Your+Girls",
     "duration": "181",
     "@attr": {
-      "rank": "6"
+      "rank": "5"
     },
-    "playcount": "11"
+    "playcount": "10"
   },
   {
     "streamable": {
@@ -254,7 +217,7 @@
     "url": "https://www.last.fm/music/Justin+Bieber/_/Intentions+(Official+Video+(Short+Version))+ft.+Quavo",
     "duration": "0",
     "@attr": {
-      "rank": "7"
+      "rank": "6"
     },
     "playcount": "9"
   },
@@ -291,7 +254,7 @@
     "url": "https://www.last.fm/music/Lauv+&+LANY/_/Mean+It",
     "duration": "232",
     "@attr": {
-      "rank": "8"
+      "rank": "7"
     },
     "playcount": "9"
   },
@@ -328,7 +291,7 @@
     "url": "https://www.last.fm/music/Troye+Sivan/_/Angel+Baby",
     "duration": "220",
     "@attr": {
-      "rank": "9"
+      "rank": "8"
     },
     "playcount": "9"
   },
@@ -365,7 +328,7 @@
     "url": "https://www.last.fm/music/Harry+Styles/_/Falling",
     "duration": "0",
     "@attr": {
-      "rank": "10"
+      "rank": "9"
     },
     "playcount": "8"
   },
@@ -402,7 +365,7 @@
     "url": "https://www.last.fm/music/Marshmello+x+Jonas+Brothers/_/Leave+Before+You+Love+Me",
     "duration": "0",
     "@attr": {
-      "rank": "11"
+      "rank": "10"
     },
     "playcount": "8"
   },
@@ -411,8 +374,8 @@
       "fulltrack": "0",
       "#text": "0"
     },
-    "mbid": "f75b6b94-46b3-4c0a-af56-05b4dfbee957",
-    "name": "Lucky Strike",
+    "mbid": "02b59898-c15d-4427-830f-424fc2e74180",
+    "name": "Nervous",
     "image": [
       {
         "size": "small",
@@ -432,14 +395,14 @@
       }
     ],
     "artist": {
-      "url": "https://www.last.fm/music/Troye+Sivan",
-      "name": "Troye Sivan",
-      "mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
+      "url": "https://www.last.fm/music/Shawn+Mendes",
+      "name": "Shawn Mendes",
+      "mbid": "b7d92248-97e3-4450-8057-6fe06738f735"
     },
-    "url": "https://www.last.fm/music/Troye+Sivan/_/Lucky+Strike",
-    "duration": "208",
+    "url": "https://www.last.fm/music/Shawn+Mendes/_/Nervous",
+    "duration": "164",
     "@attr": {
-      "rank": "12"
+      "rank": "11"
     },
     "playcount": "8"
   },
@@ -475,6 +438,43 @@
     },
     "url": "https://www.last.fm/music/I+Wanna+Be+Someone+Who%27s+Loved+(from+the+Netflix+Series/_/Young+Royals",
     "duration": "0",
+    "@attr": {
+      "rank": "12"
+    },
+    "playcount": "7"
+  },
+  {
+    "streamable": {
+      "fulltrack": "0",
+      "#text": "0"
+    },
+    "mbid": "f75b6b94-46b3-4c0a-af56-05b4dfbee957",
+    "name": "Lucky Strike",
+    "image": [
+      {
+        "size": "small",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "medium",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "large",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "extralarge",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
+      }
+    ],
+    "artist": {
+      "url": "https://www.last.fm/music/Troye+Sivan",
+      "name": "Troye Sivan",
+      "mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
+    },
+    "url": "https://www.last.fm/music/Troye+Sivan/_/Lucky+Strike",
+    "duration": "208",
     "@attr": {
       "rank": "13"
     },
@@ -515,43 +515,6 @@
     "@attr": {
       "rank": "14"
     },
-    "playcount": "7"
-  },
-  {
-    "streamable": {
-      "fulltrack": "0",
-      "#text": "0"
-    },
-    "mbid": "435c53ba-e960-4b57-9c53-ac708b32083b",
-    "name": "Permission to Dance",
-    "image": [
-      {
-        "size": "small",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "medium",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "large",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "extralarge",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
-      }
-    ],
-    "artist": {
-      "url": "https://www.last.fm/music/BTS",
-      "name": "BTS",
-      "mbid": "0d79fe8e-ba27-4859-bb8c-2f255f346853"
-    },
-    "url": "https://www.last.fm/music/BTS/_/Permission+to+Dance",
-    "duration": "187",
-    "@attr": {
-      "rank": "15"
-    },
     "playcount": "6"
   },
   {
@@ -587,7 +550,7 @@
     "url": "https://www.last.fm/music/Charlie+Puth/_/We+Don%27t+Talk+Anymore+(feat.+Selena+Gomez)",
     "duration": "217",
     "@attr": {
-      "rank": "16"
+      "rank": "15"
     },
     "playcount": "5"
   },
@@ -624,7 +587,7 @@
     "url": "https://www.last.fm/music/Lauv/_/Never+Not",
     "duration": "0",
     "@attr": {
-      "rank": "17"
+      "rank": "16"
     },
     "playcount": "5"
   },
@@ -661,7 +624,7 @@
     "url": "https://www.last.fm/music/Omar+Rudberg/_/Jag+e+n%C3%A5n+annan",
     "duration": "181",
     "@attr": {
-      "rank": "18"
+      "rank": "17"
     },
     "playcount": "5"
   },
@@ -698,7 +661,7 @@
     "url": "https://www.last.fm/music/Shawn+Mendes/_/Stitches",
     "duration": "206",
     "@attr": {
-      "rank": "19"
+      "rank": "18"
     },
     "playcount": "5"
   },
@@ -735,9 +698,46 @@
     "url": "https://www.last.fm/music/Troye+Sivan/_/My+My+My!",
     "duration": "204",
     "@attr": {
-      "rank": "20"
+      "rank": "19"
     },
     "playcount": "5"
+  },
+  {
+    "streamable": {
+      "fulltrack": "0",
+      "#text": "0"
+    },
+    "mbid": "435c53ba-e960-4b57-9c53-ac708b32083b",
+    "name": "Permission to Dance",
+    "image": [
+      {
+        "size": "small",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "medium",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "large",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "extralarge",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
+      }
+    ],
+    "artist": {
+      "url": "https://www.last.fm/music/BTS",
+      "name": "BTS",
+      "mbid": "0d79fe8e-ba27-4859-bb8c-2f255f346853"
+    },
+    "url": "https://www.last.fm/music/BTS/_/Permission+to+Dance",
+    "duration": "187",
+    "@attr": {
+      "rank": "20"
+    },
+    "playcount": "4"
   },
   {
     "streamable": {
@@ -1214,7 +1214,7 @@
       "mbid": "0ab49580-c84f-44d4-875f-d83760ea2cfe"
     },
     "url": "https://www.last.fm/music/Maroon+5/_/Sugar",
-    "duration": "234",
+    "duration": "235",
     "@attr": {
       "rank": "33"
     },
@@ -1484,6 +1484,43 @@
       "fulltrack": "0",
       "#text": "0"
     },
+    "mbid": "32d67b65-6561-4442-8c01-d625b763a2ca",
+    "name": "Left and Right (feat. Jung Kook of BTS)",
+    "image": [
+      {
+        "size": "small",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "medium",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "large",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "extralarge",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
+      }
+    ],
+    "artist": {
+      "url": "https://www.last.fm/music/Charlie+Puth",
+      "name": "Charlie Puth",
+      "mbid": "525f1f1c-03f0-4bc8-8dfd-e7521f87631b"
+    },
+    "url": "https://www.last.fm/music/Charlie+Puth/_/Left+and+Right+(feat.+Jung+Kook+of+BTS)",
+    "duration": "154",
+    "@attr": {
+      "rank": "41"
+    },
+    "playcount": "3"
+  },
+  {
+    "streamable": {
+      "fulltrack": "0",
+      "#text": "0"
+    },
     "mbid": "3acffba9-6cb5-49cc-8b10-80f97206f5f0",
     "name": "That's Not How This Works (feat. dan + shay)",
     "image": [
@@ -1512,7 +1549,7 @@
     "url": "https://www.last.fm/music/Charlie+Puth/_/That%27s+Not+How+This+Works+(feat.+dan+%252B+shay)",
     "duration": "165",
     "@attr": {
-      "rank": "41"
+      "rank": "42"
     },
     "playcount": "3"
   },
@@ -1549,7 +1586,7 @@
     "url": "https://www.last.fm/music/Jake+Miller/_/Click",
     "duration": "187",
     "@attr": {
-      "rank": "42"
+      "rank": "43"
     },
     "playcount": "3"
   },
@@ -1586,7 +1623,7 @@
     "url": "https://www.last.fm/music/Justin+Bieber/_/Baby+ft.+Ludacris",
     "duration": "0",
     "@attr": {
-      "rank": "43"
+      "rank": "44"
     },
     "playcount": "3"
   },
@@ -1621,43 +1658,6 @@
       "mbid": ""
     },
     "url": "https://www.last.fm/music/Justin+Bieber/_/Love+Yourself+(PURPOSE+:+The+Movement)",
-    "duration": "0",
-    "@attr": {
-      "rank": "44"
-    },
-    "playcount": "3"
-  },
-  {
-    "streamable": {
-      "fulltrack": "0",
-      "#text": "0"
-    },
-    "mbid": "",
-    "name": "i'm so tired... (Stripped - Live in LA)",
-    "image": [
-      {
-        "size": "small",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "medium",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "large",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "extralarge",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
-      }
-    ],
-    "artist": {
-      "url": "https://www.last.fm/music/Lauv+&+Troye+Sivan",
-      "name": "Lauv & Troye Sivan",
-      "mbid": ""
-    },
-    "url": "https://www.last.fm/music/Lauv+&+Troye+Sivan/_/i%27m+so+tired...+(Stripped+-+Live+in+LA)",
     "duration": "0",
     "@attr": {
       "rank": "45"

@@ -1,1 +1,3140 @@
-[]
+[
+  {
+    "inserted_at": 1785248919,
+    "listened_at": 1785248738,
+    "recording_msid": "6bd0b680-ae97-4557-90b9-55c23b20d84a",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 338,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/cfaZZPjA3g0",
+        "recording_msid": "6bd0b680-ae97-4557-90b9-55c23b20d84a",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Economy Media",
+      "track_name": "How AI Became More Expensive Than The Workers It Replaced"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785249745,
+    "listened_at": 1785248738,
+    "recording_msid": "ab34e344-7858-4f2d-b58b-2645f7e84f0c",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "ab34e344-7858-4f2d-b58b-2645f7e84f0c",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Economy Media",
+      "track_name": "How AI Became More Expensive Than The Workers It Replaced"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785248290,
+    "listened_at": 1785248266,
+    "recording_msid": "6dede59e-bb84-4854-8e5b-97324fa5ab5c",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 45,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/GHbywXK2NMo",
+        "recording_msid": "6dede59e-bb84-4854-8e5b-97324fa5ab5c",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "NBC News",
+      "track_name": "Viral video of new robot released by Chinese Unitree freaks out social media"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785249745,
+    "listened_at": 1785248266,
+    "recording_msid": "ffe744b8-9b3c-4f4b-8875-e44daa2cdefc",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "ffe744b8-9b3c-4f4b-8875-e44daa2cdefc",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "NBC News",
+      "track_name": "Viral video of new robot released by Chinese Unitree freaks out social media"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785246393,
+    "listened_at": 1785246363,
+    "recording_msid": "f162b901-9119-4bc8-af93-a60e6fd88df6",
+    "track_metadata": {
+      "additional_info": {
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/KNkhpKghoDU",
+        "recording_msid": "f162b901-9119-4bc8-af93-a60e6fd88df6",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Cloud Codes",
+      "track_name": "The $223 AWS Bill vs The $6 VPS"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785249745,
+    "listened_at": 1785245949,
+    "recording_msid": "2725eef4-5d6f-4af4-9ca7-1e59bcc68727",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "525f1f1c-03f0-4bc8-8dfd-e7521f87631b",
+        "lastfm_track_mbid": "32d67b65-6561-4442-8c01-d625b763a2ca",
+        "recording_msid": "2725eef4-5d6f-4af4-9ca7-1e59bcc68727",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Charlie Puth",
+      "release_name": "Left and Right (feat. Jung Kook of BTS)",
+      "track_name": "Left and Right (feat. Jung Kook of BTS)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785246503,
+    "listened_at": 1785245949,
+    "recording_msid": "2cbb8f00-0164-421f-bb8f-3826cb25a167",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 159,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/a7GITgqwDVg",
+        "recording_msid": "2cbb8f00-0164-421f-bb8f-3826cb25a167",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Charlie Puth",
+      "release_name": "Left and Right (feat. Jung Kook of BTS)",
+      "track_name": "Left and Right (feat. Jung Kook of BTS)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785245764,
+    "listened_at": 1785245622,
+    "recording_msid": "81fe66cd-1573-473e-b1bd-c21d42267f39",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 238,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/ko70cExuzZM",
+        "recording_msid": "81fe66cd-1573-473e-b1bd-c21d42267f39",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Taylor Swift",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "20244d07-534f-4eff-b4d4-930878889970"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Taylor Swift",
+            "artist_mbid": "20244d07-534f-4eff-b4d4-930878889970",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 43200832126,
+        "caa_release_mbid": "c2ddb1d1-0e05-4659-818e-57a55ab67d94",
+        "recording_mbid": "8670a098-6ab7-4e18-8ac0-0ec7259151f8",
+        "recording_name": "The Fate of Ophelia",
+        "release_mbid": "2def1edd-2cb4-4622-a792-0ddc2907f29d",
+        "url_rels": [
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/gb/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/gb/song/1850496033"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/5UQ3JrA9kEh7rfwhUS1h0z"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3595996252"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/471563020"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1843913773"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/31TXxq8gfgYyrYClnYY48m"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900293"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3579685911"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900329"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3579685431"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900374"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1838810951"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1838810951"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/476940802"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/gb/song/1856301587"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/gb/song/1856301587"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/3CFKUvybrj8Jg5F018tyuA"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/1dosSsKwYF7hoQA2kuu6wI"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900433"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1842897454"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1842897454"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/53iuhJlwXhSER5J2IYYv1W"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1838812723"
+          }
+        ]
+      },
+      "release_name": "The Life of a Showgirl",
+      "track_name": "The Fate of Ophelia"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785249745,
+    "listened_at": 1785245622,
+    "recording_msid": "942c5060-5d88-41a6-8ebd-9a727aae4ddf",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "20244d07-534f-4eff-b4d4-930878889970",
+        "lastfm_release_mbid": "9d716f4e-8a34-4db9-a41c-7ef649b3b37c",
+        "lastfm_track_mbid": "8670a098-6ab7-4e18-8ac0-0ec7259151f8",
+        "recording_msid": "942c5060-5d88-41a6-8ebd-9a727aae4ddf",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Taylor Swift",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "20244d07-534f-4eff-b4d4-930878889970"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Taylor Swift",
+            "artist_mbid": "20244d07-534f-4eff-b4d4-930878889970",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 43200832126,
+        "caa_release_mbid": "c2ddb1d1-0e05-4659-818e-57a55ab67d94",
+        "recording_mbid": "8670a098-6ab7-4e18-8ac0-0ec7259151f8",
+        "recording_name": "The Fate of Ophelia",
+        "release_mbid": "2def1edd-2cb4-4622-a792-0ddc2907f29d",
+        "url_rels": [
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/gb/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/gb/song/1850496033"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/5UQ3JrA9kEh7rfwhUS1h0z"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3595996252"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/471563020"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1843913773"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/31TXxq8gfgYyrYClnYY48m"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900293"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3579685911"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900329"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3579685431"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900374"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1838810951"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1838810951"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/476940802"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/gb/song/1856301587"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/gb/song/1856301587"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/3CFKUvybrj8Jg5F018tyuA"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/1dosSsKwYF7hoQA2kuu6wI"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900433"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1842897454"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1842897454"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/53iuhJlwXhSER5J2IYYv1W"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1838812723"
+          }
+        ]
+      },
+      "release_name": "The Life of a Showgirl",
+      "track_name": "The Fate of Ophelia"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785088901,
+    "listened_at": 1785088654,
+    "recording_msid": "62005a54-5559-4fa1-ac15-0fc02c773f46",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 752,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/GHkaTlK16kg",
+        "recording_msid": "62005a54-5559-4fa1-ac15-0fc02c773f46",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "America Banned Nvidia Chips to Stop China's AI",
+      "track_name": "It Backfired"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785093578,
+    "listened_at": 1785088654,
+    "recording_msid": "d73f3bc0-9f44-4f59-91cf-bfb9876ab796",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "d73f3bc0-9f44-4f59-91cf-bfb9876ab796",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "America Banned Nvidia Chips to Stop China's AI",
+      "track_name": "It Backfired"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785088585,
+    "listened_at": 1785088554,
+    "recording_msid": "3910931a-b9d8-4981-87d9-9e640fb0dbdb",
+    "track_metadata": {
+      "additional_info": {
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/GHkaTlK16kg",
+        "recording_msid": "3910931a-b9d8-4981-87d9-9e640fb0dbdb",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Problem #3",
+      "track_name": "China's Data Center Masterplan"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785088471,
+    "listened_at": 1785088439,
+    "recording_msid": "65f6785f-fe66-416b-9503-b503b4c3b48f",
+    "track_metadata": {
+      "additional_info": {
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/GHkaTlK16kg",
+        "recording_msid": "65f6785f-fe66-416b-9503-b503b4c3b48f",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Problem #2",
+      "track_name": "How DeepSeek Made AI Dirt Cheap"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785088439,
+    "listened_at": 1785088405,
+    "recording_msid": "72b51985-8dab-4182-92e6-2a09996248be",
+    "track_metadata": {
+      "additional_info": {
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/GHkaTlK16kg",
+        "recording_msid": "72b51985-8dab-4182-92e6-2a09996248be",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Problem #1",
+      "track_name": "China Builds Its Own Chips"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785088267,
+    "listened_at": 1785088237,
+    "recording_msid": "f9bc24a5-e239-447d-a932-4a3e7baf08f1",
+    "track_metadata": {
+      "additional_info": {
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/GHkaTlK16kg",
+        "recording_msid": "f9bc24a5-e239-447d-a932-4a3e7baf08f1",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "America Banned Nvidia Chips to Stop China's AI",
+      "track_name": "China Just Beat America at AI"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785082976,
+    "listened_at": 1785080180,
+    "recording_msid": "1154829d-69d6-4b8c-9586-14c2b6c0fb9d",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "1154829d-69d6-4b8c-9586-14c2b6c0fb9d",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Dharmendra Pradhan Resigns",
+      "track_name": "Amit Shah Speaks On Education Minister's Resignation"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785080382,
+    "listened_at": 1785080180,
+    "recording_msid": "e6861443-9244-4a1a-92f5-545001676c22",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 46,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/-1jJ2krBwbc",
+        "recording_msid": "e6861443-9244-4a1a-92f5-545001676c22",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Dharmendra Pradhan Resigns",
+      "track_name": "Amit Shah Speaks On Education Minister's Resignation"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785079978,
+    "listened_at": 1785079580,
+    "recording_msid": "6ae142a3-c287-4c53-b5cf-037fbc20b187",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 404,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/wYk9xCKdYCM",
+        "recording_msid": "6ae142a3-c287-4c53-b5cf-037fbc20b187",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Akshat Shrivastava",
+      "track_name": "STOP Investing in Indian Markets? (2 years=0 returns!)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785082976,
+    "listened_at": 1785079580,
+    "recording_msid": "e0b8a4e4-ab7d-448b-b16b-ad7566142307",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "e0b8a4e4-ab7d-448b-b16b-ad7566142307",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Akshat Shrivastava",
+      "track_name": "STOP Investing in Indian Markets? (2 years=0 returns!)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785076416,
+    "listened_at": 1785076384,
+    "recording_msid": "f16d86de-ca48-46ec-bebf-c43426cf2ee2",
+    "track_metadata": {
+      "additional_info": {
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/n4qwKQ-zlgE",
+        "recording_msid": "f16d86de-ca48-46ec-bebf-c43426cf2ee2",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Ponytail commands explained (light",
+      "track_name": "full/ultra/review/audit/debt)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785076335,
+    "listened_at": 1785076304,
+    "recording_msid": "e6506670-2097-4f56-9394-c44f16a86aef",
+    "track_metadata": {
+      "additional_info": {
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/n4qwKQ-zlgE",
+        "recording_msid": "e6506670-2097-4f56-9394-c44f16a86aef",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Brandon Melville",
+      "track_name": "Does this need to exist? (YAGNI principle)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785076290,
+    "listened_at": 1785076254,
+    "recording_msid": "a4889b41-9c8c-4b3a-8214-4d46eea1b6af",
+    "track_metadata": {
+      "additional_info": {
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/n4qwKQ-zlgE",
+        "recording_msid": "a4889b41-9c8c-4b3a-8214-4d46eea1b6af",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Intro",
+      "track_name": "What is Ponytail?"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785082976,
+    "listened_at": 1785071995,
+    "recording_msid": "0bbac458-949a-4e49-a7c9-364ca33c1082",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "0bbac458-949a-4e49-a7c9-364ca33c1082",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Evan Zhou",
+      "track_name": "I Found OpenAI’s $3B Loophole"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785073999,
+    "listened_at": 1785071995,
+    "recording_msid": "a0f13514-6641-4545-8d49-966d8a26e685",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 242,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/Ja6p4j0aeCw",
+        "recording_msid": "a0f13514-6641-4545-8d49-966d8a26e685",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Evan Zhou",
+      "track_name": "I Found OpenAI’s $3B Loophole"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785071276,
+    "listened_at": 1785071205,
+    "recording_msid": "7aa9a882-368d-42e6-8e47-e062f54a020f",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 136,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/fXke2rmwOps",
+        "recording_msid": "7aa9a882-368d-42e6-8e47-e062f54a020f",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "OmniRoute + OpenCode",
+      "track_name": "100% Free AI Coding Setup, Free AI Gateway"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785072854,
+    "listened_at": 1785071205,
+    "recording_msid": "7e2907e8-eb2d-411d-be26-e7b4b7d96dbf",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "7e2907e8-eb2d-411d-be26-e7b4b7d96dbf",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "OmniRoute + OpenCode",
+      "track_name": "100% Free AI Coding Setup, Free AI Gateway"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785070410,
+    "listened_at": 1785070314,
+    "recording_msid": "0b373c52-3692-4afd-9c18-98dd52e83994",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 184,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/N2nAwXl_Rc8",
+        "recording_msid": "0b373c52-3692-4afd-9c18-98dd52e83994",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Minimax M3 + Open Design",
+      "track_name": "100% Free Claude Design Alternative For UI Designs"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785070881,
+    "listened_at": 1785070314,
+    "recording_msid": "7fe8eb39-42cf-4763-800a-72febf2d6b6b",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "7fe8eb39-42cf-4763-800a-72febf2d6b6b",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Minimax M3 + Open Design",
+      "track_name": "100% Free Claude Design Alternative For UI Designs"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785070195,
+    "listened_at": 1785070090,
+    "recording_msid": "1cc240de-bfb3-4524-8583-f7004d1c0b55",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 198,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/baGKgnbQUq8",
+        "recording_msid": "1cc240de-bfb3-4524-8583-f7004d1c0b55",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "AI Stack Engineer",
+      "track_name": "Supercharge OpenCode With 1300+ Free Skills in One Command Makes It 100x  Powerful"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785070881,
+    "listened_at": 1785070090,
+    "recording_msid": "237475fa-84a9-4328-aa84-084849f885b6",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "237475fa-84a9-4328-aa84-084849f885b6",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "AI Stack Engineer",
+      "track_name": "Supercharge OpenCode With 1300+ Free Skills in One Command Makes It 100x  Powerful"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785070881,
+    "listened_at": 1785069045,
+    "recording_msid": "4f899fd8-a040-46a5-8806-fe8392cf3eea",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "4f899fd8-a040-46a5-8806-fe8392cf3eea",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "What Jantar Mantar looks like after protests, clean",
+      "track_name": "up & repainting underway"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785069137,
+    "listened_at": 1785069045,
+    "recording_msid": "faa2f58c-4dca-42d4-9d57-6306692288d5",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 171,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/M1OlH542LYk",
+        "recording_msid": "faa2f58c-4dca-42d4-9d57-6306692288d5",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "What Jantar Mantar looks like after protests, clean",
+      "track_name": "up & repainting underway"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785070881,
+    "listened_at": 1785068874,
+    "recording_msid": "164aba68-825b-4acb-84e6-db4a67983efb",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "164aba68-825b-4acb-84e6-db4a67983efb",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "News Buzz",
+      "track_name": "Rahul Gandhi Reaction To New Education Minister Pralhad Joshi Aggressive Speech In Lok Sabha"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785069004,
+    "listened_at": 1785068874,
+    "recording_msid": "1db6f4c8-084b-4a8e-b1ca-5ec1205abcb4",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 250,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/tZwbVYLWhHs",
+        "recording_msid": "1db6f4c8-084b-4a8e-b1ca-5ec1205abcb4",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "News Buzz",
+      "track_name": "Rahul Gandhi Reaction To New Education Minister Pralhad Joshi Aggressive Speech In Lok Sabha"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785068855,
+    "listened_at": 1785068714,
+    "recording_msid": "00cd7948-5ffd-4ad9-8a9d-95007a1b59a3",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 276,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/QIwLqXJkX08",
+        "recording_msid": "00cd7948-5ffd-4ad9-8a9d-95007a1b59a3",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "AI Stack Engineer",
+      "track_name": "OpenCode Persistent Memory Across Sessions, 10x Token Savings"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785070881,
+    "listened_at": 1785068714,
+    "recording_msid": "ddb0d277-543d-4f85-a4ae-458362c7efb3",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "ddb0d277-543d-4f85-a4ae-458362c7efb3",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "AI Stack Engineer",
+      "track_name": "OpenCode Persistent Memory Across Sessions, 10x Token Savings"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785067488,
+    "listened_at": 1785067268,
+    "recording_msid": "bbe9a5a0-e7c8-4489-94e5-b9ec3dc654e5",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 432,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/-Fb1SBC_nmg",
+        "recording_msid": "bbe9a5a0-e7c8-4489-94e5-b9ec3dc654e5",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Graphify vs GitNexus vs CodeGraph",
+      "track_name": "Which Code Knowledge Graph Should You Use?"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785070881,
+    "listened_at": 1785067268,
+    "recording_msid": "dd3a0659-d7a8-4527-93b2-e4023e8e63ec",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "dd3a0659-d7a8-4527-93b2-e4023e8e63ec",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Graphify vs GitNexus vs CodeGraph",
+      "track_name": "Which Code Knowledge Graph Should You Use?"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785066519,
+    "listened_at": 1785066473,
+    "recording_msid": "374d9d28-d138-4704-acf9-427e0eec6de1",
+    "track_metadata": {
+      "additional_info": {
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/zMiYAqitWTU",
+        "recording_msid": "374d9d28-d138-4704-acf9-427e0eec6de1",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Graphify vs. RAG",
+      "track_name": "Deterministic mapping explained"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785066511,
+    "listened_at": 1785066241,
+    "recording_msid": "3e5f2f88-f8da-4c39-a33c-e616d40b6cb6",
+    "track_metadata": {
+      "additional_info": {
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/mWLDn49_8HA",
+        "recording_msid": "3e5f2f88-f8da-4c39-a33c-e616d40b6cb6",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Chase AI",
+      "track_name": "Graphify + Obsidian"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785070881,
+    "listened_at": 1785066156,
+    "recording_msid": "ef030d0b-efb3-4795-be14-2e3abaad7e09",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "ef030d0b-efb3-4795-be14-2e3abaad7e09",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Little Coder",
+      "track_name": "Intro"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785070881,
+    "listened_at": 1785066108,
+    "recording_msid": "4c9a4dcf-7604-47ad-882d-7df55d215943",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "4c9a4dcf-7604-47ad-882d-7df55d215943",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Graphify + Obsidian is INSANE",
+      "track_name": "Building an Obsidian AI Second Brain"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785070881,
+    "listened_at": 1785066018,
+    "recording_msid": "85b3aed9-5542-451a-ba27-cb6d5047cc03",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "85b3aed9-5542-451a-ba27-cb6d5047cc03",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Graphify + Obsidian is INSANE",
+      "track_name": "Parsing Code, Audio & Documents"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785070881,
+    "listened_at": 1785064159,
+    "recording_msid": "53e09525-794b-4fd5-9378-a3f53981d64c",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "53e09525-794b-4fd5-9378-a3f53981d64c",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "The Myth of Modi's Invincibility Was Just Broken",
+      "track_name": "Indian Express"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785065112,
+    "listened_at": 1785064159,
+    "recording_msid": "fc8d6c51-f8e9-4d2f-baae-4a5dd4b204d4",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 216,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/8NZG8gwr4GM",
+        "recording_msid": "fc8d6c51-f8e9-4d2f-baae-4a5dd4b204d4",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "The Myth of Modi's Invincibility Was Just Broken",
+      "track_name": "Indian Express"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785064015,
+    "listened_at": 1785063830,
+    "recording_msid": "14a5abea-7d23-403c-a9f4-1d0e0edfe975",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 363,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/KNmZ2X1xY8E",
+        "recording_msid": "14a5abea-7d23-403c-a9f4-1d0e0edfe975",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "War Of Words Between Rahul Gandhi vs Amit Shah , PM Modi Reaction In Lok Sabha",
+      "track_name": "News Buzz"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785070881,
+    "listened_at": 1785063830,
+    "recording_msid": "58090d83-0bc9-4c50-a845-2b0a059bb652",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "58090d83-0bc9-4c50-a845-2b0a059bb652",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "War Of Words Between Rahul Gandhi vs Amit Shah , PM Modi Reaction In Lok Sabha",
+      "track_name": "News Buzz"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785070881,
+    "listened_at": 1785063486,
+    "recording_msid": "04312344-13b1-4411-8648-5f82a4c3ea13",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "04312344-13b1-4411-8648-5f82a4c3ea13",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Colibri : Run a 744B AI Model on 25GB RAM Locally",
+      "track_name": "No GPU Required"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785063589,
+    "listened_at": 1785063486,
+    "recording_msid": "cbdbe6e3-5f1f-4f36-b2a4-4b0c84c3e080",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 195,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/AEMEWDIgJKg",
+        "recording_msid": "cbdbe6e3-5f1f-4f36-b2a4-4b0c84c3e080",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Colibri : Run a 744B AI Model on 25GB RAM Locally",
+      "track_name": "No GPU Required"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784665284,
+    "listened_at": 1784663197,
+    "recording_msid": "4628cb3d-ef1e-4dbe-a2f4-e726687e4d24",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "97e69730-3791-423b-9770-287261588854",
+        "recording_msid": "4628cb3d-ef1e-4dbe-a2f4-e726687e4d24",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Alessia Cara",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "97e69730-3791-423b-9770-287261588854"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Alessia Cara",
+            "artist_mbid": "97e69730-3791-423b-9770-287261588854",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 12267699731,
+        "caa_release_mbid": "1218e6cb-ac9d-419d-9ecf-30e9b5ff6946",
+        "recording_mbid": "6a8875d3-3bb5-4c5b-9498-e5f2ae6dd1d1",
+        "recording_name": "Scars to Your Beautiful",
+        "release_mbid": "33e10aea-0a30-49ee-b5d4-6c8dcfba4a12",
+        "url_rels": [
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/274871675"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/2135230227"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://music.youtube.com/watch?v=EDRBluZnyys"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/5ohLYo0DvTazHzcQAlzopQ"
+          }
+        ]
+      },
+      "release_name": "Know-It-All (Deluxe)",
+      "track_name": "Scars to Your Beautiful"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784665284,
+    "listened_at": 1784662938,
+    "recording_msid": "59504b51-5b00-44b9-bd08-695c5ca3d81e",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "e0140a67-e4d1-4f13-8a01-364355bee46e",
+        "lastfm_track_mbid": "e4e26484-77ee-4d82-8012-293c4c147254",
+        "recording_msid": "59504b51-5b00-44b9-bd08-695c5ca3d81e",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Justin Bieber",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e0140a67-e4d1-4f13-8a01-364355bee46e"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Justin Bieber",
+            "artist_mbid": "e0140a67-e4d1-4f13-8a01-364355bee46e",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 42709801599,
+        "caa_release_mbid": "7dc5a184-d78f-4c1a-a99e-d41932d96115",
+        "recording_mbid": "6be45a90-ae92-42ac-bc56-925e4454ba60",
+        "recording_name": "DAISIES",
+        "release_mbid": "210bbdee-cff1-42ca-9c51-2cb825b91d28",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3454558661"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1825994649"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1837867617"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1837867617"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/447383406"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1825994649"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/5BZsQlgw21vDOAjoqkNgKb"
+          }
+        ]
+      },
+      "release_name": "SWAG LIVE FROM COACHELLA (Weekend II)",
+      "track_name": "DAISIES"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784665284,
+    "listened_at": 1784662724,
+    "recording_msid": "06fe317a-adca-40b0-93bd-5d937f94e817",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "afb680f2-b6eb-4cd7-a70b-a63b25c763d5",
+        "lastfm_release_mbid": "0835769f-8995-4720-9937-6ed89eff8b42",
+        "lastfm_track_mbid": "be1195eb-6b1b-4525-ac42-11efe507fb98",
+        "recording_msid": "06fe317a-adca-40b0-93bd-5d937f94e817",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Bruno Mars",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Bruno Mars",
+            "artist_mbid": "afb680f2-b6eb-4cd7-a70b-a63b25c763d5",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 11539415446,
+        "caa_release_mbid": "94238177-512d-48b8-b8d2-572d3f228863",
+        "recording_mbid": "126241da-d2cb-42c2-a40e-f30909057647",
+        "recording_name": "When I Was Your Man",
+        "release_mbid": "5f897bb2-80fd-4bbe-8da4-4228966852a2",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/0nJW01T7XtvILxQgC5J7Wh"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.youtube.com/watch?v=ekzHIouo8Q4"
+          }
+        ]
+      },
+      "release_name": "Unorthodox Jukebox",
+      "track_name": "When I Was Your Man"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784665284,
+    "listened_at": 1784662547,
+    "recording_msid": "74c989da-647a-432d-8bd6-1dc5503c8310",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "e0140a67-e4d1-4f13-8a01-364355bee46e",
+        "lastfm_release_mbid": "0c194f7e-550c-4e95-af23-2963c2181389",
+        "lastfm_track_mbid": "65c29259-f244-4e1b-9564-98f4dab9cf38",
+        "recording_msid": "74c989da-647a-432d-8bd6-1dc5503c8310",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Justin Bieber",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e0140a67-e4d1-4f13-8a01-364355bee46e"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Justin Bieber",
+            "artist_mbid": "e0140a67-e4d1-4f13-8a01-364355bee46e",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 25270101587,
+        "caa_release_mbid": "820261a0-f219-4d03-8aa7-f3088f4b2855",
+        "recording_mbid": "3b81926b-c662-48b9-93b3-adfa1b429be2",
+        "recording_name": "E.T.A.",
+        "release_mbid": "2cf4bc73-f6c4-4ab1-bb66-f597b3296e71"
+      },
+      "release_name": "Changes",
+      "track_name": "E.T.A."
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784665284,
+    "listened_at": 1784662372,
+    "recording_msid": "a717a531-f35e-4b51-ad7e-63b5bd87eb5b",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "c0ef2ba5-a7b7-40ea-bd27-30acccfcac11",
+        "recording_msid": "a717a531-f35e-4b51-ad7e-63b5bd87eb5b",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Lauv",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "c0ef2ba5-a7b7-40ea-bd27-30acccfcac11",
+          "4757df70-6c3e-46b8-99c0-a68644595c9a"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Lauv",
+            "artist_mbid": "c0ef2ba5-a7b7-40ea-bd27-30acccfcac11",
+            "join_phrase": " ft. "
+          },
+          {
+            "artist_credit_name": "Julia Michaels",
+            "artist_mbid": "4757df70-6c3e-46b8-99c0-a68644595c9a",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 21053495977,
+        "caa_release_mbid": "53e605d7-2525-4f64-a6f7-62aa970a8592",
+        "recording_mbid": "241d3e9a-faf5-451e-9fb7-2bb1eb6f91a1",
+        "recording_name": "There’s No Way",
+        "release_mbid": "53e605d7-2525-4f64-a6f7-62aa970a8592"
+      },
+      "release_name": "There's No Way",
+      "track_name": "There's No Way (feat. Julia Michaels)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784665284,
+    "listened_at": 1784661996,
+    "recording_msid": "c26d03e5-ae53-485c-a393-89a7e2d785d5",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+        "lastfm_release_mbid": "1fa2d99a-d754-499f-ba6c-8fac8c43ab18",
+        "lastfm_track_mbid": "0f8d5cc0-7e6e-486e-9544-eca4736cd8b7",
+        "recording_msid": "c26d03e5-ae53-485c-a393-89a7e2d785d5",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Troye Sivan",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Troye Sivan",
+            "artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 11788642695,
+        "caa_release_mbid": "e7d13ff4-ec74-4eff-b0d3-bdc00b720944",
+        "recording_mbid": "0f8d5cc0-7e6e-486e-9544-eca4736cd8b7",
+        "recording_name": "Strawberries & Cigarettes",
+        "release_mbid": "02553dbe-b519-4c4c-824e-40763b62e452"
+      },
+      "release_name": "Blue Neighbourhood",
+      "track_name": "Strawberries & Cigarettes"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784665284,
+    "listened_at": 1784661801,
+    "recording_msid": "8883dc6e-2c08-40ec-b892-78f63bd2da7e",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "525f1f1c-03f0-4bc8-8dfd-e7521f87631b",
+        "lastfm_track_mbid": "7d3f2fe8-690a-4618-8cff-71a0a307cb42",
+        "recording_msid": "8883dc6e-2c08-40ec-b892-78f63bd2da7e",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Charlie Puth",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "525f1f1c-03f0-4bc8-8dfd-e7521f87631b"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Charlie Puth",
+            "artist_mbid": "525f1f1c-03f0-4bc8-8dfd-e7521f87631b",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 27097799196,
+        "caa_release_mbid": "14c79c4c-1ecf-4cea-b684-a97135dcd12e",
+        "recording_mbid": "7d3f2fe8-690a-4618-8cff-71a0a307cb42",
+        "recording_name": "One Call Away",
+        "release_mbid": "2294d128-8121-498a-acfa-db5f1eb50f48",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/6vSforRhuzsA0D0SO9fG1S"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/68928069"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/68547238"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/jp/song/1137789926"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/jp/song/1137789926"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/5MwIGPDKeDb7SpblcaQP6O"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/439151782"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/185960536"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1172539047"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1172539047"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/19f9roe77Hen23e6vJ1iBN"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/135971338"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/66744601"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/37R0bQOQj5a7DOqh1TGzvB"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/117797204"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/56489246"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/36cqLXl2jfD4nMAfFKyuZ5"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/135876666"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/nz/song/1172996974"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/nz/song/1172996974"
+          }
+        ]
+      },
+      "release_name": "Nine Track Mind (Deluxe Edition)",
+      "track_name": "One Call Away"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784665284,
+    "listened_at": 1784661603,
+    "recording_msid": "662dbca4-e8f3-4deb-803e-657a294d8c22",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "b8a7c51f-362c-4dcb-a259-bc6e0095f0a6",
+        "recording_msid": "662dbca4-e8f3-4deb-803e-657a294d8c22",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Ed Sheeran",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "b8a7c51f-362c-4dcb-a259-bc6e0095f0a6",
+          "28737730-ec70-4da5-89c5-77ac13c5c34d"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Ed Sheeran",
+            "artist_mbid": "b8a7c51f-362c-4dcb-a259-bc6e0095f0a6",
+            "join_phrase": " feat. "
+          },
+          {
+            "artist_credit_name": "Khalid",
+            "artist_mbid": "28737730-ec70-4da5-89c5-77ac13c5c34d",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 33929011921,
+        "caa_release_mbid": "c89346be-48ad-44f7-8ddc-596b72a733af",
+        "recording_mbid": "611ffa00-29c1-46bc-843e-2f2168101ec8",
+        "recording_name": "Beautiful People",
+        "release_mbid": "ca1908e4-5620-4983-926e-a9227cbd8f37"
+      },
+      "release_name": "Beautiful People",
+      "track_name": "Beautiful People (feat. Khalid)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784665284,
+    "listened_at": 1784661412,
+    "recording_msid": "8fbb7962-a893-4936-b49e-ad5566dd48d9",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "8fbb7962-a893-4936-b49e-ad5566dd48d9",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Shawn Mendes, Camila Cabello",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "b7d92248-97e3-4450-8057-6fe06738f735",
+          "01b8b5bf-06cb-45da-85fb-61ada72fcd69"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Shawn Mendes",
+            "artist_mbid": "b7d92248-97e3-4450-8057-6fe06738f735",
+            "join_phrase": " & "
+          },
+          {
+            "artist_credit_name": "Camila Cabello",
+            "artist_mbid": "01b8b5bf-06cb-45da-85fb-61ada72fcd69",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 45465235824,
+        "caa_release_mbid": "56a319ad-43df-4254-9238-e825fdf652f0",
+        "recording_mbid": "62f09fd2-144a-439a-96f9-ce93f05b48ae",
+        "recording_name": "Señorita",
+        "release_mbid": "3666e267-d5b9-497d-a159-6f6c7aa62ae0",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/0TK2YIli7K1leLovkQiNik"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.youtube.com/watch?v=Pkh8UtuejGw"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/823567782"
+          }
+        ]
+      },
+      "release_name": "seÑorIta",
+      "track_name": "seÑorIta"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784665284,
+    "listened_at": 1784661214,
+    "recording_msid": "68ed52b2-cb68-4547-9669-d8a97ee41ebb",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "e0140a67-e4d1-4f13-8a01-364355bee46e",
+        "lastfm_release_mbid": "0a6fb28c-4f9d-4731-900f-1df28dd31748",
+        "recording_msid": "68ed52b2-cb68-4547-9669-d8a97ee41ebb",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Justin Bieber",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e0140a67-e4d1-4f13-8a01-364355bee46e",
+          "b46e298d-d3a5-4695-a03e-63e8c523b23e",
+          "ad322b8b-31b2-437d-8fd8-1af13c1d7b91"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Justin Bieber",
+            "artist_mbid": "e0140a67-e4d1-4f13-8a01-364355bee46e",
+            "join_phrase": " feat. "
+          },
+          {
+            "artist_credit_name": "Daniel Caesar",
+            "artist_mbid": "b46e298d-d3a5-4695-a03e-63e8c523b23e",
+            "join_phrase": " & "
+          },
+          {
+            "artist_credit_name": "GIVĒON",
+            "artist_mbid": "ad322b8b-31b2-437d-8fd8-1af13c1d7b91",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 28752687498,
+        "caa_release_mbid": "166f481c-1e42-4551-b327-eda0fb86bb7d",
+        "recording_mbid": "8eb73d48-31c9-45e9-831f-63f53c1894a1",
+        "recording_name": "Peaches",
+        "release_mbid": "92d8894a-446c-45f1-b89f-dfe120997ee5",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/7gGzmi1eYLp163XR8GfpA5"
+          }
+        ]
+      },
+      "release_name": "Justice",
+      "track_name": "Peaches (feat. Daniel Caesar & Giveon)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784628977,
+    "listened_at": 1784627537,
+    "recording_msid": "721ffc8c-f41c-4fb7-afdf-82b6a716fc00",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+        "lastfm_track_mbid": "3a271d0f-3d2e-4b2d-b96e-02b6093ea4a1",
+        "recording_msid": "721ffc8c-f41c-4fb7-afdf-82b6a716fc00",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Troye Sivan",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Troye Sivan",
+            "artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 20981221972,
+        "caa_release_mbid": "292b1501-8b30-4026-81a4-215975885f1d",
+        "recording_mbid": "3a271d0f-3d2e-4b2d-b96e-02b6093ea4a1",
+        "recording_name": "Seventeen",
+        "release_mbid": "f81817b0-0b07-4c9b-b3b4-9f754cd77da3"
+      },
+      "track_name": "Seventeen"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784152364,
+    "listened_at": 1784152304,
+    "recording_msid": "cb9545f6-3cd5-43e4-91a5-6864105054dd",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 194000,
+        "recording_msid": "cb9545f6-3cd5-43e4-91a5-6864105054dd",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Katy Perry",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "122d63fc-8671-43e4-9752-34e846d62a9c"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Katy Perry",
+            "artist_mbid": "122d63fc-8671-43e4-9752-34e846d62a9c",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 30866346889,
+        "caa_release_mbid": "5b463a2d-f719-4744-acab-c06e22ed1022",
+        "recording_mbid": "99ddbd4d-ba7f-4478-af07-584eab0f8b5a",
+        "recording_name": "Harleys in Hawaii",
+        "release_mbid": "16f43648-b1a8-4a2d-8334-5bfeebd2372c"
+      },
+      "release_name": "Pop Remixes",
+      "track_name": "Harleys in Hawaii"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784152137,
+    "listened_at": 1784152065,
+    "recording_msid": "1ec4bde0-5192-4e73-9d6a-cbc0c286d9bf",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 233000,
+        "recording_msid": "1ec4bde0-5192-4e73-9d6a-cbc0c286d9bf",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "The Weeknd, Ariana Grande",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "c8b03190-306c-4120-bb0b-6f2ebfc06ea9",
+          "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "The Weeknd",
+            "artist_mbid": "c8b03190-306c-4120-bb0b-6f2ebfc06ea9",
+            "join_phrase": " & "
+          },
+          {
+            "artist_credit_name": "Ariana Grande",
+            "artist_mbid": "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 29173409048,
+        "caa_release_mbid": "e7a685cb-197b-4407-9310-239ee24f0e76",
+        "recording_mbid": "9e8f6757-7028-4a04-97e7-ff44255f307d",
+        "recording_name": "Die for You (remix)",
+        "release_mbid": "536074ad-2cca-478c-8688-d1ba7effe4dd"
+      },
+      "track_name": "Die For You"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784151801,
+    "listened_at": 1784151690,
+    "recording_msid": "3d4bb38b-8706-4d80-b802-a0e68f8d5b8a",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 365000,
+        "recording_msid": "3d4bb38b-8706-4d80-b802-a0e68f8d5b8a",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Justin Bieber",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e0140a67-e4d1-4f13-8a01-364355bee46e",
+          "373a4c98-a46b-48e4-86ec-f6ca65b4f438"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Justin Bieber",
+            "artist_mbid": "e0140a67-e4d1-4f13-8a01-364355bee46e",
+            "join_phrase": " feat. "
+          },
+          {
+            "artist_credit_name": "Chance the Rapper",
+            "artist_mbid": "373a4c98-a46b-48e4-86ec-f6ca65b4f438",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 6034254198,
+        "caa_release_mbid": "576d0b3e-b4f0-417d-8471-b8bb14b1f659",
+        "recording_mbid": "2d399bba-09ce-4e13-a8f7-d3741ed279cf",
+        "recording_name": "Confident",
+        "release_mbid": "b6fece73-2f87-4881-b816-e377be6756d1"
+      },
+      "track_name": "Confident ft. Chance the Rapper"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784151522,
+    "listened_at": 1784151453,
+    "recording_msid": "e1b6d908-56f8-4d2c-b871-269283612b81",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 227000,
+        "recording_msid": "e1b6d908-56f8-4d2c-b871-269283612b81",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Bruno Mars",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Bruno Mars",
+            "artist_mbid": "afb680f2-b6eb-4cd7-a70b-a63b25c763d5",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 34199011932,
+        "caa_release_mbid": "506157a2-bd38-45ff-a189-869ffa7b285f",
+        "recording_mbid": "716f0fa1-c526-4995-a8ad-ff57c44bf9b1",
+        "recording_name": "24K Magic",
+        "release_mbid": "a76c3156-eb9a-4c59-bd56-5fd0d07a5efd",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/1xzoV5xselLn5rEwYa7eEn"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/460987992"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/6b8Be6ljOzmkOmFslEb23P"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.youtube.com/watch?v=UqyT8IEBkvY"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3558131511"
+          }
+        ]
+      },
+      "release_name": "24K Magic",
+      "track_name": "24K Magic"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784151266,
+    "listened_at": 1784151196,
+    "recording_msid": "18ba849c-cda3-4573-abc5-f7b076bdb169",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 218000,
+        "recording_msid": "18ba849c-cda3-4573-abc5-f7b076bdb169",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "The Weeknd",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "c8b03190-306c-4120-bb0b-6f2ebfc06ea9"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "The Weeknd",
+            "artist_mbid": "c8b03190-306c-4120-bb0b-6f2ebfc06ea9",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 29197443146,
+        "caa_release_mbid": "44ae223a-3963-415f-8a35-8958543fd576",
+        "recording_mbid": "06879155-b9ce-4777-bdc0-f83cd6162760",
+        "recording_name": "Can’t Feel My Face",
+        "release_mbid": "2c633a54-a053-4671-866e-c1666887cd22"
+      },
+      "release_name": "Beauty Behind the Madness",
+      "track_name": "Can't Feel My Face"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784151474,
+    "listened_at": 1784150962,
+    "recording_msid": "1ae5af82-bb0f-47b4-82d8-55306d6c80ba",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 227000,
+        "recording_msid": "1ae5af82-bb0f-47b4-82d8-55306d6c80ba",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Bruno Mars",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Bruno Mars",
+            "artist_mbid": "afb680f2-b6eb-4cd7-a70b-a63b25c763d5",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 11501372854,
+        "caa_release_mbid": "33030768-eed0-404a-bd5e-af6950546211",
+        "recording_mbid": "a8956c11-749a-4fdb-885a-86542bcf204a",
+        "recording_name": "Marry You",
+        "release_mbid": "3d2b148e-8c0a-42b6-baae-c3ee7322a569",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://www.youtube.com/watch?v=dElRVQFqj-k"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/22PMfvdz35fFKYnJyMn077"
+          }
+        ]
+      },
+      "release_name": "Doo-Wops & Hooligans",
+      "track_name": "Marry You"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784150964,
+    "listened_at": 1784150758,
+    "recording_msid": "08b861f2-f05d-42a4-8200-8dd8a12ad560",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 197000,
+        "recording_msid": "08b861f2-f05d-42a4-8200-8dd8a12ad560",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Shawn Mendes",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "b7d92248-97e3-4450-8057-6fe06738f735"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Shawn Mendes",
+            "artist_mbid": "b7d92248-97e3-4450-8057-6fe06738f735",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 45465235824,
+        "caa_release_mbid": "56a319ad-43df-4254-9238-e825fdf652f0",
+        "recording_mbid": "fb9c29d7-2bf0-4c96-a10d-5df601a77e60",
+        "recording_name": "In My Blood",
+        "release_mbid": "adf11ddb-2844-4ac9-ae5c-5ad66c4e84a6"
+      },
+      "release_name": "Shawn Mendes",
+      "track_name": "In My Blood"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784150616,
+    "listened_at": 1784150555,
+    "recording_msid": "500ac5df-dd13-4a08-8b70-ef930742684d",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 198000,
+        "recording_msid": "500ac5df-dd13-4a08-8b70-ef930742684d",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Shawn Mendes",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "b7d92248-97e3-4450-8057-6fe06738f735"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Shawn Mendes",
+            "artist_mbid": "b7d92248-97e3-4450-8057-6fe06738f735",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 14789013576,
+        "caa_release_mbid": "e22e7a3e-a5b3-4c03-9a83-74139bbe6403",
+        "recording_mbid": "2445f788-914f-4893-9a6d-5de91d7db4f9",
+        "recording_name": "Treat You Better",
+        "release_mbid": "ef33a00d-356d-4ac0-8237-29ffac02a2a1",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/4bpQqWyEPdWJu2qmYGpXs4"
+          }
+        ]
+      },
+      "release_name": "Illuminate (Deluxe)",
+      "track_name": "Treat You Better"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784148653,
+    "listened_at": 1784148582,
+    "recording_msid": "dfc63116-d313-4ed5-a5b7-e9b76395af9d",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 231000,
+        "recording_msid": "dfc63116-d313-4ed5-a5b7-e9b76395af9d",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Cardi B & Bruno Mars",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "2f3c4d70-0462-40da-bba3-0aec5772c556",
+          "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Cardi B",
+            "artist_mbid": "2f3c4d70-0462-40da-bba3-0aec5772c556",
+            "join_phrase": " & "
+          },
+          {
+            "artist_credit_name": "Bruno Mars",
+            "artist_mbid": "afb680f2-b6eb-4cd7-a70b-a63b25c763d5",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 43130338578,
+        "caa_release_mbid": "08439dd9-18e4-4693-b145-e16b177011ee",
+        "recording_mbid": "fe4c55b2-1a6e-48b2-991a-1fbe2be9eaf1",
+        "recording_name": "Please Me",
+        "release_mbid": "ff61cd57-887e-45f4-848f-e044ea474530",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/0PG9fbaaHFHfre2gUVo7AN"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/633351172"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1453056904"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1453056904"
+          }
+        ]
+      },
+      "release_name": "Bravo Hits, Vol. 105",
+      "track_name": "Please Me"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784148421,
+    "listened_at": 1784148339,
+    "recording_msid": "65a22da5-3b31-4c98-a803-670cc9d570ed",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 270000,
+        "recording_msid": "65a22da5-3b31-4c98-a803-670cc9d570ed",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Mark Ronson",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "c3c82bdc-d9e7-4836-9746-c24ead47ca19",
+          "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Mark Ronson",
+            "artist_mbid": "c3c82bdc-d9e7-4836-9746-c24ead47ca19",
+            "join_phrase": " feat. "
+          },
+          {
+            "artist_credit_name": "Bruno Mars",
+            "artist_mbid": "afb680f2-b6eb-4cd7-a70b-a63b25c763d5",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 19394943642,
+        "caa_release_mbid": "0577f225-9866-4fe2-9c23-e52c37186a99",
+        "recording_mbid": "38e06968-af06-44ea-9eba-a1a275832767",
+        "recording_name": "Uptown Funk",
+        "release_mbid": "04ea8e96-ef0e-441c-9594-7128addc3951",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://www.youtube.com/watch?v=OPf0YbXqDm0"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/984607460"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/gb/song/943946671"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/44732724"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/32OlwWuMpZ6b0aN2RZOeMS"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/92734438"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/39249713"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/57n3qOwXcoRMyGFjeqC1Rh"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/98327826"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/984607460"
+          }
+        ]
+      },
+      "track_name": "Uptown Funk  ft. Bruno Mars"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784148177,
+    "listened_at": 1784148106,
+    "recording_msid": "dfc63116-d313-4ed5-a5b7-e9b76395af9d",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 231000,
+        "recording_msid": "dfc63116-d313-4ed5-a5b7-e9b76395af9d",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Cardi B & Bruno Mars",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "2f3c4d70-0462-40da-bba3-0aec5772c556",
+          "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Cardi B",
+            "artist_mbid": "2f3c4d70-0462-40da-bba3-0aec5772c556",
+            "join_phrase": " & "
+          },
+          {
+            "artist_credit_name": "Bruno Mars",
+            "artist_mbid": "afb680f2-b6eb-4cd7-a70b-a63b25c763d5",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 43130338578,
+        "caa_release_mbid": "08439dd9-18e4-4693-b145-e16b177011ee",
+        "recording_mbid": "fe4c55b2-1a6e-48b2-991a-1fbe2be9eaf1",
+        "recording_name": "Please Me",
+        "release_mbid": "ff61cd57-887e-45f4-848f-e044ea474530",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/0PG9fbaaHFHfre2gUVo7AN"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/633351172"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1453056904"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1453056904"
+          }
+        ]
+      },
+      "release_name": "Bravo Hits, Vol. 105",
+      "track_name": "Please Me"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784147917,
+    "listened_at": 1784147849,
+    "recording_msid": "9e4db0e4-c3f6-47ff-bc65-222c76fc5f92",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 223000,
+        "recording_msid": "9e4db0e4-c3f6-47ff-bc65-222c76fc5f92",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Bruno Mars",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Bruno Mars",
+            "artist_mbid": "afb680f2-b6eb-4cd7-a70b-a63b25c763d5",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 34199011932,
+        "caa_release_mbid": "506157a2-bd38-45ff-a189-869ffa7b285f",
+        "recording_mbid": "159c9d87-a6f9-4722-87b6-20c307b5e0be",
+        "recording_name": "Finesse",
+        "release_mbid": "a76c3156-eb9a-4c59-bd56-5fd0d07a5efd",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://www.youtube.com/watch?v=MRSaiAREnwI"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/5XMkENs3GfeRza8MfVAhjK"
+          }
+        ]
+      },
+      "track_name": "Finesse (Remix) (feat. Cardi B)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784147202,
+    "listened_at": 1784147154,
+    "recording_msid": "a395fbee-efc6-457f-93fe-ec935574b31a",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 156000,
+        "recording_msid": "a395fbee-efc6-457f-93fe-ec935574b31a",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Justin Bieber & benny blanco",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e0140a67-e4d1-4f13-8a01-364355bee46e",
+          "5a6131f9-f8db-4722-b4d7-6a0c7183c590"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Justin Bieber",
+            "artist_mbid": "e0140a67-e4d1-4f13-8a01-364355bee46e",
+            "join_phrase": " & "
+          },
+          {
+            "artist_credit_name": "benny blanco",
+            "artist_mbid": "5a6131f9-f8db-4722-b4d7-6a0c7183c590",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 28752687498,
+        "caa_release_mbid": "166f481c-1e42-4551-b327-eda0fb86bb7d",
+        "recording_mbid": "f894a41b-c220-4de9-b9c1-b4e4b41d2e0b",
+        "recording_name": "Lonely",
+        "release_mbid": "92d8894a-446c-45f1-b89f-dfe120997ee5"
+      },
+      "track_name": "Lonely (Official Acoustic Video)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784147083,
+    "listened_at": 1784147031,
+    "recording_msid": "ab3b07ce-1013-40f5-8929-85db257b4c45",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 168000,
+        "recording_msid": "ab3b07ce-1013-40f5-8929-85db257b4c45",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Justin Bieber",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e0140a67-e4d1-4f13-8a01-364355bee46e",
+          "5a6131f9-f8db-4722-b4d7-6a0c7183c590"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Justin Bieber",
+            "artist_mbid": "e0140a67-e4d1-4f13-8a01-364355bee46e",
+            "join_phrase": " & "
+          },
+          {
+            "artist_credit_name": "benny blanco",
+            "artist_mbid": "5a6131f9-f8db-4722-b4d7-6a0c7183c590",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 28752687498,
+        "caa_release_mbid": "166f481c-1e42-4551-b327-eda0fb86bb7d",
+        "recording_mbid": "f894a41b-c220-4de9-b9c1-b4e4b41d2e0b",
+        "recording_name": "Lonely",
+        "release_mbid": "92d8894a-446c-45f1-b89f-dfe120997ee5"
+      },
+      "track_name": "Lonely (Official Live Performance)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784146887,
+    "listened_at": 1784146826,
+    "recording_msid": "807cccac-cd86-47f8-8a2b-62d4edb92c99",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 197000,
+        "recording_msid": "807cccac-cd86-47f8-8a2b-62d4edb92c99",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Troye Sivan",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Troye Sivan",
+            "artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 36968346831,
+        "caa_release_mbid": "95a30a45-9e87-4b63-a67f-490a93dd11a3",
+        "recording_mbid": "596863d9-7b83-498e-bca7-590fbf149a85",
+        "recording_name": "Got Me Started",
+        "release_mbid": "77ec0a69-744a-4d7f-b39f-bc0ab273f13b",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/2842381472"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/254gN6XtkrcMMTafywRCR9"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/368782665"
+          }
+        ]
+      },
+      "release_name": "Something To Give Each Other",
+      "track_name": "Got Me Started"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784146578,
+    "listened_at": 1784146420,
+    "recording_msid": "347c52c0-9bac-435e-8c52-1fb01f85c337",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 232000,
+        "recording_msid": "347c52c0-9bac-435e-8c52-1fb01f85c337",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Troye Sivan",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Troye Sivan",
+            "artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 20981221972,
+        "caa_release_mbid": "292b1501-8b30-4026-81a4-215975885f1d",
+        "recording_mbid": "c45abe48-2fd0-4327-9b84-cc5c6d628930",
+        "recording_name": "Bloom",
+        "release_mbid": "f81817b0-0b07-4c9b-b3b4-9f754cd77da3",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/7HYSJL6dzpniOnqrx3LMSd"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/2842381462"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/368782664"
+          }
+        ]
+      },
+      "release_name": "Bloom",
+      "track_name": "Bloom"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784146396,
+    "listened_at": 1784146227,
+    "recording_msid": "06697b88-6f87-430a-8c67-7ec7d0305b02",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 220000,
+        "recording_msid": "06697b88-6f87-430a-8c67-7ec7d0305b02",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Troye Sivan",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Troye Sivan",
+            "artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 30376890689,
+        "caa_release_mbid": "8f1e2ccc-43b3-40d9-8ddf-8c2eedb630d7",
+        "recording_mbid": "055b91cb-af4e-439c-b9e4-4ac16c6f92b3",
+        "recording_name": "Angel Baby",
+        "release_mbid": "abc1028c-8941-4675-bf3f-ba815cd9e274",
+        "url_rels": [
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/280426249"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/2179352527"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/45vJNsGxBKM5bqVnddE5jD"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/368782644"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/1v3pl0EOZOYauEoLLzbaV5"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/2842381372"
+          }
+        ]
+      },
+      "release_name": "Angel Baby",
+      "track_name": "Angel Baby"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784145711,
+    "listened_at": 1784145642,
+    "recording_msid": "347c52c0-9bac-435e-8c52-1fb01f85c337",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 226000,
+        "recording_msid": "347c52c0-9bac-435e-8c52-1fb01f85c337",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Troye Sivan",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Troye Sivan",
+            "artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 20981221972,
+        "caa_release_mbid": "292b1501-8b30-4026-81a4-215975885f1d",
+        "recording_mbid": "c45abe48-2fd0-4327-9b84-cc5c6d628930",
+        "recording_name": "Bloom",
+        "release_mbid": "f81817b0-0b07-4c9b-b3b4-9f754cd77da3",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/7HYSJL6dzpniOnqrx3LMSd"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/2842381462"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/368782664"
+          }
+        ]
+      },
+      "release_name": "Bloom",
+      "track_name": "Bloom"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784145417,
+    "listened_at": 1784145386,
+    "recording_msid": "dfc63116-d313-4ed5-a5b7-e9b76395af9d",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 231000,
+        "recording_msid": "dfc63116-d313-4ed5-a5b7-e9b76395af9d",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Cardi B & Bruno Mars",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "2f3c4d70-0462-40da-bba3-0aec5772c556",
+          "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Cardi B",
+            "artist_mbid": "2f3c4d70-0462-40da-bba3-0aec5772c556",
+            "join_phrase": " & "
+          },
+          {
+            "artist_credit_name": "Bruno Mars",
+            "artist_mbid": "afb680f2-b6eb-4cd7-a70b-a63b25c763d5",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 43130338578,
+        "caa_release_mbid": "08439dd9-18e4-4693-b145-e16b177011ee",
+        "recording_mbid": "fe4c55b2-1a6e-48b2-991a-1fbe2be9eaf1",
+        "recording_name": "Please Me",
+        "release_mbid": "ff61cd57-887e-45f4-848f-e044ea474530",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/0PG9fbaaHFHfre2gUVo7AN"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/633351172"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1453056904"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1453056904"
+          }
+        ]
+      },
+      "release_name": "Bravo Hits, Vol. 105",
+      "track_name": "Please Me"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784144534,
+    "listened_at": 1784144369,
+    "recording_msid": "3d2d7a64-a346-41db-9089-f8ccb73a6218",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 544000,
+        "recording_msid": "3d2d7a64-a346-41db-9089-f8ccb73a6218",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "INDIA'S STRONG MESSAGE TO IRAN",
+      "track_name": "How Many Indian Sailors have Died So Far?"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784144356,
+    "listened_at": 1784144012,
+    "recording_msid": "e06e10dc-cdf7-4561-9cc1-1d993d2486c8",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 734000,
+        "recording_msid": "e06e10dc-cdf7-4561-9cc1-1d993d2486c8",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "TRUMP PLANS TO HIT INDIA HARD",
+      "track_name": "100% Tariffs For India Soon?"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784143959,
+    "listened_at": 1784143669,
+    "recording_msid": "5e4bee44-2e41-4050-998c-af75c3b78fb0",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 651000,
+        "recording_msid": "5e4bee44-2e41-4050-998c-af75c3b78fb0",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "CHINA IS PREPARAING FOR PUTIN'S DEATH",
+      "track_name": "Will It Impact India?"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784139311,
+    "listened_at": 1784139249,
+    "recording_msid": "79df8158-1461-44dd-82ee-771b150d0dfe",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 200527,
+        "recording_msid": "79df8158-1461-44dd-82ee-771b150d0dfe",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Shawn Mendes",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "b7d92248-97e3-4450-8057-6fe06738f735",
+          "56c4b861-0922-4c3a-a9b9-3bfcb00f8274"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Shawn Mendes",
+            "artist_mbid": "b7d92248-97e3-4450-8057-6fe06738f735",
+            "join_phrase": " & "
+          },
+          {
+            "artist_credit_name": "Zedd",
+            "artist_mbid": "56c4b861-0922-4c3a-a9b9-3bfcb00f8274",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 45465235824,
+        "caa_release_mbid": "56a319ad-43df-4254-9238-e825fdf652f0",
+        "recording_mbid": "8e41b5d9-a161-499d-95a3-bbd84130a7aa",
+        "recording_name": "Lost in Japan - (remix)",
+        "release_mbid": "3666e267-d5b9-497d-a159-6f6c7aa62ae0"
+      },
+      "release_name": "Now That's What I Call Music, Vol. 69",
+      "track_name": "Lost In Japan (Remix)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784139312,
+    "listened_at": 1784139113,
+    "recording_msid": "91cd9c8d-f266-43bd-8eb6-2867b4288dfc",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 231410,
+        "recording_msid": "91cd9c8d-f266-43bd-8eb6-2867b4288dfc",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Cardi B",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "2f3c4d70-0462-40da-bba3-0aec5772c556"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Cardi B",
+            "artist_mbid": "2f3c4d70-0462-40da-bba3-0aec5772c556",
+            "join_phrase": ""
+          }
+        ],
+        "recording_mbid": "e1cb1e67-a75b-4fc6-9b41-4c9edf6711b7",
+        "recording_name": "Please Me",
+        "release_mbid": "8b5f3876-f65f-4aad-9e7b-ff9d6b6197fe"
+      },
+      "release_name": "40 tubes été 2019",
+      "track_name": "Please Me"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784127238,
+    "listened_at": 1784127143,
+    "recording_msid": "9278bd7a-153f-49e7-9d96-edaeac033c51",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 238000,
+        "recording_msid": "9278bd7a-153f-49e7-9d96-edaeac033c51",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Ariana Grande",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Ariana Grande",
+            "artist_mbid": "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 39172631741,
+        "caa_release_mbid": "68530029-60ef-4bf4-b417-4911be1604ad",
+        "recording_mbid": "ec72de8b-74fc-449f-9b41-b10270eced8d",
+        "recording_name": "no tears left to cry",
+        "release_mbid": "818fd435-97d8-4541-a44a-acbf1556120d"
+      },
+      "track_name": "no tears left to cry (Official Video)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784127079,
+    "listened_at": 1784126978,
+    "recording_msid": "ac46a4e2-b55e-4f0c-b7f0-f6085113f038",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 166000,
+        "recording_msid": "ac46a4e2-b55e-4f0c-b7f0-f6085113f038",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Tyla",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "45425c84-9092-4e2c-b732-e1d0280b580a"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Tyla",
+            "artist_mbid": "45425c84-9092-4e2c-b732-e1d0280b580a",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 39593013157,
+        "caa_release_mbid": "7c28a833-972c-4e30-b9d6-6f40286c28d8",
+        "recording_mbid": "1e91210e-4697-4969-826b-65a5e7dd6611",
+        "recording_name": "ART",
+        "release_mbid": "f792faa4-80cb-4d7e-b381-0006110c2285"
+      },
+      "release_name": "ART",
+      "track_name": "ART"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784126853,
+    "listened_at": 1784126783,
+    "recording_msid": "0ce6f5ce-caa8-4597-8415-76e3b9c134b1",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 214000,
+        "recording_msid": "0ce6f5ce-caa8-4597-8415-76e3b9c134b1",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Denise Julia",
+      "release_name": "Sweet Nothings (Chapter 1)",
+      "track_name": "Lackin'"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784126604,
+    "listened_at": 1784126513,
+    "recording_msid": "e4c8e6d1-90b9-41dc-9e64-1661075b2608",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 298000,
+        "recording_msid": "e4c8e6d1-90b9-41dc-9e64-1661075b2608",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "The Weeknd",
+      "track_name": "I feel it coming ft. Daft Punk (official video)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784126347,
+    "listened_at": 1784126284,
+    "recording_msid": "1b9e1ac1-fe4a-4997-9a8b-6729f6231d27",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 205000,
+        "recording_msid": "1b9e1ac1-fe4a-4997-9a8b-6729f6231d27",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Lauv",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "c0ef2ba5-a7b7-40ea-bd27-30acccfcac11"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Lauv",
+            "artist_mbid": "c0ef2ba5-a7b7-40ea-bd27-30acccfcac11",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 20512551101,
+        "caa_release_mbid": "47383b9f-d6ea-457c-9c95-6f9b6dd6fa36",
+        "recording_mbid": "c9319bbc-8dec-4c7c-8934-ee234345f705",
+        "recording_name": "I Like Me Better",
+        "release_mbid": "47383b9f-d6ea-457c-9c95-6f9b6dd6fa36"
+      },
+      "release_name": "I Like Me Better",
+      "track_name": "I Like Me Better"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784126100,
+    "listened_at": 1784125999,
+    "recording_msid": "759ab6d4-d96b-4ea7-afe5-dd1a95dd2c4d",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 337000,
+        "recording_msid": "759ab6d4-d96b-4ea7-afe5-dd1a95dd2c4d",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Bruno Mars",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Bruno Mars",
+            "artist_mbid": "afb680f2-b6eb-4cd7-a70b-a63b25c763d5",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 34199011932,
+        "caa_release_mbid": "506157a2-bd38-45ff-a189-869ffa7b285f",
+        "recording_mbid": "5b9cee05-b971-477b-b356-950801ad7477",
+        "recording_name": "Versace on the Floor",
+        "release_mbid": "a76c3156-eb9a-4c59-bd56-5fd0d07a5efd",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/0kN8xEmgMW9mh7UmDYHlJP"
+          }
+        ]
+      },
+      "release_name": "24K Magic",
+      "track_name": "Versace on the Floor"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784125866,
+    "listened_at": 1784125797,
+    "recording_msid": "91cd9c8d-f266-43bd-8eb6-2867b4288dfc",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 231000,
+        "recording_msid": "91cd9c8d-f266-43bd-8eb6-2867b4288dfc",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Cardi B",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "2f3c4d70-0462-40da-bba3-0aec5772c556"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Cardi B",
+            "artist_mbid": "2f3c4d70-0462-40da-bba3-0aec5772c556",
+            "join_phrase": ""
+          }
+        ],
+        "recording_mbid": "e1cb1e67-a75b-4fc6-9b41-4c9edf6711b7",
+        "recording_name": "Please Me",
+        "release_mbid": "8b5f3876-f65f-4aad-9e7b-ff9d6b6197fe"
+      },
+      "release_name": "40 tubes été 2019",
+      "track_name": "Please Me"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784118319,
+    "listened_at": 1784118246,
+    "recording_msid": "e8279f6c-0339-40c5-9e58-96152354c439",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 238050,
+        "recording_msid": "e8279f6c-0339-40c5-9e58-96152354c439",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Ariana Grande Ft. Nicki Minaj",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Ariana Grande",
+            "artist_mbid": "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 39694332357,
+        "caa_release_mbid": "9e1785c6-cb0d-4d82-bc42-cc9dc48f5405",
+        "recording_mbid": "bc40d378-ce12-46a2-b4cf-5b5450b0a04c",
+        "recording_name": "west side",
+        "release_mbid": "aac979d6-96e8-419c-bba0-a81a45517242"
+      },
+      "track_name": "Side To Side (Official Video) (feat. Nicki Minaj)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784118107,
+    "listened_at": 1784118042,
+    "recording_msid": "050143b2-8706-4a38-9c0f-dff95333de48",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 201084,
+        "recording_msid": "050143b2-8706-4a38-9c0f-dff95333de48",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Natalie La Rose",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "1d638d0a-fee3-49cc-aec5-c1d30dc4997a"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Natalie La Rose",
+            "artist_mbid": "1d638d0a-fee3-49cc-aec5-c1d30dc4997a",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 42925723648,
+        "caa_release_mbid": "24f50102-f825-417e-a123-cbfd45331fd6",
+        "recording_mbid": "2837c95a-6023-4eff-a1b6-d4f8033db98c",
+        "recording_name": "Tables",
+        "release_mbid": "24f50102-f825-417e-a123-cbfd45331fd6"
+      },
+      "release_name": "Tables",
+      "track_name": "Tables"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784117842,
+    "listened_at": 1784117839,
+    "recording_msid": "91cd9c8d-f266-43bd-8eb6-2867b4288dfc",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 231410,
+        "recording_msid": "91cd9c8d-f266-43bd-8eb6-2867b4288dfc",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Cardi B",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "2f3c4d70-0462-40da-bba3-0aec5772c556"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Cardi B",
+            "artist_mbid": "2f3c4d70-0462-40da-bba3-0aec5772c556",
+            "join_phrase": ""
+          }
+        ],
+        "recording_mbid": "e1cb1e67-a75b-4fc6-9b41-4c9edf6711b7",
+        "recording_name": "Please Me",
+        "release_mbid": "8b5f3876-f65f-4aad-9e7b-ff9d6b6197fe"
+      },
+      "release_name": "40 tubes été 2019",
+      "track_name": "Please Me"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784117652,
+    "listened_at": 1784117604,
+    "recording_msid": "14a99db3-560f-42ef-a561-7c55872a2fc9",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 153264,
+        "recording_msid": "14a99db3-560f-42ef-a561-7c55872a2fc9",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Justin Bieber",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e0140a67-e4d1-4f13-8a01-364355bee46e"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Justin Bieber",
+            "artist_mbid": "e0140a67-e4d1-4f13-8a01-364355bee46e",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 28752687498,
+        "caa_release_mbid": "166f481c-1e42-4551-b327-eda0fb86bb7d",
+        "recording_mbid": "78a3a527-c8cb-4cd7-98b1-00af2a0a9d0c",
+        "recording_name": "Ghost",
+        "release_mbid": "92d8894a-446c-45f1-b89f-dfe120997ee5"
+      },
+      "release_name": "Justice",
+      "track_name": "Ghost"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784117752,
+    "listened_at": 1784117455,
+    "recording_msid": "347c52c0-9bac-435e-8c52-1fb01f85c337",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 226000,
+        "recording_msid": "347c52c0-9bac-435e-8c52-1fb01f85c337",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Troye Sivan",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Troye Sivan",
+            "artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 20981221972,
+        "caa_release_mbid": "292b1501-8b30-4026-81a4-215975885f1d",
+        "recording_mbid": "c45abe48-2fd0-4327-9b84-cc5c6d628930",
+        "recording_name": "Bloom",
+        "release_mbid": "f81817b0-0b07-4c9b-b3b4-9f754cd77da3",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/7HYSJL6dzpniOnqrx3LMSd"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/2842381462"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/368782664"
+          }
+        ]
+      },
+      "release_name": "Bloom",
+      "track_name": "Bloom"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784117127,
+    "listened_at": 1784117058,
+    "recording_msid": "347c52c0-9bac-435e-8c52-1fb01f85c337",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 226000,
+        "recording_msid": "347c52c0-9bac-435e-8c52-1fb01f85c337",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Troye Sivan",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Troye Sivan",
+            "artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 20981221972,
+        "caa_release_mbid": "292b1501-8b30-4026-81a4-215975885f1d",
+        "recording_mbid": "c45abe48-2fd0-4327-9b84-cc5c6d628930",
+        "recording_name": "Bloom",
+        "release_mbid": "f81817b0-0b07-4c9b-b3b4-9f754cd77da3",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/7HYSJL6dzpniOnqrx3LMSd"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/2842381462"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/368782664"
+          }
+        ]
+      },
+      "release_name": "Bloom",
+      "track_name": "Bloom"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784115013,
+    "listened_at": 1784114815,
+    "recording_msid": "daba0334-8707-49e5-a4c9-80c572ab25eb",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 654000,
+        "recording_msid": "daba0334-8707-49e5-a4c9-80c572ab25eb",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "IBM Loses $70 Billion After Worst Stock Crash In 58 Years",
+      "track_name": "Ankit Agrawal Study IQ"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784114082,
+    "listened_at": 1784113885,
+    "recording_msid": "daba0334-8707-49e5-a4c9-80c572ab25eb",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 654000,
+        "recording_msid": "daba0334-8707-49e5-a4c9-80c572ab25eb",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "IBM Loses $70 Billion After Worst Stock Crash In 58 Years",
+      "track_name": "Ankit Agrawal Study IQ"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1784113757,
+    "listened_at": 1784113691,
+    "recording_msid": "9de96e7b-3531-43c6-b4d3-d5c40d211ec8",
+    "track_metadata": {
+      "additional_info": {
+        "duration_ms": 217000,
+        "recording_msid": "9de96e7b-3531-43c6-b4d3-d5c40d211ec8",
+        "submission_client": "Pano Scrobbler",
+        "submission_client_version": "4.41"
+      },
+      "artist_name": "Troye Sivan",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Troye Sivan",
+            "artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 36968346831,
+        "caa_release_mbid": "95a30a45-9e87-4b63-a67f-490a93dd11a3",
+        "recording_mbid": "db8f56ef-8d49-43fc-8594-72b6683b909a",
+        "recording_name": "Rush",
+        "release_mbid": "77ec0a69-744a-4d7f-b39f-bc0ab273f13b",
+        "url_rels": [
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/310282359"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/5tNKUrrWJJhg9YP6ywoIX8"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/2406272025"
+          }
+        ]
+      },
+      "track_name": "Rush (Extended / Official Audio)"
+    },
+    "user_name": "chirag127"
+  }
+]

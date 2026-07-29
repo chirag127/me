@@ -11,17 +11,17 @@
     "global_name": "Chirag Singhal",
     "id": "799956529847205898",
     "primary_guild": {
-      "badge": "66e6116fb71622d52bed149a17914270",
+      "badge": "d6134e4ab53ecb415128d3135328ab93",
       "identity_enabled": true,
-      "identity_guild_id": "423464391791476747",
-      "tag": "ZTM"
+      "identity_guild_id": "1046086326077882479",
+      "tag": "NOPE"
     },
     "public_flags": 64,
     "username": "chiragsinghal127"
   },
   "activities": [],
-  "discord_status": "offline",
-  "active_on_discord_web": false,
+  "discord_status": "online",
+  "active_on_discord_web": true,
   "active_on_discord_desktop": false,
   "active_on_discord_mobile": false,
   "active_on_discord_embedded": false,

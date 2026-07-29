@@ -2,6 +2,186 @@
   {
     "artist": {
       "mbid": "",
+      "#text": "Economy Media"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "How AI Became More Expensive Than The Workers It Replaced",
+    "url": "https://www.last.fm/music/Economy+Media/_/How+AI+Became+More+Expensive+Than+The+Workers+It+Replaced",
+    "date": {
+      "uts": "1785248738",
+      "#text": "28 Jul 2026, 14:25"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "NBC News"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "Viral video of new robot released by Chinese Unitree freaks out social media",
+    "url": "https://www.last.fm/music/NBC+News/_/Viral+video+of+new+robot+released+by+Chinese+Unitree+freaks+out+social+media",
+    "date": {
+      "uts": "1785248266",
+      "#text": "28 Jul 2026, 14:17"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
+      "#text": "Cloud Codes"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": ""
+      },
+      {
+        "size": "medium",
+        "#text": ""
+      },
+      {
+        "size": "large",
+        "#text": ""
+      },
+      {
+        "size": "extralarge",
+        "#text": ""
+      }
+    ],
+    "mbid": "",
+    "album": {
+      "mbid": "",
+      "#text": ""
+    },
+    "name": "The $223 AWS Bill vs The $6 VPS",
+    "url": "https://www.last.fm/music/Cloud+Codes/_/The+$223+AWS+Bill+vs+The+$6+VPS",
+    "date": {
+      "uts": "1785246363",
+      "#text": "28 Jul 2026, 13:46"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "525f1f1c-03f0-4bc8-8dfd-e7521f87631b",
+      "#text": "Charlie Puth"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/e16905d22e5913535a8c6acadc781659.jpg"
+      },
+      {
+        "size": "medium",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/e16905d22e5913535a8c6acadc781659.jpg"
+      },
+      {
+        "size": "large",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/e16905d22e5913535a8c6acadc781659.jpg"
+      },
+      {
+        "size": "extralarge",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/e16905d22e5913535a8c6acadc781659.jpg"
+      }
+    ],
+    "mbid": "32d67b65-6561-4442-8c01-d625b763a2ca",
+    "album": {
+      "mbid": "",
+      "#text": "Left and Right (feat. Jung Kook of BTS)"
+    },
+    "name": "Left and Right (feat. Jung Kook of BTS)",
+    "url": "https://www.last.fm/music/Charlie+Puth/_/Left+and+Right+(feat.+Jung+Kook+of+BTS)",
+    "date": {
+      "uts": "1785245949",
+      "#text": "28 Jul 2026, 13:39"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "20244d07-534f-4eff-b4d4-930878889970",
+      "#text": "Taylor Swift"
+    },
+    "streamable": "0",
+    "image": [
+      {
+        "size": "small",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/837e4d37b0c4a0a65eb12177e1afb8ee.png"
+      },
+      {
+        "size": "medium",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/837e4d37b0c4a0a65eb12177e1afb8ee.png"
+      },
+      {
+        "size": "large",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/837e4d37b0c4a0a65eb12177e1afb8ee.png"
+      },
+      {
+        "size": "extralarge",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/837e4d37b0c4a0a65eb12177e1afb8ee.png"
+      }
+    ],
+    "mbid": "8670a098-6ab7-4e18-8ac0-0ec7259151f8",
+    "album": {
+      "mbid": "9d716f4e-8a34-4db9-a41c-7ef649b3b37c",
+      "#text": "The Life of a Showgirl"
+    },
+    "name": "The Fate of Ophelia",
+    "url": "https://www.last.fm/music/Taylor+Swift/_/The+Fate+of+Ophelia",
+    "date": {
+      "uts": "1785245622",
+      "#text": "28 Jul 2026, 13:33"
+    }
+  },
+  {
+    "artist": {
+      "mbid": "",
       "#text": "America Banned Nvidia Chips to Stop China's AI"
     },
     "streamable": "0",
@@ -1031,7 +1211,7 @@
         "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/c7cf0cd2fcd6efb0a33e063a8d82ff0e.png"
       }
     ],
-    "mbid": "be1195eb-6b1b-4525-ac42-11efe507fb98",
+    "mbid": "",
     "album": {
       "mbid": "0835769f-8995-4720-9937-6ed89eff8b42",
       "#text": "Unorthodox Jukebox"
@@ -3417,186 +3597,6 @@
     "date": {
       "uts": "1783756119",
       "#text": "11 Jul 2026, 07:48"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "India Launches First Export Container to break China's monopoly"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "Ankit Agrawal Study IQ",
-    "url": "https://www.last.fm/music/India+Launches+First+Export+Container+to+break+China%27s+monopoly/_/Ankit+Agrawal+Study+IQ",
-    "date": {
-      "uts": "1783755888",
-      "#text": "11 Jul 2026, 07:44"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "David Ondrej"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "10 regrets of experienced programmers",
-    "url": "https://www.last.fm/music/David+Ondrej/_/10+regrets+of+experienced+programmers",
-    "date": {
-      "uts": "1783755692",
-      "#text": "11 Jul 2026, 07:41"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "David Ondrej"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "100+ Linux Things you Need to Know",
-    "url": "https://www.last.fm/music/David+Ondrej/_/100%252B+Linux+Things+you+Need+to+Know",
-    "date": {
-      "uts": "1783755453",
-      "#text": "11 Jul 2026, 07:37"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "Fine"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "Tune the biggest open-source models (even with a bad PC)",
-    "url": "https://www.last.fm/music/Fine/_/Tune+the+biggest+open-source+models+(even+with+a+bad+PC)",
-    "date": {
-      "uts": "1783754864",
-      "#text": "11 Jul 2026, 07:27"
-    }
-  },
-  {
-    "artist": {
-      "mbid": "",
-      "#text": "The Solo Entrepreneur"
-    },
-    "streamable": "0",
-    "image": [
-      {
-        "size": "small",
-        "#text": ""
-      },
-      {
-        "size": "medium",
-        "#text": ""
-      },
-      {
-        "size": "large",
-        "#text": ""
-      },
-      {
-        "size": "extralarge",
-        "#text": ""
-      }
-    ],
-    "mbid": "",
-    "album": {
-      "mbid": "",
-      "#text": ""
-    },
-    "name": "The AUDACITY.",
-    "url": "https://www.last.fm/music/The+Solo+Entrepreneur/_/The+AUDACITY.",
-    "date": {
-      "uts": "1783752853",
-      "#text": "11 Jul 2026, 06:54"
     }
   }
 ]
