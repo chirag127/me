@@ -1,5 +1,386 @@
 [
   {
+    "inserted_at": 1785336127,
+    "listened_at": 1785335997,
+    "recording_msid": "81fe66cd-1573-473e-b1bd-c21d42267f39",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 238,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/ko70cExuzZM",
+        "recording_msid": "81fe66cd-1573-473e-b1bd-c21d42267f39",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Taylor Swift",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "20244d07-534f-4eff-b4d4-930878889970"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Taylor Swift",
+            "artist_mbid": "20244d07-534f-4eff-b4d4-930878889970",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 43200832126,
+        "caa_release_mbid": "c2ddb1d1-0e05-4659-818e-57a55ab67d94",
+        "recording_mbid": "8670a098-6ab7-4e18-8ac0-0ec7259151f8",
+        "recording_name": "The Fate of Ophelia",
+        "release_mbid": "2def1edd-2cb4-4622-a792-0ddc2907f29d",
+        "url_rels": [
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/gb/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/gb/song/1850496033"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/5UQ3JrA9kEh7rfwhUS1h0z"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3595996252"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/471563020"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1843913773"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/31TXxq8gfgYyrYClnYY48m"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900293"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3579685911"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900329"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3579685431"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900374"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1838810951"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1838810951"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/476940802"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/gb/song/1856301587"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/gb/song/1856301587"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/3CFKUvybrj8Jg5F018tyuA"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/1dosSsKwYF7hoQA2kuu6wI"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900433"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1842897454"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1842897454"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/53iuhJlwXhSER5J2IYYv1W"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1838812723"
+          }
+        ]
+      },
+      "release_name": "The Life of a Showgirl",
+      "track_name": "The Fate of Ophelia"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785336724,
+    "listened_at": 1785335997,
+    "recording_msid": "942c5060-5d88-41a6-8ebd-9a727aae4ddf",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "20244d07-534f-4eff-b4d4-930878889970",
+        "lastfm_release_mbid": "9d716f4e-8a34-4db9-a41c-7ef649b3b37c",
+        "lastfm_track_mbid": "8670a098-6ab7-4e18-8ac0-0ec7259151f8",
+        "recording_msid": "942c5060-5d88-41a6-8ebd-9a727aae4ddf",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Taylor Swift",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "20244d07-534f-4eff-b4d4-930878889970"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Taylor Swift",
+            "artist_mbid": "20244d07-534f-4eff-b4d4-930878889970",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 43200832126,
+        "caa_release_mbid": "c2ddb1d1-0e05-4659-818e-57a55ab67d94",
+        "recording_mbid": "8670a098-6ab7-4e18-8ac0-0ec7259151f8",
+        "recording_name": "The Fate of Ophelia",
+        "release_mbid": "2def1edd-2cb4-4622-a792-0ddc2907f29d",
+        "url_rels": [
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/gb/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/gb/song/1850496033"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/5UQ3JrA9kEh7rfwhUS1h0z"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3595996252"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/471563020"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1843913773"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/31TXxq8gfgYyrYClnYY48m"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900293"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3579685911"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900329"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3579685431"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900374"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1838810951"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1838810951"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/476940802"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/gb/song/1856301587"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/gb/song/1856301587"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/3CFKUvybrj8Jg5F018tyuA"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/1dosSsKwYF7hoQA2kuu6wI"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900433"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1842897454"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1842897454"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/53iuhJlwXhSER5J2IYYv1W"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1838812723"
+          }
+        ]
+      },
+      "release_name": "The Life of a Showgirl",
+      "track_name": "The Fate of Ophelia"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785335525,
+    "listened_at": 1785335367,
+    "recording_msid": "5625fb74-8c0b-4779-8184-a5a677a9e02f",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 229,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/tltBwVGiVNs",
+        "recording_msid": "5625fb74-8c0b-4779-8184-a5a677a9e02f",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "SAUDI ARABIA JUMPS INTO WAR",
+      "track_name": "Massive Attack on Iran Assets in Iraq"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785336724,
+    "listened_at": 1785335367,
+    "recording_msid": "d15e9245-7259-4704-be93-073ea268d405",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "d15e9245-7259-4704-be93-073ea268d405",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "SAUDI ARABIA JUMPS INTO WAR",
+      "track_name": "Massive Attack on Iran Assets in Iraq"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785326358,
+    "listened_at": 1785326126,
+    "recording_msid": "cc6987cf-0133-4b1f-9361-63f0130752e9",
+    "track_metadata": {
+      "additional_info": {
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/6WIH0CgWSpU",
+        "recording_msid": "cc6987cf-0133-4b1f-9361-63f0130752e9",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "ITR 2 Filing Online 2025",
+      "track_name": "How to Fill Information?"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785326256,
+    "listened_at": 1785326014,
+    "recording_msid": "3a0bc86c-14d4-49f8-b352-8560f5c8650a",
+    "track_metadata": {
+      "additional_info": {
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/6WIH0CgWSpU",
+        "recording_msid": "3a0bc86c-14d4-49f8-b352-8560f5c8650a",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "ITR 2 Filing Online 2025",
+      "track_name": "Tax PnL (Mutual Funds and Shares)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785325025,
+    "listened_at": 1785324762,
+    "recording_msid": "460a3de0-707f-46ef-b0ca-4a8c49ea1e9e",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 431,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/mO4oXz93S3E",
+        "recording_msid": "460a3de0-707f-46ef-b0ca-4a8c49ea1e9e",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "ITR Filing Online 2026",
+      "track_name": "27"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785329617,
+    "listened_at": 1785324762,
+    "recording_msid": "89e83c7d-f608-450e-8598-e3e86c3cc583",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "89e83c7d-f608-450e-8598-e3e86c3cc583",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "ITR Filing Online 2026",
+      "track_name": "27"
+    },
+    "user_name": "chirag127"
+  },
+  {
     "inserted_at": 1785248919,
     "listened_at": 1785248738,
     "recording_msid": "6bd0b680-ae97-4557-90b9-55c23b20d84a",
@@ -1501,7 +1882,7 @@
         "url_rels": [
           {
             "type": "free streaming",
-            "url": "https://open.spotify.com/track/0TK2YIli7K1leLovkQiNik"
+            "url": "https://www.deezer.com/track/823567782"
           },
           {
             "type": "free streaming",
@@ -1509,7 +1890,7 @@
           },
           {
             "type": "free streaming",
-            "url": "https://www.deezer.com/track/823567782"
+            "url": "https://open.spotify.com/track/0TK2YIli7K1leLovkQiNik"
           }
         ]
       },
@@ -2859,281 +3240,6 @@
         "release_mbid": "aac979d6-96e8-419c-bba0-a81a45517242"
       },
       "track_name": "Side To Side (Official Video) (feat. Nicki Minaj)"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1784118107,
-    "listened_at": 1784118042,
-    "recording_msid": "050143b2-8706-4a38-9c0f-dff95333de48",
-    "track_metadata": {
-      "additional_info": {
-        "duration_ms": 201084,
-        "recording_msid": "050143b2-8706-4a38-9c0f-dff95333de48",
-        "submission_client": "Pano Scrobbler",
-        "submission_client_version": "4.41"
-      },
-      "artist_name": "Natalie La Rose",
-      "mbid_mapping": {
-        "artist_mbids": [
-          "1d638d0a-fee3-49cc-aec5-c1d30dc4997a"
-        ],
-        "artists": [
-          {
-            "artist_credit_name": "Natalie La Rose",
-            "artist_mbid": "1d638d0a-fee3-49cc-aec5-c1d30dc4997a",
-            "join_phrase": ""
-          }
-        ],
-        "caa_id": 42925723648,
-        "caa_release_mbid": "24f50102-f825-417e-a123-cbfd45331fd6",
-        "recording_mbid": "2837c95a-6023-4eff-a1b6-d4f8033db98c",
-        "recording_name": "Tables",
-        "release_mbid": "24f50102-f825-417e-a123-cbfd45331fd6"
-      },
-      "release_name": "Tables",
-      "track_name": "Tables"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1784117842,
-    "listened_at": 1784117839,
-    "recording_msid": "91cd9c8d-f266-43bd-8eb6-2867b4288dfc",
-    "track_metadata": {
-      "additional_info": {
-        "duration_ms": 231410,
-        "recording_msid": "91cd9c8d-f266-43bd-8eb6-2867b4288dfc",
-        "submission_client": "Pano Scrobbler",
-        "submission_client_version": "4.41"
-      },
-      "artist_name": "Cardi B",
-      "mbid_mapping": {
-        "artist_mbids": [
-          "2f3c4d70-0462-40da-bba3-0aec5772c556"
-        ],
-        "artists": [
-          {
-            "artist_credit_name": "Cardi B",
-            "artist_mbid": "2f3c4d70-0462-40da-bba3-0aec5772c556",
-            "join_phrase": ""
-          }
-        ],
-        "recording_mbid": "e1cb1e67-a75b-4fc6-9b41-4c9edf6711b7",
-        "recording_name": "Please Me",
-        "release_mbid": "8b5f3876-f65f-4aad-9e7b-ff9d6b6197fe"
-      },
-      "release_name": "40 tubes été 2019",
-      "track_name": "Please Me"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1784117652,
-    "listened_at": 1784117604,
-    "recording_msid": "14a99db3-560f-42ef-a561-7c55872a2fc9",
-    "track_metadata": {
-      "additional_info": {
-        "duration_ms": 153264,
-        "recording_msid": "14a99db3-560f-42ef-a561-7c55872a2fc9",
-        "submission_client": "Pano Scrobbler",
-        "submission_client_version": "4.41"
-      },
-      "artist_name": "Justin Bieber",
-      "mbid_mapping": {
-        "artist_mbids": [
-          "e0140a67-e4d1-4f13-8a01-364355bee46e"
-        ],
-        "artists": [
-          {
-            "artist_credit_name": "Justin Bieber",
-            "artist_mbid": "e0140a67-e4d1-4f13-8a01-364355bee46e",
-            "join_phrase": ""
-          }
-        ],
-        "caa_id": 28752687498,
-        "caa_release_mbid": "166f481c-1e42-4551-b327-eda0fb86bb7d",
-        "recording_mbid": "78a3a527-c8cb-4cd7-98b1-00af2a0a9d0c",
-        "recording_name": "Ghost",
-        "release_mbid": "92d8894a-446c-45f1-b89f-dfe120997ee5"
-      },
-      "release_name": "Justice",
-      "track_name": "Ghost"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1784117752,
-    "listened_at": 1784117455,
-    "recording_msid": "347c52c0-9bac-435e-8c52-1fb01f85c337",
-    "track_metadata": {
-      "additional_info": {
-        "duration_ms": 226000,
-        "recording_msid": "347c52c0-9bac-435e-8c52-1fb01f85c337",
-        "submission_client": "Pano Scrobbler",
-        "submission_client_version": "4.41"
-      },
-      "artist_name": "Troye Sivan",
-      "mbid_mapping": {
-        "artist_mbids": [
-          "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
-        ],
-        "artists": [
-          {
-            "artist_credit_name": "Troye Sivan",
-            "artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
-            "join_phrase": ""
-          }
-        ],
-        "caa_id": 20981221972,
-        "caa_release_mbid": "292b1501-8b30-4026-81a4-215975885f1d",
-        "recording_mbid": "c45abe48-2fd0-4327-9b84-cc5c6d628930",
-        "recording_name": "Bloom",
-        "release_mbid": "f81817b0-0b07-4c9b-b3b4-9f754cd77da3",
-        "url_rels": [
-          {
-            "type": "free streaming",
-            "url": "https://open.spotify.com/track/7HYSJL6dzpniOnqrx3LMSd"
-          },
-          {
-            "type": "free streaming",
-            "url": "https://www.deezer.com/track/2842381462"
-          },
-          {
-            "type": "streaming",
-            "url": "https://tidal.com/track/368782664"
-          }
-        ]
-      },
-      "release_name": "Bloom",
-      "track_name": "Bloom"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1784117127,
-    "listened_at": 1784117058,
-    "recording_msid": "347c52c0-9bac-435e-8c52-1fb01f85c337",
-    "track_metadata": {
-      "additional_info": {
-        "duration_ms": 226000,
-        "recording_msid": "347c52c0-9bac-435e-8c52-1fb01f85c337",
-        "submission_client": "Pano Scrobbler",
-        "submission_client_version": "4.41"
-      },
-      "artist_name": "Troye Sivan",
-      "mbid_mapping": {
-        "artist_mbids": [
-          "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
-        ],
-        "artists": [
-          {
-            "artist_credit_name": "Troye Sivan",
-            "artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
-            "join_phrase": ""
-          }
-        ],
-        "caa_id": 20981221972,
-        "caa_release_mbid": "292b1501-8b30-4026-81a4-215975885f1d",
-        "recording_mbid": "c45abe48-2fd0-4327-9b84-cc5c6d628930",
-        "recording_name": "Bloom",
-        "release_mbid": "f81817b0-0b07-4c9b-b3b4-9f754cd77da3",
-        "url_rels": [
-          {
-            "type": "free streaming",
-            "url": "https://open.spotify.com/track/7HYSJL6dzpniOnqrx3LMSd"
-          },
-          {
-            "type": "free streaming",
-            "url": "https://www.deezer.com/track/2842381462"
-          },
-          {
-            "type": "streaming",
-            "url": "https://tidal.com/track/368782664"
-          }
-        ]
-      },
-      "release_name": "Bloom",
-      "track_name": "Bloom"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1784115013,
-    "listened_at": 1784114815,
-    "recording_msid": "daba0334-8707-49e5-a4c9-80c572ab25eb",
-    "track_metadata": {
-      "additional_info": {
-        "duration_ms": 654000,
-        "recording_msid": "daba0334-8707-49e5-a4c9-80c572ab25eb",
-        "submission_client": "Pano Scrobbler",
-        "submission_client_version": "4.41"
-      },
-      "artist_name": "IBM Loses $70 Billion After Worst Stock Crash In 58 Years",
-      "track_name": "Ankit Agrawal Study IQ"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1784114082,
-    "listened_at": 1784113885,
-    "recording_msid": "daba0334-8707-49e5-a4c9-80c572ab25eb",
-    "track_metadata": {
-      "additional_info": {
-        "duration_ms": 654000,
-        "recording_msid": "daba0334-8707-49e5-a4c9-80c572ab25eb",
-        "submission_client": "Pano Scrobbler",
-        "submission_client_version": "4.41"
-      },
-      "artist_name": "IBM Loses $70 Billion After Worst Stock Crash In 58 Years",
-      "track_name": "Ankit Agrawal Study IQ"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1784113757,
-    "listened_at": 1784113691,
-    "recording_msid": "9de96e7b-3531-43c6-b4d3-d5c40d211ec8",
-    "track_metadata": {
-      "additional_info": {
-        "duration_ms": 217000,
-        "recording_msid": "9de96e7b-3531-43c6-b4d3-d5c40d211ec8",
-        "submission_client": "Pano Scrobbler",
-        "submission_client_version": "4.41"
-      },
-      "artist_name": "Troye Sivan",
-      "mbid_mapping": {
-        "artist_mbids": [
-          "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
-        ],
-        "artists": [
-          {
-            "artist_credit_name": "Troye Sivan",
-            "artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
-            "join_phrase": ""
-          }
-        ],
-        "caa_id": 36968346831,
-        "caa_release_mbid": "95a30a45-9e87-4b63-a67f-490a93dd11a3",
-        "recording_mbid": "db8f56ef-8d49-43fc-8594-72b6683b909a",
-        "recording_name": "Rush",
-        "release_mbid": "77ec0a69-744a-4d7f-b39f-bc0ab273f13b",
-        "url_rels": [
-          {
-            "type": "streaming",
-            "url": "https://tidal.com/track/310282359"
-          },
-          {
-            "type": "free streaming",
-            "url": "https://open.spotify.com/track/5tNKUrrWJJhg9YP6ywoIX8"
-          },
-          {
-            "type": "free streaming",
-            "url": "https://www.deezer.com/track/2406272025"
-          }
-        ]
-      },
-      "track_name": "Rush (Extended / Official Audio)"
     },
     "user_name": "chirag127"
   }

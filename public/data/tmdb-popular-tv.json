@@ -1,5 +1,41 @@
 [
   {
+    "id": 94997,
+    "tmdb_id": 94997,
+    "type": "tv",
+    "title": "House of the Dragon",
+    "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
+    "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
+    "rating": 8.377,
+    "votes": 6774,
+    "release": "2022-08-21",
+    "genres": [
+      10765,
+      18,
+      10759
+    ],
+    "popularity": 346.8365
+  },
+  {
+    "id": 5920,
+    "tmdb_id": 5920,
+    "type": "tv",
+    "title": "The Mentalist",
+    "overview": "Patrick Jane, a former celebrity psychic medium, uses his razor sharp skills of observation and expertise at \"reading\" people to solve serious crimes with the California Bureau of Investigation.",
+    "poster": "https://image.tmdb.org/t/p/w342/acYXu4KaDj1NIkMgObnhe4C4a0T.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/q3pCsNvJ7CmdJUz2sJEEUY3pOPC.jpg",
+    "rating": 8.367,
+    "votes": 4464,
+    "release": "2008-09-23",
+    "genres": [
+      80,
+      18,
+      9648
+    ],
+    "popularity": 329.996
+  },
+  {
     "id": 94722,
     "tmdb_id": 94722,
     "type": "tv",
@@ -13,25 +49,7 @@
     "genres": [
       10763
     ],
-    "popularity": 346.121
-  },
-  {
-    "id": 94997,
-    "tmdb_id": 94997,
-    "type": "tv",
-    "title": "House of the Dragon",
-    "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
-    "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
-    "rating": 8.377,
-    "votes": 6768,
-    "release": "2022-08-21",
-    "genres": [
-      10765,
-      18,
-      10759
-    ],
-    "popularity": 381.5772
+    "popularity": 257.7981
   },
   {
     "id": 2734,
@@ -42,49 +60,14 @@
     "poster": "https://image.tmdb.org/t/p/w342/iofokHZoUB4Qhik4PflvJl8TT6a.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/obtdxPgmfykYwVnvuYXC5f2xKlQ.jpg",
     "rating": 7.957,
-    "votes": 4298,
+    "votes": 4299,
     "release": "1999-09-20",
     "genres": [
       80,
       18,
       9648
     ],
-    "popularity": 302.683
-  },
-  {
-    "id": 5920,
-    "tmdb_id": 5920,
-    "type": "tv",
-    "title": "The Mentalist",
-    "overview": "Patrick Jane, a former celebrity psychic medium, uses his razor sharp skills of observation and expertise at \"reading\" people to solve serious crimes with the California Bureau of Investigation.",
-    "poster": "https://image.tmdb.org/t/p/w342/acYXu4KaDj1NIkMgObnhe4C4a0T.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/q3pCsNvJ7CmdJUz2sJEEUY3pOPC.jpg",
-    "rating": 8.367,
-    "votes": 4460,
-    "release": "2008-09-23",
-    "genres": [
-      80,
-      18,
-      9648
-    ],
-    "popularity": 370.7871
-  },
-  {
-    "id": 22980,
-    "tmdb_id": 22980,
-    "type": "tv",
-    "title": "Watch What Happens Live with Andy Cohen",
-    "overview": "Bravo network executive Andy Cohen discusses pop culture topics with celebrities and reality show personalities.",
-    "poster": "https://image.tmdb.org/t/p/w342/onSD9UXfJwrMXWhq7UY7hGF2S1h.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/hINekSpbcBxjnjGqmIm6I4bz2ab.jpg",
-    "rating": 5,
-    "votes": 87,
-    "release": "2009-07-16",
-    "genres": [
-      10767,
-      35
-    ],
-    "popularity": 221.3031
+    "popularity": 272.8664
   },
   {
     "id": 204269,
@@ -100,7 +83,41 @@
     "genres": [
       16
     ],
-    "popularity": 281.7377
+    "popularity": 256.2272
+  },
+  {
+    "id": 233643,
+    "tmdb_id": 233643,
+    "type": "tv",
+    "title": "Secret Mission - Undercover Agents Never Back Down!",
+    "overview": "Narcotics Enforcement Agent Riko Ikazuchi is undercover with her junior colleague Noma in an apartment that serves as the hideout for a criminal organization. Despite Riko and Noma posing as a newlywed couple, the criminals begin to suspect them after not hearing any marital intimacy during the night. To convince them that they are a loving couple, Noma starts touching Riko's body...",
+    "poster": "https://image.tmdb.org/t/p/w342/xZV8e1iKi85PFZlbQBdznvtpAVJ.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/5IBSPGPAEFEkEJo4leqvpq0RcKf.jpg",
+    "rating": 6.154,
+    "votes": 26,
+    "release": "2023-10-02",
+    "genres": [
+      16
+    ],
+    "popularity": 283.4439
+  },
+  {
+    "id": 79744,
+    "tmdb_id": 79744,
+    "type": "tv",
+    "title": "The Rookie",
+    "overview": "Starting over isn't easy, especially for small-town guy John Nolan who, after a life-altering incident, is pursuing his dream of being an LAPD officer. As the force's oldest rookie, he's met with skepticism from some higher-ups who see him as just a walking midlife crisis.",
+    "poster": "https://image.tmdb.org/t/p/w342/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/6iNWfGVCEfASDdlNb05TP5nG0ll.jpg",
+    "rating": 8.552,
+    "votes": 3410,
+    "release": "2018-10-16",
+    "genres": [
+      80,
+      18,
+      35
+    ],
+    "popularity": 251.7758
   },
   {
     "id": 63770,
@@ -117,59 +134,23 @@
       35,
       10767
     ],
-    "popularity": 237.181
+    "popularity": 172.8911
   },
   {
-    "id": 79744,
-    "tmdb_id": 79744,
+    "id": 1416,
+    "tmdb_id": 1416,
     "type": "tv",
-    "title": "The Rookie",
-    "overview": "Starting over isn't easy, especially for small-town guy John Nolan who, after a life-altering incident, is pursuing his dream of being an LAPD officer. As the force's oldest rookie, he's met with skepticism from some higher-ups who see him as just a walking midlife crisis.",
-    "poster": "https://image.tmdb.org/t/p/w342/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/6iNWfGVCEfASDdlNb05TP5nG0ll.jpg",
-    "rating": 8.551,
-    "votes": 3408,
-    "release": "2018-10-16",
+    "title": "Grey's Anatomy",
+    "overview": "Follows the personal and professional lives of a group of doctors at Seattle's Grey Sloan Memorial Hospital.",
+    "poster": "https://image.tmdb.org/t/p/w342/hjJkrLXhWvGHpLeLBDFznpBTY1S.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/jP0Rhj9OTPDAwQlHQwOLFDdeE8t.jpg",
+    "rating": 8.208,
+    "votes": 10982,
+    "release": "2005-03-27",
     "genres": [
-      80,
-      18,
-      35
-    ],
-    "popularity": 251.4827
-  },
-  {
-    "id": 233643,
-    "tmdb_id": 233643,
-    "type": "tv",
-    "title": "Secret Mission - Undercover Agents Never Back Down!",
-    "overview": "Narcotics Enforcement Agent Riko Ikazuchi is undercover with her junior colleague Noma in an apartment that serves as the hideout for a criminal organization. Despite Riko and Noma posing as a newlywed couple, the criminals begin to suspect them after not hearing any marital intimacy during the night. To convince them that they are a loving couple, Noma starts touching Riko's body...",
-    "poster": "https://image.tmdb.org/t/p/w342/xZV8e1iKi85PFZlbQBdznvtpAVJ.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/5IBSPGPAEFEkEJo4leqvpq0RcKf.jpg",
-    "rating": 6.154,
-    "votes": 26,
-    "release": "2023-10-02",
-    "genres": [
-      16
-    ],
-    "popularity": 272.6798
-  },
-  {
-    "id": 14424,
-    "tmdb_id": 14424,
-    "type": "tv",
-    "title": "Young Hearts",
-    "overview": "Malhação is a Brazilian television series for the teenage audience. The soap started in 1995, and was set in a fictional Gym Club called Malhação on Barra da Tijuca, Rio de Janeiro. Through the years the location varied slightly. Although the name of the soap remains the same, it is now set in the Múltipla Escolha High School.",
-    "poster": "https://image.tmdb.org/t/p/w342/bF24r2FxsjzgkJcrbBU8RC9JVoU.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/7Vpk75SxS86Ai7o2iilJUz5rx4x.jpg",
-    "rating": 6.284,
-    "votes": 37,
-    "release": "1995-04-24",
-    "genres": [
-      10766,
-      35,
       18
     ],
-    "popularity": 191.5495
+    "popularity": 218.466
   },
   {
     "id": 549,
@@ -186,7 +167,61 @@
       80,
       18
     ],
-    "popularity": 229.4943
+    "popularity": 212.8751
+  },
+  {
+    "id": 60625,
+    "tmdb_id": 60625,
+    "type": "tv",
+    "title": "Rick and Morty",
+    "overview": "Follows a sociopathic genius scientist who drags his inherently timid grandson on adventures across the universe.",
+    "poster": "https://image.tmdb.org/t/p/w342/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/i4PpW1XyRlBuSNSIBRIIwSjEpjl.jpg",
+    "rating": 8.68,
+    "votes": 11191,
+    "release": "2013-12-02",
+    "genres": [
+      16,
+      35,
+      10765,
+      10759
+    ],
+    "popularity": 223.6734
+  },
+  {
+    "id": 124364,
+    "tmdb_id": 124364,
+    "type": "tv",
+    "title": "FROM",
+    "overview": "Unravel the mystery of a nightmarish town in middle America that traps all those who enter. As the unwilling residents fight to keep a sense of normalcy and search for a way out, they must also survive the threats of the surrounding forest – including the terrifying creatures that come out when the sun goes down.",
+    "poster": "https://image.tmdb.org/t/p/w342/pRtJagIxpfODzzb0T0NAvZSzErC.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/xLdw1xdHocKYFFvx7w41NchXMfJ.jpg",
+    "rating": 8.499,
+    "votes": 4078,
+    "release": "2022-02-20",
+    "genres": [
+      9648,
+      18,
+      10765
+    ],
+    "popularity": 213.1414
+  },
+  {
+    "id": 22980,
+    "tmdb_id": 22980,
+    "type": "tv",
+    "title": "Watch What Happens Live with Andy Cohen",
+    "overview": "Bravo network executive Andy Cohen discusses pop culture topics with celebrities and reality show personalities.",
+    "poster": "https://image.tmdb.org/t/p/w342/onSD9UXfJwrMXWhq7UY7hGF2S1h.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/hINekSpbcBxjnjGqmIm6I4bz2ab.jpg",
+    "rating": 5,
+    "votes": 87,
+    "release": "2009-07-16",
+    "genres": [
+      10767,
+      35
+    ],
+    "popularity": 189.8743
   },
   {
     "id": 125988,
@@ -196,14 +231,14 @@
     "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
     "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
-    "rating": 8.181,
-    "votes": 2337,
+    "rating": 8.184,
+    "votes": 2342,
     "release": "2023-05-04",
     "genres": [
       10765,
       18
     ],
-    "popularity": 219.46
+    "popularity": 206.3233
   },
   {
     "id": 1622,
@@ -214,67 +249,14 @@
     "poster": "https://image.tmdb.org/t/p/w342/8iixmfGx5EIFPdpNvB2JvI3VIqX.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/ro0tlgnsco4SwbdAgmscLkSlMSL.jpg",
     "rating": 8.312,
-    "votes": 8563,
+    "votes": 8566,
     "release": "2005-09-13",
     "genres": [
       18,
       9648,
       10765
     ],
-    "popularity": 218.3385
-  },
-  {
-    "id": 124364,
-    "tmdb_id": 124364,
-    "type": "tv",
-    "title": "FROM",
-    "overview": "Unravel the mystery of a nightmarish town in middle America that traps all those who enter. As the unwilling residents fight to keep a sense of normalcy and search for a way out, they must also survive the threats of the surrounding forest – including the terrifying creatures that come out when the sun goes down.",
-    "poster": "https://image.tmdb.org/t/p/w342/pRtJagIxpfODzzb0T0NAvZSzErC.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/xLdw1xdHocKYFFvx7w41NchXMfJ.jpg",
-    "rating": 8.498,
-    "votes": 4074,
-    "release": "2022-02-20",
-    "genres": [
-      9648,
-      18,
-      10765
-    ],
-    "popularity": 221.3367
-  },
-  {
-    "id": 1416,
-    "tmdb_id": 1416,
-    "type": "tv",
-    "title": "Grey's Anatomy",
-    "overview": "Follows the personal and professional lives of a group of doctors at Seattle's Grey Sloan Memorial Hospital.",
-    "poster": "https://image.tmdb.org/t/p/w342/hjJkrLXhWvGHpLeLBDFznpBTY1S.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/jP0Rhj9OTPDAwQlHQwOLFDdeE8t.jpg",
-    "rating": 8.207,
-    "votes": 10981,
-    "release": "2005-03-27",
-    "genres": [
-      18
-    ],
-    "popularity": 234.6432
-  },
-  {
-    "id": 60625,
-    "tmdb_id": 60625,
-    "type": "tv",
-    "title": "Rick and Morty",
-    "overview": "Follows a sociopathic genius scientist who drags his inherently timid grandson on adventures across the universe.",
-    "poster": "https://image.tmdb.org/t/p/w342/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/i4PpW1XyRlBuSNSIBRIIwSjEpjl.jpg",
-    "rating": 8.679,
-    "votes": 11181,
-    "release": "2013-12-02",
-    "genres": [
-      16,
-      35,
-      10765,
-      10759
-    ],
-    "popularity": 224.3005
+    "popularity": 206.9718
   },
   {
     "id": 94664,
@@ -284,15 +266,51 @@
     "overview": "When a 34-year-old underachiever gets run over by a truck, his story doesn't end there. Reincarnated in a new world as an infant, Rudy will seize every opportunity to live the life he's always wanted. Armed with new friends, some freshly acquired magical abilities, and the courage to do the things he's always dreamed of, he's embarking on an epic adventure—with all of his past experience intact!",
     "poster": "https://image.tmdb.org/t/p/w342/gLKOYIMyKlUHW0SVdskhgf9C0yy.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/j9fRIimor0AMFJR9kjZubXcABzZ.jpg",
-    "rating": 8.5,
-    "votes": 1624,
+    "rating": 8.467,
+    "votes": 1625,
     "release": "2021-01-11",
     "genres": [
       10759,
       16,
       10765
     ],
-    "popularity": 205.107
+    "popularity": 187.2047
+  },
+  {
+    "id": 1405,
+    "tmdb_id": 1405,
+    "type": "tv",
+    "title": "Dexter",
+    "overview": "Dexter Morgan, a blood spatter pattern analyst for the Miami Metro Police also leads a secret life as a serial killer, hunting down criminals who have slipped through the cracks of justice.",
+    "poster": "https://image.tmdb.org/t/p/w342/q8dWfc4JwQuv3HayIZeO84jAXED.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/aSGSxGMTP893DPMCvMl9AdnEICE.jpg",
+    "rating": 8.241,
+    "votes": 5693,
+    "release": "2006-10-01",
+    "genres": [
+      80,
+      18,
+      9648
+    ],
+    "popularity": 154.9752
+  },
+  {
+    "id": 39351,
+    "tmdb_id": 39351,
+    "type": "tv",
+    "title": "Grimm",
+    "overview": "After Portland homicide detective Nick Burkhardt discovers he's descended from an elite line of criminal profilers known as \"Grimms,\" he increasingly finds his responsibilities as a detective at odds with his new responsibilities as a Grimm.",
+    "poster": "https://image.tmdb.org/t/p/w342/iOptnt1QHi6bIHmOq6adnZTV0bU.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/oS3nip9GGsx5A7vWp8A1cazqJlF.jpg",
+    "rating": 8.266,
+    "votes": 3585,
+    "release": "2011-10-28",
+    "genres": [
+      18,
+      9648,
+      10765
+    ],
+    "popularity": 127.2486
   },
   {
     "id": 4614,
@@ -310,40 +328,23 @@
       18,
       10759
     ],
-    "popularity": 201.3516
+    "popularity": 195.324
   },
   {
-    "id": 61818,
-    "tmdb_id": 61818,
+    "id": 70998,
+    "tmdb_id": 70998,
     "type": "tv",
-    "title": "Late Night with Seth Meyers",
-    "overview": "Seth Meyers, who is \"Saturday Night Live's\" longest serving anchor on the show's wildly popular \"Weekend Update,\" takes over as host of NBC's \"Late Night\" — home to A-list celebrity guests, memorable comedy and the best in musical talent. As the Emmy Award-winning head writer for \"SNL,\" Meyers has established a reputation for sharp wit and perfectly timed comedy, and has gained fame for his spot-on jokes and satire. Meyers takes his departure from \"SNL\" to his new post at \"Late Night,\" as Jimmy Fallon moves to \"The Tonight Show\".",
-    "poster": "https://image.tmdb.org/t/p/w342/u8VruEGv7mtyJihVn2CSA1u90pk.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/dfX2UaHVE5c7kLBFbgmEZJuy4Ev.jpg",
-    "rating": 5.1,
-    "votes": 131,
-    "release": "2014-02-25",
+    "title": "Souryo to Majiwaru Shikiyoku no Yoru ni...",
+    "overview": "At a high school reunion, Mio Fukatani reunites with a classmate she has not seen in years—Takahide Kujou. She had always wanted to know more about the kind-hearted boy in high school, but once she realizes that Kujou has become a monk, she believes that any chance of getting to know him romantically is slim. Deciding to drink away her sorrows, she ends up walking home drunk, and surprisingly, running into Kujou who helps her get home.\n\nHowever, once inside, Kujou's lust for Mio becomes apparent and the two share an erotic night of passion. As this steamy romance blossoms between these two unlikely lovers, Mio and Kujou will undoubtedly spend many nights together in utter ecstasy.",
+    "poster": "https://image.tmdb.org/t/p/w342/ueI9EeoRdMVa7hWEm21nQEU8Zv3.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/4kQiFnWtwndtCyKMszVJNPEE1kY.jpg",
+    "rating": 5.3,
+    "votes": 14,
+    "release": "2017-04-03",
     "genres": [
-      10767,
-      35
+      16,
+      18
     ],
-    "popularity": 150.39
-  },
-  {
-    "id": 237020,
-    "tmdb_id": 237020,
-    "type": "tv",
-    "title": "Lecture Room",
-    "overview": "",
-    "poster": "https://image.tmdb.org/t/p/w342/7bS6LJn4EpopXSGSOUxrO9BEUjS.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/3iZrlYvakyQepd1zfIQJAki47eO.jpg",
-    "rating": 7,
-    "votes": 3,
-    "release": "2001-07-09",
-    "genres": [
-      10767,
-      99
-    ],
-    "popularity": 144.2779
+    "popularity": 202.4572
   }
 ]

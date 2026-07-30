@@ -7,15 +7,15 @@
     "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
     "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
-    "rating": 8.378,
-    "votes": 6767,
+    "rating": 8.377,
+    "votes": 6774,
     "release": "2022-08-21",
     "genres": [
       10765,
       18,
       10759
     ],
-    "popularity": 423.6179
+    "popularity": 381.5772
   },
   {
     "id": 22980,
@@ -32,7 +32,7 @@
       10767,
       35
     ],
-    "popularity": 279.3532
+    "popularity": 221.3031
   },
   {
     "id": 125988,
@@ -42,14 +42,14 @@
     "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
     "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
-    "rating": 8.2,
-    "votes": 2337,
+    "rating": 8.184,
+    "votes": 2342,
     "release": "2023-05-04",
     "genres": [
       10765,
       18
     ],
-    "popularity": 225.9759
+    "popularity": 219.46
   },
   {
     "id": 94664,
@@ -59,15 +59,67 @@
     "overview": "When a 34-year-old underachiever gets run over by a truck, his story doesn't end there. Reincarnated in a new world as an infant, Rudy will seize every opportunity to live the life he's always wanted. Armed with new friends, some freshly acquired magical abilities, and the courage to do the things he's always dreamed of, he's embarking on an epic adventure—with all of his past experience intact!",
     "poster": "https://image.tmdb.org/t/p/w342/gLKOYIMyKlUHW0SVdskhgf9C0yy.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/j9fRIimor0AMFJR9kjZubXcABzZ.jpg",
-    "rating": 8.5,
-    "votes": 1623,
+    "rating": 8.467,
+    "votes": 1625,
     "release": "2021-01-11",
     "genres": [
       10759,
       16,
       10765
     ],
-    "popularity": 211.8328
+    "popularity": 205.107
+  },
+  {
+    "id": 59941,
+    "tmdb_id": 59941,
+    "type": "tv",
+    "title": "The Tonight Show Starring Jimmy Fallon",
+    "overview": "After Jay Leno's second retirement from the program, Jimmy Fallon stepped in as his permanent replacement. After 42 years in Los Angeles the program was brought back to New York.",
+    "poster": "https://image.tmdb.org/t/p/w342/1N4o5PmmqhlVDrcdJ2RlCFWbLGX.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/7VO04TtL1jIT6XOPs9u4jdB8KaB.jpg",
+    "rating": 5.8,
+    "votes": 380,
+    "release": "2014-02-17",
+    "genres": [
+      35,
+      10767
+    ],
+    "popularity": 175.6666
+  },
+  {
+    "id": 2224,
+    "tmdb_id": 2224,
+    "type": "tv",
+    "title": "The Daily Show",
+    "overview": "The World's Fakest News Team tackle the biggest stories in news, politics and pop culture.",
+    "poster": "https://image.tmdb.org/t/p/w342/ixcfyK7it6FjRM36Te4OdblAq4X.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/qLMfcvdCcCGD2BNLH8b6ZCBuO7D.jpg",
+    "rating": 6.4,
+    "votes": 647,
+    "release": "1996-07-22",
+    "genres": [
+      10763,
+      35
+    ],
+    "popularity": 154.0254
+  },
+  {
+    "id": 296206,
+    "tmdb_id": 296206,
+    "type": "tv",
+    "title": "Agent Kim Reactivated",
+    "overview": "When an unassuming dad's daughter goes missing, he dusts off his old black-ops skills to track her down — only to attract the wrong kind of attention.",
+    "poster": "https://image.tmdb.org/t/p/w342/mxa7YxVln3Rwnd2Va82PoclTznj.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/g1LJLlmWP74zv9yXKEXm7g9p10O.jpg",
+    "rating": 7.758,
+    "votes": 64,
+    "release": "2026-06-26",
+    "genres": [
+      10759,
+      80,
+      18
+    ],
+    "popularity": 153.6977
   },
   {
     "id": 61818,
@@ -84,7 +136,7 @@
       10767,
       35
     ],
-    "popularity": 197.4402
+    "popularity": 150.39
   },
   {
     "id": 206559,
@@ -100,94 +152,7 @@
     "genres": [
       10766
     ],
-    "popularity": 174.4972
-  },
-  {
-    "id": 2224,
-    "tmdb_id": 2224,
-    "type": "tv",
-    "title": "The Daily Show",
-    "overview": "The World's Fakest News Team tackle the biggest stories in news, politics and pop culture.",
-    "poster": "https://image.tmdb.org/t/p/w342/ixcfyK7it6FjRM36Te4OdblAq4X.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/qLMfcvdCcCGD2BNLH8b6ZCBuO7D.jpg",
-    "rating": 6.4,
-    "votes": 646,
-    "release": "1996-07-22",
-    "genres": [
-      10763,
-      35
-    ],
-    "popularity": 171.6135
-  },
-  {
-    "id": 296206,
-    "tmdb_id": 296206,
-    "type": "tv",
-    "title": "Agent Kim Reactivated",
-    "overview": "When an unassuming dad's daughter goes missing, he dusts off his old black-ops skills to track her down — only to attract the wrong kind of attention.",
-    "poster": "https://image.tmdb.org/t/p/w342/mxa7YxVln3Rwnd2Va82PoclTznj.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/g1LJLlmWP74zv9yXKEXm7g9p10O.jpg",
-    "rating": 7.75,
-    "votes": 60,
-    "release": "2026-06-26",
-    "genres": [
-      10759,
-      80,
-      18
-    ],
-    "popularity": 162.0506
-  },
-  {
-    "id": 30983,
-    "tmdb_id": 30983,
-    "type": "tv",
-    "title": "Detective Conan",
-    "overview": "The son of a world famous mystery writer, Jimmy Kudo, has achieved his own notoriety by assisting the local police as a student detective. He has always been able to solve the most difficult of criminal cases using his wits and power of reason.",
-    "poster": "https://image.tmdb.org/t/p/w342/rRIEFvHRy01OYzmXQBbGeW0Qilc.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/z67lpMtm8YGykJO4p89meuNMvj8.jpg",
-    "rating": 8,
-    "votes": 776,
-    "release": "1996-01-08",
-    "genres": [
-      16,
-      80,
-      9648,
-      35
-    ],
-    "popularity": 142.6337
-  },
-  {
-    "id": 65701,
-    "tmdb_id": 65701,
-    "type": "tv",
-    "title": "Good Mythical Morning",
-    "overview": "Two \"Internetainers\" (Rhett & Link) go far out and do the weirdest things, giving you a daily dose of casual comedy every Monday-Friday.",
-    "poster": "https://image.tmdb.org/t/p/w342/jMpBQr2aNOFAI6wsC47zsOG6qOh.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/hvFCS0dMeC3ffiF4uYTKzUAkvYL.jpg",
-    "rating": 6.9,
-    "votes": 91,
-    "release": "2012-01-09",
-    "genres": [
-      35
-    ],
-    "popularity": 140.3175
-  },
-  {
-    "id": 91555,
-    "tmdb_id": 91555,
-    "type": "tv",
-    "title": "All Elite Wrestling: Dynamite",
-    "overview": "A world-class roster of diverse male and female wrestlers give fans a new wrestling experience for the first time in 20 years.",
-    "poster": "https://image.tmdb.org/t/p/w342/gPNWVCp0zrHRmwfovUpUQO44sts.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/veIrzS2AkYm0UaYYcVw9ziWkJoB.jpg",
-    "rating": 7.959,
-    "votes": 85,
-    "release": "2019-10-02",
-    "genres": [
-      10759,
-      18
-    ],
-    "popularity": 129.0855
+    "popularity": 149.2278
   },
   {
     "id": 45140,
@@ -198,7 +163,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/kPKAigYUlWRpnfo4Ptiwlz4FWXU.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/bIHCUqaapZdRjd2kzSDiwzYyrpC.jpg",
     "rating": 6.4,
-    "votes": 712,
+    "votes": 713,
     "release": "2013-04-23",
     "genres": [
       16,
@@ -207,23 +172,24 @@
       10751,
       10765
     ],
-    "popularity": 126.6999
+    "popularity": 139.3199
   },
   {
-    "id": 4656,
-    "tmdb_id": 4656,
+    "id": 91555,
+    "tmdb_id": 91555,
     "type": "tv",
-    "title": "Raw",
-    "overview": "A regularly scheduled, live, year-round program featuring some of the biggest WWE Superstars.",
-    "poster": "https://image.tmdb.org/t/p/w342/fstEe6RsyNyPUnMwNcL20iNl0nE.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/384Lam787FIDBnwjwQBvC8gjB2d.jpg",
-    "rating": 6.792,
-    "votes": 367,
-    "release": "1993-01-11",
+    "title": "All Elite Wrestling: Dynamite",
+    "overview": "A world-class roster of diverse male and female wrestlers give fans a new wrestling experience for the first time in 20 years.",
+    "poster": "https://image.tmdb.org/t/p/w342/gPNWVCp0zrHRmwfovUpUQO44sts.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/veIrzS2AkYm0UaYYcVw9ziWkJoB.jpg",
+    "rating": 7.959,
+    "votes": 86,
+    "release": "2019-10-02",
     "genres": [
-      10764
+      10759,
+      18
     ],
-    "popularity": 125.1297
+    "popularity": 130.1049
   },
   {
     "id": 33238,
@@ -240,57 +206,77 @@
       35,
       10764
     ],
-    "popularity": 124.0133
+    "popularity": 123.7885
   },
   {
-    "id": 14750,
-    "tmdb_id": 14750,
+    "id": 30983,
+    "tmdb_id": 30983,
     "type": "tv",
-    "title": "Na Wspólnej",
-    "overview": "Na Wspólnej is a Polish soap opera. It has been running since 2003 on the TVN channel as its flagship primetime weekday soap opera. It is loosely based on the German production Unter Uns and it follows the lives of the inhabitants of an apartment block in Wspólna Street, Warsaw. Episodes tend to last around 20 minutes. It is a Polish version of the Hungarian \"Barátok közt\".\n\nThe series is shot almost entirely in Warsaw and produced by the Polish branch of Freemantle Media. On 9 September 2008 it celebrated its 1000th episode; \"Na Wspólnej\" was the fourth Polish television series ever to achieve such status. A special episode was broadcast in which characters from some other of TVN's most popular shows visited Wspólna Street.",
-    "poster": "https://image.tmdb.org/t/p/w342/uksRhdaOn64bO5d33d7rcTbrhJI.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/pmB8uYJF1WKQCZnJjhnAx2IJjhk.jpg",
-    "rating": 4.7,
-    "votes": 12,
-    "release": "2003-01-27",
+    "title": "Detective Conan",
+    "overview": "The son of a world famous mystery writer, Jimmy Kudo, has achieved his own notoriety by assisting the local police as a student detective. He has always been able to solve the most difficult of criminal cases using his wits and power of reason.",
+    "poster": "https://image.tmdb.org/t/p/w342/rRIEFvHRy01OYzmXQBbGeW0Qilc.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/z67lpMtm8YGykJO4p89meuNMvj8.jpg",
+    "rating": 8.016,
+    "votes": 777,
+    "release": "1996-01-08",
     "genres": [
-      10766
+      16,
+      80,
+      9648,
+      35
     ],
-    "popularity": 120.1508
+    "popularity": 119.1023
   },
   {
-    "id": 303084,
-    "tmdb_id": 303084,
+    "id": 303287,
+    "tmdb_id": 303287,
     "type": "tv",
-    "title": "Deep In",
-    "overview": "Filming a daring romance movie, an award-winning actor and an ambitious newcomer lose track of where acting ends and their real desire begins.",
-    "poster": "https://image.tmdb.org/t/p/w342/aO2R6lWasqv9BsE7qpquDxE68TD.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/8RUoesAKJIQjTZffFuVpd7QR1CS.jpg",
-    "rating": 9.6,
-    "votes": 5,
-    "release": "2026-06-26",
+    "title": "GuAn",
+    "overview": "",
+    "poster": "https://image.tmdb.org/t/p/w342/hizh0OcUTNFJzSxPH0jtHyWNDCi.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/17JE6Hv19f7uzsCmICXluAQERWm.jpg",
+    "rating": 0,
+    "votes": 0,
+    "release": "2026-07-28",
     "genres": [
+      16,
+      10759,
       18
     ],
-    "popularity": 116.1117
+    "popularity": 118.3654
   },
   {
-    "id": 6060,
-    "tmdb_id": 6060,
+    "id": 65701,
+    "tmdb_id": 65701,
     "type": "tv",
-    "title": "Kyunki... Saas Bhi Kabhi Bahu Thi...",
-    "overview": "A mother-in-law's struggle to put up with her three bahu's. The three bahu's have grown up sons. The bahu's sons start to get involved with having girlfriends and the bahu's try and break their relationships up.",
-    "poster": "https://image.tmdb.org/t/p/w342/rJfoyxt7FOKr7WPB6FPuffarpcn.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/gwXnESfjDqop3tDLoGxSwCUP8GD.jpg",
-    "rating": 3.417,
-    "votes": 12,
-    "release": "2000-07-03",
+    "title": "Good Mythical Morning",
+    "overview": "Two \"Internetainers\" (Rhett & Link) go far out and do the weirdest things, giving you a daily dose of casual comedy every Monday-Friday.",
+    "poster": "https://image.tmdb.org/t/p/w342/jMpBQr2aNOFAI6wsC47zsOG6qOh.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/hvFCS0dMeC3ffiF4uYTKzUAkvYL.jpg",
+    "rating": 6.9,
+    "votes": 91,
+    "release": "2012-01-09",
+    "genres": [
+      35
+    ],
+    "popularity": 111.1193
+  },
+  {
+    "id": 278624,
+    "tmdb_id": 278624,
+    "type": "tv",
+    "title": "Lucky",
+    "overview": "When a multi-million-dollar heist goes sideways, con artist Lucky is forced to go on the run. Pursued by both the FBI and a ruthless crime boss, Lucky must fight for her life—and a way out.",
+    "poster": "https://image.tmdb.org/t/p/w342/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
+    "rating": 7.179,
+    "votes": 95,
+    "release": "2026-07-14",
     "genres": [
       18,
-      10751,
-      10766
+      80
     ],
-    "popularity": 115.3243
+    "popularity": 109.2111
   },
   {
     "id": 2661,
@@ -308,41 +294,56 @@
       10765,
       18
     ],
-    "popularity": 114.6139
+    "popularity": 108.6083
   },
   {
-    "id": 278624,
-    "tmdb_id": 278624,
+    "id": 4656,
+    "tmdb_id": 4656,
     "type": "tv",
-    "title": "Lucky",
-    "overview": "When a multi-million-dollar heist goes sideways, con artist Lucky is forced to go on the run. Pursued by both the FBI and a ruthless crime boss, Lucky must fight for her life—and a way out.",
-    "poster": "https://image.tmdb.org/t/p/w342/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
-    "rating": 7.2,
-    "votes": 90,
-    "release": "2026-07-14",
+    "title": "Raw",
+    "overview": "A regularly scheduled, live, year-round program featuring some of the biggest WWE Superstars.",
+    "poster": "https://image.tmdb.org/t/p/w342/fstEe6RsyNyPUnMwNcL20iNl0nE.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/384Lam787FIDBnwjwQBvC8gjB2d.jpg",
+    "rating": 6.792,
+    "votes": 367,
+    "release": "1993-01-11",
     "genres": [
+      10764
+    ],
+    "popularity": 107.6066
+  },
+  {
+    "id": 223911,
+    "tmdb_id": 223911,
+    "type": "tv",
+    "title": "Renegade Immortal",
+    "overview": "It tells the story of Wang Lin, an ordinary young man in the countryside, who is moved by his heart and cultivates against immortality. His pursuit is not only for longevity, but also for getting rid of the ants behind it. He firmly believed in human beings and entered the path of cultivation with mediocre qualifications. After experiencing ups and downs, with his wise mind, he gradually reached the pinnacle and became famous in the cultivation world with his own strength.",
+    "poster": "https://image.tmdb.org/t/p/w342/mCt5qgkOYEvuHSiSwNByMv6LMoB.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/crn53sSGWRZ8wAtEGso52nepEkz.jpg",
+    "rating": 8.2,
+    "votes": 40,
+    "release": "2023-09-25",
+    "genres": [
+      16,
       18,
-      80
+      10759
     ],
-    "popularity": 111.267
+    "popularity": 103.4452
   },
   {
-    "id": 79917,
-    "tmdb_id": 79917,
+    "id": 303084,
+    "tmdb_id": 303084,
     "type": "tv",
-    "title": "Bares für Rares",
-    "overview": "In the show, selected applicants each present a curiosity, rarity or antique they have brought with them. Once they have received their expertise, they will have the opportunity on site to offer their exhibit to a changing five-person podium for sale and, ideally, to sell it to the highest bidder for „Bares“ (\"cash\").",
-    "poster": "https://image.tmdb.org/t/p/w342/j9SzcU00nl64FdgLs4otaHBfRkj.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/wNzhjVcigBJx3dATrlEmaoKbRpx.jpg",
-    "rating": 7.6,
-    "votes": 9,
-    "release": "2013-08-04",
+    "title": "Deep In",
+    "overview": "Filming a daring romance movie, an award-winning actor and an ambitious newcomer lose track of where acting ends and their real desire begins.",
+    "poster": "https://image.tmdb.org/t/p/w342/aO2R6lWasqv9BsE7qpquDxE68TD.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/8RUoesAKJIQjTZffFuVpd7QR1CS.jpg",
+    "rating": 9.4,
+    "votes": 5,
+    "release": "2026-06-26",
     "genres": [
-      10767,
-      10764,
-      99
+      18
     ],
-    "popularity": 109.024
+    "popularity": 103.0084
   }
 ]

@@ -15,7 +15,7 @@
       16,
       10765
     ],
-    "popularity": 98.4938
+    "popularity": 93.7924
   },
   {
     "id": 94997,
@@ -25,15 +25,15 @@
     "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
     "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
-    "rating": 8.377,
-    "votes": 6769,
+    "rating": 8.378,
+    "votes": 6776,
     "release": "2022-08-21",
     "genres": [
       10765,
       18,
       10759
     ],
-    "popularity": 381.5772
+    "popularity": 346.8365
   },
   {
     "id": 125988,
@@ -42,15 +42,15 @@
     "title": "Silo",
     "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
     "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
-    "rating": 8.181,
-    "votes": 2337,
+    "backdrop": "https://image.tmdb.org/t/p/w780/l0U6SoFpMvJXWz4SByxKkhcIJES.jpg",
+    "rating": 8.184,
+    "votes": 2342,
     "release": "2023-05-04",
     "genres": [
       10765,
       18
     ],
-    "popularity": 219.46
+    "popularity": 206.3233
   },
   {
     "id": 296206,
@@ -60,15 +60,15 @@
     "overview": "When an unassuming dad's daughter goes missing, he dusts off his old black-ops skills to track her down — only to attract the wrong kind of attention.",
     "poster": "https://image.tmdb.org/t/p/w342/mxa7YxVln3Rwnd2Va82PoclTznj.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/g1LJLlmWP74zv9yXKEXm7g9p10O.jpg",
-    "rating": 7.8,
-    "votes": 60,
+    "rating": 7.646,
+    "votes": 65,
     "release": "2026-06-26",
     "genres": [
       10759,
       80,
       18
     ],
-    "popularity": 153.6977
+    "popularity": 140.314
   },
   {
     "id": 60625,
@@ -78,8 +78,8 @@
     "overview": "Follows a sociopathic genius scientist who drags his inherently timid grandson on adventures across the universe.",
     "poster": "https://image.tmdb.org/t/p/w342/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/i4PpW1XyRlBuSNSIBRIIwSjEpjl.jpg",
-    "rating": 8.679,
-    "votes": 11183,
+    "rating": 8.68,
+    "votes": 11191,
     "release": "2013-12-02",
     "genres": [
       16,
@@ -87,42 +87,7 @@
       10765,
       10759
     ],
-    "popularity": 224.3005
-  },
-  {
-    "id": 278624,
-    "tmdb_id": 278624,
-    "type": "tv",
-    "title": "Lucky",
-    "overview": "When a multi-million-dollar heist goes sideways, con artist Lucky is forced to go on the run. Pursued by both the FBI and a ruthless crime boss, Lucky must fight for her life—and a way out.",
-    "poster": "https://image.tmdb.org/t/p/w342/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
-    "rating": 7.187,
-    "votes": 91,
-    "release": "2026-07-14",
-    "genres": [
-      18,
-      80
-    ],
-    "popularity": 109.2111
-  },
-  {
-    "id": 281281,
-    "tmdb_id": 281281,
-    "type": "tv",
-    "title": "Elite Force",
-    "overview": "After an unprecedented attack on his unit, a high-ranking officer set to leave the field leads a perilous mission that forces him to confront his past.",
-    "poster": "https://image.tmdb.org/t/p/w342/ymjYmuHG4Af93fcoF0NKwx9Rovb.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/tMpfa73LmKpeZ3Fix1QmFGIUrKI.jpg",
-    "rating": 7.156,
-    "votes": 32,
-    "release": "2026-07-22",
-    "genres": [
-      10759,
-      80,
-      18
-    ],
-    "popularity": 87.1122
+    "popularity": 223.6734
   },
   {
     "id": 215072,
@@ -132,15 +97,50 @@
     "overview": "A niece who lost her parents and grew up in the hands of an uncle who runs a shopping mall faces a new truth after her uncle's sudden death.",
     "poster": "https://image.tmdb.org/t/p/w342/7yUY1HUyQuybbvkAAhLzQ7x1l9g.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/mWVeYmtCfA3zvSeZtW5bN2Khe01.jpg",
-    "rating": 8.334,
-    "votes": 187,
+    "rating": 8.37,
+    "votes": 189,
     "release": "2024-01-17",
     "genres": [
       18,
       10759,
       9648
     ],
-    "popularity": 78.2514
+    "popularity": 84.1796
+  },
+  {
+    "id": 278624,
+    "tmdb_id": 278624,
+    "type": "tv",
+    "title": "Lucky",
+    "overview": "When a multi-million-dollar heist goes sideways, con artist Lucky is forced to go on the run. Pursued by both the FBI and a ruthless crime boss, Lucky must fight for her life—and a way out.",
+    "poster": "https://image.tmdb.org/t/p/w342/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
+    "rating": 7.125,
+    "votes": 96,
+    "release": "2026-07-14",
+    "genres": [
+      18,
+      80
+    ],
+    "popularity": 120.0698
+  },
+  {
+    "id": 281281,
+    "tmdb_id": 281281,
+    "type": "tv",
+    "title": "Elite Force",
+    "overview": "After an unprecedented attack on his unit, a high-ranking officer set to leave the field leads a perilous mission that forces him to confront his past.",
+    "poster": "https://image.tmdb.org/t/p/w342/ymjYmuHG4Af93fcoF0NKwx9Rovb.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/tMpfa73LmKpeZ3Fix1QmFGIUrKI.jpg",
+    "rating": 7.139,
+    "votes": 36,
+    "release": "2026-07-22",
+    "genres": [
+      10759,
+      80,
+      18
+    ],
+    "popularity": 79.8866
   },
   {
     "id": 287620,
@@ -148,51 +148,16 @@
     "type": "tv",
     "title": "Stuart Fails to Save the Universe",
     "overview": "After accidentally creating a new multiverse, comic book store owner Stuart Bloom must locate a quantum-interference device to restore reality.",
-    "poster": "https://image.tmdb.org/t/p/w342/bvH9g6TXhQaTG1WhU7hbfXM8LNP.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/2ngdvUiEKW8Q37ta8BBdydE2cuq.jpg",
-    "rating": 9.229,
-    "votes": 35,
+    "poster": "https://image.tmdb.org/t/p/w342/txj8ujTZwGUjpCdhCsQBnTlh4aS.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/4pIuF2YdMahumBvddLDmzA74nTW.jpg",
+    "rating": 9.2,
+    "votes": 39,
     "release": "2026-07-23",
     "genres": [
       35,
       10765
     ],
-    "popularity": 80.5992
-  },
-  {
-    "id": 194583,
-    "tmdb_id": 194583,
-    "type": "tv",
-    "title": "The Walking Dead: Dead City",
-    "overview": "Maggie and Negan travel to post-apocalyptic Manhattan - long ago cut off from the mainland. The crumbling city is filled with the dead and denizens who have made it a world full of anarchy, danger, beauty, and terror.",
-    "poster": "https://image.tmdb.org/t/p/w342/wq3vuQzQgbS83zX3malAFWMsSwX.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/vV5LKWmuysEe5wsuZJGbdiL5XJ2.jpg",
-    "rating": 7.893,
-    "votes": 755,
-    "release": "2023-06-18",
-    "genres": [
-      10759,
-      18,
-      10765
-    ],
-    "popularity": 71.8496
-  },
-  {
-    "id": 103516,
-    "tmdb_id": 103516,
-    "type": "tv",
-    "title": "Star Trek: Strange New Worlds",
-    "overview": "Follow Captain Christopher Pike, Science Officer Spock and Number One in the years before Captain Kirk boarded the U.S.S. Enterprise, as they explore new worlds around the galaxy.",
-    "poster": "https://image.tmdb.org/t/p/w342/w6KapI2JvrCkOPmQhkwYPJNjqeo.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/fZJs6xgU9dqIg9phIXjZAZOInzy.jpg",
-    "rating": 7.9,
-    "votes": 785,
-    "release": "2022-05-05",
-    "genres": [
-      10765,
-      18
-    ],
-    "popularity": 57.7934
+    "popularity": 77.7843
   },
   {
     "id": 37854,
@@ -210,7 +175,60 @@
       35,
       16
     ],
-    "popularity": 55.8317
+    "popularity": 50.8561
+  },
+  {
+    "id": 138502,
+    "tmdb_id": 138502,
+    "type": "tv",
+    "title": "X-Men '97",
+    "overview": "The X-Men, a band of mutants who use their uncanny gifts to protect a world that hates and fears them, are challenged like never before, forced to face a dangerous and unexpected new future.",
+    "poster": "https://image.tmdb.org/t/p/w342/2HKBc5UiFw8JrruHq8S1Y7TnlW0.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/jIyEmnBrZtl6SEWyBoMO2hZnzMa.jpg",
+    "rating": 8.661,
+    "votes": 805,
+    "release": "2024-03-20",
+    "genres": [
+      16,
+      10759,
+      10765
+    ],
+    "popularity": 86.3965
+  },
+  {
+    "id": 194583,
+    "tmdb_id": 194583,
+    "type": "tv",
+    "title": "The Walking Dead: Dead City",
+    "overview": "Maggie and Negan travel to post-apocalyptic Manhattan - long ago cut off from the mainland. The crumbling city is filled with the dead and denizens who have made it a world full of anarchy, danger, beauty, and terror.",
+    "poster": "https://image.tmdb.org/t/p/w342/wq3vuQzQgbS83zX3malAFWMsSwX.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/vV5LKWmuysEe5wsuZJGbdiL5XJ2.jpg",
+    "rating": 7.893,
+    "votes": 755,
+    "release": "2023-06-18",
+    "genres": [
+      10759,
+      18,
+      10765
+    ],
+    "popularity": 72.3601
+  },
+  {
+    "id": 103516,
+    "tmdb_id": 103516,
+    "type": "tv",
+    "title": "Star Trek: Strange New Worlds",
+    "overview": "Follow Captain Christopher Pike, Science Officer Spock and Number One in the years before Captain Kirk boarded the U.S.S. Enterprise, as they explore new worlds around the galaxy.",
+    "poster": "https://image.tmdb.org/t/p/w342/w6KapI2JvrCkOPmQhkwYPJNjqeo.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/fZJs6xgU9dqIg9phIXjZAZOInzy.jpg",
+    "rating": 7.9,
+    "votes": 785,
+    "release": "2022-05-05",
+    "genres": [
+      10765,
+      18
+    ],
+    "popularity": 56.1739
   },
   {
     "id": 296756,
@@ -220,49 +238,65 @@
     "overview": "Follow the Commander-in-Chief and his eccentric staff as they tackle the kind of crises that Rick Sanchez could never be bothered with - from interdimensional diplomacy to paranormal investigations and unexplained phenomena.",
     "poster": "https://image.tmdb.org/t/p/w342/lc9riW73Oee2pBxi1UrDPgyQjEr.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/yoTP91XZZjSvE2gZgGvwNxVW96w.jpg",
-    "rating": 5.1,
-    "votes": 13,
+    "rating": 5.429,
+    "votes": 14,
     "release": "2026-07-26",
     "genres": [
       16,
       35
     ],
-    "popularity": 42.9579
+    "popularity": 39.8954
   },
   {
-    "id": 279323,
-    "tmdb_id": 279323,
+    "id": 271016,
+    "tmdb_id": 271016,
     "type": "tv",
-    "title": "The East Palace",
-    "overview": "A man who walks the spirit world and a court lady who hears the dead enter the East Palace by the king's orders — can they unravel its dark secrets?",
-    "poster": "https://image.tmdb.org/t/p/w342/yfYohBszGqoAW8oM0qydOtJ4kPh.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/8PHBAdPyfIwS5W6cfKLhItEb875.jpg",
-    "rating": 8,
-    "votes": 44,
-    "release": "2026-07-17",
+    "title": "Mystic Nine",
+    "overview": "Mystic Nine follows Zhang Qishan as he joins forces with Wu Laogou, alongside Huo Xiangu and the other members of the Mystic Nine, when turmoil returns to Changsha. The mysterious disappearance of Unit 401 uncovers a century-old secret. Faced with life-and-death choices, bound by brotherhood, responsibility to their sects, and devotion to their country, they risk everything to protect their home and overcome the crisis.",
+    "poster": "https://image.tmdb.org/t/p/w342/Q9u5ZSrthOuwkULV41VUqE8vRV.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/snExrS3rICUXDsiG7jUV7K6Q0wj.jpg",
+    "rating": 0,
+    "votes": 0,
+    "release": "2026-07-30",
     "genres": [
-      9648,
-      10759,
-      10765,
-      18
+      18,
+      10759
     ],
-    "popularity": 61.748
+    "popularity": 4.2611
   },
   {
-    "id": 300259,
-    "tmdb_id": 300259,
+    "id": 287238,
+    "tmdb_id": 287238,
     "type": "tv",
-    "title": "Bloody Smart",
-    "overview": "In a town where strict rules shape students into their “best selves,” a hidden Bloodfruit Tree bears crimson fruit. A mysterious boy in black delivers these fruits only to those who truly “need” them. Once received, they awaken long-suppressed desires—gently unraveling the heart, and quietly leading the town toward irreversible collapse.",
-    "poster": "https://image.tmdb.org/t/p/w342/gXMmTQZFk7XZotVse4dCGfowkm7.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/gp01i35kvgpJLarGIGopnBWuzKE.jpg",
-    "rating": 3.75,
-    "votes": 2,
-    "release": "2026-07-28",
+    "title": "Furious",
+    "overview": "FBI agent Alice Black is on the hunt for a mysterious and calculating female serial killer. Both walk their own paths toward justice, and as their lives start to intertwine, the line between right and wrong begins to blur.",
+    "poster": "https://image.tmdb.org/t/p/w342/xnxxrEKtBaIcI1ewq50pLkOMU6u.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/iAOPgUlh7inOebFrUFHAjnFRCGS.jpg",
+    "rating": 6.5,
+    "votes": 22,
+    "release": "2026-07-27",
     "genres": [
-      9648
+      18,
+      80
     ],
-    "popularity": 44.9858
+    "popularity": 79.1971
+  },
+  {
+    "id": 277439,
+    "tmdb_id": 277439,
+    "type": "tv",
+    "title": "Cape Fear",
+    "overview": "When convicted murderer Max Cady is released from prison, he begins infiltrating the family of the married attorneys who helped put him behind bars.",
+    "poster": "https://image.tmdb.org/t/p/w342/wlwyFRwz2GXFZzaeMjKKNhhjrKG.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/rvMmQj3nMZbJmoW6QrzU0nq9Xky.jpg",
+    "rating": 7.2,
+    "votes": 82,
+    "release": "2026-06-04",
+    "genres": [
+      18,
+      80
+    ],
+    "popularity": 59.0213
   },
   {
     "id": 94664,
@@ -272,32 +306,32 @@
     "overview": "When a 34-year-old underachiever gets run over by a truck, his story doesn't end there. Reincarnated in a new world as an infant, Rudy will seize every opportunity to live the life he's always wanted. Armed with new friends, some freshly acquired magical abilities, and the courage to do the things he's always dreamed of, he's embarking on an epic adventure—with all of his past experience intact!",
     "poster": "https://image.tmdb.org/t/p/w342/gLKOYIMyKlUHW0SVdskhgf9C0yy.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/j9fRIimor0AMFJR9kjZubXcABzZ.jpg",
-    "rating": 8.5,
-    "votes": 1624,
+    "rating": 8.467,
+    "votes": 1625,
     "release": "2021-01-11",
     "genres": [
       10759,
       16,
       10765
     ],
-    "popularity": 205.107
+    "popularity": 187.2047
   },
   {
-    "id": 240993,
-    "tmdb_id": 240993,
+    "id": 97546,
+    "tmdb_id": 97546,
     "type": "tv",
-    "title": "Ransom Canyon",
-    "overview": "Passions run deep in a small Texas town, as three ranching dynasties fight for their land, their legacies and the people they love.",
-    "poster": "https://image.tmdb.org/t/p/w342/1efzyMfIe3WauOCWk7Gn56gj7sL.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/29P64FqDp0UVa9oJsIl49PHn5tH.jpg",
-    "rating": 7.21,
-    "votes": 113,
-    "release": "2025-04-17",
+    "title": "Ted Lasso",
+    "overview": "Ted Lasso, an American football coach, moves to England when he's hired to manage a soccer team—despite having no experience. With cynical players and a doubtful town, will he get them to see the Ted Lasso Way?",
+    "poster": "https://image.tmdb.org/t/p/w342/5fhZdwP1DVJ0FyVH6vrFdHwpXIn.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/gEQkOMmnJcoh9Hh1vk7fpVYnksR.jpg",
+    "rating": 8.341,
+    "votes": 2455,
+    "release": "2020-08-14",
     "genres": [
       18,
-      37
+      35
     ],
-    "popularity": 55.506
+    "popularity": 67.6576
   },
   {
     "id": 66732,
@@ -308,49 +342,13 @@
     "poster": "https://image.tmdb.org/t/p/w342/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/56v2KjBlU4XaOv9rVYEQypROD7P.jpg",
     "rating": 8.557,
-    "votes": 21533,
+    "votes": 21540,
     "release": "2016-07-15",
     "genres": [
       10759,
       9648,
       10765
     ],
-    "popularity": 132.7815
-  },
-  {
-    "id": 138502,
-    "tmdb_id": 138502,
-    "type": "tv",
-    "title": "X-Men '97",
-    "overview": "The X-Men, a band of mutants who use their uncanny gifts to protect a world that hates and fears them, are challenged like never before, forced to face a dangerous and unexpected new future.",
-    "poster": "https://image.tmdb.org/t/p/w342/2HKBc5UiFw8JrruHq8S1Y7TnlW0.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/jIyEmnBrZtl6SEWyBoMO2hZnzMa.jpg",
-    "rating": 8.655,
-    "votes": 801,
-    "release": "2024-03-20",
-    "genres": [
-      16,
-      10759,
-      10765
-    ],
-    "popularity": 76.6374
-  },
-  {
-    "id": 108978,
-    "tmdb_id": 108978,
-    "type": "tv",
-    "title": "Reacher",
-    "overview": "Jack Reacher, a veteran military police investigator, has just recently entered civilian life. Reacher is a drifter, carrying no phone and the barest of essentials as he travels the country and explores the nation he once served.",
-    "poster": "https://image.tmdb.org/t/p/w342/f1VCQIG2iCyOookdgOzwtUpwWC0.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/voKEhzb4ExOmR0WSvQgLTTqRUEu.jpg",
-    "rating": 8.078,
-    "votes": 2964,
-    "release": "2022-02-03",
-    "genres": [
-      10759,
-      18,
-      80
-    ],
-    "popularity": 158.2373
+    "popularity": 133.0914
   }
 ]

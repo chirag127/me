@@ -6,7 +6,7 @@
     },
     "dependents": 0,
     "updated": "2026-07-27T10:01:13.776Z",
-    "searchScore": 30.64541,
+    "searchScore": 30.795563,
     "package": {
       "name": "@chirag127/astro-chrome",
       "keywords": [
@@ -36,7 +36,7 @@
       }
     },
     "score": {
-      "final": 30.64541,
+      "final": 30.795563,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -54,7 +54,7 @@
     },
     "dependents": 0,
     "updated": "2026-07-26T17:31:11.940Z",
-    "searchScore": 27.41739,
+    "searchScore": 27.794348,
     "package": {
       "name": "@chirag127/astro-data",
       "keywords": [
@@ -84,7 +84,7 @@
       }
     },
     "score": {
-      "final": 27.41739,
+      "final": 27.794348,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -102,7 +102,7 @@
     },
     "dependents": 0,
     "updated": "2026-07-27T06:11:08.896Z",
-    "searchScore": 23.65124,
+    "searchScore": 23.621143,
     "package": {
       "name": "@chirag127/oriz-ai-providers",
       "keywords": [
@@ -144,7 +144,7 @@
       }
     },
     "score": {
-      "final": 23.65124,
+      "final": 23.621143,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -162,7 +162,7 @@
     },
     "dependents": 0,
     "updated": "2026-07-28T23:06:25.580Z",
-    "searchScore": 22.43752,
+    "searchScore": 22.061268,
     "package": {
       "name": "@chirag127/astro-billing",
       "keywords": [
@@ -195,7 +195,7 @@
       }
     },
     "score": {
-      "final": 22.43752,
+      "final": 22.061268,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -208,12 +208,12 @@
   },
   {
     "downloads": {
-      "monthly": 81,
-      "weekly": 13
+      "monthly": 85,
+      "weekly": 4
     },
     "dependents": 0,
-    "updated": "2026-07-22T18:41:10.620Z",
-    "searchScore": 21.964249,
+    "updated": "2026-07-29T18:46:12.864Z",
+    "searchScore": 21.850224,
     "package": {
       "name": "@chirag127/astro-seo",
       "keywords": [],
@@ -240,7 +240,7 @@
       }
     },
     "score": {
-      "final": 21.964249,
+      "final": 21.850224,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -253,12 +253,12 @@
   },
   {
     "downloads": {
-      "monthly": 75,
-      "weekly": 9
+      "monthly": 79,
+      "weekly": 4
     },
     "dependents": 0,
-    "updated": "2026-07-22T18:36:12.212Z",
-    "searchScore": 21.477152,
+    "updated": "2026-07-29T18:41:17.114Z",
+    "searchScore": 21.578352,
     "package": {
       "name": "@chirag127/md3-tokens",
       "keywords": [
@@ -290,7 +290,97 @@
       }
     },
     "score": {
-      "final": 21.477152,
+      "final": 21.578352,
+      "detail": {
+        "popularity": 1,
+        "quality": 1,
+        "maintenance": 1
+      }
+    },
+    "flags": {
+      "insecure": 0
+    }
+  },
+  {
+    "downloads": {
+      "monthly": 77,
+      "weekly": 4
+    },
+    "dependents": 0,
+    "updated": "2026-07-29T18:46:10.687Z",
+    "searchScore": 21.432596,
+    "package": {
+      "name": "@chirag127/trakt",
+      "keywords": [],
+      "version": "1.0.0",
+      "description": "Trakt.tv v2 API client — user history, watchlist, stats",
+      "sanitized_name": "@chirag127/trakt",
+      "publisher": {
+        "email": "whyiswhen@gmail.com",
+        "username": "chirag127"
+      },
+      "maintainers": [
+        {
+          "email": "whyiswhen@gmail.com",
+          "username": "chirag127"
+        }
+      ],
+      "license": "MIT",
+      "date": "2026-07-08T18:32:18.580Z",
+      "links": {
+        "homepage": "https://github.com/chirag127/workspace#readme",
+        "repository": "git+https://github.com/chirag127/workspace.git",
+        "bugs": "https://github.com/chirag127/workspace/issues",
+        "npm": "https://www.npmjs.com/package/@chirag127/trakt"
+      }
+    },
+    "score": {
+      "final": 21.432596,
+      "detail": {
+        "popularity": 1,
+        "quality": 1,
+        "maintenance": 1
+      }
+    },
+    "flags": {
+      "insecure": 0
+    }
+  },
+  {
+    "downloads": {
+      "monthly": 67,
+      "weekly": 4
+    },
+    "dependents": 0,
+    "updated": "2026-07-29T18:46:10.086Z",
+    "searchScore": 21.423897,
+    "package": {
+      "name": "@chirag127/astro-layout",
+      "keywords": [],
+      "version": "1.0.0",
+      "description": "Shared Astro BaseLayout with MD3 dark theme for all chirag127 sites",
+      "sanitized_name": "@chirag127/astro-layout",
+      "publisher": {
+        "email": "whyiswhen@gmail.com",
+        "username": "chirag127"
+      },
+      "maintainers": [
+        {
+          "email": "whyiswhen@gmail.com",
+          "username": "chirag127"
+        }
+      ],
+      "license": "MIT",
+      "date": "2026-07-08T18:31:47.007Z",
+      "links": {
+        "homepage": "https://github.com/chirag127/workspace#readme",
+        "repository": "git+https://github.com/chirag127/workspace.git",
+        "bugs": "https://github.com/chirag127/workspace/issues",
+        "npm": "https://www.npmjs.com/package/@chirag127/astro-layout"
+      }
+    },
+    "score": {
+      "final": 21.423897,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -308,7 +398,7 @@
     },
     "dependents": 0,
     "updated": "2026-07-23T21:41:09.463Z",
-    "searchScore": 21.45055,
+    "searchScore": 21.423254,
     "package": {
       "name": "@chirag127/okf-knowledge-mcp",
       "keywords": [
@@ -340,7 +430,7 @@
       }
     },
     "score": {
-      "final": 21.45055,
+      "final": 21.423254,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -353,18 +443,24 @@
   },
   {
     "downloads": {
-      "monthly": 73,
-      "weekly": 10
+      "monthly": 78,
+      "weekly": 4
     },
     "dependents": 0,
-    "updated": "2026-07-22T18:41:12.739Z",
-    "searchScore": 21.322325,
+    "updated": "2026-07-29T18:46:30.278Z",
+    "searchScore": 21.416225,
     "package": {
-      "name": "@chirag127/trakt",
-      "keywords": [],
+      "name": "@chirag127/astro-md3",
+      "keywords": [
+        "astro",
+        "material-design-3",
+        "md3",
+        "css",
+        "dark-theme"
+      ],
       "version": "1.0.0",
-      "description": "Trakt.tv v2 API client — user history, watchlist, stats",
-      "sanitized_name": "@chirag127/trakt",
+      "description": "Astro integration for Material Design 3 dark-first CSS tokens",
+      "sanitized_name": "@chirag127/astro-md3",
       "publisher": {
         "email": "whyiswhen@gmail.com",
         "username": "chirag127"
@@ -376,16 +472,16 @@
         }
       ],
       "license": "MIT",
-      "date": "2026-07-08T18:32:18.580Z",
+      "date": "2026-07-08T18:30:31.924Z",
       "links": {
         "homepage": "https://github.com/chirag127/workspace#readme",
         "repository": "git+https://github.com/chirag127/workspace.git",
         "bugs": "https://github.com/chirag127/workspace/issues",
-        "npm": "https://www.npmjs.com/package/@chirag127/trakt"
+        "npm": "https://www.npmjs.com/package/@chirag127/astro-md3"
       }
     },
     "score": {
-      "final": 21.322325,
+      "final": 21.416225,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -398,18 +494,18 @@
   },
   {
     "downloads": {
-      "monthly": 63,
-      "weekly": 8
+      "monthly": 78,
+      "weekly": 4
     },
     "dependents": 0,
-    "updated": "2026-07-22T18:41:15.685Z",
-    "searchScore": 21.102596,
+    "updated": "2026-07-29T18:46:24.125Z",
+    "searchScore": 21.170635,
     "package": {
-      "name": "@chirag127/astro-layout",
+      "name": "@chirag127/wakatime",
       "keywords": [],
       "version": "1.0.0",
-      "description": "Shared Astro BaseLayout with MD3 dark theme for all chirag127 sites",
-      "sanitized_name": "@chirag127/astro-layout",
+      "description": "WakaTime v1 API client — coding stats, projects, languages",
+      "sanitized_name": "@chirag127/wakatime",
       "publisher": {
         "email": "whyiswhen@gmail.com",
         "username": "chirag127"
@@ -421,16 +517,16 @@
         }
       ],
       "license": "MIT",
-      "date": "2026-07-08T18:31:47.007Z",
+      "date": "2026-07-08T18:32:26.169Z",
       "links": {
         "homepage": "https://github.com/chirag127/workspace#readme",
         "repository": "git+https://github.com/chirag127/workspace.git",
         "bugs": "https://github.com/chirag127/workspace/issues",
-        "npm": "https://www.npmjs.com/package/@chirag127/astro-layout"
+        "npm": "https://www.npmjs.com/package/@chirag127/wakatime"
       }
     },
     "score": {
-      "final": 21.102596,
+      "final": 21.170635,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -443,12 +539,12 @@
   },
   {
     "downloads": {
-      "monthly": 68,
-      "weekly": 10
+      "monthly": 72,
+      "weekly": 4
     },
     "dependents": 0,
-    "updated": "2026-07-22T18:41:09.535Z",
-    "searchScore": 20.960003,
+    "updated": "2026-07-29T18:46:11.565Z",
+    "searchScore": 20.912897,
     "package": {
       "name": "@chirag127/tmdb",
       "keywords": [
@@ -480,7 +576,7 @@
       }
     },
     "score": {
-      "final": 20.960003,
+      "final": 20.912897,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -498,7 +594,7 @@
     },
     "dependents": 0,
     "updated": "2026-07-27T07:21:09.010Z",
-    "searchScore": 20.856842,
+    "searchScore": 20.830303,
     "package": {
       "name": "@chirag127/oriz-ui",
       "keywords": [
@@ -532,7 +628,7 @@
       }
     },
     "score": {
-      "final": 20.856842,
+      "final": 20.830303,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -545,108 +641,12 @@
   },
   {
     "downloads": {
-      "monthly": 74,
-      "weekly": 7
+      "monthly": 79,
+      "weekly": 4
     },
     "dependents": 0,
-    "updated": "2026-07-22T18:41:26.209Z",
-    "searchScore": 20.83202,
-    "package": {
-      "name": "@chirag127/astro-md3",
-      "keywords": [
-        "astro",
-        "material-design-3",
-        "md3",
-        "css",
-        "dark-theme"
-      ],
-      "version": "1.0.0",
-      "description": "Astro integration for Material Design 3 dark-first CSS tokens",
-      "sanitized_name": "@chirag127/astro-md3",
-      "publisher": {
-        "email": "whyiswhen@gmail.com",
-        "username": "chirag127"
-      },
-      "maintainers": [
-        {
-          "email": "whyiswhen@gmail.com",
-          "username": "chirag127"
-        }
-      ],
-      "license": "MIT",
-      "date": "2026-07-08T18:30:31.924Z",
-      "links": {
-        "homepage": "https://github.com/chirag127/workspace#readme",
-        "repository": "git+https://github.com/chirag127/workspace.git",
-        "bugs": "https://github.com/chirag127/workspace/issues",
-        "npm": "https://www.npmjs.com/package/@chirag127/astro-md3"
-      }
-    },
-    "score": {
-      "final": 20.83202,
-      "detail": {
-        "popularity": 1,
-        "quality": 1,
-        "maintenance": 1
-      }
-    },
-    "flags": {
-      "insecure": 0
-    }
-  },
-  {
-    "downloads": {
-      "monthly": 74,
-      "weekly": 7
-    },
-    "dependents": 0,
-    "updated": "2026-07-22T18:41:25.557Z",
-    "searchScore": 20.774473,
-    "package": {
-      "name": "@chirag127/wakatime",
-      "keywords": [],
-      "version": "1.0.0",
-      "description": "WakaTime v1 API client — coding stats, projects, languages",
-      "sanitized_name": "@chirag127/wakatime",
-      "publisher": {
-        "email": "whyiswhen@gmail.com",
-        "username": "chirag127"
-      },
-      "maintainers": [
-        {
-          "email": "whyiswhen@gmail.com",
-          "username": "chirag127"
-        }
-      ],
-      "license": "MIT",
-      "date": "2026-07-08T18:32:26.169Z",
-      "links": {
-        "homepage": "https://github.com/chirag127/workspace#readme",
-        "repository": "git+https://github.com/chirag127/workspace.git",
-        "bugs": "https://github.com/chirag127/workspace/issues",
-        "npm": "https://www.npmjs.com/package/@chirag127/wakatime"
-      }
-    },
-    "score": {
-      "final": 20.774473,
-      "detail": {
-        "popularity": 1,
-        "quality": 1,
-        "maintenance": 1
-      }
-    },
-    "flags": {
-      "insecure": 0
-    }
-  },
-  {
-    "downloads": {
-      "monthly": 75,
-      "weekly": 12
-    },
-    "dependents": 0,
-    "updated": "2026-07-22T18:41:14.444Z",
-    "searchScore": 20.571465,
+    "updated": "2026-07-29T18:46:13.785Z",
+    "searchScore": 20.830303,
     "package": {
       "name": "@chirag127/rate-limit",
       "keywords": [
@@ -678,7 +678,7 @@
       }
     },
     "score": {
-      "final": 20.571465,
+      "final": 20.830303,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -691,396 +691,12 @@
   },
   {
     "downloads": {
-      "monthly": 74,
-      "weekly": 8
+      "monthly": 68,
+      "weekly": 6
     },
     "dependents": 0,
-    "updated": "2026-07-22T18:41:08.560Z",
-    "searchScore": 20.46543,
-    "package": {
-      "name": "@chirag127/github-stats",
-      "keywords": [
-        "github",
-        "stats",
-        "repos"
-      ],
-      "version": "1.0.0",
-      "description": "GitHub user stats and repos — no auth for public data",
-      "sanitized_name": "@chirag127/github-stats",
-      "publisher": {
-        "email": "whyiswhen@gmail.com",
-        "username": "chirag127"
-      },
-      "maintainers": [
-        {
-          "email": "whyiswhen@gmail.com",
-          "username": "chirag127"
-        }
-      ],
-      "license": "MIT",
-      "date": "2026-07-08T18:32:41.294Z",
-      "links": {
-        "homepage": "https://github.com/chirag127/workspace#readme",
-        "repository": "git+https://github.com/chirag127/workspace.git",
-        "bugs": "https://github.com/chirag127/workspace/issues",
-        "npm": "https://www.npmjs.com/package/@chirag127/github-stats"
-      }
-    },
-    "score": {
-      "final": 20.46543,
-      "detail": {
-        "popularity": 1,
-        "quality": 1,
-        "maintenance": 1
-      }
-    },
-    "flags": {
-      "insecure": 0
-    }
-  },
-  {
-    "downloads": {
-      "monthly": 62,
-      "weekly": 9
-    },
-    "dependents": 0,
-    "updated": "2026-07-22T18:41:09.793Z",
-    "searchScore": 20.43171,
-    "package": {
-      "name": "@chirag127/prebuild-fetcher",
-      "keywords": [],
-      "version": "1.0.0",
-      "description": "Shared utilities for Astro pre-build data fetchers — safeFetch, safePost, loadStale, loadDotEnv",
-      "sanitized_name": "@chirag127/prebuild-fetcher",
-      "publisher": {
-        "email": "whyiswhen@gmail.com",
-        "username": "chirag127"
-      },
-      "maintainers": [
-        {
-          "email": "whyiswhen@gmail.com",
-          "username": "chirag127"
-        }
-      ],
-      "license": "MIT",
-      "date": "2026-07-08T18:33:15.316Z",
-      "links": {
-        "homepage": "https://github.com/chirag127/workspace#readme",
-        "repository": "git+https://github.com/chirag127/workspace.git",
-        "bugs": "https://github.com/chirag127/workspace/issues",
-        "npm": "https://www.npmjs.com/package/@chirag127/prebuild-fetcher"
-      }
-    },
-    "score": {
-      "final": 20.43171,
-      "detail": {
-        "popularity": 1,
-        "quality": 1,
-        "maintenance": 1
-      }
-    },
-    "flags": {
-      "insecure": 0
-    }
-  },
-  {
-    "downloads": {
-      "monthly": 73,
-      "weekly": 8
-    },
-    "dependents": 0,
-    "updated": "2026-07-22T18:41:13.001Z",
-    "searchScore": 20.386448,
-    "package": {
-      "name": "@chirag127/date-utils",
-      "keywords": [
-        "date",
-        "time",
-        "utilities",
-        "timeago"
-      ],
-      "version": "1.0.0",
-      "description": "Tiny date utilities — timeAgo, formatDate, fromUnix, toISO",
-      "sanitized_name": "@chirag127/date-utils",
-      "publisher": {
-        "email": "whyiswhen@gmail.com",
-        "username": "chirag127"
-      },
-      "maintainers": [
-        {
-          "email": "whyiswhen@gmail.com",
-          "username": "chirag127"
-        }
-      ],
-      "license": "MIT",
-      "date": "2026-07-08T18:32:55.789Z",
-      "links": {
-        "homepage": "https://github.com/chirag127/workspace#readme",
-        "repository": "git+https://github.com/chirag127/workspace.git",
-        "bugs": "https://github.com/chirag127/workspace/issues",
-        "npm": "https://www.npmjs.com/package/@chirag127/date-utils"
-      }
-    },
-    "score": {
-      "final": 20.386448,
-      "detail": {
-        "popularity": 1,
-        "quality": 1,
-        "maintenance": 1
-      }
-    },
-    "flags": {
-      "insecure": 0
-    }
-  },
-  {
-    "downloads": {
-      "monthly": 73,
-      "weekly": 10
-    },
-    "dependents": 0,
-    "updated": "2026-07-22T18:41:13.909Z",
-    "searchScore": 20.386448,
-    "package": {
-      "name": "@chirag127/lanyard",
-      "keywords": [
-        "lanyard",
-        "discord",
-        "presence",
-        "status"
-      ],
-      "version": "1.0.0",
-      "description": "Lanyard Discord presence API client",
-      "sanitized_name": "@chirag127/lanyard",
-      "publisher": {
-        "email": "whyiswhen@gmail.com",
-        "username": "chirag127"
-      },
-      "maintainers": [
-        {
-          "email": "whyiswhen@gmail.com",
-          "username": "chirag127"
-        }
-      ],
-      "license": "MIT",
-      "date": "2026-07-08T18:32:47.631Z",
-      "links": {
-        "homepage": "https://github.com/chirag127/workspace#readme",
-        "repository": "git+https://github.com/chirag127/workspace.git",
-        "bugs": "https://github.com/chirag127/workspace/issues",
-        "npm": "https://www.npmjs.com/package/@chirag127/lanyard"
-      }
-    },
-    "score": {
-      "final": 20.386448,
-      "detail": {
-        "popularity": 1,
-        "quality": 1,
-        "maintenance": 1
-      }
-    },
-    "flags": {
-      "insecure": 0
-    }
-  },
-  {
-    "downloads": {
-      "monthly": 73,
-      "weekly": 8
-    },
-    "dependents": 0,
-    "updated": "2026-07-22T18:41:14.284Z",
-    "searchScore": 20.386448,
-    "package": {
-      "name": "@chirag127/lastfm",
-      "keywords": [],
-      "version": "1.0.0",
-      "description": "Last.fm API client — getRecentTracks, getTopArtists, getTopTracks, getUserInfo",
-      "sanitized_name": "@chirag127/lastfm",
-      "publisher": {
-        "email": "whyiswhen@gmail.com",
-        "username": "chirag127"
-      },
-      "maintainers": [
-        {
-          "email": "whyiswhen@gmail.com",
-          "username": "chirag127"
-        }
-      ],
-      "license": "MIT",
-      "date": "2026-07-08T18:31:54.875Z",
-      "links": {
-        "homepage": "https://github.com/chirag127/workspace#readme",
-        "repository": "git+https://github.com/chirag127/workspace.git",
-        "bugs": "https://github.com/chirag127/workspace/issues",
-        "npm": "https://www.npmjs.com/package/@chirag127/lastfm"
-      }
-    },
-    "score": {
-      "final": 20.386448,
-      "detail": {
-        "popularity": 1,
-        "quality": 1,
-        "maintenance": 1
-      }
-    },
-    "flags": {
-      "insecure": 0
-    }
-  },
-  {
-    "downloads": {
-      "monthly": 71,
-      "weekly": 7
-    },
-    "dependents": 0,
-    "updated": "2026-07-22T18:41:08.574Z",
-    "searchScore": 20.238844,
-    "package": {
-      "name": "@chirag127/habitica",
-      "keywords": [],
-      "version": "1.0.0",
-      "description": "Habitica API v3 client — user stats, habits, dailies, todos",
-      "sanitized_name": "@chirag127/habitica",
-      "publisher": {
-        "email": "whyiswhen@gmail.com",
-        "username": "chirag127"
-      },
-      "maintainers": [
-        {
-          "email": "whyiswhen@gmail.com",
-          "username": "chirag127"
-        }
-      ],
-      "license": "MIT",
-      "date": "2026-07-08T18:32:34.375Z",
-      "links": {
-        "homepage": "https://github.com/chirag127/workspace#readme",
-        "repository": "git+https://github.com/chirag127/workspace.git",
-        "bugs": "https://github.com/chirag127/workspace/issues",
-        "npm": "https://www.npmjs.com/package/@chirag127/habitica"
-      }
-    },
-    "score": {
-      "final": 20.238844,
-      "detail": {
-        "popularity": 1,
-        "quality": 1,
-        "maintenance": 1
-      }
-    },
-    "flags": {
-      "insecure": 0
-    }
-  },
-  {
-    "downloads": {
-      "monthly": 70,
-      "weekly": 8
-    },
-    "dependents": 0,
-    "updated": "2026-07-22T18:41:07.476Z",
-    "searchScore": 20.161242,
-    "package": {
-      "name": "@chirag127/listenbrainz",
-      "keywords": [
-        "listenbrainz",
-        "music",
-        "scrobble",
-        "api"
-      ],
-      "version": "1.0.0",
-      "description": "ListenBrainz API client — listens, now-playing, stats",
-      "sanitized_name": "@chirag127/listenbrainz",
-      "publisher": {
-        "email": "whyiswhen@gmail.com",
-        "username": "chirag127"
-      },
-      "maintainers": [
-        {
-          "email": "whyiswhen@gmail.com",
-          "username": "chirag127"
-        }
-      ],
-      "license": "MIT",
-      "date": "2026-07-08T18:32:03.852Z",
-      "links": {
-        "homepage": "https://github.com/chirag127/workspace#readme",
-        "repository": "git+https://github.com/chirag127/workspace.git",
-        "bugs": "https://github.com/chirag127/workspace/issues",
-        "npm": "https://www.npmjs.com/package/@chirag127/listenbrainz"
-      }
-    },
-    "score": {
-      "final": 20.161242,
-      "detail": {
-        "popularity": 1,
-        "quality": 1,
-        "maintenance": 1
-      }
-    },
-    "flags": {
-      "insecure": 0
-    }
-  },
-  {
-    "downloads": {
-      "monthly": 66,
-      "weekly": 7
-    },
-    "dependents": 0,
-    "updated": "2026-07-22T18:41:11.863Z",
-    "searchScore": 19.871048,
-    "package": {
-      "name": "@chirag127/astro-schema",
-      "keywords": [
-        "astro",
-        "schema.org",
-        "json-ld",
-        "seo"
-      ],
-      "version": "1.0.0",
-      "description": "Pre-built JSON-LD schema.org components for Astro",
-      "sanitized_name": "@chirag127/astro-schema",
-      "publisher": {
-        "email": "whyiswhen@gmail.com",
-        "username": "chirag127"
-      },
-      "maintainers": [
-        {
-          "email": "whyiswhen@gmail.com",
-          "username": "chirag127"
-        }
-      ],
-      "license": "MIT",
-      "date": "2026-07-08T18:31:27.844Z",
-      "links": {
-        "homepage": "https://github.com/chirag127/workspace#readme",
-        "repository": "git+https://github.com/chirag127/workspace.git",
-        "bugs": "https://github.com/chirag127/workspace/issues",
-        "npm": "https://www.npmjs.com/package/@chirag127/astro-schema"
-      }
-    },
-    "score": {
-      "final": 19.871048,
-      "detail": {
-        "popularity": 1,
-        "quality": 1,
-        "maintenance": 1
-      }
-    },
-    "flags": {
-      "insecure": 0
-    }
-  },
-  {
-    "downloads": {
-      "monthly": 62,
-      "weekly": 8
-    },
-    "dependents": 0,
-    "updated": "2026-07-22T18:41:26.535Z",
-    "searchScore": 19.847853,
+    "updated": "2026-07-29T18:46:30.881Z",
+    "searchScore": 20.640993,
     "package": {
       "name": "@chirag127/astro-analytics",
       "keywords": [
@@ -1119,7 +735,391 @@
       }
     },
     "score": {
-      "final": 19.847853,
+      "final": 20.640993,
+      "detail": {
+        "popularity": 1,
+        "quality": 1,
+        "maintenance": 1
+      }
+    },
+    "flags": {
+      "insecure": 0
+    }
+  },
+  {
+    "downloads": {
+      "monthly": 68,
+      "weekly": 6
+    },
+    "dependents": 0,
+    "updated": "2026-07-29T18:46:15.680Z",
+    "searchScore": 20.59106,
+    "package": {
+      "name": "@chirag127/prebuild-fetcher",
+      "keywords": [],
+      "version": "1.0.0",
+      "description": "Shared utilities for Astro pre-build data fetchers — safeFetch, safePost, loadStale, loadDotEnv",
+      "sanitized_name": "@chirag127/prebuild-fetcher",
+      "publisher": {
+        "email": "whyiswhen@gmail.com",
+        "username": "chirag127"
+      },
+      "maintainers": [
+        {
+          "email": "whyiswhen@gmail.com",
+          "username": "chirag127"
+        }
+      ],
+      "license": "MIT",
+      "date": "2026-07-08T18:33:15.316Z",
+      "links": {
+        "homepage": "https://github.com/chirag127/workspace#readme",
+        "repository": "git+https://github.com/chirag127/workspace.git",
+        "bugs": "https://github.com/chirag127/workspace/issues",
+        "npm": "https://www.npmjs.com/package/@chirag127/prebuild-fetcher"
+      }
+    },
+    "score": {
+      "final": 20.59106,
+      "detail": {
+        "popularity": 1,
+        "quality": 1,
+        "maintenance": 1
+      }
+    },
+    "flags": {
+      "insecure": 0
+    }
+  },
+  {
+    "downloads": {
+      "monthly": 79,
+      "weekly": 6
+    },
+    "dependents": 0,
+    "updated": "2026-07-29T18:46:17.121Z",
+    "searchScore": 20.470228,
+    "package": {
+      "name": "@chirag127/lastfm",
+      "keywords": [],
+      "version": "1.0.0",
+      "description": "Last.fm API client — getRecentTracks, getTopArtists, getTopTracks, getUserInfo",
+      "sanitized_name": "@chirag127/lastfm",
+      "publisher": {
+        "email": "whyiswhen@gmail.com",
+        "username": "chirag127"
+      },
+      "maintainers": [
+        {
+          "email": "whyiswhen@gmail.com",
+          "username": "chirag127"
+        }
+      ],
+      "license": "MIT",
+      "date": "2026-07-08T18:31:54.875Z",
+      "links": {
+        "homepage": "https://github.com/chirag127/workspace#readme",
+        "repository": "git+https://github.com/chirag127/workspace.git",
+        "bugs": "https://github.com/chirag127/workspace/issues",
+        "npm": "https://www.npmjs.com/package/@chirag127/lastfm"
+      }
+    },
+    "score": {
+      "final": 20.470228,
+      "detail": {
+        "popularity": 1,
+        "quality": 1,
+        "maintenance": 1
+      }
+    },
+    "flags": {
+      "insecure": 0
+    }
+  },
+  {
+    "downloads": {
+      "monthly": 78,
+      "weekly": 4
+    },
+    "dependents": 0,
+    "updated": "2026-07-29T18:46:11.553Z",
+    "searchScore": 20.40178,
+    "package": {
+      "name": "@chirag127/github-stats",
+      "keywords": [
+        "github",
+        "stats",
+        "repos"
+      ],
+      "version": "1.0.0",
+      "description": "GitHub user stats and repos — no auth for public data",
+      "sanitized_name": "@chirag127/github-stats",
+      "publisher": {
+        "email": "whyiswhen@gmail.com",
+        "username": "chirag127"
+      },
+      "maintainers": [
+        {
+          "email": "whyiswhen@gmail.com",
+          "username": "chirag127"
+        }
+      ],
+      "license": "MIT",
+      "date": "2026-07-08T18:32:41.294Z",
+      "links": {
+        "homepage": "https://github.com/chirag127/workspace#readme",
+        "repository": "git+https://github.com/chirag127/workspace.git",
+        "bugs": "https://github.com/chirag127/workspace/issues",
+        "npm": "https://www.npmjs.com/package/@chirag127/github-stats"
+      }
+    },
+    "score": {
+      "final": 20.40178,
+      "detail": {
+        "popularity": 1,
+        "quality": 1,
+        "maintenance": 1
+      }
+    },
+    "flags": {
+      "insecure": 0
+    }
+  },
+  {
+    "downloads": {
+      "monthly": 78,
+      "weekly": 5
+    },
+    "dependents": 0,
+    "updated": "2026-07-29T18:46:16.967Z",
+    "searchScore": 20.401524,
+    "package": {
+      "name": "@chirag127/lanyard",
+      "keywords": [
+        "lanyard",
+        "discord",
+        "presence",
+        "status"
+      ],
+      "version": "1.0.0",
+      "description": "Lanyard Discord presence API client",
+      "sanitized_name": "@chirag127/lanyard",
+      "publisher": {
+        "email": "whyiswhen@gmail.com",
+        "username": "chirag127"
+      },
+      "maintainers": [
+        {
+          "email": "whyiswhen@gmail.com",
+          "username": "chirag127"
+        }
+      ],
+      "license": "MIT",
+      "date": "2026-07-08T18:32:47.631Z",
+      "links": {
+        "homepage": "https://github.com/chirag127/workspace#readme",
+        "repository": "git+https://github.com/chirag127/workspace.git",
+        "bugs": "https://github.com/chirag127/workspace/issues",
+        "npm": "https://www.npmjs.com/package/@chirag127/lanyard"
+      }
+    },
+    "score": {
+      "final": 20.401524,
+      "detail": {
+        "popularity": 1,
+        "quality": 1,
+        "maintenance": 1
+      }
+    },
+    "flags": {
+      "insecure": 0
+    }
+  },
+  {
+    "downloads": {
+      "monthly": 77,
+      "weekly": 6
+    },
+    "dependents": 0,
+    "updated": "2026-07-29T18:46:10.144Z",
+    "searchScore": 20.33221,
+    "package": {
+      "name": "@chirag127/habitica",
+      "keywords": [],
+      "version": "1.0.0",
+      "description": "Habitica API v3 client — user stats, habits, dailies, todos",
+      "sanitized_name": "@chirag127/habitica",
+      "publisher": {
+        "email": "whyiswhen@gmail.com",
+        "username": "chirag127"
+      },
+      "maintainers": [
+        {
+          "email": "whyiswhen@gmail.com",
+          "username": "chirag127"
+        }
+      ],
+      "license": "MIT",
+      "date": "2026-07-08T18:32:34.375Z",
+      "links": {
+        "homepage": "https://github.com/chirag127/workspace#readme",
+        "repository": "git+https://github.com/chirag127/workspace.git",
+        "bugs": "https://github.com/chirag127/workspace/issues",
+        "npm": "https://www.npmjs.com/package/@chirag127/habitica"
+      }
+    },
+    "score": {
+      "final": 20.33221,
+      "detail": {
+        "popularity": 1,
+        "quality": 1,
+        "maintenance": 1
+      }
+    },
+    "flags": {
+      "insecure": 0
+    }
+  },
+  {
+    "downloads": {
+      "monthly": 77,
+      "weekly": 4
+    },
+    "dependents": 0,
+    "updated": "2026-07-29T18:46:14.271Z",
+    "searchScore": 20.331957,
+    "package": {
+      "name": "@chirag127/date-utils",
+      "keywords": [
+        "date",
+        "time",
+        "utilities",
+        "timeago"
+      ],
+      "version": "1.0.0",
+      "description": "Tiny date utilities — timeAgo, formatDate, fromUnix, toISO",
+      "sanitized_name": "@chirag127/date-utils",
+      "publisher": {
+        "email": "whyiswhen@gmail.com",
+        "username": "chirag127"
+      },
+      "maintainers": [
+        {
+          "email": "whyiswhen@gmail.com",
+          "username": "chirag127"
+        }
+      ],
+      "license": "MIT",
+      "date": "2026-07-08T18:32:55.789Z",
+      "links": {
+        "homepage": "https://github.com/chirag127/workspace#readme",
+        "repository": "git+https://github.com/chirag127/workspace.git",
+        "bugs": "https://github.com/chirag127/workspace/issues",
+        "npm": "https://www.npmjs.com/package/@chirag127/date-utils"
+      }
+    },
+    "score": {
+      "final": 20.331957,
+      "detail": {
+        "popularity": 1,
+        "quality": 1,
+        "maintenance": 1
+      }
+    },
+    "flags": {
+      "insecure": 0
+    }
+  },
+  {
+    "downloads": {
+      "monthly": 76,
+      "weekly": 6
+    },
+    "dependents": 0,
+    "updated": "2026-07-29T18:46:09.687Z",
+    "searchScore": 20.261757,
+    "package": {
+      "name": "@chirag127/listenbrainz",
+      "keywords": [
+        "listenbrainz",
+        "music",
+        "scrobble",
+        "api"
+      ],
+      "version": "1.0.0",
+      "description": "ListenBrainz API client — listens, now-playing, stats",
+      "sanitized_name": "@chirag127/listenbrainz",
+      "publisher": {
+        "email": "whyiswhen@gmail.com",
+        "username": "chirag127"
+      },
+      "maintainers": [
+        {
+          "email": "whyiswhen@gmail.com",
+          "username": "chirag127"
+        }
+      ],
+      "license": "MIT",
+      "date": "2026-07-08T18:32:03.852Z",
+      "links": {
+        "homepage": "https://github.com/chirag127/workspace#readme",
+        "repository": "git+https://github.com/chirag127/workspace.git",
+        "bugs": "https://github.com/chirag127/workspace/issues",
+        "npm": "https://www.npmjs.com/package/@chirag127/listenbrainz"
+      }
+    },
+    "score": {
+      "final": 20.261757,
+      "detail": {
+        "popularity": 1,
+        "quality": 1,
+        "maintenance": 1
+      }
+    },
+    "flags": {
+      "insecure": 0
+    }
+  },
+  {
+    "downloads": {
+      "monthly": 70,
+      "weekly": 4
+    },
+    "dependents": 0,
+    "updated": "2026-07-29T18:46:12.656Z",
+    "searchScore": 20.167439,
+    "package": {
+      "name": "@chirag127/astro-schema",
+      "keywords": [
+        "astro",
+        "schema.org",
+        "json-ld",
+        "seo"
+      ],
+      "version": "1.0.0",
+      "description": "Pre-built JSON-LD schema.org components for Astro",
+      "sanitized_name": "@chirag127/astro-schema",
+      "publisher": {
+        "email": "whyiswhen@gmail.com",
+        "username": "chirag127"
+      },
+      "maintainers": [
+        {
+          "email": "whyiswhen@gmail.com",
+          "username": "chirag127"
+        }
+      ],
+      "license": "MIT",
+      "date": "2026-07-08T18:31:27.844Z",
+      "links": {
+        "homepage": "https://github.com/chirag127/workspace#readme",
+        "repository": "git+https://github.com/chirag127/workspace.git",
+        "bugs": "https://github.com/chirag127/workspace/issues",
+        "npm": "https://www.npmjs.com/package/@chirag127/astro-schema"
+      }
+    },
+    "score": {
+      "final": 20.167439,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -1137,7 +1137,7 @@
     },
     "dependents": 0,
     "updated": "2026-07-27T05:11:09.916Z",
-    "searchScore": 19.847853,
+    "searchScore": 20.120739,
     "package": {
       "name": "@chirag127/omni-publish",
       "keywords": [
@@ -1179,7 +1179,7 @@
       }
     },
     "score": {
-      "final": 19.847853,
+      "final": 20.120739,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -1197,7 +1197,7 @@
     },
     "dependents": 0,
     "updated": "2026-07-26T17:21:09.299Z",
-    "searchScore": 18.842777,
+    "searchScore": 18.526806,
     "package": {
       "name": "@chirag127/oriz-book-build",
       "keywords": [
@@ -1235,7 +1235,7 @@
       }
     },
     "score": {
-      "final": 18.842777,
+      "final": 18.526806,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -1253,7 +1253,7 @@
     },
     "dependents": 0,
     "updated": "2026-07-24T11:06:15.705Z",
-    "searchScore": 18.150057,
+    "searchScore": 18.238985,
     "package": {
       "name": "envpact-cli",
       "keywords": [
@@ -1291,7 +1291,7 @@
       }
     },
     "score": {
-      "final": 18.150057,
+      "final": 18.238985,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -1309,7 +1309,7 @@
     },
     "dependents": 0,
     "updated": "2026-07-25T08:46:10.158Z",
-    "searchScore": 18.049633,
+    "searchScore": 17.88655,
     "package": {
       "name": "secenv-mcp",
       "keywords": [
@@ -1345,7 +1345,7 @@
       }
     },
     "score": {
-      "final": 18.049633,
+      "final": 17.88655,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -1358,21 +1358,27 @@
   },
   {
     "downloads": {
-      "monthly": 37,
-      "weekly": 5
+      "monthly": 38,
+      "weekly": 6
     },
     "dependents": 0,
-    "updated": "2026-07-26T12:56:09.373Z",
-    "searchScore": 17.511618,
+    "updated": "2026-07-26T10:51:10.178Z",
+    "searchScore": 17.392076,
     "package": {
-      "name": "@chirag127/auth-vsc",
+      "name": "@chirag127/astro-forms",
       "keywords": [
-        "chirag127",
-        "oriz"
+        "react-hook-form",
+        "zod",
+        "form",
+        "shadcn",
+        "honeypot",
+        "web3forms",
+        "oriz",
+        "dark"
       ],
       "version": "0.1.0",
-      "description": "VS Code extension auth — vscode.authentication API + Firebase ID-token mint via REST + secure-storage via context.secrets. Peer-deps on @chirag127/auth-core.",
-      "sanitized_name": "@chirag127/auth-vsc",
+      "description": "Form helpers: react-hook-form + Zod resolvers + shadcn-style Form wrappers + honeypot + web3forms client. Dark-only.",
+      "sanitized_name": "@chirag127/astro-forms",
       "publisher": {
         "email": "whyiswhen@gmail.com",
         "username": "chirag127"
@@ -1384,16 +1390,16 @@
         }
       ],
       "license": "SEE LICENSE IN LICENSE",
-      "date": "2026-06-21T12:33:14.249Z",
+      "date": "2026-06-21T10:26:18.314Z",
       "links": {
-        "homepage": "https://github.com/chirag127/auth-vsc-npm-pkg#readme",
-        "repository": "git+https://github.com/chirag127/auth-vsc-npm-pkg.git",
-        "bugs": "https://github.com/chirag127/auth-vsc-npm-pkg/issues",
-        "npm": "https://www.npmjs.com/package/@chirag127/auth-vsc"
+        "homepage": "https://github.com/chirag127/astro-forms#readme",
+        "repository": "git+https://github.com/chirag127/astro-forms.git",
+        "bugs": "https://github.com/chirag127/astro-forms/issues",
+        "npm": "https://www.npmjs.com/package/@chirag127/astro-forms"
       }
     },
     "score": {
-      "final": 17.511618,
+      "final": 17.392076,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -1411,7 +1417,7 @@
     },
     "dependents": 0,
     "updated": "2026-07-26T12:56:08.304Z",
-    "searchScore": 17.288483,
+    "searchScore": 17.266483,
     "package": {
       "name": "@chirag127/auth-core",
       "keywords": [
@@ -1441,7 +1447,7 @@
       }
     },
     "score": {
-      "final": 17.288483,
+      "final": 17.266483,
       "detail": {
         "popularity": 1,
         "quality": 1,
@@ -1454,26 +1460,21 @@
   },
   {
     "downloads": {
-      "monthly": 32,
-      "weekly": 4
+      "monthly": 37,
+      "weekly": 5
     },
     "dependents": 0,
-    "updated": "2026-07-27T07:01:07.225Z",
-    "searchScore": 17.174385,
+    "updated": "2026-07-26T12:56:09.373Z",
+    "searchScore": 17.203375,
     "package": {
-      "name": "@chirag127/oriz-rate-limit",
+      "name": "@chirag127/auth-vsc",
       "keywords": [
         "chirag127",
-        "oriz",
-        "rate-limit",
-        "token-bucket",
-        "cloudflare-kv",
-        "durable-objects",
-        "edge"
+        "oriz"
       ],
       "version": "0.1.0",
-      "description": "Per-user usage caps for Free/Pro/Max tiers (10/100/unlimited requests per day). Edge-friendly token bucket built on Cloudflare KV / Durable Objects.",
-      "sanitized_name": "@chirag127/oriz-rate-limit",
+      "description": "VS Code extension auth — vscode.authentication API + Firebase ID-token mint via REST + secure-storage via context.secrets. Peer-deps on @chirag127/auth-core.",
+      "sanitized_name": "@chirag127/auth-vsc",
       "publisher": {
         "email": "whyiswhen@gmail.com",
         "username": "chirag127"
@@ -1484,17 +1485,17 @@
           "username": "chirag127"
         }
       ],
-      "license": "MIT",
-      "date": "2026-06-22T06:36:39.276Z",
+      "license": "SEE LICENSE IN LICENSE",
+      "date": "2026-06-21T12:33:14.249Z",
       "links": {
-        "homepage": "https://github.com/chirag127/oriz-rate-limit-npm-pkg#readme",
-        "repository": "git+https://github.com/chirag127/oriz-rate-limit-npm-pkg.git",
-        "bugs": "https://github.com/chirag127/oriz-rate-limit-npm-pkg/issues",
-        "npm": "https://www.npmjs.com/package/@chirag127/oriz-rate-limit"
+        "homepage": "https://github.com/chirag127/auth-vsc-npm-pkg#readme",
+        "repository": "git+https://github.com/chirag127/auth-vsc-npm-pkg.git",
+        "bugs": "https://github.com/chirag127/auth-vsc-npm-pkg/issues",
+        "npm": "https://www.npmjs.com/package/@chirag127/auth-vsc"
       }
     },
     "score": {
-      "final": 17.174385,
+      "final": 17.203375,
       "detail": {
         "popularity": 1,
         "quality": 1,
