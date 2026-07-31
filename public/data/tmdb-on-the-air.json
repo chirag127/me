@@ -8,31 +8,14 @@
     "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
     "rating": 8.377,
-    "votes": 6774,
+    "votes": 6779,
     "release": "2022-08-21",
     "genres": [
       10765,
       18,
       10759
     ],
-    "popularity": 381.5772
-  },
-  {
-    "id": 22980,
-    "tmdb_id": 22980,
-    "type": "tv",
-    "title": "Watch What Happens Live with Andy Cohen",
-    "overview": "Bravo network executive Andy Cohen discusses pop culture topics with celebrities and reality show personalities.",
-    "poster": "https://image.tmdb.org/t/p/w342/onSD9UXfJwrMXWhq7UY7hGF2S1h.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/hINekSpbcBxjnjGqmIm6I4bz2ab.jpg",
-    "rating": 5,
-    "votes": 87,
-    "release": "2009-07-16",
-    "genres": [
-      10767,
-      35
-    ],
-    "popularity": 221.3031
+    "popularity": 346.8365
   },
   {
     "id": 125988,
@@ -49,7 +32,24 @@
       10765,
       18
     ],
-    "popularity": 219.46
+    "popularity": 206.3233
+  },
+  {
+    "id": 22980,
+    "tmdb_id": 22980,
+    "type": "tv",
+    "title": "Watch What Happens Live with Andy Cohen",
+    "overview": "Bravo network executive Andy Cohen discusses pop culture topics with celebrities and reality show personalities.",
+    "poster": "https://image.tmdb.org/t/p/w342/onSD9UXfJwrMXWhq7UY7hGF2S1h.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/hINekSpbcBxjnjGqmIm6I4bz2ab.jpg",
+    "rating": 5,
+    "votes": 87,
+    "release": "2009-07-16",
+    "genres": [
+      10767,
+      35
+    ],
+    "popularity": 189.8743
   },
   {
     "id": 94664,
@@ -59,7 +59,7 @@
     "overview": "When a 34-year-old underachiever gets run over by a truck, his story doesn't end there. Reincarnated in a new world as an infant, Rudy will seize every opportunity to live the life he's always wanted. Armed with new friends, some freshly acquired magical abilities, and the courage to do the things he's always dreamed of, he's embarking on an epic adventure—with all of his past experience intact!",
     "poster": "https://image.tmdb.org/t/p/w342/gLKOYIMyKlUHW0SVdskhgf9C0yy.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/j9fRIimor0AMFJR9kjZubXcABzZ.jpg",
-    "rating": 8.467,
+    "rating": 8.5,
     "votes": 1625,
     "release": "2021-01-11",
     "genres": [
@@ -67,7 +67,7 @@
       16,
       10765
     ],
-    "popularity": 205.107
+    "popularity": 187.2047
   },
   {
     "id": 59941,
@@ -84,24 +84,7 @@
       35,
       10767
     ],
-    "popularity": 175.6666
-  },
-  {
-    "id": 2224,
-    "tmdb_id": 2224,
-    "type": "tv",
-    "title": "The Daily Show",
-    "overview": "The World's Fakest News Team tackle the biggest stories in news, politics and pop culture.",
-    "poster": "https://image.tmdb.org/t/p/w342/ixcfyK7it6FjRM36Te4OdblAq4X.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/qLMfcvdCcCGD2BNLH8b6ZCBuO7D.jpg",
-    "rating": 6.4,
-    "votes": 647,
-    "release": "1996-07-22",
-    "genres": [
-      10763,
-      35
-    ],
-    "popularity": 154.0254
+    "popularity": 153.2665
   },
   {
     "id": 296206,
@@ -111,15 +94,15 @@
     "overview": "When an unassuming dad's daughter goes missing, he dusts off his old black-ops skills to track her down — only to attract the wrong kind of attention.",
     "poster": "https://image.tmdb.org/t/p/w342/mxa7YxVln3Rwnd2Va82PoclTznj.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/g1LJLlmWP74zv9yXKEXm7g9p10O.jpg",
-    "rating": 7.758,
-    "votes": 64,
+    "rating": 7.662,
+    "votes": 65,
     "release": "2026-06-26",
     "genres": [
       10759,
       80,
       18
     ],
-    "popularity": 153.6977
+    "popularity": 140.314
   },
   {
     "id": 61818,
@@ -136,23 +119,7 @@
       10767,
       35
     ],
-    "popularity": 150.39
-  },
-  {
-    "id": 206559,
-    "tmdb_id": 206559,
-    "type": "tv",
-    "title": "Binnelanders",
-    "overview": "A South African Afrikaans soap opera. It is set in and around the fictional private hospital, Binneland Kliniek, in Pretoria, and the storyline follows the trials, trauma and tribulations of the staff and patients of the hospital.",
-    "poster": "https://image.tmdb.org/t/p/w342/3bzECfllho8PphdYujLUIuhncJD.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/s1dTt4M31q2HwD5Fkl1tf5tQzJg.jpg",
-    "rating": 5.5,
-    "votes": 111,
-    "release": "2005-10-13",
-    "genres": [
-      10766
-    ],
-    "popularity": 149.2278
+    "popularity": 135.8388
   },
   {
     "id": 45140,
@@ -172,7 +139,73 @@
       10751,
       10765
     ],
-    "popularity": 139.3199
+    "popularity": 132.9374
+  },
+  {
+    "id": 2224,
+    "tmdb_id": 2224,
+    "type": "tv",
+    "title": "The Daily Show",
+    "overview": "The World's Fakest News Team tackle the biggest stories in news, politics and pop culture.",
+    "poster": "https://image.tmdb.org/t/p/w342/ixcfyK7it6FjRM36Te4OdblAq4X.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/qLMfcvdCcCGD2BNLH8b6ZCBuO7D.jpg",
+    "rating": 6.4,
+    "votes": 647,
+    "release": "1996-07-22",
+    "genres": [
+      10763,
+      35
+    ],
+    "popularity": 131.2403
+  },
+  {
+    "id": 46271,
+    "tmdb_id": 46271,
+    "type": "tv",
+    "title": "Secret Story",
+    "overview": "The game contestants are cut off from the rest of the world during ten to fifteen weeks in a house called “house of secrets”, where every room is fitted with video cameras, except the restroom. The goal is to keep a secret while trying to discover the other contestants' secret.",
+    "poster": "https://image.tmdb.org/t/p/w342/jDFFyXE04vv9pvHzJESgbJnNRc2.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/go422YL6ytCPCZsrTCBmAJYaI72.jpg",
+    "rating": 4.458,
+    "votes": 12,
+    "release": "2007-06-23",
+    "genres": [
+      10764
+    ],
+    "popularity": 127.6949
+  },
+  {
+    "id": 206559,
+    "tmdb_id": 206559,
+    "type": "tv",
+    "title": "Binnelanders",
+    "overview": "A South African Afrikaans soap opera. It is set in and around the fictional private hospital, Binneland Kliniek, in Pretoria, and the storyline follows the trials, trauma and tribulations of the staff and patients of the hospital.",
+    "poster": "https://image.tmdb.org/t/p/w342/3bzECfllho8PphdYujLUIuhncJD.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/s1dTt4M31q2HwD5Fkl1tf5tQzJg.jpg",
+    "rating": 5.5,
+    "votes": 111,
+    "release": "2005-10-13",
+    "genres": [
+      10766
+    ],
+    "popularity": 125.6596
+  },
+  {
+    "id": 278624,
+    "tmdb_id": 278624,
+    "type": "tv",
+    "title": "Lucky",
+    "overview": "When a multi-million-dollar heist goes sideways, con artist Lucky is forced to go on the run. Pursued by both the FBI and a ruthless crime boss, Lucky must fight for her life—and a way out.",
+    "poster": "https://image.tmdb.org/t/p/w342/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
+    "rating": 7.204,
+    "votes": 98,
+    "release": "2026-07-14",
+    "genres": [
+      18,
+      80
+    ],
+    "popularity": 120.0698
   },
   {
     "id": 91555,
@@ -182,14 +215,14 @@
     "overview": "A world-class roster of diverse male and female wrestlers give fans a new wrestling experience for the first time in 20 years.",
     "poster": "https://image.tmdb.org/t/p/w342/gPNWVCp0zrHRmwfovUpUQO44sts.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/veIrzS2AkYm0UaYYcVw9ziWkJoB.jpg",
-    "rating": 7.959,
+    "rating": 8,
     "votes": 86,
     "release": "2019-10-02",
     "genres": [
       10759,
       18
     ],
-    "popularity": 130.1049
+    "popularity": 114.668
   },
   {
     "id": 33238,
@@ -206,7 +239,7 @@
       35,
       10764
     ],
-    "popularity": 123.7885
+    "popularity": 102.2306
   },
   {
     "id": 30983,
@@ -225,58 +258,41 @@
       9648,
       35
     ],
-    "popularity": 119.1023
+    "popularity": 99.6317
   },
   {
-    "id": 303287,
-    "tmdb_id": 303287,
+    "id": 289139,
+    "tmdb_id": 289139,
     "type": "tv",
-    "title": "GuAn",
-    "overview": "",
-    "poster": "https://image.tmdb.org/t/p/w342/hizh0OcUTNFJzSxPH0jtHyWNDCi.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/17JE6Hv19f7uzsCmICXluAQERWm.jpg",
-    "rating": 0,
-    "votes": 0,
-    "release": "2026-07-28",
+    "title": "Overdo",
+    "overview": "In Republican Shanghai, Murong Qingyi, a warlord’s son swapped at birth, endures years of torment. His life changes when Ren Susu saves him, but tragedy strikes her family because of it. Years later, love sparks between them, but Ren Susu fakes her death to save another, leaving Qingyi heartbroken. Three years on, she returns as his future sister-in-law. Love, hate, betrayal, and old wounds resurface. As war looms, the two must defy fate together, but can love survive a nation’s fall?",
+    "poster": "https://image.tmdb.org/t/p/w342/hg9fl45RQVR2yZ63DUWqy0hCZ1G.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/24Jiw958Hb7okfxWFedeDkWX8WU.jpg",
+    "rating": 7.4,
+    "votes": 7,
+    "release": "2026-07-19",
     "genres": [
-      16,
-      10759,
       18
     ],
-    "popularity": 118.3654
+    "popularity": 94.3506
   },
   {
-    "id": 65701,
-    "tmdb_id": 65701,
+    "id": 30984,
+    "tmdb_id": 30984,
     "type": "tv",
-    "title": "Good Mythical Morning",
-    "overview": "Two \"Internetainers\" (Rhett & Link) go far out and do the weirdest things, giving you a daily dose of casual comedy every Monday-Friday.",
-    "poster": "https://image.tmdb.org/t/p/w342/jMpBQr2aNOFAI6wsC47zsOG6qOh.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/hvFCS0dMeC3ffiF4uYTKzUAkvYL.jpg",
-    "rating": 6.9,
-    "votes": 91,
-    "release": "2012-01-09",
+    "title": "Bleach",
+    "overview": "For as long as he can remember, Ichigo Kurosaki has been able to see ghosts. But when he meets Rukia, a Soul Reaper who battles evil spirits known as Hollows, he finds his life is changed forever. Now, with a newfound wealth of spiritual energy, Ichigo discovers his true calling: to protect the living and the dead from evil.",
+    "poster": "https://image.tmdb.org/t/p/w342/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/o0NsbcIvsllg6CJX0FBFY8wWbsn.jpg",
+    "rating": 8.368,
+    "votes": 2195,
+    "release": "2004-10-05",
     "genres": [
-      35
+      10759,
+      16,
+      10765
     ],
-    "popularity": 111.1193
-  },
-  {
-    "id": 278624,
-    "tmdb_id": 278624,
-    "type": "tv",
-    "title": "Lucky",
-    "overview": "When a multi-million-dollar heist goes sideways, con artist Lucky is forced to go on the run. Pursued by both the FBI and a ruthless crime boss, Lucky must fight for her life—and a way out.",
-    "poster": "https://image.tmdb.org/t/p/w342/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
-    "rating": 7.179,
-    "votes": 95,
-    "release": "2026-07-14",
-    "genres": [
-      18,
-      80
-    ],
-    "popularity": 109.2111
+    "popularity": 93.7924
   },
   {
     "id": 2661,
@@ -294,23 +310,24 @@
       10765,
       18
     ],
-    "popularity": 108.6083
+    "popularity": 93.5679
   },
   {
-    "id": 4656,
-    "tmdb_id": 4656,
+    "id": 113962,
+    "tmdb_id": 113962,
     "type": "tv",
-    "title": "Raw",
-    "overview": "A regularly scheduled, live, year-round program featuring some of the biggest WWE Superstars.",
-    "poster": "https://image.tmdb.org/t/p/w342/fstEe6RsyNyPUnMwNcL20iNl0nE.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/384Lam787FIDBnwjwQBvC8gjB2d.jpg",
-    "rating": 6.792,
-    "votes": 367,
-    "release": "1993-01-11",
+    "title": "Lioness",
+    "overview": "Cruz Manuelos, a rough-around-the-edges but passionate young Marine, is recruited to join the CIA's Lioness Engagement Team to help bring down a terrorist organization from within. Joe, the station chief of the Lioness program, is tasked with training, managing and leading her female undercover operatives.",
+    "poster": "https://image.tmdb.org/t/p/w342/rzpHPSEgPTpRs8EHbygwsOw7jC0.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/r0Zg70jpcDAD7IMDhVqajSnG9vb.jpg",
+    "rating": 7.991,
+    "votes": 1258,
+    "release": "2023-07-23",
     "genres": [
-      10764
+      18,
+      10768
     ],
-    "popularity": 107.6066
+    "popularity": 92.2635
   },
   {
     "id": 223911,
@@ -328,22 +345,6 @@
       18,
       10759
     ],
-    "popularity": 103.4452
-  },
-  {
-    "id": 303084,
-    "tmdb_id": 303084,
-    "type": "tv",
-    "title": "Deep In",
-    "overview": "Filming a daring romance movie, an award-winning actor and an ambitious newcomer lose track of where acting ends and their real desire begins.",
-    "poster": "https://image.tmdb.org/t/p/w342/aO2R6lWasqv9BsE7qpquDxE68TD.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/8RUoesAKJIQjTZffFuVpd7QR1CS.jpg",
-    "rating": 9.4,
-    "votes": 5,
-    "release": "2026-06-26",
-    "genres": [
-      18
-    ],
-    "popularity": 103.0084
+    "popularity": 92.1884
   }
 ]

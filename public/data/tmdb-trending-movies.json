@@ -8,32 +8,14 @@
     "poster": "https://image.tmdb.org/t/p/w342/iPOn6DinuVyLY17YM9mKuPofV08.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/vjMvFSmGUxEtqVdaZgvFee9XkZl.jpg",
     "rating": 8,
-    "votes": 144,
+    "votes": 290,
     "release": "2026-07-28",
     "genres": [
       878,
       28,
       12
     ],
-    "popularity": 912.2268
-  },
-  {
-    "id": 1081003,
-    "tmdb_id": 1081003,
-    "type": "movie",
-    "title": "Supergirl",
-    "overview": "When an unexpected and ruthless adversary strikes too close to home, Kara Zor-El, aka Supergirl, reluctantly joins forces with an unlikely companion on an epic, interstellar journey of vengeance and justice.",
-    "poster": "https://image.tmdb.org/t/p/w342/1QCWdqzTfh2x9UylVpspIU6QTuM.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/4X2YSe8PaYbsBqX3TDmmIU4vOju.jpg",
-    "rating": 6.719,
-    "votes": 1032,
-    "release": "2026-06-24",
-    "genres": [
-      28,
-      12,
-      878
-    ],
-    "popularity": 614.8873
+    "popularity": 1519.851
   },
   {
     "id": 1368337,
@@ -42,16 +24,34 @@
     "title": "The Odyssey",
     "overview": "Odysseus, the legendary King of Ithaca, embarks on a long and perilous journey home following the Trojan War. Throughout his voyage, he is forced to confront the whims of gods, mythological monsters, and trials that stretch both his cunning and his humanity to the breaking point.",
     "poster": "https://image.tmdb.org/t/p/w342/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/tYuC9kUwqhpDQ3pv1kLMqyMF1Jw.jpg",
-    "rating": 7.94,
-    "votes": 1791,
+    "backdrop": "https://image.tmdb.org/t/p/w780/RMXG8myu1aGlNUsRjtxzmpdMK0.jpg",
+    "rating": 7.946,
+    "votes": 1857,
     "release": "2026-07-15",
     "genres": [
       12,
       28,
       14
     ],
-    "popularity": 1154.0314
+    "popularity": 1166.5658
+  },
+  {
+    "id": 1081003,
+    "tmdb_id": 1081003,
+    "type": "movie",
+    "title": "Supergirl",
+    "overview": "When an unexpected and ruthless adversary strikes too close to home, Kara Zor-El, aka Supergirl, reluctantly joins forces with an unlikely companion on an epic, interstellar journey of vengeance and justice.",
+    "poster": "https://image.tmdb.org/t/p/w342/1QCWdqzTfh2x9UylVpspIU6QTuM.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/54KIfdTEzOliHDKx0OkzYGqAICx.jpg",
+    "rating": 6.7,
+    "votes": 1132,
+    "release": "2026-06-24",
+    "genres": [
+      28,
+      12,
+      878
+    ],
+    "popularity": 630.4075
   },
   {
     "id": 1339713,
@@ -61,84 +61,14 @@
     "overview": "After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.",
     "poster": "https://image.tmdb.org/t/p/w342/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/5lTZyuBTNOfawsfPT8Q0cIg6qAF.jpg",
-    "rating": 8.253,
-    "votes": 3895,
+    "rating": 8.246,
+    "votes": 3941,
     "release": "2026-05-13",
     "genres": [
       27,
       53
     ],
-    "popularity": 372.1049
-  },
-  {
-    "id": 1481343,
-    "tmdb_id": 1481343,
-    "type": "movie",
-    "title": "The Devil's Mouth",
-    "overview": "Five friends explore The Devil's Mouth cave system in Thailand for one last adventure before life in the real world begins. But they soon discover that something is hunting them under the water... fast, silent, and deadly. In the suffocating darkness, trust erodes, panic spreads and every wrong turn becomes a fight for survival.",
-    "poster": "https://image.tmdb.org/t/p/w342/lH8k9uCWYn2b2gsYleqYBDPbWa8.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/pLyaH6k69OJHnONSmN3R7Peh6HE.jpg",
-    "rating": 6.031,
-    "votes": 49,
-    "release": "2026-07-29",
-    "genres": [
-      27,
-      53
-    ],
-    "popularity": 104.6637
-  },
-  {
-    "id": 1275779,
-    "tmdb_id": 1275779,
-    "type": "movie",
-    "title": "Disclosure Day",
-    "overview": "A cybersecurity expert becomes a whistleblower after uncovering secrets about aliens, putting him on the run from a corporation. Meanwhile, a meteorologist experiencing strange phenomena joins forces with him to prove there's life beyond our understanding.",
-    "poster": "https://image.tmdb.org/t/p/w342/AnJ8IQJI23hNpYXVNaythu061Ru.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/flxau5Iu7bChQHsESqvGZ3FQRaI.jpg",
-    "rating": 7.418,
-    "votes": 2005,
-    "release": "2026-06-10",
-    "genres": [
-      878,
-      53
-    ],
-    "popularity": 438.6074
-  },
-  {
-    "id": 454639,
-    "tmdb_id": 454639,
-    "type": "movie",
-    "title": "Masters of the Universe",
-    "overview": "After being separated for 15 years, the Sword of Power leads Prince Adam back to Eternia, where he discovers his home shattered under the fiendish rule of Skeletor. To save his family and his world, Adam must join forces with his closest allies, Teela and Duncan/Man-At-Arms, and embrace his true destiny as He-Man — the most powerful man in the universe.",
-    "poster": "https://image.tmdb.org/t/p/w342/oRuyGUHdoaQxWP3SDfafGkStxTC.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/piV2OnzTZCyGBP9JCjlHIgKGlfo.jpg",
-    "rating": 7.295,
-    "votes": 1301,
-    "release": "2026-06-03",
-    "genres": [
-      28,
-      14,
-      878
-    ],
-    "popularity": 503.965
-  },
-  {
-    "id": 1083381,
-    "tmdb_id": 1083381,
-    "type": "movie",
-    "title": "Backrooms",
-    "overview": "A strange doorway appears in the basement of a furniture showroom.",
-    "poster": "https://image.tmdb.org/t/p/w342/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/dqmMWNWfLnExDRpMtIMqI97GQFR.jpg",
-    "rating": 7.075,
-    "votes": 2259,
-    "release": "2026-05-27",
-    "genres": [
-      27,
-      9648,
-      878
-    ],
-    "popularity": 288.8807
+    "popularity": 372.4236
   },
   {
     "id": 980431,
@@ -148,8 +78,8 @@
     "overview": "Avatar Aang, the world's last Airbender, learns of an ancient power that could save his culture from extinction. With the help of his friends, he embarks on a global quest to find it before it falls into the wrong hands and threatens to upend the peace they sacrificed everything to achieve.",
     "poster": "https://image.tmdb.org/t/p/w342/3sgnSfNT27Bx5O5ukr7B26mhEQq.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/ezbrL1dMymKQZw7mDEWa2ZTzN7d.jpg",
-    "rating": 9.406,
-    "votes": 430,
+    "rating": 9.391,
+    "votes": 481,
     "release": "2026-07-24",
     "genres": [
       16,
@@ -157,25 +87,77 @@
       12,
       14
     ],
-    "popularity": 289.7811
+    "popularity": 303.9461
   },
   {
-    "id": 1228710,
-    "tmdb_id": 1228710,
+    "id": 1481343,
+    "tmdb_id": 1481343,
     "type": "movie",
-    "title": "The Mandalorian and Grogu",
-    "overview": "The evil Empire has fallen, and Imperial warlords remain scattered throughout the galaxy. As the fledgling New Republic works to protect everything the Rebellion fought for, they have enlisted the help of legendary Mandalorian bounty hunter Din Djarin and his young apprentice Grogu.",
-    "poster": "https://image.tmdb.org/t/p/w342/7GV5rrUJf0BRUhoh2cyFoeNthlQ.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/MJcERawyqGqJdPsOBc0C449hQ9.jpg",
-    "rating": 7.365,
-    "votes": 1000,
-    "release": "2026-05-20",
+    "title": "The Devil's Mouth",
+    "overview": "A group of college friends' Thailand adventure turns deadly when they become trapped in submerged caves with a dangerous predator. As oxygen runs low, past conflicts emerge in their desperate fight for survival.",
+    "poster": "https://image.tmdb.org/t/p/w342/lH8k9uCWYn2b2gsYleqYBDPbWa8.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/hwnTaa6eT7c5xxOiJL2NhcVt8qX.jpg",
+    "rating": 6.813,
+    "votes": 155,
+    "release": "2026-07-29",
     "genres": [
-      28,
-      12,
+      27,
+      53
+    ],
+    "popularity": 101.3617
+  },
+  {
+    "id": 1083381,
+    "tmdb_id": 1083381,
+    "type": "movie",
+    "title": "Backrooms",
+    "overview": "A strange doorway appears in the basement of a furniture showroom.",
+    "poster": "https://image.tmdb.org/t/p/w342/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/wjwMC7u3xWKkrronolBqsIy4L0L.jpg",
+    "rating": 7.079,
+    "votes": 2299,
+    "release": "2026-05-27",
+    "genres": [
+      27,
+      9648,
       878
     ],
-    "popularity": 153.3296
+    "popularity": 275.4382
+  },
+  {
+    "id": 1275779,
+    "tmdb_id": 1275779,
+    "type": "movie",
+    "title": "Disclosure Day",
+    "overview": "A cybersecurity expert becomes a whistleblower after uncovering secrets about aliens, putting him on the run from a corporation. Meanwhile, a meteorologist experiencing strange phenomena joins forces with him to prove there's life beyond our understanding.",
+    "poster": "https://image.tmdb.org/t/p/w342/AnJ8IQJI23hNpYXVNaythu061Ru.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/flxau5Iu7bChQHsESqvGZ3FQRaI.jpg",
+    "rating": 7.41,
+    "votes": 2038,
+    "release": "2026-06-10",
+    "genres": [
+      878,
+      53
+    ],
+    "popularity": 397.2506
+  },
+  {
+    "id": 454639,
+    "tmdb_id": 454639,
+    "type": "movie",
+    "title": "Masters of the Universe",
+    "overview": "After being separated for 15 years, the Sword of Power leads Prince Adam back to Eternia, where he discovers his home shattered under the fiendish rule of Skeletor. To save his family and his world, Adam must join forces with his closest allies, Teela and Duncan/Man-At-Arms, and embrace his true destiny as He-Man — the most powerful man in the universe.",
+    "poster": "https://image.tmdb.org/t/p/w342/oRuyGUHdoaQxWP3SDfafGkStxTC.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/piV2OnzTZCyGBP9JCjlHIgKGlfo.jpg",
+    "rating": 7.3,
+    "votes": 1340,
+    "release": "2026-06-03",
+    "genres": [
+      28,
+      14,
+      878
+    ],
+    "popularity": 486.7027
   },
   {
     "id": 1273221,
@@ -185,13 +167,64 @@
     "overview": "Twenty-six years after outrunning a suspiciously familiar masked killer, the Core Four are back in the killer's crosshairs and no horror movie IP is safe.",
     "poster": "https://image.tmdb.org/t/p/w342/znHT8peERZRWG1ME3r0Db0EV8k8.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/xWBiXclrRmTggQHMRsIn84YHavs.jpg",
-    "rating": 6.517,
-    "votes": 1254,
+    "rating": 6.514,
+    "votes": 1292,
     "release": "2026-06-03",
     "genres": [
       35
     ],
-    "popularity": 174.4842
+    "popularity": 155.8584
+  },
+  {
+    "id": 1228710,
+    "tmdb_id": 1228710,
+    "type": "movie",
+    "title": "The Mandalorian and Grogu",
+    "overview": "The evil Empire has fallen, and Imperial warlords remain scattered throughout the galaxy. As the fledgling New Republic works to protect everything the Rebellion fought for, they have enlisted the help of legendary Mandalorian bounty hunter Din Djarin and his young apprentice Grogu.",
+    "poster": "https://image.tmdb.org/t/p/w342/7GV5rrUJf0BRUhoh2cyFoeNthlQ.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/MJcERawyqGqJdPsOBc0C449hQ9.jpg",
+    "rating": 7.376,
+    "votes": 1016,
+    "release": "2026-05-20",
+    "genres": [
+      28,
+      12,
+      878
+    ],
+    "popularity": 137.3255
+  },
+  {
+    "id": 1564614,
+    "tmdb_id": 1564614,
+    "type": "movie",
+    "title": "Leviticus",
+    "overview": "Two teenage boys must escape a violent entity that takes the form of the person they desire most — each other.",
+    "poster": "https://image.tmdb.org/t/p/w342/gnAsZvBygplNpp8PtjoTEYv3VPB.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/7y8zWGEjs7tresw4Hzkkf4TdkcL.jpg",
+    "rating": 6.328,
+    "votes": 67,
+    "release": "2026-06-17",
+    "genres": [
+      10749,
+      27
+    ],
+    "popularity": 140.5365
+  },
+  {
+    "id": 1361774,
+    "tmdb_id": 1361774,
+    "type": "movie",
+    "title": "The Dink",
+    "overview": "Desperate to save a struggling country club and earn his father's respect, a washed-up tennis pro is compelled to break a sacred vow and do the unthinkable: play pickleball.",
+    "poster": "https://image.tmdb.org/t/p/w342/8dq7vaUkXPqwqKxBFW4qJNBWeop.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/tJQhL95q63ITeBy5OTGPx51sFks.jpg",
+    "rating": 6.183,
+    "votes": 61,
+    "release": "2026-07-23",
+    "genres": [
+      35
+    ],
+    "popularity": 63.4477
   },
   {
     "id": 1375646,
@@ -202,14 +235,14 @@
     "poster": "https://image.tmdb.org/t/p/w342/tN799oUR0f1gUKDYdMNrDaY7I51.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/jDvxsBemt2Iyslg7qn2WMzgxz23.jpg",
     "rating": 8.045,
-    "votes": 292,
+    "votes": 310,
     "release": "2026-05-21",
     "genres": [
       28,
       27,
       878
     ],
-    "popularity": 222.9323
+    "popularity": 216.0898
   },
   {
     "id": 1314481,
@@ -219,47 +252,33 @@
     "overview": "Andy Sachs returns to Runway as Miranda Priestly navigates a new media landscape and Runway's position within. The duo reconnect with former assistant Emily Charlton, now the head of a luxury brand that possesses funding which could ensure Runway's survival.",
     "poster": "https://image.tmdb.org/t/p/w342/fCAURTUx3YfsJ8k9I0UamjSILiR.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/Af907x5h9W1wVis8XrSd7ynTWuy.jpg",
-    "rating": 7.159,
-    "votes": 1729,
+    "rating": 7.151,
+    "votes": 1756,
     "release": "2026-04-29",
     "genres": [
       35,
       18
     ],
-    "popularity": 153.5867
+    "popularity": 155.7044
   },
   {
-    "id": 1361774,
-    "tmdb_id": 1361774,
+    "id": 1084244,
+    "tmdb_id": 1084244,
     "type": "movie",
-    "title": "The Dink",
-    "overview": "Desperate to save a struggling country club and earn his father's respect, a washed-up tennis pro is compelled to break a sacred vow and do the unthinkable: play pickleball.",
-    "poster": "https://image.tmdb.org/t/p/w342/8dq7vaUkXPqwqKxBFW4qJNBWeop.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/tJQhL95q63ITeBy5OTGPx51sFks.jpg",
-    "rating": 6.2,
-    "votes": 59,
-    "release": "2026-07-23",
-    "genres": [
-      35
-    ],
-    "popularity": 70.5628
-  },
-  {
-    "id": 1564614,
-    "tmdb_id": 1564614,
-    "type": "movie",
-    "title": "Leviticus",
-    "overview": "Two teenage boys must escape a violent entity that takes the form of the person they desire most — each other.",
-    "poster": "https://image.tmdb.org/t/p/w342/gnAsZvBygplNpp8PtjoTEYv3VPB.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/7y8zWGEjs7tresw4Hzkkf4TdkcL.jpg",
-    "rating": 6.5,
-    "votes": 56,
+    "title": "Toy Story 5",
+    "overview": "When Bonnie receives a Lilypad tablet as a gift and becomes obsessed, Buzz, Woody, Jessie and the rest of the gang's jobs become exponentially harder when they have to go head to head with the all-new threat to playtime.",
+    "poster": "https://image.tmdb.org/t/p/w342/sfQtVlIHljToOwYjhe21KPGzZWK.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/8sSKdEmlmqF4kJUd28SqthXC4yZ.jpg",
+    "rating": 7.432,
+    "votes": 727,
     "release": "2026-06-17",
     "genres": [
-      27,
-      10749
+      16,
+      10751,
+      35,
+      12
     ],
-    "popularity": 62.7822
+    "popularity": 295.8489
   },
   {
     "id": 949838,
@@ -269,14 +288,14 @@
     "overview": "To save his career, a 40-year-old ad exec joins a crew of twentysomethings for a wild Miami bachelor party after they mistakenly add him to a group chat.",
     "poster": "https://image.tmdb.org/t/p/w342/9Bu1PW2R1XayqRqnl0aDOgMcrdS.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/hL5EIk48251OXlbIbRJq3yaBHk8.jpg",
-    "rating": 6.797,
-    "votes": 180,
+    "rating": 6.82,
+    "votes": 192,
     "release": "2026-07-20",
     "genres": [
       35,
       80
     ],
-    "popularity": 122.2023
+    "popularity": 119.4692
   },
   {
     "id": 687163,
@@ -286,32 +305,14 @@
     "overview": "Science teacher Ryland Grace wakes up on a spaceship light years from home with no recollection of who he is or how he got there. As his memory returns, he begins to uncover his mission: solve the riddle of the mysterious substance causing the sun to die out. He must call on his scientific knowledge and unorthodox ideas to save everything on Earth from extinction.",
     "poster": "https://image.tmdb.org/t/p/w342/yihdXomYb5kTeSivtFndMy5iDmf.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/8Tfys3mDZVp4tNoH2ktm06a0Tau.jpg",
-    "rating": 8.659,
-    "votes": 6574,
+    "rating": 8.661,
+    "votes": 6609,
     "release": "2026-03-15",
     "genres": [
       878,
       12
     ],
-    "popularity": 180.8532
-  },
-  {
-    "id": 1003596,
-    "tmdb_id": 1003596,
-    "type": "movie",
-    "title": "Avengers: Doomsday",
-    "overview": "Beloved heroes from three distinct universes are set on a deadly collision course and face an existential threat unlike anything they've ever encountered.",
-    "poster": "https://image.tmdb.org/t/p/w342/cWXtJhrlruF8CeYuaBGE8vdj3Q9.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/s4v0UX1anfXm0UvloLsTTJ4v222.jpg",
-    "rating": 0,
-    "votes": 0,
-    "release": "2026-12-16",
-    "genres": [
-      878,
-      28,
-      12
-    ],
-    "popularity": 76.8027
+    "popularity": 178.9053
   },
   {
     "id": 1630409,
@@ -319,34 +320,34 @@
     "type": "movie",
     "title": "The Debt Collector",
     "overview": "Tormented by past mistakes and a terminal diagnosis, an ex-debt collector returns to the underworld to protect the victims of a violent organization.",
-    "poster": "https://image.tmdb.org/t/p/w342/7HEMg4ZonD0YIcztf1Sp199cBb9.jpg",
+    "poster": "https://image.tmdb.org/t/p/w342/qADBUb5ybrkRVGZEFF8Z4RuOwys.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/dk68ykaNd3HdrDJyPJqEGsgvag7.jpg",
     "rating": 6.5,
-    "votes": 21,
+    "votes": 23,
     "release": "2026-07-20",
     "genres": [
       28,
       53,
       80
     ],
-    "popularity": 212.1374
+    "popularity": 210.3026
   },
   {
-    "id": 1284465,
-    "tmdb_id": 1284465,
+    "id": 1311031,
+    "tmdb_id": 1311031,
     "type": "movie",
-    "title": "The Death of Robin Hood",
-    "overview": "Grappling with his past after a life of crime and murder, Robin Hood finds himself gravely injured after a battle he thought would be his last. In the hands of a mysterious woman, he is offered a chance at salvation.",
-    "poster": "https://image.tmdb.org/t/p/w342/13MmRwmG5NmaMfU8qNrtgGXisiD.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/aM3pduSU53VjcALWOfLWNw8v2TI.jpg",
-    "rating": 6.579,
-    "votes": 126,
-    "release": "2026-06-18",
+    "title": "Demon Slayer: Kimetsu no Yaiba Infinity Castle",
+    "overview": "The Demon Slayer Corps are drawn into the Infinity Castle, where Tanjiro, Nezuko, and the Hashira face terrifying Upper Rank demons in a desperate fight as the final battle against Muzan Kibutsuji begins.",
+    "poster": "https://image.tmdb.org/t/p/w342/fWVSwgjpT2D78VUh6X8UBd2rorW.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/1RgPyOhN4DRs225BGTlHJqCudII.jpg",
+    "rating": 8.393,
+    "votes": 1322,
+    "release": "2025-07-18",
     "genres": [
-      12,
-      18,
-      28
+      16,
+      28,
+      14
     ],
-    "popularity": 307.1527
+    "popularity": 190.4972
   }
 ]

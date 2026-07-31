@@ -1,5 +1,387 @@
 [
   {
+    "inserted_at": 1785437517,
+    "listened_at": 1785430368,
+    "recording_msid": "347c52c0-9bac-435e-8c52-1fb01f85c337",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+        "lastfm_release_mbid": "292b1501-8b30-4026-81a4-215975885f1d",
+        "lastfm_track_mbid": "c45abe48-2fd0-4327-9b84-cc5c6d628930",
+        "recording_msid": "347c52c0-9bac-435e-8c52-1fb01f85c337",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Troye Sivan",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Troye Sivan",
+            "artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 20981221972,
+        "caa_release_mbid": "292b1501-8b30-4026-81a4-215975885f1d",
+        "recording_mbid": "c45abe48-2fd0-4327-9b84-cc5c6d628930",
+        "recording_name": "Bloom",
+        "release_mbid": "f81817b0-0b07-4c9b-b3b4-9f754cd77da3",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/2842381462"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/368782664"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/7HYSJL6dzpniOnqrx3LMSd"
+          }
+        ]
+      },
+      "release_name": "Bloom",
+      "track_name": "Bloom"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785437517,
+    "listened_at": 1785430368,
+    "recording_msid": "942c5060-5d88-41a6-8ebd-9a727aae4ddf",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "20244d07-534f-4eff-b4d4-930878889970",
+        "lastfm_release_mbid": "9d716f4e-8a34-4db9-a41c-7ef649b3b37c",
+        "lastfm_track_mbid": "8670a098-6ab7-4e18-8ac0-0ec7259151f8",
+        "recording_msid": "942c5060-5d88-41a6-8ebd-9a727aae4ddf",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Taylor Swift",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "20244d07-534f-4eff-b4d4-930878889970"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Taylor Swift",
+            "artist_mbid": "20244d07-534f-4eff-b4d4-930878889970",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 43200832126,
+        "caa_release_mbid": "c2ddb1d1-0e05-4659-818e-57a55ab67d94",
+        "recording_mbid": "8670a098-6ab7-4e18-8ac0-0ec7259151f8",
+        "recording_name": "The Fate of Ophelia",
+        "release_mbid": "2def1edd-2cb4-4622-a792-0ddc2907f29d",
+        "url_rels": [
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/gb/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/gb/song/1850496033"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/5UQ3JrA9kEh7rfwhUS1h0z"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3595996252"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/471563020"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1843913773"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/31TXxq8gfgYyrYClnYY48m"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900293"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3579685911"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900329"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3579685431"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900374"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1838810951"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1838810951"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/476940802"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/gb/song/1856301587"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/gb/song/1856301587"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/3CFKUvybrj8Jg5F018tyuA"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/1dosSsKwYF7hoQA2kuu6wI"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900433"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1842897454"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1842897454"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/53iuhJlwXhSER5J2IYYv1W"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1838812723"
+          }
+        ]
+      },
+      "release_name": "The Life of a Showgirl",
+      "track_name": "The Fate of Ophelia"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785430672,
+    "listened_at": 1785430368,
+    "recording_msid": "e7dbb955-1fc1-4e35-9c87-4995030fccc6",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 75,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/rxmtHVSVjdo",
+        "recording_msid": "e7dbb955-1fc1-4e35-9c87-4995030fccc6",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Troye Sivan",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Troye Sivan",
+            "artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 20981221972,
+        "caa_release_mbid": "292b1501-8b30-4026-81a4-215975885f1d",
+        "recording_mbid": "c45abe48-2fd0-4327-9b84-cc5c6d628930",
+        "recording_name": "Bloom",
+        "release_mbid": "f81817b0-0b07-4c9b-b3b4-9f754cd77da3",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/2842381462"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/368782664"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/7HYSJL6dzpniOnqrx3LMSd"
+          }
+        ]
+      },
+      "release_name": "Bloom",
+      "track_name": "Bloom"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1785430484,
+    "listened_at": 1785430368,
+    "recording_msid": "f470a6db-acc4-46ff-a4e2-c0b30bcb8bdb",
+    "track_metadata": {
+      "additional_info": {
+        "duration": 226,
+        "music_service_name": "YouTube",
+        "origin_url": "https://youtu.be/ko70cExuzZM",
+        "recording_msid": "f470a6db-acc4-46ff-a4e2-c0b30bcb8bdb",
+        "submission_client": "Web Scrobbler",
+        "submission_client_version": "3.22.0"
+      },
+      "artist_name": "Taylor Swift",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "20244d07-534f-4eff-b4d4-930878889970"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Taylor Swift",
+            "artist_mbid": "20244d07-534f-4eff-b4d4-930878889970",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 43200832126,
+        "caa_release_mbid": "c2ddb1d1-0e05-4659-818e-57a55ab67d94",
+        "recording_mbid": "8670a098-6ab7-4e18-8ac0-0ec7259151f8",
+        "recording_name": "The Fate of Ophelia",
+        "release_mbid": "2def1edd-2cb4-4622-a792-0ddc2907f29d",
+        "url_rels": [
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/gb/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/gb/song/1850496033"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/5UQ3JrA9kEh7rfwhUS1h0z"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3595996252"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/471563020"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1850496033"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1843913773"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/31TXxq8gfgYyrYClnYY48m"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900293"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3579685911"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900329"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/3579685431"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900374"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1838810951"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1838810951"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/476940802"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/gb/song/1856301587"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/gb/song/1856301587"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/3CFKUvybrj8Jg5F018tyuA"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/1dosSsKwYF7hoQA2kuu6wI"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/463900433"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/us/song/1842897454"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1842897454"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/53iuhJlwXhSER5J2IYYv1W"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/us/song/1838812723"
+          }
+        ]
+      },
+      "release_name": "The Life of a Showgirl",
+      "track_name": "The Fate of Ophelia"
+    },
+    "user_name": "chirag127"
+  },
+  {
     "inserted_at": 1785336127,
     "listened_at": 1785335997,
     "recording_msid": "81fe66cd-1573-473e-b1bd-c21d42267f39",
@@ -1882,11 +2264,11 @@
         "url_rels": [
           {
             "type": "free streaming",
-            "url": "https://www.deezer.com/track/823567782"
+            "url": "https://www.youtube.com/watch?v=Pkh8UtuejGw"
           },
           {
             "type": "free streaming",
-            "url": "https://www.youtube.com/watch?v=Pkh8UtuejGw"
+            "url": "https://www.deezer.com/track/823567782"
           },
           {
             "type": "free streaming",
@@ -2287,8 +2669,8 @@
             "join_phrase": ""
           }
         ],
-        "caa_id": 14789013576,
-        "caa_release_mbid": "e22e7a3e-a5b3-4c03-9a83-74139bbe6403",
+        "caa_id": 20405344882,
+        "caa_release_mbid": "95f26109-a910-48b6-9737-cac05a60ff4b",
         "recording_mbid": "2445f788-914f-4893-9a6d-5de91d7db4f9",
         "recording_name": "Treat You Better",
         "release_mbid": "ef33a00d-356d-4ac0-8237-29ffac02a2a1",
@@ -2653,15 +3035,15 @@
         "url_rels": [
           {
             "type": "free streaming",
-            "url": "https://www.deezer.com/track/2842381472"
-          },
-          {
-            "type": "free streaming",
             "url": "https://open.spotify.com/track/254gN6XtkrcMMTafywRCR9"
           },
           {
             "type": "streaming",
             "url": "https://tidal.com/track/368782665"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/2842381472"
           }
         ]
       },
@@ -2701,15 +3083,15 @@
         "url_rels": [
           {
             "type": "free streaming",
-            "url": "https://open.spotify.com/track/7HYSJL6dzpniOnqrx3LMSd"
-          },
-          {
-            "type": "free streaming",
             "url": "https://www.deezer.com/track/2842381462"
           },
           {
             "type": "streaming",
             "url": "https://tidal.com/track/368782664"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/7HYSJL6dzpniOnqrx3LMSd"
           }
         ]
       },
@@ -2753,11 +3135,11 @@
           },
           {
             "type": "free streaming",
-            "url": "https://www.deezer.com/track/2179352527"
+            "url": "https://open.spotify.com/track/1v3pl0EOZOYauEoLLzbaV5"
           },
           {
             "type": "free streaming",
-            "url": "https://open.spotify.com/track/45vJNsGxBKM5bqVnddE5jD"
+            "url": "https://www.deezer.com/track/2842381372"
           },
           {
             "type": "streaming",
@@ -2765,11 +3147,11 @@
           },
           {
             "type": "free streaming",
-            "url": "https://open.spotify.com/track/1v3pl0EOZOYauEoLLzbaV5"
+            "url": "https://open.spotify.com/track/45vJNsGxBKM5bqVnddE5jD"
           },
           {
             "type": "free streaming",
-            "url": "https://www.deezer.com/track/2842381372"
+            "url": "https://www.deezer.com/track/2179352527"
           }
         ]
       },
@@ -2809,15 +3191,15 @@
         "url_rels": [
           {
             "type": "free streaming",
-            "url": "https://open.spotify.com/track/7HYSJL6dzpniOnqrx3LMSd"
-          },
-          {
-            "type": "free streaming",
             "url": "https://www.deezer.com/track/2842381462"
           },
           {
             "type": "streaming",
             "url": "https://tidal.com/track/368782664"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/7HYSJL6dzpniOnqrx3LMSd"
           }
         ]
       },
@@ -3101,145 +3483,6 @@
       },
       "artist_name": "The Weeknd",
       "track_name": "I feel it coming ft. Daft Punk (official video)"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1784126347,
-    "listened_at": 1784126284,
-    "recording_msid": "1b9e1ac1-fe4a-4997-9a8b-6729f6231d27",
-    "track_metadata": {
-      "additional_info": {
-        "duration_ms": 205000,
-        "recording_msid": "1b9e1ac1-fe4a-4997-9a8b-6729f6231d27",
-        "submission_client": "Pano Scrobbler",
-        "submission_client_version": "4.41"
-      },
-      "artist_name": "Lauv",
-      "mbid_mapping": {
-        "artist_mbids": [
-          "c0ef2ba5-a7b7-40ea-bd27-30acccfcac11"
-        ],
-        "artists": [
-          {
-            "artist_credit_name": "Lauv",
-            "artist_mbid": "c0ef2ba5-a7b7-40ea-bd27-30acccfcac11",
-            "join_phrase": ""
-          }
-        ],
-        "caa_id": 20512551101,
-        "caa_release_mbid": "47383b9f-d6ea-457c-9c95-6f9b6dd6fa36",
-        "recording_mbid": "c9319bbc-8dec-4c7c-8934-ee234345f705",
-        "recording_name": "I Like Me Better",
-        "release_mbid": "47383b9f-d6ea-457c-9c95-6f9b6dd6fa36"
-      },
-      "release_name": "I Like Me Better",
-      "track_name": "I Like Me Better"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1784126100,
-    "listened_at": 1784125999,
-    "recording_msid": "759ab6d4-d96b-4ea7-afe5-dd1a95dd2c4d",
-    "track_metadata": {
-      "additional_info": {
-        "duration_ms": 337000,
-        "recording_msid": "759ab6d4-d96b-4ea7-afe5-dd1a95dd2c4d",
-        "submission_client": "Pano Scrobbler",
-        "submission_client_version": "4.41"
-      },
-      "artist_name": "Bruno Mars",
-      "mbid_mapping": {
-        "artist_mbids": [
-          "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
-        ],
-        "artists": [
-          {
-            "artist_credit_name": "Bruno Mars",
-            "artist_mbid": "afb680f2-b6eb-4cd7-a70b-a63b25c763d5",
-            "join_phrase": ""
-          }
-        ],
-        "caa_id": 34199011932,
-        "caa_release_mbid": "506157a2-bd38-45ff-a189-869ffa7b285f",
-        "recording_mbid": "5b9cee05-b971-477b-b356-950801ad7477",
-        "recording_name": "Versace on the Floor",
-        "release_mbid": "a76c3156-eb9a-4c59-bd56-5fd0d07a5efd",
-        "url_rels": [
-          {
-            "type": "free streaming",
-            "url": "https://open.spotify.com/track/0kN8xEmgMW9mh7UmDYHlJP"
-          }
-        ]
-      },
-      "release_name": "24K Magic",
-      "track_name": "Versace on the Floor"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1784125866,
-    "listened_at": 1784125797,
-    "recording_msid": "91cd9c8d-f266-43bd-8eb6-2867b4288dfc",
-    "track_metadata": {
-      "additional_info": {
-        "duration_ms": 231000,
-        "recording_msid": "91cd9c8d-f266-43bd-8eb6-2867b4288dfc",
-        "submission_client": "Pano Scrobbler",
-        "submission_client_version": "4.41"
-      },
-      "artist_name": "Cardi B",
-      "mbid_mapping": {
-        "artist_mbids": [
-          "2f3c4d70-0462-40da-bba3-0aec5772c556"
-        ],
-        "artists": [
-          {
-            "artist_credit_name": "Cardi B",
-            "artist_mbid": "2f3c4d70-0462-40da-bba3-0aec5772c556",
-            "join_phrase": ""
-          }
-        ],
-        "recording_mbid": "e1cb1e67-a75b-4fc6-9b41-4c9edf6711b7",
-        "recording_name": "Please Me",
-        "release_mbid": "8b5f3876-f65f-4aad-9e7b-ff9d6b6197fe"
-      },
-      "release_name": "40 tubes été 2019",
-      "track_name": "Please Me"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1784118319,
-    "listened_at": 1784118246,
-    "recording_msid": "e8279f6c-0339-40c5-9e58-96152354c439",
-    "track_metadata": {
-      "additional_info": {
-        "duration_ms": 238050,
-        "recording_msid": "e8279f6c-0339-40c5-9e58-96152354c439",
-        "submission_client": "Pano Scrobbler",
-        "submission_client_version": "4.41"
-      },
-      "artist_name": "Ariana Grande Ft. Nicki Minaj",
-      "mbid_mapping": {
-        "artist_mbids": [
-          "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387"
-        ],
-        "artists": [
-          {
-            "artist_credit_name": "Ariana Grande",
-            "artist_mbid": "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387",
-            "join_phrase": ""
-          }
-        ],
-        "caa_id": 39694332357,
-        "caa_release_mbid": "9e1785c6-cb0d-4d82-bc42-cc9dc48f5405",
-        "recording_mbid": "bc40d378-ce12-46a2-b4cf-5b5450b0a04c",
-        "recording_name": "west side",
-        "release_mbid": "aac979d6-96e8-419c-bba0-a81a45517242"
-      },
-      "track_name": "Side To Side (Official Video) (feat. Nicki Minaj)"
     },
     "user_name": "chirag127"
   }
