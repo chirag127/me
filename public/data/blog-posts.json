@@ -1,5 +1,23 @@
 [
   {
+    "title": "Claude Code as a development partner: what actually changed",
+    "link": "https://blog.oriz.in/blog/claude-code-development-partner-honest-review/",
+    "date": "Fri, 31 Jul 2026 00:00:00 GMT",
+    "desc": ""
+  },
+  {
+    "title": "Managing 50+ repos as a solo developer: what actually works",
+    "link": "https://blog.oriz.in/blog/managing-50-repos-solo-developer/",
+    "date": "Fri, 31 Jul 2026 00:00:00 GMT",
+    "desc": ""
+  },
+  {
+    "title": "P2P lending in India, 2026: what I learned building a yield watcher",
+    "link": "https://blog.oriz.in/blog/p2p-lending-india-yield-watcher-2026/",
+    "date": "Fri, 31 Jul 2026 00:00:00 GMT",
+    "desc": ""
+  },
+  {
     "title": "Claude Code vs OpenCode in 2026: A Feature-by-Feature Comparison From the Inside",
     "link": "https://blog.oriz.in/blog/2026-07-02-claude-code-vs-opencode/",
     "date": "Thu, 02 Jul 2026 00:00:00 GMT",
@@ -99,24 +117,6 @@
     "title": "Build Your Digital Twin in 2026: A Public Lifestream That Tracks Everything You Consume",
     "link": "https://blog.oriz.in/blog/digital-twin-public-lifestream-2026/",
     "date": "Fri, 19 Jun 2026 00:00:00 GMT",
-    "desc": ""
-  },
-  {
-    "title": "Track Everything for Free with No Ads and No Self-Hosting in 2026",
-    "link": "https://blog.oriz.in/blog/track-everything-free-no-ads-no-self-hosting-2026/",
-    "date": "Fri, 19 Jun 2026 00:00:00 GMT",
-    "desc": ""
-  },
-  {
-    "title": "Track Everything via APIs in 2026: A Free, No-Self-Hosting Browser-Extension Stack",
-    "link": "https://blog.oriz.in/blog/track-everything-via-apis-browser-extension-2026/",
-    "date": "Fri, 19 Jun 2026 00:00:00 GMT",
-    "desc": ""
-  },
-  {
-    "title": "OneDrive vs Local Drive for Git Repos: The Definitive Answer (With 3 TB OneDrive and 150 GB Local)",
-    "link": "https://blog.oriz.in/blog/git-repos-onedrive-vs-local-drive/",
-    "date": "Tue, 16 Jun 2026 00:00:00 GMT",
     "desc": ""
   }
 ]

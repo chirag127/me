@@ -7,15 +7,15 @@
     "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
     "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
-    "rating": 8.377,
-    "votes": 6779,
+    "rating": 8.375,
+    "votes": 6786,
     "release": "2022-08-21",
     "genres": [
       10765,
       18,
       10759
     ],
-    "popularity": 346.8365
+    "popularity": 327.6509
   },
   {
     "id": 125988,
@@ -26,13 +26,29 @@
     "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
     "rating": 8.184,
-    "votes": 2342,
+    "votes": 2349,
     "release": "2023-05-04",
     "genres": [
       10765,
       18
     ],
-    "popularity": 206.3233
+    "popularity": 220.5691
+  },
+  {
+    "id": 46271,
+    "tmdb_id": 46271,
+    "type": "tv",
+    "title": "Secret Story",
+    "overview": "The game contestants are cut off from the rest of the world during ten to fifteen weeks in a house called “house of secrets”, where every room is fitted with video cameras, except the restroom. The goal is to keep a secret while trying to discover the other contestants' secret.",
+    "poster": "https://image.tmdb.org/t/p/w342/jDFFyXE04vv9pvHzJESgbJnNRc2.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/go422YL6ytCPCZsrTCBmAJYaI72.jpg",
+    "rating": 4.5,
+    "votes": 12,
+    "release": "2007-06-23",
+    "genres": [
+      10764
+    ],
+    "popularity": 146.7563
   },
   {
     "id": 22980,
@@ -49,7 +65,7 @@
       10767,
       35
     ],
-    "popularity": 189.8743
+    "popularity": 195.173
   },
   {
     "id": 94664,
@@ -59,32 +75,66 @@
     "overview": "When a 34-year-old underachiever gets run over by a truck, his story doesn't end there. Reincarnated in a new world as an infant, Rudy will seize every opportunity to live the life he's always wanted. Armed with new friends, some freshly acquired magical abilities, and the courage to do the things he's always dreamed of, he's embarking on an epic adventure—with all of his past experience intact!",
     "poster": "https://image.tmdb.org/t/p/w342/gLKOYIMyKlUHW0SVdskhgf9C0yy.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/j9fRIimor0AMFJR9kjZubXcABzZ.jpg",
-    "rating": 8.5,
-    "votes": 1625,
+    "rating": 8.468,
+    "votes": 1626,
     "release": "2021-01-11",
     "genres": [
       10759,
       16,
       10765
     ],
-    "popularity": 187.2047
+    "popularity": 167.4216
   },
   {
-    "id": 59941,
-    "tmdb_id": 59941,
+    "id": 65334,
+    "tmdb_id": 65334,
     "type": "tv",
-    "title": "The Tonight Show Starring Jimmy Fallon",
-    "overview": "After Jay Leno's second retirement from the program, Jimmy Fallon stepped in as his permanent replacement. After 42 years in Los Angeles the program was brought back to New York.",
-    "poster": "https://image.tmdb.org/t/p/w342/1N4o5PmmqhlVDrcdJ2RlCFWbLGX.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/7VO04TtL1jIT6XOPs9u4jdB8KaB.jpg",
-    "rating": 5.8,
-    "votes": 380,
-    "release": "2014-02-17",
+    "title": "Miraculous: Tales of Ladybug & Cat Noir",
+    "overview": "Marinette and Adrien, two Parisian teenagers, are entrusted with powerful jewels in order to transform into superheroes Ladybug and Cat Noir. But neither hero knows the other's true identity — or that they're classmates!",
+    "poster": "https://image.tmdb.org/t/p/w342/acrtAy8gmxcsEvrDP09MpMSCeDZ.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/lH22EnM0ofC7GsVGU8dAA2RXV1c.jpg",
+    "rating": 8.1,
+    "votes": 4630,
+    "release": "2015-10-19",
     "genres": [
-      35,
-      10767
+      10759,
+      16,
+      10762
     ],
-    "popularity": 153.2665
+    "popularity": 175.7258
+  },
+  {
+    "id": 23393,
+    "tmdb_id": 23393,
+    "type": "tv",
+    "title": "BBC Proms",
+    "overview": "The World's Greatest Classical Music Festival.  The BBC Proms is a classical music festival held every summer at the Royal Albert Hall in London, and in recent years has explored an innovative series of Proms around the UK with concerts in all four nations. Its aim: to bring the best in classical music to the widest possible audience, which remains true to founder-conductor Henry Wood’s original vision in 1895.  Whether you are a classical connoisseur or think classical music isn’t for you, there is something for everyone in the eight-week stretch of concerts.",
+    "poster": "https://image.tmdb.org/t/p/w342/605DvsE6xjYaJ3fYDRhnj0fmb2D.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/aE8LrypJQs2EJvyVgmV2Ta6Hovz.jpg",
+    "rating": 7.7,
+    "votes": 3,
+    "release": "1947-09-13",
+    "genres": [
+      99
+    ],
+    "popularity": 119.0034
+  },
+  {
+    "id": 278624,
+    "tmdb_id": 278624,
+    "type": "tv",
+    "title": "Lucky",
+    "overview": "When a multi-million-dollar heist goes sideways, con artist Lucky is forced to go on the run. Pursued by both the FBI and a ruthless crime boss, Lucky must fight for her life—and a way out.",
+    "poster": "https://image.tmdb.org/t/p/w342/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
+    "rating": 7.2,
+    "votes": 102,
+    "release": "2026-07-14",
+    "genres": [
+      18,
+      80
+    ],
+    "popularity": 112.2902
   },
   {
     "id": 296206,
@@ -94,85 +144,15 @@
     "overview": "When an unassuming dad's daughter goes missing, he dusts off his old black-ops skills to track her down — only to attract the wrong kind of attention.",
     "poster": "https://image.tmdb.org/t/p/w342/mxa7YxVln3Rwnd2Va82PoclTznj.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/g1LJLlmWP74zv9yXKEXm7g9p10O.jpg",
-    "rating": 7.662,
-    "votes": 65,
+    "rating": 7.6,
+    "votes": 66,
     "release": "2026-06-26",
     "genres": [
       10759,
       80,
       18
     ],
-    "popularity": 140.314
-  },
-  {
-    "id": 61818,
-    "tmdb_id": 61818,
-    "type": "tv",
-    "title": "Late Night with Seth Meyers",
-    "overview": "Seth Meyers, who is \"Saturday Night Live's\" longest serving anchor on the show's wildly popular \"Weekend Update,\" takes over as host of NBC's \"Late Night\" — home to A-list celebrity guests, memorable comedy and the best in musical talent. As the Emmy Award-winning head writer for \"SNL,\" Meyers has established a reputation for sharp wit and perfectly timed comedy, and has gained fame for his spot-on jokes and satire. Meyers takes his departure from \"SNL\" to his new post at \"Late Night,\" as Jimmy Fallon moves to \"The Tonight Show\".",
-    "poster": "https://image.tmdb.org/t/p/w342/u8VruEGv7mtyJihVn2CSA1u90pk.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/dfX2UaHVE5c7kLBFbgmEZJuy4Ev.jpg",
-    "rating": 5.1,
-    "votes": 131,
-    "release": "2014-02-25",
-    "genres": [
-      10767,
-      35
-    ],
-    "popularity": 135.8388
-  },
-  {
-    "id": 45140,
-    "tmdb_id": 45140,
-    "type": "tv",
-    "title": "Teen Titans Go!",
-    "overview": "Robin, Starfire, Raven, Beast Boy and Cyborg return in all-new, comedic adventures. They may be super heroes who save the world every day ... but somebody still has to do the laundry!",
-    "poster": "https://image.tmdb.org/t/p/w342/kPKAigYUlWRpnfo4Ptiwlz4FWXU.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/bIHCUqaapZdRjd2kzSDiwzYyrpC.jpg",
-    "rating": 6.4,
-    "votes": 713,
-    "release": "2013-04-23",
-    "genres": [
-      16,
-      10759,
-      35,
-      10751,
-      10765
-    ],
-    "popularity": 132.9374
-  },
-  {
-    "id": 2224,
-    "tmdb_id": 2224,
-    "type": "tv",
-    "title": "The Daily Show",
-    "overview": "The World's Fakest News Team tackle the biggest stories in news, politics and pop culture.",
-    "poster": "https://image.tmdb.org/t/p/w342/ixcfyK7it6FjRM36Te4OdblAq4X.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/qLMfcvdCcCGD2BNLH8b6ZCBuO7D.jpg",
-    "rating": 6.4,
-    "votes": 647,
-    "release": "1996-07-22",
-    "genres": [
-      10763,
-      35
-    ],
-    "popularity": 131.2403
-  },
-  {
-    "id": 46271,
-    "tmdb_id": 46271,
-    "type": "tv",
-    "title": "Secret Story",
-    "overview": "The game contestants are cut off from the rest of the world during ten to fifteen weeks in a house called “house of secrets”, where every room is fitted with video cameras, except the restroom. The goal is to keep a secret while trying to discover the other contestants' secret.",
-    "poster": "https://image.tmdb.org/t/p/w342/jDFFyXE04vv9pvHzJESgbJnNRc2.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/go422YL6ytCPCZsrTCBmAJYaI72.jpg",
-    "rating": 4.458,
-    "votes": 12,
-    "release": "2007-06-23",
-    "genres": [
-      10764
-    ],
-    "popularity": 127.6949
+    "popularity": 112.9396
   },
   {
     "id": 206559,
@@ -188,24 +168,44 @@
     "genres": [
       10766
     ],
-    "popularity": 125.6596
+    "popularity": 104.0757
   },
   {
-    "id": 278624,
-    "tmdb_id": 278624,
+    "id": 45140,
+    "tmdb_id": 45140,
     "type": "tv",
-    "title": "Lucky",
-    "overview": "When a multi-million-dollar heist goes sideways, con artist Lucky is forced to go on the run. Pursued by both the FBI and a ruthless crime boss, Lucky must fight for her life—and a way out.",
-    "poster": "https://image.tmdb.org/t/p/w342/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
-    "rating": 7.204,
-    "votes": 98,
-    "release": "2026-07-14",
+    "title": "Teen Titans Go!",
+    "overview": "Robin, Starfire, Raven, Beast Boy and Cyborg return in all-new, comedic adventures. They may be super heroes who save the world every day ... but somebody still has to do the laundry!",
+    "poster": "https://image.tmdb.org/t/p/w342/kPKAigYUlWRpnfo4Ptiwlz4FWXU.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/bIHCUqaapZdRjd2kzSDiwzYyrpC.jpg",
+    "rating": 6.433,
+    "votes": 714,
+    "release": "2013-04-23",
     "genres": [
-      18,
-      80
+      16,
+      10759,
+      35,
+      10751,
+      10765
     ],
-    "popularity": 120.0698
+    "popularity": 116.5132
+  },
+  {
+    "id": 33238,
+    "tmdb_id": 33238,
+    "type": "tv",
+    "title": "Running Man",
+    "overview": "These days, as variety shows are gradually disappearing, this is one of Korea’s representative variety shows that has been responsible for Sunday evenings for over 10 years. This program features numerous stars and members going around various places, playing games, and completing missions. In particular, among the many fun elements of variety shows, this one focuses solely on laughter.\n\nOpen your eyes! Big fun is coming in!\n\nOpen your mouth! Big laughter is coming in!\n\nOpen your heart! Useful lessons are coming in!",
+    "poster": "https://image.tmdb.org/t/p/w342/2Wmmu1MkqxJ48J7aySET9EKEjXz.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/wsHj4oHQJoe7DMYaqNFwVoyLiAh.jpg",
+    "rating": 8.21,
+    "votes": 214,
+    "release": "2010-07-11",
+    "genres": [
+      35,
+      10764
+    ],
+    "popularity": 100.0175
   },
   {
     "id": 91555,
@@ -222,77 +222,7 @@
       10759,
       18
     ],
-    "popularity": 114.668
-  },
-  {
-    "id": 33238,
-    "tmdb_id": 33238,
-    "type": "tv",
-    "title": "Running Man",
-    "overview": "These days, as variety shows are gradually disappearing, this is one of Korea’s representative variety shows that has been responsible for Sunday evenings for over 10 years. This program features numerous stars and members going around various places, playing games, and completing missions. In particular, among the many fun elements of variety shows, this one focuses solely on laughter.\n\nOpen your eyes! Big fun is coming in!\n\nOpen your mouth! Big laughter is coming in!\n\nOpen your heart! Useful lessons are coming in!",
-    "poster": "https://image.tmdb.org/t/p/w342/2Wmmu1MkqxJ48J7aySET9EKEjXz.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/wsHj4oHQJoe7DMYaqNFwVoyLiAh.jpg",
-    "rating": 8.174,
-    "votes": 215,
-    "release": "2010-07-11",
-    "genres": [
-      35,
-      10764
-    ],
-    "popularity": 102.2306
-  },
-  {
-    "id": 30983,
-    "tmdb_id": 30983,
-    "type": "tv",
-    "title": "Detective Conan",
-    "overview": "The son of a world famous mystery writer, Jimmy Kudo, has achieved his own notoriety by assisting the local police as a student detective. He has always been able to solve the most difficult of criminal cases using his wits and power of reason.",
-    "poster": "https://image.tmdb.org/t/p/w342/rRIEFvHRy01OYzmXQBbGeW0Qilc.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/z67lpMtm8YGykJO4p89meuNMvj8.jpg",
-    "rating": 8.016,
-    "votes": 777,
-    "release": "1996-01-08",
-    "genres": [
-      16,
-      80,
-      9648,
-      35
-    ],
-    "popularity": 99.6317
-  },
-  {
-    "id": 289139,
-    "tmdb_id": 289139,
-    "type": "tv",
-    "title": "Overdo",
-    "overview": "In Republican Shanghai, Murong Qingyi, a warlord’s son swapped at birth, endures years of torment. His life changes when Ren Susu saves him, but tragedy strikes her family because of it. Years later, love sparks between them, but Ren Susu fakes her death to save another, leaving Qingyi heartbroken. Three years on, she returns as his future sister-in-law. Love, hate, betrayal, and old wounds resurface. As war looms, the two must defy fate together, but can love survive a nation’s fall?",
-    "poster": "https://image.tmdb.org/t/p/w342/hg9fl45RQVR2yZ63DUWqy0hCZ1G.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/24Jiw958Hb7okfxWFedeDkWX8WU.jpg",
-    "rating": 7.4,
-    "votes": 7,
-    "release": "2026-07-19",
-    "genres": [
-      18
-    ],
-    "popularity": 94.3506
-  },
-  {
-    "id": 30984,
-    "tmdb_id": 30984,
-    "type": "tv",
-    "title": "Bleach",
-    "overview": "For as long as he can remember, Ichigo Kurosaki has been able to see ghosts. But when he meets Rukia, a Soul Reaper who battles evil spirits known as Hollows, he finds his life is changed forever. Now, with a newfound wealth of spiritual energy, Ichigo discovers his true calling: to protect the living and the dead from evil.",
-    "poster": "https://image.tmdb.org/t/p/w342/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/o0NsbcIvsllg6CJX0FBFY8wWbsn.jpg",
-    "rating": 8.368,
-    "votes": 2195,
-    "release": "2004-10-05",
-    "genres": [
-      10759,
-      16,
-      10765
-    ],
-    "popularity": 93.7924
+    "popularity": 105.4041
   },
   {
     "id": 2661,
@@ -310,7 +240,7 @@
       10765,
       18
     ],
-    "popularity": 93.5679
+    "popularity": 109.1041
   },
   {
     "id": 113962,
@@ -320,31 +250,101 @@
     "overview": "Cruz Manuelos, a rough-around-the-edges but passionate young Marine, is recruited to join the CIA's Lioness Engagement Team to help bring down a terrorist organization from within. Joe, the station chief of the Lioness program, is tasked with training, managing and leading her female undercover operatives.",
     "poster": "https://image.tmdb.org/t/p/w342/rzpHPSEgPTpRs8EHbygwsOw7jC0.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/r0Zg70jpcDAD7IMDhVqajSnG9vb.jpg",
-    "rating": 7.991,
+    "rating": 8,
     "votes": 1258,
     "release": "2023-07-23",
     "genres": [
       18,
       10768
     ],
-    "popularity": 92.2635
+    "popularity": 99.5783
   },
   {
-    "id": 223911,
-    "tmdb_id": 223911,
+    "id": 30984,
+    "tmdb_id": 30984,
     "type": "tv",
-    "title": "Renegade Immortal",
-    "overview": "It tells the story of Wang Lin, an ordinary young man in the countryside, who is moved by his heart and cultivates against immortality. His pursuit is not only for longevity, but also for getting rid of the ants behind it. He firmly believed in human beings and entered the path of cultivation with mediocre qualifications. After experiencing ups and downs, with his wise mind, he gradually reached the pinnacle and became famous in the cultivation world with his own strength.",
-    "poster": "https://image.tmdb.org/t/p/w342/mCt5qgkOYEvuHSiSwNByMv6LMoB.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/crn53sSGWRZ8wAtEGso52nepEkz.jpg",
-    "rating": 8.2,
-    "votes": 40,
-    "release": "2023-09-25",
+    "title": "Bleach",
+    "overview": "For as long as he can remember, Ichigo Kurosaki has been able to see ghosts. But when he meets Rukia, a Soul Reaper who battles evil spirits known as Hollows, he finds his life is changed forever. Now, with a newfound wealth of spiritual energy, Ichigo discovers his true calling: to protect the living and the dead from evil.",
+    "poster": "https://image.tmdb.org/t/p/w342/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/o0NsbcIvsllg6CJX0FBFY8wWbsn.jpg",
+    "rating": 8.4,
+    "votes": 2197,
+    "release": "2004-10-05",
+    "genres": [
+      10759,
+      16,
+      10765
+    ],
+    "popularity": 91.8622
+  },
+  {
+    "id": 30983,
+    "tmdb_id": 30983,
+    "type": "tv",
+    "title": "Detective Conan",
+    "overview": "The son of a world famous mystery writer, Jimmy Kudo, has achieved his own notoriety by assisting the local police as a student detective. He has always been able to solve the most difficult of criminal cases using his wits and power of reason.",
+    "poster": "https://image.tmdb.org/t/p/w342/rRIEFvHRy01OYzmXQBbGeW0Qilc.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/z67lpMtm8YGykJO4p89meuNMvj8.jpg",
+    "rating": 8.01,
+    "votes": 778,
+    "release": "1996-01-08",
     "genres": [
       16,
-      18,
-      10759
+      80,
+      9648,
+      35
     ],
-    "popularity": 92.1884
+    "popularity": 91.6789
+  },
+  {
+    "id": 289139,
+    "tmdb_id": 289139,
+    "type": "tv",
+    "title": "Overdo",
+    "overview": "In Republican Shanghai, Murong Qingyi, a warlord’s son swapped at birth, endures years of torment. His life changes when Ren Susu saves him, but tragedy strikes her family because of it. Years later, love sparks between them, but Ren Susu fakes her death to save another, leaving Qingyi heartbroken. Three years on, she returns as his future sister-in-law. Love, hate, betrayal, and old wounds resurface. As war looms, the two must defy fate together, but can love survive a nation’s fall?",
+    "poster": "https://image.tmdb.org/t/p/w342/hg9fl45RQVR2yZ63DUWqy0hCZ1G.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/24Jiw958Hb7okfxWFedeDkWX8WU.jpg",
+    "rating": 7.75,
+    "votes": 8,
+    "release": "2026-07-19",
+    "genres": [
+      18
+    ],
+    "popularity": 82.858
+  },
+  {
+    "id": 13945,
+    "tmdb_id": 13945,
+    "type": "tv",
+    "title": "Gute Zeiten, schlechte Zeiten",
+    "overview": "Gute Zeiten, schlechte Zeiten is a long-running German television soap opera, first broadcast on RTL in 1992. The programme concerns the lives of a fictional neighborhood in Germany's capital city Berlin. Over the years the soap opera tends to have an overhaul of young people in their late teens and early twenties; targeting a young viewership.",
+    "poster": "https://image.tmdb.org/t/p/w342/qujVFLAlBnPU9mZElV4NZgL8iXT.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/ottT2Yt0OfHiHp3PHJTLNVV8JPE.jpg",
+    "rating": 5.458,
+    "votes": 48,
+    "release": "1992-05-11",
+    "genres": [
+      18,
+      10766
+    ],
+    "popularity": 139.2734
+  },
+  {
+    "id": 138502,
+    "tmdb_id": 138502,
+    "type": "tv",
+    "title": "X-Men '97",
+    "overview": "The X-Men, a band of mutants who use their uncanny gifts to protect a world that hates and fears them, are challenged like never before, forced to face a dangerous and unexpected new future.",
+    "poster": "https://image.tmdb.org/t/p/w342/2HKBc5UiFw8JrruHq8S1Y7TnlW0.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/jIyEmnBrZtl6SEWyBoMO2hZnzMa.jpg",
+    "rating": 8.671,
+    "votes": 811,
+    "release": "2024-03-20",
+    "genres": [
+      16,
+      10759,
+      10765
+    ],
+    "popularity": 83.1527
   }
 ]

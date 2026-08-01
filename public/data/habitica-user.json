@@ -9,7 +9,7 @@
     "timestamps": {
       "created": "2026-07-07T15:48:14.172Z",
       "loggedin": "2026-07-09T04:46:46.545Z",
-      "updated": "2026-07-31T05:39:17.337Z"
+      "updated": "2026-08-01T05:31:45.130Z"
     },
     "facebook": {},
     "google": {
@@ -34,7 +34,8 @@
     "challenges": [],
     "perfect": 0,
     "quests": {},
-    "completedTask": true
+    "completedTask": true,
+    "habiticaDays": 1
   },
   "backer": {},
   "contributor": {},
@@ -129,7 +130,7 @@
     "cardReceived": false,
     "warnedLowHealth": false,
     "initializedUserHistory": true,
-    "thirdPartyTools": "2026-07-29T05:25:46.998Z",
+    "thirdPartyTools": "2026-07-31T05:39:17.337Z",
     "newStuff": true
   },
   "history": {
@@ -219,10 +220,21 @@
       "Base": 1
     },
     "food": {
-      "Fish": 1
+      "Fish": 1,
+      "Cake_Base": 1,
+      "Cake_CottonCandyBlue": 1,
+      "Cake_CottonCandyPink": 1,
+      "Cake_Desert": 1,
+      "Cake_Golden": 1,
+      "Cake_Red": 1,
+      "Cake_Shade": 1,
+      "Cake_Skeleton": 1,
+      "Cake_White": 1,
+      "Cake_Zombie": 1
     },
     "mounts": {
-      "Orca-Base": true
+      "Orca-Base": true,
+      "Gryphon-RoyalPurple": true
     },
     "quests": {
       "dustbunnies": 1
@@ -415,7 +427,7 @@
     ]
   },
   "_id": "21a9ed08-dfdc-4ef0-aaac-17240c30af63",
-  "_v": 43,
+  "_v": 45,
   "balance": 2.5,
   "_subSignature": "NOT_RUNNING",
   "challenges": [],
@@ -436,6 +448,17 @@
       },
       "seen": false,
       "id": "cff8706d-cb53-4a67-841e-7354ae6a6ea4"
+    },
+    {
+      "type": "ITEM_RECEIVED",
+      "data": {
+        "icon": "notif_mount_gryphon_royalpurple",
+        "title": "Happy Naming Day!",
+        "text": "To celebrate the day we became Habitica, we’ve awarded you a Royal Purple Gryphon Mount and cake!",
+        "destination": "/inventory/stable"
+      },
+      "seen": false,
+      "id": "d3c96600-8631-45e1-8fa2-bd6713411e2c"
     }
   ],
   "tags": [
@@ -505,7 +528,7 @@
     }
   ],
   "unpinnedItems": [],
-  "migration": "20267orcaday",
+  "migration": "20267namingday",
   "id": "21a9ed08-dfdc-4ef0-aaac-17240c30af63",
   "needsCron": true
 }
