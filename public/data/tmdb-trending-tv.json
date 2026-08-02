@@ -7,15 +7,15 @@
     "overview": "For as long as he can remember, Ichigo Kurosaki has been able to see ghosts. But when he meets Rukia, a Soul Reaper who battles evil spirits known as Hollows, he finds his life is changed forever. Now, with a newfound wealth of spiritual energy, Ichigo discovers his true calling: to protect the living and the dead from evil.",
     "poster": "https://image.tmdb.org/t/p/w342/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/o0NsbcIvsllg6CJX0FBFY8wWbsn.jpg",
-    "rating": 8.4,
-    "votes": 2197,
+    "rating": 8.366,
+    "votes": 2198,
     "release": "2004-10-05",
     "genres": [
       10759,
       16,
       10765
     ],
-    "popularity": 91.8622
+    "popularity": 90.8074
   },
   {
     "id": 125988,
@@ -25,32 +25,14 @@
     "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
     "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
-    "rating": 8.184,
-    "votes": 2349,
+    "rating": 8.183,
+    "votes": 2355,
     "release": "2023-05-04",
     "genres": [
       10765,
       18
     ],
-    "popularity": 220.5691
-  },
-  {
-    "id": 94997,
-    "tmdb_id": 94997,
-    "type": "tv",
-    "title": "House of the Dragon",
-    "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
-    "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
-    "rating": 8.375,
-    "votes": 6786,
-    "release": "2022-08-21",
-    "genres": [
-      10765,
-      18,
-      10759
-    ],
-    "popularity": 327.6509
+    "popularity": 238.6817
   },
   {
     "id": 271016,
@@ -67,7 +49,60 @@
       18,
       10759
     ],
-    "popularity": 48.7924
+    "popularity": 49.7381
+  },
+  {
+    "id": 94997,
+    "tmdb_id": 94997,
+    "type": "tv",
+    "title": "House of the Dragon",
+    "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
+    "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
+    "rating": 8.375,
+    "votes": 6793,
+    "release": "2022-08-21",
+    "genres": [
+      10765,
+      18,
+      10759
+    ],
+    "popularity": 310.3158
+  },
+  {
+    "id": 296206,
+    "tmdb_id": 296206,
+    "type": "tv",
+    "title": "Agent Kim Reactivated",
+    "overview": "When an unassuming dad's daughter goes missing, he dusts off his old black-ops skills to track her down — only to attract the wrong kind of attention.",
+    "poster": "https://image.tmdb.org/t/p/w342/mxa7YxVln3Rwnd2Va82PoclTznj.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/g1LJLlmWP74zv9yXKEXm7g9p10O.jpg",
+    "rating": 7.574,
+    "votes": 68,
+    "release": "2026-06-26",
+    "genres": [
+      10759,
+      80,
+      18
+    ],
+    "popularity": 87.4395
+  },
+  {
+    "id": 278624,
+    "tmdb_id": 278624,
+    "type": "tv",
+    "title": "Lucky",
+    "overview": "When a multi-million-dollar heist goes sideways, con artist Lucky is forced to go on the run. Pursued by both the FBI and a ruthless crime boss, Lucky must fight for her life—and a way out.",
+    "poster": "https://image.tmdb.org/t/p/w342/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
+    "rating": 7.243,
+    "votes": 103,
+    "release": "2026-07-14",
+    "genres": [
+      18,
+      80
+    ],
+    "popularity": 107.4271
   },
   {
     "id": 60625,
@@ -78,7 +113,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/i4PpW1XyRlBuSNSIBRIIwSjEpjl.jpg",
     "rating": 8.68,
-    "votes": 11200,
+    "votes": 11209,
     "release": "2013-12-02",
     "genres": [
       16,
@@ -86,76 +121,7 @@
       10765,
       10759
     ],
-    "popularity": 226.093
-  },
-  {
-    "id": 296206,
-    "tmdb_id": 296206,
-    "type": "tv",
-    "title": "Agent Kim Reactivated",
-    "overview": "When an unassuming dad's daughter goes missing, he dusts off his old black-ops skills to track her down — only to attract the wrong kind of attention.",
-    "poster": "https://image.tmdb.org/t/p/w342/mxa7YxVln3Rwnd2Va82PoclTznj.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/g1LJLlmWP74zv9yXKEXm7g9p10O.jpg",
-    "rating": 7.6,
-    "votes": 66,
-    "release": "2026-06-26",
-    "genres": [
-      10759,
-      80,
-      18
-    ],
-    "popularity": 112.9396
-  },
-  {
-    "id": 278624,
-    "tmdb_id": 278624,
-    "type": "tv",
-    "title": "Lucky",
-    "overview": "When a multi-million-dollar heist goes sideways, con artist Lucky is forced to go on the run. Pursued by both the FBI and a ruthless crime boss, Lucky must fight for her life—and a way out.",
-    "poster": "https://image.tmdb.org/t/p/w342/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
-    "rating": 7.2,
-    "votes": 102,
-    "release": "2026-07-14",
-    "genres": [
-      18,
-      80
-    ],
-    "popularity": 112.2902
-  },
-  {
-    "id": 277439,
-    "tmdb_id": 277439,
-    "type": "tv",
-    "title": "Cape Fear",
-    "overview": "When convicted murderer Max Cady is released from prison, he begins infiltrating the family of the married attorneys who helped put him behind bars.",
-    "poster": "https://image.tmdb.org/t/p/w342/3ZLy3cfQa9prahoRq1teMmr5pvW.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/dz7p0quExY3L8R4aPj2QJUVhp74.jpg",
-    "rating": 7.161,
-    "votes": 93,
-    "release": "2026-06-04",
-    "genres": [
-      80,
-      18
-    ],
-    "popularity": 77.7846
-  },
-  {
-    "id": 287620,
-    "tmdb_id": 287620,
-    "type": "tv",
-    "title": "Stuart Fails to Save the Universe",
-    "overview": "After accidentally creating a new multiverse, comic book store owner Stuart Bloom must locate a quantum-interference device to restore reality.",
-    "poster": "https://image.tmdb.org/t/p/w342/txj8ujTZwGUjpCdhCsQBnTlh4aS.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/k5ujbFUxNlBQQ6sh3UmApwadVTV.jpg",
-    "rating": 9.273,
-    "votes": 55,
-    "release": "2026-07-23",
-    "genres": [
-      35,
-      10765
-    ],
-    "popularity": 87.5655
+    "popularity": 226.7713
   },
   {
     "id": 37854,
@@ -166,14 +132,85 @@
     "poster": "https://image.tmdb.org/t/p/w342/dB4EDhre2dsC2kxYDavyKWqLQwi.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/2rmK7mnchw9Xr3XdiTFSxTTLXqv.jpg",
     "rating": 8.748,
-    "votes": 5447,
+    "votes": 5449,
     "release": "1999-10-20",
     "genres": [
       10759,
       35,
       16
     ],
-    "popularity": 48.6504
+    "popularity": 50.3101
+  },
+  {
+    "id": 277439,
+    "tmdb_id": 277439,
+    "type": "tv",
+    "title": "Cape Fear",
+    "overview": "When convicted murderer Max Cady is released from prison, he begins infiltrating the family of the married attorneys who helped put him behind bars.",
+    "poster": "https://image.tmdb.org/t/p/w342/3ZLy3cfQa9prahoRq1teMmr5pvW.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/maOzDEEudq82nN9lRTumrGo9MvJ.jpg",
+    "rating": 7.214,
+    "votes": 103,
+    "release": "2026-06-04",
+    "genres": [
+      80,
+      18
+    ],
+    "popularity": 82.1818
+  },
+  {
+    "id": 287620,
+    "tmdb_id": 287620,
+    "type": "tv",
+    "title": "Stuart Fails to Save the Universe",
+    "overview": "After accidentally creating a new multiverse, comic book store owner Stuart Bloom must locate a quantum-interference device to restore reality.",
+    "poster": "https://image.tmdb.org/t/p/w342/txj8ujTZwGUjpCdhCsQBnTlh4aS.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/sIiSvtFwmOQKTnUaTNMuRmCpzoq.jpg",
+    "rating": 9.3,
+    "votes": 60,
+    "release": "2026-07-23",
+    "genres": [
+      35,
+      10765
+    ],
+    "popularity": 79.8328
+  },
+  {
+    "id": 125909,
+    "tmdb_id": 125909,
+    "type": "tv",
+    "title": "Batman: Caped Crusader",
+    "overview": "Welcome to Gotham City, where the corrupt outnumber the good, criminals run rampant and law-abiding citizens live in a constant state of fear. Forged in the fire of tragedy, wealthy socialite Bruce Wayne becomes something both more and less than human—the Batman. His one-man crusade for justice attracts unexpected allies within the GCPD and City Hall, but his heroic actions spawn deadly, unforeseen ramifications.",
+    "poster": "https://image.tmdb.org/t/p/w342/zCHmmoqtLsIsou866osiWtIWmoA.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/vTqkpDUe1DUUPcHDpcf0RT0gIQ0.jpg",
+    "rating": 7.3,
+    "votes": 265,
+    "release": "2024-08-01",
+    "genres": [
+      16,
+      80,
+      10759,
+      9648
+    ],
+    "popularity": 54.6937
+  },
+  {
+    "id": 215072,
+    "tmdb_id": 215072,
+    "type": "tv",
+    "title": "A Shop for Killers",
+    "overview": "A niece who lost her parents and grew up in the hands of an uncle who runs a shopping mall faces a new truth after her uncle's sudden death.",
+    "poster": "https://image.tmdb.org/t/p/w342/7yUY1HUyQuybbvkAAhLzQ7x1l9g.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/mWVeYmtCfA3zvSeZtW5bN2Khe01.jpg",
+    "rating": 8.351,
+    "votes": 195,
+    "release": "2024-01-17",
+    "genres": [
+      18,
+      10759,
+      9648
+    ],
+    "popularity": 77.9874
   },
   {
     "id": 103516,
@@ -184,50 +221,30 @@
     "poster": "https://image.tmdb.org/t/p/w342/97TTJuqiSMfU0DuXx1B4NG5QNP7.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/fZJs6xgU9dqIg9phIXjZAZOInzy.jpg",
     "rating": 7.9,
-    "votes": 792,
+    "votes": 795,
     "release": "2022-05-05",
     "genres": [
       10765,
       18
     ],
-    "popularity": 61.9623
+    "popularity": 57.899
   },
   {
-    "id": 215072,
-    "tmdb_id": 215072,
+    "id": 287238,
+    "tmdb_id": 287238,
     "type": "tv",
-    "title": "A Shop for Killers",
-    "overview": "A niece who lost her parents and grew up in the hands of an uncle who runs a shopping mall faces a new truth after her uncle's sudden death.",
-    "poster": "https://image.tmdb.org/t/p/w342/7yUY1HUyQuybbvkAAhLzQ7x1l9g.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/mWVeYmtCfA3zvSeZtW5bN2Khe01.jpg",
-    "rating": 8.339,
-    "votes": 193,
-    "release": "2024-01-17",
+    "title": "Furious",
+    "overview": "FBI agent Alice Black is on the hunt for a mysterious and calculating female serial killer. Both walk their own paths toward justice, and as their lives start to intertwine, the line between right and wrong begins to blur.",
+    "poster": "https://image.tmdb.org/t/p/w342/xnxxrEKtBaIcI1ewq50pLkOMU6u.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/iAOPgUlh7inOebFrUFHAjnFRCGS.jpg",
+    "rating": 6.704,
+    "votes": 27,
+    "release": "2026-07-27",
     "genres": [
       18,
-      10759,
-      9648
+      80
     ],
-    "popularity": 79.7492
-  },
-  {
-    "id": 125909,
-    "tmdb_id": 125909,
-    "type": "tv",
-    "title": "Batman: Caped Crusader",
-    "overview": "Welcome to Gotham City, where the corrupt outnumber the good, criminals run rampant and law-abiding citizens live in a constant state of fear. Forged in the fire of tragedy, wealthy socialite Bruce Wayne becomes something both more and less than human—the Batman. His one-man crusade for justice attracts unexpected allies within the GCPD and City Hall, but his heroic actions spawn deadly, unforeseen ramifications.",
-    "poster": "https://image.tmdb.org/t/p/w342/zCHmmoqtLsIsou866osiWtIWmoA.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/vTqkpDUe1DUUPcHDpcf0RT0gIQ0.jpg",
-    "rating": 7.258,
-    "votes": 265,
-    "release": "2024-08-01",
-    "genres": [
-      16,
-      80,
-      10759,
-      9648
-    ],
-    "popularity": 48.9748
+    "popularity": 82.6733
   },
   {
     "id": 194583,
@@ -237,7 +254,7 @@
     "overview": "Maggie and Negan travel to post-apocalyptic Manhattan - long ago cut off from the mainland. The crumbling city is filled with the dead and denizens who have made it a world full of anarchy, danger, beauty, and terror.",
     "poster": "https://image.tmdb.org/t/p/w342/wq3vuQzQgbS83zX3malAFWMsSwX.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/vV5LKWmuysEe5wsuZJGbdiL5XJ2.jpg",
-    "rating": 7.902,
+    "rating": 7.9,
     "votes": 759,
     "release": "2023-06-18",
     "genres": [
@@ -245,24 +262,7 @@
       18,
       10765
     ],
-    "popularity": 75.8944
-  },
-  {
-    "id": 296756,
-    "tmdb_id": 296756,
-    "type": "tv",
-    "title": "President Curtis",
-    "overview": "Follow the Commander-in-Chief and his eccentric staff as they tackle the kind of crises that Rick Sanchez could never be bothered with - from interdimensional diplomacy to paranormal investigations and unexplained phenomena.",
-    "poster": "https://image.tmdb.org/t/p/w342/lc9riW73Oee2pBxi1UrDPgyQjEr.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/yoTP91XZZjSvE2gZgGvwNxVW96w.jpg",
-    "rating": 5.533,
-    "votes": 15,
-    "release": "2026-07-26",
-    "genres": [
-      16,
-      35
-    ],
-    "popularity": 43.2105
+    "popularity": 74.5396
   },
   {
     "id": 294095,
@@ -281,7 +281,42 @@
       9648,
       80
     ],
-    "popularity": 12.4853
+    "popularity": 22.8301
+  },
+  {
+    "id": 296756,
+    "tmdb_id": 296756,
+    "type": "tv",
+    "title": "President Curtis",
+    "overview": "Follow the Commander-in-Chief and his eccentric staff as they tackle the kind of crises that Rick Sanchez could never be bothered with - from interdimensional diplomacy to paranormal investigations and unexplained phenomena.",
+    "poster": "https://image.tmdb.org/t/p/w342/lc9riW73Oee2pBxi1UrDPgyQjEr.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/yoTP91XZZjSvE2gZgGvwNxVW96w.jpg",
+    "rating": 5.813,
+    "votes": 16,
+    "release": "2026-07-26",
+    "genres": [
+      16,
+      35
+    ],
+    "popularity": 57.1342
+  },
+  {
+    "id": 124364,
+    "tmdb_id": 124364,
+    "type": "tv",
+    "title": "FROM",
+    "overview": "Unravel the mystery of a nightmarish town in middle America that traps all those who enter. As the unwilling residents fight to keep a sense of normalcy and search for a way out, they must also survive the threats of the surrounding forest – including the terrifying creatures that come out when the sun goes down.",
+    "poster": "https://image.tmdb.org/t/p/w342/pRtJagIxpfODzzb0T0NAvZSzErC.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/xLdw1xdHocKYFFvx7w41NchXMfJ.jpg",
+    "rating": 8.497,
+    "votes": 4094,
+    "release": "2022-02-20",
+    "genres": [
+      9648,
+      18,
+      10765
+    ],
+    "popularity": 202.251
   },
   {
     "id": 281281,
@@ -291,50 +326,15 @@
     "overview": "After an unprecedented attack on his unit, a high-ranking officer set to leave the field leads a perilous mission that forces him to confront his past.",
     "poster": "https://image.tmdb.org/t/p/w342/ymjYmuHG4Af93fcoF0NKwx9Rovb.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/tMpfa73LmKpeZ3Fix1QmFGIUrKI.jpg",
-    "rating": 7.298,
-    "votes": 47,
+    "rating": 7.354,
+    "votes": 48,
     "release": "2026-07-22",
     "genres": [
       10759,
       80,
       18
     ],
-    "popularity": 63.5374
-  },
-  {
-    "id": 138502,
-    "tmdb_id": 138502,
-    "type": "tv",
-    "title": "X-Men '97",
-    "overview": "The X-Men, a band of mutants who use their uncanny gifts to protect a world that hates and fears them, are challenged like never before, forced to face a dangerous and unexpected new future.",
-    "poster": "https://image.tmdb.org/t/p/w342/2HKBc5UiFw8JrruHq8S1Y7TnlW0.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/jIyEmnBrZtl6SEWyBoMO2hZnzMa.jpg",
-    "rating": 8.671,
-    "votes": 811,
-    "release": "2024-03-20",
-    "genres": [
-      16,
-      10759,
-      10765
-    ],
-    "popularity": 83.1527
-  },
-  {
-    "id": 301418,
-    "tmdb_id": 301418,
-    "type": "tv",
-    "title": "The Affair Was Just The Beginning",
-    "overview": "A successful entrepreneur with a seemingly perfect life sees everything fall apart after discovering her husband covering up a murder allegedly committed by their daughter. As the family scrambles to hide the truth, an anonymous blackmailer claims to have recorded everything, pulling them into a dangerous web of lies, secrets, and betrayal.",
-    "poster": "https://image.tmdb.org/t/p/w342/96LapGcyjchiustfYnwryB6p7I5.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/463KX5md13Db6pIMCCnIZqtPWFK.jpg",
-    "rating": 6,
-    "votes": 1,
-    "release": "2026-07-31",
-    "genres": [
-      80,
-      35
-    ],
-    "popularity": 15.7642
+    "popularity": 55.4897
   },
   {
     "id": 94664,
@@ -344,7 +344,7 @@
     "overview": "When a 34-year-old underachiever gets run over by a truck, his story doesn't end there. Reincarnated in a new world as an infant, Rudy will seize every opportunity to live the life he's always wanted. Armed with new friends, some freshly acquired magical abilities, and the courage to do the things he's always dreamed of, he's embarking on an epic adventure—with all of his past experience intact!",
     "poster": "https://image.tmdb.org/t/p/w342/gLKOYIMyKlUHW0SVdskhgf9C0yy.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/j9fRIimor0AMFJR9kjZubXcABzZ.jpg",
-    "rating": 8.468,
+    "rating": 8.5,
     "votes": 1626,
     "release": "2021-01-11",
     "genres": [
@@ -352,6 +352,6 @@
       16,
       10765
     ],
-    "popularity": 167.4216
+    "popularity": 161.8737
   }
 ]

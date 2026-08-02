@@ -6,9 +6,9 @@
     "title": "Avatar Aang: The Last Airbender",
     "overview": "Avatar Aang, the world's last Airbender, learns of an ancient power that could save his culture from extinction. With the help of his friends, he embarks on a global quest to find it before it falls into the wrong hands and threatens to upend the peace they sacrificed everything to achieve.",
     "poster": "https://image.tmdb.org/t/p/w342/3sgnSfNT27Bx5O5ukr7B26mhEQq.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/ezbrL1dMymKQZw7mDEWa2ZTzN7d.jpg",
-    "rating": 9.378,
-    "votes": 508,
+    "backdrop": "https://image.tmdb.org/t/p/w780/p7MklBlRr0eRAxJSOnuV4rO08z4.jpg",
+    "rating": 9.383,
+    "votes": 545,
     "release": "2026-07-24",
     "genres": [
       16,
@@ -26,8 +26,8 @@
     "overview": "Two women discover they were both scammed by the same man (who also got them pregnant). They form an alliance to take revenge.",
     "poster": "https://image.tmdb.org/t/p/w342/j0CIVzeR7hRAPBPGR54qDZoOQpp.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/iCML6fBe3X0y06P33bM7dyYXPKZ.jpg",
-    "rating": 8.979,
-    "votes": 331,
+    "rating": 8.958,
+    "votes": 335,
     "release": "2026-03-12",
     "genres": [
       35,
@@ -43,8 +43,8 @@
     "overview": "A small woodland creature and a majestic bird, two natural sworn enemies of the Valley, magically trade places and set off on an adventure of a lifetime to switch back. Their journey soon uncovers a greater threat—one that could endanger not only their species, but the entire valley they call home.",
     "poster": "https://image.tmdb.org/t/p/w342/tHhxWxge06goXU6ZQH1hj7vK8Hd.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/zMwhWailP1WY7sb6AoE6b8ugoy.jpg",
-    "rating": 8.894,
-    "votes": 2028,
+    "rating": 8.893,
+    "votes": 2033,
     "release": "2026-05-01",
     "genres": [
       12,
@@ -62,8 +62,8 @@
     "overview": "Imprisoned in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.",
     "poster": "https://image.tmdb.org/t/p/w342/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/zfbjgQE1uSd9wiPTX4VzsLi0rGG.jpg",
-    "rating": 8.726,
-    "votes": 30893,
+    "rating": 8.727,
+    "votes": 30903,
     "release": "1994-09-23",
     "genres": [
       18,
@@ -79,8 +79,8 @@
     "overview": "The story of Michael Jackson, one of the most influential artists the world has ever known, and his life beyond the music. His journey from the discovery of his extraordinary talent as the lead of the Jackson Five, to the visionary artist whose creative ambition fueled a relentless pursuit to become the biggest entertainer in the world, highlighting both his life off-stage and some of the most iconic performances from his early solo career.",
     "poster": "https://image.tmdb.org/t/p/w342/zm0KAbOjlt9eR5y7vDiL2dEOwMl.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/ufSwlnECLoUbBjPrFqEQcWBzHwc.jpg",
-    "rating": 8.695,
-    "votes": 3785,
+    "rating": 8.694,
+    "votes": 3798,
     "release": "2026-04-22",
     "genres": [
       10402,
@@ -97,7 +97,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/tSPT36ZKlP2WVHJLM4cQPLSzv3b.jpg",
     "rating": 8.686,
-    "votes": 23238,
+    "votes": 23244,
     "release": "1972-03-14",
     "genres": [
       18,
@@ -113,32 +113,14 @@
     "overview": "Science teacher Ryland Grace wakes up on a spaceship light years from home with no recollection of who he is or how he got there. As his memory returns, he begins to uncover his mission: solve the riddle of the mysterious substance causing the sun to die out. He must call on his scientific knowledge and unorthodox ideas to save everything on Earth from extinction.",
     "poster": "https://image.tmdb.org/t/p/w342/yihdXomYb5kTeSivtFndMy5iDmf.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/8Tfys3mDZVp4tNoH2ktm06a0Tau.jpg",
-    "rating": 8.662,
-    "votes": 6634,
+    "rating": 8.66,
+    "votes": 6663,
     "release": "2026-03-15",
     "genres": [
       878,
       12
     ],
     "popularity": 171.7939
-  },
-  {
-    "id": 424,
-    "tmdb_id": 424,
-    "type": "movie",
-    "title": "Schindler's List",
-    "overview": "The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.",
-    "poster": "https://image.tmdb.org/t/p/w342/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/zb6fM1CX41D9rF9hdgclu0peUmy.jpg",
-    "rating": 8.57,
-    "votes": 17665,
-    "release": "1993-12-15",
-    "genres": [
-      18,
-      36,
-      10752
-    ],
-    "popularity": 30.0325
   },
   {
     "id": 240,
@@ -148,14 +130,32 @@
     "overview": "In the continuing saga of the Corleone crime family, a young Vito Corleone grows up in Sicily and in 1910s New York. In the 1950s, Michael Corleone attempts to expand the family business into Las Vegas, Hollywood and Cuba.",
     "poster": "https://image.tmdb.org/t/p/w342/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/kGzFbGhp99zva6oZODW5atUtnqi.jpg",
-    "rating": 8.57,
-    "votes": 14102,
+    "rating": 8.571,
+    "votes": 14105,
     "release": "1974-12-20",
     "genres": [
       18,
       80
     ],
     "popularity": 33.0857
+  },
+  {
+    "id": 424,
+    "tmdb_id": 424,
+    "type": "movie",
+    "title": "Schindler's List",
+    "overview": "The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.",
+    "poster": "https://image.tmdb.org/t/p/w342/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/zb6fM1CX41D9rF9hdgclu0peUmy.jpg",
+    "rating": 8.6,
+    "votes": 17670,
+    "release": "1993-12-15",
+    "genres": [
+      18,
+      36,
+      10752
+    ],
+    "popularity": 30.0325
   },
   {
     "id": 389,
@@ -166,7 +166,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/ppd84D2i9W8jXmsyInGyihiSyqz.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/qqHQsStV6exghCM7zbObuYBiYxw.jpg",
     "rating": 8.566,
-    "votes": 10169,
+    "votes": 10173,
     "release": "1957-04-10",
     "genres": [
       18
@@ -182,7 +182,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/dqK9Hag1054tghRQSqLSfrkvQnA.jpg",
     "rating": 8.534,
-    "votes": 36224,
+    "votes": 36239,
     "release": "2008-07-16",
     "genres": [
       28,
@@ -200,7 +200,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/dyJvKsNs2KP8qQnAXbRwDjblViy.jpg",
     "rating": 8.534,
-    "votes": 18608,
+    "votes": 18612,
     "release": "2001-07-20",
     "genres": [
       16,
@@ -236,7 +236,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/8VG8fDNiy50H4FedGwdSVUPoaJe.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/b6HWTOxn1xevvyHU2K9ICvaRU6g.jpg",
     "rating": 8.506,
-    "votes": 19518,
+    "votes": 19523,
     "release": "1999-12-10",
     "genres": [
       14,
@@ -254,7 +254,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/2u7zbn8EudG6kLlBzUYqP8RyFU4.jpg",
     "rating": 8.502,
-    "votes": 26951,
+    "votes": 26961,
     "release": "2003-12-17",
     "genres": [
       12,
@@ -272,31 +272,13 @@
     "poster": "https://image.tmdb.org/t/p/w342/9HcEqn3D4J6b2Z0jK54id9nA0fr.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/bVGHSe47W6oCQL1Q88pvRAet51A.jpg",
     "rating": 8.496,
-    "votes": 786,
+    "votes": 790,
     "release": "2026-05-07",
     "genres": [
       18,
       9648
     ],
     "popularity": 31.4175
-  },
-  {
-    "id": 496243,
-    "tmdb_id": 496243,
-    "type": "movie",
-    "title": "Parasite",
-    "overview": "All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.",
-    "poster": "https://image.tmdb.org/t/p/w342/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/vbC0rzdrb7Ohc2TkbEbxtOABECe.jpg",
-    "rating": 8.489,
-    "votes": 20972,
-    "release": "2019-05-30",
-    "genres": [
-      35,
-      53,
-      18
-    ],
-    "popularity": 41.5404
   },
   {
     "id": 1218925,
@@ -306,8 +288,8 @@
     "overview": "In a brutal war between devils, hunters, and secret enemies, a mysterious girl named Reze has stepped into Denji's world, and he faces his deadliest battle yet, fueled by love in a world where survival knows no rules.",
     "poster": "https://image.tmdb.org/t/p/w342/crBfxNvvsQV3rATX12EuX4W9ECo.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/9sIqW8t1Owz2CSfJbQlmMO5rkFM.jpg",
-    "rating": 8.486,
-    "votes": 1056,
+    "rating": 8.493,
+    "votes": 1064,
     "release": "2025-09-19",
     "genres": [
       16,
@@ -318,6 +300,24 @@
     "popularity": 28.525
   },
   {
+    "id": 496243,
+    "tmdb_id": 496243,
+    "type": "movie",
+    "title": "Parasite",
+    "overview": "All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.",
+    "poster": "https://image.tmdb.org/t/p/w342/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/vbC0rzdrb7Ohc2TkbEbxtOABECe.jpg",
+    "rating": 8.489,
+    "votes": 20977,
+    "release": "2019-05-30",
+    "genres": [
+      35,
+      53,
+      18
+    ],
+    "popularity": 41.5404
+  },
+  {
     "id": 1181678,
     "tmdb_id": 1181678,
     "type": "movie",
@@ -325,8 +325,8 @@
     "overview": "Lu, a conformist woman in her forties, learns that her 15-year partner has been having extramarital affairs. Starting from scratch, she gets involved in an unexpected relationship with a young womanizer.",
     "poster": "https://image.tmdb.org/t/p/w342/6PQJsmuvSMZQMmlJfTpjIkrizUh.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/xyWKrni8WrYzqn7ztvI5nIY0h62.jpg",
-    "rating": 8.483,
-    "votes": 359,
+    "rating": 8.476,
+    "votes": 360,
     "release": "2023-09-21",
     "genres": [
       35,
@@ -343,7 +343,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/5XNQBqnBwPA9yT0jZ0p3s8bbLh0.jpg",
     "rating": 8.483,
-    "votes": 40522,
+    "votes": 40546,
     "release": "2014-11-05",
     "genres": [
       12,

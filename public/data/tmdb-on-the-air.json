@@ -8,14 +8,14 @@
     "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
     "rating": 8.375,
-    "votes": 6786,
+    "votes": 6792,
     "release": "2022-08-21",
     "genres": [
       10765,
       18,
       10759
     ],
-    "popularity": 327.6509
+    "popularity": 310.3158
   },
   {
     "id": 125988,
@@ -25,30 +25,14 @@
     "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
     "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
-    "rating": 8.184,
-    "votes": 2349,
+    "rating": 8.182,
+    "votes": 2354,
     "release": "2023-05-04",
     "genres": [
       10765,
       18
     ],
-    "popularity": 220.5691
-  },
-  {
-    "id": 46271,
-    "tmdb_id": 46271,
-    "type": "tv",
-    "title": "Secret Story",
-    "overview": "The game contestants are cut off from the rest of the world during ten to fifteen weeks in a house called “house of secrets”, where every room is fitted with video cameras, except the restroom. The goal is to keep a secret while trying to discover the other contestants' secret.",
-    "poster": "https://image.tmdb.org/t/p/w342/jDFFyXE04vv9pvHzJESgbJnNRc2.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/go422YL6ytCPCZsrTCBmAJYaI72.jpg",
-    "rating": 4.5,
-    "votes": 12,
-    "release": "2007-06-23",
-    "genres": [
-      10764
-    ],
-    "popularity": 146.7563
+    "popularity": 238.6817
   },
   {
     "id": 22980,
@@ -65,7 +49,23 @@
       10767,
       35
     ],
-    "popularity": 195.173
+    "popularity": 219.4908
+  },
+  {
+    "id": 16807,
+    "tmdb_id": 16807,
+    "type": "tv",
+    "title": "Jornal Nacional",
+    "overview": "Jornal Nacional is a Brazilian Emmy-winning primetime news program aired by Rede Globo since September 1, 1969. It was the first news program broadcast live by a television network throughout Brazil.",
+    "poster": "https://image.tmdb.org/t/p/w342/59iVuixNWRgtkT1aN8BR9RrJOBR.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/ngmekOxfGjiTtNbWM5T5U4WvzlS.jpg",
+    "rating": 7,
+    "votes": 7,
+    "release": "1969-09-01",
+    "genres": [
+      10763
+    ],
+    "popularity": 209.3542
   },
   {
     "id": 94664,
@@ -75,7 +75,7 @@
     "overview": "When a 34-year-old underachiever gets run over by a truck, his story doesn't end there. Reincarnated in a new world as an infant, Rudy will seize every opportunity to live the life he's always wanted. Armed with new friends, some freshly acquired magical abilities, and the courage to do the things he's always dreamed of, he's embarking on an epic adventure—with all of his past experience intact!",
     "poster": "https://image.tmdb.org/t/p/w342/gLKOYIMyKlUHW0SVdskhgf9C0yy.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/j9fRIimor0AMFJR9kjZubXcABzZ.jpg",
-    "rating": 8.468,
+    "rating": 8.5,
     "votes": 1626,
     "release": "2021-01-11",
     "genres": [
@@ -83,25 +83,57 @@
       16,
       10765
     ],
-    "popularity": 167.4216
+    "popularity": 161.8737
   },
   {
-    "id": 65334,
-    "tmdb_id": 65334,
+    "id": 14610,
+    "tmdb_id": 14610,
     "type": "tv",
-    "title": "Miraculous: Tales of Ladybug & Cat Noir",
-    "overview": "Marinette and Adrien, two Parisian teenagers, are entrusted with powerful jewels in order to transform into superheroes Ladybug and Cat Noir. But neither hero knows the other's true identity — or that they're classmates!",
-    "poster": "https://image.tmdb.org/t/p/w342/acrtAy8gmxcsEvrDP09MpMSCeDZ.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/lH22EnM0ofC7GsVGU8dAA2RXV1c.jpg",
-    "rating": 8.1,
-    "votes": 4630,
-    "release": "2015-10-19",
+    "title": "Secret Lives",
+    "overview": "Salatut elämät (Secret Lives) is a Finnish television soap opera that premiered on MTV3 on 25 January 1999. The series' storylines follow the daily lives of several families who live in the same apartment block in Helsinki.",
+    "poster": "https://image.tmdb.org/t/p/w342/ugYAGyxwajuplDUUYT8Bzbj8eNR.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/nG2im8JKKNB6dXg9ZmVTuiYqFJI.jpg",
+    "rating": 4.217,
+    "votes": 23,
+    "release": "1999-01-25",
     "genres": [
-      10759,
-      16,
-      10762
+      10766,
+      18
     ],
-    "popularity": 175.7258
+    "popularity": 129.8026
+  },
+  {
+    "id": 46271,
+    "tmdb_id": 46271,
+    "type": "tv",
+    "title": "Secret Story",
+    "overview": "The game contestants are cut off from the rest of the world during ten to fifteen weeks in a house called “house of secrets”, where every room is fitted with video cameras, except the restroom. The goal is to keep a secret while trying to discover the other contestants' secret.",
+    "poster": "https://image.tmdb.org/t/p/w342/jDFFyXE04vv9pvHzJESgbJnNRc2.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/go422YL6ytCPCZsrTCBmAJYaI72.jpg",
+    "rating": 4.5,
+    "votes": 12,
+    "release": "2007-06-23",
+    "genres": [
+      10764
+    ],
+    "popularity": 137.1037
+  },
+  {
+    "id": 13945,
+    "tmdb_id": 13945,
+    "type": "tv",
+    "title": "Gute Zeiten, schlechte Zeiten",
+    "overview": "Gute Zeiten, schlechte Zeiten is a long-running German television soap opera, first broadcast on RTL in 1992. The programme concerns the lives of a fictional neighborhood in Germany's capital city Berlin. Over the years the soap opera tends to have an overhaul of young people in their late teens and early twenties; targeting a young viewership.",
+    "poster": "https://image.tmdb.org/t/p/w342/qujVFLAlBnPU9mZElV4NZgL8iXT.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/ottT2Yt0OfHiHp3PHJTLNVV8JPE.jpg",
+    "rating": 5.458,
+    "votes": 48,
+    "release": "1992-05-11",
+    "genres": [
+      18,
+      10766
+    ],
+    "popularity": 268.9251
   },
   {
     "id": 23393,
@@ -117,58 +149,7 @@
     "genres": [
       99
     ],
-    "popularity": 119.0034
-  },
-  {
-    "id": 278624,
-    "tmdb_id": 278624,
-    "type": "tv",
-    "title": "Lucky",
-    "overview": "When a multi-million-dollar heist goes sideways, con artist Lucky is forced to go on the run. Pursued by both the FBI and a ruthless crime boss, Lucky must fight for her life—and a way out.",
-    "poster": "https://image.tmdb.org/t/p/w342/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
-    "rating": 7.2,
-    "votes": 102,
-    "release": "2026-07-14",
-    "genres": [
-      18,
-      80
-    ],
-    "popularity": 112.2902
-  },
-  {
-    "id": 296206,
-    "tmdb_id": 296206,
-    "type": "tv",
-    "title": "Agent Kim Reactivated",
-    "overview": "When an unassuming dad's daughter goes missing, he dusts off his old black-ops skills to track her down — only to attract the wrong kind of attention.",
-    "poster": "https://image.tmdb.org/t/p/w342/mxa7YxVln3Rwnd2Va82PoclTznj.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/g1LJLlmWP74zv9yXKEXm7g9p10O.jpg",
-    "rating": 7.6,
-    "votes": 66,
-    "release": "2026-06-26",
-    "genres": [
-      10759,
-      80,
-      18
-    ],
-    "popularity": 112.9396
-  },
-  {
-    "id": 206559,
-    "tmdb_id": 206559,
-    "type": "tv",
-    "title": "Binnelanders",
-    "overview": "A South African Afrikaans soap opera. It is set in and around the fictional private hospital, Binneland Kliniek, in Pretoria, and the storyline follows the trials, trauma and tribulations of the staff and patients of the hospital.",
-    "poster": "https://image.tmdb.org/t/p/w342/3bzECfllho8PphdYujLUIuhncJD.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/s1dTt4M31q2HwD5Fkl1tf5tQzJg.jpg",
-    "rating": 5.5,
-    "votes": 111,
-    "release": "2005-10-13",
-    "genres": [
-      10766
-    ],
-    "popularity": 104.0757
+    "popularity": 111.7245
   },
   {
     "id": 45140,
@@ -188,41 +169,58 @@
       10751,
       10765
     ],
-    "popularity": 116.5132
+    "popularity": 132.2121
   },
   {
-    "id": 33238,
-    "tmdb_id": 33238,
+    "id": 14750,
+    "tmdb_id": 14750,
     "type": "tv",
-    "title": "Running Man",
-    "overview": "These days, as variety shows are gradually disappearing, this is one of Korea’s representative variety shows that has been responsible for Sunday evenings for over 10 years. This program features numerous stars and members going around various places, playing games, and completing missions. In particular, among the many fun elements of variety shows, this one focuses solely on laughter.\n\nOpen your eyes! Big fun is coming in!\n\nOpen your mouth! Big laughter is coming in!\n\nOpen your heart! Useful lessons are coming in!",
-    "poster": "https://image.tmdb.org/t/p/w342/2Wmmu1MkqxJ48J7aySET9EKEjXz.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/wsHj4oHQJoe7DMYaqNFwVoyLiAh.jpg",
-    "rating": 8.21,
-    "votes": 214,
-    "release": "2010-07-11",
+    "title": "Na Wspólnej",
+    "overview": "Na Wspólnej is a Polish soap opera. It has been running since 2003 on the TVN channel as its flagship primetime weekday soap opera. It is loosely based on the German production Unter Uns and it follows the lives of the inhabitants of an apartment block in Wspólna Street, Warsaw. Episodes tend to last around 20 minutes. It is a Polish version of the Hungarian \"Barátok közt\".\n\nThe series is shot almost entirely in Warsaw and produced by the Polish branch of Freemantle Media. On 9 September 2008 it celebrated its 1000th episode; \"Na Wspólnej\" was the fourth Polish television series ever to achieve such status. A special episode was broadcast in which characters from some other of TVN's most popular shows visited Wspólna Street.",
+    "poster": "https://image.tmdb.org/t/p/w342/uksRhdaOn64bO5d33d7rcTbrhJI.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/pmB8uYJF1WKQCZnJjhnAx2IJjhk.jpg",
+    "rating": 4.7,
+    "votes": 12,
+    "release": "2003-01-27",
     "genres": [
-      35,
-      10764
+      10766
     ],
-    "popularity": 100.0175
+    "popularity": 89.1103
   },
   {
-    "id": 91555,
-    "tmdb_id": 91555,
+    "id": 296206,
+    "tmdb_id": 296206,
     "type": "tv",
-    "title": "All Elite Wrestling: Dynamite",
-    "overview": "A world-class roster of diverse male and female wrestlers give fans a new wrestling experience for the first time in 20 years.",
-    "poster": "https://image.tmdb.org/t/p/w342/gPNWVCp0zrHRmwfovUpUQO44sts.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/veIrzS2AkYm0UaYYcVw9ziWkJoB.jpg",
-    "rating": 8,
-    "votes": 86,
-    "release": "2019-10-02",
+    "title": "Agent Kim Reactivated",
+    "overview": "When an unassuming dad's daughter goes missing, he dusts off his old black-ops skills to track her down — only to attract the wrong kind of attention.",
+    "poster": "https://image.tmdb.org/t/p/w342/mxa7YxVln3Rwnd2Va82PoclTznj.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/g1LJLlmWP74zv9yXKEXm7g9p10O.jpg",
+    "rating": 7.552,
+    "votes": 67,
+    "release": "2026-06-26",
     "genres": [
       10759,
+      80,
       18
     ],
-    "popularity": 105.4041
+    "popularity": 87.4395
+  },
+  {
+    "id": 278624,
+    "tmdb_id": 278624,
+    "type": "tv",
+    "title": "Lucky",
+    "overview": "When a multi-million-dollar heist goes sideways, con artist Lucky is forced to go on the run. Pursued by both the FBI and a ruthless crime boss, Lucky must fight for her life—and a way out.",
+    "poster": "https://image.tmdb.org/t/p/w342/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
+    "rating": 7.243,
+    "votes": 103,
+    "release": "2026-07-14",
+    "genres": [
+      18,
+      80
+    ],
+    "popularity": 107.4271
   },
   {
     "id": 2661,
@@ -240,7 +238,75 @@
       10765,
       18
     ],
-    "popularity": 109.1041
+    "popularity": 92.3487
+  },
+  {
+    "id": 79917,
+    "tmdb_id": 79917,
+    "type": "tv",
+    "title": "Bares für Rares",
+    "overview": "In the show, selected applicants each present a curiosity, rarity or antique they have brought with them. Once they have received their expertise, they will have the opportunity on site to offer their exhibit to a changing five-person podium for sale and, ideally, to sell it to the highest bidder for „Bares“ (\"cash\").",
+    "poster": "https://image.tmdb.org/t/p/w342/j9SzcU00nl64FdgLs4otaHBfRkj.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/wNzhjVcigBJx3dATrlEmaoKbRpx.jpg",
+    "rating": 7.6,
+    "votes": 9,
+    "release": "2013-08-04",
+    "genres": [
+      10767,
+      10764,
+      99
+    ],
+    "popularity": 82.9941
+  },
+  {
+    "id": 91555,
+    "tmdb_id": 91555,
+    "type": "tv",
+    "title": "All Elite Wrestling: Dynamite",
+    "overview": "A world-class roster of diverse male and female wrestlers give fans a new wrestling experience for the first time in 20 years.",
+    "poster": "https://image.tmdb.org/t/p/w342/gPNWVCp0zrHRmwfovUpUQO44sts.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/veIrzS2AkYm0UaYYcVw9ziWkJoB.jpg",
+    "rating": 8,
+    "votes": 86,
+    "release": "2019-10-02",
+    "genres": [
+      10759,
+      18
+    ],
+    "popularity": 86.2195
+  },
+  {
+    "id": 206559,
+    "tmdb_id": 206559,
+    "type": "tv",
+    "title": "Binnelanders",
+    "overview": "A South African Afrikaans soap opera. It is set in and around the fictional private hospital, Binneland Kliniek, in Pretoria, and the storyline follows the trials, trauma and tribulations of the staff and patients of the hospital.",
+    "poster": "https://image.tmdb.org/t/p/w342/3bzECfllho8PphdYujLUIuhncJD.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/s1dTt4M31q2HwD5Fkl1tf5tQzJg.jpg",
+    "rating": 5.5,
+    "votes": 111,
+    "release": "2005-10-13",
+    "genres": [
+      10766
+    ],
+    "popularity": 89.2904
+  },
+  {
+    "id": 33238,
+    "tmdb_id": 33238,
+    "type": "tv",
+    "title": "Running Man",
+    "overview": "These days, as variety shows are gradually disappearing, this is one of Korea’s representative variety shows that has been responsible for Sunday evenings for over 10 years. This program features numerous stars and members going around various places, playing games, and completing missions. In particular, among the many fun elements of variety shows, this one focuses solely on laughter.\n\nOpen your eyes! Big fun is coming in!\n\nOpen your mouth! Big laughter is coming in!\n\nOpen your heart! Useful lessons are coming in!",
+    "poster": "https://image.tmdb.org/t/p/w342/2Wmmu1MkqxJ48J7aySET9EKEjXz.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/wsHj4oHQJoe7DMYaqNFwVoyLiAh.jpg",
+    "rating": 8.21,
+    "votes": 214,
+    "release": "2010-07-11",
+    "genres": [
+      35,
+      10764
+    ],
+    "popularity": 86.1481
   },
   {
     "id": 113962,
@@ -250,101 +316,29 @@
     "overview": "Cruz Manuelos, a rough-around-the-edges but passionate young Marine, is recruited to join the CIA's Lioness Engagement Team to help bring down a terrorist organization from within. Joe, the station chief of the Lioness program, is tasked with training, managing and leading her female undercover operatives.",
     "poster": "https://image.tmdb.org/t/p/w342/rzpHPSEgPTpRs8EHbygwsOw7jC0.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/r0Zg70jpcDAD7IMDhVqajSnG9vb.jpg",
-    "rating": 8,
-    "votes": 1258,
+    "rating": 7.992,
+    "votes": 1263,
     "release": "2023-07-23",
     "genres": [
       18,
       10768
     ],
-    "popularity": 99.5783
+    "popularity": 104.2129
   },
   {
-    "id": 30984,
-    "tmdb_id": 30984,
+    "id": 4656,
+    "tmdb_id": 4656,
     "type": "tv",
-    "title": "Bleach",
-    "overview": "For as long as he can remember, Ichigo Kurosaki has been able to see ghosts. But when he meets Rukia, a Soul Reaper who battles evil spirits known as Hollows, he finds his life is changed forever. Now, with a newfound wealth of spiritual energy, Ichigo discovers his true calling: to protect the living and the dead from evil.",
-    "poster": "https://image.tmdb.org/t/p/w342/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/o0NsbcIvsllg6CJX0FBFY8wWbsn.jpg",
-    "rating": 8.4,
-    "votes": 2197,
-    "release": "2004-10-05",
+    "title": "Raw",
+    "overview": "A regularly scheduled, live, year-round program featuring some of the biggest WWE Superstars.",
+    "poster": "https://image.tmdb.org/t/p/w342/fstEe6RsyNyPUnMwNcL20iNl0nE.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/384Lam787FIDBnwjwQBvC8gjB2d.jpg",
+    "rating": 6.792,
+    "votes": 367,
+    "release": "1993-01-11",
     "genres": [
-      10759,
-      16,
-      10765
+      10764
     ],
-    "popularity": 91.8622
-  },
-  {
-    "id": 30983,
-    "tmdb_id": 30983,
-    "type": "tv",
-    "title": "Detective Conan",
-    "overview": "The son of a world famous mystery writer, Jimmy Kudo, has achieved his own notoriety by assisting the local police as a student detective. He has always been able to solve the most difficult of criminal cases using his wits and power of reason.",
-    "poster": "https://image.tmdb.org/t/p/w342/rRIEFvHRy01OYzmXQBbGeW0Qilc.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/z67lpMtm8YGykJO4p89meuNMvj8.jpg",
-    "rating": 8.01,
-    "votes": 778,
-    "release": "1996-01-08",
-    "genres": [
-      16,
-      80,
-      9648,
-      35
-    ],
-    "popularity": 91.6789
-  },
-  {
-    "id": 289139,
-    "tmdb_id": 289139,
-    "type": "tv",
-    "title": "Overdo",
-    "overview": "In Republican Shanghai, Murong Qingyi, a warlord’s son swapped at birth, endures years of torment. His life changes when Ren Susu saves him, but tragedy strikes her family because of it. Years later, love sparks between them, but Ren Susu fakes her death to save another, leaving Qingyi heartbroken. Three years on, she returns as his future sister-in-law. Love, hate, betrayal, and old wounds resurface. As war looms, the two must defy fate together, but can love survive a nation’s fall?",
-    "poster": "https://image.tmdb.org/t/p/w342/hg9fl45RQVR2yZ63DUWqy0hCZ1G.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/24Jiw958Hb7okfxWFedeDkWX8WU.jpg",
-    "rating": 7.75,
-    "votes": 8,
-    "release": "2026-07-19",
-    "genres": [
-      18
-    ],
-    "popularity": 82.858
-  },
-  {
-    "id": 13945,
-    "tmdb_id": 13945,
-    "type": "tv",
-    "title": "Gute Zeiten, schlechte Zeiten",
-    "overview": "Gute Zeiten, schlechte Zeiten is a long-running German television soap opera, first broadcast on RTL in 1992. The programme concerns the lives of a fictional neighborhood in Germany's capital city Berlin. Over the years the soap opera tends to have an overhaul of young people in their late teens and early twenties; targeting a young viewership.",
-    "poster": "https://image.tmdb.org/t/p/w342/qujVFLAlBnPU9mZElV4NZgL8iXT.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/ottT2Yt0OfHiHp3PHJTLNVV8JPE.jpg",
-    "rating": 5.458,
-    "votes": 48,
-    "release": "1992-05-11",
-    "genres": [
-      18,
-      10766
-    ],
-    "popularity": 139.2734
-  },
-  {
-    "id": 138502,
-    "tmdb_id": 138502,
-    "type": "tv",
-    "title": "X-Men '97",
-    "overview": "The X-Men, a band of mutants who use their uncanny gifts to protect a world that hates and fears them, are challenged like never before, forced to face a dangerous and unexpected new future.",
-    "poster": "https://image.tmdb.org/t/p/w342/2HKBc5UiFw8JrruHq8S1Y7TnlW0.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/jIyEmnBrZtl6SEWyBoMO2hZnzMa.jpg",
-    "rating": 8.671,
-    "votes": 811,
-    "release": "2024-03-20",
-    "genres": [
-      16,
-      10759,
-      10765
-    ],
-    "popularity": 83.1527
+    "popularity": 79.1589
   }
 ]

@@ -1,23 +1,5 @@
 [
   {
-    "id": 94997,
-    "tmdb_id": 94997,
-    "type": "tv",
-    "title": "House of the Dragon",
-    "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
-    "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
-    "rating": 8.375,
-    "votes": 6786,
-    "release": "2022-08-21",
-    "genres": [
-      10765,
-      18,
-      10759
-    ],
-    "popularity": 327.6509
-  },
-  {
     "id": 5920,
     "tmdb_id": 5920,
     "type": "tv",
@@ -26,14 +8,32 @@
     "poster": "https://image.tmdb.org/t/p/w342/acYXu4KaDj1NIkMgObnhe4C4a0T.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/q3pCsNvJ7CmdJUz2sJEEUY3pOPC.jpg",
     "rating": 8.37,
-    "votes": 4476,
+    "votes": 4484,
     "release": "2008-09-23",
     "genres": [
       80,
       18,
       9648
     ],
-    "popularity": 336.9746
+    "popularity": 342.7548
+  },
+  {
+    "id": 94997,
+    "tmdb_id": 94997,
+    "type": "tv",
+    "title": "House of the Dragon",
+    "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
+    "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
+    "rating": 8.375,
+    "votes": 6792,
+    "release": "2022-08-21",
+    "genres": [
+      10765,
+      18,
+      10759
+    ],
+    "popularity": 310.3158
   },
   {
     "id": 51025,
@@ -49,7 +49,7 @@
     "genres": [
       10764
     ],
-    "popularity": 316.3212
+    "popularity": 296.7594
   },
   {
     "id": 233643,
@@ -65,7 +65,60 @@
     "genres": [
       16
     ],
-    "popularity": 313.335
+    "popularity": 323.3961
+  },
+  {
+    "id": 50821,
+    "tmdb_id": 50821,
+    "type": "tv",
+    "title": "Among Friends",
+    "overview": "Miklós introduces viewers into the world of Money and Charm.",
+    "poster": "https://image.tmdb.org/t/p/w342/kBBbSgNchtMvsgD6z1oI1RRluHP.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/hHMWfDlqKisD5zVcZfz3KEw5U3v.jpg",
+    "rating": 3.775,
+    "votes": 20,
+    "release": "1998-10-26",
+    "genres": [
+      18,
+      10751
+    ],
+    "popularity": 247.4217
+  },
+  {
+    "id": 2734,
+    "tmdb_id": 2734,
+    "type": "tv",
+    "title": "Law & Order: Special Victims Unit",
+    "overview": "In the criminal justice system, sexually-based offenses are considered especially heinous. In New York City, the dedicated detectives who investigate these vicious felonies are members of an elite squad known as the Special Victims Unit. These are their stories.",
+    "poster": "https://image.tmdb.org/t/p/w342/iofokHZoUB4Qhik4PflvJl8TT6a.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/obtdxPgmfykYwVnvuYXC5f2xKlQ.jpg",
+    "rating": 7.959,
+    "votes": 4304,
+    "release": "1999-09-20",
+    "genres": [
+      80,
+      18,
+      9648
+    ],
+    "popularity": 258.0955
+  },
+  {
+    "id": 79744,
+    "tmdb_id": 79744,
+    "type": "tv",
+    "title": "The Rookie",
+    "overview": "Starting over isn't easy, especially for small-town guy John Nolan who, after a life-altering incident, is pursuing his dream of being an LAPD officer. As the force's oldest rookie, he's met with skepticism from some higher-ups who see him as just a walking midlife crisis.",
+    "poster": "https://image.tmdb.org/t/p/w342/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/6iNWfGVCEfASDdlNb05TP5nG0ll.jpg",
+    "rating": 8.549,
+    "votes": 3419,
+    "release": "2018-10-16",
+    "genres": [
+      80,
+      18,
+      35
+    ],
+    "popularity": 256.1625
   },
   {
     "id": 204269,
@@ -81,43 +134,7 @@
     "genres": [
       16
     ],
-    "popularity": 241.9005
-  },
-  {
-    "id": 79744,
-    "tmdb_id": 79744,
-    "type": "tv",
-    "title": "The Rookie",
-    "overview": "Starting over isn't easy, especially for small-town guy John Nolan who, after a life-altering incident, is pursuing his dream of being an LAPD officer. As the force's oldest rookie, he's met with skepticism from some higher-ups who see him as just a walking midlife crisis.",
-    "poster": "https://image.tmdb.org/t/p/w342/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/6iNWfGVCEfASDdlNb05TP5nG0ll.jpg",
-    "rating": 8.551,
-    "votes": 3416,
-    "release": "2018-10-16",
-    "genres": [
-      80,
-      18,
-      35
-    ],
-    "popularity": 255.072
-  },
-  {
-    "id": 2734,
-    "tmdb_id": 2734,
-    "type": "tv",
-    "title": "Law & Order: Special Victims Unit",
-    "overview": "In the criminal justice system, sexually-based offenses are considered especially heinous. In New York City, the dedicated detectives who investigate these vicious felonies are members of an elite squad known as the Special Victims Unit. These are their stories.",
-    "poster": "https://image.tmdb.org/t/p/w342/iofokHZoUB4Qhik4PflvJl8TT6a.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/obtdxPgmfykYwVnvuYXC5f2xKlQ.jpg",
-    "rating": 7.958,
-    "votes": 4303,
-    "release": "1999-09-20",
-    "genres": [
-      80,
-      18,
-      9648
-    ],
-    "popularity": 255.2064
+    "popularity": 208.204
   },
   {
     "id": 94722,
@@ -133,7 +150,7 @@
     "genres": [
       10763
     ],
-    "popularity": 229.191
+    "popularity": 189.6431
   },
   {
     "id": 60625,
@@ -144,7 +161,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/i4PpW1XyRlBuSNSIBRIIwSjEpjl.jpg",
     "rating": 8.68,
-    "votes": 11200,
+    "votes": 11209,
     "release": "2013-12-02",
     "genres": [
       16,
@@ -152,7 +169,7 @@
       10765,
       10759
     ],
-    "popularity": 226.093
+    "popularity": 226.7713
   },
   {
     "id": 1416,
@@ -163,12 +180,46 @@
     "poster": "https://image.tmdb.org/t/p/w342/hjJkrLXhWvGHpLeLBDFznpBTY1S.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/jP0Rhj9OTPDAwQlHQwOLFDdeE8t.jpg",
     "rating": 8.208,
-    "votes": 10982,
+    "votes": 10987,
     "release": "2005-03-27",
     "genres": [
       18
     ],
-    "popularity": 224.1166
+    "popularity": 221.0108
+  },
+  {
+    "id": 125988,
+    "tmdb_id": 125988,
+    "type": "tv",
+    "title": "Silo",
+    "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
+    "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
+    "rating": 8.182,
+    "votes": 2354,
+    "release": "2023-05-04",
+    "genres": [
+      10765,
+      18
+    ],
+    "popularity": 238.6817
+  },
+  {
+    "id": 549,
+    "tmdb_id": 549,
+    "type": "tv",
+    "title": "Law & Order",
+    "overview": "In cases ripped from the headlines, police investigate serious and often deadly crimes, weighing the evidence and questioning the suspects until someone is taken into custody. The district attorney's office then builds a case to convict the perpetrator by proving the person guilty beyond a reasonable doubt. Working together, these expert teams navigate all sides of the complex criminal justice system to make New York a safer place.",
+    "poster": "https://image.tmdb.org/t/p/w342/haJ9eHytVO3H3JooMJG1DiWwDNm.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/tc7canPSAn2X14hYi6Rl3gZm1o4.jpg",
+    "rating": 7.281,
+    "votes": 701,
+    "release": "1990-09-13",
+    "genres": [
+      80,
+      18
+    ],
+    "popularity": 196.8556
   },
   {
     "id": 124364,
@@ -179,66 +230,14 @@
     "poster": "https://image.tmdb.org/t/p/w342/pRtJagIxpfODzzb0T0NAvZSzErC.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/xLdw1xdHocKYFFvx7w41NchXMfJ.jpg",
     "rating": 8.497,
-    "votes": 4085,
+    "votes": 4092,
     "release": "2022-02-20",
     "genres": [
       9648,
       18,
       10765
     ],
-    "popularity": 204.7728
-  },
-  {
-    "id": 549,
-    "tmdb_id": 549,
-    "type": "tv",
-    "title": "Law & Order",
-    "overview": "In cases ripped from the headlines, police investigate serious and often deadly crimes, weighing the evidence and questioning the suspects until someone is taken into custody. The district attorney's office then builds a case to convict the perpetrator by proving the person guilty beyond a reasonable doubt. Working together, these expert teams navigate all sides of the complex criminal justice system to make New York a safer place.",
-    "poster": "https://image.tmdb.org/t/p/w342/haJ9eHytVO3H3JooMJG1DiWwDNm.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/tc7canPSAn2X14hYi6Rl3gZm1o4.jpg",
-    "rating": 7.282,
-    "votes": 699,
-    "release": "1990-09-13",
-    "genres": [
-      80,
-      18
-    ],
-    "popularity": 206.6064
-  },
-  {
-    "id": 125988,
-    "tmdb_id": 125988,
-    "type": "tv",
-    "title": "Silo",
-    "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
-    "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
-    "rating": 8.184,
-    "votes": 2348,
-    "release": "2023-05-04",
-    "genres": [
-      10765,
-      18
-    ],
-    "popularity": 220.5691
-  },
-  {
-    "id": 1622,
-    "tmdb_id": 1622,
-    "type": "tv",
-    "title": "Supernatural",
-    "overview": "When they were boys, Sam and Dean Winchester lost their mother to a mysterious and demonic supernatural force. Subsequently, their father raised them to be soldiers. He taught them about the paranormal evil that lives in the dark corners and on the back roads of America ... and he taught them how to kill it. Now, the Winchester brothers crisscross the country in their '67 Chevy Impala, battling every kind of supernatural threat they encounter along the way. ",
-    "poster": "https://image.tmdb.org/t/p/w342/8iixmfGx5EIFPdpNvB2JvI3VIqX.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/ro0tlgnsco4SwbdAgmscLkSlMSL.jpg",
-    "rating": 8.313,
-    "votes": 8571,
-    "release": "2005-09-13",
-    "genres": [
-      18,
-      9648,
-      10765
-    ],
-    "popularity": 200.5559
+    "popularity": 202.251
   },
   {
     "id": 4614,
@@ -256,40 +255,59 @@
       18,
       10759
     ],
-    "popularity": 204.6048
+    "popularity": 195.9373
   },
   {
-    "id": 46271,
-    "tmdb_id": 46271,
+    "id": 14424,
+    "tmdb_id": 14424,
     "type": "tv",
-    "title": "Secret Story",
-    "overview": "The game contestants are cut off from the rest of the world during ten to fifteen weeks in a house called “house of secrets”, where every room is fitted with video cameras, except the restroom. The goal is to keep a secret while trying to discover the other contestants' secret.",
-    "poster": "https://image.tmdb.org/t/p/w342/jDFFyXE04vv9pvHzJESgbJnNRc2.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/go422YL6ytCPCZsrTCBmAJYaI72.jpg",
-    "rating": 4.5,
-    "votes": 12,
-    "release": "2007-06-23",
+    "title": "Young Hearts",
+    "overview": "Malhação is a Brazilian television series for the teenage audience. The soap started in 1995, and was set in a fictional Gym Club called Malhação on Barra da Tijuca, Rio de Janeiro. Through the years the location varied slightly. Although the name of the soap remains the same, it is now set in the Múltipla Escolha High School.",
+    "poster": "https://image.tmdb.org/t/p/w342/bF24r2FxsjzgkJcrbBU8RC9JVoU.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/7Vpk75SxS86Ai7o2iilJUz5rx4x.jpg",
+    "rating": 6.3,
+    "votes": 37,
+    "release": "1995-04-24",
+    "genres": [
+      10766,
+      35,
+      18
+    ],
+    "popularity": 141.3303
+  },
+  {
+    "id": 1622,
+    "tmdb_id": 1622,
+    "type": "tv",
+    "title": "Supernatural",
+    "overview": "When they were boys, Sam and Dean Winchester lost their mother to a mysterious and demonic supernatural force. Subsequently, their father raised them to be soldiers. He taught them about the paranormal evil that lives in the dark corners and on the back roads of America ... and he taught them how to kill it. Now, the Winchester brothers crisscross the country in their '67 Chevy Impala, battling every kind of supernatural threat they encounter along the way. ",
+    "poster": "https://image.tmdb.org/t/p/w342/8iixmfGx5EIFPdpNvB2JvI3VIqX.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/ro0tlgnsco4SwbdAgmscLkSlMSL.jpg",
+    "rating": 8.312,
+    "votes": 8574,
+    "release": "2005-09-13",
+    "genres": [
+      18,
+      9648,
+      10765
+    ],
+    "popularity": 196.5068
+  },
+  {
+    "id": 67707,
+    "tmdb_id": 67707,
+    "type": "tv",
+    "title": "Paradise Hotel",
+    "overview": "A group of hot singles check into a luxury hotel in Mexico. Prepare for love, partying, betrayal and tears. Half a million kronor is at stake and anything can happen in paradise.",
+    "poster": "https://image.tmdb.org/t/p/w342/aeU8fC5JaG2BkWqgMX7yPfX7dfW.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/jv7E1Fr6roiVQSvql6bWqOQVDC9.jpg",
+    "rating": 5,
+    "votes": 4,
+    "release": "2005-01-17",
     "genres": [
       10764
     ],
-    "popularity": 146.7563
-  },
-  {
-    "id": 70998,
-    "tmdb_id": 70998,
-    "type": "tv",
-    "title": "Souryo to Majiwaru Shikiyoku no Yoru ni...",
-    "overview": "At a high school reunion, Mio Fukatani reunites with a classmate she has not seen in years—Takahide Kujou. She had always wanted to know more about the kind-hearted boy in high school, but once she realizes that Kujou has become a monk, she believes that any chance of getting to know him romantically is slim. Deciding to drink away her sorrows, she ends up walking home drunk, and surprisingly, running into Kujou who helps her get home.\n\nHowever, once inside, Kujou's lust for Mio becomes apparent and the two share an erotic night of passion. As this steamy romance blossoms between these two unlikely lovers, Mio and Kujou will undoubtedly spend many nights together in utter ecstasy.",
-    "poster": "https://image.tmdb.org/t/p/w342/ueI9EeoRdMVa7hWEm21nQEU8Zv3.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/4kQiFnWtwndtCyKMszVJNPEE1kY.jpg",
-    "rating": 5.3,
-    "votes": 14,
-    "release": "2017-04-03",
-    "genres": [
-      16,
-      18
-    ],
-    "popularity": 167.3772
+    "popularity": 190.316
   },
   {
     "id": 22980,
@@ -306,41 +324,22 @@
       10767,
       35
     ],
-    "popularity": 195.173
+    "popularity": 219.4908
   },
   {
-    "id": 94664,
-    "tmdb_id": 94664,
+    "id": 16807,
+    "tmdb_id": 16807,
     "type": "tv",
-    "title": "Mushoku Tensei: Jobless Reincarnation",
-    "overview": "When a 34-year-old underachiever gets run over by a truck, his story doesn't end there. Reincarnated in a new world as an infant, Rudy will seize every opportunity to live the life he's always wanted. Armed with new friends, some freshly acquired magical abilities, and the courage to do the things he's always dreamed of, he's embarking on an epic adventure—with all of his past experience intact!",
-    "poster": "https://image.tmdb.org/t/p/w342/gLKOYIMyKlUHW0SVdskhgf9C0yy.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/j9fRIimor0AMFJR9kjZubXcABzZ.jpg",
-    "rating": 8.468,
-    "votes": 1626,
-    "release": "2021-01-11",
+    "title": "Jornal Nacional",
+    "overview": "Jornal Nacional is a Brazilian Emmy-winning primetime news program aired by Rede Globo since September 1, 1969. It was the first news program broadcast live by a television network throughout Brazil.",
+    "poster": "https://image.tmdb.org/t/p/w342/59iVuixNWRgtkT1aN8BR9RrJOBR.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/ngmekOxfGjiTtNbWM5T5U4WvzlS.jpg",
+    "rating": 7,
+    "votes": 7,
+    "release": "1969-09-01",
     "genres": [
-      10759,
-      16,
-      10765
+      10763
     ],
-    "popularity": 167.4216
-  },
-  {
-    "id": 299989,
-    "tmdb_id": 299989,
-    "type": "tv",
-    "title": "Quiet Please!",
-    "overview": "One month into living on his own, Yi-hyuk was hoping for an exciting, dramatic start to his independent life—but not this kind of drama. What he doesn’t expect is to be tormented by the thunderous noise coming from the apartment next door. Determined to put an end to it, he confronts his neighbor—only to make things infinitely worse when he accidentally punches him in the face.Yi-hyuk tries everything—from childish pranks to petty power plays—but his neighbor just won’t budge. He even pleads on his knees to make the noise stop. Just when it seems the feud will never end, they finally manage to call an uneasy truce.And somewhere along the way, Yi-hyuk realizes he might be falling for the very person who once drove him up the wall.",
-    "poster": "https://image.tmdb.org/t/p/w342/hF9WdEMmEndkkBpOGSzez6Adjdw.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/ihE0jp6V7R6dMwV7YrbYyjdQMvr.jpg",
-    "rating": 7.5,
-    "votes": 13,
-    "release": "2025-09-02",
-    "genres": [
-      35,
-      16
-    ],
-    "popularity": 178.3676
+    "popularity": 209.3542
   }
 ]
