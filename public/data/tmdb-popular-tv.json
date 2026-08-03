@@ -8,7 +8,7 @@
     "poster": "https://image.tmdb.org/t/p/w342/acYXu4KaDj1NIkMgObnhe4C4a0T.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/q3pCsNvJ7CmdJUz2sJEEUY3pOPC.jpg",
     "rating": 8.37,
-    "votes": 4484,
+    "votes": 4490,
     "release": "2008-09-23",
     "genres": [
       80,
@@ -18,6 +18,22 @@
     "popularity": 342.7548
   },
   {
+    "id": 233643,
+    "tmdb_id": 233643,
+    "type": "tv",
+    "title": "Secret Mission - Undercover Agents Never Back Down!",
+    "overview": "Narcotics Enforcement Agent Riko Ikazuchi is undercover with her junior colleague Noma in an apartment that serves as the hideout for a criminal organization. Despite Riko and Noma posing as a newlywed couple, the criminals begin to suspect them after not hearing any marital intimacy during the night. To convince them that they are a loving couple, Noma starts touching Riko's body...",
+    "poster": "https://image.tmdb.org/t/p/w342/xZV8e1iKi85PFZlbQBdznvtpAVJ.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/5IBSPGPAEFEkEJo4leqvpq0RcKf.jpg",
+    "rating": 6.154,
+    "votes": 26,
+    "release": "2023-10-02",
+    "genres": [
+      16
+    ],
+    "popularity": 323.3961
+  },
+  {
     "id": 94997,
     "tmdb_id": 94997,
     "type": "tv",
@@ -25,8 +41,8 @@
     "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
     "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
-    "rating": 8.375,
-    "votes": 6792,
+    "rating": 8.377,
+    "votes": 6803,
     "release": "2022-08-21",
     "genres": [
       10765,
@@ -52,20 +68,57 @@
     "popularity": 296.7594
   },
   {
-    "id": 233643,
-    "tmdb_id": 233643,
+    "id": 13945,
+    "tmdb_id": 13945,
     "type": "tv",
-    "title": "Secret Mission - Undercover Agents Never Back Down!",
-    "overview": "Narcotics Enforcement Agent Riko Ikazuchi is undercover with her junior colleague Noma in an apartment that serves as the hideout for a criminal organization. Despite Riko and Noma posing as a newlywed couple, the criminals begin to suspect them after not hearing any marital intimacy during the night. To convince them that they are a loving couple, Noma starts touching Riko's body...",
-    "poster": "https://image.tmdb.org/t/p/w342/xZV8e1iKi85PFZlbQBdznvtpAVJ.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/5IBSPGPAEFEkEJo4leqvpq0RcKf.jpg",
-    "rating": 6.154,
-    "votes": 26,
-    "release": "2023-10-02",
+    "title": "Gute Zeiten, schlechte Zeiten",
+    "overview": "Gute Zeiten, schlechte Zeiten is a long-running German television soap opera, first broadcast on RTL in 1992. The programme concerns the lives of a fictional neighborhood in Germany's capital city Berlin. Over the years the soap opera tends to have an overhaul of young people in their late teens and early twenties; targeting a young viewership.",
+    "poster": "https://image.tmdb.org/t/p/w342/qujVFLAlBnPU9mZElV4NZgL8iXT.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/ottT2Yt0OfHiHp3PHJTLNVV8JPE.jpg",
+    "rating": 5.458,
+    "votes": 48,
+    "release": "1992-05-11",
     "genres": [
-      16
+      18,
+      10766
     ],
-    "popularity": 323.3961
+    "popularity": 268.9251
+  },
+  {
+    "id": 2734,
+    "tmdb_id": 2734,
+    "type": "tv",
+    "title": "Law & Order: Special Victims Unit",
+    "overview": "In the criminal justice system, sexually-based offenses are considered especially heinous. In New York City, the dedicated detectives who investigate these vicious felonies are members of an elite squad known as the Special Victims Unit. These are their stories.",
+    "poster": "https://image.tmdb.org/t/p/w342/iofokHZoUB4Qhik4PflvJl8TT6a.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/obtdxPgmfykYwVnvuYXC5f2xKlQ.jpg",
+    "rating": 7.959,
+    "votes": 4305,
+    "release": "1999-09-20",
+    "genres": [
+      80,
+      18,
+      9648
+    ],
+    "popularity": 258.0955
+  },
+  {
+    "id": 79744,
+    "tmdb_id": 79744,
+    "type": "tv",
+    "title": "The Rookie",
+    "overview": "Starting over isn't easy, especially for small-town guy John Nolan who, after a life-altering incident, is pursuing his dream of being an LAPD officer. As the force's oldest rookie, he's met with skepticism from some higher-ups who see him as just a walking midlife crisis.",
+    "poster": "https://image.tmdb.org/t/p/w342/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/6iNWfGVCEfASDdlNb05TP5nG0ll.jpg",
+    "rating": 8.549,
+    "votes": 3421,
+    "release": "2018-10-16",
+    "genres": [
+      80,
+      18,
+      35
+    ],
+    "popularity": 256.1625
   },
   {
     "id": 50821,
@@ -85,40 +138,107 @@
     "popularity": 247.4217
   },
   {
-    "id": 2734,
-    "tmdb_id": 2734,
+    "id": 125988,
+    "tmdb_id": 125988,
     "type": "tv",
-    "title": "Law & Order: Special Victims Unit",
-    "overview": "In the criminal justice system, sexually-based offenses are considered especially heinous. In New York City, the dedicated detectives who investigate these vicious felonies are members of an elite squad known as the Special Victims Unit. These are their stories.",
-    "poster": "https://image.tmdb.org/t/p/w342/iofokHZoUB4Qhik4PflvJl8TT6a.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/obtdxPgmfykYwVnvuYXC5f2xKlQ.jpg",
-    "rating": 7.959,
-    "votes": 4304,
-    "release": "1999-09-20",
+    "title": "Silo",
+    "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
+    "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
+    "rating": 8.185,
+    "votes": 2361,
+    "release": "2023-05-04",
     "genres": [
-      80,
-      18,
-      9648
+      10765,
+      18
     ],
-    "popularity": 258.0955
+    "popularity": 238.6817
   },
   {
-    "id": 79744,
-    "tmdb_id": 79744,
+    "id": 60625,
+    "tmdb_id": 60625,
     "type": "tv",
-    "title": "The Rookie",
-    "overview": "Starting over isn't easy, especially for small-town guy John Nolan who, after a life-altering incident, is pursuing his dream of being an LAPD officer. As the force's oldest rookie, he's met with skepticism from some higher-ups who see him as just a walking midlife crisis.",
-    "poster": "https://image.tmdb.org/t/p/w342/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/6iNWfGVCEfASDdlNb05TP5nG0ll.jpg",
-    "rating": 8.549,
-    "votes": 3419,
-    "release": "2018-10-16",
+    "title": "Rick and Morty",
+    "overview": "Follows a sociopathic genius scientist who drags his inherently timid grandson on adventures across the universe.",
+    "poster": "https://image.tmdb.org/t/p/w342/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/i4PpW1XyRlBuSNSIBRIIwSjEpjl.jpg",
+    "rating": 8.7,
+    "votes": 11213,
+    "release": "2013-12-02",
     "genres": [
-      80,
-      18,
+      16,
+      35,
+      10765,
+      10759
+    ],
+    "popularity": 226.7713
+  },
+  {
+    "id": 1416,
+    "tmdb_id": 1416,
+    "type": "tv",
+    "title": "Grey's Anatomy",
+    "overview": "Follows the personal and professional lives of a group of doctors at Seattle's Grey Sloan Memorial Hospital.",
+    "poster": "https://image.tmdb.org/t/p/w342/hjJkrLXhWvGHpLeLBDFznpBTY1S.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/jP0Rhj9OTPDAwQlHQwOLFDdeE8t.jpg",
+    "rating": 8.207,
+    "votes": 10988,
+    "release": "2005-03-27",
+    "genres": [
+      18
+    ],
+    "popularity": 221.0108
+  },
+  {
+    "id": 22980,
+    "tmdb_id": 22980,
+    "type": "tv",
+    "title": "Watch What Happens Live with Andy Cohen",
+    "overview": "Bravo network executive Andy Cohen discusses pop culture topics with celebrities and reality show personalities.",
+    "poster": "https://image.tmdb.org/t/p/w342/onSD9UXfJwrMXWhq7UY7hGF2S1h.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/hINekSpbcBxjnjGqmIm6I4bz2ab.jpg",
+    "rating": 5,
+    "votes": 87,
+    "release": "2009-07-16",
+    "genres": [
+      10767,
       35
     ],
-    "popularity": 256.1625
+    "popularity": 219.4908
+  },
+  {
+    "id": 65334,
+    "tmdb_id": 65334,
+    "type": "tv",
+    "title": "Miraculous: Tales of Ladybug & Cat Noir",
+    "overview": "Marinette and Adrien, two Parisian teenagers, are entrusted with powerful jewels in order to transform into superheroes Ladybug and Cat Noir. But neither hero knows the other's true identity — or that they're classmates!",
+    "poster": "https://image.tmdb.org/t/p/w342/acrtAy8gmxcsEvrDP09MpMSCeDZ.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/lH22EnM0ofC7GsVGU8dAA2RXV1c.jpg",
+    "rating": 8.057,
+    "votes": 4632,
+    "release": "2015-10-19",
+    "genres": [
+      10759,
+      16,
+      10762
+    ],
+    "popularity": 212.4824
+  },
+  {
+    "id": 16807,
+    "tmdb_id": 16807,
+    "type": "tv",
+    "title": "Jornal Nacional",
+    "overview": "Jornal Nacional is a Brazilian Emmy-winning primetime news program aired by Rede Globo since September 1, 1969. It was the first news program broadcast live by a television network throughout Brazil.",
+    "poster": "https://image.tmdb.org/t/p/w342/ikGRSbjOJhQ74YqYTxYqhURGdNC.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/ngmekOxfGjiTtNbWM5T5U4WvzlS.jpg",
+    "rating": 7,
+    "votes": 7,
+    "release": "1969-09-01",
+    "genres": [
+      10763
+    ],
+    "popularity": 209.3542
   },
   {
     "id": 204269,
@@ -137,72 +257,22 @@
     "popularity": 208.204
   },
   {
-    "id": 94722,
-    "tmdb_id": 94722,
+    "id": 124364,
+    "tmdb_id": 124364,
     "type": "tv",
-    "title": "Tagesschau",
-    "overview": "German daily news program, the oldest still existing program on German television.",
-    "poster": "https://image.tmdb.org/t/p/w342/7dFZJ2ZJJdcmkp05B9NWlqTJ5tq.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/jWXrQstj7p3Wl5MfYWY6IHqRpDb.jpg",
-    "rating": 6.768,
-    "votes": 256,
-    "release": "1952-12-26",
+    "title": "FROM",
+    "overview": "Unravel the mystery of a nightmarish town in middle America that traps all those who enter. As the unwilling residents fight to keep a sense of normalcy and search for a way out, they must also survive the threats of the surrounding forest – including the terrifying creatures that come out when the sun goes down.",
+    "poster": "https://image.tmdb.org/t/p/w342/pRtJagIxpfODzzb0T0NAvZSzErC.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/xLdw1xdHocKYFFvx7w41NchXMfJ.jpg",
+    "rating": 8.498,
+    "votes": 4101,
+    "release": "2022-02-20",
     "genres": [
-      10763
+      9648,
+      18,
+      10765
     ],
-    "popularity": 189.6431
-  },
-  {
-    "id": 60625,
-    "tmdb_id": 60625,
-    "type": "tv",
-    "title": "Rick and Morty",
-    "overview": "Follows a sociopathic genius scientist who drags his inherently timid grandson on adventures across the universe.",
-    "poster": "https://image.tmdb.org/t/p/w342/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/i4PpW1XyRlBuSNSIBRIIwSjEpjl.jpg",
-    "rating": 8.68,
-    "votes": 11209,
-    "release": "2013-12-02",
-    "genres": [
-      16,
-      35,
-      10765,
-      10759
-    ],
-    "popularity": 226.7713
-  },
-  {
-    "id": 1416,
-    "tmdb_id": 1416,
-    "type": "tv",
-    "title": "Grey's Anatomy",
-    "overview": "Follows the personal and professional lives of a group of doctors at Seattle's Grey Sloan Memorial Hospital.",
-    "poster": "https://image.tmdb.org/t/p/w342/hjJkrLXhWvGHpLeLBDFznpBTY1S.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/jP0Rhj9OTPDAwQlHQwOLFDdeE8t.jpg",
-    "rating": 8.208,
-    "votes": 10987,
-    "release": "2005-03-27",
-    "genres": [
-      18
-    ],
-    "popularity": 221.0108
-  },
-  {
-    "id": 125988,
-    "tmdb_id": 125988,
-    "type": "tv",
-    "title": "Silo",
-    "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
-    "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
-    "rating": 8.182,
-    "votes": 2354,
-    "release": "2023-05-04",
-    "genres": [
-      10765,
-      18
-    ],
-    "popularity": 238.6817
+    "popularity": 202.251
   },
   {
     "id": 549,
@@ -212,8 +282,8 @@
     "overview": "In cases ripped from the headlines, police investigate serious and often deadly crimes, weighing the evidence and questioning the suspects until someone is taken into custody. The district attorney's office then builds a case to convict the perpetrator by proving the person guilty beyond a reasonable doubt. Working together, these expert teams navigate all sides of the complex criminal justice system to make New York a safer place.",
     "poster": "https://image.tmdb.org/t/p/w342/haJ9eHytVO3H3JooMJG1DiWwDNm.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/tc7canPSAn2X14hYi6Rl3gZm1o4.jpg",
-    "rating": 7.281,
-    "votes": 701,
+    "rating": 7.282,
+    "votes": 702,
     "release": "1990-09-13",
     "genres": [
       80,
@@ -222,22 +292,22 @@
     "popularity": 196.8556
   },
   {
-    "id": 124364,
-    "tmdb_id": 124364,
+    "id": 1622,
+    "tmdb_id": 1622,
     "type": "tv",
-    "title": "FROM",
-    "overview": "Unravel the mystery of a nightmarish town in middle America that traps all those who enter. As the unwilling residents fight to keep a sense of normalcy and search for a way out, they must also survive the threats of the surrounding forest – including the terrifying creatures that come out when the sun goes down.",
-    "poster": "https://image.tmdb.org/t/p/w342/pRtJagIxpfODzzb0T0NAvZSzErC.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/xLdw1xdHocKYFFvx7w41NchXMfJ.jpg",
-    "rating": 8.497,
-    "votes": 4092,
-    "release": "2022-02-20",
+    "title": "Supernatural",
+    "overview": "When they were boys, Sam and Dean Winchester lost their mother to a mysterious and demonic supernatural force. Subsequently, their father raised them to be soldiers. He taught them about the paranormal evil that lives in the dark corners and on the back roads of America ... and he taught them how to kill it. Now, the Winchester brothers crisscross the country in their '67 Chevy Impala, battling every kind of supernatural threat they encounter along the way. ",
+    "poster": "https://image.tmdb.org/t/p/w342/8iixmfGx5EIFPdpNvB2JvI3VIqX.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/ro0tlgnsco4SwbdAgmscLkSlMSL.jpg",
+    "rating": 8.312,
+    "votes": 8575,
+    "release": "2005-09-13",
     "genres": [
-      9648,
       18,
+      9648,
       10765
     ],
-    "popularity": 202.251
+    "popularity": 196.5068
   },
   {
     "id": 4614,
@@ -258,42 +328,6 @@
     "popularity": 195.9373
   },
   {
-    "id": 14424,
-    "tmdb_id": 14424,
-    "type": "tv",
-    "title": "Young Hearts",
-    "overview": "Malhação is a Brazilian television series for the teenage audience. The soap started in 1995, and was set in a fictional Gym Club called Malhação on Barra da Tijuca, Rio de Janeiro. Through the years the location varied slightly. Although the name of the soap remains the same, it is now set in the Múltipla Escolha High School.",
-    "poster": "https://image.tmdb.org/t/p/w342/bF24r2FxsjzgkJcrbBU8RC9JVoU.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/7Vpk75SxS86Ai7o2iilJUz5rx4x.jpg",
-    "rating": 6.3,
-    "votes": 37,
-    "release": "1995-04-24",
-    "genres": [
-      10766,
-      35,
-      18
-    ],
-    "popularity": 141.3303
-  },
-  {
-    "id": 1622,
-    "tmdb_id": 1622,
-    "type": "tv",
-    "title": "Supernatural",
-    "overview": "When they were boys, Sam and Dean Winchester lost their mother to a mysterious and demonic supernatural force. Subsequently, their father raised them to be soldiers. He taught them about the paranormal evil that lives in the dark corners and on the back roads of America ... and he taught them how to kill it. Now, the Winchester brothers crisscross the country in their '67 Chevy Impala, battling every kind of supernatural threat they encounter along the way. ",
-    "poster": "https://image.tmdb.org/t/p/w342/8iixmfGx5EIFPdpNvB2JvI3VIqX.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/ro0tlgnsco4SwbdAgmscLkSlMSL.jpg",
-    "rating": 8.312,
-    "votes": 8574,
-    "release": "2005-09-13",
-    "genres": [
-      18,
-      9648,
-      10765
-    ],
-    "popularity": 196.5068
-  },
-  {
     "id": 67707,
     "tmdb_id": 67707,
     "type": "tv",
@@ -308,38 +342,5 @@
       10764
     ],
     "popularity": 190.316
-  },
-  {
-    "id": 22980,
-    "tmdb_id": 22980,
-    "type": "tv",
-    "title": "Watch What Happens Live with Andy Cohen",
-    "overview": "Bravo network executive Andy Cohen discusses pop culture topics with celebrities and reality show personalities.",
-    "poster": "https://image.tmdb.org/t/p/w342/onSD9UXfJwrMXWhq7UY7hGF2S1h.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/hINekSpbcBxjnjGqmIm6I4bz2ab.jpg",
-    "rating": 5,
-    "votes": 87,
-    "release": "2009-07-16",
-    "genres": [
-      10767,
-      35
-    ],
-    "popularity": 219.4908
-  },
-  {
-    "id": 16807,
-    "tmdb_id": 16807,
-    "type": "tv",
-    "title": "Jornal Nacional",
-    "overview": "Jornal Nacional is a Brazilian Emmy-winning primetime news program aired by Rede Globo since September 1, 1969. It was the first news program broadcast live by a television network throughout Brazil.",
-    "poster": "https://image.tmdb.org/t/p/w342/59iVuixNWRgtkT1aN8BR9RrJOBR.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/ngmekOxfGjiTtNbWM5T5U4WvzlS.jpg",
-    "rating": 7,
-    "votes": 7,
-    "release": "1969-09-01",
-    "genres": [
-      10763
-    ],
-    "popularity": 209.3542
   }
 ]
