@@ -34,44 +34,7 @@
     "@attr": {
       "rank": "1"
     },
-    "playcount": "20"
-  },
-  {
-    "streamable": {
-      "fulltrack": "0",
-      "#text": "0"
-    },
-    "mbid": "060bd240-3068-40b5-9899-a2b0134f6168",
-    "name": "Sad Forever",
-    "image": [
-      {
-        "size": "small",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "medium",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "large",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "extralarge",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
-      }
-    ],
-    "artist": {
-      "url": "https://www.last.fm/music/Lauv",
-      "name": "Lauv",
-      "mbid": "c0ef2ba5-a7b7-40ea-bd27-30acccfcac11"
-    },
-    "url": "https://www.last.fm/music/Lauv/_/Sad+Forever",
-    "duration": "203",
-    "@attr": {
-      "rank": "2"
-    },
-    "playcount": "13"
+    "playcount": "18"
   },
   {
     "streamable": {
@@ -106,7 +69,7 @@
     "url": "https://www.last.fm/music/Kevin+Stratvert/_/Reply+quickly+in+Gmail",
     "duration": "0",
     "@attr": {
-      "rank": "3"
+      "rank": "2"
     },
     "playcount": "11"
   },
@@ -142,6 +105,43 @@
     },
     "url": "https://www.last.fm/music/Kevin+Stratvert/_/Get+Grammarly",
     "duration": "0",
+    "@attr": {
+      "rank": "3"
+    },
+    "playcount": "9"
+  },
+  {
+    "streamable": {
+      "fulltrack": "0",
+      "#text": "0"
+    },
+    "mbid": "060bd240-3068-40b5-9899-a2b0134f6168",
+    "name": "Sad Forever",
+    "image": [
+      {
+        "size": "small",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "medium",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "large",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "extralarge",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
+      }
+    ],
+    "artist": {
+      "url": "https://www.last.fm/music/Lauv",
+      "name": "Lauv",
+      "mbid": "c0ef2ba5-a7b7-40ea-bd27-30acccfcac11"
+    },
+    "url": "https://www.last.fm/music/Lauv/_/Sad+Forever",
+    "duration": "203",
     "@attr": {
       "rank": "4"
     },
@@ -374,43 +374,6 @@
       "fulltrack": "0",
       "#text": "0"
     },
-    "mbid": "0ac42915-c526-4d51-a2e4-b72f617f53f8",
-    "name": "YOUTH",
-    "image": [
-      {
-        "size": "small",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "medium",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "large",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "extralarge",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
-      }
-    ],
-    "artist": {
-      "url": "https://www.last.fm/music/Troye+Sivan",
-      "name": "Troye Sivan",
-      "mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
-    },
-    "url": "https://www.last.fm/music/Troye+Sivan/_/YOUTH",
-    "duration": "185",
-    "@attr": {
-      "rank": "11"
-    },
-    "playcount": "7"
-  },
-  {
-    "streamable": {
-      "fulltrack": "0",
-      "#text": "0"
-    },
     "mbid": "",
     "name": "Improve text in PowerPoint",
     "image": [
@@ -439,7 +402,7 @@
     "url": "https://www.last.fm/music/Kevin+Stratvert/_/Improve+text+in+PowerPoint",
     "duration": "0",
     "@attr": {
-      "rank": "12"
+      "rank": "11"
     },
     "playcount": "6"
   },
@@ -476,7 +439,7 @@
     "url": "https://www.last.fm/music/Lauv+&+LANY/_/Mean+It",
     "duration": "232",
     "@attr": {
-      "rank": "13"
+      "rank": "12"
     },
     "playcount": "6"
   },
@@ -513,7 +476,7 @@
     "url": "https://www.last.fm/music/Troye+Sivan/_/One+of+Your+Girls",
     "duration": "181",
     "@attr": {
-      "rank": "14"
+      "rank": "13"
     },
     "playcount": "6"
   },
@@ -522,8 +485,8 @@
       "fulltrack": "0",
       "#text": "0"
     },
-    "mbid": "",
-    "name": "Leave Before You Love Me",
+    "mbid": "0ac42915-c526-4d51-a2e4-b72f617f53f8",
+    "name": "YOUTH",
     "image": [
       {
         "size": "small",
@@ -543,16 +506,16 @@
       }
     ],
     "artist": {
-      "url": "https://www.last.fm/music/Marshmello+x+Jonas+Brothers",
-      "name": "Marshmello x Jonas Brothers",
-      "mbid": ""
+      "url": "https://www.last.fm/music/Troye+Sivan",
+      "name": "Troye Sivan",
+      "mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
     },
-    "url": "https://www.last.fm/music/Marshmello+x+Jonas+Brothers/_/Leave+Before+You+Love+Me",
-    "duration": "0",
+    "url": "https://www.last.fm/music/Troye+Sivan/_/YOUTH",
+    "duration": "185",
     "@attr": {
-      "rank": "15"
+      "rank": "14"
     },
-    "playcount": "5"
+    "playcount": "6"
   },
   {
     "streamable": {
@@ -587,7 +550,7 @@
     "url": "https://www.last.fm/music/Shawn+Mendes/_/Stitches",
     "duration": "206",
     "@attr": {
-      "rank": "16"
+      "rank": "15"
     },
     "playcount": "5"
   },
@@ -624,7 +587,7 @@
     "url": "https://www.last.fm/music/Troye+Sivan/_/Lucky+Strike",
     "duration": "208",
     "@attr": {
-      "rank": "17"
+      "rank": "16"
     },
     "playcount": "5"
   },
@@ -661,7 +624,7 @@
     "url": "https://www.last.fm/music/Cardi+B/_/Please+Me",
     "duration": "200",
     "@attr": {
-      "rank": "18"
+      "rank": "17"
     },
     "playcount": "4"
   },
@@ -698,7 +661,7 @@
     "url": "https://www.last.fm/music/Charlie+Puth/_/One+Call+Away",
     "duration": "194",
     "@attr": {
-      "rank": "19"
+      "rank": "18"
     },
     "playcount": "4"
   },
@@ -735,7 +698,7 @@
     "url": "https://www.last.fm/music/dhruv/_/double+take",
     "duration": "171",
     "@attr": {
-      "rank": "20"
+      "rank": "19"
     },
     "playcount": "4"
   },
@@ -772,7 +735,7 @@
     "url": "https://www.last.fm/music/Ed+Sheeran/_/Photograph",
     "duration": "258",
     "@attr": {
-      "rank": "21"
+      "rank": "20"
     },
     "playcount": "4"
   },
@@ -809,7 +772,7 @@
     "url": "https://www.last.fm/music/Jeremy+Zucker/_/comethru",
     "duration": "181",
     "@attr": {
-      "rank": "22"
+      "rank": "21"
     },
     "playcount": "4"
   },
@@ -846,7 +809,7 @@
     "url": "https://www.last.fm/music/Justin+Bieber/_/Ghost",
     "duration": "153",
     "@attr": {
-      "rank": "23"
+      "rank": "22"
     },
     "playcount": "4"
   },
@@ -883,7 +846,7 @@
     "url": "https://www.last.fm/music/Justin+Bieber/_/Peaches+ft.+Daniel+Caesar,+Giveon",
     "duration": "0",
     "@attr": {
-      "rank": "24"
+      "rank": "23"
     },
     "playcount": "4"
   },
@@ -918,6 +881,43 @@
       "mbid": "c0ef2ba5-a7b7-40ea-bd27-30acccfcac11"
     },
     "url": "https://www.last.fm/music/Lauv/_/Never+Not",
+    "duration": "0",
+    "@attr": {
+      "rank": "24"
+    },
+    "playcount": "4"
+  },
+  {
+    "streamable": {
+      "fulltrack": "0",
+      "#text": "0"
+    },
+    "mbid": "",
+    "name": "Leave Before You Love Me",
+    "image": [
+      {
+        "size": "small",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "medium",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "large",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "extralarge",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
+      }
+    ],
+    "artist": {
+      "url": "https://www.last.fm/music/Marshmello+x+Jonas+Brothers",
+      "name": "Marshmello x Jonas Brothers",
+      "mbid": ""
+    },
+    "url": "https://www.last.fm/music/Marshmello+x+Jonas+Brothers/_/Leave+Before+You+Love+Me",
     "duration": "0",
     "@attr": {
       "rank": "25"
@@ -1299,43 +1299,6 @@
       "fulltrack": "0",
       "#text": "0"
     },
-    "mbid": "10ba60ed-f74e-40f8-9cb7-0602c694d689",
-    "name": "Come Back Home",
-    "image": [
-      {
-        "size": "small",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "medium",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "large",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "extralarge",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
-      }
-    ],
-    "artist": {
-      "url": "https://www.last.fm/music/Lauv",
-      "name": "Lauv",
-      "mbid": "c0ef2ba5-a7b7-40ea-bd27-30acccfcac11"
-    },
-    "url": "https://www.last.fm/music/Lauv/_/Come+Back+Home",
-    "duration": "0",
-    "@attr": {
-      "rank": "36"
-    },
-    "playcount": "3"
-  },
-  {
-    "streamable": {
-      "fulltrack": "0",
-      "#text": "0"
-    },
     "mbid": "4fbb1e4a-c5c7-4694-a971-a3668bcffa17",
     "name": "Feelings",
     "image": [
@@ -1364,7 +1327,7 @@
     "url": "https://www.last.fm/music/Lauv/_/Feelings",
     "duration": "189",
     "@attr": {
-      "rank": "37"
+      "rank": "36"
     },
     "playcount": "3"
   },
@@ -1401,7 +1364,7 @@
     "url": "https://www.last.fm/music/Lauv/_/I+Like+Me+Better",
     "duration": "197",
     "@attr": {
-      "rank": "38"
+      "rank": "37"
     },
     "playcount": "3"
   },
@@ -1438,7 +1401,7 @@
     "url": "https://www.last.fm/music/Maroon+5/_/Memories",
     "duration": "185",
     "@attr": {
-      "rank": "39"
+      "rank": "38"
     },
     "playcount": "3"
   },
@@ -1475,44 +1438,7 @@
     "url": "https://www.last.fm/music/Martin+Garrix+&+Troye+Sivan/_/There+for+You",
     "duration": "220",
     "@attr": {
-      "rank": "40"
-    },
-    "playcount": "3"
-  },
-  {
-    "streamable": {
-      "fulltrack": "0",
-      "#text": "0"
-    },
-    "mbid": "",
-    "name": "Jag e nån annan",
-    "image": [
-      {
-        "size": "small",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "medium",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "large",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
-      },
-      {
-        "size": "extralarge",
-        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
-      }
-    ],
-    "artist": {
-      "url": "https://www.last.fm/music/Omar+Rudberg",
-      "name": "Omar Rudberg",
-      "mbid": "fb0c1ce1-a31b-4d30-aa68-0101213526c2"
-    },
-    "url": "https://www.last.fm/music/Omar+Rudberg/_/Jag+e+n%C3%A5n+annan",
-    "duration": "181",
-    "@attr": {
-      "rank": "41"
+      "rank": "39"
     },
     "playcount": "3"
   },
@@ -1549,7 +1475,7 @@
     "url": "https://www.last.fm/music/OneRepublic/_/Counting+Stars",
     "duration": "257",
     "@attr": {
-      "rank": "42"
+      "rank": "40"
     },
     "playcount": "3"
   },
@@ -1586,7 +1512,7 @@
     "url": "https://www.last.fm/music/Pink+Sweat$/_/At+My+Worst",
     "duration": "170",
     "@attr": {
-      "rank": "43"
+      "rank": "41"
     },
     "playcount": "3"
   },
@@ -1623,7 +1549,7 @@
     "url": "https://www.last.fm/music/Ruth+B./_/Dandelions",
     "duration": "233",
     "@attr": {
-      "rank": "44"
+      "rank": "42"
     },
     "playcount": "3"
   },
@@ -1660,7 +1586,7 @@
     "url": "https://www.last.fm/music/Shawn+Mendes,+Camila+Cabello/_/se%C3%91orIta",
     "duration": "191",
     "@attr": {
-      "rank": "45"
+      "rank": "43"
     },
     "playcount": "3"
   },
@@ -1697,7 +1623,7 @@
     "url": "https://www.last.fm/music/Troye+Sivan/_/BITE",
     "duration": "186",
     "@attr": {
-      "rank": "46"
+      "rank": "44"
     },
     "playcount": "3"
   },
@@ -1734,7 +1660,7 @@
     "url": "https://www.last.fm/music/Troye+Sivan/_/EASE",
     "duration": "213",
     "@attr": {
-      "rank": "47"
+      "rank": "45"
     },
     "playcount": "3"
   },
@@ -1771,7 +1697,7 @@
     "url": "https://www.last.fm/music/Troye+Sivan/_/Got+Me+Started",
     "duration": "198",
     "@attr": {
-      "rank": "48"
+      "rank": "46"
     },
     "playcount": "3"
   },
@@ -1808,7 +1734,7 @@
     "url": "https://www.last.fm/music/Troye+Sivan/_/HEAVEN",
     "duration": "261",
     "@attr": {
-      "rank": "49"
+      "rank": "47"
     },
     "playcount": "3"
   },
@@ -1845,8 +1771,82 @@
     "url": "https://www.last.fm/music/Troye+Sivan/_/Rush+(Extended+%2F+Official+Audio)",
     "duration": "0",
     "@attr": {
-      "rank": "50"
+      "rank": "48"
     },
     "playcount": "3"
+  },
+  {
+    "streamable": {
+      "fulltrack": "0",
+      "#text": "0"
+    },
+    "mbid": "34a5f529-f8bf-4e74-ae31-77e2e3325f66",
+    "name": "TALK ME DOWN",
+    "image": [
+      {
+        "size": "small",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "medium",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "large",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "extralarge",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
+      }
+    ],
+    "artist": {
+      "url": "https://www.last.fm/music/Troye+Sivan",
+      "name": "Troye Sivan",
+      "mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
+    },
+    "url": "https://www.last.fm/music/Troye+Sivan/_/TALK+ME+DOWN",
+    "duration": "237",
+    "@attr": {
+      "rank": "49"
+    },
+    "playcount": "3"
+  },
+  {
+    "streamable": {
+      "fulltrack": "0",
+      "#text": "0"
+    },
+    "mbid": "",
+    "name": "OpenCode Persistent Memory Across Sessions, 10x Token Savings",
+    "image": [
+      {
+        "size": "small",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "medium",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "large",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+      },
+      {
+        "size": "extralarge",
+        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png"
+      }
+    ],
+    "artist": {
+      "url": "https://www.last.fm/music/AI+Stack+Engineer",
+      "name": "AI Stack Engineer",
+      "mbid": ""
+    },
+    "url": "https://www.last.fm/music/AI+Stack+Engineer/_/OpenCode+Persistent+Memory+Across+Sessions,+10x+Token+Savings",
+    "duration": "0",
+    "@attr": {
+      "rank": "50"
+    },
+    "playcount": "2"
   }
 ]

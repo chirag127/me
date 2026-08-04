@@ -7,15 +7,15 @@
     "overview": "Patrick Jane, a former celebrity psychic medium, uses his razor sharp skills of observation and expertise at \"reading\" people to solve serious crimes with the California Bureau of Investigation.",
     "poster": "https://image.tmdb.org/t/p/w342/acYXu4KaDj1NIkMgObnhe4C4a0T.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/q3pCsNvJ7CmdJUz2sJEEUY3pOPC.jpg",
-    "rating": 8.37,
-    "votes": 4490,
+    "rating": 8.369,
+    "votes": 4497,
     "release": "2008-09-23",
     "genres": [
       80,
       18,
       9648
     ],
-    "popularity": 342.7548
+    "popularity": 297.4174
   },
   {
     "id": 233643,
@@ -31,7 +31,7 @@
     "genres": [
       16
     ],
-    "popularity": 323.3961
+    "popularity": 344.8685
   },
   {
     "id": 94997,
@@ -41,15 +41,51 @@
     "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
     "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
-    "rating": 8.377,
-    "votes": 6803,
+    "rating": 8.384,
+    "votes": 6826,
     "release": "2022-08-21",
     "genres": [
       10765,
       18,
       10759
     ],
-    "popularity": 310.3158
+    "popularity": 411.8868
+  },
+  {
+    "id": 79744,
+    "tmdb_id": 79744,
+    "type": "tv",
+    "title": "The Rookie",
+    "overview": "Starting over isn't easy, especially for small-town guy John Nolan who, after a life-altering incident, is pursuing his dream of being an LAPD officer. As the force's oldest rookie, he's met with skepticism from some higher-ups who see him as just a walking midlife crisis.",
+    "poster": "https://image.tmdb.org/t/p/w342/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/6iNWfGVCEfASDdlNb05TP5nG0ll.jpg",
+    "rating": 8.549,
+    "votes": 3427,
+    "release": "2018-10-16",
+    "genres": [
+      80,
+      18,
+      35
+    ],
+    "popularity": 255.0008
+  },
+  {
+    "id": 2734,
+    "tmdb_id": 2734,
+    "type": "tv",
+    "title": "Law & Order: Special Victims Unit",
+    "overview": "In the criminal justice system, sexually-based offenses are considered especially heinous. In New York City, the dedicated detectives who investigate these vicious felonies are members of an elite squad known as the Special Victims Unit. These are their stories.",
+    "poster": "https://image.tmdb.org/t/p/w342/iofokHZoUB4Qhik4PflvJl8TT6a.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/obtdxPgmfykYwVnvuYXC5f2xKlQ.jpg",
+    "rating": 7.96,
+    "votes": 4306,
+    "release": "1999-09-20",
+    "genres": [
+      80,
+      18,
+      9648
+    ],
+    "popularity": 260.26
   },
   {
     "id": 51025,
@@ -65,7 +101,148 @@
     "genres": [
       10764
     ],
-    "popularity": 296.7594
+    "popularity": 253.4876
+  },
+  {
+    "id": 1416,
+    "tmdb_id": 1416,
+    "type": "tv",
+    "title": "Grey's Anatomy",
+    "overview": "Follows the personal and professional lives of a group of doctors at Seattle's Grey Sloan Memorial Hospital.",
+    "poster": "https://image.tmdb.org/t/p/w342/hjJkrLXhWvGHpLeLBDFznpBTY1S.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/jP0Rhj9OTPDAwQlHQwOLFDdeE8t.jpg",
+    "rating": 8.208,
+    "votes": 10991,
+    "release": "2005-03-27",
+    "genres": [
+      18
+    ],
+    "popularity": 234.7163
+  },
+  {
+    "id": 60625,
+    "tmdb_id": 60625,
+    "type": "tv",
+    "title": "Rick and Morty",
+    "overview": "Follows a sociopathic genius scientist who drags his inherently timid grandson on adventures across the universe.",
+    "poster": "https://image.tmdb.org/t/p/w342/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/iFOkrSrJRwE27PwbyQeYLlMJXzw.jpg",
+    "rating": 8.68,
+    "votes": 11220,
+    "release": "2013-12-02",
+    "genres": [
+      16,
+      35,
+      10765,
+      10759
+    ],
+    "popularity": 223.5293
+  },
+  {
+    "id": 125988,
+    "tmdb_id": 125988,
+    "type": "tv",
+    "title": "Silo",
+    "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
+    "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
+    "rating": 8.187,
+    "votes": 2367,
+    "release": "2023-05-04",
+    "genres": [
+      10765,
+      18
+    ],
+    "popularity": 220.3794
+  },
+  {
+    "id": 124364,
+    "tmdb_id": 124364,
+    "type": "tv",
+    "title": "FROM",
+    "overview": "Unravel the mystery of a nightmarish town in middle America that traps all those who enter. As the unwilling residents fight to keep a sense of normalcy and search for a way out, they must also survive the threats of the surrounding forest – including the terrifying creatures that come out when the sun goes down.",
+    "poster": "https://image.tmdb.org/t/p/w342/pRtJagIxpfODzzb0T0NAvZSzErC.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/xLdw1xdHocKYFFvx7w41NchXMfJ.jpg",
+    "rating": 8.5,
+    "votes": 4105,
+    "release": "2022-02-20",
+    "genres": [
+      9648,
+      18,
+      10765
+    ],
+    "popularity": 206.1688
+  },
+  {
+    "id": 65334,
+    "tmdb_id": 65334,
+    "type": "tv",
+    "title": "Miraculous: Tales of Ladybug & Cat Noir",
+    "overview": "Marinette and Adrien, two Parisian teenagers, are entrusted with powerful jewels in order to transform into superheroes Ladybug and Cat Noir. But neither hero knows the other's true identity — or that they're classmates!",
+    "poster": "https://image.tmdb.org/t/p/w342/acrtAy8gmxcsEvrDP09MpMSCeDZ.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/lH22EnM0ofC7GsVGU8dAA2RXV1c.jpg",
+    "rating": 8.1,
+    "votes": 4633,
+    "release": "2015-10-19",
+    "genres": [
+      10759,
+      16,
+      10762
+    ],
+    "popularity": 210.8566
+  },
+  {
+    "id": 4614,
+    "tmdb_id": 4614,
+    "type": "tv",
+    "title": "NCIS",
+    "overview": "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has any connection to Navy and Marine Corps personnel, regardless of rank or position.",
+    "poster": "https://image.tmdb.org/t/p/w342/mBcu8d6x6zB1el3MPNl7cZQEQ31.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/nn3SuLTO4hum8yAxaY4ql8h6kRk.jpg",
+    "rating": 7.609,
+    "votes": 2542,
+    "release": "2003-09-23",
+    "genres": [
+      80,
+      18,
+      10759
+    ],
+    "popularity": 194.0223
+  },
+  {
+    "id": 1622,
+    "tmdb_id": 1622,
+    "type": "tv",
+    "title": "Supernatural",
+    "overview": "When they were boys, Sam and Dean Winchester lost their mother to a mysterious and demonic supernatural force. Subsequently, their father raised them to be soldiers. He taught them about the paranormal evil that lives in the dark corners and on the back roads of America ... and he taught them how to kill it. Now, the Winchester brothers crisscross the country in their '67 Chevy Impala, battling every kind of supernatural threat they encounter along the way. ",
+    "poster": "https://image.tmdb.org/t/p/w342/8iixmfGx5EIFPdpNvB2JvI3VIqX.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/ro0tlgnsco4SwbdAgmscLkSlMSL.jpg",
+    "rating": 8.313,
+    "votes": 8577,
+    "release": "2005-09-13",
+    "genres": [
+      18,
+      9648,
+      10765
+    ],
+    "popularity": 194.493
+  },
+  {
+    "id": 549,
+    "tmdb_id": 549,
+    "type": "tv",
+    "title": "Law & Order",
+    "overview": "In cases ripped from the headlines, police investigate serious and often deadly crimes, weighing the evidence and questioning the suspects until someone is taken into custody. The district attorney's office then builds a case to convict the perpetrator by proving the person guilty beyond a reasonable doubt. Working together, these expert teams navigate all sides of the complex criminal justice system to make New York a safer place.",
+    "poster": "https://image.tmdb.org/t/p/w342/haJ9eHytVO3H3JooMJG1DiWwDNm.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/tc7canPSAn2X14hYi6Rl3gZm1o4.jpg",
+    "rating": 7.282,
+    "votes": 703,
+    "release": "1990-09-13",
+    "genres": [
+      80,
+      18
+    ],
+    "popularity": 200.4539
   },
   {
     "id": 13945,
@@ -82,163 +259,25 @@
       18,
       10766
     ],
-    "popularity": 268.9251
+    "popularity": 146.5111
   },
   {
-    "id": 2734,
-    "tmdb_id": 2734,
+    "id": 4057,
+    "tmdb_id": 4057,
     "type": "tv",
-    "title": "Law & Order: Special Victims Unit",
-    "overview": "In the criminal justice system, sexually-based offenses are considered especially heinous. In New York City, the dedicated detectives who investigate these vicious felonies are members of an elite squad known as the Special Victims Unit. These are their stories.",
-    "poster": "https://image.tmdb.org/t/p/w342/iofokHZoUB4Qhik4PflvJl8TT6a.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/obtdxPgmfykYwVnvuYXC5f2xKlQ.jpg",
-    "rating": 7.959,
-    "votes": 4305,
-    "release": "1999-09-20",
+    "title": "Criminal Minds",
+    "overview": "An elite team of FBI profilers analyze the country's most twisted criminal minds, anticipating their next moves before they strike again. The Behavioral Analysis Unit's most experienced agent is David Rossi, a founding member of the BAU who returns to help the team solve new cases.",
+    "poster": "https://image.tmdb.org/t/p/w342/hWSb4UnIjlTvnvrP98NbFSO60HA.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/tUtXfyVy54BY7eJnRtI8Xnmr1ZL.jpg",
+    "rating": 8.303,
+    "votes": 4140,
+    "release": "2005-09-22",
     "genres": [
       80,
       18,
       9648
     ],
-    "popularity": 258.0955
-  },
-  {
-    "id": 79744,
-    "tmdb_id": 79744,
-    "type": "tv",
-    "title": "The Rookie",
-    "overview": "Starting over isn't easy, especially for small-town guy John Nolan who, after a life-altering incident, is pursuing his dream of being an LAPD officer. As the force's oldest rookie, he's met with skepticism from some higher-ups who see him as just a walking midlife crisis.",
-    "poster": "https://image.tmdb.org/t/p/w342/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/6iNWfGVCEfASDdlNb05TP5nG0ll.jpg",
-    "rating": 8.549,
-    "votes": 3421,
-    "release": "2018-10-16",
-    "genres": [
-      80,
-      18,
-      35
-    ],
-    "popularity": 256.1625
-  },
-  {
-    "id": 50821,
-    "tmdb_id": 50821,
-    "type": "tv",
-    "title": "Among Friends",
-    "overview": "Miklós introduces viewers into the world of Money and Charm.",
-    "poster": "https://image.tmdb.org/t/p/w342/kBBbSgNchtMvsgD6z1oI1RRluHP.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/hHMWfDlqKisD5zVcZfz3KEw5U3v.jpg",
-    "rating": 3.775,
-    "votes": 20,
-    "release": "1998-10-26",
-    "genres": [
-      18,
-      10751
-    ],
-    "popularity": 247.4217
-  },
-  {
-    "id": 125988,
-    "tmdb_id": 125988,
-    "type": "tv",
-    "title": "Silo",
-    "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
-    "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
-    "rating": 8.185,
-    "votes": 2361,
-    "release": "2023-05-04",
-    "genres": [
-      10765,
-      18
-    ],
-    "popularity": 238.6817
-  },
-  {
-    "id": 60625,
-    "tmdb_id": 60625,
-    "type": "tv",
-    "title": "Rick and Morty",
-    "overview": "Follows a sociopathic genius scientist who drags his inherently timid grandson on adventures across the universe.",
-    "poster": "https://image.tmdb.org/t/p/w342/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/i4PpW1XyRlBuSNSIBRIIwSjEpjl.jpg",
-    "rating": 8.7,
-    "votes": 11213,
-    "release": "2013-12-02",
-    "genres": [
-      16,
-      35,
-      10765,
-      10759
-    ],
-    "popularity": 226.7713
-  },
-  {
-    "id": 1416,
-    "tmdb_id": 1416,
-    "type": "tv",
-    "title": "Grey's Anatomy",
-    "overview": "Follows the personal and professional lives of a group of doctors at Seattle's Grey Sloan Memorial Hospital.",
-    "poster": "https://image.tmdb.org/t/p/w342/hjJkrLXhWvGHpLeLBDFznpBTY1S.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/jP0Rhj9OTPDAwQlHQwOLFDdeE8t.jpg",
-    "rating": 8.207,
-    "votes": 10988,
-    "release": "2005-03-27",
-    "genres": [
-      18
-    ],
-    "popularity": 221.0108
-  },
-  {
-    "id": 22980,
-    "tmdb_id": 22980,
-    "type": "tv",
-    "title": "Watch What Happens Live with Andy Cohen",
-    "overview": "Bravo network executive Andy Cohen discusses pop culture topics with celebrities and reality show personalities.",
-    "poster": "https://image.tmdb.org/t/p/w342/onSD9UXfJwrMXWhq7UY7hGF2S1h.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/hINekSpbcBxjnjGqmIm6I4bz2ab.jpg",
-    "rating": 5,
-    "votes": 87,
-    "release": "2009-07-16",
-    "genres": [
-      10767,
-      35
-    ],
-    "popularity": 219.4908
-  },
-  {
-    "id": 65334,
-    "tmdb_id": 65334,
-    "type": "tv",
-    "title": "Miraculous: Tales of Ladybug & Cat Noir",
-    "overview": "Marinette and Adrien, two Parisian teenagers, are entrusted with powerful jewels in order to transform into superheroes Ladybug and Cat Noir. But neither hero knows the other's true identity — or that they're classmates!",
-    "poster": "https://image.tmdb.org/t/p/w342/acrtAy8gmxcsEvrDP09MpMSCeDZ.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/lH22EnM0ofC7GsVGU8dAA2RXV1c.jpg",
-    "rating": 8.057,
-    "votes": 4632,
-    "release": "2015-10-19",
-    "genres": [
-      10759,
-      16,
-      10762
-    ],
-    "popularity": 212.4824
-  },
-  {
-    "id": 16807,
-    "tmdb_id": 16807,
-    "type": "tv",
-    "title": "Jornal Nacional",
-    "overview": "Jornal Nacional is a Brazilian Emmy-winning primetime news program aired by Rede Globo since September 1, 1969. It was the first news program broadcast live by a television network throughout Brazil.",
-    "poster": "https://image.tmdb.org/t/p/w342/ikGRSbjOJhQ74YqYTxYqhURGdNC.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/ngmekOxfGjiTtNbWM5T5U4WvzlS.jpg",
-    "rating": 7,
-    "votes": 7,
-    "release": "1969-09-01",
-    "genres": [
-      10763
-    ],
-    "popularity": 209.3542
+    "popularity": 179.5425
   },
   {
     "id": 204269,
@@ -254,93 +293,57 @@
     "genres": [
       16
     ],
-    "popularity": 208.204
+    "popularity": 167.4876
   },
   {
-    "id": 124364,
-    "tmdb_id": 124364,
+    "id": 220118,
+    "tmdb_id": 220118,
     "type": "tv",
-    "title": "FROM",
-    "overview": "Unravel the mystery of a nightmarish town in middle America that traps all those who enter. As the unwilling residents fight to keep a sense of normalcy and search for a way out, they must also survive the threats of the surrounding forest – including the terrifying creatures that come out when the sun goes down.",
-    "poster": "https://image.tmdb.org/t/p/w342/pRtJagIxpfODzzb0T0NAvZSzErC.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/xLdw1xdHocKYFFvx7w41NchXMfJ.jpg",
-    "rating": 8.498,
-    "votes": 4101,
-    "release": "2022-02-20",
+    "title": "Sazanami Soushi ni Junketsu wo Sasagu",
+    "overview": "\"If it's a request from my precious wife, then I will give you the moon and the stars.\" He flashes his gorgeous tattoos at me as he makes passionate love to me. This is bad! Something's coming...!!",
+    "poster": "https://image.tmdb.org/t/p/w342/6SHb6A2iAX05kNZug794VFEUt7J.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/3dqyRG3kaHQgC1n15cGh7YyaSAK.jpg",
+    "rating": 6.6,
+    "votes": 7,
+    "release": "2023-04-03",
     "genres": [
-      9648,
-      18,
-      10765
+      16
     ],
-    "popularity": 202.251
+    "popularity": 194.5657
   },
   {
-    "id": 549,
-    "tmdb_id": 549,
+    "id": 1399,
+    "tmdb_id": 1399,
     "type": "tv",
-    "title": "Law & Order",
-    "overview": "In cases ripped from the headlines, police investigate serious and often deadly crimes, weighing the evidence and questioning the suspects until someone is taken into custody. The district attorney's office then builds a case to convict the perpetrator by proving the person guilty beyond a reasonable doubt. Working together, these expert teams navigate all sides of the complex criminal justice system to make New York a safer place.",
-    "poster": "https://image.tmdb.org/t/p/w342/haJ9eHytVO3H3JooMJG1DiWwDNm.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/tc7canPSAn2X14hYi6Rl3gZm1o4.jpg",
-    "rating": 7.282,
-    "votes": 702,
-    "release": "1990-09-13",
+    "title": "Game of Thrones",
+    "overview": "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
+    "poster": "https://image.tmdb.org/t/p/w342/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/2OMB0ynKlyIenMJWI2Dy9IWT4c.jpg",
+    "rating": 8.468,
+    "votes": 27398,
+    "release": "2011-04-17",
     "genres": [
-      80,
-      18
-    ],
-    "popularity": 196.8556
-  },
-  {
-    "id": 1622,
-    "tmdb_id": 1622,
-    "type": "tv",
-    "title": "Supernatural",
-    "overview": "When they were boys, Sam and Dean Winchester lost their mother to a mysterious and demonic supernatural force. Subsequently, their father raised them to be soldiers. He taught them about the paranormal evil that lives in the dark corners and on the back roads of America ... and he taught them how to kill it. Now, the Winchester brothers crisscross the country in their '67 Chevy Impala, battling every kind of supernatural threat they encounter along the way. ",
-    "poster": "https://image.tmdb.org/t/p/w342/8iixmfGx5EIFPdpNvB2JvI3VIqX.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/ro0tlgnsco4SwbdAgmscLkSlMSL.jpg",
-    "rating": 8.312,
-    "votes": 8575,
-    "release": "2005-09-13",
-    "genres": [
-      18,
-      9648,
-      10765
-    ],
-    "popularity": 196.5068
-  },
-  {
-    "id": 4614,
-    "tmdb_id": 4614,
-    "type": "tv",
-    "title": "NCIS",
-    "overview": "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has any connection to Navy and Marine Corps personnel, regardless of rank or position.",
-    "poster": "https://image.tmdb.org/t/p/w342/mBcu8d6x6zB1el3MPNl7cZQEQ31.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/nn3SuLTO4hum8yAxaY4ql8h6kRk.jpg",
-    "rating": 7.609,
-    "votes": 2541,
-    "release": "2003-09-23",
-    "genres": [
-      80,
+      10765,
       18,
       10759
     ],
-    "popularity": 195.9373
+    "popularity": 174.3405
   },
   {
-    "id": 67707,
-    "tmdb_id": 67707,
+    "id": 113962,
+    "tmdb_id": 113962,
     "type": "tv",
-    "title": "Paradise Hotel",
-    "overview": "A group of hot singles check into a luxury hotel in Mexico. Prepare for love, partying, betrayal and tears. Half a million kronor is at stake and anything can happen in paradise.",
-    "poster": "https://image.tmdb.org/t/p/w342/aeU8fC5JaG2BkWqgMX7yPfX7dfW.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/jv7E1Fr6roiVQSvql6bWqOQVDC9.jpg",
-    "rating": 5,
-    "votes": 4,
-    "release": "2005-01-17",
+    "title": "Lioness",
+    "overview": "Cruz Manuelos, a rough-around-the-edges but passionate young Marine, is recruited to join the CIA's Lioness Engagement Team to help bring down a terrorist organization from within. Joe, the station chief of the Lioness program, is tasked with training, managing and leading her female undercover operatives.",
+    "poster": "https://image.tmdb.org/t/p/w342/rzpHPSEgPTpRs8EHbygwsOw7jC0.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/3Udwq6W7y4AIsuJDXV2YwowZ1gQ.jpg",
+    "rating": 7.995,
+    "votes": 1281,
+    "release": "2023-07-23",
     "genres": [
-      10764
+      18,
+      10768
     ],
-    "popularity": 190.316
+    "popularity": 234.9985
   }
 ]

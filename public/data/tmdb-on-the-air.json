@@ -7,15 +7,32 @@
     "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
     "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
-    "rating": 8.379,
-    "votes": 6814,
+    "rating": 8.384,
+    "votes": 6826,
     "release": "2022-08-21",
     "genres": [
       10765,
       18,
       10759
     ],
-    "popularity": 308.865
+    "popularity": 411.8868
+  },
+  {
+    "id": 125988,
+    "tmdb_id": 125988,
+    "type": "tv",
+    "title": "Silo",
+    "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
+    "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
+    "rating": 8.2,
+    "votes": 2367,
+    "release": "2023-05-04",
+    "genres": [
+      10765,
+      18
+    ],
+    "popularity": 220.3794
   },
   {
     "id": 13945,
@@ -32,24 +49,40 @@
       18,
       10766
     ],
-    "popularity": 190.8907
+    "popularity": 146.5111
   },
   {
-    "id": 125988,
-    "tmdb_id": 125988,
+    "id": 113962,
+    "tmdb_id": 113962,
     "type": "tv",
-    "title": "Silo",
-    "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
-    "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
-    "rating": 8.186,
-    "votes": 2363,
-    "release": "2023-05-04",
+    "title": "Lioness",
+    "overview": "Cruz Manuelos, a rough-around-the-edges but passionate young Marine, is recruited to join the CIA's Lioness Engagement Team to help bring down a terrorist organization from within. Joe, the station chief of the Lioness program, is tasked with training, managing and leading her female undercover operatives.",
+    "poster": "https://image.tmdb.org/t/p/w342/rzpHPSEgPTpRs8EHbygwsOw7jC0.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/3Udwq6W7y4AIsuJDXV2YwowZ1gQ.jpg",
+    "rating": 7.997,
+    "votes": 1282,
+    "release": "2023-07-23",
     "genres": [
-      10765,
-      18
+      18,
+      10768
     ],
-    "popularity": 225.5414
+    "popularity": 234.9985
+  },
+  {
+    "id": 16807,
+    "tmdb_id": 16807,
+    "type": "tv",
+    "title": "Jornal Nacional",
+    "overview": "Jornal Nacional is a Brazilian Emmy-winning primetime news program aired by Rede Globo since September 1, 1969. It was the first news program broadcast live by a television network throughout Brazil.",
+    "poster": "https://image.tmdb.org/t/p/w342/59iVuixNWRgtkT1aN8BR9RrJOBR.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/m9lBl3aEn2nGt8qHQYL2sIJbvcB.jpg",
+    "rating": 7,
+    "votes": 7,
+    "release": "1969-09-01",
+    "genres": [
+      10763
+    ],
+    "popularity": 121.4877
   },
   {
     "id": 22980,
@@ -66,40 +99,25 @@
       10767,
       35
     ],
-    "popularity": 169.8186
+    "popularity": 170.3409
   },
   {
-    "id": 16807,
-    "tmdb_id": 16807,
+    "id": 223911,
+    "tmdb_id": 223911,
     "type": "tv",
-    "title": "Jornal Nacional",
-    "overview": "Jornal Nacional is a Brazilian Emmy-winning primetime news program aired by Rede Globo since September 1, 1969. It was the first news program broadcast live by a television network throughout Brazil.",
-    "poster": "https://image.tmdb.org/t/p/w342/59iVuixNWRgtkT1aN8BR9RrJOBR.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/m9lBl3aEn2nGt8qHQYL2sIJbvcB.jpg",
-    "rating": 7,
-    "votes": 7,
-    "release": "1969-09-01",
+    "title": "Renegade Immortal",
+    "overview": "It tells the story of Wang Lin, an ordinary young man in the countryside, who is moved by his heart and cultivates against immortality. His pursuit is not only for longevity, but also for getting rid of the ants behind it. He firmly believed in human beings and entered the path of cultivation with mediocre qualifications. After experiencing ups and downs, with his wise mind, he gradually reached the pinnacle and became famous in the cultivation world with his own strength.",
+    "poster": "https://image.tmdb.org/t/p/w342/mCt5qgkOYEvuHSiSwNByMv6LMoB.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/crn53sSGWRZ8wAtEGso52nepEkz.jpg",
+    "rating": 8.2,
+    "votes": 40,
+    "release": "2023-09-25",
     "genres": [
-      10763
-    ],
-    "popularity": 171.162
-  },
-  {
-    "id": 113962,
-    "tmdb_id": 113962,
-    "type": "tv",
-    "title": "Lioness",
-    "overview": "Cruz Manuelos, a rough-around-the-edges but passionate young Marine, is recruited to join the CIA's Lioness Engagement Team to help bring down a terrorist organization from within. Joe, the station chief of the Lioness program, is tasked with training, managing and leading her female undercover operatives.",
-    "poster": "https://image.tmdb.org/t/p/w342/rzpHPSEgPTpRs8EHbygwsOw7jC0.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/3Udwq6W7y4AIsuJDXV2YwowZ1gQ.jpg",
-    "rating": 7.996,
-    "votes": 1273,
-    "release": "2023-07-23",
-    "genres": [
+      16,
       18,
-      10768
+      10759
     ],
-    "popularity": 177.7526
+    "popularity": 121.1161
   },
   {
     "id": 94664,
@@ -109,7 +127,7 @@
     "overview": "When a 34-year-old underachiever gets run over by a truck, his story doesn't end there. Reincarnated in a new world as an infant, Rudy will seize every opportunity to live the life he's always wanted. Armed with new friends, some freshly acquired magical abilities, and the courage to do the things he's always dreamed of, he's embarking on an epic adventure—with all of his past experience intact!",
     "poster": "https://image.tmdb.org/t/p/w342/gLKOYIMyKlUHW0SVdskhgf9C0yy.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/j9fRIimor0AMFJR9kjZubXcABzZ.jpg",
-    "rating": 8.466,
+    "rating": 8.5,
     "votes": 1631,
     "release": "2021-01-11",
     "genres": [
@@ -117,7 +135,7 @@
       16,
       10765
     ],
-    "popularity": 166.1532
+    "popularity": 163.7605
   },
   {
     "id": 30984,
@@ -127,15 +145,15 @@
     "overview": "For as long as he can remember, Ichigo Kurosaki has been able to see ghosts. But when he meets Rukia, a Soul Reaper who battles evil spirits known as Hollows, he finds his life is changed forever. Now, with a newfound wealth of spiritual energy, Ichigo discovers his true calling: to protect the living and the dead from evil.",
     "poster": "https://image.tmdb.org/t/p/w342/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/o0NsbcIvsllg6CJX0FBFY8wWbsn.jpg",
-    "rating": 8.366,
-    "votes": 2198,
+    "rating": 8.364,
+    "votes": 2200,
     "release": "2004-10-05",
     "genres": [
       10759,
       16,
       10765
     ],
-    "popularity": 139.1537
+    "popularity": 144.7842
   },
   {
     "id": 46271,
@@ -151,7 +169,59 @@
     "genres": [
       10764
     ],
-    "popularity": 105.1002
+    "popularity": 92.9483
+  },
+  {
+    "id": 615,
+    "tmdb_id": 615,
+    "type": "tv",
+    "title": "Futurama",
+    "overview": "The adventures of a late-20th-century New York City pizza delivery boy, Philip J. Fry, who, after being unwittingly cryogenically frozen for one thousand years, finds employment at Planet Express, an interplanetary delivery company in the retro-futuristic 31st century.",
+    "poster": "https://image.tmdb.org/t/p/w342/eM8bbTn8C8vUwwS6upzzm7gX31u.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/4xKG4S1IyLIglHbCYGJDsptgQNh.jpg",
+    "rating": 8.4,
+    "votes": 3820,
+    "release": "1999-03-28",
+    "genres": [
+      16,
+      35,
+      10765
+    ],
+    "popularity": 105.0164
+  },
+  {
+    "id": 278624,
+    "tmdb_id": 278624,
+    "type": "tv",
+    "title": "Lucky",
+    "overview": "When a multi-million-dollar heist goes sideways, con artist Lucky is forced to go on the run. Pursued by both the FBI and a ruthless crime boss, Lucky must fight for her life—and a way out.",
+    "poster": "https://image.tmdb.org/t/p/w342/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
+    "rating": 7.315,
+    "votes": 108,
+    "release": "2026-07-14",
+    "genres": [
+      18,
+      80
+    ],
+    "popularity": 102.9409
+  },
+  {
+    "id": 14610,
+    "tmdb_id": 14610,
+    "type": "tv",
+    "title": "Secret Lives",
+    "overview": "Salatut elämät (Secret Lives) is a Finnish television soap opera that premiered on MTV3 on 25 January 1999. The series' storylines follow the daily lives of several families who live in the same apartment block in Helsinki.",
+    "poster": "https://image.tmdb.org/t/p/w342/ugYAGyxwajuplDUUYT8Bzbj8eNR.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/nG2im8JKKNB6dXg9ZmVTuiYqFJI.jpg",
+    "rating": 4.217,
+    "votes": 23,
+    "release": "1999-01-25",
+    "genres": [
+      10766,
+      18
+    ],
+    "popularity": 84.8236
   },
   {
     "id": 45140,
@@ -171,24 +241,41 @@
       10751,
       10765
     ],
-    "popularity": 95.9127
+    "popularity": 92.3748
   },
   {
-    "id": 14610,
-    "tmdb_id": 14610,
+    "id": 33238,
+    "tmdb_id": 33238,
     "type": "tv",
-    "title": "Secret Lives",
-    "overview": "Salatut elämät (Secret Lives) is a Finnish television soap opera that premiered on MTV3 on 25 January 1999. The series' storylines follow the daily lives of several families who live in the same apartment block in Helsinki.",
-    "poster": "https://image.tmdb.org/t/p/w342/ugYAGyxwajuplDUUYT8Bzbj8eNR.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/nG2im8JKKNB6dXg9ZmVTuiYqFJI.jpg",
-    "rating": 4.217,
-    "votes": 23,
-    "release": "1999-01-25",
+    "title": "Running Man",
+    "overview": "These days, as variety shows are gradually disappearing, this is one of Korea’s representative variety shows that has been responsible for Sunday evenings for over 10 years. This program features numerous stars and members going around various places, playing games, and completing missions. In particular, among the many fun elements of variety shows, this one focuses solely on laughter.\n\nOpen your eyes! Big fun is coming in!\n\nOpen your mouth! Big laughter is coming in!\n\nOpen your heart! Useful lessons are coming in!",
+    "poster": "https://image.tmdb.org/t/p/w342/2Wmmu1MkqxJ48J7aySET9EKEjXz.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/wsHj4oHQJoe7DMYaqNFwVoyLiAh.jpg",
+    "rating": 8.2,
+    "votes": 214,
+    "release": "2010-07-11",
     "genres": [
-      10766,
+      35,
+      10764
+    ],
+    "popularity": 93.7482
+  },
+  {
+    "id": 91555,
+    "tmdb_id": 91555,
+    "type": "tv",
+    "title": "All Elite Wrestling: Dynamite",
+    "overview": "A world-class roster of diverse male and female wrestlers give fans a new wrestling experience for the first time in 20 years.",
+    "poster": "https://image.tmdb.org/t/p/w342/gPNWVCp0zrHRmwfovUpUQO44sts.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/veIrzS2AkYm0UaYYcVw9ziWkJoB.jpg",
+    "rating": 8,
+    "votes": 86,
+    "release": "2019-10-02",
+    "genres": [
+      10759,
       18
     ],
-    "popularity": 101.3075
+    "popularity": 94.274
   },
   {
     "id": 23393,
@@ -204,40 +291,7 @@
     "genres": [
       99
     ],
-    "popularity": 86.988
-  },
-  {
-    "id": 278624,
-    "tmdb_id": 278624,
-    "type": "tv",
-    "title": "Lucky",
-    "overview": "When a multi-million-dollar heist goes sideways, con artist Lucky is forced to go on the run. Pursued by both the FBI and a ruthless crime boss, Lucky must fight for her life—and a way out.",
-    "poster": "https://image.tmdb.org/t/p/w342/xsrkiXg8EuNNtbPtbmvCxg95gK7.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/hKXMOOvQwXiL01hfYG5nrkH0tEP.jpg",
-    "rating": 7.24,
-    "votes": 104,
-    "release": "2026-07-14",
-    "genres": [
-      18,
-      80
-    ],
-    "popularity": 104.6656
-  },
-  {
-    "id": 127163,
-    "tmdb_id": 127163,
-    "type": "tv",
-    "title": "Das perfekte Dinner",
-    "overview": "",
-    "poster": "https://image.tmdb.org/t/p/w342/1DTwcRiOMmn20hHLxKeiNoI0ux2.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/2CUdryUjbdOrWymDJSlHvlcoPsj.jpg",
-    "rating": 6,
-    "votes": 1,
-    "release": "2005-11-21",
-    "genres": [
-      10764
-    ],
-    "popularity": 67.8549
+    "popularity": 82.2801
   },
   {
     "id": 2661,
@@ -255,90 +309,41 @@
       10765,
       18
     ],
-    "popularity": 86.4582
+    "popularity": 95.1287
   },
   {
-    "id": 206559,
-    "tmdb_id": 206559,
+    "id": 138502,
+    "tmdb_id": 138502,
     "type": "tv",
-    "title": "Binnelanders",
-    "overview": "A South African Afrikaans soap opera. It is set in and around the fictional private hospital, Binneland Kliniek, in Pretoria, and the storyline follows the trials, trauma and tribulations of the staff and patients of the hospital.",
-    "poster": "https://image.tmdb.org/t/p/w342/3bzECfllho8PphdYujLUIuhncJD.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/s1dTt4M31q2HwD5Fkl1tf5tQzJg.jpg",
-    "rating": 5.5,
-    "votes": 111,
-    "release": "2005-10-13",
-    "genres": [
-      10766
-    ],
-    "popularity": 70.8707
-  },
-  {
-    "id": 14750,
-    "tmdb_id": 14750,
-    "type": "tv",
-    "title": "Na Wspólnej",
-    "overview": "Na Wspólnej is a Polish soap opera. It has been running since 2003 on the TVN channel as its flagship primetime weekday soap opera. It is loosely based on the German production Unter Uns and it follows the lives of the inhabitants of an apartment block in Wspólna Street, Warsaw. Episodes tend to last around 20 minutes. It is a Polish version of the Hungarian \"Barátok közt\".\n\nThe series is shot almost entirely in Warsaw and produced by the Polish branch of Freemantle Media. On 9 September 2008 it celebrated its 1000th episode; \"Na Wspólnej\" was the fourth Polish television series ever to achieve such status. A special episode was broadcast in which characters from some other of TVN's most popular shows visited Wspólna Street.",
-    "poster": "https://image.tmdb.org/t/p/w342/uksRhdaOn64bO5d33d7rcTbrhJI.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/pmB8uYJF1WKQCZnJjhnAx2IJjhk.jpg",
-    "rating": 4.7,
-    "votes": 12,
-    "release": "2003-01-27",
-    "genres": [
-      10766
-    ],
-    "popularity": 50.0895
-  },
-  {
-    "id": 91555,
-    "tmdb_id": 91555,
-    "type": "tv",
-    "title": "All Elite Wrestling: Dynamite",
-    "overview": "A world-class roster of diverse male and female wrestlers give fans a new wrestling experience for the first time in 20 years.",
-    "poster": "https://image.tmdb.org/t/p/w342/gPNWVCp0zrHRmwfovUpUQO44sts.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/veIrzS2AkYm0UaYYcVw9ziWkJoB.jpg",
-    "rating": 8,
-    "votes": 86,
-    "release": "2019-10-02",
-    "genres": [
-      10759,
-      18
-    ],
-    "popularity": 88.0522
-  },
-  {
-    "id": 33238,
-    "tmdb_id": 33238,
-    "type": "tv",
-    "title": "Running Man",
-    "overview": "These days, as variety shows are gradually disappearing, this is one of Korea’s representative variety shows that has been responsible for Sunday evenings for over 10 years. This program features numerous stars and members going around various places, playing games, and completing missions. In particular, among the many fun elements of variety shows, this one focuses solely on laughter.\n\nOpen your eyes! Big fun is coming in!\n\nOpen your mouth! Big laughter is coming in!\n\nOpen your heart! Useful lessons are coming in!",
-    "poster": "https://image.tmdb.org/t/p/w342/2Wmmu1MkqxJ48J7aySET9EKEjXz.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/wsHj4oHQJoe7DMYaqNFwVoyLiAh.jpg",
-    "rating": 8.2,
-    "votes": 214,
-    "release": "2010-07-11",
-    "genres": [
-      35,
-      10764
-    ],
-    "popularity": 88.5985
-  },
-  {
-    "id": 106449,
-    "tmdb_id": 106449,
-    "type": "tv",
-    "title": "A Record of a Mortal's Journey to Immortality",
-    "overview": "A poor and ordinary boy from a village joins a minor sect in Jiang Hu and becomes an Unofficial Disciple by chance. How will Han Li, a commoner by birth, establish a foothold for himself in his sect? With his mediocre aptitude, he must successfully traverse the treacherous path of cultivation and avoid the notice of those who may do him harm. This is a story of an ordinary mortal who, against all odds, clashes with devilish demons and ancient celestials in order to find his own path towards immortality.",
-    "poster": "https://image.tmdb.org/t/p/w342/u1VRjvvCIVwb1MUhoxSAUimhoKZ.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/8NIvQY34tNPc4txNeym2zEYk9ek.jpg",
-    "rating": 8.4,
-    "votes": 83,
-    "release": "2020-07-25",
+    "title": "X-Men '97",
+    "overview": "The X-Men, a band of mutants who use their uncanny gifts to protect a world that hates and fears them, are challenged like never before, forced to face a dangerous and unexpected new future.",
+    "poster": "https://image.tmdb.org/t/p/w342/2HKBc5UiFw8JrruHq8S1Y7TnlW0.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/jIyEmnBrZtl6SEWyBoMO2hZnzMa.jpg",
+    "rating": 8.676,
+    "votes": 817,
+    "release": "2024-03-20",
     "genres": [
       16,
       10759,
-      18
+      10765
     ],
-    "popularity": 78.172
+    "popularity": 78.8533
+  },
+  {
+    "id": 57532,
+    "tmdb_id": 57532,
+    "type": "tv",
+    "title": "PAW Patrol",
+    "overview": "Marshall, Rocky, Rubble, Zuma and Skye are doing their best to protect the people of their town. Led by Ryder, a tech-savvy 10-year-old boy, each of them is equipped with special equipment and together they help anyone who finds themselves in trouble. No task is too big for them and no puppy is too small.",
+    "poster": "https://image.tmdb.org/t/p/w342/8HXkgUBO5OF8ZK9XbY69RM4S5rv.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/7OrV2aAH5Yp7hA9zCCvUloLvZtl.jpg",
+    "rating": 6.985,
+    "votes": 815,
+    "release": "2013-08-12",
+    "genres": [
+      16,
+      10762
+    ],
+    "popularity": 80.0099
   }
 ]
