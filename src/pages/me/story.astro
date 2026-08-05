@@ -1,0 +1,74 @@
+---
+import Layout from '~/layouts/Layout.astro'
+
+const ORIGIN = [
+  { title: 'The seed', body: 'Started as a scratchpad for personal utilities. Grew into a family of repos with shared branding, shared infrastructure, and shared rules.' },
+  { title: 'The taste', body: 'Free-tier only. No card on file. Donations only. Static by default. Editorial minimal design. Every rule captured in knowledge/.' },
+  { title: 'The path forward', body: '100-year lens. Build things that outlive the tools that made them.' },
+]
+
+const HUNDRED_YEAR = [
+  { title: 'Storage', body: 'Git primary. Six-mirror strategy: GitHub, Codeberg, GitLab, Radicle, Sourcehut, self-hosted Gitea. Any three surviving preserves the tree.' },
+  { title: 'Format', body: 'Plain markdown. Open Knowledge Format frontmatter. No proprietary databases. No compiled artifacts that require a runtime.' },
+  { title: 'Hosting', body: 'Static HTML. Free tier on Cloudflare Pages and GitHub Pages. If both die, the git repos still render locally.' },
+  { title: 'License', body: 'CC-BY-4.0 for prose. MIT for code. Explicit reproduction and forking rights.' },
+  { title: 'Handoff', body: 'Executor with age key, sops passphrase, and a one-page runbook. Encrypted dead-drop.' },
+]
+
+const HONEST = [
+  { title: 'Craft', body: 'How do I balance breadth (many small repos) with depth (fewer, deeper ones)?' },
+  { title: 'Business', body: 'Is donations-only sustainable at family scale, or does it need a supporting engagement layer?' },
+  { title: 'Life', body: 'What’s the smallest set of habits that actually compound? Journaling suggests fewer than I thought.' },
+]
+---
+<Layout title="Story" description="Chirag Singhal — origin story, 100-year strategy, and open questions">
+  <div style="padding-top: 2rem; max-width: 640px;">
+    <h1 class="page-title">Story &amp; Long Game</h1>
+    <p class="page-sub">How the chirag127 / oriz family came to exist — and how it survives.</p>
+
+    <section style="margin-top:2rem;">
+      <p class="kicker">ORIGIN STORY</p>
+      <div style="display:flex;flex-direction:column;gap:0;margin-top:0.75rem;">
+        {ORIGIN.map(p => (
+          <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;margin-bottom:4px;">{p.title}</div>
+            <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section style="margin-top:2.5rem;">
+      <p class="kicker">100-YEAR STRATEGY · LONG GAME</p>
+      <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;margin:0.5rem 0 0.75rem;">How the archive survives 100 years without me maintaining it.</p>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        {HUNDRED_YEAR.map(p => (
+          <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;margin-bottom:4px;">{p.title}</div>
+            <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section style="margin-top:2.5rem;">
+      <p class="kicker">HONEST QUESTIONS · OPEN PROBLEMS</p>
+      <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;margin:0.5rem 0 0.75rem;">Things I don’t know the answer to yet — surfaced honestly instead of hidden.</p>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        {HONEST.map(p => (
+          <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;margin-bottom:4px;">{p.title}</div>
+            <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section style="margin-top:2.5rem;">
+      <p class="kicker">FAMILY</p>
+      <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;margin-top:0.5rem;">
+        Private by default — names, faces, and personal details of family members are not published; public content stays at the tool and idea level. Values shaped by family: honesty, patience, long-form thinking, care for craft.
+      </p>
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,103 @@
+---
+import Layout from '~/layouts/Layout.astro'
+
+const YEAR_2026 = {
+  Shipping: [
+    '50-page editorial personal site',
+    '20 own repos at green health check',
+    'Agent fleet parity: 4 agents, zero-drift config sync',
+  ],
+  Learning: [
+    'Read 24 books',
+    'Contribute to 12 upstream OSS repos',
+  ],
+  Health: [
+    '10K steps daily — public streak tracker',
+    'Sleep window locked 23:00–07:00',
+  ],
+}
+
+const YEAR_2030 = [
+  { title: 'Craft', body: 'Ship one library other engineers depend on. Not "used by me and three friends" — depended-on. Measurable via npm downloads and non-trivial issue traffic.' },
+  { title: 'Autonomy', body: 'Full-time on my own stack, not someone else’s. Financial runway of 24 months. Zero recurring paid dependencies for anything I run.' },
+  { title: 'Community', body: 'A durable open-knowledge exchange between agents.' },
+  { title: 'Health', body: 'Sustained VO2max in the top decile for age. Sub-4-hour marathon or the honest reason I chose not to.' },
+]
+
+const LIFE = [
+  { title: 'Build tools that outlive me', body: 'Small, static, permissively licensed. Handoff-ready if I stop tomorrow.' },
+  { title: 'Leave a searchable trail', body: 'Journal, decisions, code — all public, all durable, all cross-linked.' },
+  { title: 'Be present', body: 'The only unrecoverable failure mode. Everything else re-plans.' },
+]
+
+const ROADMAP = {
+  'Next 30 days': ['Complete editorial redesign across the family.', 'Ship agent-config workspace-canonical sync.'],
+  'Next 90 days': ['Publish knowledge/ bundle publicly.', 'Formalize the api-fleet template.'],
+}
+---
+<Layout title="Goals" description="Chirag Singhal — 2026, 2030, and lifetime goals plus roadmap">
+  <div style="padding-top: 2rem; max-width: 640px;">
+    <h1 class="page-title">Goals &amp; Roadmap</h1>
+    <p class="page-sub">Concrete, verifiable, dated. Reviewed monthly.</p>
+
+    <section style="margin-top:2rem;">
+      <p class="kicker">2026 · THIS YEAR</p>
+      <div class="grid-2" style="margin-top:0.75rem;gap:12px;">
+        {Object.entries(YEAR_2026).map(([group, items]) => (
+          <div class="card">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:13px;color:#fff;margin-bottom:8px;">{group}</div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+              {items.map(i => (
+                <li style="font-size:12px;color:var(--t-secondary);line-height:1.5;padding-left:14px;position:relative;">
+                  <span style="position:absolute;left:0;color:var(--t-muted);">›</span>{i}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section style="margin-top:2.5rem;">
+      <p class="kicker">2030 · FIVE YEAR</p>
+      <div style="display:flex;flex-direction:column;gap:0;margin-top:0.75rem;">
+        {YEAR_2030.map(p => (
+          <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;margin-bottom:4px;">{p.title}</div>
+            <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section style="margin-top:2.5rem;">
+      <p class="kicker">LIFETIME · NORTH STAR</p>
+      <div style="display:flex;flex-direction:column;gap:0;margin-top:0.75rem;">
+        {LIFE.map(p => (
+          <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;margin-bottom:4px;">{p.title}</div>
+            <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section style="margin-top:2.5rem;">
+      <p class="kicker">ROADMAP · WHAT’S NEXT</p>
+      <div style="display:flex;flex-direction:column;gap:16px;margin-top:0.75rem;">
+        {Object.entries(ROADMAP).map(([window, items]) => (
+          <div>
+            <div style="font-family:var(--font-mono);font-size:11px;color:var(--t-muted);margin-bottom:6px;">{window}</div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:5px;">
+              {items.map(i => (
+                <li style="font-size:13px;color:var(--t-secondary);line-height:1.5;padding-left:14px;position:relative;">
+                  <span style="position:absolute;left:0;color:var(--t-muted);">›</span>{i}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

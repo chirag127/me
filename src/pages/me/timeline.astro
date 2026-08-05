@@ -1,0 +1,98 @@
+---
+import Layout from '~/layouts/Layout.astro'
+
+const ERAS = [
+  { range: '2026', items: [
+    ['Jul', 'Redesigned personal site — editorial minimal, Instrument Bench identity.'],
+    ['Jun', 'Adopted Open Knowledge Format. 793 concept files.'],
+    ['May', 'Shipped agent-fleet parity across Claude Code, OpenCode, Kilo, Antigravity.'],
+  ]},
+  { range: '2025', items: [
+    ['Q4', 'Cloudflare-Pages-first hosting locked. 20 apps live.'],
+    ['Q3', 'Astro fleet template extracted from three sites.'],
+  ]},
+  { range: '2017 – 2019', items: [
+    ['—', 'Undergraduate years. Formal programming. Internships and first paid engineering work.'],
+  ]},
+  { range: '2011 – 2016', items: [
+    ['—', 'High school. Discovery of the web. First HTML/JS scratchpads.'],
+  ]},
+  { range: '1998 – 2010', items: [
+    ['—', 'Childhood in India. First exposure to computers. Early programming attempts on Windows XP.'],
+  ]},
+]
+
+const ROLES = [
+  { title: 'Software Engineer', org: 'Current role', body: 'Enterprise software, backend systems, quote-to-cash flows.' },
+  { title: 'chirag127 / oriz', org: 'Side work · ongoing', body: 'The workspace, the fleet, the agents. Public, unpaid, ongoing.' },
+]
+
+const ACHIEVEMENTS = {
+  Software: [
+    'chirag127/* — 40+ public repos, MIT-licensed',
+    '@chirag127/astro-shell, @chirag127/astro-chrome — npm packages powering 20 sites',
+    'Upstream contributions across Astro, OpenCode, Kilo Code, various MCP servers',
+  ],
+  Writing: [
+    '793-file Open Knowledge Format bundle, public, cross-referenced',
+    'Daily journal since 2026-05',
+  ],
+}
+---
+<Layout title="Timeline" description="Chirag Singhal — timeline, work history, and public record">
+  <div style="padding-top: 2rem; max-width: 640px;">
+    <h1 class="page-title">Timeline &amp; Record</h1>
+    <p class="page-sub">Milestones, roles, and externally verifiable output.</p>
+
+    <section style="margin-top:2rem;">
+      <p class="kicker">HISTORY</p>
+      <div class="timeline" style="margin-top:0.75rem;">
+        {ERAS.map(era => (
+          <div class="timeline-item">
+            <div style="font-family:var(--font-mono);font-size:11px;color:var(--t-muted);margin-bottom:6px;">{era.range}</div>
+            <dl style="display:flex;flex-direction:column;gap:6px;">
+              {era.items.map(([when, what]) => (
+                <div style="display:flex;gap:10px;">
+                  <dt style="font-family:var(--font-mono);font-size:11px;color:var(--t-muted);min-width:28px;flex-shrink:0;">{when}</dt>
+                  <dd style="font-size:13px;color:var(--t-secondary);line-height:1.5;">{what}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section style="margin-top:2.5rem;">
+      <p class="kicker">WORK HISTORY</p>
+      <div style="display:flex;flex-direction:column;gap:0;margin-top:0.75rem;">
+        {ROLES.map(r => (
+          <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;">{r.title}</div>
+            <div style="font-family:var(--font-mono);font-size:11px;color:var(--t-muted);margin:2px 0 4px;">{r.org}</div>
+            <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;">{r.body}</p>
+          </div>
+        ))}
+      </div>
+      <p style="font-size:12px;color:var(--t-muted);margin-top:10px;">Full detail on the <a href="/work/career" style="color:var(--primary,#f97316);">career page</a>.</p>
+    </section>
+
+    <section style="margin-top:2.5rem;">
+      <p class="kicker">ACHIEVEMENTS · PUBLIC RECORD</p>
+      <div class="grid-2" style="margin-top:0.75rem;gap:12px;">
+        {Object.entries(ACHIEVEMENTS).map(([group, items]) => (
+          <div class="card">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:13px;color:#fff;margin-bottom:8px;">{group}</div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+              {items.map(i => (
+                <li style="font-size:12px;color:var(--t-secondary);line-height:1.5;padding-left:14px;position:relative;">
+                  <span style="position:absolute;left:0;color:var(--t-muted);">›</span>{i}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

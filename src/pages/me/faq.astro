@@ -1,0 +1,107 @@
+---
+import Layout from '~/layouts/Layout.astro'
+
+const FAQ = [
+  { q: 'What do you do?', a: 'Software engineer by day, building agent tooling and static sites by night.' },
+  { q: 'Why oriz?', a: 'Product / workspace brand, rooted in "origin" — the source of a project. Personal identity is chirag127 everywhere.' },
+  { q: 'Why no ads or subscriptions?', a: 'Free tier or nothing. No card on file, donations only.' },
+  { q: 'Can I hire you?', a: 'Currently full-time employed. Freelance is closed. Long-form collaborations considered.' },
+  { q: 'Can I reuse content from here?', a: 'Yes. Code is MIT. Prose is CC-BY-4.0. Attribution appreciated.' },
+]
+
+const AVAILABILITY = [
+  ['Full-time', 'Not open. Currently in a role.'],
+  ['Consulting', 'Occasional — agent-tooling audits, static-web architecture reviews, free-tier hosting migrations, editorial redesigns. Short scoping / diagnostic work only.'],
+  ['Mentorship', 'Limited slots. Async, text-first. Focus on decision-making frameworks, not tool tutorials.'],
+  ['Speaking', 'Open. Topics: agent tooling, editorial-minimal static sites, the Open Knowledge Format ecosystem.'],
+]
+
+const LEARNING = ['Editorial web typography.', 'Free-tier CDN choreography.', 'MIT 6.824 Distributed Systems (self-study).', 'Karpathy "Zero to Hero" neural nets.']
+
+const LINKS = {
+  Code: [
+    ['GitHub', 'https://github.com/chirag127'],
+    ['Codeberg', 'https://codeberg.org/chirag127'],
+    ['GitLab', 'https://gitlab.com/chirag127'],
+  ],
+  Writing: [
+    ['Blog', 'https://blog.oriz.in'],
+    ['oriz.in', 'https://oriz.in'],
+  ],
+}
+
+const COLOPHON = [
+  { k: 'Stack', v: 'Astro 4 (static) · React 19 islands · Tailwind 3 · @vite-pwa/astro.' },
+  { k: 'Data', v: 'Pulled from ~30 APIs at build time into public/data/*.json. Live stats network-only.' },
+  { k: 'Colour', v: 'Dark-mode default. Amber / orange accent (#f97316). Instrument Bench identity.' },
+  { k: 'Hosting', v: 'Cloudflare Pages. Zero card on file.' },
+  { k: 'Source', v: 'github.com/chirag127/me. MIT for code, CC-BY-4.0 for prose.' },
+]
+---
+<Layout title="FAQ" description="Chirag Singhal — FAQ, availability, links, and colophon">
+  <div style="padding-top: 2rem; max-width: 640px;">
+    <h1 class="page-title">FAQ &amp; Contact Detail</h1>
+    <p class="page-sub">Common questions, current availability, canonical links, and how this is built.</p>
+
+    <section style="margin-top:2rem;">
+      <p class="kicker">FAQ</p>
+      <div style="display:flex;flex-direction:column;gap:0;margin-top:0.75rem;">
+        {FAQ.map(f => (
+          <div style="padding: 12px 0; border-bottom: 1px solid var(--border);">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;margin-bottom:4px;">{f.q}</div>
+            <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section style="margin-top:2.5rem;">
+      <p class="kicker">AVAILABILITY · CURRENT STATE</p>
+      <div style="display:flex;flex-direction:column;gap:0;margin-top:0.75rem;">
+        {AVAILABILITY.map(([k, v]) => (
+          <div style="padding: 12px 0; border-bottom: 1px solid var(--border);display:flex;gap:14px;">
+            <div style="font-family:var(--font-mono);font-size:12px;color:var(--t-tertiary);min-width:96px;flex-shrink:0;">{k}</div>
+            <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;">{v}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section style="margin-top:2.5rem;">
+      <p class="kicker">LEARNING NOW</p>
+      <div class="chips" style="margin-top:0.75rem;display:flex;flex-wrap:wrap;gap:8px;">
+        {LEARNING.map(l => (
+          <span class="chip" style="font-size:12px;color:var(--t-secondary);">{l}</span>
+        ))}
+      </div>
+    </section>
+
+    <section style="margin-top:2.5rem;">
+      <p class="kicker">LINKS · ELSEWHERE</p>
+      <div class="grid-2" style="margin-top:0.75rem;gap:12px;">
+        {Object.entries(LINKS).map(([group, items]) => (
+          <div class="card">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:13px;color:#fff;margin-bottom:8px;">{group}</div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+              {items.map(([label, href]) => (
+                <li><a href={href} style="font-size:12px;color:var(--primary,#f97316);text-decoration:none;">{label} →</a></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section style="margin-top:2.5rem;">
+      <p class="kicker">COLOPHON · HOW THIS IS BUILT</p>
+      <div style="display:flex;flex-direction:column;gap:0;margin-top:0.75rem;">
+        {COLOPHON.map(c => (
+          <div style="padding: 10px 0; border-bottom: 1px solid var(--border);display:flex;gap:14px;">
+            <div style="font-family:var(--font-mono);font-size:12px;color:var(--t-tertiary);min-width:72px;flex-shrink:0;">{c.k}</div>
+            <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;">{c.v}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

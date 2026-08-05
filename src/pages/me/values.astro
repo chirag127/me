@@ -1,0 +1,68 @@
+---
+import Layout from '~/layouts/Layout.astro'
+
+const MANIFESTO = [
+  { title: 'Small over large', body: 'Small static sites. Small atomic packages. Small commits. Small decisions, well-cited.' },
+  { title: 'Public over private', body: 'Public knowledge. Public code. Public journal. The default is share; the exception is private.' },
+  { title: 'Durable over disposable', body: 'Plain markdown. Git primary. Six mirrors. If every commercial host dies tomorrow, the archive still renders locally from a clone.' },
+  { title: 'Free over paid', body: 'No card on file. No subscriptions. No Pro tier. Donations only. This is a values-lock, not a preference.' },
+  { title: 'Agents over apps', body: 'Composable agent skills beat single-vendor apps. MCP is the lingua franca. The fleet is the unit.' },
+]
+
+const VALUES = [
+  { title: 'Free tier or nothing', body: 'No card on file. Has killed adoption of Cloudflare R2, Vercel Pro, Auth0, Clerk Pro, Firebase Blaze, Twilio. Non-negotiable.' },
+  { title: 'Donations only', body: 'No Pro tier on anything I ship. No ads. No recurring fees. Buy Me a Coffee + GitHub Sponsors + UPI.' },
+  { title: 'Deletion over archival', body: 'Superseded knowledge is hard-deleted. Git log is the audit trail. Status flags rot faster than files.' },
+  { title: 'Parallel by default', body: 'Independent work fans out. Sequential is a bug.' },
+  { title: 'Read before edit', body: 'No memory-only claims about a project’s behaviour. Cite file:line or don’t cite.' },
+]
+
+const PRINCIPLES = [
+  { title: 'Deep modules over shallow', body: 'Narrow interface, thick implementation (Ousterhout Ch. 4). Every new file justifies its own signature count.' },
+  { title: 'Delete instead of flag', body: 'Superseded knowledge is git-rm’d. History is the audit trail. Status flags rot.' },
+  { title: 'Search twice before deciding', body: 'No memory-only answers about pricing, tool availability, library status. Two independent searches minimum.' },
+  { title: 'One decision, one commit', body: 'When a decision lands in chat, write the file and commit in the same turn.' },
+]
+---
+<Layout title="Values" description="Chirag Singhal — manifesto, values, and decision principles">
+  <div style="padding-top: 2rem; max-width: 640px;">
+    <h1 class="page-title">Values &amp; Manifesto</h1>
+    <p class="page-sub">Locked positions. Override taste, deadline, and dopamine.</p>
+
+    <section style="margin-top:2rem;">
+      <p class="kicker">MANIFESTO · POSITION</p>
+      <div style="display:flex;flex-direction:column;gap:0;margin-top:0.75rem;">
+        {MANIFESTO.map(p => (
+          <div style="padding: 14px 0; border-bottom: 1px solid var(--border);">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;margin-bottom:4px;">{p.title}</div>
+            <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section style="margin-top:2.5rem;">
+      <p class="kicker">VALUES · COMPASS</p>
+      <div style="display:flex;flex-direction:column;gap:0;margin-top:0.75rem;">
+        {VALUES.map(p => (
+          <div style="padding: 14px 0; border-bottom: 1px solid var(--border);">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;margin-bottom:4px;">{p.title}</div>
+            <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section style="margin-top:2.5rem;">
+      <p class="kicker">DECISION PRINCIPLES</p>
+      <div style="display:flex;flex-direction:column;gap:0;margin-top:0.75rem;">
+        {PRINCIPLES.map(p => (
+          <div style="padding: 14px 0; border-bottom: 1px solid var(--border);">
+            <div style="font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;margin-bottom:4px;">{p.title}</div>
+            <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
