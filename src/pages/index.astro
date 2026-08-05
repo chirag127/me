@@ -1,545 +1,237 @@
 ---
 import Layout from '~/layouts/Layout.astro'
 import { getLanyard } from '~/lib/api'
+import Bookmarks from '~/components/Bookmarks'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
 const lanyard = await getLanyard().catch(() => null)
 const discordStatus = lanyard?.discord_status ?? 'offline'
 
-let ghUser = { public_repos: 0, followers: 0 }
-try { ghUser = JSON.parse(readFileSync(join(process.cwd(), 'public/data/github-user.json'), 'utf-8')) } catch {}
+const read = (f: string, fallback: any) => {
+  try { return JSON.parse(readFileSync(join(process.cwd(), 'public/data', f), 'utf-8')) } catch { return fallback }
+}
 
-let traktStats = { movies: { watched: 0 }, shows: { watched: 0 } }
-try { traktStats = JSON.parse(readFileSync(join(process.cwd(), 'public/data/trakt-stats.json'), 'utf-8')) } catch {}
+const ghUser      = read('github-user.json', { public_repos: 0, followers: 0 })
+const traktStats  = read('trakt-stats.json', { movies: { watched: 0 }, shows: { watched: 0 } })
+const lfmUser     = read('lastfm-user.json', { playcount: '0' })
+const wakaStats   = read('wakatime-stats-7d.json', { human_readable: '0 hrs', languages: [] })
+const lbNow       = read('lb-playing-now.json', null)
+const recentMovies= read('trakt-movies-enriched.json', [])
 
-let lfmUser = { playcount: '0' }
-try { lfmUser = JSON.parse(readFileSync(join(process.cwd(), 'public/data/lastfm-user.json'), 'utf-8')) } catch {}
-
-let wakaStats = { human_readable: '0 hrs', languages: [] }
-try { wakaStats = JSON.parse(readFileSync(join(process.cwd(), 'public/data/wakatime-stats-7d.json'), 'utf-8')) } catch {}
-
-let lbNow = null
-try { lbNow = JSON.parse(readFileSync(join(process.cwd(), 'public/data/lb-playing-now.json'), 'utf-8')) } catch {}
-
-let recentMovies = []
-try { recentMovies = JSON.parse(readFileSync(join(process.cwd(), 'public/data/trakt-movies-enriched.json'), 'utf-8')) } catch {}
-
-let npmPkgs = []
-try { npmPkgs = JSON.parse(readFileSync(join(process.cwd(), 'public/data/npm-packages.json'), 'utf-8')) } catch {}
-
-const topLang = wakaStats.languages?.[0]?.name ?? null
-const lastMovie = recentMovies?.[0] ?? null
-const hasLiveData = lbNow?.track || lastMovie || topLang
+const topLang    = wakaStats.languages?.[0]?.name ?? null
+const lastMovie  = recentMovies?.[0] ?? null
+const hasLiveData = Boolean(lbNow?.track || (lastMovie?._tmdb?.poster_path) || topLang)
+const scrobbles  = Number(lfmUser.playcount || 0).toLocaleString()
 ---
 
 <Layout title="Home" description="Chirag Singhal — Software Engineer · Backend · AI Systems · Open Source">
 
-  <!-- Hero -->
-  <section class="hero-section animate-in">
-    <h1 class="text-hero hero-name">Hi, I'm Chirag.</h1>
-    <p class="hero-tagline">Software Engineer building scalable backend systems &amp; intelligent APIs.</p>
-    <div class="hero-status">
-      <span class="glow-dot"></span>
-      <span class="hero-status-text">Available for opportunities</span>
+  <!-- HERO: the bench powers on. A trace draws across the phosphor screen. -->
+  <section class="hero animate-in">
+    <div class="signal-strip hero-strip">
+      <svg class="waveform" viewBox="0 0 800 120" preserveAspectRatio="none" aria-hidden="true">
+        <path class="trace" fill="none" stroke="currentColor" stroke-width="2"
+          d="M0,60 L120,60 L150,60 L165,20 L180,100 L195,40 L210,60 L340,60 L360,60 L375,35 L390,85 L405,60 L560,60 L580,60 L595,10 L610,110 L625,60 L800,60" />
+      </svg>
     </div>
-    <div class="hero-ctas">
-      <a href="/work/career" class="btn-primary">View Work →</a>
-      <a href="/resume.pdf" class="btn-ghost">Download Resume</a>
-    </div>
-    <div class="hero-social">
-      <a href="https://github.com/chirag127" target="_blank" rel="noopener" class="social-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-        GitHub
-      </a>
-      <a href="https://linkedin.com/in/chirag127" target="_blank" rel="noopener" class="social-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
-      </a>
-      <a href="https://oriz.in" target="_blank" rel="noopener" class="social-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
-        oriz.in
-      </a>
-      <a href="mailto:hi@chirag127.in" class="social-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
-        Email
-      </a>
+
+    <div class="hero-copy">
+      <p class="hero-eyeball"><span class="glow-dot" aria-hidden="true"></span> {discordStatus === 'online' ? 'signal live' : 'trace armed'} · backend systems engineer</p>
+      <h1 class="text-hero">I build the systems<br />you never see fail.</h1>
+      <p class="hero-lede">
+        Chirag Singhal. I ship backend and AI infrastructure — Python services, event pipelines, RAG systems —
+        and instrument everything I make. This site is the readout: work, open source, and the feeds of a day.
+      </p>
+      <div class="hero-ctas">
+        <a href="/work/projects" class="btn-primary">Trace the work →</a>
+        <a href="/resume.pdf" class="btn-ghost">Résumé</a>
+      </div>
+      <div class="hero-links">
+        <a href="https://github.com/chirag127" target="_blank" rel="noopener" class="hero-link">github</a>
+        <a href="https://linkedin.com/in/chirag127" target="_blank" rel="noopener" class="hero-link">linkedin</a>
+        <a href="mailto:hi@chirag127.in" class="hero-link">hi@chirag127.in</a>
+      </div>
     </div>
   </section>
 
-  <!-- Live Now -->
+  <!-- READOUT BANK: instrument gauges, not a stat strip -->
+  <section class="section-block animate-in">
+    <div class="kicker">Channel readout</div>
+    <div class="readout-bank">
+      <a href="/me/wakatime" class="readout">
+        <span class="rv">{wakaStats.human_readable}</span>
+        <span class="rl">coding · 7d</span>
+        {topLang && <span class="ru">{topLang}</span>}
+      </a>
+      <a href="/work/open-source" class="readout">
+        <span class="rv">{ghUser.public_repos}+</span>
+        <span class="rl">github repos</span>
+      </a>
+      <a href="/library/music/stats" class="readout">
+        <span class="rv">{scrobbles}</span>
+        <span class="rl">scrobbles</span>
+      </a>
+      <a href="/library/movies/watched" class="readout">
+        <span class="rv">{traktStats.movies?.watched ?? 0}</span>
+        <span class="rl">films logged</span>
+      </a>
+      <div class="readout">
+        <span class="rv">Top 1%</span>
+        <span class="rl">JEE Advanced</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INPUT SIGNALS: live feeds -->
   {hasLiveData && (
-    <section class="section-block animate-in live-section">
-      <div class="live-row">
+    <section class="section-block animate-in">
+      <div class="kicker">Input signals · live</div>
+      <div class="signal-row">
         {lbNow?.track && (
-          <div class="card live-card">
-            <span class="live-badge">NOW PLAYING</span>
-            <span class="live-track">🎵 {lbNow.track} — {lbNow.artist}</span>
+          <div class="card signal-card">
+            <span class="live-badge">now playing</span>
+            <span class="signal-val">{lbNow.track} — {lbNow.artist}</span>
+          </div>
+        )}
+        {topLang && (
+          <div class="card signal-card">
+            <span class="live-badge">this week</span>
+            <span class="signal-val">Coding {topLang} · {wakaStats.human_readable}</span>
           </div>
         )}
         {lastMovie?._tmdb?.poster_path && (
           <a href="/library/movies/watched" class="poster-card poster-card--sm">
-            <img
-              src={`https://image.tmdb.org/t/p/w185${lastMovie._tmdb.poster_path}`}
-              alt={lastMovie.movie?.title ?? 'Last watched'}
-              loading="lazy"
-            />
-            <div class="overlay">
-              <div class="overlay-title">{lastMovie.movie?.title}</div>
-            </div>
+            <img src={`https://image.tmdb.org/t/p/w185${lastMovie._tmdb.poster_path}`} alt={lastMovie.movie?.title ?? 'Last watched'} loading="lazy" />
+            <div class="overlay"><div class="overlay-title">{lastMovie.movie?.title}</div></div>
           </a>
-        )}
-        {topLang && (
-          <div class="card live-card">
-            <span class="live-badge">THIS WEEK</span>
-            <span class="live-track">⌨ Coding in {topLang} · {wakaStats.human_readable}</span>
-          </div>
         )}
       </div>
     </section>
   )}
 
-  <!-- Stats Strip -->
-  <div class="card stats-strip animate-in">
-    <div class="stat-item">
-      <span class="stat-number">2+</span>
-      <span class="stat-label">YRS EXPERIENCE</span>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item">
-      <span class="stat-number">{ghUser.public_repos}+</span>
-      <span class="stat-label">GITHUB REPOS</span>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item">
-      <span class="stat-number">{Number(lfmUser.playcount).toLocaleString()}</span>
-      <span class="stat-label">SCROBBLES</span>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item">
-      <span class="stat-number">Top 1%</span>
-      <span class="stat-label">JEE ADVANCED</span>
-    </div>
-  </div>
-
-  <!-- Bento Overview -->
+  <!-- WHAT I MEASURE (what I do, in the bench idiom) -->
   <section class="section-block animate-in">
-    <div class="kicker">OVERVIEW</div>
-    <div class="bento bento-4">
-      <a href="/me/wakatime" class="card bento-tile">
-        <div class="bento-val">{wakaStats.human_readable}</div>
-        <div class="bento-key">Coding this week</div>
-        {topLang && <div class="bento-sub">{topLang}</div>}
-      </a>
-      <a href="/library/music/stats" class="card bento-tile">
-        <div class="bento-val">{Number(lfmUser.playcount).toLocaleString()}</div>
-        <div class="bento-key">Music scrobbles</div>
-      </a>
-      <a href="/library/movies/watched" class="card bento-tile">
-        <div class="bento-val">{traktStats.movies?.watched ?? 0}</div>
-        <div class="bento-key">Movies watched</div>
-      </a>
-      <a href="/work/open-source" class="card bento-tile">
-        <div class="bento-val">{ghUser.public_repos}+</div>
-        <div class="bento-key">GitHub repos</div>
-      </a>
-    </div>
-  </section>
-
-  <!-- What I Do -->
-  <section class="section-block animate-in">
-    <div class="kicker">WHAT I DO</div>
-    <div class="cards-row">
-      <div class="card-glow">
-        <div class="card-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--indigo)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6 8h.01M9 8h6"/></svg>
-        </div>
-        <h3 class="card-title">Backend Systems</h3>
-        <p class="card-desc">Python, FastAPI, Kafka, distributed systems</p>
+    <div class="kicker">Instruments</div>
+    <div class="grid-3 disc-grid">
+      <div class="card-glow disc">
+        <span class="disc-idx">01</span>
+        <h3 class="disc-title">Backend systems</h3>
+        <p class="disc-desc">Python, FastAPI, Kafka. Latency budgets, event pipelines, distributed correctness.</p>
+        <div class="tag-list"><span class="tech-chip">Python</span><span class="tech-chip">FastAPI</span><span class="tech-chip">Kafka</span><span class="tech-chip">Postgres</span></div>
       </div>
-      <div class="card-glow">
-        <div class="card-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--indigo)" stroke-width="1.5"><path d="M9.5 2A2.5 2.5 0 0112 4.5v15a2.5 2.5 0 01-4.96.44 2.5 2.5 0 01-2.96-3.08 3 3 0 01-.34-5.58 2.5 2.5 0 013.32-3.97A2.5 2.5 0 019.5 2z"/><path d="M14.5 2A2.5 2.5 0 0112 4.5v15a2.5 2.5 0 004.96.44 2.5 2.5 0 002.96-3.08 3 3 0 00.34-5.58 2.5 2.5 0 00-3.32-3.97A2.5 2.5 0 0014.5 2z"/></svg>
-        </div>
-        <h3 class="card-title">AI/ML Engineering</h3>
-        <p class="card-desc">LangChain, RAG pipelines, LLM fine-tuning</p>
+      <div class="card-glow disc">
+        <span class="disc-idx">02</span>
+        <h3 class="disc-title">AI infrastructure</h3>
+        <p class="disc-desc">RAG pipelines, multi-agent orchestration, model serving. LangGraph to ONNX.</p>
+        <div class="tag-list"><span class="tech-chip">LangGraph</span><span class="tech-chip">RAG</span><span class="tech-chip">ONNX</span></div>
       </div>
-      <div class="card-glow">
-        <div class="card-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--indigo)" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-        </div>
-        <h3 class="card-title">Open Source</h3>
-        <p class="card-desc">192+ tools on oriz.in</p>
+      <div class="card-glow disc">
+        <span class="disc-idx">03</span>
+        <h3 class="disc-title">Open source</h3>
+        <p class="disc-desc">192+ tools shipped on oriz.in. Small, free, measured in public.</p>
+        <div class="tag-list"><span class="tech-chip">Astro</span><span class="tech-chip">Workers</span><span class="tech-chip">TS</span></div>
       </div>
     </div>
   </section>
 
-  <!-- Featured Projects -->
+  <!-- SHIPPING LOG: featured builds -->
   <section class="section-block animate-in">
-    <div class="kicker">FEATURED PROJECTS</div>
+    <div class="kicker">Shipping log</div>
     <div class="projects-grid">
       <div class="card project-card">
         <div class="project-impact">192+</div>
         <h3 class="project-name">Oriz</h3>
-        <p class="project-desc">A suite of 192+ open-source tools for developers. Static site with edge compute.</p>
-        <div class="chips-row">
-          <span class="chip">Astro</span>
-          <span class="chip">Cloudflare</span>
-          <span class="chip">Workers</span>
-        </div>
+        <p class="project-desc">Free-forever family of small tools, apps, and content sites. Static + edge compute.</p>
+        <div class="tag-list"><span class="tech-chip">Astro</span><span class="tech-chip">Cloudflare</span></div>
         <a href="https://oriz.in" target="_blank" rel="noopener" class="project-link">oriz.in ↗</a>
       </div>
       <div class="card project-card">
         <div class="project-impact">Multi-agent</div>
         <h3 class="project-name">NexusAI</h3>
-        <p class="project-desc">Multi-agent RAG system with orchestrated LLM pipelines and Kubernetes scale.</p>
-        <div class="chips-row">
-          <span class="chip">LangGraph</span>
-          <span class="chip">K8s</span>
-          <span class="chip">RAG</span>
-        </div>
+        <p class="project-desc">Multi-agent RAG with orchestrated LLM pipelines across 10 providers, Kubernetes scale.</p>
+        <div class="tag-list"><span class="tech-chip">LangGraph</span><span class="tech-chip">K8s</span></div>
       </div>
       <div class="card project-card">
-        <div class="project-impact">T5+ONNX</div>
+        <div class="project-impact">T5 · ONNX</div>
         <h3 class="project-name">TubeDigest</h3>
-        <p class="project-desc">YouTube video AI summariser. T5 fine-tuned, ONNX runtime for fast inference.</p>
-        <div class="chips-row">
-          <span class="chip">T5</span>
-          <span class="chip">ONNX</span>
-          <span class="chip">Python</span>
-        </div>
+        <p class="project-desc">YouTube summariser. Fine-tuned T5, ONNX runtime for fast inference at the edge.</p>
+        <div class="tag-list"><span class="tech-chip">T5</span><span class="tech-chip">Python</span></div>
       </div>
     </div>
   </section>
 
-  <!-- Highlights Timeline -->
+  <!-- TIMEBASE: highlights as a swept trace -->
   <section class="section-block animate-in">
-    <div class="kicker">HIGHLIGHTS</div>
-    <div class="timeline-list">
-      <div class="timeline-row">
-        <span class="timeline-date">Jun 2025</span>
-        <span class="timeline-sep">→</span>
-        <span class="timeline-text">Software Engineer at TCS</span>
-      </div>
-      <div class="timeline-row">
-        <span class="timeline-date">2024</span>
-        <span class="timeline-sep">→</span>
-        <span class="timeline-text">192+ tools shipped on oriz.in</span>
-      </div>
-      <div class="timeline-row">
-        <span class="timeline-date">2025</span>
-        <span class="timeline-sep">→</span>
-        <span class="timeline-text">AWS Developer Associate certified</span>
-      </div>
+    <div class="kicker">Timebase</div>
+    <div class="timeline" style="padding-left:4px;">
+      <div class="timeline-line"></div>
+      <div class="timeline-item"><span class="tl-date">Jun 2025</span><span class="tl-text">Software Engineer at TCS — pricing engines, 60% latency cut</span></div>
+      <div class="timeline-item"><span class="tl-date">2025</span><span class="tl-text">AWS Certified Developer — Associate</span></div>
+      <div class="timeline-item"><span class="tl-date">2024</span><span class="tl-text">192+ open-source tools shipped on oriz.in</span></div>
+      <div class="timeline-item timeline-item--dim"><span class="tl-date">2023</span><span class="tl-text">Full-stack at QRsay — 40% API response improvement</span></div>
+    </div>
+  </section>
+
+  <!-- PERSONAL CHANNEL: Clerk-gated, public-first note -->
+  <section class="section-block animate-in">
+    <div class="kicker">Your channel · optional</div>
+    <div class="card pin-card">
+      <p class="pin-note">Everything above is public. Sign in with your oriz.in account to pin pages — they sync across every <span class="num-highlight">*.oriz.in</span> site. Nothing here is gated.</p>
+      <Bookmarks client:only="react" />
     </div>
   </section>
 
 </Layout>
 
 <style>
-  /* Hero */
-  .hero-section {
-    padding-top: 3rem;
-    max-width: 700px;
+  .hero { padding-top: 1rem; }
+  .hero-strip { padding: 34px 0 0; margin-bottom: 1.75rem; }
+  .hero-strip .waveform { height: 120px; }
+  .hero-copy { max-width: 640px; }
+  .hero-eyeball {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-3); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 1.1rem;
   }
+  .text-hero { margin-bottom: 1.1rem; }
+  .hero-lede { font-size: 16px; color: var(--ink-2); max-width: 560px; line-height: 1.7; margin-bottom: 1.5rem; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 1.25rem; }
+  .hero-links { display: flex; flex-wrap: wrap; gap: 18px; }
+  .hero-link { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); letter-spacing: 0.04em; transition: color var(--ease); }
+  .hero-link:hover { color: var(--phosphor); }
 
-  .hero-name {
-    background: linear-gradient(135deg, var(--indigo) 0%, #a78bfa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 0.75rem;
-  }
+  .section-block { margin-top: 3rem; }
 
-  .hero-tagline {
-    font-size: 18px;
-    color: var(--t-2);
-    max-width: 520px;
-    margin-bottom: 1.25rem;
-    line-height: 1.6;
-  }
+  .readout-bank { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .readout { text-decoration: none; transition: border-color var(--ease), transform var(--ease); }
+  a.readout:hover { border-color: color-mix(in srgb, var(--phosphor) 40%, transparent); transform: translateY(-1px); }
+  @media (max-width: 900px) { .readout-bank { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .readout-bank { grid-template-columns: 1fr; } }
 
-  .hero-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 1.5rem;
-  }
+  .signal-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: stretch; }
+  .signal-card { display: flex; flex-direction: column; gap: 7px; flex: 1; min-width: 220px; padding: 14px 16px; }
+  .signal-val { font-size: 13px; color: var(--ink); line-height: 1.4; }
+  .poster-card--sm { width: 74px; flex-shrink: 0; }
 
-  .hero-status-text {
-    font-size: 13px;
-    color: var(--t-2);
-    font-weight: 500;
-  }
+  .disc-grid { align-items: stretch; }
+  .disc { display: flex; flex-direction: column; gap: 0.5rem; }
+  .disc-idx { font-family: var(--font-mono); font-size: 11px; color: var(--phosphor); letter-spacing: 0.14em; }
+  .disc-title { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: var(--ink); }
+  .disc-desc { font-size: 13px; color: var(--ink-2); line-height: 1.55; flex: 1; }
+  .disc .tag-list { margin-top: 0.4rem; }
 
-  .hero-ctas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 1.5rem;
-  }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+  .project-card { display: flex; flex-direction: column; gap: 0.4rem; }
+  .project-impact { font-family: var(--font-mono); font-size: 1.3rem; font-weight: 600; color: var(--phosphor); line-height: 1; margin-bottom: 0.2rem; }
+  .project-name { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: var(--ink); }
+  .project-desc { font-size: 13px; color: var(--ink-2); line-height: 1.5; flex: 1; }
+  .project-link { font-family: var(--font-mono); font-size: 11.5px; color: var(--phosphor); margin-top: 0.35rem; }
+  .project-link:hover { color: #8ff0dd; }
 
-  .hero-social {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
+  .tl-date { font-family: var(--font-mono); font-size: 11px; color: var(--phosphor); min-width: 76px; display: inline-block; letter-spacing: 0.04em; }
+  .tl-text { font-size: 13px; color: var(--ink-2); }
+  .timeline-item--dim .tl-date { color: var(--ink-3); }
 
-  .social-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 14px;
-    color: var(--t-3);
-    text-decoration: none;
-    transition: color 120ms;
-  }
-
-  .social-link:hover {
-    color: #818cf8;
-  }
-
-  /* Live section */
-  .live-section {
-    margin-top: 2rem;
-  }
-
-  .live-row {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    align-items: flex-start;
-  }
-
-  .live-card {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    flex: 1;
-    min-width: 200px;
-    padding: 14px 16px;
-  }
-
-  .live-track {
-    font-size: 13px;
-    color: var(--t-2);
-    line-height: 1.4;
-  }
-
-  .poster-card--sm {
-    width: 72px;
-    flex-shrink: 0;
-    aspect-ratio: 2/3;
-    text-decoration: none;
-  }
-
-  /* Stats strip */
-  .stats-strip {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    flex-wrap: wrap;
-    margin-top: 2.5rem;
-    padding: 1.25rem 1.5rem;
-  }
-
-  .stat-item {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    padding: 0 1.5rem 0 0;
-  }
-
-  .stat-item:first-child {
-    padding-left: 0;
-  }
-
-  .stat-divider {
-    width: 1px;
-    height: 36px;
-    background: rgba(255,255,255,0.08);
-    flex-shrink: 0;
-    margin-right: 1.5rem;
-  }
-
-  /* Bento overview */
-  .bento-4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin-top: 1rem;
-  }
-
-  @media (max-width: 768px) {
-    .bento-4 { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 480px) {
-    .bento-4 { grid-template-columns: 1fr; }
-  }
-
-  .bento-tile {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    text-decoration: none;
-    padding: 16px 18px;
-  }
-
-  .bento-tile:hover {
-    text-decoration: none;
-  }
-
-  .bento-val {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.6rem;
-    color: var(--t-1);
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-
-  .bento-key {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.10em;
-    color: var(--t-3);
-    margin-top: 4px;
-  }
-
-  .bento-sub {
-    font-size: 11px;
-    color: var(--indigo-light);
-    font-family: var(--font-mono);
-  }
-
-  /* What I Do cards */
-  .section-block {
-    margin-top: 3rem;
-  }
-
-  .cards-row {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-  }
-
-  .cards-row .card-glow {
-    flex: 1;
-    min-width: 180px;
-  }
-
-  .card-icon {
-    margin-bottom: 0.75rem;
-  }
-
-  .card-title {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 1rem;
-    color: var(--t-1);
-    margin-bottom: 0.4rem;
-  }
-
-  .card-desc {
-    font-size: 13px;
-    color: var(--t-2);
-    line-height: 1.5;
-  }
-
-  /* Projects grid */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .project-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .project-impact {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--indigo);
-    line-height: 1;
-    margin-bottom: 0.25rem;
-  }
-
-  .project-name {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 1.05rem;
-    color: var(--t-1);
-  }
-
-  .project-desc {
-    font-size: 13px;
-    color: var(--t-2);
-    line-height: 1.5;
-  }
-
-  .chips-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 0.25rem;
-  }
-
-  .project-link {
-    font-size: 12px;
-    color: var(--indigo);
-    text-decoration: none;
-    margin-top: 0.25rem;
-    font-weight: 500;
-  }
-
-  .project-link:hover {
-    color: #818cf8;
-  }
-
-  /* Highlights timeline */
-  .timeline-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 1rem;
-    border-left: 2px solid rgba(99,102,241,0.3);
-    padding-left: 1.25rem;
-  }
-
-  .timeline-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0.6rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
-
-  .timeline-row:last-child {
-    border-bottom: none;
-  }
-
-  .timeline-date {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--t-3);
-    min-width: 68px;
-  }
-
-  .timeline-sep {
-    color: var(--indigo);
-    font-size: 12px;
-  }
-
-  .timeline-text {
-    font-size: 13px;
-    color: var(--t-2);
-  }
+  .pin-card { max-width: 620px; }
+  .pin-note { font-size: 13.5px; color: var(--ink-2); line-height: 1.6; margin-bottom: 1rem; }
 </style>

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 import TwinWidget from '../components/TwinChat'
+import AuthButton from '../components/AuthButton'
 
 interface Props {
   title: string
@@ -18,13 +19,13 @@ function isActive(href: string): boolean {
 
 const WORK_NAV = [
   { href: '/',                    label: 'Home',           icon: '⌂' },
-  { href: '/work/career',         label: 'Career',         icon: '◈' },
-  { href: '/work/projects',       label: 'Projects',       icon: '◧' },
-  { href: '/work/skills',         label: 'Skills',         icon: '◈' },
-  { href: '/work/education',      label: 'Education',      icon: '◉' },
-  { href: '/work/certifications', label: 'Certifications', icon: '◎' },
-  { href: '/work/open-source',    label: 'Open Source',    icon: '◧' },
-  { href: '/work/blog',           label: 'Writing',        icon: '▣' },
+  { href: '/work/career',         label: 'Career',         icon: '»' },
+  { href: '/work/projects',       label: 'Projects',       icon: '#' },
+  { href: '/work/skills',         label: 'Skills',         icon: '=' },
+  { href: '/work/education',      label: 'Education',      icon: '+' },
+  { href: '/work/certifications', label: 'Certifications', icon: '*' },
+  { href: '/work/open-source',    label: 'Open Source',    icon: '/' },
+  { href: '/work/blog',           label: 'Writing',        icon: '~' },
 ]
 
 const LIBRARY_NAV = [
@@ -33,51 +34,51 @@ const LIBRARY_NAV = [
     { href: '/library/music/top-tracks/',  label: 'Top Tracks' },
     { href: '/library/music/stats/',       label: 'Stats' },
   ]},
-  { href: '/library/movies/',   label: 'Movies',   icon: '▶', sub: [
+  { href: '/library/movies/',   label: 'Movies',   icon: '▸', sub: [
     { href: '/library/movies/watched/',   label: 'Watched' },
     { href: '/library/movies/watchlist/', label: 'Watchlist' },
   ]},
-  { href: '/library/tv/',       label: 'TV Shows', icon: '⊡', sub: [
+  { href: '/library/tv/',       label: 'TV Shows', icon: '▤', sub: [
     { href: '/library/tv/watching/',  label: 'Watching' },
     { href: '/library/tv/completed/', label: 'Completed' },
   ]},
-  { href: '/library/anime/',    label: 'Anime',    icon: '◉', sub: [
+  { href: '/library/anime/',    label: 'Anime',    icon: '△', sub: [
     { href: '/library/anime/completed/',     label: 'Completed' },
     { href: '/library/anime/plan-to-watch/', label: 'Plan to Watch' },
   ]},
-  { href: '/library/manga/',    label: 'Manga',    icon: '⊕', sub: [
+  { href: '/library/manga/',    label: 'Manga',    icon: '▽', sub: [
     { href: '/library/manga/completed/',    label: 'Completed' },
     { href: '/library/manga/plan-to-read/', label: 'Plan to Read' },
   ]},
-  { href: '/library/books/',    label: 'Books',    icon: '▣', sub: [
+  { href: '/library/books/',    label: 'Books',    icon: '▥', sub: [
     { href: '/library/books/read/',         label: 'Read' },
     { href: '/library/books/want-to-read/', label: 'Want to Read' },
     { href: '/library/books/reading/',      label: 'Reading (Moon+)' },
   ]},
-  { href: '/library/discover/', label: 'Discover', icon: '◈' },
-  { href: '/library/gaming/',   label: 'Gaming',   icon: '◈' },
+  { href: '/library/discover/', label: 'Discover', icon: '?' },
+  { href: '/library/gaming/',   label: 'Gaming',   icon: '▣' },
   { href: '/library/videos/',   label: 'Videos',   icon: '▷' },
-  { href: '/library/podcasts/', label: 'Podcasts', icon: '◎' },
-  { href: '/library/activity/', label: 'Activity', icon: '◌' },
+  { href: '/library/podcasts/', label: 'Podcasts', icon: '◖' },
+  { href: '/library/activity/', label: 'Activity', icon: '~' },
 ]
 
 const ME_NAV = [
-  { href: '/me',              label: 'About',           icon: '◉' },
-  { href: '/me/now',          label: 'Now',             icon: '◌' },
-  { href: '/me/gear',         label: 'Gear',            icon: '◧' },
-  { href: '/me/philosophy',   label: 'Philosophy',      icon: '◈' },
-  { href: '/me/wakatime',     label: 'Coding Activity', icon: '◈' },
-  { href: '/me/productivity', label: 'Productivity',    icon: '◉' },
-  { href: '/me/stats',        label: 'Dashboard',       icon: '◎' },
-  { href: '/me/journal',      label: 'Journal',         icon: '◌' },
-  { href: '/me/health',      label: 'Health',          icon: '◉' },
-  { href: '/me/reddit',      label: 'Reddit',          icon: '◈' },
-  { href: '/me/twin',        label: 'Digital Twin',    icon: '◈' },
+  { href: '/me',              label: 'About',           icon: '@' },
+  { href: '/me/now',          label: 'Now',             icon: '•' },
+  { href: '/me/gear',         label: 'Gear',            icon: '#' },
+  { href: '/me/philosophy',   label: 'Philosophy',      icon: '§' },
+  { href: '/me/wakatime',     label: 'Coding Activity', icon: '~' },
+  { href: '/me/productivity', label: 'Productivity',    icon: '=' },
+  { href: '/me/stats',        label: 'Dashboard',       icon: '▤' },
+  { href: '/me/journal',      label: 'Journal',         icon: '»' },
+  { href: '/me/health',       label: 'Health',          icon: '+' },
+  { href: '/me/reddit',       label: 'Reddit',          icon: '/' },
+  { href: '/me/twin',         label: 'Digital Twin',    icon: '*' },
 ]
 
 const CONNECT_NAV = [
-  { href: '/connect',         label: 'Links',   icon: '◎' },
-  { href: '/connect/contact', label: 'Contact', icon: '◌' },
+  { href: '/connect',         label: 'Links',   icon: '/' },
+  { href: '/connect/contact', label: 'Contact', icon: '@' },
 ]
 
 const workOpen    = path === '/' || path.startsWith('/work')
@@ -98,14 +99,11 @@ const connectOpen = path.startsWith('/connect')
   <link rel="icon" href="/icons/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
-  <meta name="theme-color" content="#f97316" />
+  <meta name="theme-color" content="#35e0c0" />
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- OG -->
   <meta property="og:title" content={`${title} · Chirag Singhal`} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={`https://me.oriz.in${path}`} />
@@ -113,7 +111,6 @@ const connectOpen = path.startsWith('/connect')
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:creator" content="@chirag127" />
 
-  <!-- JSON-LD Person -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Person",
@@ -122,89 +119,59 @@ const connectOpen = path.startsWith('/connect')
     "email": "hi@chirag127.in",
     "jobTitle": "Software Engineer",
     "worksFor": { "@type": "Organization", "name": "Tata Consultancy Services" },
-    "sameAs": [
-      "https://github.com/chirag127",
-      "https://linkedin.com/in/chirag127"
-    ]
+    "sameAs": ["https://github.com/chirag127", "https://linkedin.com/in/chirag127"]
   })} />
 
-  <!-- Build time (for DataAge component) -->
   <script set:html={`window.__BUILD_TIME__="${new Date().toISOString()}"`}></script>
 
   <script>
     if (location.hostname === 'me.oriz.in') {
-      const addScript = (src, attrs = {}) => {
-        const script = document.createElement('script')
-        script.src = src
-        for (const [key, value] of Object.entries(attrs)) {
-          if (value === true) script.setAttribute(key, '')
-          else script.setAttribute(key, value)
-        }
-        document.head.append(script)
-      }
-
-      addScript('https://js.puter.com/v2/', { defer: true })
-      addScript('https://static.cloudflareinsights.com/beacon.min.js', {
-        defer: true,
-        'data-cf-beacon': '{"token":"PLACEHOLDER_CF_TOKEN"}',
-      })
-      addScript('https://www.googletagmanager.com/gtag/js?id=PLACEHOLDER_GA4_ID', { async: true })
-      window.dataLayer = window.dataLayer || []
-      window.gtag = function gtag(){ window.dataLayer.push(arguments) }
-      window.gtag('js', new Date())
-      window.gtag('config', 'PLACEHOLDER_GA4_ID', { anonymize_ip: true })
-      addScript('https://plausible.io/js/script.js', { defer: true, 'data-domain': 'me.oriz.in' })
-
-      ;(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,'clarity','script','PLACEHOLDER_CLARITY_ID')
+      const s = document.createElement('script')
+      s.src = 'https://js.puter.com/v2/'
+      s.defer = true
+      document.head.append(s)
+      const p = document.createElement('script')
+      p.src = 'https://plausible.io/js/script.js'
+      p.defer = true
+      p.setAttribute('data-domain', 'me.oriz.in')
+      document.head.append(p)
     }
   </script>
 </head>
 <body>
 
-  <!-- Sidebar -->
+  <!-- Channel rail -->
   <nav class="sidebar" aria-label="Primary navigation">
 
-    <!-- Top identity -->
-    <div style="padding: 12px 16px; display: flex; align-items: center; gap: 10px; height: 72px; flex-shrink: 0; border-bottom: 1px solid var(--border);">
-      <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#f59e0b,#f97316);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-        <span style="font-family:var(--font-display);font-weight:700;font-size:13px;color:#fff;">CS</span>
-      </div>
-      <div style="min-width:0;">
-        <div style="font-family:var(--font-display);font-weight:600;font-size:13px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Chirag Singhal</div>
-        <div style="font-size:11px;color:var(--t-tertiary);">Software Engineer</div>
-      </div>
-    </div>
-
-    <!-- Search -->
-    <div style="margin: 8px 12px;">
-      <div style="position:relative;height:28px;background:var(--overlay);border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;padding:0 8px;gap:6px;">
-        <span style="font-size:11px;color:var(--t-muted);">⌕</span>
-        <span style="font-family:var(--font-mono);font-size:11px;color:var(--t-muted);flex:1;">Search pages...</span>
-        <kbd style="font-family:var(--font-mono);font-size:10px;color:var(--t-muted);background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:1px 4px;">K</kbd>
+    <!-- Instrument header: identity + oriz.in wordmark + auth -->
+    <div class="rail-head">
+      <a href="/" class="rail-id" aria-label="Home">
+        <span class="rail-mark" aria-hidden="true">CS</span>
+        <span class="rail-id-text">
+          <span class="rail-name">Chirag Singhal</span>
+          <span class="rail-role">Software Engineer</span>
+        </span>
+      </a>
+      <div class="rail-bar">
+        <a href="https://oriz.in" class="wordmark" title="Part of oriz.in">
+          <span class="wordmark-dot" aria-hidden="true"></span>oriz.in
+        </a>
+        <AuthButton client:only="react" />
       </div>
     </div>
 
-    <!-- Nav groups -->
-    <div style="flex:1;overflow-y:auto;padding-bottom:8px;">
-
+    <div class="rail-scroll">
       <details class="nav-group" open={workOpen || undefined}>
-        <summary>
-          <span>WORK</span>
-          <span class="nav-chevron">›</span>
-        </summary>
+        <summary><span>Work</span><span class="nav-chevron">›</span></summary>
         {WORK_NAV.map(n => (
           <a href={n.href} class:list={['sidebar-item', { active: isActive(n.href) }]}>
-            <span class="icon">{n.icon}</span>
-            {n.label}
+            <span class="icon">{n.icon}</span>{n.label}
           </a>
         ))}
       </details>
 
       <details class="nav-group" open={libraryOpen || undefined}>
-        <summary>
-          <span>LIBRARY</span>
-          <span class="nav-chevron">›</span>
-        </summary>
+        <summary><span>Library</span><span class="nav-chevron">›</span></summary>
         {LIBRARY_NAV.map((n: any) => (
           <div>
             {n.sub ? (
@@ -215,15 +182,12 @@ const connectOpen = path.startsWith('/connect')
                   <span class="sub-chevron">›</span>
                 </summary>
                 {n.sub.map((s: any) => (
-                  <a href={s.href} class:list={['sidebar-item sidebar-item--sub', { active: path === s.href || path === s.href.replace(/\/$/, '') }]}>
-                    {s.label}
-                  </a>
+                  <a href={s.href} class:list={['sidebar-item sidebar-item--sub', { active: path === s.href || path === s.href.replace(/\/$/, '') }]}>{s.label}</a>
                 ))}
               </details>
             ) : (
               <a href={n.href} class:list={['sidebar-item', { active: isActive(n.href) }]}>
-                <span class="icon">{n.icon}</span>
-                {n.label}
+                <span class="icon">{n.icon}</span>{n.label}
               </a>
             )}
           </div>
@@ -231,81 +195,93 @@ const connectOpen = path.startsWith('/connect')
       </details>
 
       <details class="nav-group" open={meOpen || undefined}>
-        <summary>
-          <span>ME</span>
-          <span class="nav-chevron">›</span>
-        </summary>
+        <summary><span>Me</span><span class="nav-chevron">›</span></summary>
         {ME_NAV.map(n => (
           <a href={n.href} class:list={['sidebar-item', { active: isActive(n.href) }]}>
-            <span class="icon">{n.icon}</span>
-            {n.label}
+            <span class="icon">{n.icon}</span>{n.label}
           </a>
         ))}
       </details>
 
       <details class="nav-group" open={connectOpen || undefined}>
-        <summary>
-          <span>CONNECT</span>
-          <span class="nav-chevron">›</span>
-        </summary>
+        <summary><span>Connect</span><span class="nav-chevron">›</span></summary>
         {CONNECT_NAV.map(n => (
           <a href={n.href} class:list={['sidebar-item', { active: isActive(n.href) }]}>
-            <span class="icon">{n.icon}</span>
-            {n.label}
+            <span class="icon">{n.icon}</span>{n.label}
           </a>
         ))}
       </details>
-
     </div>
 
-    <!-- Bottom pinned -->
-    <div style="padding: 0 12px 12px; flex-shrink: 0; border-top: 1px solid var(--border); padding-top: 12px;">
-      <a href="/resume.pdf" style="display:flex;align-items:center;gap:6px;height:32px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2);border-radius:6px;padding:0 12px;font-size:12px;color:#818cf8;text-decoration:none;transition:background 120ms;margin-bottom:8px;" onmouseover="this.style.background='rgba(99,102,241,0.15)'" onmouseout="this.style.background='rgba(99,102,241,0.08)'">
-        <span>↓</span>
-        <span>Download Resume</span>
+    <div class="rail-foot">
+      <a href="/resume.pdf" class="rail-resume">
+        <span aria-hidden="true">↓</span><span>Download Résumé</span>
       </a>
-      <a href="https://oriz.in" style="display:block;font-size:11px;color:var(--t-muted);text-decoration:none;transition:color 80ms;" onmouseover="this.style.color='var(--t-tertiary)'" onmouseout="this.style.color='var(--t-muted)'">← oriz.in</a>
+      <span class="rail-meta">CH1 · phosphor trace · <span id="rail-clock">live</span></span>
     </div>
-
   </nav>
 
-  <!-- Main content -->
   <main class="main-content">
     <slot />
   </main>
 
-  <!-- Mobile bottom tab bar -->
+  <!-- Mobile tab bar -->
   <nav class="tab-bar" aria-label="Mobile navigation">
     <div class="tab-bar-inner">
-      <a href="/"        class:list={['tab-item', { active: path === '/' }]}>
-        <span class="tab-icon">⌂</span><span>Home</span>
-      </a>
-      <a href="/work/career" class:list={['tab-item', { active: path.startsWith('/work') }]}>
-        <span class="tab-icon">◈</span><span>Work</span>
-      </a>
-      <a href="/library/music" class:list={['tab-item', { active: path.startsWith('/library') }]}>
-        <span class="tab-icon">♪</span><span>Library</span>
-      </a>
-      <a href="/me"      class:list={['tab-item', { active: path.startsWith('/me') }]}>
-        <span class="tab-icon">◉</span><span>Me</span>
-      </a>
-      <a href="/connect/contact" class:list={['tab-item', { active: path.startsWith('/connect') }]}>
-        <span class="tab-icon">◌</span><span>Contact</span>
-      </a>
+      <a href="/"        class:list={['tab-item', { active: path === '/' }]}><span class="tab-icon">⌂</span><span>Home</span></a>
+      <a href="/work/career" class:list={['tab-item', { active: path.startsWith('/work') }]}><span class="tab-icon">»</span><span>Work</span></a>
+      <a href="/library/music" class:list={['tab-item', { active: path.startsWith('/library') }]}><span class="tab-icon">♪</span><span>Library</span></a>
+      <a href="/me"      class:list={['tab-item', { active: path.startsWith('/me') }]}><span class="tab-icon">@</span><span>Me</span></a>
+      <a href="/connect/contact" class:list={['tab-item', { active: path.startsWith('/connect') }]}><span class="tab-icon">/</span><span>Contact</span></a>
     </div>
   </nav>
 
-  <!-- AI Digital Twin floating widget (all pages) -->
   <TwinWidget client:only="react" />
 
-  <!-- PWA service worker registration (guarded) -->
   <script>
     if ('serviceWorker' in navigator && !['localhost', '127.0.0.1', '::1'].includes(location.hostname)) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(() => {})
-      })
+      window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}) })
+    }
+    const clk = document.getElementById('rail-clock')
+    if (clk) {
+      const tick = () => { clk.textContent = new Date().toLocaleTimeString('en-GB') }
+      tick(); setInterval(tick, 1000)
     }
   </script>
+
+  <style>
+    .rail-head { padding: 16px 16px 12px; border-bottom: 1px solid var(--hair); flex-shrink: 0; }
+    .rail-id { display: flex; align-items: center; gap: 11px; }
+    .rail-mark {
+      width: 34px; height: 34px; border-radius: 7px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono); font-weight: 600; font-size: 12px; color: var(--void);
+      background: var(--phosphor); box-shadow: 0 0 14px var(--phosphor-glow);
+      border: 1px solid color-mix(in srgb, var(--phosphor) 60%, #fff);
+    }
+    .rail-id-text { display: flex; flex-direction: column; min-width: 0; }
+    .rail-name { font-family: var(--font-display); font-weight: 600; font-size: 14px; color: var(--ink); letter-spacing: -0.01em; }
+    .rail-role { font-family: var(--font-mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.06em; }
+    .rail-bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 12px; }
+    .wordmark {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: var(--ink-3);
+      transition: color var(--ease);
+    }
+    .wordmark:hover { color: var(--phosphor); }
+    .wordmark-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--phosphor); box-shadow: 0 0 7px var(--phosphor-glow); }
+    .rail-scroll { flex: 1; overflow-y: auto; padding-bottom: 10px; }
+    .rail-foot { padding: 12px 14px 14px; border-top: 1px solid var(--hair); flex-shrink: 0; display: flex; flex-direction: column; gap: 9px; }
+    .rail-resume {
+      display: flex; align-items: center; gap: 7px; height: 34px; padding: 0 12px;
+      font-family: var(--font-mono); font-size: 11.5px; color: var(--phosphor);
+      background: color-mix(in srgb, var(--phosphor) 8%, transparent);
+      border: 1px solid color-mix(in srgb, var(--phosphor) 26%, transparent); border-radius: var(--r-md);
+      transition: background var(--ease), border-color var(--ease);
+    }
+    .rail-resume:hover { background: color-mix(in srgb, var(--phosphor) 15%, transparent); border-color: color-mix(in srgb, var(--phosphor) 45%, transparent); }
+    .rail-meta { font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-4); letter-spacing: 0.08em; }
+  </style>
 
 </body>
 </html>
