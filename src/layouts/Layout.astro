@@ -7,9 +7,11 @@ interface Props {
   title: string
   description?: string
   active?: string
+  /** When false, suppress the rail AuthButton island (one ClerkProvider per page). */
+  showAuth?: boolean
 }
 
-const { title, description = 'Chirag Singhal — Software Engineer · Backend · AI Systems · Open Source' } = Astro.props
+const { title, description = 'Chirag Singhal — Software Engineer · Backend · AI Systems · Open Source', showAuth = true } = Astro.props
 const path = Astro.url.pathname
 
 function isActive(href: string): boolean {
@@ -84,6 +86,7 @@ const ME_NAV = [
 const CONNECT_NAV = [
   { href: '/connect',         label: 'Links',   icon: '/' },
   { href: '/connect/contact', label: 'Contact', icon: '@' },
+  { href: '/sign-in/',        label: 'Sign in', icon: '⎉' },
 ]
 
 const workOpen    = path === '/' || path.startsWith('/work')
@@ -161,7 +164,7 @@ const connectOpen = path.startsWith('/connect')
         <a href="https://oriz.in" class="wordmark" title="Part of oriz.in">
           <span class="wordmark-dot" aria-hidden="true"></span>oriz.in
         </a>
-        <AuthButton client:only="react" />
+        {showAuth ? <AuthButton client:only="react" /> : <a href="/sign-in/" class="link-pill">Sign in</a>}
       </div>
     </div>
 

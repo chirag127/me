@@ -1,0 +1,29 @@
+---
+/*
+ * /sign-in — dedicated Clerk sign-in for oriz.in SSO.
+ *
+ * Exactly ONE ClerkProvider here: Layout's rail AuthButton is suppressed via
+ * showAuth={false}, so only SignInPanel mounts a provider. Public content stays
+ * ungated; this route just hosts the shared *.oriz.in sign-in surface.
+ */
+import Layout from '~/layouts/Layout.astro'
+import SignInPanel from '~/components/SignInPanel.tsx'
+---
+<Layout title="Sign in" description="Sign in to oriz. One account works across every oriz site." showAuth={false}>
+  <header style="margin-bottom:2rem">
+    <span class="kicker">oriz SSO</span>
+    <h1 style="font-family:var(--font-display);font-size:2rem;font-weight:600;letter-spacing:-0.02em;color:var(--ink);margin:0 0 0.75rem">Sign in</h1>
+    <p style="color:var(--ink-3);line-height:1.7;max-width:56ch;margin:0;font-family:var(--font-mono);font-size:13px">
+      One account works across every oriz site — sign in once, roam the family. Public content stays free and needs no account.
+    </p>
+  </header>
+
+  <section class="signin-wrap">
+    <SignInPanel client:only="react" />
+  </section>
+
+  <style>
+    .signin-wrap { display:flex; justify-content:center; padding-block:1.5rem 3rem; }
+    .signin-wrap :global(.signin-missing) { color: var(--ink-3); font-family: var(--font-mono); font-size: 13px; }
+  </style>
+</Layout>
