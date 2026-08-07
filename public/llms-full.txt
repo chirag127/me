@@ -1,0 +1,106 @@
+# me.oriz.in — Chirag Singhal
+
+Full-text export of me.oriz.in for LLM ingestion. This is the complete content of the site as clean markdown. Live at https://me.oriz.in. Source at https://github.com/chirag127/oriz-me (MIT).
+
+## What this site is
+
+Personal OS for Chirag Singhal — an "engineer's instrument bench." A public, static dashboard that aggregates and instruments a working life: professional portfolio and open-source work, a full media library, live coding activity, and personal life stats. Everything is public, free, and needs no account. No backend, no login, no tracking wall.
+
+Tagline: "I build the systems you never see fail."
+
+Chirag Singhal is a software engineer building backend and AI infrastructure — Python services, event pipelines, RAG systems — and instruments everything he makes. This site is the readout: work, open source, and the feeds of a day.
+
+## Home
+
+The home page shows a live channel readout: coding time over the last 7 days (WakaTime), GitHub repository count, Last.fm scrobbles, films logged (Trakt), and current Discord presence (Lanyard). Live now-playing track and recently watched films surface when data is present. Primary calls to action: "Trace the work" (projects) and Résumé.
+
+Contact links: GitHub (github.com/chirag127), LinkedIn (linkedin.com/in/chirag127), email (hi@chirag127.in).
+
+## Work
+
+The Work section is the professional portfolio.
+
+- Career: experience and roles across backend and AI systems engineering.
+- Projects: shipped products and side projects.
+- Skills: programming languages, frameworks, and tooling.
+- Education: degrees and coursework.
+- Certifications: professional certifications earned.
+- Open Source: public GitHub repositories and contributions, with live repo and follower counts.
+- Writing: blog posts and long-form technical writing.
+
+## Library
+
+The Library section is a personal media catalog, pulled from streaming and tracking services at build time.
+
+- Music: Last.fm listening history — total scrobbles, top artists, top tracks, and listening stats. Live now-playing via ListenBrainz.
+- Movies: films watched and watchlist, sourced from Trakt with TMDB enrichment (posters, metadata).
+- TV Shows: shows currently watching and completed.
+- Anime: anime completed and plan-to-watch.
+- Manga: manga completed and plan-to-read.
+- Books: reading shelves — read, currently reading, and want-to-read.
+- Gaming: games played.
+- Videos: saved and watched video content.
+- Podcasts: podcast subscriptions.
+- Discover: cross-media recommendations.
+- Activity: a chronological feed of recent media activity across all categories.
+
+## Me
+
+The Me section is the personal, non-professional side.
+
+- About: introduction to who Chirag is.
+- Now: current focus and what he is working on right now (a /now page).
+- Story: background and personal journey.
+- Timeline: key life and career milestones.
+- Values: the principles he works and lives by.
+- Goals: current goals and targets.
+- Gear: hardware, devices, and tools he uses daily.
+- Philosophy: engineering and life philosophy.
+- Coding Activity: WakaTime coding time, language breakdown, and editor stats.
+- Productivity: productivity metrics and habits.
+- Dashboard: an aggregate life-stats dashboard.
+- Journal: journal entries.
+- Health: health and fitness stats.
+- Digital Twin: an AI chat trained on Chirag's public context — ask it about him.
+- FAQ: frequently asked questions.
+
+## FAQ
+
+Q: What do you do?
+A: Software engineer by day, building agent tooling and static sites by night.
+
+Q: Why oriz?
+A: Product / workspace brand.
+
+Q: Why no ads or subscriptions?
+A: Free tier or nothing. No card on file, donations only.
+
+Q: Can I hire you?
+A: Currently full-time employed. Freelance is closed. Long-form collaborations considered.
+
+Q: Can I reuse content from here?
+A: Yes. Code is MIT. Prose is CC-BY-4.0. Attribution appreciated.
+
+## Connect
+
+- Links: social and contact links in one place.
+- Contact: how to reach Chirag.
+- Sign in: optional oriz SSO — one account works across every oriz site. Public content stays free and needs no account.
+
+## How it works (technical)
+
+- Built with Astro (static output) and React 19 islands, styled with Tailwind.
+- Data pulled from roughly 30 provider APIs at build time into static JSON files (public/data/*.json). No runtime backend.
+- Providers include GitHub, WakaTime, Last.fm, ListenBrainz, Trakt, TMDB, and Lanyard (Discord presence), among others. Each fetcher skips gracefully when its API key is absent.
+- Installable PWA via @vite-pwa/astro: the static shell is precached for offline use; /data and cross-origin requests are network-only so live stats are never served stale.
+- AI features (Digital Twin, Ask) use @chirag127/oz-ai, a client-side AI wrapper (g4f-based) — runs in the browser, no server key required.
+- Optional oriz SSO uses Clerk, but is only a shared sign-in surface; all content is public without it.
+- Hosted on Cloudflare Pages. A scheduled GitHub Actions workflow refreshes the data snapshots.
+
+## Meta
+
+- Live app: https://me.oriz.in
+- Info / about page: https://chirag127.github.io/oriz-me/
+- Source: https://github.com/chirag127/oriz-me
+- License: code MIT, prose CC-BY-4.0
+- Author: Chirag Singhal — hi@chirag127.in

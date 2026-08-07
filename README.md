@@ -1,71 +1,46 @@
-# me
+# oriz-me
 
-[![Deploy to Cloudflare Pages](https://github.com/chirag127/me/actions/workflows/deploy.yml/badge.svg)](https://github.com/chirag127/me/actions/workflows/deploy.yml)
-[![GitHub stars](https://img.shields.io/github/stars/chirag127/me?style=flat)](https://github.com/chirag127/me/stargazers)
+- **Live app:** https://me.oriz.in
+- **About / info:** https://chirag127.github.io/oriz-me/
+- **For LLMs:** [llms.txt](https://me.oriz.in/llms.txt) · [llms-full.txt](https://me.oriz.in/llms-full.txt)
 
-Personal OS for **[me.oriz.in](https://me.oriz.in)** — a public, static dashboard
-aggregating Chirag Singhal's work, media library, coding activity, and life
-stats. Astro + React islands, no backend, no login. Fully public.
+[![Deploy to Cloudflare Pages](https://github.com/chirag127/oriz-me/actions/workflows/deploy.yml/badge.svg)](https://github.com/chirag127/oriz-me/actions/workflows/deploy.yml)
+[![GitHub stars](https://img.shields.io/github/stars/chirag127/oriz-me?style=flat)](https://github.com/chirag127/oriz-me/stargazers)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
 
-## Stack
+Personal OS for **[me.oriz.in](https://me.oriz.in)** — an engineer's instrument bench. A public, static dashboard that aggregates Chirag Singhal's work, open source, media library, live coding activity, and life stats.
 
-- **Astro 4** (`output: static`) + **React 19** islands + **Tailwind 3**
-- **@vite-pwa/astro** — installable PWA (offline shell, network-only live data)
-- Data pulled from ~30 APIs at build time into `public/data/*.json`
+**100% client-side, no upload, no signup, free.** No backend, no ads, no tracking wall. Optional oriz SSO exists but gates nothing public.
+
+## What it does
+
+- **Work** — career, projects, skills, education, certifications, open source, writing.
+- **Library** — music, movies, TV, anime, manga, books, gaming, podcasts + a live activity feed.
+- **Me** — now, story, timeline, values, goals, gear, philosophy, coding activity, journal, health, AI digital twin, FAQ.
+- **Live readouts** — WakaTime coding time, GitHub repos, Last.fm scrobbles, Trakt films, Discord presence.
+- Data from ~30 APIs pulled at build time into static JSON — no runtime backend.
+
+## Tech
+
+- **Astro** (`output: static`) + **React 19** islands + **Tailwind**.
+- **@vite-pwa/astro** — installable PWA; static shell offline, live data network-only.
+- **@chirag127/oz-ai** — g4f client-side AI (digital twin + Ask), runs in-browser, no server key.
+- Hosted on **Cloudflare Pages**; scheduled workflow refreshes data snapshots.
 
 ## Develop
 
 ```bash
-pnpm install
-pnpm dev            # astro dev
-pnpm exec astro build   # build WITHOUT refreshing data (safe)
-pnpm build          # prebuild (fetch-data) + astro build — needs API keys
+npm install --legacy-peer-deps
+npm run dev              # astro dev
+npm exec astro build     # build WITHOUT refreshing data (safe)
 ```
 
-> **`pnpm build` runs `scripts/fetch-data.ts` first.** Without API keys it
-> writes **empty** JSON over `public/data/*`. CI and Cloudflare deploy therefore
-> run `astro build` **only** — the committed data snapshots are the source of
-> truth; a separate scheduled `refresh-data.yml` workflow updates them with
-> secrets present.
-
-## Data refresh
-
-`.github/workflows/refresh-data.yml` runs `pnpm run fetch-data` on a schedule
-with API keys in repo secrets, then commits the refreshed `public/data/*.json`.
-See `.env.example` for the full list of provider keys (all optional — each
-fetcher skips gracefully when its key is absent).
+> `npm run build` runs `scripts/fetch-data.ts` first — without API keys it writes **empty** JSON over `public/data/*`. CI and Cloudflare run `astro build` **only**; committed snapshots are the source of truth. `refresh-data.yml` updates them on schedule with secrets present.
 
 ## Deploy
 
-Push to `main` → `.github/workflows/deploy.yml` runs `astro build` and
-`wrangler pages deploy dist --project-name=me-chirag127`. Requires repo secrets
-`CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`. Custom domain `me.oriz.in`
-attaches on the first successful deploy.
-
-## Releases
-
-`.github/workflows/prerelease.yml` builds and tags every push to `main`
-(`prerelease-<UTCdate>-<shortsha>`) and attaches a `dist` tarball.
-
-## Packaging
-
-Two tag-triggered workflows build **unsigned** installable wrappers around
-`https://me.oriz.in`:
-
-- **Android TWA** (`package-android.yml`) — Bubblewrap APK + AAB
-- **Windows** (`package-windows.yml`) — Tauri NSIS + MSI
-
-> **Blocker — signing.** Both produce **unsigned** artifacts. No keystore or
-> code-signing certificate is generated or committed. Signing (Android upload
-> key + Play App Signing; Windows Authenticode cert) is a manual, credential-
-> gated step left for a maintainer.
-
-## PWA
-
-`manifest.webmanifest` + a Workbox service worker precache the static shell.
-`/data/*` and all cross-origin requests are **network-only** — live stats are
-never served stale. Icons in `public/icons/` (192/512 + maskable).
+Push to `main` → `deploy.yml` runs `astro build` + `wrangler pages deploy dist --project-name=me-chirag127` (needs `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`). The info page at [chirag127.github.io/oriz-me](https://chirag127.github.io/oriz-me/) ships from `gh-info/` via `gh-pages-info.yml`.
 
 ## License
 
-See [LICENSE](./LICENSE).
+Code [MIT](./LICENSE). Prose CC-BY-4.0.

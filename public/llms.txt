@@ -1,0 +1,54 @@
+# me.oriz.in — Chirag Singhal
+
+> Personal OS for Chirag Singhal, a backend and AI systems engineer. A public, static dashboard that instruments a working life: portfolio and open source, a media library (music, film, TV, anime, manga, books), live coding activity, and personal stats. No backend, no login, fully public and free.
+
+Client-only Astro + React islands. Data pulled from ~30 APIs at build time into static JSON. PWA-installable. Live at https://me.oriz.in.
+
+## Work
+- [Career](https://me.oriz.in/work/career): experience and roles, backend + AI systems engineering.
+- [Projects](https://me.oriz.in/work/projects): shipped products and side projects.
+- [Skills](https://me.oriz.in/work/skills): languages, frameworks, tooling.
+- [Education](https://me.oriz.in/work/education): degrees and coursework.
+- [Certifications](https://me.oriz.in/work/certifications): professional certifications.
+- [Open Source](https://me.oriz.in/work/open-source): public GitHub repositories and contributions.
+- [Writing](https://me.oriz.in/work/blog): blog posts and long-form writing.
+
+## Library
+- [Music](https://me.oriz.in/library/music/): Last.fm scrobbles, top artists, top tracks, listening stats.
+- [Movies](https://me.oriz.in/library/movies/): films watched and watchlist, via Trakt/TMDB.
+- [TV Shows](https://me.oriz.in/library/tv/): shows watching and completed.
+- [Anime](https://me.oriz.in/library/anime/): anime completed and plan-to-watch.
+- [Manga](https://me.oriz.in/library/manga/): manga completed and plan-to-read.
+- [Books](https://me.oriz.in/library/books/): read, reading, and want-to-read shelves.
+- [Gaming](https://me.oriz.in/library/gaming/): games played.
+- [Videos](https://me.oriz.in/library/videos/): saved and watched videos.
+- [Podcasts](https://me.oriz.in/library/podcasts/): podcast subscriptions.
+- [Discover](https://me.oriz.in/library/discover/): recommendations across media.
+- [Activity](https://me.oriz.in/library/activity/): recent media activity feed.
+
+## Me
+- [About](https://me.oriz.in/me): who Chirag is.
+- [Now](https://me.oriz.in/me/now): what he is focused on right now.
+- [Story](https://me.oriz.in/me/story): background and journey.
+- [Timeline](https://me.oriz.in/me/timeline): key milestones.
+- [Values](https://me.oriz.in/me/values): principles he works by.
+- [Goals](https://me.oriz.in/me/goals): current goals.
+- [Gear](https://me.oriz.in/me/gear): hardware and tools he uses.
+- [Philosophy](https://me.oriz.in/me/philosophy): engineering and life philosophy.
+- [Coding Activity](https://me.oriz.in/me/wakatime): WakaTime coding time and languages.
+- [Productivity](https://me.oriz.in/me/productivity): productivity metrics.
+- [Dashboard](https://me.oriz.in/me/stats): aggregate life-stats dashboard.
+- [Journal](https://me.oriz.in/me/journal): journal entries.
+- [Health](https://me.oriz.in/me/health): health and fitness stats.
+- [Digital Twin](https://me.oriz.in/me/twin): AI chat trained on Chirag's context.
+- [FAQ](https://me.oriz.in/me/faq): frequently asked questions.
+
+## Connect
+- [Links](https://me.oriz.in/connect): social and contact links.
+- [Contact](https://me.oriz.in/connect/contact): how to reach Chirag.
+- [Sign in](https://me.oriz.in/sign-in): optional oriz SSO — public content needs no account.
+
+## About this project
+- [Info page](https://chirag127.github.io/oriz-me/): what this site is and how it is built.
+- [Source](https://github.com/chirag127/oriz-me): repository, MIT licensed.
+- [Full text for LLMs](https://me.oriz.in/llms-full.txt): complete site content as markdown.

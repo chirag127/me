@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About me.oriz.in — Chirag Singhal's Instrument Bench</title>
+  <meta name="description" content="About the me.oriz.in project: a public, static personal dashboard for Chirag Singhal — portfolio, open source, media library, live coding activity. Client-only Astro, PWA-installable, no signup." />
+  <link rel="canonical" href="https://chirag127.github.io/oriz-me/" />
+  <meta property="og:title" content="About me.oriz.in — Chirag Singhal's Instrument Bench" />
+  <meta property="og:description" content="What me.oriz.in is and how it is built — a public, static personal dashboard. Client-only Astro, PWA, no signup." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://chirag127.github.io/oriz-me/" />
+  <style>
+    :root {
+      --bg: #10151a;
+      --panel: #161d24;
+      --ink: #e7edf2;
+      --ink-2: #a7b4bf;
+      --ink-3: #6f7d88;
+      --line: #26313a;
+      --accent: #3a86ff;
+      --accent-2: #2ec4b6;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.65;
+      font-size: 16px;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 56px 22px 80px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 28px; margin-bottom: 34px; }
+    .badge {
+      display: inline-block; font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent-2); border: 1px solid var(--line); border-radius: 999px;
+      padding: 4px 12px; margin-bottom: 18px;
+    }
+    h1 { font-size: clamp(1.7rem, 5vw, 2.4rem); line-height: 1.15; margin: 0 0 12px; letter-spacing: -0.02em; }
+    h1 .dim { color: var(--ink-3); font-weight: 400; }
+    .lede { color: var(--ink-2); font-size: 1.05rem; margin: 0; }
+    h2 { font-size: 1.15rem; margin: 40px 0 12px; letter-spacing: -0.01em; }
+    p { color: var(--ink-2); margin: 0 0 14px; }
+    ul { color: var(--ink-2); margin: 0 0 14px; padding-left: 20px; }
+    li { margin: 6px 0; }
+    li strong { color: var(--ink); font-weight: 600; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 30px 0 6px; }
+    .cta {
+      display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px;
+      border-radius: 10px; font-weight: 600; font-size: 0.95rem; border: 1px solid var(--line);
+    }
+    .cta.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .cta.primary:hover { text-decoration: none; opacity: .92; }
+    .cta.ghost { background: var(--panel); color: var(--ink); }
+    .cta.ghost:hover { text-decoration: none; border-color: var(--accent); }
+    .meta { border-top: 1px solid var(--line); margin-top: 44px; padding-top: 22px; font-size: 0.9rem; color: var(--ink-3); }
+    .meta a { color: var(--ink-2); }
+    code { background: var(--panel); border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; font-size: 0.88em; color: var(--ink); }
+    .note { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--accent-2); border-radius: 8px; padding: 14px 16px; color: var(--ink-2); font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="badge">About this project</span>
+      <h1>me.oriz.in <span class="dim">— an engineer's instrument bench</span></h1>
+      <p class="lede">A public, static personal dashboard for <strong>Chirag Singhal</strong> — a backend &amp; AI systems engineer. This is the "about" page for the project. The live site is the tool itself.</p>
+    </header>
+
+    <div class="cta-row">
+      <a class="cta primary" href="https://me.oriz.in">Open the live app →</a>
+      <a class="cta ghost" href="https://github.com/chirag127/oriz-me">Source on GitHub</a>
+      <a class="cta ghost" href="https://me.oriz.in/llms.txt">llms.txt</a>
+    </div>
+
+    <h2>What it is</h2>
+    <p>me.oriz.in aggregates and instruments a working life into one public dashboard: professional portfolio and open-source work, a full media library, live coding activity, and personal life stats. Everything is public and free — no ads, no signup wall, no tracking.</p>
+
+    <h2>Key features</h2>
+    <ul>
+      <li><strong>Work</strong> — career, projects, skills, education, certifications, open source, and writing.</li>
+      <li><strong>Library</strong> — music, movies, TV, anime, manga, books, gaming, podcasts, and a live activity feed.</li>
+      <li><strong>Me</strong> — now, story, timeline, values, goals, gear, philosophy, coding activity, journal, health, and an AI digital twin.</li>
+      <li><strong>Live readouts</strong> — WakaTime coding time, GitHub repos, Last.fm scrobbles, Trakt films, Discord presence.</li>
+      <li><strong>Data from ~30 APIs</strong> pulled at build time into static JSON — no runtime backend.</li>
+    </ul>
+
+    <h2>Tech</h2>
+    <ul>
+      <li><strong>Client-only Astro</strong> (<code>output: static</code>) + React 19 islands + Tailwind.</li>
+      <li><strong>g4f AI</strong> via <code>@chirag127/oz-ai</code> — the digital twin and Ask features run 100% in the browser, no server key.</li>
+      <li><strong>PWA-installable</strong> — offline static shell; live data is always network-only, never stale.</li>
+      <li><strong>100% in-browser, no upload, no signup</strong> — optional oriz SSO exists but gates nothing public.</li>
+    </ul>
+
+    <div class="note">This is the project info page. To actually use the dashboard, go to <a href="https://me.oriz.in">me.oriz.in</a>.</div>
+
+    <div class="meta">
+      <p>
+        Live app: <a href="https://me.oriz.in">me.oriz.in</a> ·
+        Source: <a href="https://github.com/chirag127/oriz-me">github.com/chirag127/oriz-me</a> ·
+        For LLMs: <a href="https://me.oriz.in/llms.txt">llms.txt</a> / <a href="https://me.oriz.in/llms-full.txt">llms-full.txt</a>
+      </p>
+      <p>Built by Chirag Singhal. Code MIT-licensed.</p>
+    </div>
+  </div>
+</body>
+</html>
