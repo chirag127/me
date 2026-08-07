@@ -20,17 +20,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: pnpm
+          cache: npm
 
-      - run: pnpm install --frozen-lockfile
+      - run: npm ci
 
-      # astro build ONLY — never `pnpm build` (prebuild wipes committed data).
-      - run: pnpm exec astro build
+      # astro build ONLY — never `npm run build` (prebuild wipes committed data).
+      - run: npm exec astro build
 
       - name: Compute deterministic tag
         id: tag
