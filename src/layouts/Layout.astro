@@ -169,7 +169,7 @@ const connectOpen = path.startsWith('/connect')
         <a href="https://oriz.in" class="wordmark" title="Part of oriz.in">
           <span class="wordmark-dot" aria-hidden="true"></span>oriz.in
         </a>
-        {showAuth ? <AuthButton client:only="react" /> : <a href="/sign-in/" class="link-pill">Sign in</a>}
+        {showAuth && <AuthButton client:only="react" />}
       </div>
     </div>
 
