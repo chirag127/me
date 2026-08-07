@@ -17,6 +17,7 @@
 	},
 	"dependencies": {
 		"@astrojs/react": "^5.0.7",
+		"@chirag127/oz-ai": "file:../design-system/packages/oz-ai",
 		"@clerk/clerk-react": "^5.61.3",
 		"@tailwindcss/vite": "^4.3.2",
 		"astro": "^6.4.8",

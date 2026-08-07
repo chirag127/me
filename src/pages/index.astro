@@ -2,6 +2,7 @@
 import Layout from '~/layouts/Layout.astro'
 import { getLanyard } from '~/lib/api'
 import Bookmarks from '~/components/Bookmarks'
+import AskPortfolio from '~/components/AskPortfolio'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
@@ -173,6 +174,15 @@ const scrobbles  = Number(lfmUser.playcount || 0).toLocaleString()
     </div>
   </section>
 
+  <!-- ASK THE BENCH: optional AI probe over portfolio content -->
+  <section class="section-block animate-in">
+    <div class="kicker">Ask the bench · optional</div>
+    <div class="card ask-card">
+      <p class="ask-note">Query this portfolio. An on-device AI probe answers from the readout above — stack, work, availability. No login, no key.</p>
+      <AskPortfolio client:visible />
+    </div>
+  </section>
+
   <!-- PERSONAL CHANNEL: Clerk-gated, public-first note -->
   <section class="section-block animate-in">
     <div class="kicker">Your channel · optional</div>
@@ -234,4 +244,44 @@ const scrobbles  = Number(lfmUser.playcount || 0).toLocaleString()
 
   .pin-card { max-width: 620px; }
   .pin-note { font-size: 13.5px; color: var(--ink-2); line-height: 1.6; margin-bottom: 1rem; }
+
+  .ask-card { max-width: 620px; }
+  .ask-note { font-size: 13.5px; color: var(--ink-2); line-height: 1.6; margin-bottom: 1rem; }
+  .ask-pf-bar {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--panel); border: 1px solid var(--hair);
+    border-radius: var(--r-md); padding: 6px 10px;
+    transition: border-color var(--ease);
+  }
+  .ask-pf-bar:focus-within { border-color: var(--border-active); }
+  .ask-pf-prompt { font-family: var(--font-mono); color: var(--phosphor); font-size: 14px; }
+  .ask-pf-input {
+    flex: 1; background: transparent; border: 0; outline: 0;
+    color: var(--ink); font-family: var(--font-sans); font-size: 14px;
+  }
+  .ask-pf-input::placeholder { color: var(--ink-3); }
+  .ask-pf-send {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--phosphor); background: transparent;
+    border: 1px solid color-mix(in srgb, var(--phosphor) 40%, transparent);
+    border-radius: var(--r-sm); padding: 4px 10px; cursor: pointer;
+    transition: background var(--ease), color var(--ease);
+  }
+  .ask-pf-send:hover:not(:disabled) { background: var(--phosphor-glow); }
+  .ask-pf-send:disabled { opacity: 0.4; cursor: default; }
+  .ask-pf-starters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .ask-pf-chip {
+    font-family: var(--font-mono); font-size: 11px; color: var(--ink-3);
+    background: transparent; border: 1px solid var(--hair);
+    border-radius: 999px; padding: 3px 10px; cursor: pointer;
+    transition: color var(--ease), border-color var(--ease);
+  }
+  .ask-pf-chip:hover:not(:disabled) { color: var(--phosphor); border-color: var(--border-active); }
+  .ask-pf-chip:disabled { opacity: 0.4; cursor: default; }
+  .ask-pf-out {
+    display: block; margin-top: 12px; padding: 12px 14px;
+    background: var(--panel-2); border-left: 2px solid var(--phosphor);
+    border-radius: var(--r-sm); font-size: 13.5px; color: var(--ink); line-height: 1.6;
+  }
+  .ask-pf-scan { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); }
 </style>

@@ -1,5 +1,385 @@
 [
   {
+    "inserted_at": 1786045829,
+    "listened_at": 1786033978,
+    "recording_msid": "5f44ebff-5240-4c6a-a68a-6b0a56cddeb8",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "5f44ebff-5240-4c6a-a68a-6b0a56cddeb8",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Ten Music Group",
+      "track_name": "Omar Rudberg - Coast Side (Audio)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1786045829,
+    "listened_at": 1786033874,
+    "recording_msid": "56fb4a0f-e003-4487-8bc0-a759c57e1376",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "a6aa6155-0cb5-402f-b9e0-84f8a4c98c21",
+        "recording_msid": "56fb4a0f-e003-4487-8bc0-a759c57e1376",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "John Michael Howell",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "a6aa6155-0cb5-402f-b9e0-84f8a4c98c21"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "John Michael Howell",
+            "artist_mbid": "a6aa6155-0cb5-402f-b9e0-84f8a4c98c21",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 43700014381,
+        "caa_release_mbid": "51692d0f-662b-4ac3-8766-030168fd45e8",
+        "recording_mbid": "f0b0ba0d-d383-4281-b422-cd7135372c3d",
+        "recording_name": "Carnival",
+        "release_mbid": "51692d0f-662b-4ac3-8766-030168fd45e8"
+      },
+      "track_name": "Carnival"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1786045829,
+    "listened_at": 1786033683,
+    "recording_msid": "3f027741-d120-44a9-b387-73cd7c18c09d",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "3f027741-d120-44a9-b387-73cd7c18c09d",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Khalid, Dove Cameron",
+      "track_name": "We Go Down Together (Official Video)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1786045829,
+    "listened_at": 1786033431,
+    "recording_msid": "1a3b7b71-271b-4632-8882-d19ffcbff6a7",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "b8a7c51f-362c-4dcb-a259-bc6e0095f0a6",
+        "lastfm_track_mbid": "32d2c0e5-714c-4b01-8ac8-38be09abc6a8",
+        "recording_msid": "1a3b7b71-271b-4632-8882-d19ffcbff6a7",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Ed Sheeran",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "b8a7c51f-362c-4dcb-a259-bc6e0095f0a6"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Ed Sheeran",
+            "artist_mbid": "b8a7c51f-362c-4dcb-a259-bc6e0095f0a6",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 12638463567,
+        "caa_release_mbid": "2f44a928-269b-4a5a-9361-ff4cc3d0ce9f",
+        "recording_mbid": "58cd9803-46f4-499d-969f-d5bb35612e5a",
+        "recording_name": "All of the Stars",
+        "release_mbid": "516973cf-39fa-45f7-9633-a349b451fd59",
+        "url_rels": [
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/367608409"
+          },
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/gb/song/1747957566"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/6sfjKDUILQRMW5b9Q4Y3Rv"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/2833935152"
+          }
+        ]
+      },
+      "track_name": "All of the Stars"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1786045829,
+    "listened_at": 1786033258,
+    "recording_msid": "13f9197c-4bba-4537-92ab-62016884080b",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "bc153bd5-7963-4195-a6fb-c38588f31007",
+        "lastfm_track_mbid": "35b25a95-6be6-484d-b2a0-84e39c410146",
+        "recording_msid": "13f9197c-4bba-4537-92ab-62016884080b",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Ruel",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "bc153bd5-7963-4195-a6fb-c38588f31007"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Ruel",
+            "artist_mbid": "bc153bd5-7963-4195-a6fb-c38588f31007",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 43337658996,
+        "caa_release_mbid": "b7fa23ba-8840-4c26-993d-7063fbe7067b",
+        "recording_mbid": "62af5c36-008b-4e44-9793-679a38553bdd",
+        "recording_name": "I Can Die Now",
+        "release_mbid": "6e996064-2ed1-405a-bd90-80d5d4905d5e"
+      },
+      "track_name": "I Can Die Now"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1786045829,
+    "listened_at": 1786033023,
+    "recording_msid": "0ef955ca-d83e-47a6-92ed-8653a4dc280c",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "0ef955ca-d83e-47a6-92ed-8653a4dc280c",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Harry Styles",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "7eb1ce54-a355-41f9-8d68-e018b096d427"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Harry Styles",
+            "artist_mbid": "7eb1ce54-a355-41f9-8d68-e018b096d427",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 24909263406,
+        "caa_release_mbid": "61210065-4118-43f9-866f-4038cfae5df4",
+        "recording_mbid": "2f103895-6fb4-4c8e-a75a-a4623d078db0",
+        "recording_name": "Falling",
+        "release_mbid": "6ba429db-6b41-470c-b33e-25909b97850f"
+      },
+      "track_name": "Falling (Official Video)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1786045829,
+    "listened_at": 1786032826,
+    "recording_msid": "7d5b5c4f-7816-4680-8ced-94e4b24adbd1",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "c0ef2ba5-a7b7-40ea-bd27-30acccfcac11",
+        "lastfm_track_mbid": "0ae5cedc-2ef4-4c7d-91b2-cd639f05f896",
+        "recording_msid": "7d5b5c4f-7816-4680-8ced-94e4b24adbd1",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Lauv",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "c0ef2ba5-a7b7-40ea-bd27-30acccfcac11"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Lauv",
+            "artist_mbid": "c0ef2ba5-a7b7-40ea-bd27-30acccfcac11",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 25651963419,
+        "caa_release_mbid": "245b54e9-4d03-460c-b4ba-99d8c30e0bad",
+        "recording_mbid": "a566f7d5-1416-49ec-9804-1a6f609b3a5e",
+        "recording_name": "Lonely Eyes",
+        "release_mbid": "63b5d3be-6538-4fc9-ac7d-a42334aebd85"
+      },
+      "track_name": "Lonely Eyes"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1786045829,
+    "listened_at": 1786032608,
+    "recording_msid": "060b65b3-2e5a-4f8d-be1b-3f6ed3cf1107",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "b7d92248-97e3-4450-8057-6fe06738f735",
+        "recording_msid": "060b65b3-2e5a-4f8d-be1b-3f6ed3cf1107",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Shawn Mendes",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "b7d92248-97e3-4450-8057-6fe06738f735"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Shawn Mendes",
+            "artist_mbid": "b7d92248-97e3-4450-8057-6fe06738f735",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 45465235824,
+        "caa_release_mbid": "56a319ad-43df-4254-9238-e825fdf652f0",
+        "recording_mbid": "fb9c29d7-2bf0-4c96-a10d-5df601a77e60",
+        "recording_name": "In My Blood",
+        "release_mbid": "adf11ddb-2844-4ac9-ae5c-5ad66c4e84a6",
+        "url_rels": [
+          {
+            "type": "free streaming",
+            "url": "https://music.youtube.com/watch?v=oKIT0DkO-ac"
+          }
+        ]
+      },
+      "track_name": "In My Blood"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1786045829,
+    "listened_at": 1786032443,
+    "recording_msid": "97232af6-0725-4dcf-b27b-0b9349f3ba7a",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+        "lastfm_track_mbid": "2b4a7639-1666-4350-889b-9847c9ef218e",
+        "recording_msid": "97232af6-0725-4dcf-b27b-0b9349f3ba7a",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Troye Sivan",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Troye Sivan",
+            "artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 29841828256,
+        "caa_release_mbid": "27b20242-b752-4071-a84f-67b03f093b3b",
+        "recording_mbid": "2b4a7639-1666-4350-889b-9847c9ef218e",
+        "recording_name": "could cry just thinkin about you (full version)",
+        "release_mbid": "27b20242-b752-4071-a84f-67b03f093b3b"
+      },
+      "track_name": "could cry just thinkin about you (full version)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1786045829,
+    "listened_at": 1786032247,
+    "recording_msid": "30563c34-371a-4deb-aaba-2ff1f685a3cc",
+    "track_metadata": {
+      "additional_info": {
+        "recording_msid": "30563c34-371a-4deb-aaba-2ff1f685a3cc",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Ten Music Group",
+      "track_name": "Omar Rudberg - Breathe (Audio)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1786045829,
+    "listened_at": 1786032085,
+    "recording_msid": "2bfa082f-d481-409c-aac5-b0508e65f6d2",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "fb0c1ce1-a31b-4d30-aa68-0101213526c2",
+        "recording_msid": "2bfa082f-d481-409c-aac5-b0508e65f6d2",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Omar Rudberg",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "fb0c1ce1-a31b-4d30-aa68-0101213526c2"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Omar Rudberg",
+            "artist_mbid": "fb0c1ce1-a31b-4d30-aa68-0101213526c2",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 38416825247,
+        "caa_release_mbid": "6c5c06fd-981c-437c-a6e3-576a852e7f19",
+        "recording_mbid": "ac2370ca-5ecc-4335-856c-7e244e436b37",
+        "recording_name": "Simon’s Song",
+        "release_mbid": "6c5c06fd-981c-437c-a6e3-576a852e7f19",
+        "url_rels": [
+          {
+            "type": "streaming",
+            "url": "https://music.apple.com/gb/song/1650942763"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://open.spotify.com/track/0cEjzw52873lbcxhgjXNGl"
+          },
+          {
+            "type": "streaming",
+            "url": "https://tidal.com/track/255287990"
+          },
+          {
+            "type": "purchase for download",
+            "url": "https://music.apple.com/gb/song/1650942763"
+          },
+          {
+            "type": "free streaming",
+            "url": "https://www.deezer.com/track/1975338167"
+          }
+        ]
+      },
+      "track_name": "Simon's Song (from the Netflix Series Young Royals)"
+    },
+    "user_name": "chirag127"
+  },
+  {
+    "inserted_at": 1786045829,
+    "listened_at": 1786031971,
+    "recording_msid": "721ffc8c-f41c-4fb7-afdf-82b6a716fc00",
+    "track_metadata": {
+      "additional_info": {
+        "lastfm_artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+        "lastfm_track_mbid": "3a271d0f-3d2e-4b2d-b96e-02b6093ea4a1",
+        "recording_msid": "721ffc8c-f41c-4fb7-afdf-82b6a716fc00",
+        "submission_client": "ListenBrainz lastfm importer v2"
+      },
+      "artist_name": "Troye Sivan",
+      "mbid_mapping": {
+        "artist_mbids": [
+          "e5712ceb-c37a-4c49-a11c-ccf4e21852d4"
+        ],
+        "artists": [
+          {
+            "artist_credit_name": "Troye Sivan",
+            "artist_mbid": "e5712ceb-c37a-4c49-a11c-ccf4e21852d4",
+            "join_phrase": ""
+          }
+        ],
+        "caa_id": 20981221972,
+        "caa_release_mbid": "292b1501-8b30-4026-81a4-215975885f1d",
+        "recording_mbid": "3a271d0f-3d2e-4b2d-b96e-02b6093ea4a1",
+        "recording_name": "Seventeen",
+        "release_mbid": "f81817b0-0b07-4c9b-b3b4-9f754cd77da3"
+      },
+      "track_name": "Seventeen"
+    },
+    "user_name": "chirag127"
+  },
+  {
     "inserted_at": 1785517229,
     "listened_at": 1785516139,
     "recording_msid": "7c716c30-dedd-4ba9-a36f-1aefb45bdf60",
@@ -3270,198 +3650,6 @@
       },
       "artist_name": "Intro",
       "track_name": "What is Ponytail?"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1785082976,
-    "listened_at": 1785071995,
-    "recording_msid": "0bbac458-949a-4e49-a7c9-364ca33c1082",
-    "track_metadata": {
-      "additional_info": {
-        "recording_msid": "0bbac458-949a-4e49-a7c9-364ca33c1082",
-        "submission_client": "ListenBrainz lastfm importer v2"
-      },
-      "artist_name": "Evan Zhou",
-      "track_name": "I Found OpenAI’s $3B Loophole"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1785073999,
-    "listened_at": 1785071995,
-    "recording_msid": "a0f13514-6641-4545-8d49-966d8a26e685",
-    "track_metadata": {
-      "additional_info": {
-        "duration": 242,
-        "music_service_name": "YouTube",
-        "origin_url": "https://youtu.be/Ja6p4j0aeCw",
-        "recording_msid": "a0f13514-6641-4545-8d49-966d8a26e685",
-        "submission_client": "Web Scrobbler",
-        "submission_client_version": "3.22.0"
-      },
-      "artist_name": "Evan Zhou",
-      "track_name": "I Found OpenAI’s $3B Loophole"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1785071276,
-    "listened_at": 1785071205,
-    "recording_msid": "7aa9a882-368d-42e6-8e47-e062f54a020f",
-    "track_metadata": {
-      "additional_info": {
-        "duration": 136,
-        "music_service_name": "YouTube",
-        "origin_url": "https://youtu.be/fXke2rmwOps",
-        "recording_msid": "7aa9a882-368d-42e6-8e47-e062f54a020f",
-        "submission_client": "Web Scrobbler",
-        "submission_client_version": "3.22.0"
-      },
-      "artist_name": "OmniRoute + OpenCode",
-      "track_name": "100% Free AI Coding Setup, Free AI Gateway"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1785072854,
-    "listened_at": 1785071205,
-    "recording_msid": "7e2907e8-eb2d-411d-be26-e7b4b7d96dbf",
-    "track_metadata": {
-      "additional_info": {
-        "recording_msid": "7e2907e8-eb2d-411d-be26-e7b4b7d96dbf",
-        "submission_client": "ListenBrainz lastfm importer v2"
-      },
-      "artist_name": "OmniRoute + OpenCode",
-      "track_name": "100% Free AI Coding Setup, Free AI Gateway"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1785070410,
-    "listened_at": 1785070314,
-    "recording_msid": "0b373c52-3692-4afd-9c18-98dd52e83994",
-    "track_metadata": {
-      "additional_info": {
-        "duration": 184,
-        "music_service_name": "YouTube",
-        "origin_url": "https://youtu.be/N2nAwXl_Rc8",
-        "recording_msid": "0b373c52-3692-4afd-9c18-98dd52e83994",
-        "submission_client": "Web Scrobbler",
-        "submission_client_version": "3.22.0"
-      },
-      "artist_name": "Minimax M3 + Open Design",
-      "track_name": "100% Free Claude Design Alternative For UI Designs"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1785070881,
-    "listened_at": 1785070314,
-    "recording_msid": "7fe8eb39-42cf-4763-800a-72febf2d6b6b",
-    "track_metadata": {
-      "additional_info": {
-        "recording_msid": "7fe8eb39-42cf-4763-800a-72febf2d6b6b",
-        "submission_client": "ListenBrainz lastfm importer v2"
-      },
-      "artist_name": "Minimax M3 + Open Design",
-      "track_name": "100% Free Claude Design Alternative For UI Designs"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1785070195,
-    "listened_at": 1785070090,
-    "recording_msid": "1cc240de-bfb3-4524-8583-f7004d1c0b55",
-    "track_metadata": {
-      "additional_info": {
-        "duration": 198,
-        "music_service_name": "YouTube",
-        "origin_url": "https://youtu.be/baGKgnbQUq8",
-        "recording_msid": "1cc240de-bfb3-4524-8583-f7004d1c0b55",
-        "submission_client": "Web Scrobbler",
-        "submission_client_version": "3.22.0"
-      },
-      "artist_name": "AI Stack Engineer",
-      "track_name": "Supercharge OpenCode With 1300+ Free Skills in One Command Makes It 100x  Powerful"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1785070881,
-    "listened_at": 1785070090,
-    "recording_msid": "237475fa-84a9-4328-aa84-084849f885b6",
-    "track_metadata": {
-      "additional_info": {
-        "recording_msid": "237475fa-84a9-4328-aa84-084849f885b6",
-        "submission_client": "ListenBrainz lastfm importer v2"
-      },
-      "artist_name": "AI Stack Engineer",
-      "track_name": "Supercharge OpenCode With 1300+ Free Skills in One Command Makes It 100x  Powerful"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1785070881,
-    "listened_at": 1785069045,
-    "recording_msid": "4f899fd8-a040-46a5-8806-fe8392cf3eea",
-    "track_metadata": {
-      "additional_info": {
-        "recording_msid": "4f899fd8-a040-46a5-8806-fe8392cf3eea",
-        "submission_client": "ListenBrainz lastfm importer v2"
-      },
-      "artist_name": "What Jantar Mantar looks like after protests, clean",
-      "track_name": "up & repainting underway"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1785069137,
-    "listened_at": 1785069045,
-    "recording_msid": "faa2f58c-4dca-42d4-9d57-6306692288d5",
-    "track_metadata": {
-      "additional_info": {
-        "duration": 171,
-        "music_service_name": "YouTube",
-        "origin_url": "https://youtu.be/M1OlH542LYk",
-        "recording_msid": "faa2f58c-4dca-42d4-9d57-6306692288d5",
-        "submission_client": "Web Scrobbler",
-        "submission_client_version": "3.22.0"
-      },
-      "artist_name": "What Jantar Mantar looks like after protests, clean",
-      "track_name": "up & repainting underway"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1785070881,
-    "listened_at": 1785068874,
-    "recording_msid": "164aba68-825b-4acb-84e6-db4a67983efb",
-    "track_metadata": {
-      "additional_info": {
-        "recording_msid": "164aba68-825b-4acb-84e6-db4a67983efb",
-        "submission_client": "ListenBrainz lastfm importer v2"
-      },
-      "artist_name": "News Buzz",
-      "track_name": "Rahul Gandhi Reaction To New Education Minister Pralhad Joshi Aggressive Speech In Lok Sabha"
-    },
-    "user_name": "chirag127"
-  },
-  {
-    "inserted_at": 1785069004,
-    "listened_at": 1785068874,
-    "recording_msid": "1db6f4c8-084b-4a8e-b1ca-5ec1205abcb4",
-    "track_metadata": {
-      "additional_info": {
-        "duration": 250,
-        "music_service_name": "YouTube",
-        "origin_url": "https://youtu.be/tZwbVYLWhHs",
-        "recording_msid": "1db6f4c8-084b-4a8e-b1ca-5ec1205abcb4",
-        "submission_client": "Web Scrobbler",
-        "submission_client_version": "3.22.0"
-      },
-      "artist_name": "News Buzz",
-      "track_name": "Rahul Gandhi Reaction To New Education Minister Pralhad Joshi Aggressive Speech In Lok Sabha"
     },
     "user_name": "chirag127"
   }

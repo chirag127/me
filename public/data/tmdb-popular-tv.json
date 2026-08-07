@@ -8,14 +8,14 @@
     "poster": "https://image.tmdb.org/t/p/w342/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/577eXC8wFQT0eUrJcgznSiFPRmk.jpg",
     "rating": 8.384,
-    "votes": 6831,
+    "votes": 6851,
     "release": "2022-08-21",
     "genres": [
       10765,
       18,
       10759
     ],
-    "popularity": 406.44
+    "popularity": 369.8497
   },
   {
     "id": 233643,
@@ -31,7 +31,7 @@
     "genres": [
       16
     ],
-    "popularity": 337.1746
+    "popularity": 336.2876
   },
   {
     "id": 5920,
@@ -41,67 +41,15 @@
     "overview": "Patrick Jane, a former celebrity psychic medium, uses his razor sharp skills of observation and expertise at \"reading\" people to solve serious crimes with the California Bureau of Investigation.",
     "poster": "https://image.tmdb.org/t/p/w342/acYXu4KaDj1NIkMgObnhe4C4a0T.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/q3pCsNvJ7CmdJUz2sJEEUY3pOPC.jpg",
-    "rating": 8.371,
-    "votes": 4502,
+    "rating": 8.374,
+    "votes": 4510,
     "release": "2008-09-23",
     "genres": [
       80,
       18,
       9648
     ],
-    "popularity": 333.5084
-  },
-  {
-    "id": 2734,
-    "tmdb_id": 2734,
-    "type": "tv",
-    "title": "Law & Order: Special Victims Unit",
-    "overview": "In the criminal justice system, sexually-based offenses are considered especially heinous. In New York City, the dedicated detectives who investigate these vicious felonies are members of an elite squad known as the Special Victims Unit. These are their stories.",
-    "poster": "https://image.tmdb.org/t/p/w342/iofokHZoUB4Qhik4PflvJl8TT6a.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/obtdxPgmfykYwVnvuYXC5f2xKlQ.jpg",
-    "rating": 7.96,
-    "votes": 4306,
-    "release": "1999-09-20",
-    "genres": [
-      80,
-      18,
-      9648
-    ],
-    "popularity": 268.2398
-  },
-  {
-    "id": 79744,
-    "tmdb_id": 79744,
-    "type": "tv",
-    "title": "The Rookie",
-    "overview": "Starting over isn't easy, especially for small-town guy John Nolan who, after a life-altering incident, is pursuing his dream of being an LAPD officer. As the force's oldest rookie, he's met with skepticism from some higher-ups who see him as just a walking midlife crisis.",
-    "poster": "https://image.tmdb.org/t/p/w342/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/6iNWfGVCEfASDdlNb05TP5nG0ll.jpg",
-    "rating": 8.551,
-    "votes": 3430,
-    "release": "2018-10-16",
-    "genres": [
-      80,
-      18,
-      35
-    ],
-    "popularity": 258.1387
-  },
-  {
-    "id": 51025,
-    "tmdb_id": 51025,
-    "type": "tv",
-    "title": "Paradise Hotel",
-    "overview": "Danish version of the reality series \"Paradise Hotel\".",
-    "poster": "https://image.tmdb.org/t/p/w342/ycSBcACecVR0zSnP2ZF83k5f7he.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/nun8Ssmni886Ib4v7chgQbswDfl.jpg",
-    "rating": 5.6,
-    "votes": 10,
-    "release": "2005-09-14",
-    "genres": [
-      10764
-    ],
-    "popularity": 255.0649
+    "popularity": 328.33
   },
   {
     "id": 113962,
@@ -111,14 +59,50 @@
     "overview": "Cruz Manuelos, a rough-around-the-edges but passionate young Marine, is recruited to join the CIA's Lioness Engagement Team to help bring down a terrorist organization from within. Joe, the station chief of the Lioness program, is tasked with training, managing and leading her female undercover operatives.",
     "poster": "https://image.tmdb.org/t/p/w342/rzpHPSEgPTpRs8EHbygwsOw7jC0.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/4NBYDOnEjAzyuP7CMkD5s7fs44K.jpg",
-    "rating": 8.004,
-    "votes": 1287,
+    "rating": 8.014,
+    "votes": 1299,
     "release": "2023-07-23",
     "genres": [
       18,
       10768
     ],
-    "popularity": 253.5517
+    "popularity": 266.8872
+  },
+  {
+    "id": 2734,
+    "tmdb_id": 2734,
+    "type": "tv",
+    "title": "Law & Order: Special Victims Unit",
+    "overview": "In the criminal justice system, sexually-based offenses are considered especially heinous. In New York City, the dedicated detectives who investigate these vicious felonies are members of an elite squad known as the Special Victims Unit. These are their stories.",
+    "poster": "https://image.tmdb.org/t/p/w342/iofokHZoUB4Qhik4PflvJl8TT6a.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/obtdxPgmfykYwVnvuYXC5f2xKlQ.jpg",
+    "rating": 7.959,
+    "votes": 4308,
+    "release": "1999-09-20",
+    "genres": [
+      80,
+      18,
+      9648
+    ],
+    "popularity": 265.8454
+  },
+  {
+    "id": 79744,
+    "tmdb_id": 79744,
+    "type": "tv",
+    "title": "The Rookie",
+    "overview": "Starting over isn't easy, especially for small-town guy John Nolan who, after a life-altering incident, is pursuing his dream of being an LAPD officer. As the force's oldest rookie, he's met with skepticism from some higher-ups who see him as just a walking midlife crisis.",
+    "poster": "https://image.tmdb.org/t/p/w342/70kTz0OmjjZe7zHvIDrq2iKW7PJ.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/6iNWfGVCEfASDdlNb05TP5nG0ll.jpg",
+    "rating": 8.547,
+    "votes": 3440,
+    "release": "2018-10-16",
+    "genres": [
+      80,
+      18,
+      35
+    ],
+    "popularity": 255.9621
   },
   {
     "id": 1416,
@@ -128,13 +112,13 @@
     "overview": "Follows the personal and professional lives of a group of doctors at Seattle's Grey Sloan Memorial Hospital.",
     "poster": "https://image.tmdb.org/t/p/w342/hjJkrLXhWvGHpLeLBDFznpBTY1S.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/jP0Rhj9OTPDAwQlHQwOLFDdeE8t.jpg",
-    "rating": 8.208,
-    "votes": 10991,
+    "rating": 8.207,
+    "votes": 10998,
     "release": "2005-03-27",
     "genres": [
       18
     ],
-    "popularity": 242.5067
+    "popularity": 239.7974
   },
   {
     "id": 60625,
@@ -144,8 +128,8 @@
     "overview": "Follows a sociopathic genius scientist who drags his inherently timid grandson on adventures across the universe.",
     "poster": "https://image.tmdb.org/t/p/w342/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/iFOkrSrJRwE27PwbyQeYLlMJXzw.jpg",
-    "rating": 8.68,
-    "votes": 11225,
+    "rating": 8.681,
+    "votes": 11237,
     "release": "2013-12-02",
     "genres": [
       16,
@@ -153,24 +137,7 @@
       10765,
       10759
     ],
-    "popularity": 220.4561
-  },
-  {
-    "id": 125988,
-    "tmdb_id": 125988,
-    "type": "tv",
-    "title": "Silo",
-    "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
-    "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
-    "rating": 8.2,
-    "votes": 2372,
-    "release": "2023-05-04",
-    "genres": [
-      10765,
-      18
-    ],
-    "popularity": 217.4194
+    "popularity": 220.8333
   },
   {
     "id": 65334,
@@ -180,7 +147,7 @@
     "overview": "Marinette and Adrien, two Parisian teenagers, are entrusted with powerful jewels in order to transform into superheroes Ladybug and Cat Noir. But neither hero knows the other's true identity — or that they're classmates!",
     "poster": "https://image.tmdb.org/t/p/w342/acrtAy8gmxcsEvrDP09MpMSCeDZ.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/lH22EnM0ofC7GsVGU8dAA2RXV1c.jpg",
-    "rating": 8.1,
+    "rating": 8.057,
     "votes": 4633,
     "release": "2015-10-19",
     "genres": [
@@ -188,25 +155,24 @@
       16,
       10762
     ],
-    "popularity": 213.9053
+    "popularity": 219.4216
   },
   {
-    "id": 124364,
-    "tmdb_id": 124364,
+    "id": 125988,
+    "tmdb_id": 125988,
     "type": "tv",
-    "title": "FROM",
-    "overview": "Unravel the mystery of a nightmarish town in middle America that traps all those who enter. As the unwilling residents fight to keep a sense of normalcy and search for a way out, they must also survive the threats of the surrounding forest – including the terrifying creatures that come out when the sun goes down.",
-    "poster": "https://image.tmdb.org/t/p/w342/pRtJagIxpfODzzb0T0NAvZSzErC.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/xLdw1xdHocKYFFvx7w41NchXMfJ.jpg",
-    "rating": 8.501,
-    "votes": 4109,
-    "release": "2022-02-20",
+    "title": "Silo",
+    "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
+    "poster": "https://image.tmdb.org/t/p/w342/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/uTWhbLc7Bj4qNSdW3ZvZKL8cOHv.jpg",
+    "rating": 8.185,
+    "votes": 2381,
+    "release": "2023-05-04",
     "genres": [
-      9648,
-      18,
-      10765
+      10765,
+      18
     ],
-    "popularity": 199.0144
+    "popularity": 211.0504
   },
   {
     "id": 549,
@@ -223,23 +189,23 @@
       80,
       18
     ],
-    "popularity": 214.7866
+    "popularity": 209.3708
   },
   {
-    "id": 220118,
-    "tmdb_id": 220118,
+    "id": 51025,
+    "tmdb_id": 51025,
     "type": "tv",
-    "title": "Sazanami Soushi ni Junketsu wo Sasagu",
-    "overview": "\"If it's a request from my precious wife, then I will give you the moon and the stars.\" He flashes his gorgeous tattoos at me as he makes passionate love to me. This is bad! Something's coming...!!",
-    "poster": "https://image.tmdb.org/t/p/w342/6SHb6A2iAX05kNZug794VFEUt7J.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/3dqyRG3kaHQgC1n15cGh7YyaSAK.jpg",
-    "rating": 6.6,
-    "votes": 7,
-    "release": "2023-04-03",
+    "title": "Paradise Hotel",
+    "overview": "Danish version of the reality series \"Paradise Hotel\".",
+    "poster": "https://image.tmdb.org/t/p/w342/ycSBcACecVR0zSnP2ZF83k5f7he.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/nun8Ssmni886Ib4v7chgQbswDfl.jpg",
+    "rating": 5.6,
+    "votes": 10,
+    "release": "2005-09-14",
     "genres": [
-      16
+      10764
     ],
-    "popularity": 151.2508
+    "popularity": 205.9611
   },
   {
     "id": 1622,
@@ -249,15 +215,32 @@
     "overview": "When they were boys, Sam and Dean Winchester lost their mother to a mysterious and demonic supernatural force. Subsequently, their father raised them to be soldiers. He taught them about the paranormal evil that lives in the dark corners and on the back roads of America ... and he taught them how to kill it. Now, the Winchester brothers crisscross the country in their '67 Chevy Impala, battling every kind of supernatural threat they encounter along the way. ",
     "poster": "https://image.tmdb.org/t/p/w342/8iixmfGx5EIFPdpNvB2JvI3VIqX.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/ro0tlgnsco4SwbdAgmscLkSlMSL.jpg",
-    "rating": 8.3,
-    "votes": 8577,
+    "rating": 8.313,
+    "votes": 8581,
     "release": "2005-09-13",
     "genres": [
       18,
       9648,
       10765
     ],
-    "popularity": 204.6737
+    "popularity": 201.3045
+  },
+  {
+    "id": 63770,
+    "tmdb_id": 63770,
+    "type": "tv",
+    "title": "The Late Show with Stephen Colbert",
+    "overview": "Stephen Colbert brings his signature satire and comedy to The Late Show with Stephen Colbert, the #1 show in late night, where he talks with an eclectic mix of guests about what is new and relevant in the worlds of politics, entertainment, business, music, technology, and more. Featuring bandleader Jon Batiste with his band Stay Human, the Emmy Award-nominated show is broadcast from the historic Ed Sullivan Theater.",
+    "poster": "https://image.tmdb.org/t/p/w342/9jkThAGYj2yp8jsS6Nriy5mzKFT.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/gMMnf8VRg3Z98WaFmOLr9Jk8pIs.jpg",
+    "rating": 6.084,
+    "votes": 359,
+    "release": "2015-09-08",
+    "genres": [
+      35,
+      10767
+    ],
+    "popularity": 200.405
   },
   {
     "id": 4614,
@@ -267,68 +250,33 @@
     "overview": "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has any connection to Navy and Marine Corps personnel, regardless of rank or position.",
     "poster": "https://image.tmdb.org/t/p/w342/mBcu8d6x6zB1el3MPNl7cZQEQ31.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/nn3SuLTO4hum8yAxaY4ql8h6kRk.jpg",
-    "rating": 7.609,
-    "votes": 2542,
+    "rating": 7.607,
+    "votes": 2543,
     "release": "2003-09-23",
     "genres": [
       80,
       18,
       10759
     ],
-    "popularity": 200.9749
+    "popularity": 197.494
   },
   {
-    "id": 1434,
-    "tmdb_id": 1434,
+    "id": 124364,
+    "tmdb_id": 124364,
     "type": "tv",
-    "title": "Family Guy",
-    "overview": "Sick, twisted, politically incorrect and Freakin' Sweet animated series featuring the adventures of the dysfunctional Griffin family. Bumbling Peter and long-suffering Lois have three kids. Stewie (a brilliant but sadistic baby bent on killing his mother and taking over the world), Meg (the oldest, and is the most unpopular girl in town) and Chris (the middle kid, he's not very bright but has a passion for movies). The final member of the family is Brian - a talking dog and much more than a pet, he keeps Stewie in check whilst sipping Martinis and sorting through his own life issues.",
-    "poster": "https://image.tmdb.org/t/p/w342/3PFsEuAiyLkWsP4GG6dIV37Q6gu.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/l7wShoIdIUwaDIbsHno9pO5MZXT.jpg",
-    "rating": 7.408,
-    "votes": 5049,
-    "release": "1999-01-31",
+    "title": "FROM",
+    "overview": "Unravel the mystery of a nightmarish town in middle America that traps all those who enter. As the unwilling residents fight to keep a sense of normalcy and search for a way out, they must also survive the threats of the surrounding forest – including the terrifying creatures that come out when the sun goes down.",
+    "poster": "https://image.tmdb.org/t/p/w342/pRtJagIxpfODzzb0T0NAvZSzErC.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/xLdw1xdHocKYFFvx7w41NchXMfJ.jpg",
+    "rating": 8.5,
+    "votes": 4117,
+    "release": "2022-02-20",
     "genres": [
-      16,
-      35
-    ],
-    "popularity": 189.4668
-  },
-  {
-    "id": 4057,
-    "tmdb_id": 4057,
-    "type": "tv",
-    "title": "Criminal Minds",
-    "overview": "An elite team of FBI profilers analyze the country's most twisted criminal minds, anticipating their next moves before they strike again. The Behavioral Analysis Unit's most experienced agent is David Rossi, a founding member of the BAU who returns to help the team solve new cases.",
-    "poster": "https://image.tmdb.org/t/p/w342/hWSb4UnIjlTvnvrP98NbFSO60HA.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/tUtXfyVy54BY7eJnRtI8Xnmr1ZL.jpg",
-    "rating": 8.303,
-    "votes": 4140,
-    "release": "2005-09-22",
-    "genres": [
-      80,
+      9648,
       18,
-      9648
+      10765
     ],
-    "popularity": 180.2426
-  },
-  {
-    "id": 1399,
-    "tmdb_id": 1399,
-    "type": "tv",
-    "title": "Game of Thrones",
-    "overview": "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
-    "poster": "https://image.tmdb.org/t/p/w342/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/2OMB0ynKlyIenMJWI2Dy9IWT4c.jpg",
-    "rating": 8.468,
-    "votes": 27409,
-    "release": "2011-04-17",
-    "genres": [
-      10765,
-      18,
-      10759
-    ],
-    "popularity": 177.1107
+    "popularity": 195.7996
   },
   {
     "id": 456,
@@ -339,12 +287,65 @@
     "poster": "https://image.tmdb.org/t/p/w342/uWpG7GqfKGQqX4YMAo3nv5OrglV.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/jIArNHIekrCSVgdMbKPAXpPY03Y.jpg",
     "rating": 8.02,
-    "votes": 10907,
+    "votes": 10911,
     "release": "1989-12-17",
     "genres": [
       16,
       35
     ],
-    "popularity": 183.32
+    "popularity": 191.2614
+  },
+  {
+    "id": 1434,
+    "tmdb_id": 1434,
+    "type": "tv",
+    "title": "Family Guy",
+    "overview": "Sick, twisted, politically incorrect and Freakin' Sweet animated series featuring the adventures of the dysfunctional Griffin family. Bumbling Peter and long-suffering Lois have three kids. Stewie (a brilliant but sadistic baby bent on killing his mother and taking over the world), Meg (the oldest, and is the most unpopular girl in town) and Chris (the middle kid, he's not very bright but has a passion for movies). The final member of the family is Brian - a talking dog and much more than a pet, he keeps Stewie in check whilst sipping Martinis and sorting through his own life issues.",
+    "poster": "https://image.tmdb.org/t/p/w342/3PFsEuAiyLkWsP4GG6dIV37Q6gu.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/l7wShoIdIUwaDIbsHno9pO5MZXT.jpg",
+    "rating": 7.408,
+    "votes": 5052,
+    "release": "1999-01-31",
+    "genres": [
+      16,
+      35
+    ],
+    "popularity": 184.83
+  },
+  {
+    "id": 4057,
+    "tmdb_id": 4057,
+    "type": "tv",
+    "title": "Criminal Minds",
+    "overview": "An elite team of FBI profilers analyze the country's most twisted criminal minds, anticipating their next moves before they strike again. The Behavioral Analysis Unit's most experienced agent is David Rossi, a founding member of the BAU who returns to help the team solve new cases.",
+    "poster": "https://image.tmdb.org/t/p/w342/hWSb4UnIjlTvnvrP98NbFSO60HA.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/tUtXfyVy54BY7eJnRtI8Xnmr1ZL.jpg",
+    "rating": 8.301,
+    "votes": 4142,
+    "release": "2005-09-22",
+    "genres": [
+      80,
+      18,
+      9648
+    ],
+    "popularity": 180.8301
+  },
+  {
+    "id": 1399,
+    "tmdb_id": 1399,
+    "type": "tv",
+    "title": "Game of Thrones",
+    "overview": "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
+    "poster": "https://image.tmdb.org/t/p/w342/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/2OMB0ynKlyIenMJWI2Dy9IWT4c.jpg",
+    "rating": 8.468,
+    "votes": 27430,
+    "release": "2011-04-17",
+    "genres": [
+      10765,
+      18,
+      10759
+    ],
+    "popularity": 178.5243
   }
 ]

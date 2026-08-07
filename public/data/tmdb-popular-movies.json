@@ -7,15 +7,15 @@
     "overview": "Fighting crime full-time as Spider-Man in a world that doesn't remember him—and the pressure of seeing his old friends move on without him—sparks a change in Peter Parker he may not have the power to control. But that transformation might also be the only thing that can stop a shocking new threat to the city and those he loves - a powerful villain no one can even see.",
     "poster": "https://image.tmdb.org/t/p/w342/iPOn6DinuVyLY17YM9mKuPofV08.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/qeQJx07rK2xm8SD2sJxFKhE7gs0.jpg",
-    "rating": 7.974,
-    "votes": 928,
-    "release": "2026-07-28",
+    "rating": 7.923,
+    "votes": 1120,
+    "release": "2026-07-29",
     "genres": [
       878,
       28,
       12
     ],
-    "popularity": 1990.6295
+    "popularity": 1656.617
   },
   {
     "id": 1368337,
@@ -24,34 +24,16 @@
     "title": "The Odyssey",
     "overview": "Odysseus, the legendary King of Ithaca, embarks on a long and perilous journey home following the Trojan War. Throughout his voyage, he is forced to confront the whims of gods, mythological monsters, and trials that stretch both his cunning and his humanity to the breaking point.",
     "poster": "https://image.tmdb.org/t/p/w342/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/sSIzzVhhLfgLKVBcAUv0X6cLYz9.jpg",
-    "rating": 7.955,
-    "votes": 2205,
+    "backdrop": "https://image.tmdb.org/t/p/w780/RMXG8myu1aGlNUsRjtxzmpdMK0.jpg",
+    "rating": 7.965,
+    "votes": 2312,
     "release": "2026-07-15",
     "genres": [
       12,
       28,
       14
     ],
-    "popularity": 944.487
-  },
-  {
-    "id": 1081003,
-    "tmdb_id": 1081003,
-    "type": "movie",
-    "title": "Supergirl",
-    "overview": "When an unexpected and ruthless adversary strikes too close to home, Kara Zor-El, aka Supergirl, reluctantly joins forces with an unlikely companion on an epic, interstellar journey of vengeance and justice.",
-    "poster": "https://image.tmdb.org/t/p/w342/1QCWdqzTfh2x9UylVpspIU6QTuM.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/4X2YSe8PaYbsBqX3TDmmIU4vOju.jpg",
-    "rating": 6.742,
-    "votes": 1528,
-    "release": "2026-06-24",
-    "genres": [
-      28,
-      12,
-      878
-    ],
-    "popularity": 467.5508
+    "popularity": 879.0771
   },
   {
     "id": 634649,
@@ -62,14 +44,32 @@
     "poster": "https://image.tmdb.org/t/p/w342/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/14QbnygCuTO0vl7CAFmPf1fgZfV.jpg",
     "rating": 7.9,
-    "votes": 22472,
+    "votes": 22509,
     "release": "2021-12-15",
     "genres": [
       28,
       12,
       878
     ],
-    "popularity": 520.8023
+    "popularity": 569.232
+  },
+  {
+    "id": 1081003,
+    "tmdb_id": 1081003,
+    "type": "movie",
+    "title": "Supergirl",
+    "overview": "When an unexpected and ruthless adversary strikes too close to home, Kara Zor-El, aka Supergirl, reluctantly joins forces with an unlikely companion on an epic, interstellar journey of vengeance and justice.",
+    "poster": "https://image.tmdb.org/t/p/w342/1QCWdqzTfh2x9UylVpspIU6QTuM.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/4X2YSe8PaYbsBqX3TDmmIU4vOju.jpg",
+    "rating": 6.755,
+    "votes": 1609,
+    "release": "2026-06-24",
+    "genres": [
+      28,
+      12,
+      878
+    ],
+    "popularity": 445.6703
   },
   {
     "id": 1275779,
@@ -80,31 +80,13 @@
     "poster": "https://image.tmdb.org/t/p/w342/AnJ8IQJI23hNpYXVNaythu061Ru.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/flxau5Iu7bChQHsESqvGZ3FQRaI.jpg",
     "rating": 7.423,
-    "votes": 2368,
+    "votes": 2444,
     "release": "2026-06-10",
     "genres": [
       878,
       53
     ],
-    "popularity": 371.1053
-  },
-  {
-    "id": 454639,
-    "tmdb_id": 454639,
-    "type": "movie",
-    "title": "Masters of the Universe",
-    "overview": "After being separated for 15 years, the Sword of Power leads Prince Adam back to Eternia, where he discovers his home shattered under the fiendish rule of Skeletor. To save his family and his world, Adam must join forces with his closest allies, Teela and Duncan/Man-At-Arms, and embrace his true destiny as He-Man — the most powerful man in the universe.",
-    "poster": "https://image.tmdb.org/t/p/w342/oRuyGUHdoaQxWP3SDfafGkStxTC.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/yQIdU11DYQQp0neGtGtGxbGfRer.jpg",
-    "rating": 7.26,
-    "votes": 1567,
-    "release": "2026-06-03",
-    "genres": [
-      28,
-      14,
-      878
-    ],
-    "popularity": 355.5522
+    "popularity": 335.8522
   },
   {
     "id": 1339713,
@@ -114,14 +96,14 @@
     "overview": "After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.",
     "poster": "https://image.tmdb.org/t/p/w342/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/rZfmzpixLKLR3Hg2u0WgC7XLFl8.jpg",
-    "rating": 8.242,
-    "votes": 4236,
+    "rating": 8.229,
+    "votes": 4346,
     "release": "2026-05-13",
     "genres": [
       27,
       53
     ],
-    "popularity": 342.3888
+    "popularity": 342.0336
   },
   {
     "id": 1284465,
@@ -131,127 +113,15 @@
     "overview": "Grappling with his past after a life of crime and murder, Robin Hood finds himself gravely injured after a battle he thought would be his last. In the hands of a mysterious woman, he is offered a chance at salvation.",
     "poster": "https://image.tmdb.org/t/p/w342/92Tsfx7SFafOqWsotvrlJbHyehd.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/lh3BDkmWJh998n4fQcHYcVi7dpm.jpg",
-    "rating": 6.481,
-    "votes": 156,
+    "rating": 6.5,
+    "votes": 163,
     "release": "2026-06-18",
     "genres": [
       12,
       18,
       28
     ],
-    "popularity": 329.0343
-  },
-  {
-    "id": 1084244,
-    "tmdb_id": 1084244,
-    "type": "movie",
-    "title": "Toy Story 5",
-    "overview": "When Bonnie receives a Lilypad tablet as a gift and becomes obsessed, Buzz, Woody, Jessie and the rest of the gang's jobs become exponentially harder when they have to go head to head with the all-new threat to playtime.",
-    "poster": "https://image.tmdb.org/t/p/w342/sfQtVlIHljToOwYjhe21KPGzZWK.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/8sSKdEmlmqF4kJUd28SqthXC4yZ.jpg",
-    "rating": 7.412,
-    "votes": 759,
-    "release": "2026-06-17",
-    "genres": [
-      16,
-      10751,
-      35,
-      12
-    ],
-    "popularity": 305.6783
-  },
-  {
-    "id": 1481343,
-    "tmdb_id": 1481343,
-    "type": "movie",
-    "title": "The Devil's Mouth",
-    "overview": "A group of college friends' Thailand adventure turns deadly when they become trapped in submerged caves with a dangerous predator. As oxygen runs low, past conflicts emerge in their desperate fight for survival.",
-    "poster": "https://image.tmdb.org/t/p/w342/lH8k9uCWYn2b2gsYleqYBDPbWa8.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/se8LfmZYFiNerF6U7zMUKePV0vE.jpg",
-    "rating": 6.527,
-    "votes": 446,
-    "release": "2026-07-29",
-    "genres": [
-      27,
-      53
-    ],
-    "popularity": 304.4608
-  },
-  {
-    "id": 1108427,
-    "tmdb_id": 1108427,
-    "type": "movie",
-    "title": "Moana",
-    "overview": "Teenage Moana answers the Ocean's call and, for the first time, voyages beyond the reef of her island of Motunui with infamous demigod Maui on an unforgettable journey to restore prosperity to her people.",
-    "poster": "https://image.tmdb.org/t/p/w342/zKVgiv5qHCvCLT4A2ymJi5QeXDH.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/c6BPbkO5Npt1OdwttAxCFo06wtH.jpg",
-    "rating": 5.838,
-    "votes": 167,
-    "release": "2026-07-08",
-    "genres": [
-      10751,
-      14,
-      35,
-      12
-    ],
-    "popularity": 280.7589
-  },
-  {
-    "id": 1315772,
-    "tmdb_id": 1315772,
-    "type": "movie",
-    "title": "Minions & Monsters",
-    "overview": "This is the rambunctious, ridiculous and totally true story of how the Minions conquered Hollywood, became movie stars, lost everything, unleashed monsters onto the world and then banded together to try and save the planet from the mayhem they had just created.",
-    "poster": "https://image.tmdb.org/t/p/w342/nz7i42yhLIJ4ve9JKgM6NthoLHO.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/kkcwhgSFd81QDlXo8ytrpHPQjhy.jpg",
-    "rating": 6.4,
-    "votes": 260,
-    "release": "2026-06-24",
-    "genres": [
-      12,
-      16,
-      35,
-      10751,
-      14
-    ],
-    "popularity": 269.7246
-  },
-  {
-    "id": 1083381,
-    "tmdb_id": 1083381,
-    "type": "movie",
-    "title": "Backrooms",
-    "overview": "A strange doorway appears in the basement of a furniture showroom.",
-    "poster": "https://image.tmdb.org/t/p/w342/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/dqmMWNWfLnExDRpMtIMqI97GQFR.jpg",
-    "rating": 7.095,
-    "votes": 2511,
-    "release": "2026-05-27",
-    "genres": [
-      27,
-      9648,
-      878
-    ],
-    "popularity": 239.6498
-  },
-  {
-    "id": 980431,
-    "tmdb_id": 980431,
-    "type": "movie",
-    "title": "Avatar Aang: The Last Airbender",
-    "overview": "Avatar Aang, the world's last Airbender, learns of an ancient power that could save his culture from extinction. With the help of his friends, he embarks on a global quest to find it before it falls into the wrong hands and threatens to upend the peace they sacrificed everything to achieve.",
-    "poster": "https://image.tmdb.org/t/p/w342/3sgnSfNT27Bx5O5ukr7B26mhEQq.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/qPNG2riEQLBknaa20RhUCr8QtWA.jpg",
-    "rating": 9.322,
-    "votes": 659,
-    "release": "2026-07-24",
-    "genres": [
-      16,
-      28,
-      12,
-      14
-    ],
-    "popularity": 231.0192
+    "popularity": 310.7184
   },
   {
     "id": 1698863,
@@ -261,68 +131,197 @@
     "overview": "Based on the Ancient Greek epic. After ten years of war, King Odysseus sets sail for Ithaca, eager to reunite with his beloved. But his journey home is far more treacherous than the battlefield, as he must face deadly monsters and vengeful gods to survive.",
     "poster": "https://image.tmdb.org/t/p/w342/xBHCRB7zLIW41w8QskfwJhm32YF.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/rOIaKlAX0SeNC25dFbM0y1mFsH6.jpg",
-    "rating": 5.75,
-    "votes": 8,
+    "rating": 6.222,
+    "votes": 9,
     "release": "2026-07-03",
     "genres": [
       12,
       14,
       28
     ],
-    "popularity": 282.7807
+    "popularity": 365.3617
   },
   {
-    "id": 1375646,
-    "tmdb_id": 1375646,
+    "id": 454639,
+    "tmdb_id": 454639,
     "type": "movie",
-    "title": "Colony",
-    "overview": "Professor Se-jeong is thrust into a bloody nightmare when a rapidly mutating virus is released during a biotech conference causing authorities to seal the facility. Trapped inside with no escape, Se-jeong along with a small group of survivors must fight to stay alive while the infected undergo horrific transformations.",
-    "poster": "https://image.tmdb.org/t/p/w342/tN799oUR0f1gUKDYdMNrDaY7I51.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/jDvxsBemt2Iyslg7qn2WMzgxz23.jpg",
-    "rating": 8.076,
-    "votes": 397,
-    "release": "2026-05-21",
+    "title": "Masters of the Universe",
+    "overview": "After being separated for 15 years, the Sword of Power leads Prince Adam back to Eternia, where he discovers his home shattered under the fiendish rule of Skeletor. To save his family and his world, Adam must join forces with his closest allies, Teela and Duncan/Man-At-Arms, and embrace his true destiny as He-Man — the most powerful man in the universe.",
+    "poster": "https://image.tmdb.org/t/p/w342/oRuyGUHdoaQxWP3SDfafGkStxTC.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/yQIdU11DYQQp0neGtGtGxbGfRer.jpg",
+    "rating": 7.253,
+    "votes": 1611,
+    "release": "2026-06-03",
     "genres": [
       28,
-      27,
+      14,
       878
     ],
-    "popularity": 185.5277
+    "popularity": 291.6489
   },
   {
-    "id": 1311031,
-    "tmdb_id": 1311031,
+    "id": 1084244,
+    "tmdb_id": 1084244,
     "type": "movie",
-    "title": "Demon Slayer: Kimetsu no Yaiba Infinity Castle",
-    "overview": "The Demon Slayer Corps are drawn into the Infinity Castle, where Tanjiro, Nezuko, and the Hashira face terrifying Upper Rank demons in a desperate fight as the final battle against Muzan Kibutsuji begins.",
-    "poster": "https://image.tmdb.org/t/p/w342/fWVSwgjpT2D78VUh6X8UBd2rorW.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/1RgPyOhN4DRs225BGTlHJqCudII.jpg",
-    "rating": 8.614,
-    "votes": 1615,
-    "release": "2025-07-18",
+    "title": "Toy Story 5",
+    "overview": "When Bonnie receives a Lilypad tablet as a gift and becomes obsessed, Buzz, Woody, Jessie and the rest of the gang's jobs become exponentially harder when they have to go head to head with the all-new threat to playtime.",
+    "poster": "https://image.tmdb.org/t/p/w342/sfQtVlIHljToOwYjhe21KPGzZWK.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/8sSKdEmlmqF4kJUd28SqthXC4yZ.jpg",
+    "rating": 7.414,
+    "votes": 773,
+    "release": "2026-06-17",
+    "genres": [
+      16,
+      10751,
+      35,
+      12
+    ],
+    "popularity": 310.9708
+  },
+  {
+    "id": 1481343,
+    "tmdb_id": 1481343,
+    "type": "movie",
+    "title": "The Devil's Mouth",
+    "overview": "A group of college friends' Thailand adventure turns deadly when they become trapped in submerged caves with a dangerous predator. As oxygen runs low, past conflicts emerge in their desperate fight for survival.",
+    "poster": "https://image.tmdb.org/t/p/w342/lH8k9uCWYn2b2gsYleqYBDPbWa8.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/se8LfmZYFiNerF6U7zMUKePV0vE.jpg",
+    "rating": 6.538,
+    "votes": 481,
+    "release": "2026-07-29",
+    "genres": [
+      27,
+      53
+    ],
+    "popularity": 261.8327
+  },
+  {
+    "id": 1108427,
+    "tmdb_id": 1108427,
+    "type": "movie",
+    "title": "Moana",
+    "overview": "Teenage Moana answers the Ocean's call and, for the first time, voyages beyond the reef of her island of Motunui with infamous demigod Maui on an unforgettable journey to restore prosperity to her people.",
+    "poster": "https://image.tmdb.org/t/p/w342/zKVgiv5qHCvCLT4A2ymJi5QeXDH.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/c6BPbkO5Npt1OdwttAxCFo06wtH.jpg",
+    "rating": 5.942,
+    "votes": 173,
+    "release": "2026-07-08",
+    "genres": [
+      10751,
+      14,
+      35,
+      12
+    ],
+    "popularity": 270.5382
+  },
+  {
+    "id": 1315772,
+    "tmdb_id": 1315772,
+    "type": "movie",
+    "title": "Minions & Monsters",
+    "overview": "This is the rambunctious, ridiculous and totally true story of how the Minions conquered Hollywood, became movie stars, lost everything, unleashed monsters onto the world and then banded together to try and save the planet from the mayhem they had just created.",
+    "poster": "https://image.tmdb.org/t/p/w342/nz7i42yhLIJ4ve9JKgM6NthoLHO.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/kkcwhgSFd81QDlXo8ytrpHPQjhy.jpg",
+    "rating": 6.361,
+    "votes": 263,
+    "release": "2026-06-24",
+    "genres": [
+      12,
+      16,
+      35,
+      10751,
+      14
+    ],
+    "popularity": 266.6965
+  },
+  {
+    "id": 1083381,
+    "tmdb_id": 1083381,
+    "type": "movie",
+    "title": "Backrooms",
+    "overview": "A strange doorway appears in the basement of a furniture showroom.",
+    "poster": "https://image.tmdb.org/t/p/w342/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/dqmMWNWfLnExDRpMtIMqI97GQFR.jpg",
+    "rating": 7.11,
+    "votes": 2565,
+    "release": "2026-05-27",
+    "genres": [
+      27,
+      9648,
+      878
+    ],
+    "popularity": 219.8564
+  },
+  {
+    "id": 47612,
+    "tmdb_id": 47612,
+    "type": "movie",
+    "title": "Au Bonheur des Dames",
+    "overview": "Denise, an orphaned girl, moves to Paris where she hopes to find work at her uncle's store. But the glamorous department store 'Aux Bonheur des Dames' across the street crushes all the little businesses around. She finds a position there.",
+    "poster": "https://image.tmdb.org/t/p/w342/sVFvFFEMRJ1eUzD6nbYLSqwHi0d.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/o5bRLCNBmWBCBluFlOLUgivdONs.jpg",
+    "rating": 6.3,
+    "votes": 36,
+    "release": "1930-07-03",
+    "genres": [
+      18,
+      10749
+    ],
+    "popularity": 250.236
+  },
+  {
+    "id": 980431,
+    "tmdb_id": 980431,
+    "type": "movie",
+    "title": "Avatar Aang: The Last Airbender",
+    "overview": "Avatar Aang, the world's last Airbender, learns of an ancient power that could save his culture from extinction. With the help of his friends, he embarks on a global quest to find it before it falls into the wrong hands and threatens to upend the peace they sacrificed everything to achieve.",
+    "poster": "https://image.tmdb.org/t/p/w342/3sgnSfNT27Bx5O5ukr7B26mhEQq.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/ezbrL1dMymKQZw7mDEWa2ZTzN7d.jpg",
+    "rating": 9.3,
+    "votes": 698,
+    "release": "2026-07-24",
     "genres": [
       16,
       28,
+      12,
       14
     ],
-    "popularity": 180.3103
+    "popularity": 194.6378
   },
   {
-    "id": 1564614,
-    "tmdb_id": 1564614,
+    "id": 315635,
+    "tmdb_id": 315635,
     "type": "movie",
-    "title": "Leviticus",
-    "overview": "Two teenage boys must escape a violent entity that takes the form of the person they desire most:  each other.",
-    "poster": "https://image.tmdb.org/t/p/w342/gnAsZvBygplNpp8PtjoTEYv3VPB.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/7y8zWGEjs7tresw4Hzkkf4TdkcL.jpg",
-    "rating": 6.231,
-    "votes": 106,
-    "release": "2026-06-17",
+    "title": "Spider-Man: Homecoming",
+    "overview": "Following the events of Captain America: Civil War, Peter Parker, with the help of his mentor Tony Stark, tries to balance his life as an ordinary high school student in Queens, New York City, with fighting crime as his superhero alter ego Spider-Man as a new threat, the Vulture, emerges.",
+    "poster": "https://image.tmdb.org/t/p/w342/c24sv2weTHPsmDa7jEMN0m2P3RT.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/fn4n6uOYcB6Uh89nbNPoU2w80RV.jpg",
+    "rating": 7.3,
+    "votes": 23508,
+    "release": "2017-07-05",
     "genres": [
-      27,
-      10749
+      28,
+      12,
+      878
     ],
-    "popularity": 185.8648
+    "popularity": 215.1899
+  },
+  {
+    "id": 82976,
+    "tmdb_id": 82976,
+    "type": "movie",
+    "title": "The Novices",
+    "overview": "Sister Agnès runs away from her convent in Brittany and seeks refuge in Paris with prostitute Mona Lisa. With absolutely no qualifications, the young novice has a hard job finding work, so Mona Lisa tries to teach her the ropes of the oldest profession of them all!",
+    "poster": "https://image.tmdb.org/t/p/w342/a2SnSbRxMB4vktOxZapaspY2fTC.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/yhGCxn4pYIQhK52g6JjM4bL9fVX.jpg",
+    "rating": 4.769,
+    "votes": 13,
+    "release": "1970-04-01",
+    "genres": [
+      35,
+      18
+    ],
+    "popularity": 249.902
   },
   {
     "id": 557,
@@ -333,28 +332,30 @@
     "poster": "https://image.tmdb.org/t/p/w342/nXdAh5vUwERL4WGVMaee8RoDEAS.jpg",
     "backdrop": "https://image.tmdb.org/t/p/w780/zQ8AxTPiCiS5nnwXpwTBPBHSaa5.jpg",
     "rating": 7.34,
-    "votes": 21014,
+    "votes": 21036,
     "release": "2002-05-01",
     "genres": [
       28,
       878
     ],
-    "popularity": 191.869
+    "popularity": 196.2912
   },
   {
-    "id": 1273221,
-    "tmdb_id": 1273221,
+    "id": 1375646,
+    "tmdb_id": 1375646,
     "type": "movie",
-    "title": "Scary Movie",
-    "overview": "Twenty-six years after outrunning a suspiciously familiar masked killer, the Core Four are back in the killer's crosshairs and no horror movie IP is safe.",
-    "poster": "https://image.tmdb.org/t/p/w342/znHT8peERZRWG1ME3r0Db0EV8k8.jpg",
-    "backdrop": "https://image.tmdb.org/t/p/w780/xWBiXclrRmTggQHMRsIn84YHavs.jpg",
-    "rating": 6.488,
-    "votes": 1433,
-    "release": "2026-06-03",
+    "title": "Colony",
+    "overview": "Professor Se-jeong is thrust into a bloody nightmare when a rapidly mutating virus is released during a biotech conference causing authorities to seal the facility. Trapped inside with no escape, Se-jeong along with a small group of survivors must fight to stay alive while the infected undergo horrific transformations.",
+    "poster": "https://image.tmdb.org/t/p/w342/tN799oUR0f1gUKDYdMNrDaY7I51.jpg",
+    "backdrop": "https://image.tmdb.org/t/p/w780/jDvxsBemt2Iyslg7qn2WMzgxz23.jpg",
+    "rating": 8.076,
+    "votes": 417,
+    "release": "2026-05-21",
     "genres": [
-      35
+      28,
+      27,
+      878
     ],
-    "popularity": 184.1957
+    "popularity": 216.834
   }
 ]

@@ -60,63 +60,63 @@
     "desc": ""
   },
   {
+    "title": "Hermes Agent: what it actually is in 2026 (not the LLM)",
+    "link": "https://blog.oriz.in/blog/hermes-agent-what-is-it/",
+    "date": "Wed, 08 Jul 2026 00:00:00 GMT",
+    "desc": ""
+  },
+  {
+    "title": "Hermes Agent and OpenClaw: what they actually are (2026)",
+    "link": "https://blog.oriz.in/blog/hermes-openclaw-deep-dive/",
+    "date": "Wed, 08 Jul 2026 00:00:00 GMT",
+    "desc": ""
+  },
+  {
+    "title": "Hermes vs OpenClaw vs Claude Code vs OpenCode — the real comparison (2026)",
+    "link": "https://blog.oriz.in/blog/hermes-openclaw-vs-claude-code-opencode/",
+    "date": "Wed, 08 Jul 2026 00:00:00 GMT",
+    "desc": ""
+  },
+  {
+    "title": "Hermes Agent vs OpenClaw vs Claude Code vs OpenCode: pick the right tool (2026)",
+    "link": "https://blog.oriz.in/blog/hermes-openclaw-vs-claude-code-pick/",
+    "date": "Wed, 08 Jul 2026 00:00:00 GMT",
+    "desc": ""
+  },
+  {
+    "title": "Hermes Agent vs OpenClaw: they are not the same kind of tool (Part 1)",
+    "link": "https://blog.oriz.in/blog/hermes-vs-openclaw-architecture/",
+    "date": "Wed, 08 Jul 2026 00:00:00 GMT",
+    "desc": ""
+  },
+  {
+    "title": "Hermes Agent vs OpenClaw: which one should you use — and can you run both? (Part 2)",
+    "link": "https://blog.oriz.in/blog/hermes-vs-openclaw-which-to-use/",
+    "date": "Wed, 08 Jul 2026 00:00:00 GMT",
+    "desc": ""
+  },
+  {
+    "title": "OpenClaw: messaging gateway with an agent loop inside",
+    "link": "https://blog.oriz.in/blog/openclaw-what-is-it/",
+    "date": "Wed, 08 Jul 2026 00:00:00 GMT",
+    "desc": ""
+  },
+  {
+    "title": "Every tech stack is a sandwich: how to pick yours without over-engineering it (Part 1)",
+    "link": "https://blog.oriz.in/blog/tech-stack-sandwich-part-1/",
+    "date": "Wed, 08 Jul 2026 00:00:00 GMT",
+    "desc": ""
+  },
+  {
+    "title": "Throw it all away: the practical tech stack that actually ships (Part 2)",
+    "link": "https://blog.oriz.in/blog/tech-stack-sandwich-part-2/",
+    "date": "Wed, 08 Jul 2026 00:00:00 GMT",
+    "desc": ""
+  },
+  {
     "title": "Claude Code vs OpenCode in 2026: A Feature-by-Feature Comparison From the Inside",
     "link": "https://blog.oriz.in/blog/2026-07-02-claude-code-vs-opencode/",
     "date": "Thu, 02 Jul 2026 00:00:00 GMT",
-    "desc": ""
-  },
-  {
-    "title": "TypeScript 7 RC is here: your build just got 10× faster (and why that changes everything)",
-    "link": "https://blog.oriz.in/blog/2026-07-02-typescript-7-rc-10x-faster/",
-    "date": "Thu, 02 Jul 2026 00:00:00 GMT",
-    "desc": ""
-  },
-  {
-    "title": "One Search MCP Server to Rule Them All: Free, Clean, and Optimized for Claude Code &amp; Cursor",
-    "link": "https://blog.oriz.in/blog/consolidated-clean-web-search-mcp-server/",
-    "date": "Mon, 29 Jun 2026 00:00:00 GMT",
-    "desc": ""
-  },
-  {
-    "title": "The Quest for the Perfect Web Search MCP Server: Free, Fast, and Context-Friendly",
-    "link": "https://blog.oriz.in/blog/the-ultimate-free-clean-web-search-mcp-server-2026/",
-    "date": "Mon, 29 Jun 2026 00:00:00 GMT",
-    "desc": ""
-  },
-  {
-    "title": "Microsoft PowerToys, Part 1: What It Is, Why Every Windows Power User Needs It, and How to Install It Correctly",
-    "link": "https://blog.oriz.in/blog/powertoys-series-part-1-intro-install/",
-    "date": "Fri, 26 Jun 2026 00:00:00 GMT",
-    "desc": ""
-  },
-  {
-    "title": "Microsoft PowerToys, Part 10: The Complete Power User Setup — My Recommended Config for Every Windows Developer",
-    "link": "https://blog.oriz.in/blog/powertoys-series-part-10-complete-setup/",
-    "date": "Fri, 26 Jun 2026 00:00:00 GMT",
-    "desc": ""
-  },
-  {
-    "title": "Microsoft PowerToys, Part 2: FancyZones — Stop Using Windows Snap Like an Amateur",
-    "link": "https://blog.oriz.in/blog/powertoys-series-part-2-fancyzones/",
-    "date": "Fri, 26 Jun 2026 00:00:00 GMT",
-    "desc": ""
-  },
-  {
-    "title": "Microsoft PowerToys, Part 3: PowerToys Run and the Command Palette — Your Keyboard-First Launcher",
-    "link": "https://blog.oriz.in/blog/powertoys-series-part-3-powertoys-run-command-palette/",
-    "date": "Fri, 26 Jun 2026 00:00:00 GMT",
-    "desc": ""
-  },
-  {
-    "title": "Microsoft PowerToys, Part 4: Keyboard Manager — Remap Your Entire Keyboard to Your Brain",
-    "link": "https://blog.oriz.in/blog/powertoys-series-part-4-keyboard-manager/",
-    "date": "Fri, 26 Jun 2026 00:00:00 GMT",
-    "desc": ""
-  },
-  {
-    "title": "Microsoft PowerToys, Part 5: Workspaces and Awake — Eliminate Desktop Setup Fatigue",
-    "link": "https://blog.oriz.in/blog/powertoys-series-part-5-workspaces-awake/",
-    "date": "Fri, 26 Jun 2026 00:00:00 GMT",
     "desc": ""
   }
 ]
