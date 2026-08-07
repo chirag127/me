@@ -1,26 +1,25 @@
 ---
 import Layout from '~/layouts/Layout.astro'
+
+/* Public certs — employer-facing + LinkedIn. TRUST ANCHOR = verifyUrl (issuer's
+   official verification: Coursera/Credly/SAP/AWS). file = optional local PDF in
+   public/certificates/. Replace REPLACE placeholders with real verify links. */
+const certs = [
+  { title: 'Meta Backend Developer Professional Certificate', issuer: 'Meta (Coursera)', year: '2024',
+    verifyUrl: 'https://coursera.org/verify/professional-cert/REPLACE', file: null,
+    skills: ['Django','REST','MySQL','Version Control'] },
+  { title: 'AWS Certified Developer – Associate', issuer: 'Amazon Web Services', year: '2025',
+    verifyUrl: 'https://www.credly.com/badges/REPLACE', file: null,
+    skills: ['Lambda','DynamoDB','S3','CloudFormation','IAM'] },
+]
 ---
-<Layout title="Certifications" description="Chirag Singhal — certifications">
+<Layout title="Certifications" description="Verified professional certifications by Chirag Singhal — each links to the issuer's official verification.">
   <div style="padding-top: 2rem; max-width: 600px;">
     <h1 class="page-title">Certifications</h1>
-    <p class="page-sub">Professional credentials and courses completed.</p>
+    <p class="page-sub">Professional credentials — each links to the issuer's official verification.</p>
 
     <div>
-      {[
-        {
-          title: 'Meta Backend Developer Professional Certificate',
-          issuer: 'Meta (Coursera)',
-          year: '2024',
-          skills: ['Django','REST','MySQL','Version Control'],
-        },
-        {
-          title: 'AWS Certified Developer – Associate',
-          issuer: 'Amazon Web Services',
-          year: '2025',
-          skills: ['Lambda','DynamoDB','S3','CloudFormation','IAM'],
-        },
-      ].map(c => (
+      {certs.map(c => (
         <div style="padding: 14px 0; border-bottom: 1px solid var(--border);">
           <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:4px;">
             <span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:#fff;">{c.title}</span>
@@ -30,8 +29,17 @@ import Layout from '~/layouts/Layout.astro'
           <div class="chips">
             {c.skills.map(s => <span class="tech-chip">{s}</span>)}
           </div>
+          <div style="display:flex;gap:14px;margin-top:10px;">
+            <a href={c.verifyUrl} target="_blank" rel="noopener noreferrer"
+               style="font-family:var(--font-mono);font-size:11px;font-weight:600;">Verify credential ↗</a>
+            {c.file && (
+              <a href={c.file} target="_blank" rel="noopener noreferrer"
+                 style="font-family:var(--font-mono);font-size:11px;color:var(--t-secondary);">View certificate</a>
+            )}
+          </div>
         </div>
       ))}
     </div>
   </div>
 </Layout>
+
