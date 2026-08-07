@@ -2,6 +2,7 @@
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import react from '@astrojs/react'
+import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 import AstroPWA from '@vite-pwa/astro'
 import { defineConfig } from 'astro/config'
@@ -12,6 +13,7 @@ export default defineConfig({
 	site: 'https://me.oriz.in',
 	integrations: [
 		react(),
+		sitemap(),
 		AstroPWA({
 			registerType: 'autoUpdate',
 			injectRegister: false,
